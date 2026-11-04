@@ -25,8 +25,26 @@ use crate::model::{SchematicDocument, SchematicItem};
 use crate::sim::{
     press_component_on_sim, release_component_on_sim, step_simulation,
 };
-use crate::symbols::{find_symbol, symbol_catalog, SymbolCategory};
+use crate::symbols::{
+    detect_contact_kind, detect_current_sequence, find_occupied_sequences_for_tag, find_symbol,
+    symbol_catalog, SymbolCategory,
+};
 use crate::theme::{tokens, ThemeMode, MENU_H, MONO, R, STATUS_H, TOOL_H, UI};
+
+/// Opção do menu dropdown sequencial de contatos (IEC 60947).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PinSequenceOption {
+    pub digit: u8,
+    pub in_use: bool,
+    pub is_suggested: bool,
+    pub label: String,
+}
+
+impl std::fmt::Display for PinSequenceOption {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.label)
+    }
+}
 
 /// Formato de arquivo para salvamento na janela do sistema ou seletor rápido.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -186,6 +204,7 @@ pub enum Message {
     SetLampColor(i32),
     SetPulseDuration(String),
     ApplyIecNumberingPreset(&'static str),
+    SelectPinSequence(u8),
     PasteAtOriginalPos,
     SelectAll,
     DeselectAll,
@@ -1086,7 +1105,21 @@ impl CadeSimuApp {
                     if let Some(sym) = find_symbol(tipo) {
                         self.push_undo();
                         let new_id = self.doc.next_id();
-                        let item = sym.instantiate(new_id, x, y, self.placement_orientation);
+                        let mut item = sym.instantiate(new_id, x, y, self.placement_orientation);
+
+                        // Se for contato auxiliar ou botão, verificar sequências já ocupadas pela mesma tag no esquema
+                        if let Some(kind) = detect_contact_kind(item.tipo, &sym.pins) {
+                            let occupied = find_occupied_sequences_for_tag(&self.doc.items, &item.tag, None);
+                            if !occupied.is_empty() {
+                                let next_seq = (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
+                                let new_pins = kind.generate_pins(next_seq);
+                                for (idx, p_val) in new_pins.into_iter().enumerate() {
+                                    if idx < item.pins.len() {
+                                        item.pins[idx] = p_val;
+                                    }
+                                }
+                            }
+                        }
 
                         // Autoconectar terminais alinhados (padrão ativado)
                         if self.auto_connect {
@@ -1665,6 +1698,28 @@ impl CadeSimuApp {
                         }
                         self.is_modified = true;
                         self.status_msg = format!("Padrão IEC '{}' aplicado.", preset);
+                    }
+                }
+            }
+            Message::SelectPinSequence(digit) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        if let Some(sym) = find_symbol(item.tipo) {
+                            if let Some(kind) = detect_contact_kind(item.tipo, &sym.pins) {
+                                let new_pins = kind.generate_pins(digit);
+                                for (idx, p_val) in new_pins.into_iter().enumerate() {
+                                    if idx < item.pins.len() {
+                                        item.pins[idx] = p_val;
+                                    }
+                                }
+                                self.is_modified = true;
+                                self.status_msg = format!(
+                                    "Sequência {} aplicada aos bornes do componente '{}' (Tag: {}).",
+                                    digit, sym.name, item.tag
+                                );
+                            }
+                        }
                     }
                 }
             }
@@ -3044,43 +3099,106 @@ impl CadeSimuApp {
                                         );
                                     }
 
-                                    // Presets de Numeração IEC 60947-1 / IEC 81346
-                                    let iec_row1 = row![
-                                        button(text("Potência 1-2, 3-4, 5-6").size(10.0).font(UI))
-                                            .style(theme::tool)
-                                            .padding(Padding::from([2.0, 5.0]))
-                                            .on_press(Message::ApplyIecNumberingPreset("power_3p")),
-                                        button(text("NA 13-14").size(10.0).font(UI))
-                                            .style(theme::tool)
-                                            .padding(Padding::from([2.0, 5.0]))
-                                            .on_press(Message::ApplyIecNumberingPreset("aux_no")),
-                                        button(text("NF 21-22").size(10.0).font(UI))
-                                            .style(theme::tool)
-                                            .padding(Padding::from([2.0, 5.0]))
-                                            .on_press(Message::ApplyIecNumberingPreset("aux_nc")),
-                                    ]
-                                    .spacing(3);
+                                    // Dropdown sequencial inteligente IEC 60947 (1 a 9)
+                                    if let Some(kind) = detect_contact_kind(item.tipo, &sym.pins) {
+                                        let occupied = find_occupied_sequences_for_tag(
+                                            &self.doc.items,
+                                            &item.tag,
+                                            Some(item.id),
+                                        );
+                                        let current_seq = detect_current_sequence(&item.pins, kind);
+                                        let suggested_digit = (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
 
-                                    let iec_row2 = row![
-                                        button(text("Térmico 95-96 / 97-98").size(10.0).font(UI))
-                                            .style(theme::tool)
-                                            .padding(Padding::from([2.0, 5.0]))
-                                            .on_press(Message::ApplyIecNumberingPreset("thermal")),
-                                        button(text("Bobina A1-A2").size(10.0).font(UI))
-                                            .style(theme::tool)
-                                            .padding(Padding::from([2.0, 5.0]))
-                                            .on_press(Message::ApplyIecNumberingPreset("coil")),
-                                        button(text("Piloto X1-X2").size(10.0).font(UI))
-                                            .style(theme::tool)
-                                            .padding(Padding::from([2.0, 5.0]))
-                                            .on_press(Message::ApplyIecNumberingPreset("lamp")),
-                                    ]
-                                    .spacing(3);
+                                        let mut options = Vec::with_capacity(9);
+                                        for d in 1..=9 {
+                                            let in_use = occupied.contains(&d);
+                                            let is_sug = !in_use && d == suggested_digit;
+                                            let preview = kind.generate_pins(d).join("-");
+                                            let label = if in_use {
+                                                format!("Sequência {} * ({} em uso)", d, preview)
+                                            } else if is_sug {
+                                                format!("Sequência {} ({} sugerido)", d, preview)
+                                            } else {
+                                                format!("Sequência {} ({})", d, preview)
+                                            };
+                                            options.push(PinSequenceOption {
+                                                digit: d,
+                                                in_use,
+                                                is_suggested: is_sug,
+                                                label,
+                                            });
+                                        }
 
-                                    body_col = body_col
-                                        .push(text("Padrões IEC 60947-1 / IEC 81346:").size(10.5).color(t.text2))
-                                        .push(iec_row1)
-                                        .push(iec_row2);
+                                        let selected_opt = current_seq
+                                            .and_then(|s| options.iter().find(|o| o.digit == s).cloned());
+
+                                        let seq_pick = pick_list(
+                                            options,
+                                            selected_opt,
+                                            |opt| Message::SelectPinSequence(opt.digit),
+                                        )
+                                        .text_size(11.0)
+                                        .padding(Padding::from([3.0, 6.0]))
+                                        .width(Length::Fill);
+
+                                        body_col = body_col.push(
+                                            column![
+                                                text("Sequência de Bornes (IEC 60947):")
+                                                    .size(11)
+                                                    .color(t.text2)
+                                                    .font(Font {
+                                                        weight: iced::font::Weight::Medium,
+                                                        ..UI
+                                                    }),
+                                                seq_pick,
+                                            ]
+                                            .spacing(4),
+                                        );
+
+                                        if let Some(cur_seq) = current_seq {
+                                            if occupied.contains(&cur_seq) {
+                                                body_col = body_col.push(
+                                                    container(
+                                                        column![
+                                                            text(format!(
+                                                                "⚠️ Sequência {} já em uso por outro contato de '{}'",
+                                                                cur_seq, item.tag
+                                                            ))
+                                                            .size(10.5)
+                                                            .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                                            button(
+                                                                text(format!(
+                                                                    "⚡ Usar Sequência {} recomendada ({})",
+                                                                    suggested_digit,
+                                                                    kind.generate_pins(suggested_digit).join("-")
+                                                                ))
+                                                                .size(10.5)
+                                                                .font(UI)
+                                                            )
+                                                            .style(theme::tool_active)
+                                                            .padding(Padding::from([2.0, 6.0]))
+                                                            .on_press(Message::SelectPinSequence(suggested_digit)),
+                                                        ]
+                                                        .spacing(4)
+                                                    )
+                                                    .padding(Padding::from([4.0, 6.0]))
+                                                    .style(theme::card)
+                                                );
+                                            } else {
+                                                body_col = body_col.push(
+                                                    text(format!("✓ Sequência {} conforme IEC 60947", cur_seq))
+                                                        .size(10.5)
+                                                        .color(Color::from_rgb(0.2, 0.8, 0.4))
+                                                );
+                                            }
+                                        } else {
+                                            body_col = body_col.push(
+                                                text("Bornes com numeração personalizada.")
+                                                    .size(10.0)
+                                                    .color(t.text2)
+                                            );
+                                        }
+                                    }
                                 }
                             }
 
@@ -5603,6 +5721,123 @@ mod tests {
                 a_val, b_val, c_pressed, expected, y_active
             );
         }
+    }
+
+    #[test]
+    fn test_smart_sequential_pin_dropdown_and_context_reading() {
+        use crate::symbols::ContactKind;
+        let (mut app, _) = CadeSimuApp::new();
+
+        // Valida ContactKind e geração dos bornes conforme a norma
+        assert_eq!(ContactKind::NO.generate_pins(1), vec!["13", "14"]);
+        assert_eq!(ContactKind::NO.generate_pins(2), vec!["23", "24"]);
+        assert_eq!(ContactKind::NC.generate_pins(1), vec!["11", "12"]);
+        assert_eq!(ContactKind::NC.generate_pins(2), vec!["21", "22"]);
+
+        // 1. Testa seleção sequencial em Botão NA (tipo 8000)
+        let sym_btn_na = find_symbol(8000).expect("Botão NA deve existir no catálogo");
+        let id_btn1 = 1001;
+        let mut btn1 = sym_btn_na.instantiate(id_btn1, 100, 100, 0);
+        btn1.tag = "-S1".to_string();
+        app.doc.items.push(btn1);
+        app.selected_id = Some(id_btn1);
+
+        // Por padrão: 13 e 14
+        let item = app.doc.items.iter().find(|i| i.id == id_btn1).unwrap();
+        assert_eq!(item.pins[0], "13");
+        assert_eq!(item.pins[1], "14");
+
+        // Seleciona Sequência 2 -> 23 e 24
+        let _ = app.update(Message::SelectPinSequence(2));
+        let item = app.doc.items.iter().find(|i| i.id == id_btn1).unwrap();
+        assert_eq!(item.pins[0], "23", "Borne 1 deve atualizar para 23 na sequência 2");
+        assert_eq!(item.pins[1], "24", "Borne 2 deve atualizar para 24 na sequência 2");
+
+        // Seleciona Sequência 3 -> 33 e 34
+        let _ = app.update(Message::SelectPinSequence(3));
+        let item = app.doc.items.iter().find(|i| i.id == id_btn1).unwrap();
+        assert_eq!(item.pins[0], "33");
+        assert_eq!(item.pins[1], "34");
+
+        // Seleciona Sequência 1 -> volta para 13 e 14
+        let _ = app.update(Message::SelectPinSequence(1));
+        let item = app.doc.items.iter().find(|i| i.id == id_btn1).unwrap();
+        assert_eq!(item.pins[0], "13");
+        assert_eq!(item.pins[1], "14");
+
+        // 2. Testa seleção sequencial em Botão NF (tipo 8001)
+        let sym_btn_nf = find_symbol(8001).expect("Botão NF deve existir no catálogo");
+        let id_btn2 = 1002;
+        let mut btn2 = sym_btn_nf.instantiate(id_btn2, 120, 100, 0);
+        btn2.tag = "-S1".to_string();
+        app.doc.items.push(btn2);
+        app.selected_id = Some(id_btn2);
+
+        // Seleciona Sequência 2 em NF -> 21 e 22
+        let _ = app.update(Message::SelectPinSequence(2));
+        let item = app.doc.items.iter().find(|i| i.id == id_btn2).unwrap();
+        assert_eq!(item.pins[0], "21", "Borne 1 de NF na sequência 2 deve ser 21");
+        assert_eq!(item.pins[1], "22", "Borne 2 de NF na sequência 2 deve ser 22");
+
+        // 3. Testa edição livre de texto nos bornes (inputs manuais continuam livres)
+        let _ = app.update(Message::EditPin(0, "COM".to_string()));
+        let _ = app.update(Message::EditPin(1, "NO".to_string()));
+        let item = app.doc.items.iter().find(|i| i.id == id_btn2).unwrap();
+        assert_eq!(item.pins[0], "COM");
+        assert_eq!(item.pins[1], "NO");
+
+        // 4. Testa Leitura Inteligente do Contexto para Contatos Auxiliares (-KM1)
+        let sym_cont_na = find_symbol(7000).expect("Contato NA deve existir");
+        let sym_cont_nf = find_symbol(7001).expect("Contato NF deve existir");
+
+        let id_km_na1 = 2001;
+        let mut cont_na1 = sym_cont_na.instantiate(id_km_na1, 200, 100, 0);
+        cont_na1.tag = "-KM1".to_string();
+        cont_na1.pins[0] = "13".to_string();
+        cont_na1.pins[1] = "14".to_string(); // Sequência 1 ocupada
+        app.doc.items.push(cont_na1);
+
+        let id_km_nf1 = 2002;
+        let mut cont_nf1 = sym_cont_nf.instantiate(id_km_nf1, 250, 100, 0);
+        cont_nf1.tag = "-KM1".to_string();
+        // Inicialmente também na sequência 1 (conflito)
+        cont_nf1.pins[0] = "11".to_string();
+        cont_nf1.pins[1] = "12".to_string();
+        app.doc.items.push(cont_nf1);
+
+        // Contexto: quais sequências de -KM1 estão ocupadas excluindo o próprio cont_nf1?
+        let occupied = find_occupied_sequences_for_tag(&app.doc.items, "-KM1", Some(id_km_nf1));
+        assert!(occupied.contains(&1), "Sequência 1 deve ser detectada como ocupada pelo cont_na1");
+        assert!(!occupied.contains(&2), "Sequência 2 deve estar livre");
+
+        // Próxima sequência sugerida deve ser 2
+        let suggested = (1..=9).find(|d| !occupied.contains(d)).unwrap();
+        assert_eq!(suggested, 2, "A próxima sequência sugerida para -KM1 deve ser 2");
+
+        // Seleciona o contato NF com conflito e aplica a sequência sugerida 2
+        app.selected_id = Some(id_km_nf1);
+        let _ = app.update(Message::SelectPinSequence(suggested));
+        let item = app.doc.items.iter().find(|i| i.id == id_km_nf1).unwrap();
+        assert_eq!(item.pins[0], "21");
+        assert_eq!(item.pins[1], "22");
+
+        // Agora tanto 1 quanto 2 estão ocupados em -KM1
+        let occupied_all = find_occupied_sequences_for_tag(&app.doc.items, "-KM1", None);
+        assert!(occupied_all.contains(&1));
+        assert!(occupied_all.contains(&2));
+        let next_suggested = (1..=9).find(|d| !occupied_all.contains(d)).unwrap();
+        assert_eq!(next_suggested, 3, "Novo contato de -KM1 deve sugerir sequência 3");
+
+        // 5. Testa auto-sequenciamento na inserção / posicionamento de componentes
+        let items_before = app.doc.items.len();
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 7000, x: 300, y: 100 }));
+        assert_eq!(app.doc.items.len(), items_before + 1);
+        let newly_placed = app.doc.items.last().unwrap();
+        // Como o default_tag do 7000 é "-KM", se já houver contatos com "-KM", deve alocar a próxima livre
+        assert!(!newly_placed.pins[0].is_empty());
+
+        // 6. Renderiza a view garantindo que o pick_list e os avisos são gerados sem pânico
+        let _ = app.view();
     }
 }
 

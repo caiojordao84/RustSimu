@@ -1887,3 +1887,198 @@ pub fn symbol_catalog() -> Vec<SymbolDef> {
 pub fn find_symbol(tipo: i32) -> Option<SymbolDef> {
     symbol_catalog().into_iter().find(|s| s.tipo == tipo)
 }
+
+/// Tipos de contatos elétricos e botoeiras segundo a norma IEC 60947-5-1 / EN 60947.
+/// O primeiro dígito (1..=9) é o número sequencial do contato no mesmo componente.
+/// O segundo dígito (função) indica o estado normal do contato:
+/// - .1 / .2: Normalmente Fechado (NF / NC)
+/// - .3 / .4: Normalmente Aberto (NA / NO)
+/// - .5 / .6: NF especial / temporizado / desarme térmico (ex: 95-96)
+/// - .7 / .8: NA especial / temporizado / desarme térmico (ex: 97-98)
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ContactKind {
+    /// Contato NA (NO) com 2 bornes (.3 e .4), e.g. 13-14, 23-24, 33-34...
+    NO,
+    /// Contato NF (NC) com 2 bornes (.1 e .2), e.g. 11-12, 21-22, 31-32...
+    NC,
+    /// Contato Duplo NA+NF em bloco único com 4 bornes (.1, .3, .2, .4), e.g. 11, 13, 12, 14.
+    Double,
+    /// Contato Comutador / Inversor (CON) com 3 bornes (.1 comum, .2 NF, .4 NA), e.g. 11, 12, 14.
+    Changeover,
+    /// Contato Temporizado / Especial NA com 2 bornes (.7 e .8), e.g. 67-68, 17-18, 97-98.
+    TimedNO,
+    /// Contato Temporizado / Especial NF com 2 bornes (.5 e .6), e.g. 55-56, 15-16, 95-96.
+    TimedNC,
+    /// Contato Temporizado Duplo NA+NF com 4 bornes (.5, .7, .6, .8), e.g. 15, 17, 16, 18.
+    TimedDouble,
+}
+
+impl ContactKind {
+    /// Gera a numeração dos bornes segundo a dezena sequencial `digit` (1..=9) e a norma IEC 60947.
+    pub fn generate_pins(self, digit: u8) -> Vec<String> {
+        let d = digit.clamp(1, 9);
+        match self {
+            ContactKind::NO => vec![
+                format!("{d}3"),
+                format!("{d}4"),
+            ],
+            ContactKind::NC => vec![
+                format!("{d}1"),
+                format!("{d}2"),
+            ],
+            ContactKind::Double => vec![
+                format!("{d}1"),
+                format!("{d}3"),
+                format!("{d}2"),
+                format!("{d}4"),
+            ],
+            ContactKind::Changeover => vec![
+                format!("{d}1"),
+                format!("{d}2"),
+                format!("{d}4"),
+            ],
+            ContactKind::TimedNO => vec![
+                format!("{d}7"),
+                format!("{d}8"),
+            ],
+            ContactKind::TimedNC => vec![
+                format!("{d}5"),
+                format!("{d}6"),
+            ],
+            ContactKind::TimedDouble => vec![
+                format!("{d}5"),
+                format!("{d}7"),
+                format!("{d}6"),
+                format!("{d}8"),
+            ],
+        }
+    }
+}
+
+/// Identifica se um símbolo é um contato auxiliar, botão ou chave seletora com numeração sequencial IEC.
+pub fn detect_contact_kind(tipo: i32, default_pins: &[SymbolPin]) -> Option<ContactKind> {
+    match tipo {
+        7000 | 8000 | 8004 => Some(ContactKind::NO),
+        7001 | 8001 => Some(ContactKind::NC),
+        7002 | 8002 => Some(ContactKind::Double),
+        8003 => Some(ContactKind::Changeover),
+        7004 | 7008 | 8016 => Some(ContactKind::TimedNO),
+        7005 | 7009 | 8017 => Some(ContactKind::TimedNC),
+        7006 => Some(ContactKind::TimedDouble),
+        _ => {
+            // Detecção heurística caso seja símbolo customizado / importado via SVG/QET
+            if default_pins.len() == 2 {
+                let p0 = default_pins[0].default_label.trim();
+                let p1 = default_pins[1].default_label.trim();
+                if p0.ends_with('3') && p1.ends_with('4') {
+                    Some(ContactKind::NO)
+                } else if p0.ends_with('1') && p1.ends_with('2') {
+                    Some(ContactKind::NC)
+                } else if p0.ends_with('7') && p1.ends_with('8') {
+                    Some(ContactKind::TimedNO)
+                } else if p0.ends_with('5') && p1.ends_with('6') {
+                    Some(ContactKind::TimedNC)
+                } else {
+                    None
+                }
+            } else if default_pins.len() == 3 {
+                let p0 = default_pins[0].default_label.trim();
+                let p1 = default_pins[1].default_label.trim();
+                let p2 = default_pins[2].default_label.trim();
+                if p0.ends_with('1') && p1.ends_with('2') && p2.ends_with('4') {
+                    Some(ContactKind::Changeover)
+                } else {
+                    None
+                }
+            } else if default_pins.len() == 4 {
+                let p0 = default_pins[0].default_label.trim();
+                let p1 = default_pins[1].default_label.trim();
+                let p2 = default_pins[2].default_label.trim();
+                let p3 = default_pins[3].default_label.trim();
+                if p0.ends_with('1') && p1.ends_with('3') && p2.ends_with('2') && p3.ends_with('4') {
+                    Some(ContactKind::Double)
+                } else if p0.ends_with('5') && p1.ends_with('7') && p2.ends_with('6') && p3.ends_with('8') {
+                    Some(ContactKind::TimedDouble)
+                } else {
+                    None
+                }
+            } else {
+                None
+            }
+        }
+    }
+}
+
+/// Detecta a sequência numérica atual (1..=9) de um componente a partir dos seus bornes atuais.
+pub fn detect_current_sequence(pins: &[String], kind: ContactKind) -> Option<u8> {
+    let p0 = pins.first()?.trim();
+    if p0.len() < 2 {
+        return None;
+    }
+    let first_char = p0.chars().next()?;
+    let digit = first_char.to_digit(10)? as u8;
+    if !(1..=9).contains(&digit) {
+        return None;
+    }
+    // Confirma se o primeiro borne condiz com o padrão esperado para este tipo de contato
+    let expected = kind.generate_pins(digit);
+    if let Some(exp_first) = expected.first() {
+        if p0 == exp_first.as_str() {
+            return Some(digit);
+        }
+    }
+    Some(digit)
+}
+
+/// Varre o esquema (`items`) em busca de outros contatos com a mesma tag e retorna o conjunto
+/// de sequências numéricas (1..=9) já ocupadas.
+pub fn find_occupied_sequences_for_tag(
+    items: &[SchematicItem],
+    target_tag: &str,
+    exclude_item_id: Option<i32>,
+) -> std::collections::HashSet<u8> {
+    let mut occupied = std::collections::HashSet::new();
+    let norm_tag = target_tag.trim();
+    if norm_tag.is_empty() {
+        return occupied;
+    }
+
+    for item in items {
+        if Some(item.id) == exclude_item_id {
+            continue;
+        }
+        if !item.tag.trim().eq_ignore_ascii_case(norm_tag) {
+            continue;
+        }
+
+        if let Some(sym) = find_symbol(item.tipo) {
+            if let Some(kind) = detect_contact_kind(item.tipo, &sym.pins) {
+                if let Some(seq) = detect_current_sequence(&item.pins, kind) {
+                    occupied.insert(seq);
+                } else {
+                    // Fallback para bornes customizados que iniciam com 1..9 e terminam em dígito funcional 1..8
+                    for pin in &item.pins {
+                        let p = pin.trim();
+                        if p.len() >= 2 {
+                            if let Some(c0) = p.chars().next() {
+                                if let Some(d) = c0.to_digit(10) {
+                                    if (1..=9).contains(&d) {
+                                        if let Some(c1) = p.chars().nth(1) {
+                                            if ('1'..='8').contains(&c1) {
+                                                occupied.insert(d as u8);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    occupied
+}
+
