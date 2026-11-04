@@ -150,21 +150,18 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
     if !tag.is_empty() {
         for item in &mut doc.items {
             if item.tag.trim().eq_ignore_ascii_case(&tag) {
-                match (tipo, item.tipo) {
-                    (6007 | 8016 | 8017, 6007 | 8016 | 8017) => {
-                        item.sim_manual_latched = new_state;
-                    }
-                    (
-                        8000 | 8001 | 8002 | 8003 | 8004 | 8008 | 8009 | 8010 | 8011 | 8023,
-                        8000 | 8001 | 8002 | 8003 | 8004 | 8008 | 8009 | 8010 | 8011 | 8023,
-                    ) => {
-                        item.sim_manual_latched = new_state;
-                    }
-                    _ => {
-                        if item.qet_type.is_some() {
-                            item.sim_manual_latched = new_state;
-                        }
-                    }
+                let item_is_manual = matches!(
+                    item.tipo,
+                    2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
+                        | 8000 | 8001 | 8002 | 8003 | 8004 | 8008 | 8009 | 8010 | 8011
+                        | 8016 | 8017 | 8023
+                ) || item.qet_type.as_ref().map(|t| {
+                    let l = t.to_ascii_lowercase();
+                    l.contains("switch") || l.contains("schalter") || l.contains("ignition") || l.contains("button") || l.contains("taster")
+                }).unwrap_or(false);
+
+                if item_is_manual {
+                    item.sim_manual_latched = new_state;
                 }
             }
         }
@@ -302,7 +299,23 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
         let mut last_potentials = vec![Potential::None; num_nodes];
         let mut last_adj = base_adj.clone();
 
-        for pass in 0..8 {
+        for pass in 0..32 {
+            let mut breakers_active: HashSet<String> = HashSet::new();
+            for item in &doc.items {
+                let tag = item.tag.trim().to_uppercase();
+                if !tag.is_empty() {
+                    match item.tipo {
+                        5000 | 5003 if !item.sim_manual_latched => {
+                            breakers_active.insert(tag);
+                        }
+                        2004 | 5008 | 6000 | 6003 | 6004 | 6008 | 6009 | 8004 if item.sim_manual_latched => {
+                            breakers_active.insert(tag);
+                        }
+                        _ => {}
+                    }
+                }
+            }
+
             for item in &mut doc.items {
                 let tag = item.tag.trim().to_uppercase();
                 match item.tipo {
@@ -318,7 +331,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     // Contatores de potência e contatos auxiliares instantâneos
                     2000 | 2001 | 2006 | 2008 | 7000 | 7001 | 7002 | 7003 => {
                         item.sim_active =
-                            !tag.is_empty() && (coils.contains(&tag) || ton_trig.contains(&tag));
+                            !tag.is_empty() && (coils.contains(&tag) || ton_trig.contains(&tag) || breakers_active.contains(&tag));
                     }
                     // Contatos temporizados On-Delay (TON: 7004 NA, 7005 NF, 7006 Comutador, 7007 SPDT)
                     7004 | 7005 | 7006 | 7007 => {

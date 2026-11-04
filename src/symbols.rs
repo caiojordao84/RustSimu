@@ -612,6 +612,35 @@ pub fn symbol_catalog() -> Vec<SymbolDef> {
             bounds: (-18, 0, 75, 60),
         },
         // ======================== 3. DISJUNTORES E RELÉS TÉRMICOS (6000..6009) ========================
+        // 6000: Disjuntor Termomagnético 1P
+        SymbolDef {
+            tipo: 6000,
+            category: SymbolCategory::BreakersRelays,
+            name: "Disjuntor Termomagnético 1P",
+            short_label: "Disjuntor 1P",
+            default_tag: "-Q",
+            default_value: "",
+            pins: vec![
+                nume_pin(0, "1", 5, 0),
+                nume_pin(1, "2", 5, 60),
+            ],
+            idle_cmds: &[
+                "LINE,+000,+000,+000,+015",
+                "LINE,-015,+015,+000,+045",
+                "LINE,+000,+045,+000,+060",
+                "POLI,-020,+024,-012,+020,-008,+028,-016,+032",
+                "LINE,-007,+030,+003,+030",
+            ],
+            active_cmds: &[
+                "LINE,+000,+000,+000,+015",
+                "LINE,-005,+015,+000,+045",
+                "LINE,+000,+045,+000,+060",
+                "LINE,-005,+015,+000,+015",
+                "POLI,-010,+024,-002,+020,+002,+028,-006,+032",
+                "LINE,+003,+030,+013,+030",
+            ],
+            bounds: (-22, 0, 15, 60),
+        },
         // 6008: Disjuntor Termomagnético 2P (com 2 pontos - QElectroTech GV 2P)
         SymbolDef {
             tipo: 6008,

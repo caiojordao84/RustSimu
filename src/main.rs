@@ -3806,6 +3806,7 @@ impl CadeSimuApp {
 mod tests {
     use super::*;
     use crate::io::{parse_cad_str, serialize_cad_str};
+    use crate::model::Potential;
 
     #[test]
     fn test_cad_roundtrip_dol_starter() {
@@ -5217,6 +5218,391 @@ mod tests {
         let _ = app.view();
         app.theme_mode = ThemeMode::Dark;
         let _ = app.view();
+    }
+
+    #[test]
+    fn test_strict_and_series_conduction_command_and_power() {
+        use crate::sim::set_manual_by_tag;
+
+        // ==================== 1. CIRCUITO DE COMANDO EM SÉRIE (AND / &&) ====================
+        // Monta: L1 (3000) -> S1 (NA, 8000) -> S2 (NA, 8000) -> Bobina KM1 (9000) -> Neutro N (3001)
+        let mut doc = SchematicDocument::default();
+        let mut id_counter = 1;
+        let mut next_id = || {
+            let cur = id_counter;
+            id_counter += 1;
+            cur
+        };
+
+        // Alimentação Fase L em (72, 10)
+        let sym_l = find_symbol(3000).unwrap();
+        let mut it_l = sym_l.instantiate(next_id(), 72, 10, 0);
+        it_l.tag = "-L1".to_string();
+        doc.items.push(it_l);
+
+        // Chave S1 (NA, 8000) em (72, 20): pin 0 em (72, 20), pin 1 em (72, 32)
+        let sym_s1 = find_symbol(8000).unwrap();
+        let mut it_s1 = sym_s1.instantiate(next_id(), 72, 20, 0);
+        it_s1.tag = "-S1".to_string();
+        doc.items.push(it_s1);
+
+        // Chave S2 (NA, 8000) em (72, 40): pin 0 em (72, 40), pin 1 em (72, 52)
+        let sym_s2 = find_symbol(8000).unwrap();
+        let mut it_s2 = sym_s2.instantiate(next_id(), 72, 40, 0);
+        it_s2.tag = "-S2".to_string();
+        doc.items.push(it_s2);
+
+        // Bobina KM1 (9000) em (72, 60): pin 0 (A1) em (72, 60), pin 1 (A2) em (72, 72)
+        let sym_km = find_symbol(9000).unwrap();
+        let mut it_km = sym_km.instantiate(next_id(), 72, 60, 0);
+        it_km.tag = "-KM1".to_string();
+        doc.items.push(it_km);
+
+        // Alimentação Neutro N (3001) em (72, 80, rot 2)
+        let sym_n = find_symbol(3001).unwrap();
+        let mut it_n = sym_n.instantiate(next_id(), 72, 80, 2);
+        it_n.tag = "-N".to_string();
+        doc.items.push(it_n);
+
+        // Cabos ligando em série:
+        // Cabo 1: L -> S1 (72, 10) -> (72, 20)
+        let w_l_s1 = next_id();
+        doc.items.push(SchematicItem::new_wire(w_l_s1, 4000, 72, 10, 72, 20));
+        // Cabo 2: S1 -> S2 (72, 32) -> (72, 40)
+        let w_s1_s2 = next_id();
+        doc.items.push(SchematicItem::new_wire(w_s1_s2, 4000, 72, 32, 72, 40));
+        // Cabo 3: S2 -> KM1 (72, 52) -> (72, 60)
+        let w_s2_km = next_id();
+        doc.items.push(SchematicItem::new_wire(w_s2_km, 4000, 72, 52, 72, 60));
+        // Cabo 4: KM1 -> N (72, 72) -> (72, 80)
+        let w_km_n = next_id();
+        doc.items.push(SchematicItem::new_wire(w_km_n, 4009, 72, 72, 72, 80));
+
+        // Caso 1: (S1=0, S2=0) -> Ambos abertos
+        step_simulation(&mut doc, 50);
+        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        assert!(!km.sim_active, "AND (0,0): Bobina deve estar DESLIGADA");
+        assert_eq!(doc.items.iter().find(|i| i.id == w_s1_s2).unwrap().sim_potential, Potential::None);
+        assert_eq!(doc.items.iter().find(|i| i.id == w_s2_km).unwrap().sim_potential, Potential::None);
+
+        // Caso 2: (S1=1, S2=0) -> S1 fechado, S2 aberto
+        // A eletricidade passa por S1 (cabo w_s1_s2 recebe L1), mas NÃO passa por S2 (w_s2_km é None)!
+        set_manual_by_tag(&mut doc, "-S1", true);
+        step_simulation(&mut doc, 50);
+        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        assert!(!km.sim_active, "AND (1,0): Bobina deve estar DESLIGADA se S2 estiver aberto");
+        assert_eq!(doc.items.iter().find(|i| i.id == w_s1_s2).unwrap().sim_potential, Potential::L1);
+        assert_eq!(doc.items.iter().find(|i| i.id == w_s2_km).unwrap().sim_potential, Potential::None);
+
+        // Caso 3: (S1=0, S2=1) -> S1 aberto, S2 fechado
+        // A eletricidade é barrada em S1!
+        set_manual_by_tag(&mut doc, "-S1", false);
+        set_manual_by_tag(&mut doc, "-S2", true);
+        step_simulation(&mut doc, 50);
+        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        assert!(!km.sim_active, "AND (0,1): Bobina deve estar DESLIGADA se S1 estiver aberto");
+        assert_eq!(doc.items.iter().find(|i| i.id == w_s1_s2).unwrap().sim_potential, Potential::None);
+        assert_eq!(doc.items.iter().find(|i| i.id == w_s2_km).unwrap().sim_potential, Potential::None);
+
+        // Caso 4: (S1=1, S2=1) -> Ambos fechados!
+        // Condição AND satisfeita: eletricidade passa por S1 E por S2, energizando KM1!
+        set_manual_by_tag(&mut doc, "-S1", true);
+        set_manual_by_tag(&mut doc, "-S2", true);
+        step_simulation(&mut doc, 50);
+        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        assert!(km.sim_active, "AND (1,1): Bobina DEVE LIGAR quando ambos estiverem fechados");
+        assert_eq!(doc.items.iter().find(|i| i.id == w_s1_s2).unwrap().sim_potential, Potential::L1);
+        assert_eq!(doc.items.iter().find(|i| i.id == w_s2_km).unwrap().sim_potential, Potential::L1);
+
+        // ==================== 2. CIRCUITO DE POTÊNCIA EM SÉRIE (AND / &&) ====================
+        // Monta: Alimentação 3F (3004) -> Disjuntor 3P -Q1 (6003) -> Contator 3P -KM2 (2001) -> Motor 3~ -M1 (1000)
+        let mut doc_pwr = SchematicDocument::default();
+        let sym_3f = find_symbol(3004).unwrap();
+        doc_pwr.items.push(sym_3f.instantiate(next_id(), 24, 18, 0));
+
+        let sym_q1 = find_symbol(6003).unwrap();
+        let mut it_q1 = sym_q1.instantiate(next_id(), 24, 24, 0);
+        it_q1.tag = "-Q1".to_string();
+        doc_pwr.items.push(it_q1);
+
+        let sym_km2 = find_symbol(2001).unwrap();
+        let mut it_km2 = sym_km2.instantiate(next_id(), 24, 51, 0);
+        it_km2.tag = "-KM2".to_string();
+        doc_pwr.items.push(it_km2);
+
+        // Circuito de comando para acionar a bobina KM2:
+        // L -> S_KM2 (8000) -> Bobina KM2 (9000) -> N
+        let sym_l_cmd = find_symbol(3000).unwrap();
+        doc_pwr.items.push(sym_l_cmd.instantiate(next_id(), 72, 45, 0));
+
+        let sym_s_km2 = find_symbol(8000).unwrap();
+        let mut it_s_km2 = sym_s_km2.instantiate(next_id(), 72, 50, 0);
+        it_s_km2.tag = "-SKM2".to_string();
+        doc_pwr.items.push(it_s_km2);
+
+        let mut it_km2_coil = sym_km.instantiate(next_id(), 72, 68, 0);
+        it_km2_coil.tag = "-KM2".to_string();
+        doc_pwr.items.push(it_km2_coil);
+
+        let sym_n_cmd = find_symbol(3001).unwrap();
+        doc_pwr.items.push(sym_n_cmd.instantiate(next_id(), 72, 85, 2));
+
+        // Cabos de comando da bobina KM2:
+        doc_pwr.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 45, 72, 50));
+        doc_pwr.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 62, 72, 68));
+        doc_pwr.items.push(SchematicItem::new_wire(next_id(), 4009, 72, 80, 72, 85));
+
+        let sym_m1 = find_symbol(1000).unwrap();
+        let mut it_m1 = sym_m1.instantiate(next_id(), 24, 69, 0);
+        it_m1.tag = "-M1".to_string();
+        doc_pwr.items.push(it_m1);
+
+        // Cabos das 3 fases L1, L2, L3 interligando os elementos em série
+        let mut wires_mid = Vec::new();
+        let mut wires_bot = Vec::new();
+        for dx in [0, 6, 12] {
+            let x = 24 + dx;
+            doc_pwr.items.push(SchematicItem::new_wire(next_id(), 4000, x, 18, x, 24));
+            let w_m = next_id();
+            doc_pwr.items.push(SchematicItem::new_wire(w_m, 4000, x, 45, x, 51));
+            wires_mid.push(w_m);
+            let w_b = next_id();
+            doc_pwr.items.push(SchematicItem::new_wire(w_b, 4000, x, 63, x, 69));
+            wires_bot.push(w_b);
+        }
+
+        // Q1 aberto, KM2 aberto -> Motor Parado
+        step_simulation(&mut doc_pwr, 50);
+        let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
+        assert!(!m1.sim_active, "Potência: Motor desligado quando Q1 e KM2 abertos");
+
+        // Q1 fechado, KM2 aberto -> Eletricidade chega até a entrada de KM2, mas NÃO passa para o motor!
+        set_manual_by_tag(&mut doc_pwr, "-Q1", true);
+        step_simulation(&mut doc_pwr, 50);
+        let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
+        assert!(!m1.sim_active, "Potência: Motor desligado se contator KM2 estiver aberto");
+        for &w in &wires_mid {
+            assert!(doc_pwr.items.iter().find(|i| i.id == w).unwrap().sim_potential.is_energized());
+        }
+        for &w in &wires_bot {
+            assert_eq!(doc_pwr.items.iter().find(|i| i.id == w).unwrap().sim_potential, Potential::None);
+        }
+
+        // Q1 aberto, KM2 fechado -> Eletricidade NÃO passa por Q1, motor parado!
+        set_manual_by_tag(&mut doc_pwr, "-Q1", false);
+        set_manual_by_tag(&mut doc_pwr, "-SKM2", true);
+        step_simulation(&mut doc_pwr, 50);
+        let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
+        assert!(!m1.sim_active, "Potência: Motor desligado se disjuntor Q1 estiver aberto");
+
+        // Q1 fechado E KM2 fechado -> Eletricidade passa por ambos e motor gira!
+        set_manual_by_tag(&mut doc_pwr, "-Q1", true);
+        set_manual_by_tag(&mut doc_pwr, "-SKM2", true);
+        step_simulation(&mut doc_pwr, 50);
+        let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
+        assert!(m1.sim_active, "Potência: Motor DEVE LIGAR quando Q1 E KM2 estiverem fechados");
+        assert_eq!(m1.sim_motor_dir, 1);
+        for &w in &wires_bot {
+            assert!(doc_pwr.items.iter().find(|i| i.id == w).unwrap().sim_potential.is_energized());
+        }
+    }
+
+    #[test]
+    fn test_strict_or_parallel_conduction_command_and_power() {
+        use crate::sim::set_manual_by_tag;
+
+        // ==================== 1. CIRCUITO DE COMANDO EM PARALELO (OR / ||) ====================
+        // Monta: L1 -> Nó J1
+        //               |--> Ramo A: S1 (8000) -->|
+        //               |--> Ramo B: S2 (8000) -->|--> Nó J2 -> Bobina KM1 -> Neutro N
+        let mut doc = SchematicDocument::default();
+        let mut id_counter = 1;
+        let mut next_id = || {
+            let cur = id_counter;
+            id_counter += 1;
+            cur
+        };
+
+        // Alimentação Fase L em (72, 10)
+        let sym_l = find_symbol(3000).unwrap();
+        let mut it_l = sym_l.instantiate(next_id(), 72, 10, 0);
+        it_l.tag = "-L1".to_string();
+        doc.items.push(it_l);
+
+        // Chave S1 (NA) no ramo A em (72, 25): pin 0 em (72, 25), pin 1 em (72, 37)
+        let sym_s1 = find_symbol(8000).unwrap();
+        let mut it_s1 = sym_s1.instantiate(next_id(), 72, 25, 0);
+        it_s1.tag = "-S1".to_string();
+        doc.items.push(it_s1);
+
+        // Chave S2 (NA) no ramo B em (84, 25): pin 0 em (84, 25), pin 1 em (84, 37)
+        let sym_s2 = find_symbol(8000).unwrap();
+        let mut it_s2 = sym_s2.instantiate(next_id(), 84, 25, 0);
+        it_s2.tag = "-S2".to_string();
+        doc.items.push(it_s2);
+
+        // Bobina KM1 em (72, 50): pin 0 em (72, 50), pin 1 em (72, 62)
+        let sym_km = find_symbol(9000).unwrap();
+        let mut it_km = sym_km.instantiate(next_id(), 72, 50, 0);
+        it_km.tag = "-KM1".to_string();
+        doc.items.push(it_km);
+
+        // Alimentação Neutro N em (72, 70, rot 2)
+        let sym_n = find_symbol(3001).unwrap();
+        let mut it_n = sym_n.instantiate(next_id(), 72, 70, 2);
+        it_n.tag = "-N".to_string();
+        doc.items.push(it_n);
+
+        // Cabo Fase até o Nó J1 (72, 20)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 10, 72, 20));
+        doc.items.push(SchematicItem::new_junction(next_id(), 72, 20));
+
+        // Ramo A: (72, 20) -> (72, 25)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 20, 72, 25));
+        // Saída Ramo A: (72, 37) -> (72, 45)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 37, 72, 45));
+
+        // Ramo B: (72, 20) -> (84, 20) -> (84, 25)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 20, 84, 20));
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 20, 84, 25));
+        // Saída Ramo B: (84, 37) -> (84, 45) -> (72, 45)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 37, 84, 45));
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 45, 72, 45));
+        doc.items.push(SchematicItem::new_junction(next_id(), 72, 45));
+
+        // Cabo de J2 (72, 45) até Bobina A1 (72, 50)
+        let w_out = next_id();
+        doc.items.push(SchematicItem::new_wire(w_out, 4000, 72, 45, 72, 50));
+        // Cabo Bobina A2 (72, 62) até Neutro (72, 70)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4009, 72, 62, 72, 70));
+
+        // Caso 1: (S1=0, S2=0) -> Ambos abertos
+        step_simulation(&mut doc, 50);
+        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        assert!(!km.sim_active, "OR (0,0): Bobina deve estar DESLIGADA");
+        assert_eq!(doc.items.iter().find(|i| i.id == w_out).unwrap().sim_potential, Potential::None);
+
+        // Caso 2: (S1=1, S2=0) -> S1 fechado, S2 aberto
+        // A corrente flui pelo ramo A, alcança o nó J2 e liga a bobina!
+        set_manual_by_tag(&mut doc, "-S1", true);
+        step_simulation(&mut doc, 50);
+        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        assert!(km.sim_active, "OR (1,0): Bobina DEVE LIGAR pelo ramo A fechado");
+        assert_eq!(doc.items.iter().find(|i| i.id == w_out).unwrap().sim_potential, Potential::L1);
+
+        // Caso 3: (S1=0, S2=1) -> S1 aberto, S2 fechado
+        // A corrente flui pelo ramo B, alcança o nó J2 e liga a bobina!
+        set_manual_by_tag(&mut doc, "-S1", false);
+        set_manual_by_tag(&mut doc, "-S2", true);
+        step_simulation(&mut doc, 50);
+        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        assert!(km.sim_active, "OR (0,1): Bobina DEVE LIGAR pelo ramo B fechado");
+        assert_eq!(doc.items.iter().find(|i| i.id == w_out).unwrap().sim_potential, Potential::L1);
+
+        // Caso 4: (S1=1, S2=1) -> Ambos fechados
+        set_manual_by_tag(&mut doc, "-S1", true);
+        set_manual_by_tag(&mut doc, "-S2", true);
+        step_simulation(&mut doc, 50);
+        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        assert!(km.sim_active, "OR (1,1): Bobina DEVE LIGAR");
+        assert_eq!(doc.items.iter().find(|i| i.id == w_out).unwrap().sim_potential, Potential::L1);
+    }
+
+    #[test]
+    fn test_ladder_and_fluid_power_boolean_equivalence() {
+        use crate::sim::set_manual_by_tag;
+
+        // Monta a lógica clássica: Saída Y = (A || B) && !C
+        // Representa:
+        // - Ladder: Rung com dois contatos NA em paralelo (A || B) em série com um contato NF (!C) acionando bobina Y
+        // - Eletropneumática: Válvula alternadora (OR) alimentando válvula direcional normalmente aberta/fechada e atuando solenoide Y
+        // - Eletrohidráulica: Bloqueio de emergência (C) com duplo comando de partida (A ou B)
+        let mut doc = SchematicDocument::default();
+        let mut id_counter = 1;
+        let mut next_id = || {
+            let cur = id_counter;
+            id_counter += 1;
+            cur
+        };
+
+        let sym_l = find_symbol(3000).unwrap();
+        doc.items.push(sym_l.instantiate(next_id(), 72, 10, 0));
+
+        // Botão de Parada de Emergência C (NF, 8001) em (72, 15): pin 0 em (72, 15), pin 1 em (72, 27)
+        let sym_c = find_symbol(8001).unwrap();
+        let mut it_c = sym_c.instantiate(next_id(), 72, 15, 0);
+        it_c.tag = "-C".to_string();
+        doc.items.push(it_c);
+
+        // Bloco paralelo (A || B) abaixo de C:
+        // Botão A (NA, 8000) em (72, 35): pin 0 em (72, 35), pin 1 em (72, 47)
+        let sym_a = find_symbol(8000).unwrap();
+        let mut it_a = sym_a.instantiate(next_id(), 72, 35, 0);
+        it_a.tag = "-A".to_string();
+        doc.items.push(it_a);
+
+        // Botão B (NA, 8000) em (84, 35): pin 0 em (84, 35), pin 1 em (84, 47)
+        let sym_b = find_symbol(8000).unwrap();
+        let mut it_b = sym_b.instantiate(next_id(), 84, 35, 0);
+        it_b.tag = "-B".to_string();
+        doc.items.push(it_b);
+
+        // Bobina Solenoide / Saída Y (9000) em (72, 60): pin 0 em (72, 60), pin 1 em (72, 72)
+        let sym_y = find_symbol(9000).unwrap();
+        let mut it_y = sym_y.instantiate(next_id(), 72, 60, 0);
+        it_y.tag = "-Y".to_string();
+        doc.items.push(it_y);
+
+        let sym_n = find_symbol(3001).unwrap();
+        doc.items.push(sym_n.instantiate(next_id(), 72, 80, 2));
+
+        // Fiação:
+        // L -> C (72, 10) -> (72, 15)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 10, 72, 15));
+        // C saída (72, 27) -> Nó J1 (72, 30)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 27, 72, 30));
+        doc.items.push(SchematicItem::new_junction(next_id(), 72, 30));
+
+        // Ramo A: (72, 30) -> (72, 35) e saída (72, 47) -> (72, 55)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 30, 72, 35));
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 47, 72, 55));
+
+        // Ramo B: (72, 30) -> (84, 30) -> (84, 35) e saída (84, 47) -> (84, 55) -> (72, 55)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 30, 84, 30));
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 30, 84, 35));
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 47, 84, 55));
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 55, 72, 55));
+        doc.items.push(SchematicItem::new_junction(next_id(), 72, 55));
+
+        // J2 (72, 55) -> Y (72, 60) e Y (72, 72) -> N (72, 80)
+        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 55, 72, 60));
+        doc.items.push(SchematicItem::new_wire(next_id(), 4009, 72, 72, 72, 80));
+
+        // Valida todas as 8 combinações da tabela verdade: Y = (A || B) && !C_pressed
+        for (a_val, b_val, c_pressed) in [
+            (false, false, false), // 0, 0, !0 -> Y=0
+            (false, true, false),  // 0, 1, !0 -> Y=1
+            (true, false, false),  // 1, 0, !0 -> Y=1
+            (true, true, false),   // 1, 1, !0 -> Y=1
+            (false, false, true),  // 0, 0, !1 -> Y=0
+            (false, true, true),   // 0, 1, !1 -> Y=0 (Emergência bloqueia mesmo com B ligado!)
+            (true, false, true),   // 1, 0, !1 -> Y=0 (Emergência bloqueia mesmo com A ligado!)
+            (true, true, true),    // 1, 1, !1 -> Y=0 (Emergência bloqueia mesmo com A e B ligados!)
+        ] {
+            set_manual_by_tag(&mut doc, "-A", a_val);
+            set_manual_by_tag(&mut doc, "-B", b_val);
+            set_manual_by_tag(&mut doc, "-C", c_pressed);
+            step_simulation(&mut doc, 50);
+
+            let expected = (a_val || b_val) && !c_pressed;
+            let y_active = doc.items.iter().find(|i| i.tag == "-Y" && i.tipo == 9000).unwrap().sim_active;
+            assert_eq!(
+                y_active,
+                expected,
+                "Falha na tabela verdade para A={}, B={}, C_pressed={}: esperado {}, obtido {}",
+                a_val, b_val, c_pressed, expected, y_active
+            );
+        }
     }
 }
 
