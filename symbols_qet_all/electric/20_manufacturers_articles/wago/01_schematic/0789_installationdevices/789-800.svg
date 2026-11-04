@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="70.0" viewBox="-55.0 -35.0 100.0 70.0" data-name="789-800">
+  <title>789-800</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-28,12 -20,-12 -20,-30" stroke="black" fill="none" />
+    <text x="34.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D</text>
+    <text x="14.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="30.00" x2="-50.00" y2="20.00" stroke="black" fill="none" />
+    <text x="34.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D</text>
+    <text x="14.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <line x1="-30.00" y1="10.00" x2="-30.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="30.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="10.00" x2="-20.00" y2="30.00" stroke="black" fill="none" />
+    <circle cx="-30.00" cy="20.00" r="1.00" stroke="black" fill="black" />
+    <circle cx="-20.00" cy="20.00" r="1.00" stroke="black" fill="black" />
+    <line x1="-49.00" y1="20.00" x2="-30.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-19.00" y1="20.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <text x="-48.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <text x="-37.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <circle cx="-20.00" cy="-20.00" r="1.00" stroke="black" fill="black" />
+    <line x1="-19.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <text x="-6.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">E</text>
+    <text x="-6.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <text x="-18.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">E</text>
+    <text x="-18.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <line x1="-30.00" y1="10.00" x2="-26.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="-30.00" x2="20.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="30.00" x2="40.00" y2="-30.00" stroke="black" fill="none" />
+    <polyline points="-41,-4 -44,-4 -44,4 -41,4" stroke="black" fill="none" />
+    <polyline points="-44,0 -35,0 -33,5 -31,0 -24,0" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <polyline points="-35,0 -33,5 -31,0" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="B.b" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="E.b" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="E.t" data-orientation="s" />
+    <circle class="qet-terminal" cx="-50.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="C.b" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="C.t" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="B.t" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="A.t" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="A.b" data-orientation="s" />
+    <circle class="qet-terminal" cx="40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="D.t" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="D.b" data-orientation="s" />
+  </g>
+</svg>

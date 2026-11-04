@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="70.0" viewBox="-38.0 -25.0 60.0 70.0" data-name="Air/Water indoor unit">
+  <title>Air/Water indoor unit</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-22.50" y="-20.00" width="35.00" height="50.00" stroke="black" fill="#dcdcdc" />
+    <line x1="-10.00" y1="25.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="25.00" x2="-20.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="25.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="25.00" x2="10.00" y2="20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="34.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="34.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="34.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-27.00" cy="25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="34.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

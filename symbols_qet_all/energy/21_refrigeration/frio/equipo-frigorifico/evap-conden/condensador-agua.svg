@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-48.0 -20.0 80.0 50.0" data-name="condensador-agua">
+  <title>condensador-agua</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-28.75" y="-8.34" width="1.00" height="1.00" stroke="black" fill="none" />
+    <path d="M 26.75 15.66 A 3.50 3.00 0 0 0 30.25 12.66" stroke="black" fill="none" />
+    <line x1="16.00" y1="-9.00" x2="21.75" y2="-9.00" stroke="black" fill="none" />
+    <line x1="-28.40" y1="-7.52" x2="26.70" y2="-7.52" stroke="black" fill="none" />
+    <rect x="-39.75" y="-5.34" width="5.00" height="5.00" stroke="black" fill="none" />
+    <rect x="18.25" y="15.49" width="3.75" height="4.17" stroke="black" fill="none" />
+    <rect x="-39.75" y="6.66" width="5.00" height="5.00" stroke="black" fill="none" />
+    <line x1="26.65" y1="-5.00" x2="26.65" y2="13.34" stroke="black" fill="none" />
+    <rect x="-34.75" y="-10.32" width="5.60" height="29.00" stroke="black" fill="none" />
+    <line x1="-28.40" y1="15.44" x2="26.70" y2="15.44" stroke="black" fill="none" />
+    <rect x="-22.00" y="-11.17" width="3.50" height="4.17" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-9.00" x2="-18.50" y2="-9.00" stroke="black" fill="none" />
+    <rect x="-28.75" y="16.66" width="0.00" height="1.00" stroke="black" fill="none" />
+    <line x1="-31.75" y1="-10.34" x2="-31.75" y2="18.66" stroke="black" fill="none" />
+    <rect x="-36.75" y="-8.34" width="1.00" height="1.00" stroke="black" fill="none" />
+    <rect x="-35.75" y="1.66" width="1.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-28.75" y="1.66" width="1.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-35.75" y="15.66" width="1.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-28.75" y="15.66" width="1.00" height="2.00" stroke="black" fill="none" />
+    <path d="M 30.25 -4.34 A 3.00 3.00 0 0 0 27.25 -7.34" stroke="black" fill="none" />
+    <line x1="30.25" y1="-4.34" x2="30.25" y2="11.66" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="-12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-41.00" cy="-3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-41.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

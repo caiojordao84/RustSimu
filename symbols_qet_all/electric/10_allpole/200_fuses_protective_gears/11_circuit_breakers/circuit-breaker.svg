@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="70.0" viewBox="-8.0 -40.0 30.0 70.0" data-name="Circuit-breaker">
+  <title>Circuit-breaker</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="15.50" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <path d="M -0.00 15.50 A 4.00 2.50 0 0 0 0.00 10.50" stroke="black" fill="none" />
+    <polyline points="0,10.5 0,8 5,8 5,3 0,3 0,0 -5,-20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="-25.00" x2="-2.00" y2="-21.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-25.00" x2="2.00" y2="-21.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-19.00" x2="2.00" y2="-19.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="IN.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="OUT.2" data-orientation="s" />
+  </g>
+</svg>

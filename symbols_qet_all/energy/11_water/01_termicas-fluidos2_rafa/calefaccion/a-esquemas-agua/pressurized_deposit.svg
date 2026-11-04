@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-15.0 -29.0 30.0 60.0" data-name="pressurized deposit">
+  <title>pressurized deposit</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 9.00 -14.00 A 8.91 4.00 0 0 0 -8.83 -14.00" stroke="black" fill="none" />
+    <path d="M -8.83 -14.50 A 8.91 3.50 0 0 0 9.00 -14.50" stroke="black" fill="none" />
+    <path d="M -8.83 12.00 A 8.91 4.00 0 0 0 9.00 12.00" stroke="black" fill="none" />
+    <line x1="-8.83" y1="11.13" x2="-8.83" y2="-13.13" stroke="black" fill="none" />
+    <line x1="9.00" y1="11.00" x2="9.00" y2="-14.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-13.83" x2="0.00" y2="-19.17" stroke="black" fill="none" />
+    <line x1="0.00" y1="16.00" x2="0.00" y2="21.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

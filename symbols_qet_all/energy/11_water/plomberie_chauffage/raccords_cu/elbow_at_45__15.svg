@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -20.0 40.0 40.0" data-name="elbow at 45° 15">
+  <title>elbow at 45° 15</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -2.05 4.14 A 1.10 1.00 0 0 0 -3.15 3.14" stroke="black" fill="none" />
+    <path d="M -1.96 3.87 A 5.25 5.38 0 0 0 1.51 2.92" stroke="black" fill="none" />
+    <path d="M -3.15 14.14 A 1.10 1.00 0 0 0 -2.05 13.14" stroke="black" fill="none" />
+    <path d="M -1.75 13.17 A 14.50 14.65 0 0 0 7.57 9.74" stroke="black" fill="none" />
+    <line x1="-2.00" y1="5.00" x2="-2.00" y2="13.26" stroke="black" fill="none" />
+    <polyline points="-3.45,3.14 -8.45,3.14 -8.45,14.14 -3.45,14.14" stroke="black" fill="none" />
+    <polygon points="1,2 8,10 9,10 14,6 6,-3 1,1" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

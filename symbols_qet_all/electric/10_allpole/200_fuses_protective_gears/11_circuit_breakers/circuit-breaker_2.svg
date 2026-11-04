@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="70.0" viewBox="-20.0 -40.0 40.0 70.0" data-name="Circuit-breaker">
+  <title>Circuit-breaker</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="10.00" y1="15.50" x2="10.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-20.00" x2="12.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-10.00" x2="7.00" y2="-10.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <path d="M 10.00 15.50 A 4.00 2.50 0 0 0 10.00 10.50" stroke="black" fill="none" />
+    <polyline points="-10,20 -10,0 -15,-20" stroke="black" fill="none" />
+    <polyline points="10,10.5 10,8 15,8 15,3 10,3 10,0 5,-20" stroke="black" fill="none" />
+    <line x1="10.00" y1="-30.00" x2="10.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-26.00" x2="8.00" y2="-22.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-26.00" x2="12.00" y2="-22.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-30.00" x2="-10.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-20.00" x2="-8.00" y2="-20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="OUT.4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="OUT.2" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="IN.3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="IN.1" data-orientation="n" />
+  </g>
+</svg>

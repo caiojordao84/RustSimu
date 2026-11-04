@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="270.0" height="160.0" viewBox="-240.0 -90.0 270.0 160.0" data-name="Fibaro universal binary sensor">
+  <title>Fibaro universal binary sensor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-35.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT1</text>
+    <text x="-230.00" y="-45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TD</text>
+    <text x="-230.00" y="-25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TP</text>
+    <text x="-230.00" y="-65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-230.00" y="55.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P</text>
+    <text x="-230.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN1</text>
+    <text x="-230.00" y="-5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN2</text>
+    <text x="-230.00" y="35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <rect x="0.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-30.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-10.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="0.00" y="10.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="-40.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="-20.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="0.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="20.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-40.00" x2="-15.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="-10.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="20.00" x2="-40.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="0.00" x2="-40.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="0.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="0.00" x2="-15.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-20.00" x2="-5.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-40.00" x2="-40.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-40.00" x2="-30.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-40.00" x2="-15.00" y2="-45.00" stroke="black" fill="none" />
+    <rect x="-75.00" y="-30.00" width="20.00" height="40.00" stroke="black" fill="none" />
+    <rect x="-70.00" y="-20.00" width="10.00" height="20.00" stroke="black" fill="none" />
+    <polyline points="0,-50 -105,-50 -105,-45" stroke="black" fill="none" />
+    <polyline points="0,30 -105,30 -105,25" stroke="black" fill="none" />
+    <rect x="-110.00" y="-45.00" width="20.00" height="70.00" stroke="black" fill="none" />
+    <line x1="-110.00" y1="-50.00" x2="-110.00" y2="-45.00" stroke="black" fill="none" />
+    <line x1="-110.00" y1="25.00" x2="-110.00" y2="30.00" stroke="black" fill="none" />
+    <polyline points="-110,-35 -160,-35 -200,-60 -230,-60" stroke="black" fill="none" />
+    <polyline points="-110,-25 -160,-25 -200,-40 -230,-40" stroke="black" fill="none" />
+    <polyline points="-110,-45 -160,-45 -200,-80 -230,-80" stroke="black" fill="none" />
+    <polyline points="-110,-5 -160,-5 -200,0 -230,0" stroke="black" fill="none" />
+    <polyline points="-110,5 -160,5 -200,20 -230,20" stroke="black" fill="none" />
+    <polyline points="-110,15 -160,15 -200,40 -230,40" stroke="black" fill="none" />
+    <polyline points="-110,25 -160,25 -200,60 -230,60" stroke="black" fill="none" />
+    <polyline points="-110,-15 -160,-15 -200,-20 -230,-20" stroke="black" fill="none" />
+    <text x="-230.00" y="-80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ANT</text>
+    <text x="-35.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT2</text>
+    <circle class="qet-terminal" cx="-230.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-230.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-230.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-230.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-230.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-230.00" cy="-80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-230.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-230.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

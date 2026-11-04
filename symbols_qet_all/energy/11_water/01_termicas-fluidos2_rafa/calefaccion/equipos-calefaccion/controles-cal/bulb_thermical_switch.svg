@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-15.0 -16.0 50.0 60.0" data-name="Bulb thermical switch">
+  <title>Bulb thermical switch</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-12.00" y="-12.00" width="24.00" height="29.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-1.00" rx="7.00" ry="7.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-4.00" x2="1.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="-7.50" cy="4.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-8.50" cy="-2.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-6.50" cy="-7.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="4.50" cy="-8.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-1.50" cy="-9.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <rect x="-8.00" y="12.00" width="7.00" height="2.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="13.00" x2="-2.00" y2="13.00" stroke="black" fill="none" />
+    <rect x="5.00" y="20.00" width="0.00" height="1.00" stroke="black" fill="none" />
+    <rect x="7.00" y="17.00" width="4.00" height="3.00" stroke="black" fill="none" />
+    <path d="M 9.00 31.00 A 5.50 9.00 0 0 0 20.00 31.00" stroke="#d40000" fill="none" />
+    <line x1="9.00" y1="30.00" x2="9.00" y2="21.00" stroke="#d40000" fill="none" />
+    <line x1="20.00" y1="29.86" x2="20.00" y2="-7.87" stroke="#d40000" fill="none" />
+    <line x1="27.00" y1="9.00" x2="27.00" y2="-7.00" stroke="#d40000" fill="none" />
+    <ellipse cx="23.50" cy="-7.50" rx="3.50" ry="3.50" stroke="#d40000" fill="none" />
+    <polygon points="27,9 25,11 25,27 27,29 29,27 29,11" stroke="#d40000" fill="none" />
+    <circle class="qet-terminal" cx="27.00" cy="28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-16.0 -30.0 50.0 40.0" data-name="control-condensacion">
+  <title>control-condensacion</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-6.00" y="-19.00" width="12.00" height="11.00" stroke="black" fill="none" />
+    <text x="-5.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Pc</text>
+    <line x1="0.00" y1="-8.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-15.00" x2="21.89" y2="-15.00" stroke="black" fill="none" />
+    <text x="9.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">a vent.</text>
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="22.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

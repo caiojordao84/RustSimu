@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-24.0 -17.0 40.0 40.0" data-name="Solar controller 3">
+  <title>Solar controller 3</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-6.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S1</text>
+    <text x="2.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S2</text>
+    <rect x="6.00" y="7.00" width="3.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-5.00" y="7.00" width="3.00" height="2.00" stroke="black" fill="none" />
+    <ellipse cx="-12.03" cy="-3.27" rx="0.97" ry="0.85" stroke="black" fill="black" />
+    <ellipse cx="-12.03" cy="0.15" rx="0.97" ry="0.85" stroke="black" fill="black" />
+    <rect x="-17.00" y="-12.00" width="25.00" height="19.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="9.00" width="5.00" height="2.00" stroke="black" fill="none" />
+    <rect x="5.00" y="9.00" width="5.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-7.00" y="-9.00" width="12.00" height="6.00" stroke="black" fill="black" />
+    <ellipse cx="-12.03" cy="-7.28" rx="0.97" ry="0.85" stroke="black" fill="black" />
+    <rect x="-6.00" y="-8.00" width="10.00" height="4.00" stroke="black" fill="white" />
+    <ellipse cx="0.00" cy="4.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <rect x="-16.00" y="7.00" width="3.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-17.00" y="9.00" width="5.00" height="2.00" stroke="black" fill="none" />
+    <text x="-16.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <circle class="qet-terminal" cx="-14.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-3.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="7.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

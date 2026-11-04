@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="124.0" height="134.0" viewBox="-62.0 -65.0 124.0 134.0" data-name="MEAN WELL HDR-60-24 - single row">
+  <title>MEAN WELL HDR-60-24 - single row</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-26.70" y="-5.00" width="84.70" height="10.00" stroke="black" fill="HTMLGreenPaleGreen" />
+    <text x="-23.70" y="3.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MEAN WELL</text>
+    <text x="33.30" y="2.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">HDR-60</text>
+    <text x="-49.00" y="12.60" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Art. HDR-60-24</text>
+    <polygon points="-60.00,-57.00 60.00,-57.00 60.00,-6.75 58.00,-4.95 58.00,4.95 60.00,6.75 60.00,57.00 -60.00,57.00 -60.00,6.75 -58.00,4.95 -58.00,-4.95 -60.00,-6.75" stroke="black" fill="none" />
+    <line x1="-60.00" y1="-40.00" x2="60.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="40.00" x2="60.00" y2="40.00" stroke="black" fill="none" />
+    <rect x="-35.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="#d40000" />
+    <text x="-28.50" y="50.70" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <line x1="-30.00" y1="58.00" x2="-30.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-25.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="#d40000" />
+    <text x="-18.50" y="51.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <line x1="-20.00" y1="58.00" x2="-20.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-5.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="gray" />
+    <text x="1.50" y="52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-V</text>
+    <line x1="0.00" y1="58.00" x2="0.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="5.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="gray" />
+    <text x="11.50" y="52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-V</text>
+    <line x1="10.00" y1="58.00" x2="10.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="15.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="orange" />
+    <text x="21.50" y="52.80" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+V</text>
+    <line x1="20.00" y1="58.00" x2="20.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="25.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="orange" />
+    <text x="31.50" y="52.80" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+V</text>
+    <line x1="30.00" y1="58.00" x2="30.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-35.00" y="24.00" width="20.00" height="13.00" stroke="black" fill="#dcdcdc" />
+    <text x="-28.10" y="29.90" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC</text>
+    <text x="-30.00" y="34.40" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Input</text>
+    <rect x="-5.00" y="24.00" width="40.00" height="13.00" stroke="black" fill="#dcdcdc" />
+    <text x="-0.30" y="32.10" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC Output 24V</text>
+    <circle class="qet-terminal" cx="-30.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="-V" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="-V" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="+V" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="+V" data-orientation="s" />
+  </g>
+</svg>

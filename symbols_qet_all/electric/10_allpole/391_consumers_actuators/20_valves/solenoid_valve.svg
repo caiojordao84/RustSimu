@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="60.0" viewBox="-25.0 -30.0 70.0 60.0" data-name="Solenoid valve">
+  <title>Solenoid valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <rect x="-20.00" y="-10.00" width="40.00" height="20.00" stroke="black" fill="white" />
+    <line x1="23.00" y1="0.00" x2="32.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-9.50" x2="10.00" y2="9.50" stroke="black" fill="none" />
+    <polygon points="30,-10 40,-10 30,10 40,10" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+  </g>
+</svg>

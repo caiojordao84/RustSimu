@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="70.0" viewBox="-35.0 -52.0 50.0 70.0" data-name="Buzzer">
+  <title>Buzzer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-30.00" y1="-30.00" x2="10.00" y2="-30.00" stroke="black" fill="none" />
+    <path d="M -30.00 -30.00 A 20.00 20.00 0 0 0 10.00 -30.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-12.00" x2="-20.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-12.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

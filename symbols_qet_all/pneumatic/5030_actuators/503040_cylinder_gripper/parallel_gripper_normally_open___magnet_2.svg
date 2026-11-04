@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-28.0 -10.0 60.0 40.0" data-name="Parallel gripper normally open + magnet">
+  <title>Parallel gripper normally open + magnet</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="13,-3 18,-3 21,-5 24,-3 26,-3 28,-3 28,0 26,0 24,0 21,2 18,0 13,0" stroke="black" fill="none" />
+    <line x1="10.00" y1="13.00" x2="10.00" y2="16.00" stroke="black" fill="none" />
+    <polyline points="13,10 18,10 21,8 24,10 26,10 28,10 28,13 26,13 24,13 21,15 18,13 13,13" stroke="black" fill="none" />
+    <rect x="-17.00" y="-3.00" width="7.00" height="16.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="13.00" x2="-20.00" y2="16.00" stroke="black" fill="none" />
+    <polygon points="-22,13 -18,13 -20,9" stroke="black" fill="none" />
+    <polygon points="8,13 10,9 12,13" stroke="black" fill="none" />
+    <polyline points="-14.52,1.06 -14.52,9.06 -14.52,1.06 -13.52,1.06 -13.52,9.06 -12.52,9.06 -12.52,7.06 -13.52,6.06 -13.52,4.06 -12.52,3.06 -12.52,1.06 -14.52,1.06 -14.52,9.06 -13.52,9.06" stroke="black" fill="none" />
+    <rect x="-23.00" y="-3.00" width="36.00" height="16.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

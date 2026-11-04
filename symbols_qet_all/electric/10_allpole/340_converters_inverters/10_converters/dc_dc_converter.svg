@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-40.0 -42.0 60.0 50.0" data-name="DC/DC converter">
+  <title>DC/DC converter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-25.00" y1="-33.00" x2="-21.00" y2="-33.00" stroke="black" fill="none" />
+    <rect x="-30.00" y="-40.00" width="40.00" height="40.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-33.00" x2="-14.00" y2="-33.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-5.00" x2="-2.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="-35.00" x2="-14.00" y2="-35.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="-5.00" x2="5.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-7.00" x2="5.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="0.00" x2="10.00" y2="-40.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

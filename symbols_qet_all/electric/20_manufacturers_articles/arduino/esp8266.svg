@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="190.0" viewBox="-65.0 -93.0 130.0 190.0" data-name="ESP8266">
+  <title>ESP8266</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="17.50" cy="80.50" rx="2.50" ry="2.50" stroke="black" fill="black" />
+    <text x="32.70" y="-66.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D0</text>
+    <text x="32.70" y="-56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D1</text>
+    <text x="32.70" y="-46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D2</text>
+    <text x="-44.00" y="-66.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A0</text>
+    <text x="-44.00" y="-56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RSV</text>
+    <text x="32.70" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D3</text>
+    <text x="-44.00" y="-46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RSV</text>
+    <text x="32.70" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D4</text>
+    <text x="28.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3V3</text>
+    <text x="-44.00" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SD3</text>
+    <text x="-44.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SD2</text>
+    <text x="25.70" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-44.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SD1</text>
+    <text x="32.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D5</text>
+    <text x="-44.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CMD</text>
+    <text x="32.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D6</text>
+    <text x="-44.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SD0</text>
+    <text x="32.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D7</text>
+    <text x="-44.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CLK</text>
+    <text x="32.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D8</text>
+    <text x="-44.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="33.00" y="44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RX</text>
+    <text x="-44.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3.3V</text>
+    <text x="32.70" y="54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TX</text>
+    <text x="-44.00" y="44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EN</text>
+    <text x="25.70" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-44.00" y="54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RST</text>
+    <text x="28.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3V3</text>
+    <text x="-44.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-44.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vin</text>
+    <rect x="-10.00" y="78.00" width="20.00" height="15.00" stroke="black" fill="none" />
+    <ellipse cx="-17.50" cy="80.50" rx="2.50" ry="2.50" stroke="black" fill="black" />
+    <rect x="-50.00" y="-90.00" width="100.00" height="180.00" stroke="black" fill="none" />
+    <rect x="-20.00" y="-80.00" width="40.00" height="60.00" stroke="black" fill="none" />
+    <text x="-19.00" y="-65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ESP 8266</text>
+    <circle class="qet-terminal" cx="-54.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="54.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-54.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="54.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="54.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-54.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="54.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-54.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-54.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="54.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

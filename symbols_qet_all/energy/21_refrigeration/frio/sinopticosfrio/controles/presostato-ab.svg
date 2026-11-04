@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-20.0 -23.0 40.0 30.0" data-name="presostato-ab">
+  <title>presostato-ab</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="9.00" y1="-9.80" x2="9.00" y2="-0.45" stroke="black" fill="none" />
+    <rect x="-14.00" y="-20.71" width="26.43" height="10.91" stroke="black" fill="none" />
+    <text x="-9.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PAB</text>
+    <line x1="-9.55" y1="-9.80" x2="-9.55" y2="-0.45" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="9.00" cy="-1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

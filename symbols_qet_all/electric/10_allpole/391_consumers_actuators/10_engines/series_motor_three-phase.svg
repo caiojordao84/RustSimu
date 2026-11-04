@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="80.0" viewBox="-30.0 -47.0 60.0 80.0" data-name="Series motor three-phase">
+  <title>Series motor three-phase</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="10.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <text x="-11.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3 ~</text>
+    <polyline points="20,-9 20,30 9,22" stroke="black" fill="none" />
+    <polyline points="-21,-9 -21,30 -9,22" stroke="black" fill="none" />
+    <line x1="0.00" y1="-9.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
+    <path d="M 20.00 -24.00 A 3.50 2.50 0 0 0 20.00 -29.00" stroke="black" fill="none" />
+    <path d="M -0.00 -24.00 A 3.50 2.50 0 0 0 0.00 -29.00" stroke="black" fill="none" />
+    <path d="M -20.00 -24.00 A 3.50 2.50 0 0 0 -20.00 -29.00" stroke="black" fill="none" />
+    <text x="-4.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <path d="M 20.00 -14.00 A 3.50 2.50 0 0 0 20.00 -19.00" stroke="black" fill="none" />
+    <path d="M -0.00 -14.00 A 3.50 2.50 0 0 0 0.00 -19.00" stroke="black" fill="none" />
+    <path d="M -20.00 -14.00 A 3.50 2.50 0 0 0 -20.00 -19.00" stroke="black" fill="none" />
+    <path d="M 20.00 -9.00 A 3.50 2.50 0 0 0 20.00 -14.00" stroke="black" fill="none" />
+    <path d="M -0.00 -9.00 A 3.50 2.50 0 0 0 0.00 -14.00" stroke="black" fill="none" />
+    <path d="M -20.00 -9.00 A 3.50 2.50 0 0 0 -20.00 -14.00" stroke="black" fill="none" />
+    <path d="M 20.00 -19.00 A 3.50 2.50 0 0 0 20.00 -24.00" stroke="black" fill="none" />
+    <path d="M -0.00 -19.00 A 3.50 2.50 0 0 0 0.00 -24.00" stroke="black" fill="none" />
+    <path d="M -20.00 -19.00 A 3.50 2.50 0 0 0 -20.00 -24.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="-39.00" x2="20.00" y2="-29.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-39.00" x2="0.00" y2="-29.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-39.00" x2="-20.00" y2="-29.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

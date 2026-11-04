@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -35.0 50.0 50.0" data-name="2-way valve">
+  <title>2-way valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-10.00" y="-31.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <text x="-5.00" y="-19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V1</text>
+    <line x1="1.00" y1="-10.00" x2="1.00" y2="-1.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-10.00" x2="-1.00" y2="-1.00" stroke="black" fill="none" />
+    <polygon points="15,10 0,0 15,-10" stroke="black" fill="none" />
+    <polygon points="0,0 -15,-10 -15,10" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-15.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="15.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

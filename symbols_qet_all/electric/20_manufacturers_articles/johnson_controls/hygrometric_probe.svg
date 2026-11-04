@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="160.0" viewBox="-95.0 -102.0 150.0 160.0" data-name="Hygrometric probe">
+  <title>Hygrometric probe</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-81.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <polyline points="-9,-80 -9,-30 41,-80 41,-30 -9,-30 -9,-80 41,-80" stroke="black" fill="none" />
+    <rect x="1.00" y="-93.00" width="30.00" height="5.00" stroke="black" fill="none" />
+    <text x="-60.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <line x1="2.00" y1="-83.00" x2="30.00" y2="-98.00" stroke="black" fill="none" />
+    <text x="-40.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <line x1="2.00" y1="-83.00" x2="3.00" y2="-86.00" stroke="black" fill="none" />
+    <text x="-21.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Bt</text>
+    <line x1="2.00" y1="-83.00" x2="5.00" y2="-82.00" stroke="black" fill="none" />
+    <polyline points="-70,-50 -70,0 -20,-50 -20,0 -70,0 -70,-50 -20,-50" stroke="black" fill="none" />
+    <rect x="-60.00" y="-63.00" width="30.00" height="5.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-98.00" x2="29.00" y2="-95.00" stroke="black" fill="none" />
+    <line x1="-59.00" y1="-53.00" x2="-31.00" y2="-68.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-98.00" x2="27.00" y2="-99.00" stroke="black" fill="none" />
+    <line x1="-59.00" y1="-53.00" x2="-58.00" y2="-56.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-80.00" x2="-4.00" y2="-90.00" stroke="black" fill="none" />
+    <line x1="-59.00" y1="-53.00" x2="-56.00" y2="-52.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-90.00" x2="1.00" y2="-90.00" stroke="black" fill="none" />
+    <line x1="-31.00" y1="-68.00" x2="-32.00" y2="-65.00" stroke="black" fill="none" />
+    <line x1="31.00" y1="-90.00" x2="36.00" y2="-90.00" stroke="black" fill="none" />
+    <line x1="36.00" y1="-90.00" x2="36.00" y2="-80.00" stroke="black" fill="none" />
+    <line x1="-31.00" y1="-68.00" x2="-34.00" y2="-69.00" stroke="black" fill="none" />
+    <line x1="-65.00" y1="-50.00" x2="-65.00" y2="-60.00" stroke="black" fill="none" />
+    <text x="1.00" y="-65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T</text>
+    <line x1="-65.00" y1="-60.00" x2="-60.00" y2="-60.00" stroke="black" fill="none" />
+    <text x="26.00" y="-40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">E</text>
+    <line x1="-30.00" y1="-60.00" x2="-25.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="-60.00" x2="-25.00" y2="-50.00" stroke="black" fill="none" />
+    <text x="-60.00" y="-35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RH</text>
+    <text x="-35.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">E</text>
+    <rect x="-86.00" y="15.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-66.00" y="15.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-46.00" y="15.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-26.00" y="15.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <line x1="-76.00" y1="50.00" x2="-76.00" y2="35.00" stroke="black" fill="none" />
+    <line x1="-56.00" y1="50.00" x2="-56.00" y2="35.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="50.00" x2="-36.00" y2="35.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="50.00" x2="-16.00" y2="35.00" stroke="black" fill="none" />
+    <text x="-74.00" y="41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <text x="-54.00" y="41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COM</text>
+    <text x="-34.00" y="41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">HR</text>
+    <text x="-14.00" y="41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TEMP</text>
+    <polyline points="-75,15 -75,-75 -10,-75" stroke="black" fill="none" />
+    <line x1="-55.00" y1="15.00" x2="-55.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-35.00" y1="15.00" x2="-35.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-55,8 6,8 6,-30" stroke="black" fill="none" />
+    <polyline points="30,-30 30,12 -15,12 -15,14" stroke="black" fill="none" />
+    <polygon points="-90,50 -90,-100 50,-100 50,50" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <circle class="qet-terminal" cx="-16.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-36.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-56.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-76.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

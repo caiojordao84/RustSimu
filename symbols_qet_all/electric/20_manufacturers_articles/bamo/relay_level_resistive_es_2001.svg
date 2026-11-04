@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0" height="120.0" viewBox="-29.0 -23.0 420.0 120.0" data-name="Relay level resistive ES 2001">
+  <title>Relay level resistive ES 2001</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="100.00" y1="60.00" x2="100.00" y2="50.00" stroke="black" fill="none" />
+    <text x="257.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 On : Sécu. travail</text>
+    <line x1="130.00" y1="60.00" x2="130.00" y2="50.00" stroke="black" fill="none" />
+    <text x="257.00" y="35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2 Off : 1-70K</text>
+    <line x1="121.00" y1="50.00" x2="130.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="110.00" y1="20.00" x2="110.00" y2="30.00" stroke="black" fill="none" />
+    <text x="257.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2 On : 5-150K</text>
+    <line x1="110.00" y1="30.00" x2="124.00" y2="52.00" stroke="black" fill="none" />
+    <text x="364.00" y="44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="364.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <rect x="-20.00" y="-10.00" width="400.00" height="100.00" stroke="black" fill="none" />
+    <rect x="263.00" y="70.00" width="13.00" height="6.00" stroke="black" fill="black" />
+    <text x="-15.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Relais</text>
+    <text x="-15.00" y="68.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ES2001</text>
+    <rect x="256.00" y="50.00" width="40.00" height="30.00" stroke="black" fill="none" />
+    <rect x="256.00" y="50.00" width="40.00" height="15.00" stroke="black" fill="none" />
+    <text x="253.00" y="73.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ON</text>
+    <rect x="263.00" y="55.00" width="13.00" height="6.00" stroke="black" fill="black" />
+    <text x="310.00" y="61.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="310.00" y="76.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="257.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 Off : Sécu. repos</text>
+    <text x="-15.00" y="53.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">résistif</text>
+    <text x="364.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-15.00" y="38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">de niveau</text>
+    <line x1="170.00" y1="60.00" x2="170.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="200.00" y1="60.00" x2="200.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="191.00" y1="50.00" x2="200.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="180.00" y1="20.00" x2="180.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="180.00" y1="30.00" x2="194.00" y2="52.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="380.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="379.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="379.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="99.00" cy="89.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="130.00" cy="89.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="170.00" cy="89.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="200.00" cy="89.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="46.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="46.00" cy="89.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="110.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="180.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

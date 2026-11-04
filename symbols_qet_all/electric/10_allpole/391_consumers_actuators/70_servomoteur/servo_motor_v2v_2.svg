@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="50.0" viewBox="-54.0 -17.0 110.0 50.0" data-name="Servo motor V2V">
+  <title>Servo motor V2V</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-50,5 50,5 40,30 -40,30 -50,6 -50,-10 50,-10 50,5" stroke="black" fill="none" />
+    <text x="-4.50" y="3.05" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N1</text>
+    <text x="3.10" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0VAC</text>
+    <text x="-44.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">UB</text>
+    <text x="-24.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N1</text>
+    <text x="18.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y</text>
+    <text x="38.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X</text>
+    <line x1="-29.00" y1="-10.00" x2="-29.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-10.00" x2="-9.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-10.00" x2="10.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-10.00" x2="30.00" y2="5.00" stroke="black" fill="none" />
+    <text x="-36.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24VAC</text>
+    <text x="-15.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0VAC</text>
+    <text x="30.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN</text>
+    <text x="45.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Out</text>
+    <circle class="qet-terminal" cx="-20.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

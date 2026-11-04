@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="20.0" viewBox="-30.0 -10.0 60.0 20.0" data-name="Check valve">
+  <title>Check valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-9.63" y1="5.59" x2="-9.63" y2="-6.81" stroke="black" fill="none" />
+    <line x1="9.50" y1="5.59" x2="9.50" y2="-6.81" stroke="black" fill="none" />
+    <line x1="-9.63" y1="-6.84" x2="9.27" y2="5.63" stroke="black" fill="none" />
+    <line x1="-5.85" y1="6.22" x2="3.60" y2="6.22" stroke="black" fill="none" />
+    <line x1="1.71" y1="4.44" x2="4.08" y2="6.22" stroke="black" fill="none" />
+    <line x1="1.71" y1="8.00" x2="4.08" y2="6.22" stroke="black" fill="none" />
+    <line x1="20.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="-7.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

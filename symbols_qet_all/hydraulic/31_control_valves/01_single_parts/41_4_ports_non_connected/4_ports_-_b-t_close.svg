@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -20.0 40.0 50.0" data-name="4 ports - B-T close">
+  <title>4 ports - B-T close</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="8.00" y1="-5.00" x2="12.00" y2="-5.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="-10.00" width="30.00" height="30.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="15.00" x2="10.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-10.00" x2="10.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-10.05" y1="20.08" x2="-10.05" y2="-4.93" stroke="black" fill="none" />
+    <line x1="7.93" y1="14.95" x2="11.93" y2="14.95" stroke="black" fill="none" />
+    <polygon points="-10,-9.88 -12,-4.88 -8,-4.88" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

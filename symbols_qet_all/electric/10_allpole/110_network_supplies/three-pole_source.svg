@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-21.0 -28.0 40.0 60.0" data-name="Three-pole source">
+  <title>Three-pole source</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="20.00" x2="10.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
+    <text x="-12.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L3</text>
+    <text x="-12.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L2</text>
+    <text x="-12.00" y="-17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L1</text>
+    <line x1="0.00" y1="-20.00" x2="10.00" y2="-20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="L1" data-orientation="e" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="L2" data-orientation="e" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="L3" data-orientation="e" />
+  </g>
+</svg>

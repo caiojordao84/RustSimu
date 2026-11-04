@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-20.0 -10.0 50.0 20.0" data-name="electric cable">
+  <title>electric cable</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6,5 0,5 5,-5 11,-5" stroke="black" fill="none" />
+    <line x1="-10.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

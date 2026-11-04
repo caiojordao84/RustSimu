@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-17.0 -17.0 40.0 40.0" data-name="Elbow 90° PVC pressure">
+  <title>Elbow 90° PVC pressure</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-7.00" y="3.00" width="8.00" height="14.00" stroke="white" fill="white" />
+    <rect x="3.00" y="-7.00" width="14.00" height="8.00" stroke="white" fill="white" />
+    <path d="M -0.00 3.00 A 3.00 3.00 0 0 0 3.00 0.00" stroke="black" fill="none" />
+    <path d="M 4.00 17.00 A 13.00 13.00 0 0 0 17.00 4.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="17.00" x2="3.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="3.00" x2="-7.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="3.00" x2="-1.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="-6.00" x2="17.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="-7.00" x2="3.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-6.00" x2="3.00" y2="-1.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-7.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

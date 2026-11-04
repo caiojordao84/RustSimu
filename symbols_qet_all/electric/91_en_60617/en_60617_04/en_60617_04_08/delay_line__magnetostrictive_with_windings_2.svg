@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="180.0" viewBox="-105.0 -157.0 130.0 180.0" data-name="Delay line, magnetostrictive with windings">
+  <title>Delay line, magnetostrictive with windings</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -30.50 -70.00 A 5.00 5.00 0 0 0 -30.50 -60.00" stroke="black" fill="none" />
+    <path d="M 0.00 -10.00 A 5.00 5.00 0 0 0 -0.00 0.00" stroke="black" fill="none" />
+    <path d="M -30.50 -80.00 A 5.00 5.00 0 0 0 -30.50 -70.00" stroke="black" fill="none" />
+    <line x1="-30.50" y1="-60.00" x2="-10.50" y2="-60.00" stroke="black" fill="none" />
+    <path d="M 0.00 -20.00 A 5.00 5.00 0 0 0 -0.00 -10.00" stroke="black" fill="none" />
+    <line x1="-40.50" y1="-60.00" x2="-40.50" y2="-80.00" stroke="black" fill="black" />
+    <line x1="0.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="20.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-30.00" x2="0.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-35.00" x2="-80.00" y2="-25.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-35.00" x2="0.00" y2="-25.00" stroke="black" fill="none" />
+    <line x1="-65.00" y1="-140.00" x2="-65.00" y2="-120.00" stroke="black" fill="black" />
+    <line x1="-10.00" y1="0.00" x2="-10.00" y2="-20.00" stroke="black" fill="black" />
+    <path d="M -80.00 -130.00 A 5.00 5.00 0 0 0 -80.00 -140.00" stroke="black" fill="none" />
+    <path d="M -80.00 -120.00 A 5.00 5.00 0 0 0 -80.00 -130.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-140.00" x2="-100.00" y2="-140.00" stroke="black" fill="none" />
+    <line x1="-100.00" y1="-120.00" x2="-80.00" y2="-120.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-90.00" x2="0.00" y2="-90.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-95.00" x2="-80.00" y2="-85.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-95.00" x2="0.00" y2="-85.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-150.00" x2="0.00" y2="-150.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-155.00" x2="0.00" y2="-145.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-155.00" x2="-80.00" y2="-145.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-80.00" x2="-10.00" y2="-80.00" stroke="black" fill="none" />
+    <text x="-40.00" y="-45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">50 µs</text>
+    <text x="-10.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">100 µs</text>
+  </g>
+</svg>

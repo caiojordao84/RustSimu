@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="90.0" viewBox="-60.0 -42.0 120.0 90.0" data-name="Wall Heater">
+  <title>Wall Heater</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-40.00" y1="40.00" x2="-40.00" y2="33.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-37.00" x2="-50.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="30.00" x2="-36.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="20.00" x2="-39.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="10.00" x2="-40.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="0.00" x2="-39.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="-10.00" x2="-40.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="-20.00" x2="-40.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="-30.00" x2="-40.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="-40.00" x2="-47.00" y2="-40.00" stroke="black" fill="none" />
+    <path d="M -47.00 -40.00 A 3.00 3.00 0 0 0 -50.00 -37.00" stroke="black" fill="none" />
+    <path d="M 50.00 -30.00 A 5.00 5.00 0 0 0 50.00 -40.00" stroke="black" fill="none" />
+    <path d="M -37.00 30.00 A 3.00 3.00 0 0 0 -40.00 33.00" stroke="black" fill="none" />
+    <path d="M -40.00 10.00 A 5.00 5.00 0 0 0 -40.00 20.00" stroke="black" fill="none" />
+    <path d="M -40.00 -10.00 A 5.00 5.00 0 0 0 -40.00 0.00" stroke="black" fill="none" />
+    <path d="M 50.00 30.00 A 5.00 5.00 0 0 0 50.00 20.00" stroke="black" fill="none" />
+    <path d="M 50.00 10.00 A 5.00 5.00 0 0 0 50.00 0.00" stroke="black" fill="none" />
+    <path d="M 50.00 -10.00 A 5.00 5.00 0 0 0 50.00 -20.00" stroke="black" fill="none" />
+    <path d="M -40.00 -30.00 A 5.00 5.00 0 0 0 -40.00 -20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-50.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-40.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

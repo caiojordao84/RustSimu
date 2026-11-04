@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-25.0 -12.0 50.0 40.0" data-name="Ball valve FF NC">
+  <title>Ball valve FF NC</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="9.00" y="-7.00" width="9.00" height="14.00" stroke="black" fill="white" />
+    <rect x="-18.00" y="-7.00" width="9.00" height="14.00" stroke="black" fill="white" />
+    <path d="M 11.00 3.00 A 2.00 2.00 0 0 0 11.00 7.00" stroke="black" fill="none" />
+    <path d="M 11.00 -7.00 A 2.00 2.00 0 0 0 11.00 -3.00" stroke="black" fill="none" />
+    <path d="M -16.00 3.00 A 2.00 2.00 0 0 0 -16.00 7.00" stroke="black" fill="none" />
+    <path d="M 11.00 -3.00 A 2.00 3.00 0 0 0 11.00 3.00" stroke="black" fill="none" />
+    <line x1="11.00" y1="-3.00" x2="16.00" y2="-3.00" stroke="black" fill="none" />
+    <path d="M -16.00 -7.00 A 2.00 2.00 0 0 0 -16.00 -3.00" stroke="black" fill="none" />
+    <line x1="11.00" y1="3.00" x2="16.00" y2="3.00" stroke="black" fill="none" />
+    <path d="M -16.00 -3.00 A 2.00 3.00 0 0 0 -16.00 3.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="-3.00" x2="-11.00" y2="-3.00" stroke="black" fill="none" />
+    <path d="M 18.00 -1.00 A 2.00 2.00 0 0 0 16.00 -3.00" stroke="black" fill="none" />
+    <path d="M 16.00 -3.00 A 2.00 2.00 0 0 0 18.00 -5.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="3.00" x2="-11.00" y2="3.00" stroke="black" fill="none" />
+    <path d="M 18.00 5.00 A 2.00 2.00 0 0 0 16.00 3.00" stroke="black" fill="none" />
+    <path d="M 16.00 3.00 A 2.00 2.00 0 0 0 18.00 1.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="7.00" x2="8.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-7.00" x2="8.00" y2="-7.00" stroke="black" fill="none" />
+    <polygon points="-9,-8 -2,-8 -2,8 -9,8" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="4.00" ry="4.00" stroke="black" fill="white" />
+    <rect x="-2.00" y="2.00" width="4.00" height="6.00" stroke="black" fill="white" />
+    <ellipse cx="0.00" cy="22.00" rx="2.00" ry="2.00" stroke="none" fill="#00aa00" />
+    <rect x="-2.00" y="8.00" width="4.00" height="14.00" stroke="none" fill="#00aa00" />
+    <path d="M -9.00 -1.00 A 2.00 2.00 0 0 0 -11.00 -3.00" stroke="black" fill="none" />
+    <path d="M -11.00 -3.00 A 2.00 2.00 0 0 0 -9.00 -5.00" stroke="black" fill="none" />
+    <path d="M -9.00 5.00 A 2.00 2.00 0 0 0 -11.00 3.00" stroke="black" fill="none" />
+    <path d="M -11.00 3.00 A 2.00 2.00 0 0 0 -9.00 1.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="3.00" ry="3.00" stroke="none" fill="white" />
+    <path d="M 2.01 2.23 A 3.00 3.00 0 1 0 -2.01 2.23" stroke="black" fill="none" />
+    <polygon points="-1,-2 1,-2 2,-1 2,0 2,1 1,2 -1,2 -2,1 -2,-1" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="3.00" x2="-2.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="8.00" x2="2.00" y2="22.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="8.00" x2="-2.00" y2="22.00" stroke="black" fill="none" />
+    <path d="M -2.00 22.00 A 2.00 2.00 0 0 0 2.00 22.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-18.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="18.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -23.0 30.0 40.0" data-name="Pressure gauge 1/2 F">
+  <title>Pressure gauge 1/2 F</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-6.30" y1="2.82" x2="-6.30" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-9.81" rx="10.80" ry="10.40" stroke="black" fill="none" />
+    <rect x="-5.40" y="3.13" width="9.60" height="7.00" stroke="black" fill="none" />
+    <rect x="-3.90" y="4.82" width="6.90" height="5.34" stroke="#d40000" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-6.30" y1="3.13" x2="5.10" y2="3.13" stroke="black" fill="none" />
+    <line x1="5.10" y1="2.89" x2="5.10" y2="0.54" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-9.80" rx="12.00" ry="11.25" stroke="black" fill="none" />
+    <line x1="-0.30" y1="-10.09" x2="-7.20" y2="-15.43" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-15.71" x2="-0.30" y2="-10.37" stroke="black" fill="none" />
+    <ellipse cx="0.30" cy="-9.52" rx="0.90" ry="0.84" stroke="black" fill="none" />
+    <text x="-9.90" y="-9.52" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-5.40" y="-15.43" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="2.40" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="8.10" y="-9.81" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="4.50" y="-1.93" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="-3.00" y="-4.56" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">bar</text>
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

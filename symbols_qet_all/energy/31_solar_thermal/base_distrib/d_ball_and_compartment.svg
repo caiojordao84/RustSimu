@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="70.0" viewBox="-58.0 -34.0 110.0 70.0" data-name="D ball and compartment">
+  <title>D ball and compartment</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-45.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D"</text>
+    <rect x="-15.00" y="-20.70" width="29.00" height="52.00" stroke="black" fill="none" />
+    <text x="-13.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">stockage</text>
+    <line x1="13.00" y1="-10.00" x2="-15.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-14.00" y1="-17.00" x2="14.00" y2="-17.00" stroke="black" fill="none" />
+    <line x1="-14.00" y1="26.00" x2="6.00" y2="26.00" stroke="black" fill="none" />
+    <polyline points="13,5 6,5 6,31" stroke="black" fill="none" />
+    <polyline points="12,-11.2 32,-11.2 22,-6.2 32,-1.2 22,3.8 32,8.8 12,8.8" stroke="black" fill="none" />
+    <polyline points="12,25 44,25 44,15 41,12 46,9" stroke="black" fill="none" />
+    <polyline points="12,-15 45,-15 45,-6 41,-3 47,-1 41,2 46,4 41,7 46,9" stroke="black" fill="none" />
+    <polyline points="-10,-19 -34,-19 -34,-10 -40,-6 -31,-1 -40,4 -31,8 -40,14 -35,19 -35,30 -11,30" stroke="black" fill="none" />
+    <polygon points="35,24.8 38,21.8 38,27.8" stroke="black" fill="none" />
+    <polygon points="-28,30.1 -25,27.1 -25,33.1" stroke="black" fill="none" />
+    <ellipse cx="37.00" cy="24.80" rx="4.00" ry="4.00" stroke="black" fill="none" />
+    <ellipse cx="-26.00" cy="30.10" rx="4.00" ry="4.00" stroke="black" fill="none" />
+    <text x="-37.00" y="6.10" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">solaire</text>
+    <text x="39.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">chauff.</text>
+    <text x="15.00" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ECS</text>
+    <text x="-12.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ballon</text>
+  </g>
+</svg>

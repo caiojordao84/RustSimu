@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="80.0" viewBox="-50.0 -50.0 60.0 80.0" data-name="Make contact, delayed">
+  <title>Make contact, delayed</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="-8.00" y2="-23.00" stroke="black" fill="none" />
+    <path d="M -15.00 -20.00 A 10.00 10.00 0 0 0 -15.00 0.00" stroke="black" fill="none" />
+    <path d="M -35.00 0.00 A 10.00 10.00 0 0 0 -35.00 -20.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-11.00" x2="-4.00" y2="-11.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-9.00" x2="-4.00" y2="-9.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-27.0 -28.0 50.0 40.0" data-name="Y-branch">
+  <title>Y-branch</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-8.23" y1="-6.23" x2="2.28" y2="-18.78" stroke="black" fill="none" />
+    <rect x="7.11" y="-7.67" width="6.41" height="16.36" stroke="black" fill="none" />
+    <rect x="-19.40" y="-8.13" width="6.41" height="16.36" stroke="black" fill="none" />
+    <line x1="-12.48" y1="6.35" x2="7.00" y2="6.35" stroke="black" fill="none" />
+    <line x1="-12.84" y1="-6.27" x2="-8.00" y2="-6.27" stroke="black" fill="none" />
+    <line x1="2.51" y1="-6.27" x2="7.00" y2="-6.27" stroke="black" fill="none" />
+    <line x1="-5.51" y1="-2.84" x2="-7.86" y2="-6.27" stroke="black" fill="none" />
+    <line x1="2.28" y1="-6.23" x2="8.28" y2="-13.29" stroke="black" fill="none" />
+    <polygon points="1.53,-19.57 9,-12.5 12,-15.64 3.78,-23.49 0.78,-20.35" stroke="black" fill="none" />
+    <line x1="2.28" y1="-6.23" x2="-2.23" y2="-3.09" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="8.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-12.0 -29.0 30.0 40.0" data-name="cuadro-electrico">
+  <title>cuadro-electrico</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-10.00" y="-10.71" width="6.00" height="2.24" stroke="black" fill="black" />
+    <rect x="4.25" y="0.51" width="6.00" height="2.24" stroke="black" fill="black" />
+    <rect x="4.25" y="-13.70" width="6.00" height="2.24" stroke="black" fill="black" />
+    <rect x="-4.00" y="-24.92" width="8.25" height="29.92" stroke="black" fill="black" />
+    <rect x="4.25" y="-7.00" width="6.00" height="2.24" stroke="black" fill="black" />
+    <rect x="4.25" y="-21.18" width="6.00" height="2.24" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="11.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="11.00" cy="-13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="11.00" cy="-6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="11.00" cy="1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

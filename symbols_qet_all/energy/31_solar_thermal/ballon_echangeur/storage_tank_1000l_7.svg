@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="140.0" viewBox="-51.0 -78.0 90.0 140.0" data-name="Storage tank 1000L">
+  <title>Storage tank 1000L</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-40.60" y="25.42" width="2.80" height="3.00" stroke="black" fill="none" />
+    <line x1="-33.51" y1="26.93" x2="16.00" y2="26.93" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <line x1="33.60" y1="-62.80" x2="33.60" y2="40.00" stroke="black" fill="none" />
+    <line x1="-20.46" y1="17.84" x2="15.58" y2="17.84" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <path d="M 17.15 26.93 A 2.45 2.27 0 0 0 17.15 22.39" stroke="#d40000" fill="none" />
+    <path d="M -21.35 17.84 A 2.45 2.27 0 0 0 -21.35 22.38" stroke="#d40000" fill="none" />
+    <line x1="-20.46" y1="22.39" x2="15.58" y2="22.39" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <path d="M -29.40 39.21 A 31.50 9.16 0 0 0 33.60 39.21" stroke="black" fill="none" />
+    <polyline points="1.05,48.62 1.05,50.14 3.15,50.14 3.15,48.62" stroke="black" fill="none" />
+    <path d="M 33.60 -63.31 A 31.50 9.16 0 0 0 -29.40 -63.31" stroke="black" fill="none" />
+    <ellipse cx="2.10" cy="-48.07" rx="1.05" ry="1.00" stroke="black" fill="none" />
+    <ellipse cx="2.10" cy="-68.40" rx="1.45" ry="1.40" stroke="black" fill="none" />
+    <polygon points="31,43 31,50.65 23.1,50.65 23.1,45.56" stroke="black" fill="none" />
+    <polygon points="-26.78,43 -26.78,50.65 -18.9,50.65 -18.9,45.56" stroke="black" fill="none" />
+    <ellipse cx="2.10" cy="-12.45" rx="1.05" ry="1.00" stroke="black" fill="none" />
+    <line x1="-29.40" y1="-63.06" x2="-29.40" y2="39.71" stroke="black" fill="none" />
+    <rect x="-37.80" y="8.76" width="2.80" height="22.72" stroke="black" fill="none" />
+    <rect x="-40.60" y="12.54" width="2.80" height="3.00" stroke="black" fill="none" />
+    <rect x="-35.00" y="11.00" width="5.60" height="18.17" stroke="black" fill="none" />
+    <line x1="-33.52" y1="13.30" x2="15.32" y2="13.30" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <path d="M 16.80 17.84 A 2.80 2.27 0 0 0 16.80 13.30" stroke="#d40000" fill="none" />
+    <circle class="qet-terminal" cx="2.00" cy="-68.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="2.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="2.00" cy="-48.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="2.00" cy="-12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-41.00" cy="14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-41.00" cy="27.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

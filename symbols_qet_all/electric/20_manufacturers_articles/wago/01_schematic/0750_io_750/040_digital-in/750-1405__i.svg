@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="740.0" height="110.0" viewBox="-370.0 -51.0 740.0 110.0" data-name="750-1405 (I)">
+  <title>750-1405 (I)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="360,-40 -360,-40 -360,50 360,50" stroke="black" fill="none" />
+    <text x="-355.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <line x1="-360.00" y1="10.00" x2="360.00" y2="10.00" stroke="black" fill="none" />
+    <text x="-355.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <ellipse cx="120.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-120.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="280.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-280.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="40.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-40.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <line x1="360.00" y1="-40.00" x2="360.00" y2="50.00" stroke="black" fill="none" stroke-dasharray="4,2,1.5,2" />
+    <line x1="-360.00" y1="-10.00" x2="360.00" y2="-10.00" stroke="black" fill="none" />
+    <text x="-116.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-119.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI3</text>
+    <text x="122.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI6</text>
+    <text x="125.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="-196.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-199.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI2</text>
+    <text x="201.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI7</text>
+    <text x="206.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="-276.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-279.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI1</text>
+    <text x="281.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI8</text>
+    <text x="286.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="-36.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-339.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 750-1405 (I)</text>
+    <text x="-39.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI4</text>
+    <text x="42.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI5</text>
+    <text x="46.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="-130.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">16-Channel DI, DC 24 V, 3ms</text>
+    <polyline points="-362,-10 -356,-10" stroke="black" fill="none" />
+    <path d="M 362.50 -12.50 A 2.50 2.50 0 0 0 362.50 -7.50" stroke="black" fill="none" />
+    <polyline points="-362,10 -356,10" stroke="black" fill="none" />
+    <path d="M 362.50 7.50 A 2.50 2.50 0 0 0 362.50 12.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="-360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="-280.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-120.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="n" />
+    <circle class="qet-terminal" cx="120.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="6" data-orientation="n" />
+    <circle class="qet-terminal" cx="200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="7" data-orientation="n" />
+    <circle class="qet-terminal" cx="280.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="8" data-orientation="n" />
+  </g>
+</svg>

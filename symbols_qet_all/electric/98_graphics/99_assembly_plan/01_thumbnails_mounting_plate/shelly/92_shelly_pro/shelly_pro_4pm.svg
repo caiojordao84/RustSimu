@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="260.0" viewBox="-74.0 -234.0 140.0 260.0" data-name="Shelly Pro 4PM">
+  <title>Shelly Pro 4PM</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-60.00" y="-199.95" width="120.00" height="200.00" stroke="HTMLGrayBlack" fill="HTMLGrayBlack" />
+    <text x="-2.00" y="-160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="17.00" y="-160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O2</text>
+    <text x="19.14" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S3</text>
+    <text x="35.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S2</text>
+    <text x="47.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S1</text>
+    <text x="5.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S4</text>
+    <text x="-48.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LAN</text>
+    <text x="-28.81" y="-160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O3</text>
+    <text x="40.00" y="-160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O1</text>
+    <text x="-52.00" y="-160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O4</text>
+    <text x="-60.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IP:</text>
+    <ellipse cx="23.00" cy="-177.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <ellipse cx="-46.00" cy="-177.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <ellipse cx="46.00" cy="-177.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <ellipse cx="0.00" cy="-177.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <ellipse cx="-8.00" cy="-22.95" rx="5.00" ry="4.75" stroke="white" fill="none" />
+    <ellipse cx="10.00" cy="-22.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <rect x="-60.00" y="-149.95" width="120.00" height="100.00" stroke="green" fill="none" stroke-dasharray="4,3" />
+    <text x="-11.00" y="-30.55" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <rect x="-59.00" y="-149.00" width="118.00" height="98.00" stroke="white" fill="none" />
+    <ellipse cx="52.00" cy="-22.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <ellipse cx="24.00" cy="-22.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <ellipse cx="38.00" cy="-22.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <ellipse cx="-23.00" cy="-177.95" rx="5.00" ry="5.00" stroke="white" fill="none" />
+    <rect x="-35.00" y="-140.00" width="80.00" height="55.00" stroke="black" fill="gray" />
+    <rect x="-55.00" y="-20.00" width="30.00" height="20.00" stroke="HTMLGrayDimGray" fill="HTMLGrayDarkSlateGray" />
+    <circle class="qet-terminal" cx="10.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="SW2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-46.00" cy="-184.00" r="1.8" fill="red" stroke="none" data-name="O1" data-orientation="n" />
+    <circle class="qet-terminal" cx="23.00" cy="-184.00" r="1.8" fill="red" stroke="none" data-name="I2" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-184.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="s" />
+    <circle class="qet-terminal" cx="46.00" cy="-184.00" r="1.8" fill="red" stroke="none" data-name="I1" data-orientation="n" />
+    <circle class="qet-terminal" cx="38.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="s" />
+    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="SW1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-8.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="SW1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-23.00" cy="-184.00" r="1.8" fill="red" stroke="none" data-name="O2" data-orientation="n" />
+    <circle class="qet-terminal" cx="52.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="+12" data-orientation="s" />
+  </g>
+</svg>

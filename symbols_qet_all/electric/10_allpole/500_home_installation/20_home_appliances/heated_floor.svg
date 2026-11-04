@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="190.0" viewBox="-67.0 -91.0 130.0 190.0" data-name="Heated floor">
+  <title>Heated floor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="10.00" y1="-61.69" x2="10.00" y2="-80.00" stroke="black" fill="none" />
+    <rect x="-60.00" y="5.00" width="120.00" height="85.00" stroke="black" fill="none" />
+    <path d="M 20.70 -43.54 A 6.96 4.54 0 0 0 20.71 -52.61" stroke="black" fill="none" />
+    <line x1="-60.00" y1="75.00" x2="60.00" y2="75.00" stroke="black" fill="none" />
+    <path d="M 22.45 -40.52 A 8.70 7.56 0 0 0 22.46 -55.64" stroke="black" fill="none" />
+    <path d="M -17.66 -40.53 A 6.96 4.55 0 0 0 -17.53 -31.43" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-31.45" x2="24.18" y2="-31.45" stroke="black" fill="none" />
+    <line x1="-21.00" y1="-55.64" x2="23.49" y2="-55.64" stroke="black" fill="none" />
+    <text x="-2.00" y="72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
+    <line x1="-60.00" y1="45.00" x2="60.00" y2="45.00" stroke="black" fill="none" />
+    <line x1="-21.00" y1="-52.62" x2="20.71" y2="-52.62" stroke="black" fill="none" />
+    <line x1="-60.00" y1="25.00" x2="60.00" y2="25.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-43.55" x2="20.71" y2="-43.55" stroke="black" fill="none" />
+    <line x1="-19.00" y1="-40.52" x2="23.49" y2="-40.52" stroke="black" fill="none" />
+    <text x="6.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <line x1="-20.00" y1="-28.43" x2="24.18" y2="-28.43" stroke="black" fill="none" />
+    <path d="M -19.46 -43.55 A 8.70 7.56 0 0 0 -19.30 -28.43" stroke="black" fill="none" />
+    <text x="-58.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Plancher chauffant</text>
+    <text x="-2.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <line x1="-14.07" y1="-61.69" x2="-14.07" y2="-22.38" stroke="black" fill="none" />
+    <line x1="0.00" y1="-62.09" x2="0.00" y2="-22.00" stroke="black" fill="none" />
+    <line x1="13.75" y1="-62.09" x2="13.75" y2="-22.00" stroke="black" fill="none" />
+    <line x1="-21.00" y1="-52.62" x2="-21.00" y2="-55.64" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-61.69" x2="-10.00" y2="-80.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="-80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

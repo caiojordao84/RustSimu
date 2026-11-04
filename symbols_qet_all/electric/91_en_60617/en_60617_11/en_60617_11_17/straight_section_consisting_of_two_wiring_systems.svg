@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="30.0" viewBox="-50.0 -2.0 110.0 30.0" data-name="Straight section consisting of two wiring systems">
+  <title>Straight section consisting of two wiring systems</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="50.00" y1="10.00" x2="-40.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="20.00" x2="-40.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="5.00" x2="-40.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="15.00" x2="-40.00" y2="25.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="5.00" x2="50.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="15.00" x2="50.00" y2="25.00" stroke="black" fill="none" />
+    <text x="-36.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="-36.00" y="18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <circle class="qet-terminal" cx="-40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="50.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="50.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

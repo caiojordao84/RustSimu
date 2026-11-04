@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-25.0 -32.0 60.0 50.0" data-name="expans-electronica">
+  <title>expans-electronica</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 10.00 -26.00 A 2.00 2.00 0 0 0 8.00 -28.00" stroke="black" fill="none" />
+    <rect x="17.00" y="-11.00" width="6.00" height="8.00" stroke="black" fill="none" />
+    <polyline points="17,-10 5,-10 5,-12 -3,-12 -3,5 4,5 4,0 6,0 6,-4 17,-4" stroke="black" fill="none" />
+    <rect x="-4.00" y="5.00" width="9.00" height="5.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="-4.00" x2="1.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="-9.00" y="-26.00" width="19.00" height="14.00" stroke="black" fill="#0055d4" />
+    <path d="M -7.00 -28.00 A 2.00 2.00 0 0 0 -9.00 -26.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-28.00" x2="8.00" y2="-28.00" stroke="black" fill="none" />
+    <rect x="-2.00" y="-30.00" width="4.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-12.00" y="-15.00" width="3.00" height="2.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="23.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-14.00" cy="-14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

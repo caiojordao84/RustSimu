@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="70.0" viewBox="-68.0 -28.0 140.0 70.0" data-name="Horizontal tank">
+  <title>Horizontal tank</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="9.00" y="-20.00" width="2.00" height="3.00" stroke="black" fill="none" />
+    <rect x="-41.00" y="-20.00" width="2.00" height="3.00" stroke="black" fill="none" />
+    <path d="M -55.15 -16.50 A 8.25 26.25 0 0 0 -55.15 36.00" stroke="black" fill="none" />
+    <rect x="-55.15" y="-16.50" width="115.50" height="52.50" stroke="black" fill="none" />
+    <ellipse cx="-59.95" cy="29.25" rx="1.15" ry="1.25" stroke="black" fill="none" />
+    <path d="M 60.35 36.00 A 8.25 26.25 0 0 0 60.35 -16.50" stroke="black" fill="none" />
+    <line x1="-40.30" y1="-18.25" x2="-40.30" y2="30.75" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="-58.95" cy="-10.75" rx="1.15" ry="1.25" stroke="black" fill="none" />
+    <rect x="49.00" y="-20.00" width="2.00" height="3.00" stroke="black" fill="none" />
+    <polyline points="-50,36 -50,40 -45,40 -40,36" stroke="black" fill="none" />
+    <polyline points="50,36 50,40 45,40 40,36" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="50.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-60.00" cy="-11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-60.00" cy="29.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-40.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

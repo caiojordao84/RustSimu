@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-14.0 -20.0 30.0 40.0" data-name="Propeller flowmeter">
+  <title>Propeller flowmeter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="11.00" y1="5.00" x2="11.00" y2="15.00" stroke="black" fill="none" />
+    <path d="M 11.00 4.50 A 2.50 4.50 0 0 0 8.50 0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="8.60" ry="8.60" stroke="black" fill="none" />
+    <rect x="-3.00" y="-1.00" width="6.00" height="2.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-2.50" rx="1.00" ry="4.50" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="3.50" rx="1.00" ry="4.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

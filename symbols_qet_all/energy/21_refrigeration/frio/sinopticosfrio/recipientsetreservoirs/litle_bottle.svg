@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-20.0 -15.0 40.0 30.0" data-name="Litle bottle">
+  <title>Litle bottle</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-7.00" y1="7.00" x2="7.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-7.00" x2="7.00" y2="-7.00" stroke="black" fill="none" />
+    <path d="M 7.50 7.00 A 2.50 7.00 0 0 0 7.50 -7.00" stroke="black" fill="none" />
+    <path d="M -7.50 -7.00 A 2.50 7.00 0 0 0 -7.50 7.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-4.00" cy="7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="4.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="4.00" cy="7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="9.00" cy="-4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="9.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-4.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

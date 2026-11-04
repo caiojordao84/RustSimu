@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-22.0 -25.0 40.0 30.0" data-name="Spot light">
+  <title>Spot light</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -10.00 -20.00 A 10.00 10.00 0 0 0 -10.00 0.00" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="-10.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="-13.00" y1="-13.00" x2="-7.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-13.00" x2="-13.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-15.00" x2="10.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-5.00" x2="10.00" y2="-5.00" stroke="black" fill="none" />
+    <polygon points="10,-13 10,-17 16,-15" stroke="black" fill="black" />
+    <polygon points="10,-3 10,-7 16,-5" stroke="black" fill="black" />
+  </g>
+</svg>

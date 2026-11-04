@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-24.0 -21.0 50.0 30.0" data-name="valv-pres-cte">
+  <title>valv-pres-cte</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-13.90" y1="0.27" x2="-8.17" y2="0.27" stroke="black" fill="none" />
+    <line x1="8.37" y1="0.27" x2="16.71" y2="0.27" stroke="black" fill="none" />
+    <polygon points="-7.77,-5.53 -7.77,6 7.25,-5.53 7.25,6" stroke="black" fill="none" />
+    <line x1="-0.29" y1="-0.15" x2="-0.29" y2="-8.00" stroke="black" fill="none" />
+    <ellipse cx="-0.26" cy="-13.14" rx="5.20" ry="4.61" stroke="black" fill="none" />
+    <text x="-3.81" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PC</text>
+    <polyline points="-2.71,2 -0.51,5 1.69,3" stroke="black" fill="none" />
+    <polyline points="4.55,-13.06 8.51,-13.06 8.51,-8.75 0.59,-1" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="18.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-15.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

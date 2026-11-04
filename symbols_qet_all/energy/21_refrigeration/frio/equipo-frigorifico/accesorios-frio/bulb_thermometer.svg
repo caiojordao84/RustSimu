@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-13.0 -19.0 60.0 50.0" data-name="Bulb thermometer">
+  <title>Bulb thermometer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="8.00" y1="20.00" x2="8.00" y2="18.00" stroke="#d40000" fill="none" />
+    <ellipse cx="0.00" cy="-3.00" rx="11.00" ry="11.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-3.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-7.00" x2="1.00" y2="-1.00" stroke="black" fill="none" />
+    <ellipse cx="-7.50" cy="0.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-8.50" cy="-3.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-6.50" cy="-8.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="4.50" cy="-9.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-1.50" cy="-10.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <rect x="-3.00" y="8.00" width="6.00" height="3.00" stroke="black" fill="none" />
+    <path d="M 0.00 20.50 A 4.00 5.50 0 0 0 8.00 20.50" stroke="#d40000" fill="none" />
+    <line x1="0.00" y1="20.00" x2="0.00" y2="11.00" stroke="#d40000" fill="none" />
+    <ellipse cx="11.50" cy="17.50" rx="3.50" ry="3.50" stroke="#d40000" fill="none" />
+    <line x1="-7.00" y1="-7.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-3.00" x2="1.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="26,18 23,21 26,23 36,23 39,20 36,18" stroke="black" fill="none" />
+    <line x1="12.00" y1="21.00" x2="23.00" y2="21.00" stroke="#d40000" fill="none" />
+    <text x="-3.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">°C</text>
+    <circle class="qet-terminal" cx="40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

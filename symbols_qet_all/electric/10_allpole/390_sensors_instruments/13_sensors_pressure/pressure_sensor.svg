@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="70.0" viewBox="-37.0 -39.0 110.0 70.0" data-name="Pressure sensor">
+  <title>Pressure sensor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-35.00" y="-25.00" width="105.00" height="50.00" stroke="black" fill="none" />
+    <ellipse cx="-1.00" cy="0.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-28.00" x2="30.00" y2="-26.00" stroke="black" fill="none" />
+    <text x="-4.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S+</text>
+    <line x1="60.00" y1="-28.00" x2="60.00" y2="-26.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-2.00" x2="-1.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="0.00" x2="1.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="1.00" x2="0.00" y2="1.00" stroke="black" fill="none" />
+    <polygon points="25,12 35,12 39,10 39,12 35,14 25,14 21,12 21,10" stroke="black" fill="none" />
+    <ellipse cx="-24.00" cy="0.00" rx="7.50" ry="7.50" stroke="black" fill="none" />
+    <line x1="-27.00" y1="3.00" x2="-20.00" y2="-4.00" stroke="black" fill="none" />
+    <polygon points="25,-14 35,-14 39,-12 39,-10 35,-12 25,-12 21,-10 21,-12" stroke="black" fill="none" />
+    <polygon points="14,-7 14,7 16,7 16,-7" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-1.50" y1="2.00" x2="-0.50" y2="2.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-24.00" x2="-10.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-28.00" x2="0.00" y2="-26.00" stroke="black" fill="none" />
+    <text x="57.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
+    <circle class="qet-terminal" cx="0.00" cy="-28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="-28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="60.00" cy="-28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

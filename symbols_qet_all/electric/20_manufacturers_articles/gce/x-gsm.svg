@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="210.0" viewBox="-68.0 -98.0 150.0 210.0" data-name="X-GSM">
+  <title>X-GSM</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="57.00" cy="-77.00" rx="5.00" ry="5.00" stroke="black" fill="orange" />
+    <rect x="-19.00" y="60.00" width="20.00" height="30.00" stroke="black" fill="none" />
+    <rect x="-49.00" y="60.00" width="20.00" height="30.00" stroke="black" fill="none" />
+    <line x1="-17.00" y1="72.00" x2="-17.00" y2="82.00" stroke="black" fill="none" />
+    <ellipse cx="57.00" cy="-77.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
+    <line x1="-47.00" y1="72.00" x2="-47.00" y2="82.00" stroke="black" fill="none" />
+    <line x1="-1.70" y1="72.00" x2="-16.43" y2="72.00" stroke="black" fill="none" />
+    <text x="44.00" y="-60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ANT</text>
+    <line x1="-31.70" y1="72.00" x2="-46.43" y2="72.00" stroke="black" fill="none" />
+    <line x1="-31.00" y1="72.00" x2="-31.00" y2="82.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="72.00" x2="-1.00" y2="82.00" stroke="black" fill="none" />
+    <line x1="-44.00" y1="82.00" x2="-46.00" y2="82.00" stroke="black" fill="none" />
+    <text x="28.00" y="68.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12Vcc</text>
+    <line x1="-14.00" y1="82.00" x2="-16.00" y2="82.00" stroke="black" fill="none" />
+    <line x1="-34.00" y1="82.00" x2="-31.00" y2="82.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="82.00" x2="-1.00" y2="82.00" stroke="black" fill="none" />
+    <line x1="-43.00" y1="85.00" x2="-43.00" y2="82.00" stroke="black" fill="none" />
+    <line x1="-13.00" y1="85.00" x2="-13.00" y2="82.00" stroke="black" fill="none" />
+    <line x1="-35.00" y1="85.00" x2="-35.00" y2="82.00" stroke="black" fill="none" />
+    <text x="4.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
+    <line x1="-5.00" y1="85.00" x2="-5.00" y2="82.00" stroke="black" fill="none" />
+    <rect x="20.00" y="80.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <line x1="-35.00" y1="85.00" x2="-43.00" y2="85.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="85.00" x2="-13.00" y2="85.00" stroke="black" fill="none" />
+    <text x="-47.00" y="80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EXT</text>
+    <text x="-18.00" y="69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RJ45</text>
+    <rect x="40.00" y="80.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <text x="48.00" y="89.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="-48.00" y="69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RJ12</text>
+    <text x="-17.00" y="80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LAN</text>
+    <text x="25.00" y="89.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <rect x="20.00" y="60.00" width="40.00" height="20.00" stroke="black" fill="none" />
+    <text x="31.00" y="76.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Alim</text>
+    <rect x="-61.00" y="-25.00" width="136.00" height="70.00" stroke="black" fill="none" />
+    <rect x="-66.00" y="-90.00" width="146.00" height="180.00" stroke="black" fill="none" />
+    <rect x="-56.00" y="-20.00" width="5.00" height="60.00" stroke="none" fill="#00aa00" />
+    <rect x="2.00" y="36.00" width="65.00" height="4.00" stroke="none" fill="#00aa00" />
+    <rect x="40.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="20.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-47.00" y="-10.00" width="65.00" height="10.00" stroke="black" fill="black" />
+    <text x="-46.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X Devices</text>
+    <polygon points="-50,-77 -40,-87 -20,-87 -20,-47 -50,-47" stroke="none" fill="#dcdcdc" />
+    <text x="-42.00" y="-57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SIM</text>
+    <circle class="qet-terminal" cx="30.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="50.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="57.00" cy="-87.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-9.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-39.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

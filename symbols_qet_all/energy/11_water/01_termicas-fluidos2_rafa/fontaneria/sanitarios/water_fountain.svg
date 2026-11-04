@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="70.0" viewBox="-18.0 -42.0 40.0 70.0" data-name="Water fountain">
+  <title>Water fountain</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-8.60" y="-21.34" width="17.00" height="36.67" stroke="black" fill="none" />
+    <polyline points="-8.6,-21.34 0.75,-30.51 17.75,-30.51 17.75,5.25 8.4,15.33" stroke="black" fill="none" />
+    <line x1="8.40" y1="-21.34" x2="17.75" y2="-30.51" stroke="black" fill="none" />
+    <polygon points="10.95,-28.68 4.15,-28.68 0.75,-27.76 -3.5,-24.09 -1.8,-23.17 6.7,-23.17 9.25,-24.09 12.65,-27.76" stroke="black" fill="none" />
+    <polyline points="-4.35,-25.92 -4.35,-29.59 -2.65,-29.59 -1.8,-29.59 -1.8,-28.68 -0.95,-28.68 -0.1,-32.34 1.6,-36 3.3,-36 4.15,-35.09 4.15,-34.18 3.3,-34.18 3.3,-35.09 1.6,-35.09 0.75,-32.34 -0.1,-28.68 -1.8,-28.68 -1.8,-25.92 -3.5,-25.92" stroke="black" fill="none" />
+    <rect x="-4.35" y="-29.59" width="2.55" height="3.67" stroke="black" fill="black" />
+    <polyline points="-1.8,-25.92 -0.95,-26.84 -0.95,-30.51 -3.5,-30.51 -4.35,-29.59" stroke="black" fill="none" />
+    <ellipse cx="-1.80" cy="13.50" rx="0.85" ry="0.92" stroke="black" fill="none" />
+    <ellipse cx="-6.90" cy="2.04" rx="0.85" ry="1.38" stroke="black" fill="none" />
+    <ellipse cx="4.15" cy="-25.46" rx="1.70" ry="0.46" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-2.00" cy="17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

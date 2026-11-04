@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="210.0" viewBox="-14.0 -203.0 100.0 210.0" data-name="SCN-USBR.02">
+  <title>SCN-USBR.02</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="-200.00" width="80.00" height="200.00" stroke="black" fill="white" />
+    <text x="60.00" y="-57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CE</text>
+    <text x="55.00" y="-103.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
+    <text x="52.00" y="-91.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MDT</text>
+    <text x="53.00" y="-88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">www.MDT.de</text>
+    <rect x="0.00" y="-50.00" width="80.00" height="20.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-170.00" width="80.00" height="20.00" stroke="black" fill="none" />
+    <rect x="18.00" y="-132.00" width="45.00" height="15.00" stroke="HTMLBlueDarkBlue" fill="yellow" />
+    <text x="19.00" y="-142.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCN-USBR.02</text>
+    <text x="19.00" y="-135.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">USB Interface</text>
+    <path d="M 67.00 -108.59 A 5.50 2.50 0 0 0 56.00 -108.50" stroke="HTMLBlueDarkBlue" fill="none" />
+    <rect x="7.00" y="-16.00" width="10.00" height="15.00" stroke="black" fill="black" />
+    <rect x="17.00" y="-16.00" width="10.00" height="15.00" stroke="#d40000" fill="#d40000" />
+    <rect x="25.00" y="-14.00" width="3.00" height="6.00" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="20.00" cy="-100.00" rx="2.00" ry="2.00" stroke="orange" fill="orange" />
+    <ellipse cx="20.00" cy="-109.00" rx="2.00" ry="2.00" stroke="orange" fill="orange" />
+    <text x="8.00" y="-98.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
+    <text x="8.00" y="-107.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">USB</text>
+    <rect x="7.00" y="-91.00" width="27.00" height="26.00" stroke="lightgray" fill="#dcdcdc" />
+    <rect x="11.60" y="-86.55" width="18.00" height="17.25" stroke="none" fill="black" />
+    <rect x="17.60" y="-81.95" width="6.00" height="8.05" stroke="black" fill="gray" />
+    <line x1="16.40" y1="-76.20" x2="17.60" y2="-76.20" stroke="yellow" fill="none" />
+    <line x1="16.40" y1="-79.65" x2="17.60" y2="-79.65" stroke="yellow" fill="none" />
+    <line x1="23.60" y1="-76.20" x2="24.80" y2="-76.20" stroke="yellow" fill="none" />
+    <line x1="23.60" y1="-79.65" x2="24.80" y2="-79.65" stroke="yellow" fill="none" />
+    <ellipse cx="29.60" cy="-86.55" rx="3.60" ry="3.45" stroke="lightgray" fill="#dcdcdc" />
+    <ellipse cx="29.60" cy="-69.30" rx="3.60" ry="3.45" stroke="lightgray" fill="#dcdcdc" />
+    <circle class="qet-terminal" cx="22.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="KNX_NL +" data-orientation="s" />
+    <circle class="qet-terminal" cx="12.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="KNX_NL -" data-orientation="s" />
+  </g>
+</svg>

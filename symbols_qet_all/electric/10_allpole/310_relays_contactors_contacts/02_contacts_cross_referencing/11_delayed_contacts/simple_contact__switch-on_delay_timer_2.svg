@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-20.0 -30.0 30.0 60.0" data-name="Simple contact (switch-on delay timer)">
+  <title>Simple contact (switch-on delay timer)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-5,-10 0,10 0,20" stroke="black" fill="none" />
+    <line x1="-14.80" y1="1.50" x2="-3.00" y2="1.50" stroke="black" fill="none" />
+    <line x1="-14.80" y1="-1.50" x2="-3.00" y2="-1.50" stroke="black" fill="none" />
+    <path d="M -10.00 -5.00 A 5.00 5.00 0 0 0 -10.00 5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

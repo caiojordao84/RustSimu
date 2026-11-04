@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="80.0" viewBox="-71.0 -43.0 160.0 80.0" data-name="Single Coil Pickup">
+  <title>Single Coil Pickup</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="30.97" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="-10.34" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="51.63" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <line x1="-51.00" y1="-14.00" x2="44.00" y2="-14.00" stroke="black" fill="none" />
+    <ellipse cx="10.32" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <line x1="-51.00" y1="16.00" x2="44.00" y2="16.00" stroke="black" fill="none" />
+    <ellipse cx="-31.00" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="-51.00" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <path d="M 61.00 1.00 A 16.00 15.00 0 0 0 45.00 -14.00" stroke="black" fill="none" />
+    <path d="M 45.00 16.00 A 16.00 15.50 0 0 0 61.00 0.50" stroke="black" fill="none" />
+    <path d="M -51.60 -14.00 A 16.33 15.00 0 0 0 -67.93 1.00" stroke="black" fill="none" />
+    <path d="M -67.93 1.00 A 16.33 15.00 0 0 0 -51.60 16.00" stroke="black" fill="none" />
+    <line x1="65.00" y1="-5.00" x2="80.00" y2="-10.00" stroke="#d40000" fill="none" />
+    <line x1="65.00" y1="10.00" x2="80.00" y2="15.00" stroke="green" fill="none" />
+    <text x="68.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="70.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="-11.00" y="-34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2 Wire</text>
+    <circle class="qet-terminal" cx="80.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="80.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

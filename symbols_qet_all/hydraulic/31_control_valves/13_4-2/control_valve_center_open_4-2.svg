@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="60.0" viewBox="-32.0 -30.0 70.0 60.0" data-name="Control valve center open 4-2">
+  <title>Control valve center open 4-2</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-15,-5.45 -15,4.55 -30,4.55 -30,-5.45" stroke="black" fill="none" />
+    <ellipse cx="20.02" cy="-0.13" rx="0.80" ry="0.80" stroke="black" fill="black" />
+    <line x1="10.00" y1="-0.13" x2="20.00" y2="-0.13" stroke="black" fill="none" />
+    <ellipse cx="10.02" cy="-0.13" rx="0.80" ry="0.80" stroke="black" fill="black" />
+    <polygon points="-15,-10.13 25,-10.13 25,9.87 -15,9.87 -15,-10.13 -15,-10.63" stroke="black" fill="none" />
+    <polygon points="-9.92,-10.45 -7.42,-5.45 -12.42,-5.45" stroke="black" fill="black" />
+    <line x1="-10.00" y1="-10.13" x2="-10.00" y2="9.87" stroke="black" fill="none" />
+    <text x="4.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">p</text>
+    <text x="22.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">t</text>
+    <text x="20.74" y="-11.52" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">b</text>
+    <text x="3.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">a</text>
+    <line x1="20.00" y1="-19.13" x2="20.00" y2="18.87" stroke="black" fill="none" />
+    <polygon points="0.08,10 2.58,5 -2.42,5" stroke="black" fill="black" />
+    <line x1="31.70" y1="-5.93" x2="35.60" y2="4.72" stroke="black" fill="none" />
+    <line x1="29.27" y1="4.51" x2="31.60" y2="-5.93" stroke="black" fill="none" />
+    <line x1="25.12" y1="-5.45" x2="29.12" y2="4.55" stroke="black" fill="none" />
+    <line x1="-27.00" y1="-4.95" x2="-18.00" y2="4.05" stroke="black" fill="none" />
+    <line x1="10.00" y1="18.87" x2="10.00" y2="-19.13" stroke="black" fill="none" />
+    <line x1="5.00" y1="-10.13" x2="5.00" y2="9.87" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.13" x2="0.00" y2="9.87" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="-19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

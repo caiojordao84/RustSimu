@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-30.0 -19.0 40.0 30.0" data-name="Copper pipe">
+  <title>Copper pipe</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="2.00" y1="-4.00" x2="2.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="-21.00" y1="-5.00" x2="2.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-21.00" y1="5.00" x2="2.00" y2="5.00" stroke="black" fill="none" />
+    <text x="-18.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Cu</text>
+    <ellipse cx="-21.00" cy="2.50" rx="1.50" ry="2.50" stroke="#888888" fill="gray" />
+    <path d="M -21.00 -5.00 A 1.50 2.50 0 0 0 -21.00 0.00" stroke="black" fill="none" />
+    <path d="M -21.00 5.00 A 1.50 2.50 0 0 0 -21.00 0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="2.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

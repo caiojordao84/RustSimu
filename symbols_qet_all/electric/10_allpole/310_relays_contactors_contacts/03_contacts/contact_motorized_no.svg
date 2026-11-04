@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-29.0 -41.0 40.0 60.0" data-name="Contact Motorized NO">
+  <title>Contact Motorized NO</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-18.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <ellipse cx="-15.00" cy="-10.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-10.00" x2="-3.00" y2="-10.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="-5,-20 0,0 0,10" stroke="black" fill="none" />
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-20.0 -12.0 50.0 30.0" data-name="Sanitary pump and valve">
+  <title>Sanitary pump and valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-10.00" y1="0.00" x2="-7.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="13.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="8,0 13,-3 13,3" stroke="black" fill="none" />
+    <line x1="8.00" y1="-5.00" x2="8.00" y2="6.00" stroke="black" fill="none" />
+    <polygon points="4,0 -2,-4 -2,4" stroke="black" fill="none" />
+    <line x1="-8.00" y1="10.00" x2="6.00" y2="10.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="7.00" ry="7.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

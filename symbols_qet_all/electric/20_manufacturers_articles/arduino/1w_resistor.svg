@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="70.0" viewBox="-24.0 -39.0 40.0 70.0" data-name="1W resistor">
+  <title>1W resistor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-7.00" y="-13.00" width="14.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-7.00" y="-6.00" width="14.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-7.00" y="-21.00" width="14.00" height="2.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="4.00" x2="6.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-5.00" x2="2.00" y2="-5.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-5.00" y1="-20.00" x2="2.00" y2="-20.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-5.00" y1="-12.00" x2="2.00" y2="-12.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <path d="M -7.00 7.50 A 7.00 2.00 0 0 0 7.00 7.50" stroke="black" fill="none" />
+    <path d="M 7.00 -27.50 A 7.00 2.00 0 0 0 -7.00 -27.50" stroke="black" fill="none" />
+    <polyline points="-7,4 -8,4 -8,7 8,7 8,4 7,4" stroke="black" fill="none" />
+    <polyline points="7,-24 8,-24 8,-27 -8,-27 -8,-24 -7,-24" stroke="black" fill="none" />
+    <rect x="-7.00" y="-17.00" width="14.00" height="2.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-16.00" x2="2.00" y2="-16.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <path d="M 10.94 24.03 A 3.80 3.95 0 1 0 6.06 24.03" stroke="black" fill="none" />
+    <polyline points="6,24 7,25 7,26 5,26" stroke="black" fill="none" />
+    <polyline points="11,24 10,25 10,26 12,26" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-24.00" x2="-7.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-24.00" x2="7.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-24.00" x2="6.00" y2="-24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

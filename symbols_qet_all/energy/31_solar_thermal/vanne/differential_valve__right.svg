@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -21.0 40.0 40.0" data-name="Differential valve "right"">
+  <title>Differential valve "right"</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0,0 10,-6 10,6" stroke="black" fill="none" />
+    <polygon points="0,0 -6,10 6,10" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-16.00" x2="-11.00" y2="-18.00" stroke="black" fill="none" />
+    <line x1="9.00" y1="-16.00" x2="12.00" y2="-18.00" stroke="black" fill="none" />
+    <path d="M -8.86 -15.74 A 9.00 1.50 0 0 0 8.86 -15.74" stroke="black" fill="none" />
+    <line x1="11.00" y1="-14.00" x2="15.00" y2="-14.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-14.00" x2="-11.00" y2="-14.00" stroke="black" fill="none" />
+    <line x1="-13.00" y1="-16.00" x2="-13.00" y2="-12.00" stroke="black" fill="none" />
+    <polyline points="0,0 0,-4 -3,-6 3,-8 -3,-9 3,-11 -3,-12 3,-14 0,-15 0,-17" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

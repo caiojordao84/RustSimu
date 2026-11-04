@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-13.0 -15.0 30.0 50.0" data-name="Elbow no. 90 FF">
+  <title>Elbow no. 90 FF</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -8.00 21.00 A 1.00 1.00 0 0 0 -8.00 23.00" stroke="black" fill="none" />
+    <path d="M 8.00 23.00 A 1.00 1.00 0 0 0 8.00 21.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="21.00" x2="7.00" y2="21.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="6.00" x2="-7.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="6.00" x2="7.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="23.00" x2="7.00" y2="23.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="7.00" ry="7.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="9.00" ry="9.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="23.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="8.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

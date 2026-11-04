@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110" height="80" viewBox="-42 -10 110 80" data-generator="cade2svg">
+  <title>Botão Pulsador Duplo NA+NF (NO-NC) (Ativo)</title>
+  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0" y1="0" x2="0" y2="15" />
+    <line x1="0" y1="45" x2="0" y2="60" />
+    <line x1="45" y1="0" x2="45" y2="15" />
+    <line x1="45" y1="45" x2="45" y2="60" />
+    <line x1="22" y1="18" x2="0" y2="45" />
+    <line x1="0" y1="18" x2="18" y2="18" />
+    <line x1="0" y1="15" x2="0" y2="18" />
+    <line x1="40" y1="15" x2="45" y2="45" />
+    <line x1="40" y1="15" x2="45" y2="15" />
+    <line x1="-20" y1="30" x2="-10" y2="30" />
+    <line x1="-5" y1="30" x2="5" y2="30" />
+    <line x1="10" y1="30" x2="20" y2="30" />
+    <line x1="25" y1="30" x2="35" y2="30" />
+    <line x1="40" y1="30" x2="48" y2="30" />
+    <line x1="-20" y1="23" x2="-20" y2="37" />
+    <line x1="-20" y1="23" x2="-13" y2="23" />
+    <line x1="-20" y1="37" x2="-13" y2="37" />
+    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="11" />
+    <circle class="qet-terminal" cx="45" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="13" />
+    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="12" />
+    <circle class="qet-terminal" cx="45" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="14" />
+  </g>
+</svg>

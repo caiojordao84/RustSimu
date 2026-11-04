@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-29.0 -38.0 60.0 60.0" data-name="Three-phase engine">
+  <title>Three-phase engine</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <path d="M 9.50 14.36 A 16.00 16.00 0 0 0 16.54 -4.97" stroke="black" fill="none" />
+    <text x="21.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">W1</text>
+    <text x="2.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V1</text>
+    <text x="-6.00" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <polyline points="-20,-30 -20,-20 -11,-11" stroke="black" fill="none" />
+    <polyline points="20,-30 20,-20 11,-11" stroke="black" fill="none" />
+    <text x="-19.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U1</text>
+    <line x1="17.00" y1="13.00" x2="25.00" y2="13.00" stroke="black" fill="none" />
+    <line x1="18.00" y1="15.00" x2="24.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="19.61" y1="17.00" x2="22.42" y2="17.00" stroke="black" fill="none" />
+    <polyline points="18,4 21,6 21,13" stroke="black" fill="none" />
+    <text x="-8.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <path d="M 4.00 6.00 A 2.00 2.00 0 0 0 8.00 6.00" stroke="black" fill="none" />
+    <path d="M 4.00 6.00 A 2.00 2.00 0 0 0 0.00 6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="W1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="U1" data-orientation="n" />
+    <circle class="qet-terminal" cx="21.00" cy="6.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="V1" data-orientation="n" />
+  </g>
+</svg>

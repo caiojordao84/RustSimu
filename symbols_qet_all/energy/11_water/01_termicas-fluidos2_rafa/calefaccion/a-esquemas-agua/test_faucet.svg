@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-8.0 -12.0 20.0 30.0" data-name="Test faucet">
+  <title>Test faucet</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-6.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="-4.00" stroke="black" fill="none" />
+    <path d="M 8.00 -5.00 A 4.00 4.00 0 0 0 0.00 -5.00" stroke="black" fill="none" />
+    <line x1="-3.13" y1="0.00" x2="3.14" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

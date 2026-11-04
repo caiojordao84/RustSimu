@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="60.0" viewBox="-40.0 -30.0 80.0 60.0" data-name="switchfuses">
+  <title>switchfuses</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-35,-10 -30,10 -30,20" stroke="black" fill="none" />
+    <polyline points="5,-10 10,10 10,20" stroke="black" fill="none" />
+    <polyline points="-15,-10 -10,10 -10,20" stroke="black" fill="none" />
+    <polyline points="25,-10 30,10 30,20" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-20.00" x2="-30.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-28.00" y1="-10.00" x2="-32.00" y2="-10.00" stroke="black" fill="none" />
+    <polygon points="24.31,-4.51 26.81,5.49 30.69,4.51 28.19,-5.49" stroke="black" fill="none" />
+    <polygon points="4.31,-4.51 6.81,5.49 10.69,4.51 8.19,-5.49" stroke="black" fill="none" />
+    <line x1="28.00" y1="-10.00" x2="32.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-10.00" x2="12.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-20.00" x2="30.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-20.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
+    <polygon points="-15.69,-4.51 -13.19,5.49 -9.31,4.51 -11.81,-5.49" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-20.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-10.00" x2="-12.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-32.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-11.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="10.00" y1="0.00" x2="25.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="80.0" viewBox="-45.0 -40.0 90.0 80.0" data-name="Miniserver Gen.2 relay output max.10A">
+  <title>Miniserver Gen.2 relay output max.10A</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-30.00" rx="2.50" ry="2.50" stroke="#d40000" fill="none" />
+    <ellipse cx="0.00" cy="30.00" rx="2.50" ry="2.50" stroke="#d40000" fill="none" />
+    <polyline points="-40,-30 -40,-30 -3,-30" stroke="black" fill="none" />
+    <polyline points="3,-30 3,-30 40,-30" stroke="black" fill="none" />
+    <polyline points="-40,-30 -40,30 -3,30" stroke="black" fill="none" />
+    <polyline points="3,30 40,30 40,-30" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-13.00" x2="-5.00" y2="-13.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-13.00" x2="5.00" y2="-18.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-13.00" x2="15.00" y2="-13.00" stroke="black" fill="none" />
+    <text x="-23.60" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Loxone Gen.2</text>
+    <text x="-22.70" y="7.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Digital Output</text>
+    <circle class="qet-terminal" cx="0.00" cy="-31.00" r="1.8" fill="red" stroke="none" data-name="Q1.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="31.00" r="1.8" fill="red" stroke="none" data-name="Q1.2" data-orientation="s" />
+  </g>
+</svg>

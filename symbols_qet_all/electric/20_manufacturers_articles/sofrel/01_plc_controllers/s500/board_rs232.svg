@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760.0" height="180.0" viewBox="-5.0 -19.0 760.0 180.0" data-name="Board RS232">
+  <title>Board RS232</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="290.00" y1="150.00" x2="290.00" y2="131.00" stroke="black" fill="none" />
+    <text x="495.00" y="145.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DTR</text>
+    <line x1="450.00" y1="150.00" x2="450.00" y2="131.00" stroke="black" fill="none" />
+    <line x1="490.00" y1="150.00" x2="490.00" y2="131.00" stroke="black" fill="none" />
+    <line x1="570.00" y1="149.50" x2="570.00" y2="130.50" stroke="black" fill="none" />
+    <line x1="530.00" y1="150.00" x2="530.00" y2="131.00" stroke="black" fill="none" />
+    <text x="302.00" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="415.00" y="145.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CTS</text>
+    <text x="260.00" y="145.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RX</text>
+    <text x="536.00" y="145.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DSR</text>
+    <text x="340.00" y="145.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V+</text>
+    <text x="460.00" y="145.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CD</text>
+    <line x1="330.00" y1="150.00" x2="330.00" y2="131.00" stroke="black" fill="none" />
+    <rect x="0.00" y="0.00" width="750.00" height="150.00" stroke="black" fill="none" />
+    <text x="380.00" y="145.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTS</text>
+    <text x="220.00" y="145.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TX</text>
+    <text x="625.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EMPLACEMENT</text>
+    <line x1="210.00" y1="150.00" x2="210.00" y2="131.00" stroke="black" fill="none" />
+    <line x1="410.00" y1="150.00" x2="410.00" y2="131.00" stroke="black" fill="none" />
+    <line x1="370.00" y1="150.00" x2="370.00" y2="131.00" stroke="black" fill="none" />
+    <line x1="250.00" y1="150.00" x2="250.00" y2="131.00" stroke="black" fill="none" />
+    <text x="268.00" y="84.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARTE RS 232</text>
+    <line x1="617.00" y1="20.00" x2="617.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="730.00" y1="0.00" x2="730.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="131.00" x2="750.00" y2="131.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="20.00" x2="750.00" y2="20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="230.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="310.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="350.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="430.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="390.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="270.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="470.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="550.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="510.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="90.0" viewBox="-56.0 -66.0 100.0 90.0" data-name="SEW SR current relay">
+  <title>SEW SR current relay</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="32.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BL</text>
+    <text x="32.00" y="-53.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RD</text>
+    <text x="-46.00" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WH</text>
+    <rect x="-30.00" y="-60.00" width="60.00" height="60.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="-36.00" x2="27.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="-24.00" x2="27.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="27.00" y1="-24.00" x2="21.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="-24.00" x2="21.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="21.00" y1="-50.00" x2="21.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="21.00" y1="-50.00" x2="34.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="21.00" y1="-10.00" x2="34.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="21.00" y1="-10.00" x2="7.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="21.00" y1="-50.00" x2="7.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-50.00" x2="7.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-10.00" x2="7.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-20.00" x2="-1.00" y2="-40.00" stroke="black" fill="none" />
+    <path d="M -20.00 -36.00 A 6.00 6.00 0 0 0 -20.00 -24.00" stroke="black" fill="none" />
+    <ellipse cx="-20.00" cy="-30.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
+    <line x1="-20.00" y1="-36.00" x2="-20.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-50.00" x2="-34.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-24.00" x2="-20.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-10.00" x2="-34.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-31.00" x2="2.00" y2="-31.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-29.00" x2="3.00" y2="-29.00" stroke="black" fill="none" />
+    <polygon points="-13,-33 -13,-26 -7,-30 -13,-34" stroke="black" fill="black" />
+    <text x="-46.00" y="-50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WH</text>
+    <text x="-28.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SEW SR relay</text>
+    <circle class="qet-terminal" cx="35.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="35.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-35.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-35.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

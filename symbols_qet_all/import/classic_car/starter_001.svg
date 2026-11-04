@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="120.0" viewBox="-45.0 -59.0 90.0 120.0" data-qet-native="true">
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-25,33 -25,37 -15,37 -15,33" stroke="black" fill="black" />
+    <circle cx="20.00" cy="-40.00" r="1.50" stroke="black" fill="black" />
+    <line x1="16.00" y1="-15.50" x2="20.00" y2="-24.50" stroke="black" fill="none" />
+    <polygon points="-25,1 -25,5 -15,5 -15,1" stroke="black" fill="black" />
+    <rect x="-21.00" y="49.00" width="2.00" height="4.00" stroke="black" fill="none" />
+    <rect x="19.00" y="-53.00" width="2.00" height="4.00" stroke="black" fill="none" />
+    <circle cx="-20.00" cy="19.00" r="15.00" stroke="black" fill="white" />
+    <line x1="-20.00" y1="38.00" x2="-20.00" y2="53.00" stroke="black" fill="none" />
+    <text x="-27.00" y="24.00" font-size="12.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="-20.00" y1="-53.00" x2="-20.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="-53.00" x2="20.00" y2="-26.00" stroke="black" fill="none" />
+    <line x1="-23.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="-28.00" y="-42.00" font-size="4.0" font-family="sans-serif" fill="black" stroke="none">30</text>
+    <text x="12.00" y="-42.00" font-size="4.0" font-family="sans-serif" fill="black" stroke="none">50</text>
+    <text x="-29.00" y="47.00" font-size="4.0" font-family="sans-serif" fill="black" stroke="none">31</text>
+    <rect x="-40.00" y="-48.00" width="80.00" height="96.00" stroke="black" fill="none" stroke-dasharray="1.5,2" stroke-width="0.8" />
+    <circle cx="-20.00" cy="-5.00" r="1.50" stroke="black" fill="black" />
+    <rect x="-21.00" y="-53.00" width="2.00" height="4.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-25.00" width="26.00" height="10.00" stroke="black" fill="none" />
+    <polyline points="-20,0 -20,-10 -26,-29" stroke="black" fill="none" />
+    <polyline points="6,-15 6,-5 -20,-5" stroke="black" fill="none" />
+    <line x1="6.00" y1="-15.50" x2="10.00" y2="-24.50" stroke="black" fill="none" />
+    <polyline points="10,-25 10,-40 19,-40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="-53.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="53.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="-53.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

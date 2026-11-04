@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="80.0" viewBox="-32.0 -42.0 60.0 80.0" data-name="Toilet">
+  <title>Toilet</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-34.00" width="15.00" height="30.00" stroke="black" fill="none" />
+    <path d="M -9.00 -34.50 A 7.50 3.50 0 0 0 -24.00 -34.50" stroke="black" fill="none" />
+    <rect x="-21.00" y="-3.00" width="45.00" height="5.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="-6.00" width="28.00" height="2.00" stroke="black" fill="none" />
+    <polyline points="-16,2 -16,7 -6,12 -6,17 -16,22 -16,27 18,27 20,23 16,17 11,15 11,11 19,9 23,5 23,3" stroke="black" fill="none" />
+    <ellipse cx="-20.00" cy="-31.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <rect x="-14.00" y="22.00" width="13.00" height="6.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-24.00" cy="-31.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-7.00" cy="29.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

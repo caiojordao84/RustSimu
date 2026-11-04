@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-40.0 -19.0 60.0 30.0" data-name="Connecting link, open">
+  <title>Connecting link, open</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <ellipse cx="-20.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-3.00" x2="-2.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="2.00" x2="1.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-23.00" y1="0.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-10.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

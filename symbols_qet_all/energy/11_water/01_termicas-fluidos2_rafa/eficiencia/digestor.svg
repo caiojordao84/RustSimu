@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="220.0" height="80.0" viewBox="-71.0 -44.0 220.0 80.0" data-name="digestor">
+  <title>digestor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-34.00" cy="16.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <ellipse cx="78.00" cy="1.00" rx="6.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="78.00" cy="22.00" rx="6.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="11.00" cy="10.00" rx="6.00" ry="2.00" stroke="black" fill="none" />
+    <text x="-64.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Fangos</text>
+    <line x1="72.00" y1="-36.61" x2="72.00" y2="21.58" stroke="black" fill="none" />
+    <line x1="5.00" y1="-34.00" x2="5.00" y2="10.00" stroke="black" fill="none" />
+    <ellipse cx="65.50" cy="1.00" rx="6.50" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="-1.50" cy="10.00" rx="6.50" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="65.50" cy="22.00" rx="6.50" ry="2.00" stroke="black" fill="none" />
+    <line x1="52.34" y1="-20.00" x2="89.63" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-4.00" x2="19.00" y2="-4.00" stroke="black" fill="none" />
+    <polygon points="19,-25 19,-25 -11,-25 -11,15 4,25 19,15" stroke="black" fill="none" />
+    <line x1="6.05" y1="25.00" x2="26.94" y2="25.00" stroke="black" fill="none" />
+    <ellipse cx="33.00" cy="25.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <polygon points="31,21 31,30 39,25 31,20" stroke="black" fill="black" />
+    <polyline points="106,1 106,31 146,31 146,1" stroke="black" fill="none" />
+    <path d="M 146.00 0.50 A 20.00 9.50 0 0 0 106.00 0.50" stroke="black" fill="none" />
+    <rect x="51.00" y="-29.00" width="40.00" height="61.00" stroke="black" fill="none" />
+    <polyline points="39,26 44,26 44,-36 56,-36 56,-27" stroke="black" fill="none" />
+    <polyline points="90,0 97,0 97,-8 108,19" stroke="black" fill="none" />
+    <path d="M 146.00 8.50 A 20.00 7.50 0 0 0 106.00 8.50" stroke="black" fill="none" />
+    <polyline points="109,-3 109,-35 139,-35" stroke="#0055d4" fill="none" />
+    <polyline points="88,-27 88,-35 108,-35" stroke="#0055d4" fill="none" />
+    <rect x="-50.00" y="1.00" width="32.00" height="29.00" stroke="black" fill="none" />
+    <polygon points="-33.9,10.05 -39,19 -28.8,19" stroke="black" fill="black" />
+    <polyline points="-34,10 -34,-15 -8,-15 -8,-11" stroke="black" fill="none" />
+    <text x="120.00" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Gas</text>
+    <line x1="125.00" y1="-31.00" x2="136.00" y2="-31.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="139.00" cy="-35.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

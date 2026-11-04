@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="80" viewBox="-32 -10 64 80" data-generator="cade2svg">
+  <title>Sinaleiro Luminoso (Piloto)</title>
+  <g stroke="#111827" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0" y1="0" x2="0" y2="15" />
+    <line x1="0" y1="45" x2="0" y2="60" />
+    <ellipse cx="0" cy="30" rx="15" ry="15" fill="none" />
+    <line x1="-10" y1="20" x2="10" y2="40" />
+    <line x1="-10" y1="40" x2="10" y2="20" />
+    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="X1" />
+    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="X2" />
+  </g>
+</svg>

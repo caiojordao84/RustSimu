@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -20.0 30.0 40.0" data-name="regulador-plano">
+  <title>regulador-plano</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-2.00" y="8.00" width="4.00" height="2.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-0.50" rx="7.00" ry="6.50" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-0.50" rx="9.00" ry="8.50" stroke="black" fill="none" />
+    <rect x="-2.00" y="-11.00" width="4.00" height="2.00" stroke="black" fill="none" />
+    <ellipse cx="-5.50" cy="4.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-7.50" cy="-2.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-2.50" cy="-7.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="7.50" cy="-1.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="6.50" cy="3.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="1.50" cy="6.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="4.50" cy="-6.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <rect x="-2.00" y="3.00" width="4.00" height="2.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

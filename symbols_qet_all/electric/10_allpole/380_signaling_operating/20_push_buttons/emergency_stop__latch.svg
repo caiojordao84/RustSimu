@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-17.0 -32.0 30.0 60.0" data-name="Emergency stop (LATCH)">
+  <title>Emergency stop (LATCH)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-6.5,6.33 -7.5,8.33 -4.5,8.33 -5.5,6.33" stroke="black" fill="none" />
+    <line x1="-3.00" y1="5.33" x2="-5.00" y2="5.33" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="-6.00" cy="5.33" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-1.67" x2="-3.00" y2="5.33" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="4.88,-11.67 -0.13,8.33 -0.13,18.33" stroke="black" fill="none" />
+    <line x1="-4.13" y1="-3.67" x2="-1.13" y2="-1.67" stroke="black" fill="none" />
+    <path d="M -6.99 -6.67 A 4.00 5.00 0 1 0 -6.99 3.33" stroke="black" fill="none" />
+    <line x1="-4.13" y1="-3.67" x2="-4.13" y2="-1.67" stroke="black" fill="none" />
+    <line x1="-0.13" y1="-10.67" x2="5.88" y2="-10.67" stroke="black" fill="none" />
+    <line x1="-0.13" y1="-21.67" x2="-0.13" y2="-10.67" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-6.67" x2="-7.00" y2="3.33" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-1.67" x2="3.00" y2="-1.67" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="-23.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

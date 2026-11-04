@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="740.0" height="110.0" viewBox="-378.0 -50.0 740.0 110.0" data-name="750-352/040-000">
+  <title>750-352/040-000</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-360.00" y="-40.00" width="720.00" height="90.00" stroke="black" fill="none" />
+    <text x="-330.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 750-352/040-000</text>
+    <text x="-138.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Ethernet ECO Coupler</text>
+    <text x="-317.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IP Adr.:</text>
+    <text x="-355.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Eth1</text>
+    <text x="-355.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Eth2</text>
+    <text x="-371.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X1</text>
+    <text x="-371.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X2</text>
+    <ellipse cx="-360.00" cy="20.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-360.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-199.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="-279.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <ellipse cx="-200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-280.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="-360.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="X1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-360.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="X2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="0V" data-orientation="n" />
+    <circle class="qet-terminal" cx="-280.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="24V" data-orientation="n" />
+  </g>
+</svg>

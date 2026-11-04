@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="70.0" viewBox="-24.0 -29.0 50.0 70.0" data-name="Optic sensor (NO)">
+  <title>Optic sensor (NO)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-9.00" y1="-6.00" x2="-4.00" y2="-10.00" stroke="black" fill="none" />
+    <polyline points="-3,1 0,8 0,13" stroke="black" fill="none" />
+    <line x1="0.00" y1="-2.00" x2="0.00" y2="1.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-10.00" x2="7.00" y2="-13.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-9.00" x2="5.00" y2="-12.00" stroke="black" fill="none" />
+    <polygon points="12,-3 12,-9 5,-6" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-6.00" x2="5.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-6.00" x2="18.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-9.00" x2="5.00" y2="-3.00" stroke="black" fill="none" />
+    <text x="-13.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BN</text>
+    <text x="2.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BK</text>
+    <text x="17.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BU</text>
+    <line x1="0.00" y1="30.00" x2="0.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="30.00" x2="15.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="30.00" x2="-15.00" y2="16.00" stroke="black" fill="none" />
+    <rect x="-20.00" y="-15.00" width="40.00" height="31.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-6.00" x2="-3.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="-11.00" y1="-6.00" x2="-11.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="-13.00" y1="-6.00" x2="-18.00" y2="-10.00" stroke="black" fill="none" />
+    <polygon points="5,-18 9,-23 13,-18" stroke="black" fill="none" />
+    <polygon points="-14,-23 -6,-23 -10,-18" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-15.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="15.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

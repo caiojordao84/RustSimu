@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-28.0 -30.0 50.0 40.0" data-name="codo-recto-plano">
+  <title>codo-recto-plano</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="8.00" y1="3.00" x2="17.00" y2="-2.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-2.00" x2="-9.00" y2="-2.00" stroke="black" fill="none" />
+    <polygon points="-18,-10 -18,-2 -9,3 -9,-7 -18,-12" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-7.00" x2="8.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-16.56" y1="-12.00" x2="-3.56" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-9.00" y1="3.00" x2="8.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="3.00" x2="8.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-20.00" x2="-12.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-14.00" x2="-3.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-20.00" x2="3.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-20.00" x2="-1.00" y2="-14.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-7.00" x2="17.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-20.00" x2="17.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="-11.68" x2="17.00" y2="-2.59" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="1.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

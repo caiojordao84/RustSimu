@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="100.0" viewBox="-22.0 -57.0 50.0 100.0" data-name="Wall heating">
+  <title>Wall heating</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="2.00" y1="-32.00" x2="2.00" y2="22.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <ellipse cx="-10.00" cy="-11.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <polyline points="-1,39 22,17 22,-52" stroke="black" fill="none" />
+    <polygon points="-17,-35 11,-53 22,-53 -2,-35" stroke="black" fill="none" />
+    <rect x="-17.00" y="-35.00" width="15.00" height="74.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-38.00" x2="10.00" y2="16.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="14.00" y1="-42.00" x2="14.00" y2="12.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="18.00" y1="-46.00" x2="18.00" y2="8.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="6.00" y1="-35.00" x2="6.00" y2="19.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <ellipse cx="-10.00" cy="30.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="20.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="10.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="0.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="-21.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="-30.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

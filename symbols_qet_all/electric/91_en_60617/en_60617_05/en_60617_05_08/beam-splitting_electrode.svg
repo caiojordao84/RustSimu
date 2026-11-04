@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="60.0" viewBox="-45.0 -42.0 110.0 60.0" data-name="Beam-splitting electrode">
+  <title>Beam-splitting electrode</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="10.00" x2="-40.00" y2="10.00" stroke="black" fill="none" />
+    <rect x="40.00" y="5.00" width="20.00" height="10.00" stroke="black" fill="black" />
+    <rect x="0.00" y="5.00" width="20.00" height="10.00" stroke="black" fill="black" />
+    <polyline points="-20,10 -20,-10 30,-10" stroke="black" fill="none" />
+    <line x1="30.00" y1="-10.00" x2="30.00" y2="-40.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+  </g>
+</svg>

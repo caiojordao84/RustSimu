@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="104.0" height="134.0" viewBox="-52.0 -65.0 104.0 134.0" data-name="Loxone KNX Extension - single row">
+  <title>Loxone KNX Extension - single row</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-1.00" y="-5.00" width="49.00" height="10.00" stroke="black" fill="HTMLGreenPaleGreen" />
+    <text x="2.00" y="3.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
+    <text x="32.70" y="2.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
+    <rect x="-39.00" y="-2.10" width="11.00" height="4.20" stroke="black" fill="#00aa00" />
+    <rect x="-22.00" y="-2.10" width="11.00" height="4.20" stroke="black" fill="#00aa00" />
+    <text x="-39.00" y="12.60" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Art. 100322</text>
+    <polygon points="-50.00,-57.00 50.00,-57.00 50.00,-6.75 48.00,-4.95 48.00,4.95 50.00,6.75 50.00,57.00 -50.00,57.00 -50.00,6.75 -48.00,4.95 -48.00,-4.95 -50.00,-6.75" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-40.00" x2="50.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="40.00" x2="50.00" y2="40.00" stroke="black" fill="none" />
+    <rect x="-40.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="orange" />
+    <text x="-33.50" y="56.10" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
+    <line x1="-35.00" y1="58.00" x2="-35.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-30.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="white" />
+    <text x="-23.50" y="55.70" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <line x1="-25.00" y1="58.00" x2="-25.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-10.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="#0055d4" />
+    <text x="-3.50" y="53.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BU</text>
+    <line x1="-5.00" y1="58.00" x2="-5.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="0.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="white" />
+    <text x="6.50" y="54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WH</text>
+    <line x1="5.00" y1="58.00" x2="5.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="20.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="#d40000" />
+    <text x="26.50" y="56.90" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX+</text>
+    <line x1="25.00" y1="58.00" x2="25.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="30.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="black" />
+    <text x="36.50" y="56.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX-</text>
+    <line x1="35.00" y1="58.00" x2="35.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-40.00" y="24.00" width="20.00" height="13.00" stroke="black" fill="#dcdcdc" />
+    <text x="-36.40" y="29.90" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power</text>
+    <text x="-36.90" y="34.40" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Supply</text>
+    <rect x="-10.00" y="24.00" width="20.00" height="13.00" stroke="black" fill="#dcdcdc" />
+    <text x="-7.40" y="29.90" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
+    <text x="-4.10" y="34.40" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Link</text>
+    <rect x="20.00" y="24.00" width="20.00" height="13.00" stroke="black" fill="#dcdcdc" />
+    <text x="24.10" y="31.60" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX/EIB</text>
+    <circle class="qet-terminal" cx="-35.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="+24V" data-orientation="s" />
+    <circle class="qet-terminal" cx="-25.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="s" />
+    <circle class="qet-terminal" cx="-5.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="BU" data-orientation="s" />
+    <circle class="qet-terminal" cx="5.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="WH" data-orientation="s" />
+    <circle class="qet-terminal" cx="25.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="KNX+" data-orientation="s" />
+    <circle class="qet-terminal" cx="35.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="KNX-" data-orientation="s" />
+  </g>
+</svg>

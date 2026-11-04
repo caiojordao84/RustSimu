@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-14.0 -22.0 40.0 30.0" data-name="termostato-bulbo">
+  <title>termostato-bulbo</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-5.08" y="-19.09" width="10.06" height="9.31" stroke="black" fill="none" />
+    <text x="-3.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T</text>
+    <line x1="-0.05" y1="-9.77" x2="-0.05" y2="-0.46" stroke="black" fill="none" />
+    <line x1="15.90" y1="-2.00" x2="19.13" y2="-2.00" stroke="black" fill="none" />
+    <ellipse cx="10.94" cy="-13.67" rx="2.00" ry="2.33" stroke="black" fill="none" />
+    <line x1="5.10" y1="-16.00" x2="11.45" y2="-16.00" stroke="black" fill="none" />
+    <line x1="12.91" y1="-14.00" x2="12.91" y2="-2.47" stroke="black" fill="none" />
+    <line x1="12.91" y1="-2.00" x2="15.55" y2="-2.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

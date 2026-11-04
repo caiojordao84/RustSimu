@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="40.0" viewBox="-60.0 -14.0 140.0 40.0" data-name="Straight-through joint box (single-line representation)">
+  <title>Straight-through joint box (single-line representation)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-50.00" y1="10.00" x2="70.00" y2="10.00" stroke="black" fill="none" />
+    <polygon points="-10,10 10,0 30,10 10,20" stroke="black" fill="none" />
+    <line x1="-40.00" y1="20.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="20.00" x2="60.00" y2="0.00" stroke="black" fill="none" />
+    <text x="-20.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="60.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <circle class="qet-terminal" cx="-50.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="70.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

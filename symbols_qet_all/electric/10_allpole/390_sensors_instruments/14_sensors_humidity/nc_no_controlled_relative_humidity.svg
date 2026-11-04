@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-52.0 -31.0 60.0 60.0" data-name="NC/NO controlled relative humidity">
+  <title>NC/NO controlled relative humidity</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-45.00" y="-7.00" width="22.00" height="14.00" stroke="black" fill="none" />
+    <text x="-44.00" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">% r.H.</text>
+    <ellipse cx="-27.00" cy="4.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
+    <line x1="-20.00" y1="-9.00" x2="-14.00" y2="-9.00" stroke="black" fill="none" />
+    <polyline points="-10,20 -10,10 -17,-10" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-20.00" x2="-20.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-23.00" y1="0.00" x2="-14.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

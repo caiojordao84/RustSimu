@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -12.0 40.0 40.0" data-name="Intake">
+  <title>Intake</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="16.00" y1="10.00" x2="8.00" y2="2.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="10.00" x2="-8.00" y2="2.00" stroke="black" fill="none" />
+    <polygon points="5,-1 7,3 9,1" stroke="black" fill="black" />
+    <polygon points="-5,-1 -9,1 -7,3" stroke="black" fill="black" />
+    <polyline points="-10,-2 0,-10 10,-2" stroke="black" fill="none" />
+    <line x1="0.00" y1="15.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="0.00" x2="3.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="0.00" x2="-3.00" y2="12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

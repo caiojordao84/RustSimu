@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="80.0" viewBox="-22.0 -40.0 50.0 80.0" data-name="Plate heat exchanger">
+  <title>Plate heat exchanger</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-13.00" y="-35.00" width="26.00" height="70.00" stroke="black" fill="none" />
+    <polyline points="12,-30 10,-30 -5,-20 10,-10 -5,0 10,10 -5,20 10,30 12,30 10,30" stroke="black" fill="none" />
+    <polyline points="-12,-30 5,-30 -10,-20 5,-10 -10,0 5,10 -10,20 5,30 -12,30" stroke="black" fill="none" />
+    <line x1="10.00" y1="-16.00" x2="10.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-8.00" x2="-10.00" y2="12.00" stroke="black" fill="none" />
+    <text x="20.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Secondaire</text>
+    <text x="-15.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Primaire</text>
+    <ellipse cx="13.00" cy="30.00" rx="1.25" ry="1.25" stroke="black" fill="none" />
+    <ellipse cx="-14.00" cy="30.00" rx="1.25" ry="1.25" stroke="black" fill="none" />
+    <ellipse cx="13.00" cy="-30.00" rx="1.25" ry="1.25" stroke="black" fill="none" />
+    <ellipse cx="-13.00" cy="-30.00" rx="1.25" ry="1.25" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-13.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-14.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="13.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="13.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

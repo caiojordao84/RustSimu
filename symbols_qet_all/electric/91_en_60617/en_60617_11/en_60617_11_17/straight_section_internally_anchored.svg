@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="30.0" viewBox="-40.0 -10.0 100.0 30.0" data-name="Straight section internally anchored">
+  <title>Straight section internally anchored</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="50.00" y1="10.00" x2="-30.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="5.00" x2="-30.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="5.00" x2="50.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-5.00" x2="5.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
+    <path d="M 18.00 5.00 A 2.00 5.00 0 0 0 18.00 -5.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="50.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-30.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

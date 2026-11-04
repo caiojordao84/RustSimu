@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-12.0 -20.0 40.0 50.0" data-name="Security Group (right)">
+  <title>Security Group (right)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0,20 -8,20 -8,-10 8,-10 8,-7 20,-7 20,7 8,7 8,20" stroke="black" fill="none" />
+    <line x1="20.00" y1="0.00" x2="17.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="8.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="17,0 8,-5 8,5" stroke="black" fill="none" />
+    <polyline points="0,12 -3,12 -4,14 -5,10 -6,14 -7,10 -8,12 -9,12" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="-5.00" x2="17.00" y2="5.00" stroke="black" fill="none" />
+    <polygon points="0,12 -5,20 5,20" stroke="black" fill="none" />
+    <polygon points="0,12 -5,4 5,4" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

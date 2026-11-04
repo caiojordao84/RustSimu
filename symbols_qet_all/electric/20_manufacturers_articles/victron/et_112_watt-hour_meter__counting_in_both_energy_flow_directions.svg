@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-20.0 -35.0 40.0 60.0" data-name="ET 112 Watt-hour meter, counting in both energy flow directions">
+  <title>ET 112 Watt-hour meter, counting in both energy flow directions</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="10.00" y1="20.00" x2="10.00" y2="15.00" stroke="black" fill="none" />
+    <text x="-8.10" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ET112</text>
+    <line x1="10.00" y1="-30.00" x2="10.00" y2="-25.00" stroke="black" fill="none" />
+    <text x="11.90" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="-8.10" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="11.90" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <rect x="-18.00" y="-11.00" width="36.00" height="26.00" stroke="black" fill="none" />
+    <text x="-9.10" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Wh</text>
+    <rect x="-18.00" y="-25.00" width="36.00" height="14.00" stroke="black" fill="none" />
+    <line x1="-14.50" y1="-18.00" x2="15.50" y2="-18.00" stroke="black" fill="none" />
+    <line x1="-15.50" y1="-20.00" x2="-15.50" y2="-16.00" stroke="black" fill="none" />
+    <polygon points="-3.5,-16 -3.5,-20 -11.5,-18 -3.5,-16" stroke="black" fill="black" />
+    <polygon points="4.5,-16 4.5,-20 12.5,-18 4.5,-16" stroke="black" fill="black" />
+    <line x1="-10.00" y1="-30.00" x2="-10.00" y2="-25.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="L_1" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="L_2" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="110.0" viewBox="-21.0 -58.0 80.0 110.0" data-name="armario-frig">
+  <title>armario-frig</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="34.00" y="-15.00" width="3.00" height="18.00" stroke="black" fill="none" />
+    <polyline points="49,8 51,7 51,0 54,-4 49,0" stroke="black" fill="none" />
+    <rect x="34.00" y="-37.00" width="3.00" height="18.00" stroke="black" fill="none" />
+    <line x1="37.00" y1="6.00" x2="49.00" y2="-2.00" stroke="black" fill="none" />
+    <rect x="34.00" y="6.00" width="3.00" height="18.00" stroke="black" fill="none" />
+    <polyline points="49,-12 51,-13 51,-20 54,-24 49,-20" stroke="black" fill="none" />
+    <polyline points="49,-34 51,-35 51,-42 54,-46 49,-42" stroke="black" fill="none" />
+    <polyline points="34,6 45,-2 49,-2 49,14 37,24" stroke="black" fill="none" />
+    <polyline points="34,-37 45,-45 49,-45 49,-29 37,-19" stroke="black" fill="none" />
+    <polyline points="34,-15 45,-23 49,-23 49,-7 37,3" stroke="black" fill="none" />
+    <rect x="17.00" y="18.00" width="3.00" height="18.00" stroke="black" fill="none" />
+    <line x1="37.00" y1="-15.00" x2="49.00" y2="-23.00" stroke="black" fill="none" />
+    <line x1="37.00" y1="-37.00" x2="49.00" y2="-45.00" stroke="black" fill="none" />
+    <polyline points="32,21 34,20 34,13 37,9 32,13" stroke="black" fill="none" />
+    <polyline points="17,18 28,10 32,10 32,26 20,36" stroke="black" fill="none" />
+    <rect x="17.00" y="-3.00" width="3.00" height="18.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="18.00" x2="32.00" y2="10.00" stroke="black" fill="none" />
+    <polyline points="32,0 34,-1 34,-8 37,-12 32,-8" stroke="black" fill="none" />
+    <polyline points="17,-3 28,-11 32,-11 32,5 20,15" stroke="black" fill="none" />
+    <line x1="20.00" y1="-3.00" x2="32.00" y2="-11.00" stroke="black" fill="none" />
+    <ellipse cx="-11.00" cy="36.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-15.50" rx="1.00" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-11.00" cy="-15.50" rx="1.00" ry="0.50" stroke="black" fill="none" />
+    <rect x="-14.00" y="-29.00" width="29.00" height="70.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="-30.00" x2="48.00" y2="-52.00" stroke="black" fill="none" />
+    <rect x="17.00" y="-25.00" width="3.00" height="18.00" stroke="black" fill="none" />
+    <polyline points="32,-22 34,-23 34,-30 37,-34 32,-30" stroke="black" fill="none" />
+    <polyline points="17,-25 28,-33 32,-33 32,-17 20,-7" stroke="black" fill="none" />
+    <line x1="20.00" y1="-25.00" x2="32.00" y2="-33.00" stroke="black" fill="none" />
+    <polyline points="-14,-29 19,-52 48,-52 48,-46" stroke="black" fill="none" />
+    <line x1="48.00" y1="-27.28" x2="48.00" y2="-22.69" stroke="black" fill="none" />
+    <line x1="15.00" y1="41.00" x2="36.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-6.00" x2="48.00" y2="-2.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-11.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

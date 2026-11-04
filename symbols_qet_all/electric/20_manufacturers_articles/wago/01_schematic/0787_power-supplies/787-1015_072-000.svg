@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="130.0" viewBox="-50.0 -62.0 100.0 130.0" data-name="787-1015/072-000">
+  <title>787-1015/072-000</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-40.27" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="-40.27" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="1.00" y1="-60.00" x2="1.00" y2="60.00" stroke="black" fill="none" />
+    <text x="-37.27" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN+</text>
+    <ellipse cx="40.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <text x="-37.27" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN-</text>
+    <text x="17.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <line x1="-40.27" y1="13.00" x2="-40.27" y2="60.00" stroke="black" fill="none" />
+    <line x1="-40.27" y1="7.00" x2="-40.27" y2="-7.00" stroke="black" fill="none" />
+    <text x="13.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+12V</text>
+    <line x1="-40.27" y1="-13.00" x2="-40.27" y2="-60.00" stroke="black" fill="none" />
+    <text x="13.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+12V</text>
+    <line x1="-1.00" y1="-60.00" x2="-1.00" y2="60.00" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="40.00" y1="60.00" x2="40.00" y2="33.00" stroke="black" fill="none" />
+    <text x="17.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <ellipse cx="40.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="-40.00" y1="60.00" x2="40.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="27.00" x2="40.00" y2="13.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="7.00" x2="40.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-13.00" x2="40.00" y2="-27.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-33.00" x2="40.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-60.00" x2="40.00" y2="-60.00" stroke="black" fill="none" />
+    <text x="-5.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">787-1015/072-000</text>
+    <text x="-38.00" y="-48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO</text>
+    <circle class="qet-terminal" cx="40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="GND.2" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="GND.1" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="+12V.2" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="+12V.1" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="IN-" data-orientation="w" />
+    <circle class="qet-terminal" cx="-40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="IN+" data-orientation="w" />
+  </g>
+</svg>

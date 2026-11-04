@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="40.0" viewBox="-28.0 -10.0 80.0 40.0" data-name="Telescopic double acting">
+  <title>Telescopic double acting</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="40.00" y1="12.00" x2="40.00" y2="16.00" stroke="black" fill="none" />
+    <polygon points="38,11 42,11 40,7" stroke="black" fill="none" />
+    <polyline points="43,7 43,11 -11,11 -11,15" stroke="black" fill="none" />
+    <polyline points="33,11 33,15 -23,15 -23,-5 33,-5 33,-1" stroke="black" fill="none" />
+    <polygon points="-22,15 -18,15 -20,11" stroke="black" fill="none" />
+    <polyline points="43,2 43,-1 -11,-1 -11,-5" stroke="black" fill="none" />
+    <polyline points="0,0 0,3 49,3 49,7 0,7 0,10" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

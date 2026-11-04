@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="100.0" viewBox="-30.0 -42.0 80.0 100.0" data-name="Central feeder unit with equipment box">
+  <title>Central feeder unit with equipment box</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="40.00" y1="50.00" x2="-20.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="45.00" x2="-20.00" y2="55.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="45.00" x2="40.00" y2="55.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="50.00" x2="10.00" y2="30.00" stroke="black" fill="none" />
+    <rect x="0.00" y="10.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <polygon points="7,23 8,21 7,19 9,19 10,17 11,19 13,19 12,21 13,23 10,22" stroke="black" fill="black" />
+    <polygon points="20,0 0,0 10,-20" stroke="black" fill="none" />
+    <line x1="10.00" y1="10.00" x2="10.00" y2="-40.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-20.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

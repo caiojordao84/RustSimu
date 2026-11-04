@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-25.0 -11.0 50.0 30.0" data-name="transf-puerta">
+  <title>transf-puerta</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="2.00" cy="5.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <rect x="-9.00" y="-9.00" width="3.00" height="3.00" stroke="black" fill="none" />
+    <line x1="-12.27" y1="1.00" x2="-10.71" y2="1.00" stroke="black" fill="none" />
+    <line x1="10.73" y1="-1.00" x2="12.29" y2="-1.00" stroke="black" fill="none" />
+    <line x1="-12.27" y1="3.00" x2="-10.71" y2="3.00" stroke="black" fill="none" />
+    <line x1="10.73" y1="1.00" x2="12.29" y2="1.00" stroke="black" fill="none" />
+    <rect x="10.00" y="-3.00" width="3.00" height="15.00" stroke="black" fill="none" />
+    <rect x="-10.00" y="-6.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-13.00" y="-3.00" width="3.00" height="15.00" stroke="black" fill="none" />
+    <ellipse cx="-7.50" cy="-7.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <rect x="6.00" y="14.00" width="3.00" height="3.00" stroke="black" fill="none" />
+    <ellipse cx="7.50" cy="15.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-2.00" cy="5.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <line x1="-12.27" y1="-1.00" x2="-10.71" y2="-1.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

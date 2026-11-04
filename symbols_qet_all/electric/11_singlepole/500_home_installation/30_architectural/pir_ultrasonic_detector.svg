@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="30.0" viewBox="-10.0 -14.0 70.0 30.0" data-name="PIR ultrasonic detector">
+  <title>PIR ultrasonic detector</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 48.50 0.50 A 2.00 10.00 0 0 0 46.50 -9.50" stroke="black" fill="none" />
+    <path d="M 46.50 10.50 A 2.00 10.00 0 0 0 48.50 0.50" stroke="black" fill="none" />
+    <path d="M 50.50 0.50 A 2.00 11.00 0 0 0 48.50 -10.50" stroke="black" fill="none" />
+    <path d="M 48.50 12.50 A 2.00 12.00 0 0 0 50.50 0.50" stroke="black" fill="none" />
+    <path d="M 52.50 0.50 A 2.00 12.00 0 0 0 50.50 -11.50" stroke="black" fill="none" />
+    <path d="M 50.50 14.50 A 2.00 14.00 0 0 0 52.50 0.50" stroke="black" fill="none" />
+    <polygon points="20,-10 0,0 20,10" stroke="black" fill="none" />
+    <line x1="25.00" y1="-5.00" x2="40.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="25.00" y1="0.00" x2="40.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="25.00" y1="5.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="1.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-9.0 -12.0 30.0 40.0" data-name="Pressure switch">
+  <title>Pressure switch</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-3.00" y1="-1.00" x2="-1.00" y2="-1.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="2.00" x2="-1.00" y2="2.00" stroke="black" fill="none" />
+    <line x1="-0.84" y1="15.00" x2="1.63" y2="13.69" stroke="black" fill="none" />
+    <line x1="-0.84" y1="17.32" x2="1.63" y2="16.00" stroke="black" fill="none" />
+    <rect x="-1.15" y="13.16" width="3.24" height="6.21" stroke="black" fill="none" />
+    <line x1="-0.83" y1="18.86" x2="1.77" y2="17.62" stroke="black" fill="none" />
+    <polygon points="5.08,7.92 -4,7.92 -4,11.49 -2.6,12.68 3,12.68 5.08,11.49" stroke="black" fill="none" />
+    <rect x="-7.00" y="-9.00" width="25.00" height="17.00" stroke="black" fill="none" />
+    <rect x="-3.00" y="-6.00" width="4.00" height="12.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-4.00" x2="-1.00" y2="-4.00" stroke="black" fill="none" />
+    <rect x="12.00" y="8.00" width="3.00" height="3.00" stroke="black" fill="none" />
+    <ellipse cx="15.00" cy="-7.00" rx="1.00" ry="1.00" stroke="#d40000" fill="#d40000" />
+    <circle class="qet-terminal" cx="14.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

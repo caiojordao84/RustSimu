@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="140.0" viewBox="-50.0 -67.0 110.0 140.0" data-name="Téléinfo usb">
+  <title>Téléinfo usb</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="35.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
+    <ellipse cx="15.00" cy="-55.00" rx="3.00" ry="3.00" stroke="yellow" fill="yellow" />
+    <ellipse cx="35.00" cy="-55.00" rx="3.00" ry="3.00" stroke="green" fill="#00aa00" />
+    <text x="28.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PWR</text>
+    <text x="-10.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TIC</text>
+    <text x="11.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DATA</text>
+    <text x="-29.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TIC</text>
+    <text x="-35.00" y="-35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Télé-information</text>
+    <line x1="-15.00" y1="-60.00" x2="-15.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-60.00" x2="5.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="25.00" y1="-60.00" x2="25.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="45.00" y1="-60.00" x2="45.00" y2="-50.00" stroke="black" fill="none" />
+    <rect x="5.00" y="-50.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="25.00" y="-50.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <line x1="56.00" y1="70.00" x2="56.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="-31.00" y1="-50.00" x2="-46.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="-46.00" y1="-50.00" x2="-46.00" y2="70.00" stroke="black" fill="none" />
+    <rect x="-35.00" y="-60.00" width="80.00" height="10.00" stroke="black" fill="none" />
+    <line x1="55.00" y1="-50.00" x2="41.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="-46.00" y1="70.00" x2="55.00" y2="70.00" stroke="black" fill="none" />
+    <rect x="-35.00" y="-50.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="-50.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="15.00" y="-50.00" width="10.00" height="0.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="50.00" width="35.00" height="20.00" stroke="black" fill="none" />
+    <rect x="48.00" y="-47.00" width="4.00" height="101.00" stroke="green" fill="#00aa00" />
+    <rect x="6.00" y="-36.00" width="38.00" height="4.00" stroke="green" fill="#00aa00" />
+    <circle class="qet-terminal" cx="-5.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-25.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

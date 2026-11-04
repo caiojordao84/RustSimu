@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="60.0" viewBox="-35.0 -47.0 70.0 60.0" data-name="Capacitor Ceramic">
+  <title>Capacitor Ceramic</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-2.00" rx="12.50" ry="12.50" stroke="black" fill="orange" />
+    <line x1="-10.00" y1="-10.00" x2="-25.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-10.00" x2="25.00" y2="-40.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="25.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-25.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="80.0" viewBox="-5.0 -7.0 110.0 80.0" data-name="Stratos">
+  <title>Stratos</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="90.00" cy="6.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="50.00" cy="6.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="30.00" cy="6.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="70.00" cy="6.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <text x="65.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SSM</text>
+    <rect x="80.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="40.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="60.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="20.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="0.00" y="0.00" width="100.00" height="70.00" stroke="black" fill="none" />
+    <text x="29.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="45.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="85.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SSM</text>
+    <text x="8.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <rect x="0.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="6.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="0.00" x2="10.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="71.00" y1="30.00" x2="76.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="77.00" y1="30.00" x2="77.00" y2="26.00" stroke="black" fill="none" />
+    <line x1="77.00" y1="26.00" x2="85.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="85.00" y1="30.00" x2="90.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="70.00" y1="30.00" x2="70.00" y2="34.00" stroke="black" fill="none" />
+    <line x1="90.00" y1="30.00" x2="90.00" y2="34.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="0.00" x2="30.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="0.00" x2="50.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="70.00" y1="0.00" x2="70.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="70.00" y1="4.00" x2="70.00" y2="0.00" stroke="black" fill="none" />
+    <text x="54.00" y="40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SSM:contact  de défaut
+(normal fermé). 
+Charge max: 1 A – 250 V
+</text>
+    <circle class="qet-terminal" cx="70.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="13" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="n" />
+    <circle class="qet-terminal" cx="50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="n" />
+    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="14" data-orientation="n" />
+  </g>
+</svg>

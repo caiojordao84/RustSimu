@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="170.0" height="90.0" viewBox="-5.0 -4.0 170.0 90.0" data-name="ABB Pneumatic Positioner TZIDC">
+  <title>ABB Pneumatic Positioner TZIDC</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="133.00" y1="80.00" x2="147.00" y2="80.00" stroke="black" fill="none" />
+    <rect x="64.00" y="38.00" width="31.00" height="20.00" stroke="black" fill="none" />
+    <line x1="32.71" y1="80.00" x2="67.15" y2="80.00" stroke="black" fill="none" />
+    <line x1="73.00" y1="80.00" x2="87.00" y2="80.00" stroke="black" fill="none" />
+    <line x1="92.75" y1="80.00" x2="127.11" y2="80.00" stroke="black" fill="none" />
+    <text x="134.00" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO</text>
+    <rect x="124.00" y="38.00" width="31.00" height="20.00" stroke="black" fill="none" />
+    <line x1="160.00" y1="0.00" x2="160.00" y2="80.00" stroke="black" fill="none" />
+    <text x="152.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-84</text>
+    <text x="92.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-82</text>
+    <text x="32.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-12</text>
+    <line x1="149.00" y1="38.00" x2="149.00" y2="33.00" stroke="black" fill="none" />
+    <line x1="89.00" y1="38.00" x2="89.00" y2="33.00" stroke="black" fill="none" />
+    <text x="72.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+81</text>
+    <text x="132.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+83</text>
+    <line x1="30.00" y1="38.00" x2="30.00" y2="33.00" stroke="black" fill="none" />
+    <line x1="129.00" y1="38.00" x2="129.00" y2="33.00" stroke="black" fill="none" />
+    <line x1="125.00" y1="38.00" x2="155.00" y2="57.00" stroke="black" fill="none" />
+    <circle cx="30.00" cy="80.00" r="2.50" stroke="black" fill="none" />
+    <line x1="124.00" y1="39.00" x2="154.00" y2="58.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="160.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="80.00" stroke="black" fill="none" />
+    <circle cx="90.00" cy="80.00" r="2.50" stroke="black" fill="none" />
+    <circle cx="150.00" cy="80.00" r="2.50" stroke="black" fill="none" />
+    <circle cx="130.00" cy="80.00" r="2.50" stroke="black" fill="none" />
+    <circle cx="70.00" cy="80.00" r="2.50" stroke="black" fill="none" />
+    <circle cx="10.00" cy="80.00" r="2.50" stroke="black" fill="none" />
+    <rect x="5.00" y="38.00" width="31.00" height="20.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="38.00" x2="36.00" y2="58.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="38.00" x2="10.00" y2="33.00" stroke="black" fill="none" />
+    <line x1="69.00" y1="38.00" x2="69.00" y2="33.00" stroke="black" fill="none" />
+    <text x="16.00" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AI</text>
+    <text x="75.00" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DI</text>
+    <line x1="65.00" y1="38.00" x2="95.00" y2="57.00" stroke="black" fill="none" />
+    <line x1="64.00" y1="39.00" x2="94.00" y2="58.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="80.00" x2="7.00" y2="80.00" stroke="black" fill="none" />
+    <line x1="13.00" y1="80.00" x2="27.00" y2="80.00" stroke="black" fill="none" />
+    <line x1="153.00" y1="80.00" x2="160.00" y2="80.00" stroke="black" fill="none" />
+    <text x="4.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ABB</text>
+    <text x="32.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TZIDC</text>
+    <text x="12.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+11</text>
+    <circle class="qet-terminal" cx="10.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="+11" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="-12" data-orientation="s" />
+    <circle class="qet-terminal" cx="70.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="+81" data-orientation="s" />
+    <circle class="qet-terminal" cx="90.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="-82" data-orientation="s" />
+    <circle class="qet-terminal" cx="130.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="+83" data-orientation="s" />
+    <circle class="qet-terminal" cx="150.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="-84" data-orientation="s" />
+  </g>
+</svg>

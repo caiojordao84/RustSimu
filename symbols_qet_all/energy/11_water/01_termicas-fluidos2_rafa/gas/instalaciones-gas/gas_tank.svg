@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="70.0" viewBox="-54.0 -22.0 150.0 70.0" data-name="GAS tank">
+  <title>GAS tank</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="82.00" y1="-6.34" x2="82.00" y2="31.06" stroke="black" fill="none" />
+    <rect x="-10.60" y="-12.88" width="1.30" height="1.39" stroke="black" fill="none" />
+    <rect x="-0.45" y="-12.88" width="1.30" height="1.39" stroke="black" fill="none" />
+    <path d="M -39.12 -6.29 A 8.65 18.75 0 0 0 -39.12 31.20" stroke="black" fill="none" />
+    <path d="M 81.95 31.20 A 8.65 18.75 0 0 0 81.95 -6.29" stroke="black" fill="none" />
+    <line x1="2.62" y1="-11.00" x2="2.62" y2="17.08" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <polyline points="-34.72,31.2 -34.72,43.37 -29.48,43.37 -24.24,31.2" stroke="black" fill="none" />
+    <polyline points="71.1,31.2 71.1,43 65.86,43 60.62,31.2" stroke="black" fill="none" />
+    <rect x="-16.00" y="-11.00" width="24.05" height="0.46" stroke="black" fill="none" />
+    <polyline points="4.15,-6.63 4.15,-8.49 4.8,-7.09 3.5,-7.09 4.15,-8.49" stroke="black" fill="none" />
+    <polyline points="-5.6,-8.95 -5.6,-7.09 -4.95,-8.49 -6.25,-8.49 -5.6,-7.09" stroke="black" fill="none" />
+    <line x1="-39.00" y1="-6.34" x2="-14.00" y2="-6.34" stroke="black" fill="none" />
+    <line x1="6.20" y1="-6.34" x2="80.78" y2="-6.34" stroke="black" fill="none" />
+    <line x1="-39.00" y1="31.00" x2="82.00" y2="31.00" stroke="black" fill="none" />
+    <line x1="-39.00" y1="-6.34" x2="-39.00" y2="31.06" stroke="black" fill="none" />
+    <polyline points="-13.9,-10.56 -13.9,-6.39 -11.9,-5 -5.9,-4.07 -1.9,-4.07 4.1,-5 6.1,-6.39 6.1,-10.56" stroke="black" fill="none" />
+    <line x1="-42.00" y1="44.00" x2="83.00" y2="44.00" stroke="black" fill="none" />
+    <polyline points="-23,-8 -18,-16 10,-16 15,-7" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="-13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

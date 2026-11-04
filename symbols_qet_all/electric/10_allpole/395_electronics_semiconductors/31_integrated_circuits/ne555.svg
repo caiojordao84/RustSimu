@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-58.0 -61.0 120.0 120.0" data-name="NE555">
+  <title>NE555</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="20.00" y1="-41.65" x2="20.00" y2="-50.25" stroke="black" fill="none" />
+    <line x1="-50.00" y1="10.00" x2="-41.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="30.00" x2="-41.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-10.00" x2="-41.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-30.00" x2="-41.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-41.65" x2="-20.00" y2="-50.25" stroke="black" fill="none" />
+    <line x1="40.00" y1="0.00" x2="49.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="48.49" x2="0.00" y2="41.63" stroke="black" fill="none" />
+    <rect x="-40.00" y="-41.00" width="80.00" height="82.00" stroke="black" fill="none" />
+    <text x="-39.00" y="32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TRIG</text>
+    <text x="-39.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">THRES</text>
+    <text x="-39.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DISCH</text>
+    <text x="-39.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RESET</text>
+    <text x="-23.00" y="-35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CONT</text>
+    <text x="10.00" y="-35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vcc</text>
+    <text x="26.00" y="1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT</text>
+    <text x="15.00" y="-43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="42.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-4.00" y="47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-6.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-25.00" y="-43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="-45.00" y="-31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-45.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="-45.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="-45.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <circle class="qet-terminal" cx="-20.00" cy="-54.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="54.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="52.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-51.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-51.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-51.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-51.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="-54.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

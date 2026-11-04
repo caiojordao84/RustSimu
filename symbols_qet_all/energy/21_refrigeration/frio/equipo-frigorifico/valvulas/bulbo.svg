@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-31.0 -40.0 60.0 50.0" data-name="bulbo">
+  <title>bulbo</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-2.00" cy="-3.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <ellipse cx="1.00" cy="-6.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="3.43" y1="0.00" x2="8.23" y2="0.00" stroke="black" fill="none" />
+    <line x1="3.50" y1="-10.00" x2="3.50" y2="1.00" stroke="black" fill="none" />
+    <ellipse cx="1.00" cy="-2.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <path d="M -9.00 -10.00 A 3.00 5.00 0 0 0 -9.00 0.00" stroke="black" fill="none" />
+    <line x1="-8.86" y1="0.00" x2="-4.07" y2="0.00" stroke="black" fill="none" />
+    <path d="M 8.00 0.00 A 3.00 5.00 0 0 0 8.00 -10.00" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-10.00" x2="8.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-10.00" x2="-4.00" y2="1.00" stroke="black" fill="none" />
+    <ellipse cx="-2.00" cy="-8.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="-4.11" y1="1.00" x2="3.12" y2="1.00" stroke="black" fill="none" />
+    <ellipse cx="4.54" cy="-20.10" rx="4.46" ry="3.90" stroke="black" fill="none" />
+    <line x1="0.08" y1="-19.36" x2="0.08" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-21.00" y1="0.00" x2="19.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

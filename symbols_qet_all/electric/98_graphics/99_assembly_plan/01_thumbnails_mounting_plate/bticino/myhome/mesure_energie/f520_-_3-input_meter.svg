@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="260.0" viewBox="-44.0 -200.0 60.0 260.0" data-name="F520 - 3-input meter">
+  <title>F520 - 3-input meter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-30.00" y="-190.00" width="40.00" height="240.00" stroke="black" fill="white" />
+    <text x="-29.00" y="-174.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">230V~</text>
+    <text x="-28.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">110-230V~ 50-60Hz
+In(Tx)=16A
+Imax(Tx)=90A</text>
+    <rect x="-24.00" y="-104.00" width="28.00" height="58.00" stroke="black" fill="black" />
+    <text x="-2.00" y="-181.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T
+b</text>
+    <text x="3.00" y="-181.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T
+c</text>
+    <text x="-28.00" y="-125.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BT-F520</text>
+    <rect x="-20.00" y="-147.00" width="21.00" height="11.00" stroke="black" fill="black" />
+    <line x1="10.00" y1="30.00" x2="-30.00" y2="30.00" stroke="black" fill="none" />
+    <ellipse cx="-15.00" cy="-165.00" rx="2.50" ry="2.50" stroke="black" fill="#0055d4" />
+    <ellipse cx="-24.00" cy="40.00" rx="1.00" ry="1.00" stroke="black" fill="gray" />
+    <ellipse cx="-17.00" cy="40.00" rx="1.00" ry="1.00" stroke="black" fill="gray" />
+    <ellipse cx="-25.00" cy="-165.00" rx="2.50" ry="2.50" stroke="black" fill="#00aa00" />
+    <text x="-25.00" y="36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCS</text>
+    <line x1="10.00" y1="-170.00" x2="-30.00" y2="-170.00" stroke="black" fill="none" />
+    <polyline points="0,25 -28,25 -28,10" stroke="#d40000" fill="none" />
+    <text x="-28.00" y="-151.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MyHOME</text>
+    <text x="-20.00" y="-138.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S C S</text>
+    <text x="-28.00" y="-117.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">13W09 070</text>
+    <text x="-28.00" y="-109.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ID:</text>
+    <ellipse cx="0.00" cy="-50.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-20.00" cy="-50.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="0.00" cy="-100.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="0.00" cy="-90.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="0.00" cy="-80.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="0.00" cy="-70.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="0.00" cy="-60.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-20.00" cy="-60.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-20.00" cy="-70.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-20.00" cy="-80.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-20.00" cy="-90.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-20.00" cy="-100.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <text x="-27.00" y="-180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N  L</text>
+    <text x="-7.00" y="-181.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T
+a</text>
+    <text x="-17.00" y="-71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A3-Tb</text>
+    <text x="-17.00" y="-60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A3-Tc</text>
+    <text x="-13.00" y="-98.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
+    <text x="-17.00" y="-81.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A3-Ta</text>
+    <text x="-13.00" y="-89.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
+    <circle class="qet-terminal" cx="-20.00" cy="-80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-190.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="-80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="-190.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-20.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-5.00" cy="-190.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-20.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="5.00" cy="-190.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-25.00" cy="-190.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

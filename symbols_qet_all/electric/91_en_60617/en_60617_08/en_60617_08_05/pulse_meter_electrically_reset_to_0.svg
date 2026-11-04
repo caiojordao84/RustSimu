@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="80.0" viewBox="-66.0 -50.0 100.0 80.0" data-name="Pulse meter electrically reset to 0">
+  <title>Pulse meter electrically reset to 0</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-20.00" y="-20.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="-10.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <rect x="-60.00" y="-20.00" width="40.00" height="20.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-40.00" x2="-40.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="0.00" x2="-40.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-40.00" x2="-10.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="0.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-40.00" x2="14.00" y2="-40.00" stroke="black" fill="none" />
+    <polygon points="8,-40 8,-42 16,-40 8,-38" stroke="black" fill="black" />
+    <text x="18.00" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <circle class="qet-terminal" cx="-40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

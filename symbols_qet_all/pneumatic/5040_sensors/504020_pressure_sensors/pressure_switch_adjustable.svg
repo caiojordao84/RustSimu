@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-37.0 -19.0 50.0 40.0" data-name="Pressure switch adjustable">
+  <title>Pressure switch adjustable</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="0.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="-5.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
+    <polyline points="10,0 6,0 6,-3 4,-3" stroke="black" fill="none" />
+    <text x="-8.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I / U
+PNP
+NPN</text>
+    <text x="-19.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P</text>
+    <text x="6.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <polyline points="10,10 6,10 4,10" stroke="black" fill="none" />
+    <text x="6.64" y="9.13" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <rect x="-14.00" y="-1.00" width="18.00" height="12.00" stroke="black" fill="none" />
+    <text x="6.55" y="13.94" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <rect x="-20.00" y="-15.00" width="30.00" height="30.00" stroke="black" fill="none" />
+    <polygon points="-20,-12 -20,-8 -16,-10" stroke="black" fill="none" />
+    <line x1="-26.00" y1="-10.00" x2="-20.00" y2="-10.00" stroke="black" fill="none" />
+    <text x="6.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <rect x="-14.00" y="-10.00" width="18.00" height="8.00" stroke="black" fill="none" />
+    <text x="-10.00" y="-7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IO Link
+  PNP</text>
+    <circle class="qet-terminal" cx="-30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

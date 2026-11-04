@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-30.0 -25.0 60.0 50.0" data-name="NOT (NOT)">
+  <title>NOT (NOT)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12.00" cy="0.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-11.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="19.00" y1="0.00" x2="14.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-10,-20 -10,20 10,0" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

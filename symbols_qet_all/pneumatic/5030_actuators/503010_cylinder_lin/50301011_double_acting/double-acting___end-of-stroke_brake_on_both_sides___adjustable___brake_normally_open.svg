@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="50.0" viewBox="-40.0 -20.0 90.0 50.0" data-name="Double-acting + end-of-stroke brake on both sides + adjustable + brake normally open">
+  <title>Double-acting + end-of-stroke brake on both sides + adjustable + brake normally open</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-32.00" y1="11.00" x2="-20.00" y2="-1.00" stroke="black" fill="none" />
+    <rect x="26.00" y="-9.00" width="10.00" height="1.00" stroke="black" fill="none" />
+    <rect x="-24.00" y="1.00" width="3.00" height="8.00" stroke="black" fill="none" />
+    <polyline points="32,2 32,-8 30,-8 30,2" stroke="black" fill="none" />
+    <polygon points="-22,-1 -20,1 -18,-3" stroke="black" fill="black" />
+    <line x1="33.00" y1="2.00" x2="29.00" y2="2.00" stroke="black" fill="none" />
+    <polyline points="30,1 26,1 26,-11 36,-11 36,1 32,1" stroke="black" fill="none" />
+    <rect x="-30.00" y="1.00" width="3.00" height="8.00" stroke="black" fill="none" />
+    <polygon points="36,-9 36,-11 34,-10" stroke="black" fill="none" />
+    <rect x="-27.00" y="-5.00" width="3.00" height="20.00" stroke="black" fill="none" />
+    <polygon points="18,15 22,15 20,11" stroke="black" fill="none" />
+    <polyline points="26.11,-7.95 35.72,-5.73 26.28,-1.69 35.76,0.88" stroke="black" fill="none" />
+    <polyline points="35,3 -21,3 -21,7 35,7" stroke="black" fill="none" />
+    <polyline points="23,7 23,15 -33,15 -33,-5 23,-5 23,3" stroke="black" fill="none" />
+    <polygon points="-32,15 -28,15 -30,11" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-15.0 -30.0 30.0 60.0" data-name="Flashing light">
+  <title>Flashing light</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="2.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
+    <polygon points="0,0 -7,7 -10,0 -7,-7" stroke="black" fill="black" />
+    <polygon points="0,0 7,-7 10,0 7,7" stroke="black" fill="black" />
+    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-7.00" x2="-7.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-7.00" x2="7.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <text x="2.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+  </g>
+</svg>

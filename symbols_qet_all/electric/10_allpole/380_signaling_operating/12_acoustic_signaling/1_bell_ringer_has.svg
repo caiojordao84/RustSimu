@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-7.0 -30.0 40.0 60.0" data-name="1 bell ringer has">
+  <title>1 bell ringer has</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="20.00" y="-1.00" width="9.50" height="2.00" stroke="black" fill="black" />
+    <path d="M 20.00 10.00 A 10.00 10.00 0 0 0 20.00 -10.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="-10.00" x2="20.00" y2="10.00" stroke="black" fill="none" />
+    <polyline points="0,-20 0,-5 20,-5 20,5 0,5 0,20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+  </g>
+</svg>

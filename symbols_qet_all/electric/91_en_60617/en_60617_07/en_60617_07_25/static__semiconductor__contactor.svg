@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-15.0 -30.0 30.0 60.0" data-name="Static (semiconductor) contactor">
+  <title>Static (semiconductor) contactor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-10.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="-7.00" y2="-11.00" stroke="black" fill="none" />
+    <path d="M 0.00 -14.00 A 2.00 2.00 0 0 0 -0.00 -10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

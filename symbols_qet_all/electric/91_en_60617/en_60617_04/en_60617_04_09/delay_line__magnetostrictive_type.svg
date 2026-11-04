@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="70.0" viewBox="-40.0 -65.0 120.0 70.0" data-name="Delay line, magnetostrictive type">
+  <title>Delay line, magnetostrictive type</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-10.00" y1="-39.25" x2="10.00" y2="-39.25" stroke="black" fill="black" />
+    <text x="35.00" y="-46.45" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">50 µs</text>
+    <text x="33.00" y="-6.45" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">100 µs</text>
+    <path d="M 0.00 -24.25 A 5.00 5.00 0 0 0 -10.00 -24.25" stroke="black" fill="none" />
+    <rect x="-20.00" y="-60.00" width="80.00" height="60.00" stroke="black" fill="none" />
+    <path d="M 10.00 -24.25 A 5.00 5.00 0 0 0 0.00 -24.25" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-50.00" x2="15.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="-55.00" x2="15.00" y2="-45.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-55.00" x2="-15.00" y2="-45.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-30.00" x2="-20.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="70.00" y1="-50.00" x2="60.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="70.00" y1="-10.00" x2="60.00" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="70.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="70.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-30.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

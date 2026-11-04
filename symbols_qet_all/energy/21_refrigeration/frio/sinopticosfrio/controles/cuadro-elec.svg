@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-21.0 -20.0 40.0 40.0" data-name="cuadro-elec">
+  <title>cuadro-elec</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-12.00" y="10.00" width="6.00" height="2.00" stroke="#d40000" fill="#d40000" />
+    <rect x="-12.00" y="-13.00" width="6.00" height="2.00" stroke="#d40000" fill="#d40000" />
+    <rect x="-12.00" y="-5.00" width="6.00" height="2.00" stroke="#d40000" fill="#d40000" />
+    <rect x="-6.00" y="-16.00" width="10.00" height="30.00" stroke="#d40000" fill="#d40000" />
+    <rect x="-12.00" y="2.00" width="6.00" height="2.00" stroke="#d40000" fill="#d40000" />
+    <rect x="4.00" y="-1.00" width="6.00" height="3.00" stroke="#d40000" fill="#d40000" />
+    <circle class="qet-terminal" cx="11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-13.00" cy="-12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-13.00" cy="-4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-13.00" cy="3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-13.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="80.0" viewBox="-10.0 -20.0 100.0 80.0" data-name="manual processing">
+  <title>manual processing</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="5,40 -5,0 85,0 75,40" stroke="black" fill="none" />
+    <line x1="40.00" y1="45.00" x2="40.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="40.00" x2="40.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-10.00" x2="40.00" y2="-1.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="30.0" viewBox="-40.0 -17.0 80.0 30.0" data-name="Valve-controlled spring return">
+  <title>Valve-controlled spring return</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-20.00" y="-10.00" width="40.00" height="20.00" stroke="black" fill="none" />
+    <line x1="26.00" y1="0.00" x2="9.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-1.06,0.19 -2,4 -4,-4 -6,4 -8,-4 -10,4 -11.13,0.19" stroke="black" fill="none" />
+    <line x1="-1.00" y1="0.00" x2="-26.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="4,5 9,0 4,-5" stroke="black" fill="none" />
+    <ellipse cx="3.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <polyline points="20,-6 30,-6 30,-10" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="70.0" viewBox="-50.0 -25.0 110.0 70.0" data-name="Straight section consisting of several separate compartments">
+  <title>Straight section consisting of several separate compartments</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="10.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <line x1="50.00" y1="-10.00" x2="-40.00" y2="-10.00" stroke="black" fill="none" />
+    <text x="10.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <text x="10.00" y="29.55" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <line x1="-40.00" y1="-15.00" x2="-40.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="-15.00" x2="50.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="-35.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="40.00" x2="-30.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="-26.00" y1="26.00" x2="8.00" y2="26.00" stroke="black" fill="none" />
+    <line x1="-22.00" y1="18.00" x2="8.00" y2="18.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="8.00" x2="8.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="-23.00" y1="13.00" x2="-16.00" y2="13.00" stroke="black" fill="none" />
+    <line x1="-28.00" y1="22.00" x2="-21.00" y2="22.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="50.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

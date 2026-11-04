@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="50.0" viewBox="-22.0 -24.0 70.0 50.0" data-name="Circuit breaker 3-poles">
+  <title>Circuit breaker 3-poles</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="23.6,5.4 26.6,3 27.4,5.7" stroke="black" fill="black" />
+    <polygon points="3.8,5.4 6.8,3 7.6,5.7" stroke="black" fill="black" />
+    <text x="42.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="22.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <polyline points="15,-10 20,10 20,20" stroke="black" fill="none" />
+    <text x="2.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <polyline points="35,-10 40,10 40,20" stroke="black" fill="none" />
+    <line x1="40.00" y1="-20.00" x2="40.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="-20.00" x2="20.00" y2="-12.00" stroke="black" fill="none" />
+    <polyline points="-5,-10 0,10 0,20" stroke="black" fill="none" />
+    <text x="22.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="42.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <polyline points="4,0 8,-1 7,-5 11,-6 12,-2 16,-3" stroke="black" fill="none" />
+    <polyline points="24,0 28,-1 27,-5 31,-6 32,-2 36,-3" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="5.00" x2="17.00" y2="2.00" stroke="black" fill="none" />
+    <text x="2.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <line x1="25.00" y1="5.00" x2="37.00" y2="2.00" stroke="black" fill="none" />
+    <polyline points="-16,0 -12,-1 -13,-5 -9,-6 -8,-2 -4,-3" stroke="black" fill="none" />
+    <line x1="-15.00" y1="5.00" x2="-3.00" y2="2.00" stroke="black" fill="none" />
+    <polygon points="-16,5.4 -13,3 -12.2,5.7" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="IN.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="OUT.2" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="IN.3" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="OUT.4" data-orientation="s" />
+    <circle class="qet-terminal" cx="40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="IN.5" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="OUT.6" data-orientation="s" />
+  </g>
+</svg>

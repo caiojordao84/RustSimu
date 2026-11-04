@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="80.0" viewBox="-24.0 -40.0 50.0 80.0" data-name="Inductive sensor 2 terminals">
+  <title>Inductive sensor 2 terminals</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-20.00" y="-16.00" width="41.00" height="32.00" stroke="black" fill="none" />
+    <path d="M 7.00 8.00 A 2.00 2.50 0 0 0 3.00 8.00" stroke="black" fill="none" />
+    <line x1="13.00" y1="-10.00" x2="18.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="-6.00" x2="12.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-10.00" x2="6.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-13.00" y1="-7.00" x2="-13.00" y2="1.00" stroke="black" fill="none" />
+    <polygon points="-8,-13 -18,-3 -8,7 2,-3" stroke="black" fill="none" />
+    <path d="M 15.00 8.00 A 2.00 2.50 0 0 0 11.00 8.00" stroke="black" fill="none" />
+    <path d="M 11.00 8.00 A 2.00 2.50 0 0 0 7.00 8.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="8.00" x2="3.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="15.50" y1="8.00" x2="18.50" y2="8.00" stroke="black" fill="none" />
+    <line x1="-2.50" y1="-7.00" x2="-2.50" y2="1.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-16.00" x2="0.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="30.00" x2="0.00" y2="16.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

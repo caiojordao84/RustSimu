@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="180.0" viewBox="-14.0 -171.0 140.0 180.0" data-name="Three-phase motor">
+  <title>Three-phase motor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="70,-110 68,-108 74,-108 72,-110" stroke="black" fill="gray" />
+    <polygon points="48,-110 46,-108 52,-108 50,-110" stroke="black" fill="gray" />
+    <path d="M 84.00 -110.00 A 2.00 2.00 0 0 0 86.00 -112.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-85.00" width="120.00" height="85.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-15.00" x2="120.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-45.00" x2="120.00" y2="-45.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-65.00" x2="120.00" y2="-65.00" stroke="black" fill="none" />
+    <text x="66.00" y="-32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="58.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <rect x="40.00" y="-140.00" width="40.00" height="30.00" stroke="black" fill="none" />
+    <path d="M 39.00 -140.00 A 5.00 15.00 0 0 0 39.00 -110.00" stroke="black" fill="none" />
+    <line x1="33.00" y1="-125.00" x2="28.00" y2="-125.00" stroke="black" fill="none" />
+    <rect x="68.00" y="-143.00" width="2.00" height="1.50" stroke="black" fill="none" />
+    <line x1="42.00" y1="-138.00" x2="78.00" y2="-138.00" stroke="black" fill="none" />
+    <line x1="42.49" y1="-130.00" x2="77.51" y2="-130.00" stroke="black" fill="none" />
+    <line x1="42.00" y1="-126.00" x2="78.00" y2="-126.00" stroke="black" fill="none" />
+    <line x1="42.00" y1="-122.00" x2="78.00" y2="-122.00" stroke="black" fill="none" />
+    <line x1="42.00" y1="-118.00" x2="78.00" y2="-118.00" stroke="black" fill="none" />
+    <line x1="42.00" y1="-114.00" x2="78.00" y2="-114.00" stroke="black" fill="none" />
+    <line x1="42.49" y1="-134.00" x2="77.51" y2="-134.00" stroke="black" fill="none" />
+    <line x1="86.00" y1="-138.00" x2="86.00" y2="-112.00" stroke="black" fill="none" />
+    <line x1="84.00" y1="-140.00" x2="80.00" y2="-140.00" stroke="black" fill="none" />
+    <line x1="84.00" y1="-110.00" x2="80.00" y2="-110.00" stroke="black" fill="none" />
+    <rect x="32.00" y="-128.00" width="2.00" height="6.00" stroke="black" fill="white" />
+    <rect x="52.00" y="-144.00" width="16.00" height="4.00" stroke="black" fill="none" />
+    <path d="M 86.00 -138.00 A 2.00 2.00 0 0 0 84.00 -140.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-160.00" x2="40.00" y2="-155.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-160.00" x2="40.00" y2="-155.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-155.00" x2="52.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="80.00" y1="-160.00" x2="80.00" y2="-156.00" stroke="black" fill="none" />
+    <line x1="80.00" y1="-156.00" x2="68.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-160.00" x2="60.00" y2="-144.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="-160.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="80.00" cy="-160.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="60.00" cy="-110.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="60.00" cy="-160.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

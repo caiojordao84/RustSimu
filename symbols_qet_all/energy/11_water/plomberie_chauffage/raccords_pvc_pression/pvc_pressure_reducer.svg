@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-17.0 -11.0 50.0 30.0" data-name="PVC pressure reducer">
+  <title>PVC pressure reducer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-7.00" y="-7.00" width="8.00" height="14.00" stroke="white" fill="white" />
+    <rect x="4.00" y="-6.00" width="8.00" height="12.00" stroke="white" fill="white" />
+    <line x1="-6.00" y1="7.00" x2="2.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-7.00" x2="-7.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-7.00" x2="1.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-5.00" x2="12.00" y2="5.00" stroke="black" fill="none" />
+    <rect x="17.00" y="-6.00" width="10.00" height="12.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="-6.00" x2="12.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="4.00" y1="15.00" x2="8.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="6.00" x2="12.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="7.00" x2="6.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="-7.00" x2="5.00" y2="-6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-7.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

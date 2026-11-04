@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="100.0" viewBox="-15.0 -43.0 30.0 100.0" data-name="Hydraulic accumulator">
+  <title>Hydraulic accumulator</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-12.00" y1="0.00" x2="12.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="0,0 -5,-5 5,-5" stroke="black" fill="none" />
+    <line x1="0.00" y1="37.86" x2="0.00" y2="46.93" stroke="black" fill="none" />
+    <path d="M 12.50 -25.00 A 12.50 12.50 0 0 0 -12.50 -25.00" stroke="black" fill="none" />
+    <path d="M -12.50 25.00 A 12.50 12.50 0 0 0 12.50 25.00" stroke="black" fill="none" />
+    <line x1="-12.50" y1="-25.00" x2="-12.50" y2="25.00" stroke="black" fill="none" />
+    <line x1="12.50" y1="-25.00" x2="12.50" y2="25.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="47.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

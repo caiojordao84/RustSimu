@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-24.0 -10.0 50.0 30.0" data-qet-native="true">
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -5.00 -3.00 A 3.00 3.00 0 0 0 -5.00 3.00" data-arc="-8.00,-3.00,6.00,6.00,90.00,180.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="0.00" x2="-2.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="10.00" x2="-8.00" y2="10.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="9.00" width="4.00" height="2.00" stroke="black" fill="black" />
+    <rect x="2.00" y="-1.00" width="4.00" height="2.00" stroke="black" fill="black" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="-4.00" y2="10.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="-1.00" width="4.00" height="2.00" stroke="black" fill="black" />
+    <rect x="-22.00" y="-5.00" width="44.00" height="20.00" stroke="black" fill="none" stroke-dasharray="1.5,2" stroke-width="0.8" />
+    <line x1="-20.00" y1="0.00" x2="-8.00" y2="0.00" stroke="black" fill="none" />
+    <path d="M -5.00 7.00 A 3.00 3.00 0 0 0 -5.00 13.00" data-arc="-8.00,7.00,6.00,6.00,90.00,180.00" stroke="black" fill="none" />
+    <path d="M 5.00 3.00 A 3.00 3.00 0 0 0 5.00 -3.00" data-arc="2.00,-3.00,6.00,6.00,270.00,180.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

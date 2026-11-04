@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-11.0 -30.0 30.0 60.0" data-name="Varistor">
+  <title>Varistor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <rect x="-4.00" y="-10.00" width="8.00" height="20.00" stroke="black" fill="white" />
+    <text x="9.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U</text>
+    <polyline points="7,10 7,5 -7,-10" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+  </g>
+</svg>

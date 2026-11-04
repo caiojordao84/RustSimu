@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="80.0" viewBox="-33.0 -40.0 60.0 80.0" data-name="Manual pressure regulator">
+  <title>Manual pressure regulator</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="15.11,-12.7 17,-7 18,-13 20,-7 21,-13 23,-7 24.17,-12.58" stroke="black" fill="none" />
+    <line x1="0.00" y1="14.00" x2="0.00" y2="-11.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="-15.00" width="30.00" height="30.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <polygon points="2,-9.5 -2,-9.5 0,-14.5" stroke="black" fill="black" />
+    <line x1="0.00" y1="15.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
+    <polyline points="0,-15 -10,-25 -30,-25 -30,-10 -15,-10" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

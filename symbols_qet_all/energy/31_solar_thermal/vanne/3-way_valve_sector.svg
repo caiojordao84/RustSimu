@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -30.0 40.0 50.0" data-name="3-way valve sector">
+  <title>3-way valve sector</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -8.09 -5.88 A 10.00 10.00 0 1 0 8.09 -5.88" stroke="black" fill="none" />
+    <polygon points="6,0 8,-2 8,2" stroke="black" fill="none" />
+    <polygon points="0,6 -2,8 2,8" stroke="black" fill="none" />
+    <polygon points="-6,0 -8,-2 -8,2" stroke="black" fill="none" />
+    <path d="M -3.45 2.89 A 4.50 4.50 0 0 0 3.45 2.89" stroke="black" fill="none" />
+    <line x1="1.00" y1="-9.00" x2="1.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-9.00" x2="-1.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-6.00" x2="8.00" y2="-6.00" stroke="black" fill="none" />
+    <polyline points="-10,-17 -10,-10 -5,-9 5,-9 10,-10 10,-17" stroke="black" fill="none" />
+    <path d="M 10.00 -18.00 A 10.00 2.00 0 0 0 -10.00 -18.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

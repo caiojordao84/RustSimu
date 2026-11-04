@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="40.0" viewBox="-10.0 -22.0 20.0 40.0" data-name="Flow meter">
+  <title>Flow meter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-2.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L/s</text>
+    <rect x="-4.00" y="-20.00" width="8.00" height="23.00" stroke="black" fill="none" />
+    <rect x="-8.00" y="3.00" width="16.00" height="6.00" stroke="lightgray" fill="#dcdcdc" />
+    <line x1="0.00" y1="-9.00" x2="0.00" y2="2.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-10.00" x2="2.00" y2="-10.00" stroke="#d40000" fill="none" />
+    <rect x="-8.00" y="11.00" width="16.00" height="4.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-16.00" x2="3.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="2.00" x2="3.00" y2="2.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-2.00" x2="3.00" y2="-2.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="0.00" x2="3.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-6.00" x2="3.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-4.00" x2="3.00" y2="-4.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-14.00" x2="3.00" y2="-14.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-8.00" x2="3.00" y2="-8.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-12.00" x2="3.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="11.00" x2="-4.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="4.00" y1="11.00" x2="4.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-10.00" x2="3.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="10.00" x2="5.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="3.00" x2="-5.00" y2="9.00" stroke="#888888" fill="none" />
+    <line x1="5.00" y1="3.00" x2="5.00" y2="9.00" stroke="#888888" fill="none" />
+    <line x1="-8.00" y1="3.00" x2="-8.00" y2="9.00" stroke="#888888" fill="none" />
+    <line x1="8.00" y1="3.00" x2="8.00" y2="9.00" stroke="#888888" fill="none" />
+    <line x1="0.00" y1="3.00" x2="0.00" y2="9.00" stroke="#888888" fill="none" />
+  </g>
+</svg>

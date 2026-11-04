@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-45.0 -25.0 60.0 50.0" data-name="bomba-electrica">
+  <title>bomba-electrica</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.32" cy="0.07" rx="9.32" ry="9.17" stroke="black" fill="none" />
+    <line x1="-0.29" y1="-9.33" x2="-9.00" y2="0.07" stroke="black" fill="none" />
+    <line x1="-0.07" y1="-9.33" x2="9.65" y2="0.07" stroke="black" fill="none" />
+    <line x1="0.00" y1="9.88" x2="0.00" y2="13.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="-14.00" stroke="black" fill="none" />
+    <ellipse cx="-27.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <text x="-32.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="-17.00" y1="0.00" x2="-9.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

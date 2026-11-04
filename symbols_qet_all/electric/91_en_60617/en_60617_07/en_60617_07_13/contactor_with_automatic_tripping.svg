@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="80.0" viewBox="-11.0 -50.0 20.0 80.0" data-name="Contactor with automatic tripping">
+  <title>Contactor with automatic tripping</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="-8.00" y2="-23.00" stroke="black" fill="none" />
+    <path d="M 0.00 -24.50 A 2.50 2.50 0 0 0 -0.00 -19.50" stroke="black" fill="none" />
+    <polygon points="-6,-17 -8,-16 -7,-13 -5,-14" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

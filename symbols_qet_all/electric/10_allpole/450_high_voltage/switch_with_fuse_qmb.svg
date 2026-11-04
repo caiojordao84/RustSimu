@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="130.0" viewBox="-24.0 -30.0 50.0 130.0" data-name="Switch with fuse QMB">
+  <title>Switch with fuse QMB</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6,-2 19,-2 19,25 15,25" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <rect x="5.00" y="16.00" width="9.00" height="20.00" stroke="black" fill="none" />
+    <polyline points="1.7,-8 9.7,6 9.7,89" stroke="black" fill="none" />
+    <line x1="-10.80" y1="-5.00" x2="-10.80" y2="-1.00" stroke="black" fill="none" />
+    <line x1="-12.80" y1="-3.00" x2="-11.80" y2="-3.00" stroke="black" fill="none" />
+    <line x1="-13.80" y1="-7.00" x2="-13.80" y2="1.00" stroke="black" fill="none" />
+    <line x1="-17.80" y1="-3.00" x2="-17.80" y2="-2.00" stroke="black" fill="none" />
+    <line x1="-15.80" y1="-5.00" x2="-15.80" y2="-1.00" stroke="black" fill="none" />
+    <ellipse cx="9.70" cy="-9.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="7.70" y1="-10.00" x2="11.70" y2="-10.00" stroke="black" fill="none" />
+    <line x1="9.70" y1="77.00" x2="4.70" y2="77.00" stroke="black" fill="none" />
+    <line x1="4.70" y1="72.00" x2="4.70" y2="82.00" stroke="black" fill="none" />
+    <line x1="2.95" y1="72.00" x2="2.95" y2="82.00" stroke="black" fill="none" />
+    <line x1="-0.30" y1="77.00" x2="2.70" y2="77.00" stroke="black" fill="none" />
+    <path d="M -5.30 82.00 A 5.00 5.00 0 0 0 -5.30 72.00" stroke="black" fill="none" />
+    <line x1="9.70" y1="-20.00" x2="9.70" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

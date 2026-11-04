@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-30.0 -20.0 60.0 40.0" data-name="Backflow">
+  <title>Backflow</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-20.00" y="-10.00" width="40.00" height="20.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-4.00" y1="-8.00" x2="3.00" y2="-8.00" stroke="black" fill="none" />
+    <polygon points="6,0 17,-7 17,7" stroke="black" fill="none" />
+    <polygon points="-17,0 -6,-7 -6,7" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-17.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="1.00" stroke="black" fill="none" />
+    <line x1="-17.00" y1="-7.00" x2="-17.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="0.00" x2="16.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="-7.00" x2="6.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" />
+    <text x="-18.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">disconnecteur</text>
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

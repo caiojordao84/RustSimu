@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-21.0 -30.0 30.0 60.0" data-name="Centrifugal contact (NC)">
+  <title>Centrifugal contact (NC)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-13.01" cy="-12.01" rx="2.23" ry="2.23" stroke="black" fill="none" />
+    <polyline points="5,-10 0,10 0,20" stroke="black" fill="none" />
+    <polyline points="-14,-10 -19,-2 -14,5" stroke="black" fill="none" />
+    <line x1="0.00" y1="-9.00" x2="6.00" y2="-9.00" stroke="black" fill="none" />
+    <ellipse cx="-13.01" cy="6.99" rx="2.23" ry="2.23" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="-19.00" y1="-2.00" x2="3.00" y2="-2.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

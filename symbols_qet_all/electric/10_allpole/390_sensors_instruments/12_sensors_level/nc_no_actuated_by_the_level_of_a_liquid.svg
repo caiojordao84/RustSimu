@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-39.0 -31.0 50.0 60.0" data-name="NC/NO Actuated by the level of a liquid">
+  <title>NC/NO Actuated by the level of a liquid</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -31.64 0.20 A 6.00 3.50 0 0 0 -20.36 0.20" stroke="black" fill="none" />
+    <path d="M -20.36 -0.20 A 6.00 3.50 0 0 0 -31.64 -0.20" stroke="black" fill="none" />
+    <line x1="-26.00" y1="-6.00" x2="-26.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-9.00" x2="-7.00" y2="-9.00" stroke="black" fill="none" />
+    <polyline points="0,20 0,10 -10,-10" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-20.00" x2="-20.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-5.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

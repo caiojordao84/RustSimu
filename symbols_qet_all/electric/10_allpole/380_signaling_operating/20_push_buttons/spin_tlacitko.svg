@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-22.0 -25.0 30.0 50.0" data-name="spin tlacitko">
+  <title>spin tlacitko</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="-5.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="0.00" x2="-20.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="-15,-5 -20,-5 -20,5 -15,5" stroke="black" fill="none" />
+    <text x="1.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="1.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <circle class="qet-terminal" cx="0.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

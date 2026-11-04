@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="40.0" viewBox="-13.0 -27.0 70.0 40.0" data-name="Motor turning left + variable speed">
+  <title>Motor turning left + variable speed</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="14.15,-18.31 9.88,-15.82 12.08,-13.77 14.25,-18.31" stroke="black" fill="black" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="6.00" x2="11.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="5.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
+    <path d="M 21.52 -15.03 A 17.50 17.50 0 0 0 20.82 5.03" stroke="black" fill="none" />
+    <polygon points="2.9,-14.58 -2.56,-14.63 0,-8.81 2.85,-14.47" stroke="black" fill="none" />
+    <line x1="10.00" y1="-3.00" x2="22.00" y2="-3.00" stroke="black" fill="none" />
+    <polygon points="24.27,7.94 19.65,5.89 21.79,4.16 24.27,7.63" stroke="black" fill="black" />
+    <line x1="10.00" y1="-7.00" x2="22.00" y2="-7.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-5.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

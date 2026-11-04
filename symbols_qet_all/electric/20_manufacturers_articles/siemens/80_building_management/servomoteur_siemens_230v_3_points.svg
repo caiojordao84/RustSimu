@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="90.0" viewBox="-55.0 -74.0 150.0 90.0" data-name="Servomoteur Siemens 230V 3 POINTS">
+  <title>Servomoteur Siemens 230V 3 POINTS</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-10.00" cy="-30.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
+    <rect x="-50.00" y="-65.00" width="140.00" height="70.00" stroke="black" fill="none" />
+    <rect x="-35.00" y="-55.00" width="50.00" height="50.00" stroke="black" fill="none" />
+    <text x="-32.00" y="-56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y1</text>
+    <text x="4.00" y="-56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y2</text>
+    <text x="-8.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="-17.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="-20.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-65.00" x2="-20.00" y2="-55.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-65.00" x2="0.00" y2="-55.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="5.00" x2="-10.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-15.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="-65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="100.0" viewBox="-20.0 -50.0 40.0 100.0" data-name="Three-phase transformer Yd">
+  <title>Three-phase transformer Yd</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-4,-16 0,-13 4,-16" stroke="black" fill="none" />
+    <line x1="-5.00" y1="35.00" x2="5.00" y2="31.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-27.00" x2="5.00" y2="-31.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-10.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="31.00" x2="5.00" y2="27.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-31.00" x2="5.00" y2="-35.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-13.00" x2="0.00" y2="-9.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="10.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-29.00" x2="5.00" y2="-33.00" stroke="black" fill="none" />
+    <polygon points="-4,16 4,16 0,9" stroke="black" fill="none" />
+    <line x1="0.00" y1="-40.00" x2="0.00" y2="-25.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="33.00" x2="5.00" y2="29.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="25.00" x2="0.00" y2="40.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="180.0" height="80.0" viewBox="-71.0 -40.0 180.0 80.0" data-name="Static thermal overload relay">
+  <title>Static thermal overload relay</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="82.00" y1="10.00" x2="102.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="92.00" y1="10.00" x2="92.00" y2="20.00" stroke="black" fill="none" />
+    <rect x="-50.00" y="-20.00" width="40.00" height="40.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-30.00" x2="-30.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="92.00" y1="-10.00" x2="92.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="92.00" y1="10.00" x2="85.00" y2="-11.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="30.00" x2="-30.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="10.00" x2="70.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="10.00" x2="60.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-10.00" x2="60.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="10.00" x2="68.00" y2="-11.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="0.00" x2="88.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="60.00" y1="-10.00" x2="70.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-20.00" x2="-40.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-20.00" x2="-20.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="20.00" x2="-40.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="20.00" x2="-20.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="10.00" x2="-60.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-10.00" x2="-60.00" y2="-10.00" stroke="black" fill="none" />
+    <polyline points="-35,-15 -35,-10 -20,-10 -20,10 -35,10 -35,15" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="60.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-30.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="92.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="92.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="60.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-60.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-60.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

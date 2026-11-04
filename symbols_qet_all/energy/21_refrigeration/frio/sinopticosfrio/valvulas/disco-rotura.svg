@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-20.0 -10.0 40.0 20.0" data-name="disco-rotura">
+  <title>disco-rotura</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-10.80" y1="0.00" x2="-4.85" y2="0.00" stroke="black" fill="none" />
+    <line x1="4.34" y1="0.00" x2="10.89" y2="0.00" stroke="black" fill="none" />
+    <rect x="-8.00" y="-6.00" width="16.00" height="12.00" stroke="black" fill="none" />
+    <path d="M 4.00 0.00 A 4.00 2.00 0 0 0 -4.00 -0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="60.0" viewBox="-40.0 -22.0 80.0 60.0" data-name="Automatic water separation">
+  <title>Automatic water separation</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-8,9 0,17 8,9" stroke="black" fill="none" />
+    <line x1="0.00" y1="20.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
+    <polygon points="-20,0 0,-20 20,0 0,20" stroke="black" fill="none" />
+    <line x1="-11.00" y1="9.00" x2="11.00" y2="9.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="0.00" x2="30.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="0.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

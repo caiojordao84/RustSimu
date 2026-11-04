@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="60.0" viewBox="-84.0 -20.0 120.0 60.0" data-name="Double cylinder + piston rod on both sides">
+  <title>Double cylinder + piston rod on both sides</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-75,17 -30,17 -30,13 -75,13" stroke="black" fill="none" />
+    <polyline points="-33,13 -33,5 23,5 23,13" stroke="black" fill="none" />
+    <rect x="-78.00" y="-7.00" width="3.00" height="24.00" stroke="black" fill="none" />
+    <polyline points="-75,-3 -30,-3 -30,-7 -75,-7" stroke="black" fill="none" />
+    <polyline points="23,-3 23,5 -33,5 -33,-3" stroke="black" fill="none" />
+    <polyline points="-33,-7 -33,-15 23,-15 23,-7" stroke="black" fill="none" />
+    <polyline points="23,17 23,25 -33,25 -33,17" stroke="black" fill="none" />
+    <rect x="-21.00" y="-9.00" width="3.00" height="8.00" stroke="black" fill="none" />
+    <polyline points="-25,-9 -25,-1 -25,-9 -24,-9 -24,-1 -23,-1 -23,-3 -24,-4 -24,-6 -23,-7 -23,-9 -25,-9 -25,-1 -24,-1" stroke="black" fill="none" />
+    <rect x="-21.00" y="11.00" width="3.00" height="8.00" stroke="black" fill="none" />
+    <rect x="-30.00" y="-9.00" width="3.00" height="8.00" stroke="black" fill="none" />
+    <polyline points="-25,11 -25,19 -25,11 -24,11 -24,19 -23,19 -23,17 -24,16 -24,14 -23,13 -23,11 -25,11 -25,19 -24,19" stroke="black" fill="none" />
+    <polyline points="27,-7 -18,-7 -18,-3 27,-3" stroke="black" fill="none" />
+    <rect x="-27.00" y="-15.00" width="6.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-30.00" y="11.00" width="3.00" height="8.00" stroke="black" fill="none" />
+    <polygon points="18,25 22,25 20,21" stroke="black" fill="none" />
+    <polyline points="27,13 -18,13 -18,17 27,17" stroke="black" fill="none" />
+    <rect x="-27.00" y="5.00" width="6.00" height="20.00" stroke="black" fill="none" />
+    <polygon points="-32,25 -28,25 -30,21" stroke="black" fill="none" />
+    <rect x="27.00" y="-10.00" width="3.00" height="30.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-30.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-30.0 -32.0 50.0 50.0" data-name="torre-refrig">
+  <title>torre-refrig</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-18.00" y="0.00" width="31.00" height="7.00" stroke="black" fill="none" />
+    <polyline points="-18,0 -8,-30 2,-30 13,0" stroke="black" fill="none" />
+    <line x1="-14.00" y1="6.00" x2="-14.00" y2="11.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-23.00" x2="-1.00" y2="-23.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-22.00" x2="-5.00" y2="-19.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-22.00" x2="2.00" y2="-19.00" stroke="black" fill="none" />
+    <line x1="-1.52" y1="-21.37" x2="-1.52" y2="-18.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-19.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-14.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

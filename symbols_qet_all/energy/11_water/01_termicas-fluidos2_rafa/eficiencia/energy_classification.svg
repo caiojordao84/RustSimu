@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-13.0 -88.0 100.0 100.0" data-name="Energy classification">
+  <title>Energy classification</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-5.5,-5 -5.5,5 71,5 76.5,0 71,-5" stroke="black" fill="black" />
+    <polygon points="-5.5,-19 -5.5,-9 58,-9 61.44,-14 56.82,-19" stroke="#d40000" fill="black" />
+    <polygon points="-5.5,-31 -5.5,-21 39.45,-21 44.31,-26 38.23,-31" stroke="#d40000" fill="#d40000" />
+    <polygon points="-5.5,-44 -5.5,-34 27.3,-34 33.37,-39 27.3,-44" stroke="#d40000" fill="#d40000" />
+    <polygon points="-5.5,-56 -5.5,-46 15.88,-46 22.56,-51 17.22,-56" stroke="#d40000" fill="#00aa00" />
+    <polygon points="-5.5,-68 -5.5,-58 9,-58 16.18,-63 9,-68" stroke="green" fill="#00aa00" />
+    <text x="-0.64" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">F</text>
+    <text x="-0.64" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">G</text>
+    <text x="-0.64" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">E</text>
+    <polygon points="-5.5,-80 -5.5,-70 1.73,-70 9,-75 1.73,-80" stroke="green" fill="#00aa00" />
+    <text x="-0.64" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D</text>
+    <text x="-0.64" y="-48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <text x="-0.64" y="-60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <text x="-0.31" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <rect x="-11.00" y="-86.00" width="95.00" height="96.00" stroke="black" fill="none" />
+  </g>
+</svg>

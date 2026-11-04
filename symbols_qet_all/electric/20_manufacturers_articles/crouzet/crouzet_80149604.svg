@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="170.0" viewBox="-33.0 -77.0 140.0 170.0" data-name="Crouzet 80149604">
+  <title>Crouzet 80149604</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="66.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Logic
+ground</text>
+    <line x1="-10.00" y1="70.00" x2="90.00" y2="70.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-10.00" y1="-60.00" x2="90.00" y2="-60.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="90.00" y1="-60.00" x2="90.00" y2="70.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="-9.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Output
+12PT/T</text>
+    <text x="-9.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Enable
+input</text>
+    <text x="-9.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Direction
+input</text>
+    <text x="-9.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Input
+PWM</text>
+    <text x="-9.00" y="-41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Input
+0-10V</text>
+    <line x1="-10.00" y1="-60.00" x2="-10.00" y2="70.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="90.00" y1="0.00" x2="100.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="70.00" x2="40.00" y2="81.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-20.00" x2="-10.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-70.00" x2="40.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="40.00" x2="-10.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-40.00" x2="-10.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="20.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
+    <text x="18.00" y="68.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power ground</text>
+    <ellipse cx="40.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <line x1="45.00" y1="18.00" x2="45.00" y2="14.50" stroke="black" fill="none" />
+    <text x="31.50" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="35.00" y1="18.00" x2="45.00" y2="18.00" stroke="black" fill="none" />
+    <line x1="45.00" y1="-18.00" x2="45.00" y2="-14.50" stroke="black" fill="none" />
+    <text x="26.00" y="-52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V DC</text>
+    <line x1="35.00" y1="-14.50" x2="35.00" y2="-18.00" stroke="black" fill="none" />
+    <line x1="35.00" y1="-18.00" x2="45.00" y2="-18.00" stroke="black" fill="none" />
+    <line x1="35.00" y1="14.50" x2="35.00" y2="18.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="100.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="81.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

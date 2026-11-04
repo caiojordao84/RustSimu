@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="150.0" viewBox="-24.0 -19.0 100.0 150.0" data-name="Limescale filter">
+  <title>Limescale filter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-10.00" y="-14.00" width="20.00" height="18.00" stroke="black" fill="#dcdcdc" />
+    <rect x="-5.00" y="4.00" width="10.00" height="5.00" stroke="black" fill="#dcdcdc" />
+    <rect x="-14.00" y="-2.00" width="4.00" height="4.00" stroke="black" fill="#dcdcdc" />
+    <rect x="-14.00" y="-12.00" width="4.00" height="4.00" stroke="black" fill="#dcdcdc" />
+    <rect x="-4.00" y="-8.00" width="8.00" height="6.00" stroke="black" fill="white" />
+    <rect x="-20.00" y="19.00" width="40.00" height="100.00" stroke="#0055d4" fill="#0055d4" />
+    <ellipse cx="0.00" cy="19.00" rx="20.00" ry="13.00" stroke="#0055d4" fill="#0055d4" />
+    <rect x="10.00" y="-11.00" width="3.00" height="2.00" stroke="black" fill="#dcdcdc" />
+    <rect x="-21.00" y="125.00" width="42.00" height="2.00" stroke="black" fill="black" />
+    <path d="M -21.00 125.00 A 1.00 2.00 0 0 0 -20.00 123.00" stroke="black" fill="none" />
+    <path d="M 20.00 123.00 A 1.00 2.00 0 0 0 21.00 125.00" stroke="black" fill="none" />
+    <rect x="-20.00" y="120.00" width="40.00" height="4.00" stroke="black" fill="black" />
+    <rect x="40.00" y="80.00" width="32.00" height="46.00" stroke="black" fill="none" />
+    <rect x="40.00" y="76.00" width="32.00" height="4.00" stroke="black" fill="none" />
+    <rect x="10.00" y="-1.00" width="3.00" height="2.00" stroke="black" fill="none" />
+    <polyline points="14,0 30,0 30,84 40,84" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-14.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="13.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

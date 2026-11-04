@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="100.0" viewBox="-30.0 -50.0 60.0 100.0" data-name="Tank electrical ECS">
+  <title>Tank electrical ECS</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="25.00" y1="-40.00" x2="25.00" y2="37.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="-40.00" x2="-25.00" y2="37.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="-36.00" x2="20.00" y2="40.00" stroke="black" fill="none" />
+    <text x="15.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Ballon ECS</text>
+    <path d="M -25.00 37.00 A 25.00 6.00 0 0 0 25.00 37.00" stroke="black" fill="none" />
+    <ellipse cx="-20.00" cy="40.00" rx="1.25" ry="1.25" stroke="black" fill="none" />
+    <ellipse cx="-20.00" cy="0.00" rx="1.25" ry="1.25" stroke="black" fill="none" />
+    <ellipse cx="20.00" cy="40.00" rx="1.25" ry="1.25" stroke="black" fill="none" />
+    <polyline points="3,18 -3,20 3,21 -3,23 3,24 -3,26 3,27 -3,29 3,30 -3,32 3,33 -3,35 3,36 -3,38 3,39 0,40" stroke="black" fill="none" />
+    <line x1="-20.00" y1="31.00" x2="-20.00" y2="40.00" stroke="black" fill="none" />
+    <path d="M 25.00 -40.00 A 25.00 6.00 0 0 0 -25.00 -40.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="40.00" width="12.00" height="5.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

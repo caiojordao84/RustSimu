@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-50.0 -50.0 100.0 100.0" data-name="Graetz bridge">
+  <title>Graetz bridge</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="21.00" y1="-3.00" x2="21.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="18.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-23.00" y1="0.00" x2="-17.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="0.00" x2="-39.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="0.00" x2="39.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="30.00" x2="0.00" y2="39.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-39.00" stroke="black" fill="none" />
+    <polyline points="-19,-11 -30,0 -19,11" stroke="black" fill="none" />
+    <polyline points="-11,19 0,30 11,19" stroke="black" fill="none" />
+    <polyline points="19,-11 30,0 19,11" stroke="black" fill="none" />
+    <polyline points="-11,-19 0,-30 11,-19" stroke="black" fill="none" />
+    <path d="M 0.01 20.22 A 2.50 2.50 0 0 0 5.00 20.00" stroke="black" fill="none" />
+    <path d="M 0.01 -18.78 A 2.50 2.50 0 0 0 5.00 -19.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-23.00" x2="-7.00" y2="-15.00" stroke="black" fill="none" />
+    <path d="M -0.01 19.78 A 2.50 2.50 0 0 0 -5.00 20.00" stroke="black" fill="none" />
+    <path d="M -0.01 -19.22 A 2.50 2.50 0 0 0 -5.00 -19.00" stroke="black" fill="none" />
+    <polygon points="-11,19 -14,7 -23,16" stroke="black" fill="none" />
+    <polygon points="-11,-19 -14,-7 -23,-16" stroke="black" fill="none" />
+    <line x1="-7.00" y1="15.00" x2="-16.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="7.00" x2="23.00" y2="15.00" stroke="black" fill="none" />
+    <polygon points="19,-11 16,-23 7,-14" stroke="black" fill="none" />
+    <polygon points="19,11 16,23 7,14" stroke="black" fill="none" />
+    <line x1="23.00" y1="-15.00" x2="14.00" y2="-6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

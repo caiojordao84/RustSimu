@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="100.0" viewBox="-15.0 -50.0 30.0 100.0" data-name="Terminal (feed-through)">
+  <title>Terminal (feed-through)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-10.00" y="-40.00" width="20.00" height="80.00" stroke="black" fill="none" />
+    <rect x="-8.00" y="-12.00" width="16.00" height="24.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="20.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

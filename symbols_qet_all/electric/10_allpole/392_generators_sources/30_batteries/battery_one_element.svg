@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -13.0 60.0 30.0" data-name="Battery one element">
+  <title>Battery one element</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="20.00" y1="0.00" x2="3.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="0.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-9.00" x2="-3.00" y2="9.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-6.00" width="3.00" height="12.00" stroke="black" fill="black" />
+    <text x="6.00" y="6.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="-11.00" y="6.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

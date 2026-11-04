@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="230.0" viewBox="-6.0 -7.0 50.0 230.0" data-name="412015 - Netatmo Energy meter">
+  <title>412015 - Netatmo Energy meter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="40.00" height="200.00" stroke="black" fill="white" />
+    <line x1="0.00" y1="150.00" x2="40.00" y2="150.00" stroke="black" fill="none" />
+    <rect x="0.00" y="50.00" width="40.00" height="30.00" stroke="black" fill="cyan" />
+    <rect x="10.00" y="125.00" width="17.00" height="10.00" stroke="black" fill="#00aa00" />
+    <polyline points="4,121 4,146 9,146" stroke="#d40000" fill="none" />
+    <line x1="26.00" y1="146.00" x2="31.00" y2="146.00" stroke="#d40000" fill="none" />
+    <rect x="32.00" y="122.00" width="2.00" height="12.00" stroke="black" fill="black" />
+    <ellipse cx="33.00" cy="132.00" rx="0.50" ry="0.50" stroke="black" fill="white" />
+    <ellipse cx="12.00" cy="115.00" rx="2.00" ry="2.00" stroke="black" fill="white" />
+    <rect x="13.00" y="127.00" width="11.00" height="6.00" stroke="black" fill="gray" />
+    <text x="3.00" y="213.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="32.00" y="213.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <rect x="0.00" y="200.00" width="38.00" height="15.00" stroke="black" fill="none" />
+    <text x="15.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COIL</text>
+    <circle class="qet-terminal" cx="30.00" cy="215.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="215.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

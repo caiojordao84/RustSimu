@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-24.0 -12.0 50.0 20.0" data-name="NC Hogger valve">
+  <title>NC Hogger valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="16.05" y1="0.00" x2="10.78" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.62" y1="-0.20" x2="0.62" y2="-9.18" stroke="black" fill="none" />
+    <line x1="-4.10" y1="-9.18" x2="5.35" y2="-9.18" stroke="black" fill="none" />
+    <line x1="-9.18" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-9,-5 -9,5 1,0" stroke="black" fill="black" />
+    <polygon points="10,-5 10,5 1,0" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="16.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-15.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

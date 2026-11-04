@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-25.0 -10.0 40.0 20.0" data-name="Iron pipe">
+  <title>Iron pipe</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="7.00" y1="-5.00" x2="9.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="4.00" y1="-5.00" x2="6.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-5.00" x2="5.00" y2="5.00" stroke="black" fill="none" />
+    <rect x="3.00" y="-5.00" width="7.00" height="10.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="0.00" x2="4.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-5.00" x2="7.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="-5.00" x2="8.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-5.00" x2="10.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="9.00" y1="-5.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="0.00" x2="1.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-5.00" x2="-18.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="5.00" x2="-21.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-5.00" x2="-21.00" y2="5.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <text x="-12.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Fe</text>
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="e" />
+  </g>
+</svg>

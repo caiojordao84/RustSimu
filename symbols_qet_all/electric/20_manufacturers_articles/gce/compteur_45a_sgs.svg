@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="200.0" viewBox="-18.0 -100.0 50.0 200.0" data-name="Compteur 45A SGS">
+  <title>Compteur 45A SGS</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-6.00" y="63.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="5.00" y="55.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="5.00" y="61.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="15.00" y="61.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="16.00" y="54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <ellipse cx="16.00" cy="66.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="14.89" cy="82.92" rx="2.50" ry="2.50" stroke="none" fill="#d40000" />
+    <text x="24.00" y="87.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L Out</text>
+    <ellipse cx="14.75" cy="-84.50" rx="2.50" ry="2.50" stroke="none" fill="#0055d4" />
+    <text x="-6.00" y="82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-5.00" y="-43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Cmpt</text>
+    <text x="8.00" y="-83.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="14.00" y="81.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <rect x="5.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <text x="20.00" y="-82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <rect x="-15.00" y="-50.00" width="40.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="-80.00" width="40.00" height="10.00" stroke="black" fill="none" />
+    <text x="-3.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">kWh</text>
+    <rect x="-15.00" y="-90.00" width="40.00" height="180.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-25.00" width="20.00" height="55.00" stroke="black" fill="black" />
+    <text x="14.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">00000.0</text>
+    <rect x="-15.00" y="70.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="5.00" y="70.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <ellipse cx="-9.25" cy="42.25" rx="2.25" ry="2.25" stroke="black" fill="#00aa00" />
+    <rect x="-15.00" y="50.00" width="40.00" height="20.00" stroke="black" fill="none" />
+    <text x="-4.00" y="43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 Wh/Imp</text>
+    <ellipse cx="-5.11" cy="82.92" rx="2.50" ry="2.50" stroke="none" fill="#d40000" />
+    <rect x="-2.00" y="71.00" width="14.00" height="7.00" stroke="none" fill="white" />
+    <ellipse cx="6.00" cy="66.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <polyline points="8,54 10,54 10,52 14,52 14,54 16,54" stroke="black" fill="none" />
+    <text x="-8.00" y="85.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L in</text>
+    <circle class="qet-terminal" cx="15.00" cy="-90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-5.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="15.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="6.00" cy="66.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="16.00" cy="66.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

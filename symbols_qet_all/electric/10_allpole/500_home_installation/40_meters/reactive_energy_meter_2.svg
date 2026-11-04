@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="70.0" viewBox="-22.0 -40.0 40.0 70.0" data-name="reactive energy meter">
+  <title>reactive energy meter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-15.00" y="-14.00" width="30.00" height="26.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="-22.00" width="30.00" height="8.00" stroke="black" fill="none" />
+    <text x="-12.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">varh</text>
+    <line x1="-10.00" y1="-30.00" x2="-10.00" y2="-22.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-30.00" x2="10.00" y2="-22.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="12.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="13.00" x2="10.00" y2="20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

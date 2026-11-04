@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-20.0 -8.0 40.0 20.0" data-name="Check valve to spring">
+  <title>Check valve to spring</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-5,3 -5,-3 -6,3 -7,-3 -8,3 -9,-3" stroke="black" fill="none" />
+    <line x1="4.00" y1="-6.00" x2="4.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
+    <polygon points="-4,-5 4,0 -4,5" stroke="black" fill="none" />
+    <line x1="3.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="0.00" x2="-4.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

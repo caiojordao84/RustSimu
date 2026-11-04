@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-30.0 -25.0 60.0 50.0" data-name="Integral Flowmeter">
+  <title>Integral Flowmeter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="2,-3 -2,-3 1,0 -2,3 2,3" stroke="black" fill="none" />
+    <line x1="10.00" y1="0.00" x2="16.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
+    <path d="M 6.43 7.34 A 10.00 10.00 0 0 0 -6.43 7.34" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <path d="M -6.43 -7.34 A 10.00 10.00 0 0 0 6.43 -7.34" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

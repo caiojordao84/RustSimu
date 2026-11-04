@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-19.0 -12.0 30.0 30.0" data-name="baja-de">
+  <title>baja-de</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 3.00 5.00 A 6.00 5.00 0 0 0 -3.00 0.00" stroke="black" fill="none" />
+    <ellipse cx="-6.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <text x="-2.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Baja</text>
+    <polygon points="0,5 6,5 3,11" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

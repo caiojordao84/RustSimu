@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-30.0 -20.0 50.0 50.0" data-name="ECL">
+  <title>ECL</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="10.00" y1="20.00" x2="10.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="10.00" x2="-15.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-10.00" x2="-20.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="6.00" x2="5.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="4.00" x2="5.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="9.00" y1="4.00" x2="8.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="4.00" x2="11.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="14.50" y1="-14.50" x2="-14.50" y2="14.50" stroke="black" fill="none" />
+    <rect x="-15.00" y="-15.00" width="30.00" height="30.00" stroke="black" fill="none" />
+    <text x="5.00" y="13.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-14.00" y="9.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="-14.00" y="-6.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <circle class="qet-terminal" cx="-20.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="s" />
+  </g>
+</svg>

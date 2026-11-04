@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -28.0 40.0 50.0" data-name="Grille">
+  <title>Grille</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="10.44,-19 13.25,-17.15 13.25,-14.31 -4.56,-1.07 -4.56,-2" stroke="black" fill="none" />
+    <polyline points="10.44,-12.42 13.25,-10.53 13.25,-7.69 -4.56,5.54 -4.56,4.6" stroke="black" fill="none" />
+    <line x1="13.25" y1="-10.53" x2="-4.56" y2="1.76" stroke="black" fill="none" />
+    <polyline points="10.44,-4.86 13.25,-3 13.25,-0.13 -4.56,13.11 -4.56,12.16" stroke="black" fill="none" />
+    <line x1="13.25" y1="-3.00" x2="-4.56" y2="9.33" stroke="black" fill="none" />
+    <line x1="-9.25" y1="-8.64" x2="-4.56" y2="-8.64" stroke="black" fill="none" />
+    <line x1="-9.25" y1="15.00" x2="-4.56" y2="15.00" stroke="black" fill="none" />
+    <polygon points="14.19,-21.88 -4.56,-8.64 -4.56,15 14.19,0.82" stroke="black" fill="none" />
+    <line x1="9.50" y1="-21.88" x2="14.19" y2="-21.88" stroke="black" fill="none" />
+    <polyline points="9.5,-21.88 -9.25,-8.64 -9.25,15" stroke="black" fill="none" />
+    <line x1="13.25" y1="-17.15" x2="-4.56" y2="-4.86" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-9.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

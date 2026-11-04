@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="350.0" viewBox="-10.0 -5.0 100.0 350.0" data-name="6ES7134-6GD00-0BA1 AI 4xI 2-/4-wire">
+  <title>6ES7134-6GD00-0BA1 AI 4xI 2-/4-wire</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5.00" y="190.00" width="10.00" height="10.00" stroke="black" fill="none" />
+    <text x="17.00" y="213.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AI2</text>
+    <rect x="5.00" y="203.00" width="10.00" height="10.00" stroke="black" fill="none" />
+    <rect x="0.00" y="0.00" width="80.00" height="340.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="174.58" x2="80.65" y2="174.58" stroke="black" fill="none" />
+    <text x="5.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AI</text>
+    <text x="4.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4xI 2-/4-wire</text>
+    <text x="66.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ST</text>
+    <polygon points="10,40 70,40 70,50 65,55 65,125 70,130 70,140 10,140 10,130 15,125 15,55 10,50" stroke="black" fill="none" />
+    <rect x="32.50" y="203.00" width="10.00" height="10.00" stroke="black" fill="none" />
+    <line x1="80.00" y1="30.00" x2="10.00" y2="30.00" stroke="black" fill="none" />
+    <rect x="32.50" y="190.00" width="10.00" height="10.00" stroke="black" fill="none" />
+    <rect x="2.00" y="27.00" width="6.00" height="6.00" stroke="black" fill="none" />
+    <text x="44.50" y="213.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AI3</text>
+    <text x="44.50" y="200.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AI1</text>
+    <text x="2.00" y="172.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6ES7134-6GD00-0BA1</text>
+    <rect x="10.00" y="320.00" width="10.00" height="10.00" stroke="black" fill="none" />
+    <text x="24.00" y="333.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PWR</text>
+    <text x="17.00" y="200.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AI0</text>
+    <circle class="qet-terminal" cx="0.00" cy="330.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="80.00" cy="330.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="80.00" cy="320.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="320.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

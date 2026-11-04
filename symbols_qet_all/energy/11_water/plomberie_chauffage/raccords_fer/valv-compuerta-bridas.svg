@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="80.0" viewBox="-16.0 -58.0 50.0 80.0" data-name="valv-compuerta-bridas">
+  <title>valv-compuerta-bridas</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-6.50" y="-7.50" width="30.00" height="15.00" stroke="black" fill="none" />
+    <rect x="6.00" y="-41.48" width="5.00" height="4.00" stroke="black" fill="none" />
+    <line x1="-13.00" y1="10.00" x2="-4.00" y2="10.00" stroke="#d40000" fill="none" />
+    <line x1="30.00" y1="10.00" x2="21.00" y2="10.00" stroke="#d40000" fill="none" />
+    <line x1="30.00" y1="-10.00" x2="21.00" y2="-10.00" stroke="#d40000" fill="none" />
+    <rect x="23.50" y="-12.00" width="3.50" height="24.00" stroke="black" fill="none" />
+    <line x1="-13.00" y1="-10.00" x2="-4.00" y2="-10.00" stroke="#d40000" fill="none" />
+    <rect x="-10.00" y="-12.00" width="3.50" height="24.00" stroke="black" fill="none" />
+    <rect x="4.00" y="-41.48" width="9.00" height="4.00" stroke="black" fill="none" />
+    <rect x="-7.50" y="-52.00" width="32.00" height="2.50" stroke="black" fill="none" />
+    <rect x="7.20" y="-49.50" width="2.60" height="8.00" stroke="black" fill="none" />
+    <rect x="-1.00" y="-29.50" width="19.00" height="45.00" stroke="black" fill="white" />
+    <rect x="4.00" y="-37.50" width="9.00" height="9.00" stroke="black" fill="white" />
+    <rect x="-4.00" y="-22.00" width="25.00" height="2.60" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="27.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="e" />
+  </g>
+</svg>

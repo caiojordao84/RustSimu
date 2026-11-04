@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="50.0" viewBox="-41.0 -25.0 90.0 50.0" data-name="intercam-tubular">
+  <title>intercam-tubular</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-21.00" y1="9.00" x2="27.00" y2="9.00" stroke="black" fill="none" />
+    <path d="M -22.00 -11.00 A 3.00 10.00 0 0 0 -22.00 9.00" stroke="black" fill="none" />
+    <line x1="22.00" y1="9.00" x2="22.00" y2="14.00" stroke="black" fill="none" />
+    <path d="M 27.00 9.00 A 4.00 10.00 0 0 0 27.00 -11.00" stroke="black" fill="none" />
+    <line x1="-22.00" y1="-11.00" x2="26.00" y2="-11.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-16.00" x2="-20.00" y2="-11.00" stroke="black" fill="none" />
+    <line x1="-30.35" y1="0.00" x2="-25.71" y2="0.00" stroke="black" fill="none" />
+    <line x1="31.00" y1="0.00" x2="37.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-25,0 -22,0 -17,-4 -6,4 4,-4 13,3 22,-4 26,0 32,0" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="22.00" cy="14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="37.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

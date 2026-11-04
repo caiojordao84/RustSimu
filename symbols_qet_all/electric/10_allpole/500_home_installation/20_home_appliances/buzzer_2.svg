@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="170.0" viewBox="-14.0 -161.0 140.0 170.0" data-name="Buzzer">
+  <title>Buzzer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="-85.00" width="120.00" height="85.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-15.00" x2="120.00" y2="-15.00" stroke="black" fill="none" />
+    <text x="58.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
+    <line x1="0.00" y1="-45.00" x2="120.00" y2="-45.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-65.00" x2="120.00" y2="-65.00" stroke="black" fill="none" />
+    <text x="66.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="58.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <line x1="31.00" y1="-130.00" x2="32.00" y2="-130.00" stroke="black" fill="none" />
+    <path d="M 30.00 -130.00 A 30.00 30.00 0 0 0 90.00 -130.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-130.00" x2="90.00" y2="-130.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="-150.00" x2="50.00" y2="-130.00" stroke="black" fill="none" />
+    <line x1="70.00" y1="-150.00" x2="70.00" y2="-130.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="50.00" cy="-150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="60.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="70.00" cy="-150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

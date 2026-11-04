@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-10.0 -30.0 30.0 60.0" data-name="Disconnecting switch fused">
+  <title>Disconnecting switch fused</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="7.00" y1="0.00" x2="1.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="10.00" y1="10.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
+    <rect x="8.00" y="-6.00" width="4.00" height="12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-8.00" x2="0.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="9.80" x2="10.00" y2="19.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="9.80" x2="8.00" y2="9.80" stroke="black" fill="none" />
+    <line x1="2.00" y1="10.00" x2="-2.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="-10.00" x2="-2.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-20.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-10.00" x2="8.00" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="50.0" viewBox="-10.0 -27.0 20.0 50.0" data-name="Silencer">
+  <title>Silencer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="4.17" y1="-12.48" x2="4.17" y2="7.00" stroke="black" fill="none" />
+    <path d="M 4.17 -12.48 A 4.30 2.00 0 0 0 -4.44 -12.48" stroke="black" fill="none" />
+    <path d="M -4.44 7.00 A 4.30 2.00 0 0 0 4.17 7.00" stroke="black" fill="none" />
+    <line x1="-4.44" y1="-12.48" x2="-4.44" y2="7.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-14.00" x2="0.00" y2="-18.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="9.00" x2="0.00" y2="13.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-18.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

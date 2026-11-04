@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="110.0" viewBox="-72.0 -31.0 160.0 110.0" data-name="Double Coil 2 Wire Pickup">
+  <title>Double Coil 2 Wire Pickup</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="29.97" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="29.97" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <line x1="64.00" y1="54.50" x2="79.00" y2="59.50" stroke="#d40000" fill="none" />
+    <ellipse cx="-11.34" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="-11.34" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="50.63" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="50.63" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <text x="68.00" y="66.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <line x1="-52.00" y1="31.50" x2="43.00" y2="31.50" stroke="black" fill="none" />
+    <line x1="-52.00" y1="1.50" x2="43.00" y2="1.50" stroke="black" fill="none" />
+    <ellipse cx="9.32" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="9.32" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <line x1="-52.00" y1="31.50" x2="43.00" y2="31.50" stroke="black" fill="none" />
+    <line x1="-52.00" y1="61.50" x2="43.00" y2="61.50" stroke="black" fill="none" />
+    <ellipse cx="-32.00" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="-32.00" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="-52.00" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <ellipse cx="-52.00" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
+    <path d="M 60.00 46.50 A 16.00 15.00 0 0 0 44.00 31.50" stroke="black" fill="none" />
+    <path d="M 60.00 16.50 A 16.00 15.00 0 0 0 44.00 1.50" stroke="black" fill="none" />
+    <path d="M 44.00 61.50 A 16.00 15.50 0 0 0 60.00 46.00" stroke="black" fill="none" />
+    <path d="M 44.00 31.50 A 16.00 15.50 0 0 0 60.00 16.00" stroke="black" fill="none" />
+    <path d="M -52.60 31.50 A 16.33 15.00 0 0 0 -68.93 46.50" stroke="black" fill="none" />
+    <path d="M -52.60 1.50 A 16.33 15.00 0 0 0 -68.93 16.50" stroke="black" fill="none" />
+    <path d="M -68.93 46.50 A 16.33 15.00 0 0 0 -52.60 61.50" stroke="black" fill="none" />
+    <path d="M -68.93 16.50 A 16.33 15.00 0 0 0 -52.60 31.50" stroke="black" fill="none" />
+    <line x1="64.00" y1="12.50" x2="79.00" y2="7.50" stroke="black" fill="none" />
+    <text x="69.00" y="7.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <line x1="-69.00" y1="15.50" x2="-69.00" y2="45.50" stroke="black" fill="none" />
+    <line x1="60.00" y1="15.50" x2="60.00" y2="45.50" stroke="black" fill="none" />
+    <text x="-13.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Two Wire</text>
+    <circle class="qet-terminal" cx="79.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="79.00" cy="64.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="250.0" viewBox="-53.0 -122.0 100.0 250.0" data-name="F425 - Memory">
+  <title>F425 - Memory</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-40.00" y="-120.00" width="80.00" height="240.00" stroke="black" fill="white" />
+    <rect x="-24.00" y="64.00" width="19.00" height="32.00" stroke="black" fill="black" />
+    <text x="-13.00" y="-45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BT-F425</text>
+    <rect x="10.00" y="-65.00" width="21.00" height="11.00" stroke="black" fill="black" />
+    <line x1="40.00" y1="100.00" x2="-40.00" y2="100.00" stroke="black" fill="none" />
+    <rect x="-39.00" y="64.00" width="15.00" height="32.00" stroke="black" fill="#00aa00" />
+    <ellipse cx="-30.00" cy="45.00" rx="2.50" ry="2.50" stroke="black" fill="#0055d4" />
+    <ellipse cx="-35.00" cy="90.00" rx="2.50" ry="2.50" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="-28.00" cy="90.00" rx="2.50" ry="2.50" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="-35.00" cy="70.00" rx="1.00" ry="1.00" stroke="black" fill="gray" />
+    <ellipse cx="-28.00" cy="70.00" rx="1.00" ry="1.00" stroke="black" fill="gray" />
+    <ellipse cx="-30.00" cy="55.00" rx="2.50" ry="2.50" stroke="black" fill="orange" />
+    <text x="-37.00" y="41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ACQ</text>
+    <line x1="40.00" y1="-100.00" x2="-40.00" y2="-100.00" stroke="black" fill="none" />
+    <polyline points="38,60 -38,60 -38,45" stroke="#d40000" fill="none" />
+    <text x="2.00" y="-69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MyHOME</text>
+    <text x="10.00" y="-56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S C S</text>
+    <text x="-13.00" y="-37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">17W31 070</text>
+    <text x="-13.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ID:</text>
+    <line x1="-37.00" y1="91.00" x2="-33.00" y2="89.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="91.00" x2="-26.00" y2="89.00" stroke="black" fill="none" />
+    <text x="-8.00" y="107.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PL</text>
+    <text x="-18.00" y="107.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <ellipse cx="-20.00" cy="90.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-10.00" cy="90.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-10.00" cy="70.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <ellipse cx="-20.00" cy="70.00" rx="2.50" ry="2.50" stroke="white" fill="none" />
+    <rect x="-38.00" y="-26.00" width="76.00" height="40.00" stroke="black" fill="none" />
+    <text x="-36.00" y="81.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCS</text>
+    <circle class="qet-terminal" cx="-30.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

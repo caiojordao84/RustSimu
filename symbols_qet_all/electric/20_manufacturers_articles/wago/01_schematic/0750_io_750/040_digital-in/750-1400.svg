@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="730.0" height="110.0" viewBox="-365.0 -51.0 730.0 110.0" data-name="750-1400">
+  <title>750-1400</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-360.00" y="-40.00" width="720.00" height="90.00" stroke="black" fill="none" />
+    <rect x="-180.00" y="-40.00" width="280.00" height="30.00" stroke="black" fill="none" />
+    <text x="-79.84" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Ribbon Cable</text>
+    <ellipse cx="200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="280.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-40.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-130.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">16DI 24V DC (high side)</text>
+    <text x="201.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
+    <text x="206.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">21</text>
+    <text x="281.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="286.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">22</text>
+    <text x="-330.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 750-1400</text>
+    <circle class="qet-terminal" cx="200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="21" data-orientation="n" />
+    <circle class="qet-terminal" cx="280.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="22" data-orientation="n" />
+    <circle class="qet-terminal" cx="-40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="RibbonCable" data-orientation="n" />
+  </g>
+</svg>

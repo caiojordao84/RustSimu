@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="30.0" viewBox="-33.0 -14.0 90.0 30.0" data-name="vaina-tuberia">
+  <title>vaina-tuberia</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="28.18" y1="0.00" x2="47.89" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-4.24" y1="0.00" x2="26.26" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-12.00" y1="11.00" x2="21.00" y2="11.00" stroke="black" fill="none" />
+    <ellipse cx="-13.00" cy="1.00" rx="7.00" ry="10.00" stroke="black" fill="none" />
+    <path d="M 20.00 11.00 A 7.00 10.00 0 0 0 20.00 -9.00" stroke="black" fill="none" />
+    <line x1="-13.00" y1="-9.00" x2="20.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="-25.82" y1="0.00" x2="-6.11" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="47.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

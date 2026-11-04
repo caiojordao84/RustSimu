@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="100.0" viewBox="-10.0 -20.0 20.0 100.0" data-name="Terminal fuse">
+  <title>Terminal fuse</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-3.00" y="17.00" width="6.00" height="25.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="57.00" x2="0.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="70.00" x2="0.00" y2="63.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="-3.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="60.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

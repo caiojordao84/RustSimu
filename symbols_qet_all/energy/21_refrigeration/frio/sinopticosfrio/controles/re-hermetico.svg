@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -16.0 60.0 30.0" data-name="re-hermetico">
+  <title>re-hermetico</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -4.21 2.35 A 5.00 1.50 0 1 0 -1.00 2.00" stroke="black" fill="none" />
+    <line x1="18.64" y1="-1.00" x2="26.31" y2="-1.00" stroke="black" fill="none" />
+    <path d="M -4.21 -1.65 A 5.00 1.50 0 1 0 -1.00 -2.00" stroke="black" fill="none" />
+    <rect x="-14.00" y="-13.00" width="33.00" height="24.00" stroke="black" fill="none" />
+    <line x1="-23.36" y1="-1.00" x2="-15.69" y2="-1.00" stroke="black" fill="none" />
+    <rect x="-3.00" y="-6.00" width="2.00" height="13.00" stroke="black" fill="none" />
+    <path d="M -4.21 -4.65 A 5.00 1.50 0 1 0 -1.00 -5.00" stroke="black" fill="none" />
+    <polyline points="-15,-1 -8,-8 4,-8 19,-1" stroke="black" fill="none" />
+    <polyline points="-2,7 5,7 19,3" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-23.00" cy="-1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="23.00" cy="-1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

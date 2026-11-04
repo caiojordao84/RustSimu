@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -22.0 40.0 40.0" data-name="CSLC LED Adapter">
+  <title>CSLC LED Adapter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="4.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <rect x="-10.00" y="-20.00" width="20.00" height="15.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="-20.00" width="30.00" height="30.00" stroke="black" fill="none" />
+    <rect x="-10.00" y="5.00" width="20.00" height="5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="5.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
+    <text x="-7.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-5.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="5.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

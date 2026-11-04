@@ -1,0 +1,7124 @@
+[[items]]
+id = 0
+tipo = 1001
+tag = "-M"
+value = ""
+pins = [
+    "U1",
+    "V1",
+    "W1",
+    "PE",
+    "W2",
+    "U2",
+    "V2",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+]
+x1 = 18
+y1 = 168
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -6,
+    24,
+    27,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 17
+extra_int2 = 18
+trailing_str = ""
+
+[[items]]
+id = 1
+tipo = 3005
+tag = "-X"
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 45
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -9,
+    24,
+    3,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 2
+tipo = 5003
+tag = "F1"
+value = ""
+pins = [
+    "1",
+    "3",
+    "5",
+    "2",
+    "4",
+    "6",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 57
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    18,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 1
+extra_int2 = 2
+trailing_str = ""
+
+[[items]]
+id = 3
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 45
+x2 = 18
+y2 = 57
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 1
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 4
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 45
+x2 = 24
+y2 = 57
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 2
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 5
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 45
+x2 = 30
+y2 = 57
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 3
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 6
+tipo = 2001
+tag = "K1"
+value = ""
+pins = [
+    "1",
+    "3",
+    "5",
+    "2",
+    "4",
+    "6",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 81
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    18,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 4
+extra_int2 = 5
+trailing_str = ""
+
+[[items]]
+id = 7
+tipo = 2001
+tag = "K2"
+value = ""
+pins = [
+    "1",
+    "3",
+    "5",
+    "2",
+    "4",
+    "6",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+]
+x1 = 72
+y1 = 81
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    18,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 6
+extra_int2 = 5
+trailing_str = ""
+
+[[items]]
+id = 8
+tipo = 2001
+tag = "K3"
+value = ""
+pins = [
+    "1",
+    "3",
+    "5",
+    "2",
+    "4",
+    "6",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+]
+x1 = 72
+y1 = 132
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    18,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 15
+extra_int2 = 16
+trailing_str = ""
+
+[[items]]
+id = 9
+tipo = 2001
+tag = "K4"
+value = ""
+pins = [
+    "1",
+    "3",
+    "5",
+    "2",
+    "4",
+    "6",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+]
+x1 = 114
+y1 = 81
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    18,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 14
+extra_int2 = 14
+trailing_str = ""
+
+[[items]]
+id = 10
+tipo = 6007
+tag = "F7"
+value = ""
+pins = [
+    "1",
+    "3",
+    "5",
+    "2",
+    "4",
+    "6",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 144
+x2 = 0
+y2 = 0
+aux_coords = [
+    -15,
+    -3,
+    21,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 15
+extra_int2 = 16
+trailing_str = ""
+
+[[items]]
+id = 11
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 69
+x2 = 18
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 4
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 12
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 69
+x2 = 24
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 5
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 13
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 69
+x2 = 30
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 6
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 14
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 93
+x2 = 18
+y2 = 144
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 15
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 15
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 93
+x2 = 24
+y2 = 144
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 16
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 16
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 93
+x2 = 30
+y2 = 144
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 17
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 17
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 156
+x2 = 18
+y2 = 168
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 10
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 18
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 156
+x2 = 24
+y2 = 168
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 11
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 19
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 156
+x2 = 30
+y2 = 168
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 12
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 20
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 78
+x2 = 72
+y2 = 78
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 6
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 21
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 78
+x2 = 30
+y2 = 78
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 6
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 22
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 72
+y1 = 78
+x2 = 72
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 6
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 23
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 75
+x2 = 78
+y2 = 75
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 5
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 24
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 75
+x2 = 24
+y2 = 75
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 5
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 25
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 78
+y1 = 75
+x2 = 78
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 5
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 26
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 72
+x2 = 84
+y2 = 72
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 4
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 27
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 72
+x2 = 18
+y2 = 72
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 4
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 28
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 84
+y1 = 72
+x2 = 84
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 4
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 29
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 114
+y1 = 72
+x2 = 114
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 14
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 30
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 126
+y1 = 72
+x2 = 126
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 14
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 31
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 114
+y1 = 72
+x2 = 126
+y2 = 72
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 14
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 32
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 120
+y1 = 72
+x2 = 120
+y2 = 81
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 14
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 33
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 120
+y1 = 72
+x2 = 120
+y2 = 72
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 14
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 34
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 72
+y1 = 93
+x2 = 72
+y2 = 132
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 15
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 35
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 78
+y1 = 93
+x2 = 78
+y2 = 132
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 16
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 36
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 84
+y1 = 93
+x2 = 84
+y2 = 132
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 17
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 37
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 192
+x2 = 18
+y2 = 207
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 19
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 38
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 126
+y1 = 93
+x2 = 126
+y2 = 207
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 19
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 39
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 207
+x2 = 126
+y2 = 207
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 19
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 40
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 192
+x2 = 24
+y2 = 201
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 23
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 41
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 192
+x2 = 30
+y2 = 195
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 22
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 42
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 195
+x2 = 102
+y2 = 195
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 22
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 43
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 114
+y1 = 93
+x2 = 114
+y2 = 195
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 22
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 44
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 102
+y1 = 195
+x2 = 114
+y2 = 195
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 22
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 45
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 120
+y1 = 93
+x2 = 120
+y2 = 201
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 23
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 46
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 27
+y1 = 201
+x2 = 120
+y2 = 201
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 23
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 47
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 201
+x2 = 27
+y2 = 201
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 23
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 48
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 126
+x2 = 72
+y2 = 126
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 15
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 49
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 18
+y1 = 126
+x2 = 18
+y2 = 126
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 15
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 50
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 72
+y1 = 126
+x2 = 72
+y2 = 126
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 15
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 51
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 120
+x2 = 78
+y2 = 120
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 16
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 52
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 24
+y1 = 120
+x2 = 24
+y2 = 120
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 16
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 53
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 78
+y1 = 120
+x2 = 78
+y2 = 120
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 16
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 54
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 114
+x2 = 84
+y2 = 114
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 17
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 55
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 30
+y1 = 114
+x2 = 30
+y2 = 114
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 17
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 56
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 84
+y1 = 114
+x2 = 84
+y2 = 114
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 17
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 57
+tipo = 3000
+tag = "-X"
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 147
+y1 = 48
+x2 = 0
+y2 = 0
+aux_coords = [
+    -9,
+    -6,
+    3,
+    12,
+]
+color = 0
+orientation = 3
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 58
+tipo = 3001
+tag = "-X"
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 147
+y1 = 198
+x2 = 0
+y2 = 0
+aux_coords = [
+    -9,
+    -6,
+    3,
+    12,
+]
+color = 0
+orientation = 3
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 59
+tipo = 5000
+tag = "F21"
+value = ""
+pins = [
+    "1",
+    "2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 153
+y1 = 48
+x2 = 0
+y2 = 0
+aux_coords = [
+    -3,
+    -6,
+    15,
+    12,
+]
+color = 0
+orientation = 3
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 24
+extra_int2 = 43
+trailing_str = ""
+
+[[items]]
+id = 60
+tipo = 5000
+tag = "F22"
+value = ""
+pins = [
+    "1",
+    "2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 153
+y1 = 198
+x2 = 0
+y2 = 0
+aux_coords = [
+    -3,
+    -6,
+    15,
+    12,
+]
+color = 0
+orientation = 3
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 39
+extra_int2 = 40
+trailing_str = ""
+
+[[items]]
+id = 61
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 147
+y1 = 48
+x2 = 153
+y2 = 48
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 24
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 62
+tipo = 8017
+tag = "F7"
+value = ""
+pins = [
+    "95",
+    "96",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 54
+x2 = 0
+y2 = 0
+aux_coords = [
+    -18,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 43
+extra_int2 = 25
+trailing_str = ""
+
+[[items]]
+id = 63
+tipo = 8001
+tag = "B0"
+value = ""
+pins = [
+    "1",
+    "2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 72
+x2 = 0
+y2 = 0
+aux_coords = [
+    -18,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 25
+extra_int2 = 44
+trailing_str = ""
+
+[[items]]
+id = 64
+tipo = 8000
+tag = "B1"
+value = ""
+pins = [
+    "3",
+    "4",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 93
+x2 = 0
+y2 = 0
+aux_coords = [
+    -18,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 44
+extra_int2 = 32
+trailing_str = ""
+
+[[items]]
+id = 65
+tipo = 7001
+tag = "K1"
+value = ""
+pins = [
+    "31",
+    "32",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 111
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 32
+extra_int2 = 28
+trailing_str = ""
+
+[[items]]
+id = 66
+tipo = 7001
+tag = "K2"
+value = ""
+pins = [
+    "31",
+    "32",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 126
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 28
+extra_int2 = 29
+trailing_str = ""
+
+[[items]]
+id = 67
+tipo = 7001
+tag = "K3"
+value = ""
+pins = [
+    "31",
+    "32",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 144
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 29
+extra_int2 = 30
+trailing_str = ""
+
+[[items]]
+id = 68
+tipo = 7005
+tag = "K6"
+value = ""
+pins = [
+    "15",
+    "16",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 165
+x2 = 0
+y2 = 0
+aux_coords = [
+    -15,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 30
+extra_int2 = 31
+trailing_str = ""
+
+[[items]]
+id = 69
+tipo = 9000
+tag = "K4"
+value = ""
+pins = [
+    "A1",
+    "A2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 180
+x2 = 0
+y2 = 0
+aux_coords = [
+    -15,
+    -3,
+    9,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 70
+tipo = 9004
+tag = "K6"
+value = ""
+pins = [
+    "A1",
+    "A2",
+    "0",
+    "5",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 192
+y1 = 180
+x2 = 0
+y2 = 0
+aux_coords = [
+    -15,
+    -3,
+    9,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 71
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 66
+x2 = 171
+y2 = 72
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 25
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 72
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 84
+x2 = 171
+y2 = 93
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 73
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 105
+x2 = 171
+y2 = 111
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 32
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 74
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 123
+x2 = 171
+y2 = 126
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 28
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 75
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 138
+x2 = 171
+y2 = 144
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 29
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 76
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 156
+x2 = 171
+y2 = 165
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 30
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 77
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 174
+x2 = 171
+y2 = 180
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 31
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 78
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 177
+x2 = 192
+y2 = 177
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 31
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 79
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 177
+x2 = 171
+y2 = 177
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 31
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 80
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 192
+y1 = 177
+x2 = 192
+y2 = 180
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 31
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 81
+tipo = 7000
+tag = "K4"
+value = ""
+pins = [
+    "13",
+    "14",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 192
+y1 = 114
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 44
+extra_int2 = 29
+trailing_str = ""
+
+[[items]]
+id = 82
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 141
+x2 = 192
+y2 = 141
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 29
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 83
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 141
+x2 = 171
+y2 = 141
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 29
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 84
+tipo = 8000
+tag = "B2"
+value = ""
+pins = [
+    "3",
+    "4",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 93
+x2 = 0
+y2 = 0
+aux_coords = [
+    -18,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 44
+extra_int2 = 32
+trailing_str = ""
+
+[[items]]
+id = 85
+tipo = 7000
+tag = "K4"
+value = ""
+pins = [
+    "23",
+    "24",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 114
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 32
+extra_int2 = 36
+trailing_str = ""
+
+[[items]]
+id = 86
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 192
+y1 = 126
+x2 = 192
+y2 = 141
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 29
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 87
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 105
+x2 = 213
+y2 = 114
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 32
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 88
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 108
+x2 = 213
+y2 = 108
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 32
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 89
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 108
+x2 = 171
+y2 = 108
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 32
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 90
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 108
+x2 = 213
+y2 = 108
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 32
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 91
+tipo = 8001
+tag = "B2"
+value = ""
+pins = [
+    "1",
+    "2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 135
+x2 = 0
+y2 = 0
+aux_coords = [
+    -18,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 36
+extra_int2 = 34
+trailing_str = ""
+
+[[items]]
+id = 92
+tipo = 7001
+tag = "K2"
+value = ""
+pins = [
+    "41",
+    "42",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 153
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 34
+extra_int2 = 35
+trailing_str = ""
+
+[[items]]
+id = 93
+tipo = 9000
+tag = "K1"
+value = ""
+pins = [
+    "A1",
+    "A2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 180
+x2 = 0
+y2 = 0
+aux_coords = [
+    -15,
+    -3,
+    9,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 94
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 126
+x2 = 213
+y2 = 135
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 36
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 95
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 147
+x2 = 213
+y2 = 153
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 34
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 96
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 165
+x2 = 213
+y2 = 180
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 35
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 97
+tipo = 7000
+tag = "K2"
+value = ""
+pins = [
+    "13",
+    "14",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 234
+y1 = 117
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 44
+extra_int2 = 36
+trailing_str = ""
+
+[[items]]
+id = 98
+tipo = 7000
+tag = "K1"
+value = ""
+pins = [
+    "13",
+    "14",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 111
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 44
+extra_int2 = 36
+trailing_str = ""
+
+[[items]]
+id = 99
+tipo = 8001
+tag = "B1"
+value = ""
+pins = [
+    "1",
+    "2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 135
+x2 = 0
+y2 = 0
+aux_coords = [
+    -18,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 36
+extra_int2 = 37
+trailing_str = ""
+
+[[items]]
+id = 100
+tipo = 7001
+tag = "K1"
+value = ""
+pins = [
+    "41",
+    "42",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 153
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 37
+extra_int2 = 38
+trailing_str = ""
+
+[[items]]
+id = 101
+tipo = 9000
+tag = "K2"
+value = ""
+pins = [
+    "A1",
+    "A2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 180
+x2 = 0
+y2 = 0
+aux_coords = [
+    -15,
+    -3,
+    9,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 102
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 123
+x2 = 255
+y2 = 135
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 36
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 103
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 147
+x2 = 255
+y2 = 153
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 37
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 104
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 165
+x2 = 255
+y2 = 180
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 38
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 105
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 132
+x2 = 255
+y2 = 132
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 36
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 106
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 132
+x2 = 213
+y2 = 132
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 36
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 107
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 132
+x2 = 255
+y2 = 132
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 36
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 108
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 234
+y1 = 129
+x2 = 234
+y2 = 132
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 36
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 109
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 234
+y1 = 132
+x2 = 234
+y2 = 132
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 36
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 110
+tipo = 7000
+tag = "K1"
+value = ""
+pins = [
+    "23",
+    "24",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 111
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 43
+extra_int2 = 41
+trailing_str = ""
+
+[[items]]
+id = 111
+tipo = 7000
+tag = "K2"
+value = ""
+pins = [
+    "23",
+    "24",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 306
+y1 = 126
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 43
+extra_int2 = 41
+trailing_str = ""
+
+[[items]]
+id = 112
+tipo = 7001
+tag = "K4"
+value = ""
+pins = [
+    "31",
+    "32",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 153
+x2 = 0
+y2 = 0
+aux_coords = [
+    -12,
+    -3,
+    6,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 41
+extra_int2 = 42
+trailing_str = ""
+
+[[items]]
+id = 113
+tipo = 9000
+tag = "K3"
+value = ""
+pins = [
+    "A1",
+    "A2",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 180
+x2 = 0
+y2 = 0
+aux_coords = [
+    -15,
+    -3,
+    9,
+    15,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 1
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 114
+tipo = 4009
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 147
+y1 = 198
+x2 = 153
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 39
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 115
+tipo = 4009
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 165
+y1 = 198
+x2 = 282
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 116
+tipo = 4009
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 192
+x2 = 282
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 117
+tipo = 4009
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 192
+x2 = 255
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 118
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 198
+x2 = 255
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 119
+tipo = 4009
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 192
+x2 = 213
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 120
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 198
+x2 = 213
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 121
+tipo = 4009
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 192
+y1 = 192
+x2 = 192
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 122
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 192
+y1 = 198
+x2 = 192
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 123
+tipo = 4009
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 192
+x2 = 171
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 124
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 198
+x2 = 171
+y2 = 198
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 40
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 125
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 123
+x2 = 282
+y2 = 153
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 41
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 126
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 165
+x2 = 282
+y2 = 180
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 42
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 127
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 144
+x2 = 306
+y2 = 144
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 41
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 128
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 144
+x2 = 282
+y2 = 144
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 41
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 129
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 306
+y1 = 138
+x2 = 306
+y2 = 144
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 41
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 130
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 306
+y1 = 48
+x2 = 306
+y2 = 126
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 43
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 131
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 165
+y1 = 48
+x2 = 306
+y2 = 48
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 43
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 132
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 48
+x2 = 282
+y2 = 111
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 43
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 133
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 282
+y1 = 48
+x2 = 282
+y2 = 48
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 43
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 134
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 255
+y1 = 90
+x2 = 255
+y2 = 111
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 135
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 90
+x2 = 255
+y2 = 90
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 136
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 90
+x2 = 171
+y2 = 90
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 137
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 90
+x2 = 213
+y2 = 93
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 138
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 213
+y1 = 90
+x2 = 213
+y2 = 90
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 139
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 234
+y1 = 90
+x2 = 234
+y2 = 117
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 140
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 234
+y1 = 90
+x2 = 234
+y2 = 90
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 141
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 192
+y1 = 90
+x2 = 192
+y2 = 114
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 142
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 192
+y1 = 90
+x2 = 192
+y2 = 90
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 44
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 143
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 48
+x2 = 171
+y2 = 54
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 43
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 144
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 48
+x2 = 171
+y2 = 48
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 43
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 145
+tipo = 4010
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 36
+y1 = 45
+x2 = 36
+y2 = 168
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 45
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 146
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 171
+y1 = 135
+x2 = 171
+y2 = 144
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 29
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 147
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 0
+y1 = 0
+x2 = 0
+y2 = 0
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 46
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 150
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 78
+y1 = 144
+x2 = 78
+y2 = 201
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 23
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 151
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 78
+y1 = 201
+x2 = 78
+y2 = 201
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 23
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 154
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 72
+y1 = 144
+x2 = 72
+y2 = 207
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 155
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 72
+y1 = 207
+x2 = 72
+y2 = 207
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 156
+tipo = 4000
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 84
+y1 = 144
+x2 = 84
+y2 = 195
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[[items]]
+id = 157
+tipo = 4001
+tag = ""
+value = ""
+pins = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+]
+pin_visibility = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+]
+x1 = 84
+y1 = 195
+x2 = 84
+y2 = 195
+aux_coords = [
+    0,
+    0,
+    0,
+    0,
+]
+color = 0
+orientation = 0
+subvariant = 0
+show_tag = 0
+show_value = 0
+extra_int1 = 0
+extra_int2 = 0
+trailing_str = ""
+
+[settings]
+format_code = 1
+format_orientation = 1
+border_ref = 1
+show_pin_refs = 2
+line_thickness = 4
+color_mode = 0
+sim_speed = 1
+auto_number = 0
+displace_lines = 0
+custom_height_mm = 279
+custom_width_mm = 210
+view_flags = [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+]
+
+[title_block]
+drawn_date = ""
+drawn_by = ""
+checked_date = ""
+checked_by = ""
+entity = ""
+title = ""
+subtitle = "-Mar-2016"
+sheet = ""
+file_ref = ""
+signature = "1"

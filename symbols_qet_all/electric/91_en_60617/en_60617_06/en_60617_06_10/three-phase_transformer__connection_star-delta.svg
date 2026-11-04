@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="190.0" viewBox="-86.0 -172.0 90.0 190.0" data-name="Three-phase transformer, connection star-delta">
+  <title>Three-phase transformer, connection star-delta</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-30.00" cy="-90.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-150.00" x2="-30.00" y2="-120.00" stroke="black" fill="none" />
+    <text x="-74.00" y="-160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
+    <ellipse cx="-30.00" cy="-50.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-20.00" x2="-30.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-130.00" x2="-20.00" y2="-140.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-135.00" x2="-20.00" y2="-145.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="0.00" x2="-20.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="5.00" x2="-20.00" y2="-5.00" stroke="black" fill="none" />
+    <polygon points="-40,-35 -20,-35 -30,-50" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-85.00" x2="-30.00" y2="-95.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-95.00" x2="-20.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-95.00" x2="-40.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-125.00" x2="-20.00" y2="-135.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-5.00" x2="-20.00" y2="-15.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-30.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="-150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

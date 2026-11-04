@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="60.0" viewBox="-44.0 -40.0 70.0 60.0" data-name="Valve 3 bars gauge">
+  <title>Valve 3 bars gauge</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 5.00 -35.00 A 5.00 1.00 0 0 0 -5.00 -35.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-19.00" x2="8.00" y2="-23.00" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-23.00" x2="-8.00" y2="-19.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-23.00" x2="7.00" y2="-23.00" stroke="black" fill="none" />
+    <rect x="-7.00" y="0.00" width="14.00" height="10.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-17.00" x2="14.00" y2="-17.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-3.00" x2="14.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="14.00" y1="-16.00" x2="14.00" y2="-4.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-19.00" x2="7.00" y2="-19.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="0.00" x2="7.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="0.00" x2="7.00" y2="-2.00" stroke="black" fill="none" />
+    <text x="-28.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3 bars</text>
+    <line x1="7.00" y1="-17.00" x2="5.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-3.00" x2="5.00" y2="-5.00" stroke="black" fill="none" />
+    <path d="M -7.00 -18.00 A 1.00 1.00 0 0 0 -8.00 -19.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-17.00" x2="-7.00" y2="-1.00" stroke="black" fill="none" />
+    <path d="M 8.00 -19.00 A 1.00 1.00 0 0 0 7.00 -18.00" stroke="black" fill="none" />
+    <rect x="-9.00" y="-36.00" width="18.00" height="13.00" stroke="black" fill="#d40000" />
+    <line x1="7.00" y1="-27.00" x2="7.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-27.00" x2="0.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-27.00" x2="3.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-27.00" x2="-3.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-27.00" x2="-6.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="-27.00" x2="6.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-27.00" x2="-7.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="10.00" x2="-3.00" y2="2.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="10.00" x2="3.00" y2="2.00" stroke="black" fill="none" />
+    <path d="M 5.00 0.50 A 2.00 1.50 0 0 0 3.00 2.00" stroke="black" fill="none" />
+    <path d="M -3.00 2.00 A 2.00 1.50 0 0 0 -5.00 0.50" stroke="black" fill="none" />
+    <path d="M 3.00 2.00 A 3.00 1.50 0 0 0 -3.00 2.00" stroke="black" fill="none" />
+    <ellipse cx="-26.00" cy="-10.00" rx="11.50" ry="11.50" stroke="black" fill="none" />
+    <rect x="-14.00" y="-11.00" width="3.00" height="3.00" stroke="black" fill="none" />
+    <text x="-21.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <rect x="-11.00" y="-12.00" width="4.00" height="5.00" stroke="black" fill="none" />
+    <text x="-21.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <text x="-29.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-32.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-29.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <ellipse cx="-26.00" cy="-10.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
+    <polygon points="-32,-6 -26,-11 -25,-10" stroke="black" fill="black" />
+    <ellipse cx="-26.00" cy="-10.00" rx="10.50" ry="10.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="14.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>
