@@ -290,6 +290,14 @@ fn load_recent_files(dir: &std::path::Path) -> Vec<String> {
 }
 
 fn default_projects_dir() -> PathBuf {
+    if let Ok(exe) = std::env::current_exe() {
+        if let Some(exe_dir) = exe.parent() {
+            let p_exe = exe_dir.join("Projetos");
+            if p_exe.is_dir() {
+                return p_exe;
+            }
+        }
+    }
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let in_manifest = manifest_dir.join("Projetos");
     if in_manifest.is_dir() {

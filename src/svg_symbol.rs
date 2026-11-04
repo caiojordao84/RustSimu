@@ -109,16 +109,22 @@ pub fn resolve_svg_path(rel_path: &str) -> PathBuf {
     if p.exists() {
         return p.to_path_buf();
     }
+    // Procura na mesma pasta do executável (essencial para pacote portátil no Windows)
+    if let Ok(exe) = std::env::current_exe() {
+        if let Some(exe_dir) = exe.parent() {
+            let p_exe = exe_dir.join(rel_path);
+            if p_exe.exists() {
+                return p_exe;
+            }
+        }
+    }
     let p_sub = Path::new("cade-simu-rs").join(rel_path);
     if p_sub.exists() {
         return p_sub;
     }
-    let p_abs = Path::new(
-        "/home/caiojordao84/Downloads/CADE SIMU 4.0, PC SIMU 3.0/CADe_SIMU/CADe_SIMU/cade-simu-rs",
-    )
-    .join(rel_path);
-    if p_abs.exists() {
-        return p_abs;
+    let p_manifest = Path::new(env!("CARGO_MANIFEST_DIR")).join(rel_path);
+    if p_manifest.exists() {
+        return p_manifest;
     }
     p.to_path_buf()
 }

@@ -1,0 +1,83 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-windows:
+    name: Build Windows Portable
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Build Release Binary
+        run: |
+          cargo build --release --locked
+
+      - name: Prepare Windows Portable Package
+        shell: bash
+        run: |
+          mkdir -p dist/RustSimu
+          cp target/release/cade-simu-rs.exe dist/RustSimu/RustSimu.exe
+          cp -r symbols_qet_all dist/RustSimu/
+          cp -r Projetos dist/RustSimu/
+          cp README.md dist/RustSimu/
+          cd dist
+          7z a ../RustSimu-windows-x86_64.zip RustSimu
+
+      - name: Upload Windows Asset
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        with:
+          tag_name: ${{ github.ref_name || 'v0.1.0-demo' }}
+          name: RustSimu ${{ github.ref_name || 'v0.1.0-demo' }}
+          draft: false
+          prerelease: false
+          files: RustSimu-windows-x86_64.zip
+
+  build-linux:
+    name: Build Linux Portable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Linux build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libxkbcommon-dev libfontconfig1-dev
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Build Release Binary
+        run: |
+          cargo build --release --locked
+
+      - name: Prepare Linux Portable Package
+        run: |
+          mkdir -p dist/RustSimu
+          cp target/release/cade-simu-rs dist/RustSimu/RustSimu
+          cp -r symbols_qet_all dist/RustSimu/
+          cp -r Projetos dist/RustSimu/
+          cp README.md dist/RustSimu/
+          tar -czf RustSimu-linux-x86_64.tar.gz -C dist RustSimu
+
+      - name: Upload Linux Asset
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        with:
+          tag_name: ${{ github.ref_name || 'v0.1.0-demo' }}
+          files: RustSimu-linux-x86_64.tar.gz
