@@ -1965,19 +1965,38 @@ pub fn detect_contact_kind(tipo: i32, default_pins: &[SymbolPin]) -> Option<Cont
         7004 | 7008 | 8016 => Some(ContactKind::TimedNO),
         7005 | 7009 | 8017 => Some(ContactKind::TimedNC),
         7006 => Some(ContactKind::TimedDouble),
+        // Símbolos que NUNCA são contatos subordinados (devem manter seus bornes fixos de catálogo):
+        9000 | 9004 | 9005 // Bobinas e temporizadores: sempre A1-A2 (IEC 60947-1 / EN 50012)
+        | 9008 // Sinaleiros luminosos: sempre X1-X2
+        | 9013 // Sirenes / alarmes sonoros
+        | 1000 | 1001 | 1002 // Motores: sempre U, V, W, PE
+        | 2000 | 2001 | 2006 | 2008 // Contatores de força: sempre 1-2, 3-4, 5-6
+        | 5000 | 5003 | 5008 // Fusíveis: 1-2, 3-4, 5-6
+        | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 // Disjuntores e relé térmico de força
+        | 3000..=3009 // Linhas de alimentação L, N, PE
+        => None,
         _ => {
-            // Detecção heurística caso seja símbolo customizado / importado via SVG/QET
+            // Detecção heurística estrita para símbolos customizados/SVG/QET:
+            // Contatos auxiliares IEC possuem 2 dígitos numéricos (ex: 13-14, 21-22).
+            // NUNCA podem iniciar com letras como 'A' (A1-A2), 'X' (X1-X2), etc.
             if default_pins.len() == 2 {
                 let p0 = default_pins[0].default_label.trim();
                 let p1 = default_pins[1].default_label.trim();
-                if p0.ends_with('3') && p1.ends_with('4') {
-                    Some(ContactKind::NO)
-                } else if p0.ends_with('1') && p1.ends_with('2') {
-                    Some(ContactKind::NC)
-                } else if p0.ends_with('7') && p1.ends_with('8') {
-                    Some(ContactKind::TimedNO)
-                } else if p0.ends_with('5') && p1.ends_with('6') {
-                    Some(ContactKind::TimedNC)
+                if p0.len() == 2 && p1.len() == 2
+                    && p0.chars().all(|c| c.is_ascii_digit())
+                    && p1.chars().all(|c| c.is_ascii_digit())
+                {
+                    if p0.ends_with('3') && p1.ends_with('4') {
+                        Some(ContactKind::NO)
+                    } else if p0.ends_with('1') && p1.ends_with('2') {
+                        Some(ContactKind::NC)
+                    } else if p0.ends_with('7') && p1.ends_with('8') {
+                        Some(ContactKind::TimedNO)
+                    } else if p0.ends_with('5') && p1.ends_with('6') {
+                        Some(ContactKind::TimedNC)
+                    } else {
+                        None
+                    }
                 } else {
                     None
                 }
@@ -1985,8 +2004,16 @@ pub fn detect_contact_kind(tipo: i32, default_pins: &[SymbolPin]) -> Option<Cont
                 let p0 = default_pins[0].default_label.trim();
                 let p1 = default_pins[1].default_label.trim();
                 let p2 = default_pins[2].default_label.trim();
-                if p0.ends_with('1') && p1.ends_with('2') && p2.ends_with('4') {
-                    Some(ContactKind::Changeover)
+                if p0.len() == 2 && p1.len() == 2 && p2.len() == 2
+                    && p0.chars().all(|c| c.is_ascii_digit())
+                    && p1.chars().all(|c| c.is_ascii_digit())
+                    && p2.chars().all(|c| c.is_ascii_digit())
+                {
+                    if p0.ends_with('1') && p1.ends_with('2') && p2.ends_with('4') {
+                        Some(ContactKind::Changeover)
+                    } else {
+                        None
+                    }
                 } else {
                     None
                 }
@@ -1995,10 +2022,19 @@ pub fn detect_contact_kind(tipo: i32, default_pins: &[SymbolPin]) -> Option<Cont
                 let p1 = default_pins[1].default_label.trim();
                 let p2 = default_pins[2].default_label.trim();
                 let p3 = default_pins[3].default_label.trim();
-                if p0.ends_with('1') && p1.ends_with('3') && p2.ends_with('2') && p3.ends_with('4') {
-                    Some(ContactKind::Double)
-                } else if p0.ends_with('5') && p1.ends_with('7') && p2.ends_with('6') && p3.ends_with('8') {
-                    Some(ContactKind::TimedDouble)
+                if p0.len() == 2 && p1.len() == 2 && p2.len() == 2 && p3.len() == 2
+                    && p0.chars().all(|c| c.is_ascii_digit())
+                    && p1.chars().all(|c| c.is_ascii_digit())
+                    && p2.chars().all(|c| c.is_ascii_digit())
+                    && p3.chars().all(|c| c.is_ascii_digit())
+                {
+                    if p0.ends_with('1') && p1.ends_with('3') && p2.ends_with('2') && p3.ends_with('4') {
+                        Some(ContactKind::Double)
+                    } else if p0.ends_with('5') && p1.ends_with('7') && p2.ends_with('6') && p3.ends_with('8') {
+                        Some(ContactKind::TimedDouble)
+                    } else {
+                        None
+                    }
                 } else {
                     None
                 }
@@ -2012,7 +2048,7 @@ pub fn detect_contact_kind(tipo: i32, default_pins: &[SymbolPin]) -> Option<Cont
 /// Detecta a sequência numérica atual (1..=9) de um componente a partir dos seus bornes atuais.
 pub fn detect_current_sequence(pins: &[String], kind: ContactKind) -> Option<u8> {
     let p0 = pins.first()?.trim();
-    if p0.len() < 2 {
+    if p0.len() != 2 || !p0.chars().all(|c| c.is_ascii_digit()) {
         return None;
     }
     let first_char = p0.chars().next()?;
@@ -2059,7 +2095,7 @@ pub fn find_occupied_sequences_for_tag(
                     // Fallback para bornes customizados que iniciam com 1..9 e terminam em dígito funcional 1..8
                     for pin in &item.pins {
                         let p = pin.trim();
-                        if p.len() >= 2 {
+                        if p.len() == 2 && p.chars().all(|c| c.is_ascii_digit()) {
                             if let Some(c0) = p.chars().next() {
                                 if let Some(d) = c0.to_digit(10) {
                                     if (1..=9).contains(&d) {
@@ -2081,4 +2117,239 @@ pub fn find_occupied_sequences_for_tag(
 
     occupied
 }
+
+/// Classificação funcional de um componente para hierarquia e sequenciamento de tags (IEC 81346 / IEC 60204-1).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ApparatusRole {
+    /// Bobina de contator ou relé de comando (A1-A2, ex: -KM1, -KM2, -KA1)
+    Coil,
+    /// Temporizador / relé temporizado (A1-A2, ex: -KT1, -KT2)
+    Timer,
+    /// Relé térmico de sobrecarga de potência (ex: -F1, -F2)
+    ThermalRelay,
+    /// Disjuntor termomagnético / motor (ex: -Q1, -Q2)
+    Breaker,
+    /// Fusível de proteção (ex: -F1, -F2)
+    Fuse,
+    /// Motor elétrico (ex: -M1, -M2)
+    Motor,
+    /// Botoeira / chave seletora / interruptor de comando (ex: -S1, -S2, -B1, -B2)
+    SwitchOrButton,
+    /// Sinaleiro luminoso / piloto / sirene (ex: -H1, -H2)
+    Signaling,
+    /// Polos principais de potência de contator (1-2, 3-4, 5-6, vinculados a uma bobina -KM)
+    PowerContactorPoles,
+    /// Contato auxiliar de contator (NA/NF, vinculado a uma bobina -KM)
+    AuxiliaryContact,
+    /// Contato temporizado (NA/NF, vinculado a um relé temporizador -KT)
+    TimedContact,
+    /// Contato auxiliar de relé térmico (95-96 / 97-98, vinculado a um relé térmico -F)
+    ThermalAuxContact,
+    /// Alimentação ou outro componente passivo
+    Other,
+}
+
+impl ApparatusRole {
+    /// Indica se o aparelho é primário/independente, devendo gerar uma tag sequencial própria (-KM1, -KM2, -S1, -S2, etc.).
+    pub fn is_independent_apparatus(self) -> bool {
+        matches!(
+            self,
+            ApparatusRole::Coil
+                | ApparatusRole::Timer
+                | ApparatusRole::ThermalRelay
+                | ApparatusRole::Breaker
+                | ApparatusRole::Fuse
+                | ApparatusRole::Motor
+                | ApparatusRole::SwitchOrButton
+                | ApparatusRole::Signaling
+        )
+    }
+
+    /// Indica se é um contato subordinado a um aparelho atuador pai.
+    pub fn is_subordinate_contact(self) -> bool {
+        matches!(
+            self,
+            ApparatusRole::PowerContactorPoles
+                | ApparatusRole::AuxiliaryContact
+                | ApparatusRole::TimedContact
+                | ApparatusRole::ThermalAuxContact
+        )
+    }
+
+    /// Papel do aparelho pai necessário para acionar este contato.
+    pub fn required_parent_role(self) -> Option<ApparatusRole> {
+        match self {
+            ApparatusRole::PowerContactorPoles | ApparatusRole::AuxiliaryContact => {
+                Some(ApparatusRole::Coil)
+            }
+            ApparatusRole::TimedContact => Some(ApparatusRole::Timer),
+            ApparatusRole::ThermalAuxContact => Some(ApparatusRole::ThermalRelay),
+            _ => None,
+        }
+    }
+
+    /// Nome legível em português do aparelho pai esperado.
+    pub fn parent_display_name(self) -> &'static str {
+        match self {
+            ApparatusRole::PowerContactorPoles | ApparatusRole::AuxiliaryContact => "bobina de contator (-KM)",
+            ApparatusRole::TimedContact => "relé temporizador (-KT)",
+            ApparatusRole::ThermalAuxContact => "relé térmico (-F)",
+            _ => "aparelho pai",
+        }
+    }
+}
+
+pub fn classify_apparatus_role(tipo: i32) -> ApparatusRole {
+    match tipo {
+        9000 => ApparatusRole::Coil,
+        9004 | 9005 => ApparatusRole::Timer,
+        6007 => ApparatusRole::ThermalRelay,
+        6000 | 6003 | 6004 | 6008 | 6009 => ApparatusRole::Breaker,
+        5000 | 5003 | 5008 => ApparatusRole::Fuse,
+        1000 | 1001 | 1002 => ApparatusRole::Motor,
+        8000 | 8001 | 8002 | 8003 | 8004 | 2004 | 8023 => ApparatusRole::SwitchOrButton,
+        9008 | 9013 => ApparatusRole::Signaling,
+        2000 | 2001 | 2006 | 2008 => ApparatusRole::PowerContactorPoles,
+        7000 | 7001 | 7002 => ApparatusRole::AuxiliaryContact,
+        7004 | 7005 | 7006 | 7008 | 7009 => ApparatusRole::TimedContact,
+        8016 | 8017 => ApparatusRole::ThermalAuxContact,
+        _ => ApparatusRole::Other,
+    }
+}
+
+/// Extrai o prefixo literal de uma tag (ex: "-KM" de "-KM1", "-S" de "-S2", "-B" de "-B1").
+pub fn extract_tag_prefix(tag: &str) -> &str {
+    let t = tag.trim();
+    if let Some(pos) = t.rfind(|c: char| !c.is_ascii_digit()) {
+        &t[..=pos]
+    } else {
+        t
+    }
+}
+
+/// Calcula a próxima tag sequencial para um aparelho considerando elementos do mesmo tipo/papel.
+pub fn next_sequential_tag_for_role(
+    items: &[SchematicItem],
+    role: ApparatusRole,
+    prefix: &str,
+) -> String {
+    let base = prefix.trim();
+    if base.is_empty() {
+        return String::new();
+    }
+    let mut used_numbers = std::collections::HashSet::new();
+    let base_upper = base.to_ascii_uppercase();
+
+    for item in items {
+        if classify_apparatus_role(item.tipo) == role {
+            let tag = item.tag.trim();
+            let tag_upper = tag.to_ascii_uppercase();
+            if tag_upper.starts_with(&base_upper) {
+                let remainder = &tag_upper[base_upper.len()..];
+                if let Ok(num) = remainder.parse::<u32>() {
+                    used_numbers.insert(num);
+                } else if remainder.is_empty() {
+                    used_numbers.insert(1);
+                }
+            }
+        }
+    }
+
+    let mut next_num = 1;
+    while used_numbers.contains(&next_num) {
+        next_num += 1;
+    }
+    format!("{base}{next_num}")
+}
+
+/// Calcula a próxima tag sequencial para um prefixo genérico.
+pub fn next_sequential_tag_for_prefix(items: &[SchematicItem], prefix: &str) -> String {
+    let base = prefix.trim();
+    if base.is_empty() {
+        return String::new();
+    }
+    let mut used_numbers = std::collections::HashSet::new();
+    let base_upper = base.to_ascii_uppercase();
+
+    for item in items {
+        let tag = item.tag.trim();
+        let tag_upper = tag.to_ascii_uppercase();
+        if tag_upper.starts_with(&base_upper) {
+            let remainder = &tag_upper[base_upper.len()..];
+            if let Ok(num) = remainder.parse::<u32>() {
+                used_numbers.insert(num);
+            } else if remainder.is_empty() {
+                // Se existe apenas o prefixo sem número (ex: "-KM"), consideramos número 1 como ocupado
+                used_numbers.insert(1);
+            }
+        }
+    }
+
+    let mut next_num = 1;
+    while used_numbers.contains(&next_num) {
+        next_num += 1;
+    }
+    format!("{base}{next_num}")
+}
+
+/// Verifica se existe um aparelho atuador pai no esquema para o contato selecionado.
+pub fn find_parent_apparatus<'a>(
+    items: &'a [SchematicItem],
+    subordinate_item: &SchematicItem,
+) -> Option<&'a SchematicItem> {
+    let role = classify_apparatus_role(subordinate_item.tipo);
+    let parent_role = role.required_parent_role()?;
+    let norm_tag = subordinate_item.tag.trim();
+    if norm_tag.is_empty() {
+        return None;
+    }
+
+    items.iter().find(|i| {
+        classify_apparatus_role(i.tipo) == parent_role
+            && i.tag.trim().eq_ignore_ascii_case(norm_tag)
+    })
+}
+
+/// Lista todas as tags de aparelhos pais compatíveis existentes no esquema (ex: todas as bobinas "-KM1", "-KM2").
+pub fn list_available_parent_tags(
+    items: &[SchematicItem],
+    subordinate_role: ApparatusRole,
+) -> Vec<String> {
+    let Some(parent_role) = subordinate_role.required_parent_role() else {
+        return Vec::new();
+    };
+    let mut tags = Vec::new();
+    for i in items {
+        if classify_apparatus_role(i.tipo) == parent_role {
+            let t = i.tag.trim();
+            if !t.is_empty() && !tags.iter().any(|existing: &String| existing.eq_ignore_ascii_case(t)) {
+                tags.push(t.to_string());
+            }
+        }
+    }
+    tags.sort();
+    tags
+}
+
+/// Verifica se já existe outro aparelho independente do mesmo tipo com a mesma tag (duplicidade indevida).
+pub fn find_duplicate_apparatus(
+    items: &[SchematicItem],
+    item: &SchematicItem,
+) -> bool {
+    let role = classify_apparatus_role(item.tipo);
+    if !role.is_independent_apparatus() {
+        return false;
+    }
+    let norm_tag = item.tag.trim();
+    if norm_tag.is_empty() {
+        return false;
+    }
+
+    items.iter().any(|other| {
+        other.id != item.id
+            && classify_apparatus_role(other.tipo) == role
+            && other.tag.trim().eq_ignore_ascii_case(norm_tag)
+    })
+}
+
 

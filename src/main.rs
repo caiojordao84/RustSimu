@@ -26,8 +26,10 @@ use crate::sim::{
     press_component_on_sim, release_component_on_sim, step_simulation,
 };
 use crate::symbols::{
-    detect_contact_kind, detect_current_sequence, find_occupied_sequences_for_tag, find_symbol,
-    symbol_catalog, SymbolCategory,
+    classify_apparatus_role, detect_contact_kind, detect_current_sequence,
+    extract_tag_prefix, find_duplicate_apparatus, find_occupied_sequences_for_tag,
+    find_parent_apparatus, find_symbol, list_available_parent_tags,
+    next_sequential_tag_for_role, symbol_catalog, SymbolCategory,
 };
 use crate::theme::{tokens, ThemeMode, MENU_H, MONO, R, STATUS_H, TOOL_H, UI};
 
@@ -1106,16 +1108,36 @@ impl CadeSimuApp {
                         self.push_undo();
                         let new_id = self.doc.next_id();
                         let mut item = sym.instantiate(new_id, x, y, self.placement_orientation);
+                        let role = classify_apparatus_role(item.tipo);
 
-                        // Se for contato auxiliar ou botão, verificar sequências já ocupadas pela mesma tag no esquema
-                        if let Some(kind) = detect_contact_kind(item.tipo, &sym.pins) {
-                            let occupied = find_occupied_sequences_for_tag(&self.doc.items, &item.tag, None);
-                            if !occupied.is_empty() {
-                                let next_seq = (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
-                                let new_pins = kind.generate_pins(next_seq);
-                                for (idx, p_val) in new_pins.into_iter().enumerate() {
-                                    if idx < item.pins.len() {
-                                        item.pins[idx] = p_val;
+                        if role.is_independent_apparatus() {
+                            // Aparelhos primários (bobinas, disjuntores, botões, motores, sinaleiros...)
+                            // recebem tag sequencial automática entre elementos do mesmo tipo: -KM1, -KM2, -S1, -S2, etc.
+                            let prefix = if sym.default_tag.is_empty() { "-K" } else { sym.default_tag };
+                            item.tag = next_sequential_tag_for_role(&self.doc.items, role, prefix);
+                        } else if role.is_subordinate_contact() {
+                            // Contatos subordinados (contatores de força, contatos auxiliares NA/NF, temporizados, térmicos)
+                            // Devem se vincular ao aparelho pai correspondente existente no esquema, se houver
+                            if let Some(parent_role) = role.required_parent_role() {
+                                let parent_item = self.doc.items.iter()
+                                    .rfind(|i| classify_apparatus_role(i.tipo) == parent_role && !i.tag.trim().is_empty());
+                                if let Some(parent) = parent_item {
+                                    item.tag = parent.tag.clone();
+                                } else if !sym.default_tag.is_empty() {
+                                    item.tag = format!("{}1", sym.default_tag.trim());
+                                }
+                            }
+
+                            // Para contatos auxiliares NA/NF com numeração sequencial de bornes IEC:
+                            if let Some(kind) = detect_contact_kind(item.tipo, &sym.pins) {
+                                let occupied = find_occupied_sequences_for_tag(&self.doc.items, &item.tag, None);
+                                if !occupied.is_empty() {
+                                    let next_seq = (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
+                                    let new_pins = kind.generate_pins(next_seq);
+                                    for (idx, p_val) in new_pins.into_iter().enumerate() {
+                                        if idx < item.pins.len() {
+                                            item.pins[idx] = p_val;
+                                        }
                                     }
                                 }
                             }
@@ -1515,6 +1537,24 @@ impl CadeSimuApp {
                         new_item.y1 += 12;
                         new_item.x2 += 12;
                         new_item.y2 += 12;
+
+                        let role = classify_apparatus_role(new_item.tipo);
+                        if role.is_independent_apparatus() {
+                            let prefix = extract_tag_prefix(&new_item.tag);
+                            new_item.tag = next_sequential_tag_for_role(&self.doc.items, role, prefix);
+                        } else if let Some(sym) = find_symbol(new_item.tipo) {
+                            if let Some(kind) = detect_contact_kind(new_item.tipo, &sym.pins) {
+                                let occupied = find_occupied_sequences_for_tag(&self.doc.items, &new_item.tag, None);
+                                let next_seq = (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
+                                let new_pins = kind.generate_pins(next_seq);
+                                for (idx, p_val) in new_pins.into_iter().enumerate() {
+                                    if idx < new_item.pins.len() {
+                                        new_item.pins[idx] = p_val;
+                                    }
+                                }
+                            }
+                        }
+
                         let new_id = new_item.id;
                         self.doc.items.push(new_item);
                         self.selected_id = Some(new_id);
@@ -3045,6 +3085,87 @@ impl CadeSimuApp {
                                 ]
                                 .spacing(4),
                             );
+
+                            // Validação Inteligente da Tag: Verificação de Bobina e Anti-Duplicidade
+                            let role = classify_apparatus_role(item.tipo);
+                            if role.is_subordinate_contact() {
+                                // Contato ou polo que necessita de aparelho pai (ex: bobina -KM1)
+                                if let Some(parent) = find_parent_apparatus(&self.doc.items, item) {
+                                    let parent_name = find_symbol(parent.tipo).map(|s| s.name).unwrap_or("Aparelho");
+                                    body_col = body_col.push(
+                                        text(format!("✓ Vinculado a '{}' ({})", parent.tag, parent_name))
+                                            .size(10.5)
+                                            .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                    );
+                                } else {
+                                    let parent_display = role.parent_display_name();
+                                    let mut alert_col = column![
+                                        text(format!("⚠️ Contato sem bobina: Nenhuma {} com a tag '{}' no esquema.", parent_display, item.tag))
+                                            .size(10.5)
+                                            .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                    ]
+                                    .spacing(4);
+
+                                    let available = list_available_parent_tags(&self.doc.items, role);
+                                    if !available.is_empty() {
+                                        let mut link_row = row![text("Vincular a:").size(10.5).color(t.text2)].spacing(4).align_y(Alignment::Center);
+                                        for p_tag in available {
+                                            let p_tag_clone = p_tag.clone();
+                                            link_row = link_row.push(
+                                                button(text(p_tag).size(10.0).font(UI))
+                                                    .style(theme::tool)
+                                                    .padding(Padding::from([2.0, 5.0]))
+                                                    .on_press(Message::EditTag(p_tag_clone)),
+                                            );
+                                        }
+                                        alert_col = alert_col.push(link_row);
+                                    }
+
+                                    body_col = body_col.push(
+                                        container(alert_col)
+                                            .padding(Padding::from([4.0, 6.0]))
+                                            .style(theme::card)
+                                    );
+                                }
+                            } else if role.is_independent_apparatus() {
+                                // Aparelho primário (Bobina, Disjuntor, Motor, Botão...)
+                                if find_duplicate_apparatus(&self.doc.items, item) {
+                                    let prefix = extract_tag_prefix(&item.tag);
+                                    let suggested_tag = next_sequential_tag_for_role(&self.doc.items, role, prefix);
+                                    let suggested_tag_clone = suggested_tag.clone();
+                                    body_col = body_col.push(
+                                        container(
+                                            column![
+                                                text(format!("⚠️ Tag duplicada: já existe outro aparelho primário com a tag '{}'", item.tag))
+                                                    .size(10.5)
+                                                    .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                                button(
+                                                    text(format!("⚡ Renomear para {suggested_tag}"))
+                                                        .size(10.5)
+                                                        .font(UI)
+                                                )
+                                                .style(theme::tool_active)
+                                                .padding(Padding::from([2.0, 6.0]))
+                                                .on_press(Message::EditTag(suggested_tag_clone)),
+                                            ]
+                                            .spacing(4)
+                                        )
+                                        .padding(Padding::from([4.0, 6.0]))
+                                        .style(theme::card)
+                                    );
+                                } else {
+                                    let sub_contacts_count = self.doc.items.iter()
+                                        .filter(|other| other.id != item.id && other.tag.trim().eq_ignore_ascii_case(item.tag.trim()))
+                                        .count();
+                                    if sub_contacts_count > 0 {
+                                        body_col = body_col.push(
+                                            text(format!("✓ Contatos associados no esquema: {} elemento(s)", sub_contacts_count))
+                                                .size(10.5)
+                                                .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                        );
+                                    }
+                                }
+                            }
 
                             // Valor / Temporização
                             body_col = body_col.push(
@@ -5727,6 +5848,7 @@ mod tests {
     fn test_smart_sequential_pin_dropdown_and_context_reading() {
         use crate::symbols::ContactKind;
         let (mut app, _) = CadeSimuApp::new();
+        app.doc.items.clear();
 
         // Valida ContactKind e geração dos bornes conforme a norma
         assert_eq!(ContactKind::NO.generate_pins(1), vec!["13", "14"]);
@@ -5828,15 +5950,51 @@ mod tests {
         let next_suggested = (1..=9).find(|d| !occupied_all.contains(d)).unwrap();
         assert_eq!(next_suggested, 3, "Novo contato de -KM1 deve sugerir sequência 3");
 
-        // 5. Testa auto-sequenciamento na inserção / posicionamento de componentes
-        let items_before = app.doc.items.len();
-        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 7000, x: 300, y: 100 }));
-        assert_eq!(app.doc.items.len(), items_before + 1);
-        let newly_placed = app.doc.items.last().unwrap();
-        // Como o default_tag do 7000 é "-KM", se já houver contatos com "-KM", deve alocar a próxima livre
-        assert!(!newly_placed.pins[0].is_empty());
+        // 5. Testa Bobinas: bornes SEMPRE A1-A2 e sequenciamento de tags (-KM1, -KM2)
+        let sym_coil = find_symbol(9000).expect("Bobina deve existir");
+        // Bobina NUNCA deve ser classificada como contato com sequência aberta/fechada
+        assert!(detect_contact_kind(9000, &sym_coil.pins).is_none(), "Bobina não deve ter ContactKind");
 
-        // 6. Renderiza a view garantindo que o pick_list e os avisos são gerados sem pânico
+        // Insere primeira bobina no Canvas -> deve ser -KM1 e bornes A1-A2
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 9000, x: 400, y: 100 }));
+        let coil1 = app.doc.items.last().unwrap();
+        assert_eq!(coil1.tag, "-KM1", "Primeira bobina deve receber tag -KM1");
+        assert_eq!(coil1.pins[0], "A1", "Borne 1 da bobina DEVE ser A1");
+        assert_eq!(coil1.pins[1], "A2", "Borne 2 da bobina DEVE ser A2");
+
+        // Insere segunda bobina no Canvas -> deve ser -KM2 e bornes A1-A2
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 9000, x: 450, y: 100 }));
+        let (coil2_id, coil2_tag, coil2_p0, coil2_p1) = {
+            let c2 = app.doc.items.last().unwrap();
+            (c2.id, c2.tag.clone(), c2.pins[0].clone(), c2.pins[1].clone())
+        };
+        assert_eq!(coil2_tag, "-KM2", "Segunda bobina deve receber tag sequencial -KM2");
+        assert_eq!(coil2_p0, "A1", "Borne 1 da segunda bobina DEVE ser A1");
+        assert_eq!(coil2_p1, "A2", "Borne 2 da segunda bobina DEVE ser A2");
+
+        // Insere botões/interruptores no Canvas -> -S1, -S2...
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 8000, x: 500, y: 100 }));
+        let btn_s = app.doc.items.last().unwrap();
+        assert!(btn_s.tag.starts_with("-S"), "Botão deve iniciar com prefixo -S");
+
+        // 6. Testa verificação de contato com e sem bobina
+        let mut orphan_contact = sym_cont_na.instantiate(3001, 600, 100, 0);
+        orphan_contact.tag = "-KM99".to_string(); // Bobina inexistente no esquema
+        assert!(find_parent_apparatus(&app.doc.items, &orphan_contact).is_none(), "Contato -KM99 deve ser identificado como sem bobina");
+
+        let mut linked_contact = sym_cont_na.instantiate(3002, 650, 100, 0);
+        linked_contact.tag = "-KM1".to_string(); // Bobina existente
+        assert!(find_parent_apparatus(&app.doc.items, &linked_contact).is_some(), "Contato -KM1 deve encontrar a bobina -KM1");
+
+        // 7. Testa duplicação de aparelhos (Ctrl+D)
+        app.selected_id = Some(coil2_id); // seleciona -KM2
+        let _ = app.update(Message::Duplicate);
+        let duplicated_coil = app.doc.items.last().unwrap();
+        assert_eq!(duplicated_coil.tag, "-KM3", "Duplicar bobina -KM2 deve gerar -KM3");
+        assert_eq!(duplicated_coil.pins[0], "A1");
+        assert_eq!(duplicated_coil.pins[1], "A2");
+
+        // 8. Renderiza a view garantindo que o pick_list e os avisos são gerados sem pânico
         let _ = app.view();
     }
 }
