@@ -137,6 +137,7 @@ pub enum Message {
     LoadPresetDol,
     OpenFileDialog,
     FileOpened(Option<PathBuf>),
+    #[allow(dead_code)]
     SelectSaveFormat(SaveFormat),
     SaveFileDialog,
     FileSaved(Option<PathBuf>),
@@ -522,7 +523,13 @@ impl CadeSimuApp {
 
     fn update(&mut self, message: Message) -> iced::Task<Message> {
         // Se um menu suspenso estiver aberto e o usuário disparar uma ação qualquer, fecha o menu automaticamente
-        if !matches!(message, Message::ToggleMenu(_) | Message::CloseMenu | Message::SimTick) {
+        if !matches!(
+            message,
+            Message::ToggleMenu(_)
+                | Message::CloseMenu
+                | Message::SimTick
+                | Message::Canvas(CanvasMessage::CursorMoved(_, _))
+        ) {
             self.open_menu = None;
         }
 
@@ -2441,38 +2448,21 @@ impl CadeSimuApp {
         .style(theme::tool_group)
         .padding(Padding::from([2.0, 4.0]));
 
-        let theme_label = match self.theme_mode {
-            ThemeMode::System => "Auto",
-            ThemeMode::Light => "Claro",
-            ThemeMode::Dark => "Escuro",
-        };
         let theme_group = container(
-            row![
-                app_tooltip(
-                    button(
-                        row![
-                            crate::icons::view_icon(crate::icons::Icon::Theme, 15, t.text),
-                            text(theme_label).size(11).font(UI),
-                        ]
-                        .spacing(4)
-                        .align_y(Alignment::Center)
-                    )
-                    .style(theme::tool)
-                    .padding(Padding::from([3.0, 6.0]))
-                    .on_press(Message::CycleTheme),
-                    "Alternar Tema (Sistema / Claro / Escuro)",
-                    tooltip::Position::Bottom,
-                ),
-                pick_list(
-                    &SaveFormat::ALL[..],
-                    Some(self.save_format),
-                    Message::SelectSaveFormat,
+            app_tooltip(
+                button(
+                    container(crate::icons::view_icon(crate::icons::Icon::Theme, 16, t.text))
+                        .width(20)
+                        .height(20)
+                        .center_x(20)
+                        .center_y(20),
                 )
-                .text_size(11)
-                .padding(Padding::from([3.0, 6.0])),
-            ]
-            .spacing(3)
-            .align_y(Alignment::Center)
+                .style(theme::tool)
+                .padding(Padding::from([3.0, 5.0]))
+                .on_press(Message::CycleTheme),
+                "Alternar Tema (Sistema / Claro / Escuro)",
+                tooltip::Position::Bottom,
+            ),
         )
         .style(theme::tool_group)
         .padding(Padding::from([2.0, 4.0]));
@@ -2481,40 +2471,28 @@ impl CadeSimuApp {
             row![
                 app_tooltip(
                     button(
-                        row![
-                            crate::icons::view_icon(crate::icons::Icon::Play, 14, Color::WHITE),
-                            text(if self.sim_running { "Rodando" } else { "Play" })
-                                .size(11.5)
-                                .font(Font {
-                                    weight: iced::font::Weight::Bold,
-                                    ..UI
-                                }),
-                        ]
-                        .spacing(4)
-                        .align_y(Alignment::Center)
+                        container(crate::icons::view_icon(crate::icons::Icon::Play, 14, Color::WHITE))
+                            .width(20)
+                            .height(20)
+                            .center_x(20)
+                            .center_y(20),
                     )
                     .style(theme::pill_play(self.sim_running))
-                    .padding(Padding::from([4.0, 8.0]))
+                    .padding(Padding::from([3.0, 5.0]))
                     .on_press(Message::ToggleSimulation),
-                    "Iniciar Simulação Elétrica",
+                    if self.sim_running { "Pausar/Parar Simulação" } else { "Iniciar Simulação Elétrica" },
                     tooltip::Position::Bottom,
                 ),
                 app_tooltip(
                     button(
-                        row![
-                            crate::icons::view_icon(crate::icons::Icon::Stop, 13, Color::WHITE),
-                            text("Stop")
-                                .size(11.5)
-                                .font(Font {
-                                    weight: iced::font::Weight::Bold,
-                                    ..UI
-                                }),
-                        ]
-                        .spacing(4)
-                        .align_y(Alignment::Center)
+                        container(crate::icons::view_icon(crate::icons::Icon::Stop, 13, Color::WHITE))
+                            .width(20)
+                            .height(20)
+                            .center_x(20)
+                            .center_y(20),
                     )
                     .style(theme::pill_stop(self.sim_running))
-                    .padding(Padding::from([4.0, 8.0]))
+                    .padding(Padding::from([3.0, 5.0]))
                     .on_press(Message::StopSimulation),
                     "Parar Simulação e Resetar",
                     tooltip::Position::Bottom,
@@ -2540,7 +2518,7 @@ impl CadeSimuApp {
         .style(theme::transport)
         .padding(Padding::from([2.0, 6.0]));
 
-        container(
+        let left_tools = scrollable(
             row![
                 file_group,
                 edit_group,
@@ -2548,10 +2526,24 @@ impl CadeSimuApp {
                 draw_group,
                 view_group,
                 theme_group,
-                horizontal_space(),
-                transport_group,
             ]
             .spacing(6)
+            .align_y(Alignment::Center),
+        )
+        .direction(scrollable::Direction::Horizontal(
+            scrollable::Scrollbar::new()
+                .width(3.0)
+                .scroller_width(3.0)
+                .margin(0.0),
+        ))
+        .width(Length::Fill);
+
+        container(
+            row![
+                left_tools,
+                transport_group,
+            ]
+            .spacing(8)
             .align_y(Alignment::Center),
         )
         .style(theme::bar)
@@ -2994,6 +2986,7 @@ impl CadeSimuApp {
             pan: self.pan,
             placement_orientation: self.placement_orientation,
             dragging_symbol: self.dragging_symbol,
+            is_blocked: self.open_menu.is_some() || self.show_about_modal,
         }
         .view()
         .map(Message::Canvas);
@@ -5431,6 +5424,7 @@ mod tests {
             pan: iced::Vector::default(),
             placement_orientation: 0,
             dragging_symbol: None,
+            is_blocked: false,
         };
 
         let canvas_dark = SchematicCanvas {
@@ -5448,6 +5442,7 @@ mod tests {
             pan: iced::Vector::default(),
             placement_orientation: 0,
             dragging_symbol: None,
+            is_blocked: false,
         };
 
         // No tema LIGHT, itens e conectores são escuros (inalterados)
@@ -6332,6 +6327,7 @@ mod tests {
             pan: iced::Vector::ZERO,
             placement_orientation: 0,
             dragging_symbol: None,
+            is_blocked: false,
         };
 
         // Clicar no corpo do símbolo deve retornar o ID do símbolo (100) e JAMAIS o ID de um fio
@@ -6517,7 +6513,90 @@ mod tests {
         assert!(!app.right_dock_collapsed);
         let _ = app.view();
     }
+
+    #[test]
+    fn test_toolbar_responsive_and_icon_buttons() {
+        let (mut app, _) = CadeSimuApp::new();
+
+        // Renderiza toolbar com tema padrão
+        let _ = app.view_toolbar();
+
+        // Alterna tema via CycleTheme (o botão de tema agora é ícone puro)
+        assert_eq!(app.theme_mode, ThemeMode::Dark);
+        let _ = app.update(Message::CycleTheme);
+        assert_eq!(app.theme_mode, ThemeMode::System);
+        let _ = app.view_toolbar();
+
+        // Testa controles de simulação no toolbar
+        assert!(!app.sim_running);
+        let _ = app.update(Message::ToggleSimulation);
+        assert!(app.sim_running);
+        let _ = app.view_toolbar();
+
+        // Stop zera a simulação (botão stop sem texto)
+        let _ = app.update(Message::StopSimulation);
+        assert!(!app.sim_running);
+        let _ = app.view_toolbar();
+    }
+
+    #[test]
+    fn test_menu_overlay_stays_open_over_canvas() {
+        use iced::widget::canvas::Program;
+
+        let (mut app, _) = CadeSimuApp::new();
+
+        // 1. Abre o menu Arquivo
+        let _ = app.update(Message::ToggleMenu(Some(ActiveMenu::Arquivo)));
+        assert_eq!(app.open_menu, Some(ActiveMenu::Arquivo));
+
+        // 2. Simula o cursor do mouse se movendo sobre a área de altura do canvas
+        let _ = app.update(Message::Canvas(CanvasMessage::CursorMoved(120, 240)));
+        assert_eq!(
+            app.open_menu,
+            Some(ActiveMenu::Arquivo),
+            "Cursor se movendo sobre a altura do canvas NÃO pode fechar o menu flutuante!"
+        );
+
+        // 3. Renderiza a interface com o menu aberto e verifica que o canvas fica bloqueado
+        let _ = app.view();
+
+        let canvas_blocked = crate::canvas_view::SchematicCanvas {
+            doc: &app.doc,
+            tool: app.tool,
+            selected_id: None,
+            sim_running: false,
+            show_grid: true,
+            grid_density: app.grid_density,
+            show_texts: true,
+            is_dark: true,
+            auto_connect: true,
+            auto_disconnect: true,
+            zoom: 1.0,
+            pan: iced::Vector::ZERO,
+            placement_orientation: 0,
+            dragging_symbol: None,
+            is_blocked: app.open_menu.is_some(),
+        };
+
+        let mut c_state = crate::canvas_view::CanvasInteraction::default();
+        let (status, msg) = canvas_blocked.update(
+            &mut c_state,
+            iced::widget::canvas::Event::Mouse(iced::mouse::Event::CursorMoved {
+                position: iced::Point::new(100.0, 300.0),
+            }),
+            iced::Rectangle::new(iced::Point::ORIGIN, iced::Size::new(800.0, 600.0)),
+            iced::mouse::Cursor::Available(iced::Point::new(100.0, 300.0)),
+        );
+
+        assert_eq!(status, iced::widget::canvas::event::Status::Ignored);
+        assert!(msg.is_none(), "Canvas bloqueado não gera mensagens");
+
+        // 4. Clicar fora ou fechar menu encerra o overlay normalmente
+        let _ = app.update(Message::ToggleMenu(None));
+        assert_eq!(app.open_menu, None);
+    }
 }
+
 
 
 

@@ -331,13 +331,27 @@ pub fn pill_play(running: bool) -> impl Fn(&Theme, button::Status) -> button::St
     move |theme, status| {
         let t = tokens(theme);
         let pressed = matches!(status, button::Status::Pressed);
-        let base = if pressed { dim(t.primary_solid, 0.9) } else { t.primary_solid };
+        let base = if pressed {
+            dim(t.primary_solid, 0.85)
+        } else if running {
+            t.primary_solid
+        } else {
+            dim(t.primary_solid, 0.70)
+        };
         button::Style {
             background: bg(base),
-            text_color: t.on_primary,
-            border: border(if running { t.primary } else { Color::TRANSPARENT }, 2.0, PILL),
+            text_color: Color::WHITE,
+            border: border(
+                if running { Color::WHITE } else { Color::TRANSPARENT },
+                if running { 1.5 } else { 0.0 },
+                PILL,
+            ),
             shadow: if running {
-                Shadow { color: rgba(0x00E599, 0.25), offset: Vector::new(0.0, 4.0), blur_radius: 12.0 }
+                Shadow {
+                    color: rgba(0x00E599, 0.65),
+                    offset: Vector::new(0.0, 0.0),
+                    blur_radius: 14.0,
+                }
             } else {
                 Shadow::default()
             },

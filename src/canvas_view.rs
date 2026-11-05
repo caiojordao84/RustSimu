@@ -69,6 +69,7 @@ pub struct SchematicCanvas<'a> {
     pub pan: Vector,
     pub placement_orientation: i32,
     pub dragging_symbol: Option<i32>,
+    pub is_blocked: bool,
 }
 
 impl<'a> SchematicCanvas<'a> {
@@ -1182,6 +1183,10 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         bounds: Rectangle,
         cursor: mouse::Cursor,
     ) -> (canvas::event::Status, Option<CanvasMessage>) {
+        if self.is_blocked {
+            return (canvas::event::Status::Ignored, None);
+        }
+
         // Garante que soltar o botão do mouse sempre libera botões pulsadores ou arrastes,
         // mesmo que o cursor tenha saído levemente dos limites do Canvas.
         match event {
