@@ -38,26 +38,20 @@ impl std::fmt::Display for PinSequenceOption {
     }
 }
 
-/// Formato de arquivo para salvamento na janela do sistema ou seletor rápido.
+/// Formato de arquivo para salvamento nativo do projeto (Decisão D1: JSON padrão, TOML ou QET).
+/// O formato legado `.cad` é monofolha e foi reclassificado exclusivamente para Exportação e Importação.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SaveFormat {
-    Cad,
     Json,
     Toml,
     Qet,
 }
 
 impl SaveFormat {
-    pub const ALL: [SaveFormat; 4] = [
-        SaveFormat::Cad,
-        SaveFormat::Json,
-        SaveFormat::Toml,
-        SaveFormat::Qet,
-    ];
+    pub const ALL: [SaveFormat; 3] = [SaveFormat::Json, SaveFormat::Toml, SaveFormat::Qet];
 
     pub fn extension(self) -> &'static str {
         match self {
-            SaveFormat::Cad => "cad",
             SaveFormat::Json => "json",
             SaveFormat::Toml => "toml",
             SaveFormat::Qet => "qet",
@@ -66,7 +60,6 @@ impl SaveFormat {
 
     pub fn filter_label(self) -> &'static str {
         match self {
-            SaveFormat::Cad => "CADe_SIMU Original (*.cad)",
             SaveFormat::Json => "Projeto JSON (*.json)",
             SaveFormat::Toml => "Projeto TOML (*.toml)",
             SaveFormat::Qet => "Projeto QElectroTech (*.qet)",
@@ -76,7 +69,6 @@ impl SaveFormat {
     pub fn from_path(path: &std::path::Path) -> Option<Self> {
         let ext = path.extension()?.to_str()?.to_ascii_lowercase();
         match ext.as_str() {
-            "cad" => Some(SaveFormat::Cad),
             "json" => Some(SaveFormat::Json),
             "toml" => Some(SaveFormat::Toml),
             "qet" => Some(SaveFormat::Qet),
@@ -88,11 +80,69 @@ impl SaveFormat {
 impl std::fmt::Display for SaveFormat {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            SaveFormat::Cad => write!(f, "Formato .CAD (Original)"),
-            SaveFormat::Json => write!(f, "Formato .JSON"),
+            SaveFormat::Json => write!(f, "Formato .JSON (Padrão)"),
             SaveFormat::Toml => write!(f, "Formato .TOML"),
             SaveFormat::Qet => write!(f, "Formato .QET (QElectroTech)"),
         }
+    }
+}
+
+/// Formatos disponíveis para exportação de folhas do esquema (Decisão D1).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ExportFormat {
+    Cad,
+    Pdf,
+    Svg,
+    Png,
+}
+
+impl ExportFormat {
+    pub const ALL: [ExportFormat; 4] = [
+        ExportFormat::Cad,
+        ExportFormat::Pdf,
+        ExportFormat::Svg,
+        ExportFormat::Png,
+    ];
+
+    pub fn extension(self) -> &'static str {
+        match self {
+            ExportFormat::Cad => "cad",
+            ExportFormat::Pdf => "pdf",
+            ExportFormat::Svg => "svg",
+            ExportFormat::Png => "png",
+        }
+    }
+
+    pub fn filter_label(self) -> &'static str {
+        match self {
+            ExportFormat::Cad => "CADe_SIMU Original (*.cad)",
+            ExportFormat::Pdf => "Documento PDF (*.pdf)",
+            ExportFormat::Svg => "Gráfico Vetorial SVG (*.svg)",
+            ExportFormat::Png => "Imagem PNG (*.png)",
+        }
+    }
+}
+
+impl std::fmt::Display for ExportFormat {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            ExportFormat::Cad => write!(f, "CADe_SIMU Original (.cad)"),
+            ExportFormat::Pdf => write!(f, "Documento PDF (.pdf)"),
+            ExportFormat::Svg => write!(f, "Gráfico Vetorial (.svg)"),
+            ExportFormat::Png => write!(f, "Imagem PNG (.png)"),
+        }
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ExportPageOption {
+    pub index: usize,
+    pub label: String,
+}
+
+impl std::fmt::Display for ExportPageOption {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.label)
     }
 }
 
@@ -125,8 +175,20 @@ pub enum Message {
     FileOpened(Option<PathBuf>),
     #[allow(dead_code)]
     SelectSaveFormat(SaveFormat),
+    SaveDocument,
     SaveFileDialog,
     FileSaved(Option<PathBuf>),
+    OpenExportModal,
+    CloseExportModal,
+    SelectExportFormat(ExportFormat),
+    SelectExportPage(usize),
+    ConfirmExport,
+    FileExported(
+        Option<PathBuf>,
+        Box<SchematicDocument>,
+        String,
+        ExportFormat,
+    ),
     FilePathChanged(String),
     LoadFromPath,
     SaveAsCad,
@@ -271,6 +333,9 @@ pub struct CadeSimuApp {
     pub right_dock_collapsed: bool,
     pub open_menu: Option<ActiveMenu>,
     pub show_about_modal: bool,
+    pub show_export_modal: bool,
+    pub export_format: ExportFormat,
+    pub export_page_index: usize,
     pub undo_stack: Vec<SchematicDocument>,
     pub redo_stack: Vec<SchematicDocument>,
     pub drag_undo_snapshot: Option<SchematicDocument>,
@@ -380,6 +445,9 @@ impl CadeSimuApp {
                 right_dock_collapsed: false,
                 open_menu: None,
                 show_about_modal: false,
+                show_export_modal: false,
+                export_format: ExportFormat::Cad,
+                export_page_index: 0,
                 undo_stack: Vec::new(),
                 redo_stack: Vec::new(),
                 drag_undo_snapshot: None,
@@ -473,11 +541,11 @@ impl CadeSimuApp {
                         "o" if ctrl => Some(Message::OpenFileDialog),
                         "s" if ctrl && shift => Some(Message::SaveFileDialog),
                         "s" if ctrl && alt => Some(Message::SaveAll),
-                        "s" if ctrl => Some(Message::SaveFileDialog),
+                        "s" if ctrl => Some(Message::SaveDocument),
                         "w" if ctrl => Some(Message::CloseDocument),
                         "p" if ctrl => Some(Message::PrintDocument),
-                        "e" if ctrl && shift => Some(Message::ExportDialog),
-                        "e" if ctrl => Some(Message::ExportDialog),
+                        "e" if ctrl && shift => Some(Message::OpenExportModal),
+                        "e" if ctrl => Some(Message::OpenExportModal),
                         "z" if ctrl && shift => Some(Message::Redo),
                         "y" if ctrl => Some(Message::Redo),
                         "z" if ctrl => Some(Message::Undo),
@@ -793,6 +861,51 @@ impl CadeSimuApp {
                 }
                 self.status_msg = format!("Formato padrão de salvamento alterado para {}.", fmt);
             }
+            Message::SaveDocument => {
+                if let Some(ref path) = self.current_file {
+                    let ext = path
+                        .extension()
+                        .and_then(|e| e.to_str())
+                        .map(|s| s.to_ascii_lowercase())
+                        .unwrap_or_default();
+                    if ext == "json" || ext == "toml" || ext == "qet" {
+                        let path_clone = path.clone();
+                        let res = if self.save_format == SaveFormat::Qet || ext == "qet" {
+                            if let Some(ref mut qet_proj) = self.qet_project {
+                                let active_idx = qet_proj.active_diagram_index;
+                                if let Some(diag) = qet_proj.diagrams.get_mut(active_idx) {
+                                    crate::qet::update_diagram_from_document(diag, &self.doc);
+                                }
+                                crate::qet::save_qet_file(&path_clone, qet_proj)
+                            } else {
+                                crate::qet::export_doc_to_qet(&self.doc, &path_clone)
+                            }
+                        } else {
+                            save_document(&path_clone, &self.doc)
+                        };
+
+                        match res {
+                            Ok(()) => {
+                                self.is_modified = false;
+                                if self.active_page_index < self.pages.len() {
+                                    self.pages[self.active_page_index].doc = self.doc.clone();
+                                }
+                                self.status_msg = format!(
+                                    "Projeto salvo com sucesso em '{}'.",
+                                    path_clone.display()
+                                );
+                            }
+                            Err(err) => {
+                                self.status_msg =
+                                    format!("Erro ao salvar '{}': {err}", path_clone.display());
+                            }
+                        }
+                        return iced::Task::none();
+                    }
+                }
+                // Se for a primeira vez salvando ou se for um arquivo .cad importado, solicita nome e formato (JSON padrão)
+                return self.update(Message::SaveFileDialog);
+            }
             Message::SaveFileDialog => {
                 let start_dir = self.last_dir.clone();
                 let preferred_fmt = self.save_format;
@@ -806,13 +919,13 @@ impl CadeSimuApp {
                 let default_name = format!("{}.{}", stem, preferred_fmt.extension());
 
                 self.status_msg =
-                    "Escolha onde salvar e o formato (.cad, .json, .toml ou .qet) na janela do sistema..."
+                    "Escolha onde salvar o projeto (.json, .toml ou .qet) na janela do sistema..."
                         .to_string();
 
                 return iced::Task::perform(
                     async move {
                         let mut dialog = rfd::AsyncFileDialog::new()
-                            .set_title("Salvar Projeto (.cad, .json, .toml, .qet)")
+                            .set_title("Salvar Projeto (.json, .toml, .qet)")
                             .set_directory(&start_dir)
                             .set_file_name(&default_name);
 
@@ -831,6 +944,135 @@ impl CadeSimuApp {
                     },
                     Message::FileSaved,
                 );
+            }
+            Message::OpenExportModal => {
+                if self.active_page_index < self.pages.len() {
+                    self.pages[self.active_page_index].doc = self.doc.clone();
+                }
+                self.show_export_modal = true;
+                self.export_page_index = self.active_page_index;
+                self.status_msg =
+                    "Exportação: Escolha o formato desejado (.cad, .pdf, .svg ou .png) e a folha a exportar."
+                        .to_string();
+            }
+            Message::CloseExportModal => {
+                self.show_export_modal = false;
+            }
+            Message::SelectExportFormat(fmt) => {
+                self.export_format = fmt;
+            }
+            Message::SelectExportPage(idx) => {
+                self.export_page_index = idx;
+            }
+            Message::ConfirmExport => {
+                self.show_export_modal = false;
+                let page_idx = self
+                    .export_page_index
+                    .min(self.pages.len().saturating_sub(1));
+                let doc_to_export = if page_idx == self.active_page_index {
+                    self.doc.clone()
+                } else if page_idx < self.pages.len() {
+                    self.pages[page_idx].doc.clone()
+                } else {
+                    self.doc.clone()
+                };
+
+                let page_title = if page_idx < self.pages.len() {
+                    self.pages[page_idx].name.clone()
+                } else {
+                    "Folha 1".to_string()
+                };
+
+                let fmt = self.export_format;
+                let start_dir = self.last_dir.clone();
+                let stem = self
+                    .current_file
+                    .as_ref()
+                    .and_then(|p| p.file_stem())
+                    .and_then(|s| s.to_str())
+                    .unwrap_or("projeto");
+
+                let clean_title: String = page_title
+                    .chars()
+                    .map(|c| {
+                        if c.is_alphanumeric() || c == '_' || c == '-' {
+                            c
+                        } else {
+                            '_'
+                        }
+                    })
+                    .collect();
+
+                let default_name = if self.pages.len() > 1 {
+                    format!(
+                        "{}_{}.{}",
+                        stem,
+                        clean_title.trim_matches('_'),
+                        fmt.extension()
+                    )
+                } else {
+                    format!("{}.{}", stem, fmt.extension())
+                };
+
+                return iced::Task::perform(
+                    async move {
+                        let dialog = rfd::AsyncFileDialog::new()
+                            .set_title("Exportar Folha do Esquema")
+                            .set_directory(&start_dir)
+                            .set_file_name(&default_name)
+                            .add_filter(fmt.filter_label(), &[fmt.extension()]);
+
+                        dialog.save_file().await.map(|h| h.path().to_path_buf())
+                    },
+                    move |path| {
+                        Message::FileExported(
+                            path,
+                            Box::new(doc_to_export.clone()),
+                            page_title.clone(),
+                            fmt,
+                        )
+                    },
+                );
+            }
+            Message::FileExported(maybe_path, doc, page_title, fmt) => {
+                let Some(path) = maybe_path else {
+                    self.status_msg = "Exportação cancelada.".to_string();
+                    return iced::Task::none();
+                };
+                if let Some(parent) = path.parent() {
+                    self.last_dir = parent.to_path_buf();
+                }
+
+                match fmt {
+                    ExportFormat::Cad => match save_document(&path, &doc) {
+                        Ok(()) => {
+                            self.status_msg = format!(
+                                "Folha '{}' exportada com sucesso em formato CADe_SIMU original (.cad): '{}'",
+                                page_title,
+                                path.display()
+                            );
+                        }
+                        Err(err) => {
+                            self.status_msg = format!("Erro ao exportar arquivo .cad: {err}");
+                        }
+                    },
+                    ExportFormat::Svg | ExportFormat::Pdf | ExportFormat::Png => {
+                        match save_document(&path, &doc) {
+                            Ok(()) => {
+                                self.status_msg = format!(
+                                    "Folha '{}' exportada em '{}' ({}).",
+                                    page_title,
+                                    path.display(),
+                                    fmt
+                                );
+                            }
+                            Err(err) => {
+                                self.status_msg =
+                                    format!("Erro ao exportar arquivo {}: {err}", fmt);
+                            }
+                        }
+                    }
+                }
             }
             Message::FileSaved(maybe_path) => {
                 let Some(mut path) = maybe_path else {
@@ -1036,18 +1278,8 @@ impl CadeSimuApp {
                 }
             }
             Message::SaveAsCad => {
-                let mut path = PathBuf::from(self.file_path.trim());
-                path.set_extension("cad");
-                self.file_path = path.to_string_lossy().to_string();
-                match save_document(&path, &self.doc) {
-                    Ok(()) => {
-                        self.status_msg = format!(
-                            "Salvo no formato legado CADe_SIMU (.cad): '{}'",
-                            path.display()
-                        );
-                    }
-                    Err(e) => self.status_msg = e,
-                }
+                // Reclassificado conforme Decisão D1: .cad é formato de exportação de folha única
+                return self.update(Message::OpenExportModal);
             }
             Message::SaveAsJson => {
                 let mut path = PathBuf::from(self.file_path.trim());
@@ -1398,6 +1630,14 @@ impl CadeSimuApp {
                 self.selected_collection_sym = Some(tipo);
             }
             Message::CancelAction => {
+                if self.show_export_modal {
+                    self.show_export_modal = false;
+                    return iced::Task::none();
+                }
+                if self.show_about_modal {
+                    self.show_about_modal = false;
+                    return iced::Task::none();
+                }
                 if let Some(snapshot) = self.drag_undo_snapshot.take() {
                     self.doc = snapshot;
                     self.status_msg = "Movimento cancelado.".to_string();
@@ -2012,21 +2252,7 @@ impl CadeSimuApp {
                 self.status_msg = "Zoom ajustado ao conteúdo dos elementos.".to_string();
             }
             Message::ExportDialog => {
-                self.status_msg =
-                    "Exportação: Escolha o formato desejado (PDF, SVG, PNG, CAD).".to_string();
-                return iced::Task::perform(
-                    async move {
-                        rfd::AsyncFileDialog::new()
-                            .set_title("Exportar Esquema Elétrico")
-                            .add_filter("Documento PDF (*.pdf)", &["pdf"])
-                            .add_filter("Gráfico Vetorial SVG (*.svg)", &["svg"])
-                            .add_filter("CADe_SIMU (*.cad)", &["cad"])
-                            .save_file()
-                            .await
-                            .map(|h| h.path().to_path_buf())
-                    },
-                    Message::FileSaved,
-                );
+                return self.update(Message::OpenExportModal);
             }
             Message::ToggleSnap => {
                 self.snap_to_grid = !self.snap_to_grid;
@@ -2178,6 +2404,181 @@ impl CadeSimuApp {
             layers.push(modal_overlay.into());
         }
 
+        // Modal de Exportação do Esquema (Decisão D1)
+        if self.show_export_modal {
+            let page_options: Vec<ExportPageOption> = self
+                .pages
+                .iter()
+                .enumerate()
+                .map(|(i, p)| ExportPageOption {
+                    index: i,
+                    label: format!("Folha {}: {}", i + 1, p.name),
+                })
+                .collect();
+
+            let current_page_opt = page_options
+                .iter()
+                .find(|p| p.index == self.export_page_index)
+                .cloned()
+                .or_else(|| page_options.first().cloned());
+
+            let is_cad = self.export_format == ExportFormat::Cad;
+            let is_multipage = self.pages.len() > 1;
+
+            let mut modal_content = column![
+                row![
+                    crate::icons::view_icon(crate::icons::Icon::ExportPdf, 22, t.primary),
+                    column![
+                        text("Exportar Esquema Elétrico").size(17).font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        }),
+                        text("Exporte para CADe_SIMU original (.cad) ou formatos portáteis")
+                            .size(11.5)
+                            .color(t.text2),
+                    ]
+                    .spacing(2),
+                    horizontal_space(),
+                    button(crate::icons::view_icon(
+                        crate::icons::Icon::Close,
+                        13,
+                        t.text2
+                    ))
+                    .style(theme::tool)
+                    .padding(Padding::from([4.0, 6.0]))
+                    .on_press(Message::CloseExportModal),
+                ]
+                .align_y(Alignment::Center),
+                horizontal_rule(1),
+                column![
+                    text("Formato de Exportação:").size(12).font(Font {
+                        weight: iced::font::Weight::Semibold,
+                        ..UI
+                    }),
+                    pick_list(
+                        &ExportFormat::ALL[..],
+                        Some(self.export_format),
+                        Message::SelectExportFormat,
+                    )
+                    .text_size(12.0)
+                    .padding(Padding::from([5.0, 8.0]))
+                    .width(Length::Fill),
+                ]
+                .spacing(4),
+            ]
+            .spacing(12);
+
+            if is_multipage {
+                let page_picker = column![
+                    text("Selecione a Folha a Exportar:").size(12).font(Font {
+                        weight: iced::font::Weight::Semibold,
+                        ..UI
+                    }),
+                    pick_list(page_options, current_page_opt, |opt| {
+                        Message::SelectExportPage(opt.index)
+                    },)
+                    .text_size(12.0)
+                    .padding(Padding::from([5.0, 8.0]))
+                    .width(Length::Fill),
+                ]
+                .spacing(4);
+                modal_content = modal_content.push(page_picker);
+            } else {
+                let single_page_info = text(format!(
+                    "Folha a ser exportada: Folha 1 ({})",
+                    self.pages
+                        .first()
+                        .map(|p| p.name.as_str())
+                        .unwrap_or("Principal")
+                ))
+                .size(11.5)
+                .color(t.text2);
+                modal_content = modal_content.push(single_page_info);
+            }
+
+            if is_cad {
+                let cad_notice = container(
+                    row![
+                        text("ℹ️").size(14),
+                        column![
+                            text("Compatibilidade CADe_SIMU 4.0 (.cad):")
+                                .size(11.5)
+                                .font(Font {
+                                    weight: iced::font::Weight::Bold,
+                                    ..UI
+                                })
+                                .color(t.amber),
+                            text("O formato legado original é estritamente monofolha. A folha selecionada será exportada em formato byte-exato (100% compatível com o CADe_SIMU.exe). Para salvar o projeto completo com todas as páginas, utilize Salvar (JSON).")
+                                .size(11.0)
+                                .color(t.text2),
+                        ]
+                        .spacing(2),
+                    ]
+                    .spacing(8)
+                    .align_y(Alignment::Start),
+                )
+                .style(theme::card)
+                .padding(Padding::from([8.0, 10.0]));
+
+                modal_content = modal_content.push(cad_notice);
+            }
+
+            modal_content = modal_content.push(horizontal_rule(1)).push(
+                row![
+                    button(text("Cancelar").size(12).font(UI))
+                        .style(theme::tool)
+                        .padding(Padding::from([6.0, 14.0]))
+                        .on_press(Message::CloseExportModal),
+                    horizontal_space(),
+                    button(text("Exportar...").size(12).font(Font {
+                        weight: iced::font::Weight::Bold,
+                        ..UI
+                    }))
+                    .style(theme::primary)
+                    .padding(Padding::from([6.0, 18.0]))
+                    .on_press(Message::ConfirmExport),
+                ]
+                .align_y(Alignment::Center),
+            );
+
+            let export_card = container(modal_content.width(520))
+                .style(theme::dropdown_menu)
+                .padding(Padding::from([16.0, 20.0]));
+
+            let modal_backdrop = mouse_area(
+                container(Space::new(Length::Fill, Length::Fill))
+                    .style(|_| container::Style {
+                        background: Some(iced::Background::Color(Color::from_rgba(
+                            0.0, 0.0, 0.0, 0.45,
+                        ))),
+                        ..Default::default()
+                    })
+                    .width(Length::Fill)
+                    .height(Length::Fill),
+            )
+            .on_press(Message::CloseExportModal);
+
+            let modal_overlay = stack![
+                modal_backdrop,
+                container(
+                    column![
+                        vertical_space(),
+                        row![horizontal_space(), export_card, horizontal_space()]
+                            .align_y(Alignment::Center),
+                        vertical_space(),
+                    ]
+                    .width(Length::Fill)
+                    .height(Length::Fill)
+                )
+                .width(Length::Fill)
+                .height(Length::Fill),
+            ]
+            .width(Length::Fill)
+            .height(Length::Fill);
+
+            layers.push(modal_overlay.into());
+        }
+
         Stack::with_children(layers)
             .width(Length::Fill)
             .height(Length::Fill)
@@ -2307,7 +2708,7 @@ impl CadeSimuApp {
                     Some(crate::icons::Icon::Save),
                     "Salvar",
                     "Ctrl+S",
-                    Message::SaveFileDialog
+                    Message::SaveDocument
                 ),
                 menu_item_btn(
                     Some(crate::icons::Icon::SaveAs),
@@ -2332,7 +2733,7 @@ impl CadeSimuApp {
                     Some(crate::icons::Icon::ExportPdf),
                     "Exportar (PDF, SVG, CAD)...",
                     "Ctrl+Shift+E",
-                    Message::ExportDialog
+                    Message::OpenExportModal
                 ),
                 menu_item_btn(
                     Some(crate::icons::Icon::Print),
@@ -2762,7 +3163,7 @@ impl CadeSimuApp {
                 icon_btn(
                     crate::icons::Icon::Save,
                     "Salvar (Ctrl+S)",
-                    Message::SaveFileDialog
+                    Message::SaveDocument
                 ),
                 icon_btn(
                     crate::icons::Icon::SaveAs,
@@ -2781,8 +3182,8 @@ impl CadeSimuApp {
                 ),
                 icon_btn(
                     crate::icons::Icon::ExportPdf,
-                    "Exportar em PDF (Ctrl+Shift+E)",
-                    Message::ExportDialog
+                    "Exportar Esquema (Ctrl+Shift+E)",
+                    Message::OpenExportModal
                 ),
             ]
             .spacing(2)
@@ -3548,7 +3949,7 @@ impl CadeSimuApp {
             pan: self.pan,
             placement_orientation: self.placement_orientation,
             dragging_symbol: self.dragging_symbol,
-            is_blocked: self.open_menu.is_some() || self.show_about_modal,
+            is_blocked: self.open_menu.is_some() || self.show_about_modal || self.show_export_modal,
         }
         .view()
         .map(Message::Canvas);
@@ -8423,5 +8824,103 @@ mod tests {
         );
         assert!(f2_blown.sim_fault);
         assert!(!f2_blown.sim_active);
+    }
+
+    #[test]
+    fn test_decision_d1_native_save_and_cad_export_with_sheet_selector() {
+        // 1. Validação de Formatos de Salvamento Nativo (Decisão D1 / P2-#13)
+        // .cad foi removido dos formatos de salvamento nativo do projeto (evita perda de multipáginas)
+        assert_eq!(SaveFormat::ALL.len(), 3);
+        assert!(SaveFormat::ALL.contains(&SaveFormat::Json));
+        assert!(SaveFormat::ALL.contains(&SaveFormat::Toml));
+        assert!(SaveFormat::ALL.contains(&SaveFormat::Qet));
+        assert_eq!(
+            SaveFormat::from_path(std::path::Path::new("esquema.cad")),
+            None
+        );
+        assert_eq!(
+            SaveFormat::from_path(std::path::Path::new("esquema.json")),
+            Some(SaveFormat::Json)
+        );
+        assert_eq!(
+            SaveFormat::from_path(std::path::Path::new("esquema.toml")),
+            Some(SaveFormat::Toml)
+        );
+        assert_eq!(
+            SaveFormat::from_path(std::path::Path::new("esquema.qet")),
+            Some(SaveFormat::Qet)
+        );
+
+        // 2. Validação de Formatos de Exportação
+        // .cad agora é formato de exportação de folha única
+        assert_eq!(ExportFormat::ALL.len(), 4);
+        assert_eq!(
+            ExportFormat::ALL,
+            [
+                ExportFormat::Cad,
+                ExportFormat::Pdf,
+                ExportFormat::Svg,
+                ExportFormat::Png
+            ]
+        );
+
+        // 3. Validação do Estado da Aplicação e UX
+        let (mut app, _) = CadeSimuApp::new();
+        assert_eq!(app.save_format, SaveFormat::Json, "Padrão deve ser JSON");
+        assert!(!app.show_export_modal);
+
+        // Rota legada SaveAsCad redireciona automaticamente para OpenExportModal
+        let _ = app.update(Message::SaveAsCad);
+        assert!(app.show_export_modal);
+        assert_eq!(app.export_format, ExportFormat::Cad);
+
+        // Tecla ESC (CancelAction) fecha o modal de exportação
+        let _ = app.update(Message::CancelAction);
+        assert!(!app.show_export_modal);
+
+        // Adiciona nova folha para testar comportamento multipáginas
+        let _ = app.update(Message::AddPageAfter(0));
+        assert_eq!(app.pages.len(), 2);
+
+        // Abrir modal de exportação preserva índice da folha ativa
+        let _ = app.update(Message::OpenExportModal);
+        assert!(app.show_export_modal);
+        assert_eq!(app.export_page_index, app.active_page_index);
+
+        // Selecionar folha específica para exportação
+        let _ = app.update(Message::SelectExportPage(1));
+        assert_eq!(app.export_page_index, 1);
+
+        // Fechar explicitamente
+        let _ = app.update(Message::CloseExportModal);
+        assert!(!app.show_export_modal);
+
+        // 4. Teste de exportação byte-exata para .cad via save_document
+        let mut test_doc = SchematicDocument::default();
+        test_doc.title_block.title = "Motor Trifásico Folha 1".to_string();
+        test_doc
+            .items
+            .push(SchematicItem::new_symbol(1, 1000, 100, 100, "")); // Fonte 3P
+        test_doc
+            .items
+            .push(SchematicItem::new_symbol(2, 6003, 100, 150, "-Q1")); // Disjuntor 3P
+
+        let temp_dir = std::env::temp_dir();
+        let export_cad_path = temp_dir.join("test_export_sheet1.cad");
+
+        let export_res = crate::io::save_document(&export_cad_path, &test_doc);
+        assert!(
+            export_res.is_ok(),
+            "Exportação para .cad deve ser bem sucedida"
+        );
+
+        // Valida que o arquivo gerado pode ser lido de volta perfeitamente
+        let raw_cad = std::fs::read_to_string(&export_cad_path).expect("Leitura do .cad exportado");
+        let parsed_doc = parse_cad_str(&raw_cad).expect("Parser do .cad exportado");
+        assert_eq!(parsed_doc.items.len(), 2);
+        assert_eq!(parsed_doc.title_block.title, "Motor Trifásico Folha 1");
+
+        // Limpeza
+        let _ = std::fs::remove_file(export_cad_path);
     }
 }
