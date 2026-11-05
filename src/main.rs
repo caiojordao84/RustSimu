@@ -1927,11 +1927,16 @@ impl CadeSimuApp {
         let main_ui = column![
             self.view_menubar(),
             self.view_toolbar(),
-            self.layout.view(Message::LayoutMsg, |kind| match kind {
-                Kind::Collections => self.view_collections_panel(),
-                Kind::Sheet => self.view_sheet_panel(),
-                Kind::Properties => self.view_properties_panel(),
-            }),
+            self.layout.view(
+                self.left_dock_collapsed,
+                self.right_dock_collapsed,
+                Message::LayoutMsg,
+                |kind| match kind {
+                    Kind::Collections => self.view_collections_panel(),
+                    Kind::Sheet => self.view_sheet_panel(),
+                    Kind::Properties => self.view_properties_panel(),
+                },
+            ),
             self.view_statusbar(),
         ]
         .width(Length::Fill)
@@ -2566,6 +2571,7 @@ impl CadeSimuApp {
                     .padding(Padding::from([8.0, 5.0]))
                     .on_press(Message::ToggleLeftDockCollapse),
             )
+            .align_x(iced::alignment::Horizontal::Center)
             .style(theme::bar)
             .width(Length::Fixed(28.0))
             .height(Length::Fill)
@@ -3015,6 +3021,7 @@ impl CadeSimuApp {
                     .padding(Padding::from([8.0, 5.0]))
                     .on_press(Message::ToggleRightDockCollapse),
             )
+            .align_x(iced::alignment::Horizontal::Center)
             .style(theme::bar)
             .width(Length::Fixed(28.0))
             .height(Length::Fill)
@@ -6476,6 +6483,41 @@ mod tests {
         assert_eq!(doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential, Potential::None, "95-96 abre quando -F1 desarma");
         assert_eq!(doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential, Potential::L1, "97-98 fecha quando -F1 desarma");
     }
+
+    #[test]
+    fn test_dock_panels_physical_collapse_and_expand() {
+        let (mut app, _) = CadeSimuApp::new();
+
+        // Inicialmente ambos os painéis estão expandidos (288px)
+        assert!(!app.left_dock_collapsed);
+        assert!(!app.right_dock_collapsed);
+        assert_eq!(app.layout.left_width, 288.0);
+        assert_eq!(app.layout.right_width, 288.0);
+
+        // Renderiza a interface normalmente
+        let _ = app.view();
+
+        // 1. Recolhe o painel esquerdo (Elementos e Projetos)
+        let _ = app.update(Message::ToggleLeftDockCollapse);
+        assert!(app.left_dock_collapsed);
+        let _ = app.view();
+
+        // 2. Recolhe o painel direito (Propriedades do Elemento)
+        let _ = app.update(Message::ToggleRightDockCollapse);
+        assert!(app.right_dock_collapsed);
+        let _ = app.view();
+
+        // 3. Expande o painel esquerdo novamente
+        let _ = app.update(Message::ToggleLeftDockCollapse);
+        assert!(!app.left_dock_collapsed);
+        let _ = app.view();
+
+        // 4. Expande o painel direito novamente
+        let _ = app.update(Message::ToggleRightDockCollapse);
+        assert!(!app.right_dock_collapsed);
+        let _ = app.view();
+    }
 }
+
 
 
