@@ -4177,7 +4177,7 @@ mod tests {
         let mut doc = SchematicDocument::default();
         // Instancia os 4 tipos de botões pulsadores: 8000 (NO), 8001 (NC), 8002 (NO-NC), 8003 (CON)
         // mais uma chave seletora retentiva 8004 (Switch) para comparar.
-        for (idx, tipo) in [8000, 8001, 8002, 8003, 8004].into_iter().enumerate() {
+        for (idx, tipo) in [8000, 8001, 8002, 8003, 8008].into_iter().enumerate() {
             let sym = find_symbol(tipo).unwrap_or_else(|| panic!("Símbolo {tipo} deve existir"));
             let mut item = sym.instantiate((idx + 1) as i32, (idx as i32) * 30, 30, 0);
             item.tag = format!("-S{}", idx + 1);
@@ -4205,7 +4205,7 @@ mod tests {
             );
         }
 
-        // Já a chave seletora 8004 (id=5) é bi-estável: permanece ligada ao soltar o mouse,
+        // Já a chave interruptor 8008 (id=5, DJ) é bi-estável: permanece ligada ao soltar o mouse,
         // e só desliga no próximo clique.
         press_component_on_sim(&mut doc, 5);
         release_component_on_sim(&mut doc, 5);
@@ -6159,10 +6159,10 @@ mod tests {
         let doc = crate::io::parse_cad_str(&content)
             .expect("teste.cad deve carregar com sucesso");
 
-        // Verifica que o elemento 139 existe no arquivo e foi decodificado como 8008
+        // Verifica que o elemento 139 existe no arquivo e foi decodificado como 8008 (Interruptor NA / DJ)
         let item_dj = doc.items.iter().find(|i| i.id == 139)
             .expect("Item #139 (DJ) deve estar presente no teste.cad");
-        assert_eq!(item_dj.tipo, 8008, "Item #139 deve ser tipo 8008 (Botão Cogumelo NA)");
+        assert_eq!(item_dj.tipo, 8008, "Item #139 deve ser tipo 8008 (Contacto interruptor NA - DJ)");
         assert_eq!(item_dj.tag.trim(), "DJ", "Tag do elemento #139 deve ser DJ");
         assert_eq!(item_dj.pins[0].trim(), "13", "Pino 0 deve ser 13");
         assert_eq!(item_dj.pins[1].trim(), "14", "Pino 1 deve ser 14");
@@ -6170,37 +6170,34 @@ mod tests {
         // Verifica que o símbolo existe no catálogo do programa com primitivas vetoriais completas
         let sym = find_symbol(8008).expect("Símbolo 8008 deve existir no catálogo de símbolos");
         assert_eq!(sym.category, crate::symbols::SymbolCategory::PushbuttonsActuators);
+        assert!(sym.name.contains("Interruptor") || sym.name.contains("Chave"), "8008 deve ser Interruptor / Chave");
         assert!(!sym.idle_cmds.is_empty(), "Comandos idle não podem ser vazios");
         assert!(!sym.active_cmds.is_empty(), "Comandos active não podem ser vazios");
-        assert_eq!(sym.pins.len(), 2, "Botão cogumelo NA tem 2 pinos");
+        // Verifica que contém o comando do traço degrau de retenção do interruptor (LINE,-030,+020,-030,+040)
+        assert!(sym.idle_cmds.iter().any(|cmd| cmd.contains("-030,+020,-030,+040")), "Deve conter degrau retentivo do interruptor");
+        assert_eq!(sym.pins.len(), 2, "Interruptor NA tem 2 pinos");
     }
 
     #[test]
     fn test_actuators_and_switches_catalog_completeness() {
         let expected_types = [
-            8005, // Chave NF
-            8006, // Chave NA+NF
-            8007, // Chave CON
-            8008, // Cogumelo NA
-            8009, // Cogumelo NF
-            8010, // Cogumelo NA+NF
-            8011, // Cogumelo CON
-            8012, // Fim de Curso NA
-            8013, // Fim de Curso NF
-            8014, // Fim de Curso NA+NF
-            8015, // Fim de Curso CON
-            8018, // Relé Térmico NA+NF
-            8019, // Relé Térmico CON
-            8020, // Chave Seletora I-0-II
-            8021, // Chave Seletora I-II-III
-            8022, // Chave Inversora / Crossover
+            8000, 8001, 8002, 8003, // Botões pulsadores
+            8004, 8005, 8006, 8007, // Cogumelos pulsadores
+            8008, 8009, 8010, 8011, // Chaves / Interruptores retentivos (8008 = DJ)
+            8012, 8013, 8014, 8015, // Fim de Curso pulsadores
+            8016, 8017, 8018, 8019, // Relé Térmico auxiliares
+            8020, 8021, 8022,       // Chaves Seletoras I-0-II, I-II-III, Inversora
+            8023,                   // Botão Pulsador 2D
+            8030, 8031, 8032, 8033, 8034, // Botões de Parada de Emergência Retentivos com travas
         ];
 
         for &tipo in &expected_types {
             let sym = find_symbol(tipo).unwrap_or_else(|| panic!("Tipo {} deve existir no catálogo", tipo));
             assert!(!sym.idle_cmds.is_empty(), "Tipo {} deve ter comandos idle", tipo);
             assert!(!sym.active_cmds.is_empty(), "Tipo {} deve ter comandos active", tipo);
-            assert!(!sym.pins.is_empty(), "Tipo {} deve ter pinos declarados", tipo);
+            if tipo != 8023 {
+                assert!(!sym.pins.is_empty(), "Tipo {} deve ter pinos declarados", tipo);
+            }
         }
     }
 
@@ -6208,26 +6205,32 @@ mod tests {
     fn test_actuator_switches_latching_and_momentary_distinction() {
         use crate::sim::{is_momentary_button, press_component_on_sim, release_component_on_sim};
 
-        // 1. Verifica momentâneos vs bi-estáveis
-        for &m in &[8000, 8001, 8002, 8003, 8023] {
-            assert!(is_momentary_button(m), "Tipo {} deve ser momentâneo", m);
+        // 1. Verifica momentâneos (pulsadores simples, cogumelos simples 8004..=8007, fins de curso 8012..=8015)
+        for &m in &[8000, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8012, 8013, 8014, 8015, 8023] {
+            assert!(is_momentary_button(m), "Tipo {} deve ser momentâneo (diferencial/pulsador)", m);
         }
-        for &b in &[8004, 8005, 8006, 8007, 8008, 8009, 8010, 8011, 8012, 8013, 8014, 8015, 8018, 8019, 8020, 8021, 8022] {
+        // 2. Verifica retentivos / bi-estáveis (interruptores 8008..=8011, chaves 8020..=8022, emergências 8030..=8034)
+        for &b in &[8008, 8009, 8010, 8011, 8020, 8021, 8022, 8030, 8031, 8032, 8033, 8034] {
             assert!(!is_momentary_button(b), "Tipo {} deve ser bi-estável / retentivo", b);
         }
 
         let mut doc = crate::model::SchematicDocument::default();
         doc.items.clear();
 
-        // 2. Insere um botão pulsador momentâneo (8000) e um botão cogumelo retentivo (8008)
+        // 3. Insere um botão pulsador momentâneo (8000), um interruptor retentivo (8008) e uma emergência NF (8030)
         let mut btn_mom = crate::model::SchematicItem::new_symbol(1, 8000, 50, 50, "-S1");
         btn_mom.pins[0] = "13".to_string();
         btn_mom.pins[1] = "14".to_string();
-        let mut btn_cog = crate::model::SchematicItem::new_symbol(2, 8008, 100, 50, "-S2");
-        btn_cog.pins[0] = "13".to_string();
-        btn_cog.pins[1] = "14".to_string();
+        let mut sw_ret = crate::model::SchematicItem::new_symbol(2, 8008, 100, 50, "-DJ");
+        sw_ret.pins[0] = "13".to_string();
+        sw_ret.pins[1] = "14".to_string();
+        let mut emg_nc = crate::model::SchematicItem::new_symbol(3, 8030, 150, 50, "-S0");
+        emg_nc.pins[0] = "11".to_string();
+        emg_nc.pins[1] = "12".to_string();
+
         doc.items.push(btn_mom);
-        doc.items.push(btn_cog);
+        doc.items.push(sw_ret);
+        doc.items.push(emg_nc);
 
         // Pressiona o botão momentâneo -> fica ativo
         press_component_on_sim(&mut doc, 1);
@@ -6237,17 +6240,78 @@ mod tests {
         release_component_on_sim(&mut doc, 1);
         assert!(!doc.items[0].sim_manual_latched, "Botão momentâneo deve soltar ao liberar o mouse");
 
-        // Pressiona o botão cogumelo (8008) -> retém ativo
+        // Pressiona a chave interruptor (8008) -> retém ativo
         press_component_on_sim(&mut doc, 2);
-        assert!(doc.items[1].sim_manual_latched, "Botão cogumelo deve reter ativo");
+        assert!(doc.items[1].sim_manual_latched, "Chave interruptor deve reter ativo");
 
-        // Solta o botão cogumelo -> DEVE CONTINUAR ATIVO (retentivo/bi-estável)
+        // Solta a chave interruptor -> DEVE CONTINUAR ATIVO (retentivo/bi-estável)
         release_component_on_sim(&mut doc, 2);
-        assert!(doc.items[1].sim_manual_latched, "Botão cogumelo deve permanecer retido após soltar mouse");
+        assert!(doc.items[1].sim_manual_latched, "Chave interruptor deve permanecer retida após soltar mouse");
 
-        // Segundo clique no cogumelo -> desativa (destrava)
+        // Segundo clique na chave interruptor -> desativa (alterna)
         press_component_on_sim(&mut doc, 2);
-        assert!(!doc.items[1].sim_manual_latched, "Segundo clique destrava o cogumelo retentivo");
+        assert!(!doc.items[1].sim_manual_latched, "Segundo clique desativa chave interruptor");
+
+        // Pressiona o botão de emergência retentivo (8030)
+        press_component_on_sim(&mut doc, 3);
+        assert!(doc.items[2].sim_manual_latched, "Botão de emergência deve travar ao pressionar");
+        release_component_on_sim(&mut doc, 3);
+        assert!(doc.items[2].sim_manual_latched, "Botão de emergência retém travado ao soltar mouse");
+        press_component_on_sim(&mut doc, 3);
+        assert!(!doc.items[2].sim_manual_latched, "Segundo clique destrava o botão de emergência");
+    }
+
+    #[test]
+    fn test_canvas_selection_prioritizes_symbols_over_wires() {
+        use crate::canvas_view::SchematicCanvas;
+
+        let mut doc = crate::model::SchematicDocument::default();
+        doc.items.clear();
+
+        // Cria símbolo DJ (8008) em (50, 50)
+        let sym_dj = find_symbol(8008).unwrap();
+        let item_dj = sym_dj.instantiate(100, 50, 50, 0);
+        let wp = sym_dj.world_pins(&item_dj);
+
+        // Cria fios conectados exatamente nos pinos do símbolo
+        let wire1 = crate::model::SchematicItem::new_wire(201, 4000, wp[0].2.0, wp[0].2.1 - 20, wp[0].2.0, wp[0].2.1);
+        let wire2 = crate::model::SchematicItem::new_wire(202, 4000, wp[1].2.0, wp[1].2.1, wp[1].2.0, wp[1].2.1 + 20);
+
+        // Fio horizontal cruzando por trás do símbolo
+        let wire3 = crate::model::SchematicItem::new_wire(203, 4000, 30, 55, 70, 55);
+
+        doc.items.push(wire1);
+        doc.items.push(wire2);
+        doc.items.push(wire3);
+        doc.items.push(item_dj);
+
+        let canvas = SchematicCanvas {
+            doc: &doc,
+            tool: crate::EditorTool::Select,
+            selected_id: None,
+            sim_running: false,
+            show_grid: true,
+            grid_density: crate::model::GridDensity::Medium,
+            show_texts: true,
+            is_dark: false,
+            auto_connect: true,
+            auto_disconnect: false,
+            zoom: 1.0,
+            pan: iced::Vector::ZERO,
+            placement_orientation: 0,
+            dragging_symbol: None,
+        };
+
+        // Clicar no corpo do símbolo deve retornar o ID do símbolo (100) e JAMAIS o ID de um fio
+        let hit = canvas.hit_test(50, 55);
+        assert_eq!(hit, Some(100), "Hit test no centro do símbolo deve selecionar o símbolo e não fios adjacentes");
+
+        let hit_pin = canvas.hit_test(wp[0].2.0, wp[0].2.1);
+        assert_eq!(hit_pin, Some(100), "Hit test no pino do símbolo deve priorizar o símbolo sobre o fio conectado");
+
+        // Clicar longe do símbolo, em ponto exclusivo do fio
+        let hit_wire = canvas.hit_test(wp[0].2.0, wp[0].2.1 - 15);
+        assert_eq!(hit_wire, Some(201), "Hit test longe do símbolo deve selecionar o fio");
     }
 
     #[test]

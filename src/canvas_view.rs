@@ -96,9 +96,12 @@ impl<'a> SchematicCanvas<'a> {
     }
 
     /// Encontra o componente ou cabo sob a coordenada `(wx, wy)` do mundo (escala `.cad`).
-    fn hit_test(&self, wx: i32, wy: i32) -> Option<i32> {
+    pub(crate) fn hit_test(&self, wx: i32, wy: i32) -> Option<i32> {
         // Prioriza símbolos sobre cabos
         for item in self.doc.items.iter().rev() {
+            if item.is_wire() {
+                continue;
+            }
             if let Some(sym) = find_symbol(item.tipo) {
                 let (bx1, by1, bx2, by2) = (
                     sym.bounds.0 / 5,
@@ -115,8 +118,6 @@ impl<'a> SchematicCanvas<'a> {
                 if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
                     return Some(item.id);
                 }
-            } else if item.tipo > 0 && (wx - item.x1).abs() <= 15 && (wy - item.y1).abs() <= 15 {
-                return Some(item.id);
             } else if let Some(ref qet_type) = item.qet_type {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     let (vx, vy, vw, vh) = parsed.view_box;
@@ -127,13 +128,15 @@ impl<'a> SchematicCanvas<'a> {
                     if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
                         return Some(item.id);
                     }
-                } else if (wx - item.x1).abs() <= 15 && (wy - item.y1).abs() <= 15 {
+                } else if (wx - item.x1).abs() <= 6 && (wy - item.y1).abs() <= 6 {
                     return Some(item.id);
                 }
             } else if item.is_junction() {
                 if (wx - item.x1).abs() <= 3 && (wy - item.y1).abs() <= 3 {
                     return Some(item.id);
                 }
+            } else if !matches!(item.tipo, 1 | 2 | 8) && (wx - item.x1).abs() <= 6 && (wy - item.y1).abs() <= 6 {
+                return Some(item.id);
             }
         }
         // Em seguida, testa cabos

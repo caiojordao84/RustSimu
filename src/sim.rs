@@ -62,10 +62,10 @@ pub fn timer_preset_ms(pins: &[String; 9], value: &str) -> u64 {
 }
 
 /// Verifica se o `tipo` corresponde a um botão pulsador momentâneo
-/// (`8000` NO Button, `8001` NC Button, `8002` NO-NC Button, `8003` CON Button, `8023` Botão 2D),
-/// ou componente QET pulsador (ex: horn_switch, taster).
+/// (`8000..=8003` Botões Pulsadores, `8004..=8007` Botões Cogumelo Simples, `8012..=8015` Fins de Curso, `8023` Botão 2D),
+/// ou componente QET pulsador (ex: horn_switch, taster, limitswitch).
 pub fn is_momentary_button(tipo: i32) -> bool {
-    matches!(tipo, 8000 | 8001 | 8002 | 8003 | 8023)
+    matches!(tipo, 8000..=8007 | 8012..=8015 | 8023)
 }
 
 pub fn is_item_momentary(item: &crate::model::SchematicItem) -> bool {
@@ -74,7 +74,10 @@ pub fn is_item_momentary(item: &crate::model::SchematicItem) -> bool {
     }
     if let Some(ref qet_type) = item.qet_type {
         let l = qet_type.to_ascii_lowercase();
-        return l.contains("horn_switch") || l.contains("push_button") || l.contains("taster");
+        if l.contains("emergency") || l.contains("latch") {
+            return false;
+        }
+        return l.contains("horn_switch") || l.contains("push_button") || l.contains("taster") || l.contains("limitswitch");
     }
     false
 }
@@ -134,7 +137,7 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
 
     let is_manual = matches!(
         tipo,
-        2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8023
+        2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
     ) || doc.items[idx].qet_type.as_ref().map(|t| {
         let l = t.to_ascii_lowercase();
         l.contains("switch") || l.contains("schalter") || l.contains("ignition") || l.contains("button") || l.contains("taster")
@@ -153,7 +156,7 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
                 let item_is_manual = matches!(
                     item.tipo,
                     2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
-                        | 8000..=8023
+                        | 8000..=8034
                 ) || item.qet_type.as_ref().map(|t| {
                     let l = t.to_ascii_lowercase();
                     l.contains("switch") || l.contains("schalter") || l.contains("ignition") || l.contains("button") || l.contains("taster")
@@ -175,7 +178,7 @@ pub fn set_manual_by_tag(doc: &mut SchematicDocument, tag: &str, pressed: bool) 
             && matches!(
                 item.tipo,
                 2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
-                    | 8000..=8023
+                    | 8000..=8034
             )
         {
             item.sim_manual_latched = pressed;
@@ -308,7 +311,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         5000 | 5003 if !item.sim_manual_latched => {
                             breakers_active.insert(tag);
                         }
-                        2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8004..=8015 | 8020..=8022 if item.sim_manual_latched => {
+                        2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034 if item.sim_manual_latched => {
                             breakers_active.insert(tag);
                         }
                         _ => {}
@@ -329,9 +332,9 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         item.sim_active = item.sim_manual_latched
                             || (!tag.is_empty() && breakers_active.contains(&tag));
                     }
-                    // Disjuntores, chaves seccionadoras, botões, fins de curso e chaves seletoras: seguem o acionamento manual
+                    // Disjuntores, chaves seccionadoras, botões, fins de curso, emergências e chaves seletoras: seguem o acionamento manual
                     2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
-                    | 8000..=8015 | 8020..=8023 => {
+                    | 8000..=8015 | 8020..=8023 | 8030..=8034 => {
                         item.sim_active = item.sim_manual_latched;
                     }
                     // Contatores de potência e contatos auxiliares instantâneos
@@ -377,19 +380,19 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
 
                 match item.tipo {
                     // Elementos 1P NA (fecham quando sim_active == true)
-                    5000 | 6000 | 2006 | 7000 | 7004 | 7008 | 8000 | 8004 | 8008 | 8012 | 8016 => {
+                    5000 | 6000 | 2006 | 7000 | 7004 | 7008 | 8000 | 8004 | 8008 | 8012 | 8016 | 8031 => {
                         if item.sim_active {
                             connect_pair(0, 1);
                         }
                     }
                     // Elementos 1P NF (conduzem quando sim_active == false)
-                    7001 | 7005 | 7009 | 8001 | 8005 | 8009 | 8013 | 8017 => {
+                    7001 | 7005 | 7009 | 8001 | 8005 | 8009 | 8013 | 8017 | 8030 | 8033 | 8034 => {
                         if !item.sim_active {
                             connect_pair(0, 1);
                         }
                     }
                     // Contato duplo 4 terminais NA+NF (pino 0-2 é NF 11-12/95-96; pino 1-3 é NA 13-14/97-98)
-                    7002 | 7006 | 8002 | 8006 | 8010 | 8014 | 8018 => {
+                    7002 | 7006 | 8002 | 8006 | 8010 | 8014 | 8018 | 8032 => {
                         if !item.sim_active {
                             connect_pair(0, 2);
                         } else {
