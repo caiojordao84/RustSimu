@@ -290,6 +290,7 @@ pub struct CadeSimuApp {
     pub show_about_modal: bool,
     pub undo_stack: Vec<SchematicDocument>,
     pub redo_stack: Vec<SchematicDocument>,
+    pub drag_undo_snapshot: Option<SchematicDocument>,
     pub clipboard: Option<SchematicItem>,
     pub copied_info: Option<(String, String, [String; 9])>,
 }
@@ -398,6 +399,7 @@ impl CadeSimuApp {
                 show_about_modal: false,
                 undo_stack: Vec::new(),
                 redo_stack: Vec::new(),
+                drag_undo_snapshot: None,
                 clipboard: None,
                 copied_info: None,
             },
@@ -411,6 +413,23 @@ impl CadeSimuApp {
         }
         self.undo_stack.push(self.doc.clone());
         self.redo_stack.clear();
+    }
+
+    /// Conclui a transação de arraste de um componente ou fio no Canvas.
+    /// O snapshot do documento anterior ao início do movimento é registrado no histórico de desfazer (Undo)
+    /// somente uma vez ao soltar o mouse, caso a posição final seja diferente da inicial.
+    fn commit_drag_undo(&mut self) {
+        if let Some(snapshot) = self.drag_undo_snapshot.take() {
+            if self.doc != snapshot {
+                if self.undo_stack.len() >= 50 {
+                    self.undo_stack.remove(0);
+                }
+                self.undo_stack.push(snapshot);
+                self.redo_stack.clear();
+                self.is_modified = true;
+                self.status_msg = "Elemento movido.".to_string();
+            }
+        }
     }
 
     pub fn is_dark(&self) -> bool {
@@ -1065,7 +1084,9 @@ impl CadeSimuApp {
                         let dx = x1 - ox;
                         let dy = y1 - oy;
                         if dx != 0 || dy != 0 {
-                            self.push_undo();
+                            if self.drag_undo_snapshot.is_none() {
+                                self.drag_undo_snapshot = Some(self.doc.clone());
+                            }
                             if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                                 item.x1 = x1;
                                 item.y1 = y1;
@@ -1099,6 +1120,9 @@ impl CadeSimuApp {
                             }
                         }
                     }
+                }
+                CanvasMessage::EndMoveItem { id: _ } => {
+                    self.commit_drag_undo();
                 }
                 CanvasMessage::PlaceComponent { tipo, x, y } => {
                     self.last_placed_sym = Some(tipo);
@@ -1265,9 +1289,14 @@ impl CadeSimuApp {
                     self.cursor_world = (wx, wy);
                 }
                 CanvasMessage::CancelAction => {
+                    if let Some(snapshot) = self.drag_undo_snapshot.take() {
+                        self.doc = snapshot;
+                        self.status_msg = "Movimento cancelado.".to_string();
+                    } else {
+                        self.status_msg = "Ação cancelada. Modo de seleção ativado.".to_string();
+                    }
                     self.tool = EditorTool::Select;
                     self.dragging_symbol = None;
-                    self.status_msg = "Ação cancelada. Modo de seleção ativado.".to_string();
                 }
             },
             Message::CycleTheme => {
@@ -1284,13 +1313,19 @@ impl CadeSimuApp {
                 self.selected_collection_sym = Some(tipo);
             }
             Message::CancelAction => {
+                if let Some(snapshot) = self.drag_undo_snapshot.take() {
+                    self.doc = snapshot;
+                    self.status_msg = "Movimento cancelado.".to_string();
+                } else {
+                    self.status_msg = "Ação cancelada. Modo de seleção ativado.".to_string();
+                }
                 self.open_menu = None;
                 self.tool = EditorTool::Select;
                 self.dragging_symbol = None;
-                self.status_msg = "Ação cancelada. Modo de seleção ativado.".to_string();
             }
             Message::GlobalMouseReleased => {
                 self.dragging_symbol = None;
+                self.commit_drag_undo();
             }
             Message::SelectCollectionSymbol(tipo) => {
                 self.dragging_symbol = None;
@@ -1471,6 +1506,7 @@ impl CadeSimuApp {
                 self.tool = EditorTool::Select;
             }
             Message::Undo => {
+                self.drag_undo_snapshot = None;
                 if let Some(prev) = self.undo_stack.pop() {
                     self.redo_stack.push(self.doc.clone());
                     self.doc = prev;
@@ -1481,6 +1517,7 @@ impl CadeSimuApp {
                 }
             }
             Message::Redo => {
+                self.drag_undo_snapshot = None;
                 if let Some(next) = self.redo_stack.pop() {
                     self.undo_stack.push(self.doc.clone());
                     self.doc = next;
@@ -5996,6 +6033,122 @@ mod tests {
 
         // 8. Renderiza a view garantindo que o pick_list e os avisos são gerados sem pânico
         let _ = app.view();
+    }
+
+    #[test]
+    fn test_drag_move_single_undo_step() {
+        let (mut app, _) = CadeSimuApp::new();
+        app.doc.items.clear();
+
+        // 1. Posiciona componente inicial em (100, 100)
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 9000, x: 100, y: 100 }));
+        let item_id = app.doc.items[0].id;
+        assert_eq!(app.doc.items[0].x1, 100);
+        assert_eq!(app.doc.items[0].y1, 100);
+        let undo_len_after_place = app.undo_stack.len();
+
+        // 2. Simula o arraste suave do componente passando por múltiplos pontos da grade até (180, 100)
+        let intermediate_steps = [110, 120, 130, 140, 150, 160, 170, 180];
+        for &step_x in &intermediate_steps {
+            let _ = app.update(Message::Canvas(CanvasMessage::MoveItem {
+                id: item_id,
+                x1: step_x,
+                y1: 100,
+            }));
+            // Durante o arraste contínuo, a pilha de undo NÃO deve acumular passos intermediários!
+            assert_eq!(
+                app.undo_stack.len(),
+                undo_len_after_place,
+                "Passos intermediários de arraste não podem poluir a pilha de Ctrl+Z"
+            );
+            assert_eq!(app.doc.items[0].x1, step_x);
+        }
+
+        // 3. Usuário solta o botão do mouse -> EndMoveItem
+        let _ = app.update(Message::Canvas(CanvasMessage::EndMoveItem { id: item_id }));
+
+        // Apenas UM snapshot único deve ser adicionado ao histórico
+        assert_eq!(
+            app.undo_stack.len(),
+            undo_len_after_place + 1,
+            "Apenas uma transação de movimento deve ser registrada ao soltar o mouse"
+        );
+        assert_eq!(app.doc.items[0].x1, 180);
+
+        // 4. Um ÚNICO Ctrl+Z (Undo) deve retornar o elemento diretamente da posição final (180, 100) para a inicial (100, 100)
+        let _ = app.update(Message::Undo);
+        assert_eq!(
+            app.doc.items[0].x1, 100,
+            "Um único Ctrl+Z deve retornar o elemento diretamente para o ponto inicial (100, 100)"
+        );
+        assert_eq!(app.doc.items[0].y1, 100);
+
+        // 5. Um ÚNICO Ctrl+Y (Redo) deve mover de volta para a posição final (180, 100)
+        let _ = app.update(Message::Redo);
+        assert_eq!(
+            app.doc.items[0].x1, 180,
+            "Um único Ctrl+Y deve avançar o elemento para a posição final (180, 100)"
+        );
+        assert_eq!(app.doc.items[0].y1, 100);
+    }
+
+    #[test]
+    fn test_drag_move_cancel_and_wire_tracking() {
+        let (mut app, _) = CadeSimuApp::new();
+        app.doc.items.clear();
+
+        // Insere componente e fio conectado
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 9000, x: 100, y: 100 }));
+        let comp_id = app.doc.items[0].id;
+        let _ = app.update(Message::Canvas(CanvasMessage::AddWire {
+            tipo: 4000,
+            x1: 100,
+            y1: 100,
+            x2: 100,
+            y2: 50,
+        }));
+        let wire_id = app.doc.items.iter().find(|i| i.is_wire()).unwrap().id;
+        let initial_undo_len = app.undo_stack.len();
+
+        // 1. Arraste cancelado via ESC / Botão Direito (CancelAction)
+        let _ = app.update(Message::Canvas(CanvasMessage::MoveItem { id: comp_id, x1: 140, y1: 100 }));
+        assert_eq!(app.doc.items.iter().find(|i| i.id == comp_id).unwrap().x1, 140);
+        let _ = app.update(Message::Canvas(CanvasMessage::CancelAction));
+        assert_eq!(
+            app.doc.items.iter().find(|i| i.id == comp_id).unwrap().x1,
+            100,
+            "Cancelar deve reverter o elemento à posição de origem imediatamente"
+        );
+        assert_eq!(
+            app.undo_stack.len(),
+            initial_undo_len,
+            "Cancelar arraste não deve criar entrada na pilha de undo"
+        );
+
+        // 2. Arraste concluído com fio conectado
+        let _ = app.update(Message::Canvas(CanvasMessage::MoveItem { id: comp_id, x1: 130, y1: 100 }));
+        let _ = app.update(Message::Canvas(CanvasMessage::EndMoveItem { id: comp_id }));
+        assert_eq!(app.undo_stack.len(), initial_undo_len + 1);
+
+        // Fio deve ter acompanhado o componente para x1 = 130
+        let wire_moved = app.doc.items.iter().find(|i| i.id == wire_id).unwrap();
+        assert_eq!(wire_moved.x1, 130);
+
+        // Desfazer (Ctrl+Z) restaura ambos para x1 = 100 em um passo
+        let _ = app.update(Message::Undo);
+        let comp_undone = app.doc.items.iter().find(|i| i.id == comp_id).unwrap();
+        let wire_undone = app.doc.items.iter().find(|i| i.id == wire_id).unwrap();
+        assert_eq!(comp_undone.x1, 100);
+        assert_eq!(wire_undone.x1, 100);
+
+        // 3. Clique simples sem deslocamento não deve criar histórico de undo
+        let pre_click_undo = app.undo_stack.len();
+        let _ = app.update(Message::Canvas(CanvasMessage::EndMoveItem { id: comp_id }));
+        assert_eq!(
+            app.undo_stack.len(),
+            pre_click_undo,
+            "Clique sem deslocamento não deve adicionar entrada na pilha de undo"
+        );
     }
 }
 

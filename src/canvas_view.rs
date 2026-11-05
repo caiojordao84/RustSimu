@@ -24,6 +24,7 @@ pub enum EditorTool {
 pub enum CanvasMessage {
     SelectItem(Option<i32>),
     MoveItem { id: i32, x1: i32, y1: i32 },
+    EndMoveItem { id: i32 },
     PlaceComponent { tipo: i32, x: i32, y: i32 },
     AddWire {
         tipo: i32,
@@ -1147,7 +1148,10 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         // mesmo que o cursor tenha saído levemente dos limites do Canvas.
         match event {
             Event::Mouse(mouse::Event::ButtonReleased(mouse::Button::Left)) => {
-                state.dragging_item = None;
+                let ended_drag = state.dragging_item.take();
+                if matches!(self.tool, EditorTool::Pan) {
+                    state.panning_from = None;
+                }
                 if let Some(pressed_id) = state.sim_pressed_id.take() {
                     return (
                         canvas::event::Status::Captured,
@@ -1167,6 +1171,12 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             }),
                         );
                     }
+                }
+                if let Some((drag_id, _, _)) = ended_drag {
+                    return (
+                        canvas::event::Status::Captured,
+                        Some(CanvasMessage::EndMoveItem { id: drag_id }),
+                    );
                 }
                 return (canvas::event::Status::Captured, None);
             }
@@ -1351,14 +1361,6 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         (canvas::event::Status::Captured, None)
                     }
                 }
-            }
-
-            Event::Mouse(mouse::Event::ButtonReleased(mouse::Button::Left)) => {
-                state.dragging_item = None;
-                if matches!(self.tool, EditorTool::Pan) {
-                    state.panning_from = None;
-                }
-                (canvas::event::Status::Captured, None)
             }
 
             _ => (canvas::event::Status::Ignored, None),

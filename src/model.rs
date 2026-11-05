@@ -195,7 +195,7 @@ impl Default for DocumentSettings {
 }
 
 /// Item do diagrama esquemático, compatível 1:1 com os arrays paralelos de `CCADe_SIMUView`.
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct SchematicItem {
     pub id: i32,
     /// Código `tipo` original do CADe_SIMU (`1`, `8`, `1000..10550`).
@@ -373,7 +373,7 @@ impl ProjectPage {
 }
 
 /// Documento completo do CADe_SIMU (compatível com `.cad`, `.json` e `.toml`).
-#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub struct SchematicDocument {
     pub items: Vec<SchematicItem>,
     pub settings: DocumentSettings,
