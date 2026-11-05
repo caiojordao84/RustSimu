@@ -7,9 +7,11 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
 
 ## 1. Comandos Operacionais
 
-* **Checagem estática de tipos e compilação:**
+* **Checagem estática de tipos, linter e formatação (Obrigatório sem warnings):**
   ```bash
   cargo check --all-targets
+  cargo clippy --all-targets -- -D warnings
+  cargo fmt --all -- --check
   ```
 * **Suíte de testes (Obrigatório antes de qualquer commit):**
   ```bash
@@ -122,5 +124,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
 3. **Padrão de Commits:**
    * Use Conventional Commits em Português do Brasil (ex.: `feat(ui): ...`, `fix(sim): ...`, `test(core): ...`).
    * É estritamente **proibido** o uso de `git push --force` para evitar corrupção de commits feitos por outros agentes ou pelo usuário.
-4. **Geração de Releases:**
-   * A esteira de CI no GitHub Actions constrói executáveis portáteis de Windows e Linux automaticamente ao receber tags no padrão `v*` (ex.: `v0.4.1-demo`; o workflow também aceita disparo manual via `workflow_dispatch`).
+4. **Integração Contínua (CI):**
+   * O repositório conta com esteira automatizada (`.github/workflows/ci.yml`) que valida formatação (`cargo fmt`), análise estática (`cargo clippy --all-targets -- -D warnings`) e suíte de testes (`cargo test --all-targets`) em Linux e Windows a cada push ou PR para a branch `main`.
+5. **Geração de Releases:**
+   * A esteira de release no GitHub Actions constrói executáveis portáteis de Windows e Linux automaticamente ao receber tags no padrão `v*` (ex.: `v0.4.1-demo`; o workflow também aceita disparo manual via `workflow_dispatch`).

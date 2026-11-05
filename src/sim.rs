@@ -48,6 +48,66 @@ fn point_on_segment(px: i32, py: i32, x1: i32, y1: i32, x2: i32, y2: i32) -> boo
     cross == 0
 }
 
+/// Heurística para identificar interruptores, seccionadores ou botões manuais da biblioteca QET.
+pub fn is_qet_switch_or_button(label: &str) -> bool {
+    let l = label.to_ascii_lowercase();
+    l.contains("switch")
+        || l.contains("schalter")
+        || l.contains("ignition")
+        || l.contains("button")
+        || l.contains("taster")
+}
+
+/// Heurística para identificar distribuidores, divisores ou conexões passivas da biblioteca QET.
+pub fn is_qet_splitter_or_passive(label: &str) -> bool {
+    let l = label.to_ascii_lowercase();
+    l.contains("splitter")
+        || l.contains("verteiler")
+        || l.contains("distributor")
+        || l.contains("splice")
+        || l.contains("fuse")
+        || l.contains("connector")
+}
+
+/// Heurística para identificar cargas elétricas consumidoras (motores, lâmpadas, buzinas, ventoinhas) da QET.
+pub fn is_qet_load(label: &str) -> bool {
+    let l = label.to_ascii_lowercase();
+    let is_switch_or_diag =
+        l.contains("switch") || l.contains("connector") || l.contains("diagram");
+    !is_switch_or_diag
+        && (l.contains("starter")
+            || l.contains("motor")
+            || l.contains("horn")
+            || l.contains("fan")
+            || l.contains("light")
+            || l.contains("lamp")
+            || l.contains("bulb"))
+}
+
+/// Heurística para identificar fontes de alimentação contínua positiva (bateria / terminal positivo) da QET.
+pub fn is_qet_source_dc_pos(label: &str) -> bool {
+    let l = label.to_ascii_lowercase();
+    l.contains("battery") || l.contains("batterie")
+}
+
+/// Heurística para identificar terra / referência negativa de corrente contínua da QET.
+pub fn is_qet_source_ground(label: &str) -> bool {
+    let l = label.to_ascii_lowercase();
+    l.contains("ground") || l.contains("masse")
+}
+
+/// Verifica se o item pode ser acionado/comutado manualmente pelo usuário.
+pub fn is_item_manual(item: &crate::model::SchematicItem) -> bool {
+    matches!(
+        item.tipo,
+        2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
+    ) || item
+        .qet_type
+        .as_ref()
+        .map(|t| is_qet_switch_or_button(t))
+        .unwrap_or(false)
+}
+
 /// Extrai o tempo programado (em milissegundos) de um temporizador `9004` (TON) ou `9005` (TOF).
 /// No formato `.cad` original, o tempo em segundos fica em `pins[3]` (ou `value` no inspetor).
 pub fn timer_preset_ms(pins: &[String; 9], value: &str) -> u64 {
@@ -77,7 +137,10 @@ pub fn is_item_momentary(item: &crate::model::SchematicItem) -> bool {
         if l.contains("emergency") || l.contains("latch") {
             return false;
         }
-        return l.contains("horn_switch") || l.contains("push_button") || l.contains("taster") || l.contains("limitswitch");
+        return l.contains("horn_switch")
+            || l.contains("push_button")
+            || l.contains("taster")
+            || l.contains("limitswitch");
     }
     false
 }
@@ -85,25 +148,31 @@ pub fn is_item_momentary(item: &crate::model::SchematicItem) -> bool {
 /// Verifica se o item representa um disjuntor ou chave seccionadora de proteção
 /// que conduz quando acionado manualmente (`sim_manual_latched == true`).
 pub fn is_circuit_breaker(item: &crate::model::SchematicItem) -> bool {
-    matches!(
-        item.tipo,
-        5008 | 6000 | 6003 | 6004 | 6008 | 6009
-    ) || item.qet_type.as_ref().map(|t| {
-        let l = t.to_ascii_lowercase();
-        l.contains("breaker") || l.contains("disjoncteur") || l.contains("leistungs_schalter")
-    }).unwrap_or(false)
+    matches!(item.tipo, 5008 | 6000 | 6003 | 6004 | 6008 | 6009)
+        || item
+            .qet_type
+            .as_ref()
+            .map(|t| {
+                let l = t.to_ascii_lowercase();
+                l.contains("breaker")
+                    || l.contains("disjoncteur")
+                    || l.contains("leistungs_schalter")
+            })
+            .unwrap_or(false)
 }
 
 /// Verifica se o item representa um cartucho fusível permanente
 /// que conduz em repouso (`sim_manual_latched == false`) e abre ao queimar.
 pub fn is_fuse(item: &crate::model::SchematicItem) -> bool {
-    matches!(
-        item.tipo,
-        5000 | 5003
-    ) || item.qet_type.as_ref().map(|t| {
-        let l = t.to_ascii_lowercase();
-        l.contains("fuse") || l.contains("sicherung")
-    }).unwrap_or(false)
+    matches!(item.tipo, 5000 | 5003)
+        || item
+            .qet_type
+            .as_ref()
+            .map(|t| {
+                let l = t.to_ascii_lowercase();
+                l.contains("fuse") || l.contains("sicherung")
+            })
+            .unwrap_or(false)
 }
 
 /// Retorna os pares de índices de pinos correspondentes aos polos de condução de disjuntores e fusíveis.
@@ -147,7 +216,8 @@ pub fn detect_and_trip_protective_devices(
                         || (b < p.len() && node_potentials[p[b]] == Potential::ShortCircuit)
                 })
             } else {
-                p.iter().any(|&node| node_potentials[node] == Potential::ShortCircuit)
+                p.iter()
+                    .any(|&node| node_potentials[node] == Potential::ShortCircuit)
             };
 
             if has_sc {
@@ -165,7 +235,8 @@ pub fn detect_and_trip_protective_devices(
                         || (b < p.len() && node_potentials[p[b]] == Potential::ShortCircuit)
                 })
             } else {
-                p.iter().any(|&node| node_potentials[node] == Potential::ShortCircuit)
+                p.iter()
+                    .any(|&node| node_potentials[node] == Potential::ShortCircuit)
             };
 
             if has_sc {
@@ -184,16 +255,16 @@ pub fn detect_and_trip_protective_devices(
 
     for (idx, item) in doc.items.iter_mut().enumerate() {
         let tag = item.tag.trim().to_uppercase();
-        let is_match = tripped_indices.contains(&idx)
-            || (!tag.is_empty() && tripped_tags.contains(&tag));
+        let is_match =
+            tripped_indices.contains(&idx) || (!tag.is_empty() && tripped_tags.contains(&tag));
 
         if is_match {
             if is_circuit_breaker(item) {
                 item.sim_manual_latched = false; // Desarma o disjuntor (abre os contatos principais)
-                item.sim_fault = true;           // Sinaliza visualmente TRIP / FALHA
+                item.sim_fault = true; // Sinaliza visualmente TRIP / FALHA
                 item.sim_active = false;
             } else if is_fuse(item) {
-                item.sim_manual_latched = true;  // Fusível queima (abre circuito)
+                item.sim_manual_latched = true; // Fusível queima (abre circuito)
                 item.sim_fault = true;
                 item.sim_active = false;
             } else {
@@ -256,18 +327,9 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
     let Some(idx) = doc.items.iter().position(|i| i.id == clicked_id) else {
         return;
     };
-    let tipo = doc.items[idx].tipo;
     let tag = doc.items[idx].tag.trim().to_uppercase();
 
-    let is_manual = matches!(
-        tipo,
-        2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
-    ) || doc.items[idx].qet_type.as_ref().map(|t| {
-        let l = t.to_ascii_lowercase();
-        l.contains("switch") || l.contains("schalter") || l.contains("ignition") || l.contains("button") || l.contains("taster")
-    }).unwrap_or(false);
-
-    if !is_manual {
+    if !is_item_manual(&doc.items[idx]) {
         return;
     }
 
@@ -279,21 +341,10 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
 
     if !tag.is_empty() {
         for item in &mut doc.items {
-            if item.tag.trim().eq_ignore_ascii_case(&tag) {
-                let item_is_manual = matches!(
-                    item.tipo,
-                    2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
-                        | 8000..=8034
-                ) || item.qet_type.as_ref().map(|t| {
-                    let l = t.to_ascii_lowercase();
-                    l.contains("switch") || l.contains("schalter") || l.contains("ignition") || l.contains("button") || l.contains("taster")
-                }).unwrap_or(false);
-
-                if item_is_manual {
-                    item.sim_manual_latched = new_state;
-                    if new_state {
-                        item.sim_fault = false;
-                    }
+            if item.tag.trim().eq_ignore_ascii_case(&tag) && is_item_manual(item) {
+                item.sim_manual_latched = new_state;
+                if new_state {
+                    item.sim_fault = false;
                 }
             }
         }
@@ -307,8 +358,7 @@ pub fn set_manual_by_tag(doc: &mut SchematicDocument, tag: &str, pressed: bool) 
         if item.tag.trim().eq_ignore_ascii_case(target)
             && matches!(
                 item.tipo,
-                2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
-                    | 8000..=8034
+                2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
             )
         {
             item.sim_manual_latched = pressed;
@@ -359,9 +409,19 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
             if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                 let mut p_nodes = Vec::new();
                 for shape in &parsed.shapes {
-                    if let crate::svg_symbol::SvgShape::Circle { cx, cy, is_terminal: true, .. } = shape {
-                        let (rx, ry) = crate::model::transform_offset_f32(*cx, *cy, item.orientation);
-                        let wpos = ((item.x1 as f32 + rx).round() as i32, (item.y1 as f32 + ry).round() as i32);
+                    if let crate::svg_symbol::SvgShape::Circle {
+                        cx,
+                        cy,
+                        is_terminal: true,
+                        ..
+                    } = shape
+                    {
+                        let (rx, ry) =
+                            crate::model::transform_offset_f32(*cx, *cy, item.orientation);
+                        let wpos = (
+                            (item.x1 as f32 + rx).round() as i32,
+                            (item.y1 as f32 + ry).round() as i32,
+                        );
                         p_nodes.push(add_unique_pt(wpos));
                     }
                 }
@@ -417,10 +477,8 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     ton_triggered.insert(tag);
                 }
             }
-            9005 => {
-                if item.sim_active || item.sim_timer_elapsed_ms > 0 {
-                    tof_triggered.insert(tag);
-                }
+            9005 if (item.sim_active || item.sim_timer_elapsed_ms > 0) => {
+                tof_triggered.insert(tag);
             }
             _ => {}
         }
@@ -444,7 +502,9 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         5000 | 5003 if !item.sim_manual_latched => {
                             breakers_active.insert(tag);
                         }
-                        2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034 if item.sim_manual_latched => {
+                        2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
+                            if item.sim_manual_latched =>
+                        {
                             breakers_active.insert(tag);
                         }
                         _ => {}
@@ -461,22 +521,33 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     }
                     // Contatos auxiliares de relé térmico (8016 NA, 8017 NF, 8018 NA+NF, 8019 CON):
                     // Ativam se manuseados manualmente OU se o relé térmico pai tripou (breakers_active)
-                    8016 | 8017 | 8018 | 8019 => {
+                    8016..=8019 => {
                         item.sim_active = item.sim_manual_latched
                             || (!tag.is_empty() && breakers_active.contains(&tag));
                     }
                     // Disjuntores, chaves seccionadoras, botões, fins de curso, emergências e chaves seletoras: seguem o acionamento manual
-                    2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
-                    | 8000..=8015 | 8020..=8023 | 8030..=8034 => {
+                    2004
+                    | 5008
+                    | 6000
+                    | 6003
+                    | 6004
+                    | 6007
+                    | 6008
+                    | 6009
+                    | 8000..=8015
+                    | 8020..=8023
+                    | 8030..=8034 => {
                         item.sim_active = item.sim_manual_latched;
                     }
                     // Contatores de potência e contatos auxiliares instantâneos
                     2000 | 2001 | 2006 | 2008 | 7000 | 7001 | 7002 | 7003 => {
-                        item.sim_active =
-                            !tag.is_empty() && (coils.contains(&tag) || ton_trig.contains(&tag) || breakers_active.contains(&tag));
+                        item.sim_active = !tag.is_empty()
+                            && (coils.contains(&tag)
+                                || ton_trig.contains(&tag)
+                                || breakers_active.contains(&tag));
                     }
                     // Contatos temporizados On-Delay (TON: 7004 NA, 7005 NF, 7006 Comutador, 7007 SPDT)
-                    7004 | 7005 | 7006 | 7007 => {
+                    7004..=7007 => {
                         item.sim_active = !tag.is_empty() && ton_trig.contains(&tag);
                     }
                     // Contatos temporizados Off-Delay (TOF: 7008 NA, 7009 NF)
@@ -485,13 +556,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     }
                     _ => {
                         if let Some(ref qet_type) = item.qet_type {
-                            let l = qet_type.to_ascii_lowercase();
-                            if l.contains("switch")
-                                || l.contains("schalter")
-                                || l.contains("ignition")
-                                || l.contains("button")
-                                || l.contains("taster")
-                            {
+                            if is_qet_switch_or_button(qet_type) {
                                 item.sim_active = item.sim_manual_latched;
                             }
                         }
@@ -513,7 +578,8 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
 
                 match item.tipo {
                     // Elementos 1P NA (fecham quando sim_active == true)
-                    5000 | 6000 | 2006 | 7000 | 7004 | 7008 | 8000 | 8004 | 8008 | 8012 | 8016 | 8031 => {
+                    5000 | 6000 | 2006 | 7000 | 7004 | 7008 | 8000 | 8004 | 8008 | 8012 | 8016
+                    | 8031 => {
                         if item.sim_active {
                             connect_pair(0, 1);
                         }
@@ -595,8 +661,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     }
                     _ => {
                         if let Some(ref qet_type) = item.qet_type {
-                            let l = qet_type.to_ascii_lowercase();
-                            if l.contains("switch") || l.contains("schalter") || l.contains("ignition") || l.contains("button") || l.contains("taster") {
+                            if is_qet_switch_or_button(qet_type) {
                                 if item.sim_manual_latched {
                                     for i in 0..p.len() {
                                         for j in (i + 1)..p.len() {
@@ -604,7 +669,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                                         }
                                     }
                                 }
-                            } else if l.contains("splitter") || l.contains("verteiler") || l.contains("distributor") || l.contains("splice") || l.contains("fuse") || l.contains("connector") {
+                            } else if is_qet_splitter_or_passive(qet_type) {
                                 for i in 0..p.len() {
                                     for j in (i + 1)..p.len() {
                                         connect_pair(i, j);
@@ -661,14 +726,14 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     _ => {
                         if let Some(ref qet_type) = item.qet_type {
                             let l = qet_type.to_ascii_lowercase();
-                            if l.contains("battery") || l.contains("batterie") {
+                            if is_qet_source_dc_pos(qet_type) {
                                 if p.len() >= 2 {
                                     inject_source(p[0], Potential::DcNeg);
                                     inject_source(p[1], Potential::DcPos);
                                 } else if !p.is_empty() {
                                     inject_source(p[0], Potential::DcPos);
                                 }
-                            } else if l.contains("ground") || l.contains("masse") {
+                            } else if is_qet_source_ground(qet_type) {
                                 for &pin_node in p {
                                     inject_source(pin_node, Potential::DcNeg);
                                 }
@@ -681,11 +746,9 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                                 for &pin_node in p {
                                     inject_source(pin_node, pot);
                                 }
-                            } else if l.contains("going_arrow") && item.y1 >= 600 {
-                                for &pin_node in p {
-                                    inject_source(pin_node, Potential::DcNeg);
-                                }
-                            } else if l.contains("horn_switch") && item.sim_manual_latched {
+                            } else if (l.contains("going_arrow") && item.y1 >= 600)
+                                || (l.contains("horn_switch") && item.sim_manual_latched)
+                            {
                                 for &pin_node in p {
                                     inject_source(pin_node, Potential::DcNeg);
                                 }
@@ -719,7 +782,8 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                 };
                 match item.tipo {
                     9000 if p.len() >= 2 => {
-                        let energized = has_voltage_diff(node_potentials[p[0]], node_potentials[p[1]]);
+                        let energized =
+                            has_voltage_diff(node_potentials[p[0]], node_potentials[p[1]]);
                         item.sim_active = energized;
                         item.sim_potential = if energized {
                             node_potentials[p[0]]
@@ -732,7 +796,8 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         }
                     }
                     9004 | 9005 | 9008 | 9013 if p.len() >= 2 => {
-                        let powered = has_voltage_diff(node_potentials[p[0]], node_potentials[p[1]]);
+                        let powered =
+                            has_voltage_diff(node_potentials[p[0]], node_potentials[p[1]]);
                         item.sim_active = powered;
                         item.sim_potential = if powered {
                             node_potentials[p[0]]
@@ -743,20 +808,10 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     _ => {
                         if let Some(ref qet_type) = item.qet_type {
                             let l = qet_type.to_ascii_lowercase();
-                            let is_switch_or_diag = l.contains("switch")
-                                || l.contains("connector")
-                                || l.contains("diagram");
-                            if !is_switch_or_diag
-                                && (l.contains("starter")
-                                    || l.contains("motor")
-                                    || l.contains("horn")
-                                    || l.contains("fan")
-                                    || l.contains("light")
-                                    || l.contains("lamp")
-                                    || l.contains("bulb"))
-                            {
+                            if is_qet_load(qet_type) {
                                 let powered = if l.contains("starter") && p.len() >= 3 {
-                                    let has_neg = p.iter().any(|&n| node_potentials[n] == Potential::DcNeg);
+                                    let has_neg =
+                                        p.iter().any(|&n| node_potentials[n] == Potential::DcNeg);
                                     let pos_count = p
                                         .iter()
                                         .filter(|&&n| node_potentials[n] == Potential::DcPos)
@@ -766,7 +821,10 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                                     let mut diff = false;
                                     for i in 0..p.len() {
                                         for j in (i + 1)..p.len() {
-                                            if has_voltage_diff(node_potentials[p[i]], node_potentials[p[j]]) {
+                                            if has_voltage_diff(
+                                                node_potentials[p[i]],
+                                                node_potentials[p[j]],
+                                            ) {
                                                 diff = true;
                                                 break;
                                             }
@@ -801,24 +859,16 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
     };
 
     // Passo A: Resolve a cascata de relés para o estado atual
-    let (mut final_node_potentials, mut final_adj) = resolve_cascade(
-        doc,
-        &mut energized_coils,
-        &ton_triggered,
-        &tof_triggered,
-    );
+    let (mut final_node_potentials, mut final_adj) =
+        resolve_cascade(doc, &mut energized_coils, &ton_triggered, &tof_triggered);
 
     // Passo A.1: Detecção de Curto-Circuito e Desarme (Trip) de Disjuntores e Fusíveis
     // Se houver curto-circuito (Potential::ShortCircuit), qualquer disjuntor fechado ou fusível
     // intacto que esteja conduzindo a corrente de falta desarma (abre) imediatamente,
     // comutando sim_manual_latched para false e sim_fault para true, extinguindo o curto.
     if detect_and_trip_protective_devices(doc, &item_pin_nodes, &final_node_potentials) {
-        let (pots2, adj2) = resolve_cascade(
-            doc,
-            &mut energized_coils,
-            &ton_triggered,
-            &tof_triggered,
-        );
+        let (pots2, adj2) =
+            resolve_cascade(doc, &mut energized_coils, &ton_triggered, &tof_triggered);
         final_node_potentials = pots2;
         final_adj = adj2;
     }
@@ -862,22 +912,14 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
         if new_ton != ton_triggered || new_tof != tof_triggered {
             ton_triggered = new_ton;
             tof_triggered = new_tof;
-            let (pots2, adj2) = resolve_cascade(
-                doc,
-                &mut energized_coils,
-                &ton_triggered,
-                &tof_triggered,
-            );
+            let (pots2, adj2) =
+                resolve_cascade(doc, &mut energized_coils, &ton_triggered, &tof_triggered);
             final_node_potentials = pots2;
             final_adj = adj2;
 
             if detect_and_trip_protective_devices(doc, &item_pin_nodes, &final_node_potentials) {
-                let (pots3, adj3) = resolve_cascade(
-                    doc,
-                    &mut energized_coils,
-                    &ton_triggered,
-                    &tof_triggered,
-                );
+                let (pots3, adj3) =
+                    resolve_cascade(doc, &mut energized_coils, &ton_triggered, &tof_triggered);
                 final_node_potentials = pots3;
                 final_adj = adj3;
             }
@@ -1011,7 +1053,11 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                 let on = has_voltage_diff(final_node_potentials[p[0]], final_node_potentials[p[1]]);
                 item.sim_active = on;
                 item.sim_motor_dir = if on { 1 } else { 0 };
-                item.sim_motor_mode = if on { MotorMode::Direct } else { MotorMode::Off };
+                item.sim_motor_mode = if on {
+                    MotorMode::Direct
+                } else {
+                    MotorMode::Off
+                };
             }
             _ => {}
         }

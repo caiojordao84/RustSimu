@@ -396,7 +396,5 @@ pub fn view_icon<'a>(icon: Icon, size: u16, color: Color) -> iced::widget::Svg<'
     svg(handle)
         .width(size)
         .height(size)
-        .style(move |_theme, _status| svg::Style {
-            color: Some(color),
-        })
+        .style(move |_theme, _status| svg::Style { color: Some(color) })
 }

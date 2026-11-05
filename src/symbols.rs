@@ -353,8 +353,17 @@ fn supply_pin(index: usize, default_label: &'static str, conn_x: i32, conn_y: i3
     }
 }
 
-/// Catálogo completo de símbolos extraídos de `CADe_SIMU.exe`.
-pub fn symbol_catalog() -> Vec<SymbolDef> {
+use std::sync::LazyLock;
+
+static CATALOG: LazyLock<Vec<SymbolDef>> = LazyLock::new(build_symbol_catalog);
+
+/// Retorna a fatia estática do catálogo completo de símbolos extraídos de `CADe_SIMU.exe`.
+pub fn symbol_catalog() -> &'static [SymbolDef] {
+    &CATALOG
+}
+
+/// Constrói o catálogo completo de símbolos na primeira inicialização.
+fn build_symbol_catalog() -> Vec<SymbolDef> {
     vec![
         // ======================== 1. ALIMENTAÇÕES (3000..3009) ========================
         SymbolDef {
@@ -643,10 +652,7 @@ pub fn symbol_catalog() -> Vec<SymbolDef> {
             short_label: "Disjuntor 1P",
             default_tag: "-Q",
             default_value: "",
-            pins: vec![
-                nume_pin(0, "1", 5, 0),
-                nume_pin(1, "2", 5, 60),
-            ],
+            pins: vec![nume_pin(0, "1", 5, 0), nume_pin(1, "2", 5, 60)],
             idle_cmds: &[
                 "LINE,+000,+000,+000,+015",
                 "LINE,-015,+015,+000,+045",
@@ -2568,14 +2574,8 @@ pub fn symbol_catalog() -> Vec<SymbolDef> {
             default_tag: "-S",
             default_value: "",
             pins: vec![],
-            idle_cmds: &[
-                "ELIP,-020,-020,+020,+020",
-                "ELIP,-015,-015,+015,+015",
-            ],
-            active_cmds: &[
-                "ELIP,-020,-020,+020,+020",
-                "ELIP,-012,-012,+012,+012",
-            ],
+            idle_cmds: &["ELIP,-020,-020,+020,+020", "ELIP,-015,-015,+015,+015"],
+            active_cmds: &["ELIP,-020,-020,+020,+020", "ELIP,-012,-012,+012,+012"],
             bounds: (-22, -22, 22, 22),
         },
         SymbolDef {
@@ -2786,7 +2786,12 @@ pub fn symbol_catalog() -> Vec<SymbolDef> {
 
 /// Busca um símbolo pelo seu código `tipo`.
 pub fn find_symbol(tipo: i32) -> Option<SymbolDef> {
-    symbol_catalog().into_iter().find(|s| s.tipo == tipo)
+    CATALOG.iter().find(|s| s.tipo == tipo).cloned()
+}
+
+/// Busca a referência estática a um símbolo pelo seu código `tipo` sem clonar.
+pub fn find_symbol_ref(tipo: i32) -> Option<&'static SymbolDef> {
+    CATALOG.iter().find(|s| s.tipo == tipo)
 }
 
 /// Tipos de contatos elétricos e botoeiras segundo a norma IEC 60947-5-1 / EN 60947.
@@ -2821,44 +2826,26 @@ impl ContactKind {
     pub fn generate_pins(self, digit: u8) -> Vec<String> {
         let d = digit.clamp(1, 9);
         match self {
-            ContactKind::NO => vec![
-                format!("{d}3"),
-                format!("{d}4"),
-            ],
-            ContactKind::NC => vec![
-                format!("{d}1"),
-                format!("{d}2"),
-            ],
+            ContactKind::NO => vec![format!("{d}3"), format!("{d}4")],
+            ContactKind::NC => vec![format!("{d}1"), format!("{d}2")],
             ContactKind::Double => vec![
                 format!("{d}1"),
                 format!("{d}3"),
                 format!("{d}2"),
                 format!("{d}4"),
             ],
-            ContactKind::Changeover => vec![
-                format!("{d}1"),
-                format!("{d}2"),
-                format!("{d}4"),
-            ],
-            ContactKind::TimedNO => vec![
-                format!("{d}7"),
-                format!("{d}8"),
-            ],
-            ContactKind::TimedNC => vec![
-                format!("{d}5"),
-                format!("{d}6"),
-            ],
+            ContactKind::Changeover => vec![format!("{d}1"), format!("{d}2"), format!("{d}4")],
+            ContactKind::TimedNO => vec![format!("{d}7"), format!("{d}8")],
+            ContactKind::TimedNC => vec![format!("{d}5"), format!("{d}6")],
             ContactKind::TimedDouble => vec![
                 format!("{d}5"),
                 format!("{d}7"),
                 format!("{d}6"),
                 format!("{d}8"),
             ],
-            ContactKind::ThermalChangeover => vec![
-                format!("{d}5"),
-                format!("{d}6"),
-                format!("{d}8"),
-            ],
+            ContactKind::ThermalChangeover => {
+                vec![format!("{d}5"), format!("{d}6"), format!("{d}8")]
+            }
         }
     }
 }
@@ -3103,7 +3090,9 @@ impl ApparatusRole {
     /// Nome legível em português do aparelho pai esperado.
     pub fn parent_display_name(self) -> &'static str {
         match self {
-            ApparatusRole::PowerContactorPoles | ApparatusRole::AuxiliaryContact => "bobina de contator (-KM)",
+            ApparatusRole::PowerContactorPoles | ApparatusRole::AuxiliaryContact => {
+                "bobina de contator (-KM)"
+            }
             ApparatusRole::TimedContact => "relé temporizador (-KT)",
             ApparatusRole::ThermalAuxContact => "relé térmico (-F)",
             _ => "aparelho pai",
@@ -3118,12 +3107,12 @@ pub fn classify_apparatus_role(tipo: i32) -> ApparatusRole {
         6007 => ApparatusRole::ThermalRelay,
         6000 | 6003 | 6004 | 6008 | 6009 => ApparatusRole::Breaker,
         5000 | 5003 | 5008 => ApparatusRole::Fuse,
-        1000 | 1001 | 1002 => ApparatusRole::Motor,
+        1000..=1002 => ApparatusRole::Motor,
         8000..=8015 | 8020..=8023 | 8030..=8034 | 2004 => ApparatusRole::SwitchOrButton,
         9008 | 9013 => ApparatusRole::Signaling,
         2000 | 2001 | 2006 | 2008 => ApparatusRole::PowerContactorPoles,
-        7000 | 7001 | 7002 | 7003 => ApparatusRole::AuxiliaryContact,
-        7004 | 7005 | 7006 | 7007 | 7008 | 7009 => ApparatusRole::TimedContact,
+        7000..=7003 => ApparatusRole::AuxiliaryContact,
+        7004..=7009 => ApparatusRole::TimedContact,
         8016..=8019 => ApparatusRole::ThermalAuxContact,
         _ => ApparatusRole::Other,
     }
@@ -3234,7 +3223,11 @@ pub fn list_available_parent_tags(
     for i in items {
         if classify_apparatus_role(i.tipo) == parent_role {
             let t = i.tag.trim();
-            if !t.is_empty() && !tags.iter().any(|existing: &String| existing.eq_ignore_ascii_case(t)) {
+            if !t.is_empty()
+                && !tags
+                    .iter()
+                    .any(|existing: &String| existing.eq_ignore_ascii_case(t))
+            {
                 tags.push(t.to_string());
             }
         }
@@ -3244,10 +3237,7 @@ pub fn list_available_parent_tags(
 }
 
 /// Verifica se já existe outro aparelho independente do mesmo tipo com a mesma tag (duplicidade indevida).
-pub fn find_duplicate_apparatus(
-    items: &[SchematicItem],
-    item: &SchematicItem,
-) -> bool {
+pub fn find_duplicate_apparatus(items: &[SchematicItem], item: &SchematicItem) -> bool {
     let role = classify_apparatus_role(item.tipo);
     if !role.is_independent_apparatus() {
         return false;
@@ -3275,19 +3265,32 @@ pub fn adapt_svg_colors(svg_content: &str, is_dark: bool) -> String {
 
     // Lista de padrões de traço escuro para substituir por claro (#E2E8F0)
     let dark_strokes = [
-        "stroke=\"black\"", "stroke='black'",
-        "stroke=\"#111827\"", "stroke='#111827'",
-        "stroke=\"#000000\"", "stroke='#000000'",
-        "stroke=\"#000\"", "stroke='#000'",
-        "stroke=\"HTMLGrayBlack\"", "stroke='HTMLGrayBlack'",
-        "stroke=\"#1f2937\"", "stroke='#1f2937'",
-        "stroke=\"#212529\"", "stroke='#212529'",
-        "stroke=\"#222222\"", "stroke='#222222'",
-        "stroke=\"#222\"", "stroke='#222'",
-        "stroke=\"#333333\"", "stroke='#333333'",
-        "stroke=\"#333\"", "stroke='#333'",
-        "stroke=\"#1a1a1a\"", "stroke='#1a1a1a'",
-        "stroke=\"#111\"", "stroke='#111'",
+        "stroke=\"black\"",
+        "stroke='black'",
+        "stroke=\"#111827\"",
+        "stroke='#111827'",
+        "stroke=\"#000000\"",
+        "stroke='#000000'",
+        "stroke=\"#000\"",
+        "stroke='#000'",
+        "stroke=\"HTMLGrayBlack\"",
+        "stroke='HTMLGrayBlack'",
+        "stroke=\"#1f2937\"",
+        "stroke='#1f2937'",
+        "stroke=\"#212529\"",
+        "stroke='#212529'",
+        "stroke=\"#222222\"",
+        "stroke='#222222'",
+        "stroke=\"#222\"",
+        "stroke='#222'",
+        "stroke=\"#333333\"",
+        "stroke='#333333'",
+        "stroke=\"#333\"",
+        "stroke='#333'",
+        "stroke=\"#1a1a1a\"",
+        "stroke='#1a1a1a'",
+        "stroke=\"#111\"",
+        "stroke='#111'",
     ];
     for ds in dark_strokes {
         s = s.replace(ds, "stroke=\"#E2E8F0\"");
@@ -3295,17 +3298,28 @@ pub fn adapt_svg_colors(svg_content: &str, is_dark: bool) -> String {
 
     // Lista de padrões de preenchimento escuro (sólido) para substituir por claro (#E2E8F0)
     let dark_fills = [
-        "fill=\"black\"", "fill='black'",
-        "fill=\"#111827\"", "fill='#111827'",
-        "fill=\"#000000\"", "fill='#000000'",
-        "fill=\"#000\"", "fill='#000'",
-        "fill=\"HTMLGrayBlack\"", "fill='HTMLGrayBlack'",
-        "fill=\"#1f2937\"", "fill='#1f2937'",
-        "fill=\"#212529\"", "fill='#212529'",
-        "fill=\"#222222\"", "fill='#222222'",
-        "fill=\"#222\"", "fill='#222'",
-        "fill=\"#333333\"", "fill='#333333'",
-        "fill=\"#333\"", "fill='#333'",
+        "fill=\"black\"",
+        "fill='black'",
+        "fill=\"#111827\"",
+        "fill='#111827'",
+        "fill=\"#000000\"",
+        "fill='#000000'",
+        "fill=\"#000\"",
+        "fill='#000'",
+        "fill=\"HTMLGrayBlack\"",
+        "fill='HTMLGrayBlack'",
+        "fill=\"#1f2937\"",
+        "fill='#1f2937'",
+        "fill=\"#212529\"",
+        "fill='#212529'",
+        "fill=\"#222222\"",
+        "fill='#222222'",
+        "fill=\"#222\"",
+        "fill='#222'",
+        "fill=\"#333333\"",
+        "fill='#333333'",
+        "fill=\"#333\"",
+        "fill='#333'",
     ];
     for df in dark_fills {
         s = s.replace(df, "fill=\"#E2E8F0\"");
@@ -3313,13 +3327,20 @@ pub fn adapt_svg_colors(svg_content: &str, is_dark: bool) -> String {
 
     // Substitui preenchimento branco opaco por tom escuro suave (#1E293B)
     let white_fills = [
-        "fill=\"white\"", "fill='white'",
-        "fill=\"#ffffff\"", "fill='#ffffff'",
-        "fill=\"#fff\"", "fill='#fff'",
-        "fill=\"HTMLWhiteIvory\"", "fill='HTMLWhiteIvory'",
-        "fill=\"HTMLWhiteSnow\"", "fill='HTMLWhiteSnow'",
-        "fill=\"HTMLWhiteGhostWhite\"", "fill='HTMLWhiteGhostWhite'",
-        "fill=\"HTMLWhiteAliceBlue\"", "fill='HTMLWhiteAliceBlue'",
+        "fill=\"white\"",
+        "fill='white'",
+        "fill=\"#ffffff\"",
+        "fill='#ffffff'",
+        "fill=\"#fff\"",
+        "fill='#fff'",
+        "fill=\"HTMLWhiteIvory\"",
+        "fill='HTMLWhiteIvory'",
+        "fill=\"HTMLWhiteSnow\"",
+        "fill='HTMLWhiteSnow'",
+        "fill=\"HTMLWhiteGhostWhite\"",
+        "fill='HTMLWhiteGhostWhite'",
+        "fill=\"HTMLWhiteAliceBlue\"",
+        "fill='HTMLWhiteAliceBlue'",
     ];
     for wf in white_fills {
         s = s.replace(wf, "fill=\"#1E293B\"");
@@ -3425,11 +3446,11 @@ pub fn get_themed_symbol_svg_string(sym: &SymbolDef, is_dark: bool) -> String {
     }
 
     // 2. Tenta encontrar arquivo gerado correspondente em symbols_qet_all/cade_native/{tipo:04}_*.svg
-    let clean_name = sym.name
+    let clean_name = sym
+        .name
         .replace('/', "-")
         .replace(' ', "_")
-        .replace('(', "")
-        .replace(')', "")
+        .replace(['(', ')'], "")
         .replace('+', "_")
         .to_lowercase();
     let base_filename = format!("{:04}_{}", sym.tipo, clean_name);
@@ -3441,7 +3462,12 @@ pub fn get_themed_symbol_svg_string(sym: &SymbolDef, is_dark: bool) -> String {
 
     // 3. Fallback dinâmico: gera o SVG diretamente a partir dos comandos vetoriais e pinos do símbolo
     let stroke_color = if is_dark { "#E2E8F0" } else { "#111827" };
-    generate_svg_from_cmds(sym.name, sym.idle_cmds, &sym.pins, sym.bounds, stroke_color, false)
+    generate_svg_from_cmds(
+        sym.name,
+        sym.idle_cmds,
+        &sym.pins,
+        sym.bounds,
+        stroke_color,
+        false,
+    )
 }
-
-

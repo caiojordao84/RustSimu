@@ -96,8 +96,16 @@ impl Layout {
         wrap: impl Fn(Msg) -> M + Copy + 'a,
         body: impl Fn(Kind) -> Element<'a, M> + 'a,
     ) -> Element<'a, M> {
-        let left_w = if left_collapsed { 28.0 } else { self.left_width };
-        let right_w = if right_collapsed { 28.0 } else { self.right_width };
+        let left_w = if left_collapsed {
+            28.0
+        } else {
+            self.left_width
+        };
+        let right_w = if right_collapsed {
+            28.0
+        } else {
+            self.right_width
+        };
 
         let left_panel = container(body(Kind::Collections))
             .width(Length::Fixed(left_w))

@@ -3,18 +3,14 @@ use serde::{Deserialize, Serialize};
 /// Densidade da grade do diagrama (pontos por centímetro / passo da grade).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub enum GridDensity {
-    Fine,    // 10 pts/cm -> passo 3
+    Fine, // 10 pts/cm -> passo 3
     #[default]
-    Medium,  // 5 pts/cm  -> passo 6
-    Coarse,  // 2.5 pts/cm -> passo 12
+    Medium, // 5 pts/cm  -> passo 6
+    Coarse, // 2.5 pts/cm -> passo 12
 }
 
 impl GridDensity {
-    pub const ALL: [GridDensity; 3] = [
-        GridDensity::Fine,
-        GridDensity::Medium,
-        GridDensity::Coarse,
-    ];
+    pub const ALL: [GridDensity; 3] = [GridDensity::Fine, GridDensity::Medium, GridDensity::Coarse];
 
     pub fn label(self) -> &'static str {
         match self {
@@ -269,7 +265,18 @@ impl SchematicItem {
     pub fn is_wire(&self) -> bool {
         matches!(
             self.tipo,
-            4000 | 4002 | 4003 | 4004 | 4005 | 4006 | 4007 | 4008 | 4009 | 4010 | 4011 | 4018 | 4019
+            4000 | 4002
+                | 4003
+                | 4004
+                | 4005
+                | 4006
+                | 4007
+                | 4008
+                | 4009
+                | 4010
+                | 4011
+                | 4018
+                | 4019
         )
     }
 
@@ -300,20 +307,22 @@ impl SchematicItem {
                 return true;
             }
         }
-        crate::symbols::find_symbol(self.tipo).map(|s| {
-            let n = s.name.to_lowercase();
-            let sl = s.short_label.to_lowercase();
-            n.contains("sinaleiro")
-                || n.contains("piloto")
-                || n.contains("lâmpada")
-                || n.contains("lampada")
-                || n.contains("lamp")
-                || n.contains("sinalizador")
-                || n.contains("indicador")
-                || n.contains("voyant")
-                || sl.contains("piloto")
-                || sl.contains("lamp")
-        }).unwrap_or(false)
+        crate::symbols::find_symbol(self.tipo)
+            .map(|s| {
+                let n = s.name.to_lowercase();
+                let sl = s.short_label.to_lowercase();
+                n.contains("sinaleiro")
+                    || n.contains("piloto")
+                    || n.contains("lâmpada")
+                    || n.contains("lampada")
+                    || n.contains("lamp")
+                    || n.contains("sinalizador")
+                    || n.contains("indicador")
+                    || n.contains("voyant")
+                    || sl.contains("piloto")
+                    || sl.contains("lamp")
+            })
+            .unwrap_or(false)
     }
 
     pub fn new_wire(id: i32, tipo: i32, x1: i32, y1: i32, x2: i32, y2: i32) -> Self {

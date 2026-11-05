@@ -154,10 +154,10 @@ pub fn parse_cad_str(input: &str) -> Result<SchematicDocument, String> {
         cur = next_cur;
 
         let mut pins: [String; 9] = Default::default();
-        for i in 0..num_pins {
+        for (i, slot) in pins.iter_mut().enumerate().take(num_pins) {
             let delim = if i + 1 == num_pins { '*' } else { '#' };
             let (p_val, next_c) = next_token(cur, &[delim])?;
-            pins[i] = p_val;
+            *slot = p_val;
             cur = next_c;
         }
 
@@ -173,9 +173,7 @@ pub fn parse_cad_str(input: &str) -> Result<SchematicDocument, String> {
         }
 
         let mut pin_visibility = [1; 9];
-        for i in 0..num_pins {
-            pin_visibility[i] = int_vals[i];
-        }
+        pin_visibility[..num_pins].copy_from_slice(&int_vals[..num_pins]);
         let base = num_pins;
         let x1 = int_vals[base];
         let y1 = int_vals[base + 1];
@@ -310,8 +308,7 @@ pub fn save_document(path: &Path, doc: &SchematicDocument) -> Result<(), String>
 
 /// Carrega um documento `.cad`, `.json`, `.toml` ou `.qet`.
 pub fn load_document(path: &Path) -> Result<SchematicDocument, String> {
-    let bytes =
-        fs::read(path).map_err(|e| format!("Falha ao ler {}: {e}", path.display()))?;
+    let bytes = fs::read(path).map_err(|e| format!("Falha ao ler {}: {e}", path.display()))?;
     // Arquivos .cad originais usam codificação Latin-1 (ISO-8859-1) / Windows-1252
     let text = match String::from_utf8(bytes.clone()) {
         Ok(s) => s,
@@ -391,10 +388,14 @@ pub fn build_dol_starter_preset() -> SchematicDocument {
     // Cabos de potência (L1, L2, L3 entre Alimentação -> Q1 -> KM1 -> F1 -> M1)
     for dx in [0, 6, 12] {
         let x = 24 + dx;
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, x, 18, x, 24));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, x, 45, x, 51));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, x, 63, x, 69));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, x, 81, x, 87));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, x, 18, x, 24));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, x, 45, x, 51));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, x, 63, x, 69));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, x, 81, x, 87));
     }
     // Cabo PE (42, 18) -> (42, 87)
     doc.items
@@ -465,26 +466,43 @@ pub fn build_dol_starter_preset() -> SchematicDocument {
     }
 
     // Cabos do circuito de comando
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 12, 72, 15));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 27, 72, 30));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 42, 72, 45));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 57, 72, 60));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 72, 12, 72, 15));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 72, 27, 72, 30));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 72, 42, 72, 45));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 72, 57, 72, 60));
     // Paralelo de selo superior (72, 57) -> (84, 57) -> (84, 60)
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 57, 84, 57));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 57, 84, 60));
-    doc.items.push(SchematicItem::new_junction(next_id(), 72, 57));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 72, 57, 84, 57));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 84, 57, 84, 60));
+    doc.items
+        .push(SchematicItem::new_junction(next_id(), 72, 57));
     // Paralelo de selo inferior (84, 72) -> (84, 75) -> (72, 75)
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 72, 72, 78));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 72, 84, 75));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 75, 96, 75));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4000, 96, 75, 96, 78));
-    doc.items.push(SchematicItem::new_junction(next_id(), 72, 75));
-    doc.items.push(SchematicItem::new_junction(next_id(), 84, 75));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 72, 72, 72, 78));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 84, 72, 84, 75));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 72, 75, 96, 75));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4000, 96, 75, 96, 78));
+    doc.items
+        .push(SchematicItem::new_junction(next_id(), 72, 75));
+    doc.items
+        .push(SchematicItem::new_junction(next_id(), 84, 75));
     // Retorno Neutro (A2 de KM1 e X2 de H1 até N em 72, 96)
-    doc.items.push(SchematicItem::new_wire(next_id(), 4009, 72, 90, 72, 96));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4009, 96, 90, 96, 93));
-    doc.items.push(SchematicItem::new_wire(next_id(), 4009, 72, 93, 96, 93));
-    doc.items.push(SchematicItem::new_junction(next_id(), 72, 93));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4009, 72, 90, 72, 96));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4009, 96, 90, 96, 93));
+    doc.items
+        .push(SchematicItem::new_wire(next_id(), 4009, 72, 93, 96, 93));
+    doc.items
+        .push(SchematicItem::new_junction(next_id(), 72, 93));
 
     doc
 }

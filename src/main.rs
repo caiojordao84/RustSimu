@@ -1,13 +1,6 @@
-pub mod canvas_view;
-pub mod icons;
-pub mod io;
-pub mod layout;
-pub mod model;
-pub mod qet;
-pub mod sim;
-pub mod svg_symbol;
-pub mod symbols;
-pub mod theme;
+pub use cade_simu_rs::{
+    canvas_view, icons, io, layout, model, qet, sim, svg_symbol, symbols, theme,
+};
 
 use std::path::PathBuf;
 use std::time::Duration;
@@ -22,14 +15,11 @@ use crate::canvas_view::{CanvasMessage, EditorTool, SchematicCanvas};
 use crate::io::{build_dol_starter_preset, load_document, save_document};
 use crate::layout::{Kind, Layout, Msg as LayoutMsg};
 use crate::model::{SchematicDocument, SchematicItem};
-use crate::sim::{
-    press_component_on_sim, release_component_on_sim, step_simulation,
-};
+use crate::sim::{press_component_on_sim, release_component_on_sim, step_simulation};
 use crate::symbols::{
-    classify_apparatus_role, detect_contact_kind, detect_current_sequence,
-    extract_tag_prefix, find_duplicate_apparatus, find_occupied_sequences_for_tag,
-    find_parent_apparatus, find_symbol, list_available_parent_tags,
-    next_sequential_tag_for_role, symbol_catalog, SymbolCategory,
+    classify_apparatus_role, detect_contact_kind, detect_current_sequence, extract_tag_prefix,
+    find_duplicate_apparatus, find_occupied_sequences_for_tag, find_parent_apparatus, find_symbol,
+    list_available_parent_tags, next_sequential_tag_for_role, symbol_catalog, SymbolCategory,
 };
 use crate::theme::{tokens, ThemeMode, MENU_H, MONO, R, STATUS_H, TOOL_H, UI};
 
@@ -107,15 +97,11 @@ impl std::fmt::Display for SaveFormat {
 }
 
 pub fn main() -> iced::Result {
-    iced::application(
-        "RustSimu",
-        CadeSimuApp::update,
-        CadeSimuApp::view,
-    )
-    .subscription(CadeSimuApp::subscription)
-    .theme(CadeSimuApp::theme)
-    .window_size((1420.0, 880.0))
-    .run_with(CadeSimuApp::new)
+    iced::application("RustSimu", CadeSimuApp::update, CadeSimuApp::view)
+        .subscription(CadeSimuApp::subscription)
+        .theme(CadeSimuApp::theme)
+        .window_size((1420.0, 880.0))
+        .run_with(CadeSimuApp::new)
 }
 
 #[derive(Debug, Clone)]
@@ -236,15 +222,11 @@ fn app_tooltip<'a, M: 'a>(
     tip: impl Into<String>,
     position: tooltip::Position,
 ) -> Element<'a, M> {
-    tooltip(
-        content,
-        text(tip.into()).size(12).font(UI),
-        position,
-    )
-    .style(theme::tooltip)
-    .padding(6.0)
-    .gap(4.0)
-    .into()
+    tooltip(content, text(tip.into()).size(12).font(UI), position)
+        .style(theme::tooltip)
+        .padding(6.0)
+        .gap(4.0)
+        .into()
 }
 
 pub struct CadeSimuApp {
@@ -450,19 +432,23 @@ impl CadeSimuApp {
             subs.push(iced::time::every(Duration::from_millis(80)).map(|_| Message::SimTick));
         }
         if self.layout.drag.is_some() {
-            subs.push(iced::event::listen_with(|event, _status, _window| match event {
-                iced::Event::Mouse(iced::mouse::Event::CursorMoved { position }) => {
-                    Some(Message::LayoutMsg(crate::layout::Msg::DragMove(position.x)))
-                }
-                iced::Event::Mouse(iced::mouse::Event::ButtonReleased(iced::mouse::Button::Left)) => {
-                    Some(Message::LayoutMsg(crate::layout::Msg::DragEnd))
-                }
-                _ => None,
-            }));
+            subs.push(iced::event::listen_with(
+                |event, _status, _window| match event {
+                    iced::Event::Mouse(iced::mouse::Event::CursorMoved { position }) => {
+                        Some(Message::LayoutMsg(crate::layout::Msg::DragMove(position.x)))
+                    }
+                    iced::Event::Mouse(iced::mouse::Event::ButtonReleased(
+                        iced::mouse::Button::Left,
+                    )) => Some(Message::LayoutMsg(crate::layout::Msg::DragEnd)),
+                    _ => None,
+                },
+            ));
         }
-        subs.push(iced::window::resize_events().map(|(_id, size)| {
-            Message::LayoutMsg(crate::layout::Msg::WindowResized(size.width))
-        }));
+        subs.push(
+            iced::window::resize_events().map(|(_id, size)| {
+                Message::LayoutMsg(crate::layout::Msg::WindowResized(size.width))
+            }),
+        );
         subs.push(iced::keyboard::on_key_press(|key, modifiers| {
             use iced::keyboard::key::Named;
             use iced::keyboard::Key;
@@ -477,7 +463,9 @@ impl CadeSimuApp {
                 Key::Named(Named::Enter) if ctrl && shift => Some(Message::SelectPropTab(0)),
                 Key::Named(Named::PageDown) if ctrl => Some(Message::NextFolio),
                 Key::Named(Named::PageUp) if ctrl => Some(Message::PrevFolio),
-                Key::Named(Named::Backspace) if ctrl && shift => Some(Message::DeletePage(usize::MAX)),
+                Key::Named(Named::Backspace) if ctrl && shift => {
+                    Some(Message::DeletePage(usize::MAX))
+                }
                 Key::Character(ref s) => {
                     let lower = s.to_ascii_lowercase();
                     match lower.as_str() {
@@ -522,16 +510,14 @@ impl CadeSimuApp {
                 _ => None,
             }
         }));
-        subs.push(iced::event::listen_with(|event, status, _window| {
-            match event {
-                iced::Event::Mouse(iced::mouse::Event::ButtonReleased(iced::mouse::Button::Left))
-                    if status == iced::event::Status::Ignored =>
-                {
-                    Some(Message::GlobalMouseReleased)
-                }
+        subs.push(iced::event::listen_with(
+            |event, status, _window| match event {
+                iced::Event::Mouse(iced::mouse::Event::ButtonReleased(
+                    iced::mouse::Button::Left,
+                )) if status == iced::event::Status::Ignored => Some(Message::GlobalMouseReleased),
                 _ => None,
-            }
-        }));
+            },
+        ));
         Subscription::batch(subs)
     }
 
@@ -592,7 +578,11 @@ impl CadeSimuApp {
                 self.zoom = (self.zoom / 1.15).clamp(0.4, 8.0);
             }
             Message::ZoomReset => {
-                self.zoom = if self.qet_project.is_some() { 1.05 } else { 3.2 };
+                self.zoom = if self.qet_project.is_some() {
+                    1.05
+                } else {
+                    3.2
+                };
                 self.pan = Vector::new(35.0, 20.0);
             }
             Message::RotateSelectedOrTool => {
@@ -600,8 +590,10 @@ impl CadeSimuApp {
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.orientation = (item.orientation + 1) % 4;
                         self.is_modified = true;
-                        self.status_msg =
-                            format!("Item {} rotacionado para orientação {}.", item.tag, item.orientation);
+                        self.status_msg = format!(
+                            "Item {} rotacionado para orientação {}.",
+                            item.tag, item.orientation
+                        );
                         return iced::Task::none();
                     }
                 }
@@ -632,7 +624,11 @@ impl CadeSimuApp {
             Message::NewDocument => {
                 self.sim_running = false;
                 self.doc = SchematicDocument::default();
-                self.pages = vec![crate::model::ProjectPage::new(1, "Folha 1", SchematicDocument::default())];
+                self.pages = vec![crate::model::ProjectPage::new(
+                    1,
+                    "Folha 1",
+                    SchematicDocument::default(),
+                )];
                 self.active_page_index = 0;
                 self.current_file = None;
                 self.qet_project = None;
@@ -645,7 +641,11 @@ impl CadeSimuApp {
             Message::LoadPresetDol => {
                 self.sim_running = false;
                 self.doc = build_dol_starter_preset();
-                self.pages = vec![crate::model::ProjectPage::new(1, "Partida Direta Trifásica", self.doc.clone())];
+                self.pages = vec![crate::model::ProjectPage::new(
+                    1,
+                    "Partida Direta Trifásica",
+                    self.doc.clone(),
+                )];
                 self.active_page_index = 0;
                 self.current_file = None;
                 self.qet_project = None;
@@ -663,7 +663,9 @@ impl CadeSimuApp {
                 return iced::Task::perform(
                     async move {
                         rfd::AsyncFileDialog::new()
-                            .set_title("Abrir Projeto CADe_SIMU / QElectroTech (.cad, .json, .toml, .qet)")
+                            .set_title(
+                                "Abrir Projeto CADe_SIMU / QElectroTech (.cad, .json, .toml, .qet)",
+                            )
                             .set_directory(&start_dir)
                             .add_filter(
                                 "Todos os Projetos (*.cad, *.json, *.toml, *.qet)",
@@ -680,7 +682,7 @@ impl CadeSimuApp {
                     Message::FileOpened,
                 );
             }
-            Message::FileOpened( maybe_path ) => {
+            Message::FileOpened(maybe_path) => {
                 let Some(path) = maybe_path else {
                     self.status_msg = "Abertura de arquivo cancelada.".to_string();
                     return iced::Task::none();
@@ -712,7 +714,11 @@ impl CadeSimuApp {
                                 } else {
                                     diag.title.clone()
                                 };
-                                pages.push(crate::model::ProjectPage::new(idx + 1, title, page_doc));
+                                pages.push(crate::model::ProjectPage::new(
+                                    idx + 1,
+                                    title,
+                                    page_doc,
+                                ));
                             }
                             let active_idx = pages
                                 .iter()
@@ -740,7 +746,8 @@ impl CadeSimuApp {
                             );
                         }
                         Err(err) => {
-                            self.status_msg = format!("Erro ao abrir QET '{}': {err}", path.display());
+                            self.status_msg =
+                                format!("Erro ao abrir QET '{}': {err}", path.display());
                         }
                     }
                 } else {
@@ -757,7 +764,8 @@ impl CadeSimuApp {
                             } else {
                                 loaded.title_block.title.clone()
                             };
-                            self.pages = vec![crate::model::ProjectPage::new(1, title, loaded.clone())];
+                            self.pages =
+                                vec![crate::model::ProjectPage::new(1, title, loaded.clone())];
                             self.active_page_index = 0;
                             self.doc = loaded;
                             self.selected_id = None;
@@ -783,10 +791,7 @@ impl CadeSimuApp {
                     cur.set_extension(fmt.extension());
                     self.file_path = cur.to_string_lossy().to_string();
                 }
-                self.status_msg = format!(
-                    "Formato padrão de salvamento alterado para {}.",
-                    fmt
-                );
+                self.status_msg = format!("Formato padrão de salvamento alterado para {}.", fmt);
             }
             Message::SaveFileDialog => {
                 let start_dir = self.last_dir.clone();
@@ -962,9 +967,18 @@ impl CadeSimuApp {
                         self.doc = crate::qet::diagram_to_document(qet_proj, new_idx);
                         self.sim_running = false;
                         self.selected_id = None;
-                        let title = qet_proj.diagrams.get(new_idx).map(|d| d.title.as_str()).unwrap_or("");
+                        let title = qet_proj
+                            .diagrams
+                            .get(new_idx)
+                            .map(|d| d.title.as_str())
+                            .unwrap_or("");
                         let count = self.doc.items.len();
-                        self.status_msg = format!("Folha {} / {}: {} ({count} elementos)", new_idx + 1, qet_proj.diagrams.len(), title);
+                        self.status_msg = format!(
+                            "Folha {} / {}: {} ({count} elementos)",
+                            new_idx + 1,
+                            qet_proj.diagrams.len(),
+                            title
+                        );
                     }
                 }
             }
@@ -980,9 +994,18 @@ impl CadeSimuApp {
                         self.doc = crate::qet::diagram_to_document(qet_proj, new_idx);
                         self.sim_running = false;
                         self.selected_id = None;
-                        let title = qet_proj.diagrams.get(new_idx).map(|d| d.title.as_str()).unwrap_or("");
+                        let title = qet_proj
+                            .diagrams
+                            .get(new_idx)
+                            .map(|d| d.title.as_str())
+                            .unwrap_or("");
                         let count = self.doc.items.len();
-                        self.status_msg = format!("Folha {} / {}: {} ({count} elementos)", new_idx + 1, qet_proj.diagrams.len(), title);
+                        self.status_msg = format!(
+                            "Folha {} / {}: {} ({count} elementos)",
+                            new_idx + 1,
+                            qet_proj.diagrams.len(),
+                            title
+                        );
                     }
                 }
             }
@@ -997,9 +1020,18 @@ impl CadeSimuApp {
                         self.doc = crate::qet::diagram_to_document(qet_proj, new_idx);
                         self.sim_running = false;
                         self.selected_id = None;
-                        let title = qet_proj.diagrams.get(new_idx).map(|d| d.title.as_str()).unwrap_or("");
+                        let title = qet_proj
+                            .diagrams
+                            .get(new_idx)
+                            .map(|d| d.title.as_str())
+                            .unwrap_or("");
                         let count = self.doc.items.len();
-                        self.status_msg = format!("Folha {} / {}: {} ({count} elementos)", new_idx + 1, qet_proj.diagrams.len(), title);
+                        self.status_msg = format!(
+                            "Folha {} / {}: {} ({count} elementos)",
+                            new_idx + 1,
+                            qet_proj.diagrams.len(),
+                            title
+                        );
                     }
                 }
             }
@@ -1100,7 +1132,12 @@ impl CadeSimuApp {
                     self.selected_id = sel;
                 }
                 CanvasMessage::MoveItem { id, x1, y1 } => {
-                    let old_pos = self.doc.items.iter().find(|i| i.id == id).map(|i| (i.x1, i.y1));
+                    let old_pos = self
+                        .doc
+                        .items
+                        .iter()
+                        .find(|i| i.id == id)
+                        .map(|i| (i.x1, i.y1));
                     if let Some((ox, oy)) = old_pos {
                         let dx = x1 - ox;
                         let dy = y1 - oy;
@@ -1158,14 +1195,20 @@ impl CadeSimuApp {
                         if role.is_independent_apparatus() {
                             // Aparelhos primários (bobinas, disjuntores, botões, motores, sinaleiros...)
                             // recebem tag sequencial automática entre elementos do mesmo tipo: -KM1, -KM2, -S1, -S2, etc.
-                            let prefix = if sym.default_tag.is_empty() { "-K" } else { sym.default_tag };
+                            let prefix = if sym.default_tag.is_empty() {
+                                "-K"
+                            } else {
+                                sym.default_tag
+                            };
                             item.tag = next_sequential_tag_for_role(&self.doc.items, role, prefix);
                         } else if role.is_subordinate_contact() {
                             // Contatos subordinados (contatores de força, contatos auxiliares NA/NF, temporizados, térmicos)
                             // Devem se vincular ao aparelho pai correspondente existente no esquema, se houver
                             if let Some(parent_role) = role.required_parent_role() {
-                                let parent_item = self.doc.items.iter()
-                                    .rfind(|i| classify_apparatus_role(i.tipo) == parent_role && !i.tag.trim().is_empty());
+                                let parent_item = self.doc.items.iter().rfind(|i| {
+                                    classify_apparatus_role(i.tipo) == parent_role
+                                        && !i.tag.trim().is_empty()
+                                });
                                 if let Some(parent) = parent_item {
                                     item.tag = parent.tag.clone();
                                 } else if !sym.default_tag.is_empty() {
@@ -1175,9 +1218,14 @@ impl CadeSimuApp {
 
                             // Para contatos auxiliares NA/NF com numeração sequencial de bornes IEC:
                             if let Some(kind) = detect_contact_kind(item.tipo, &sym.pins) {
-                                let occupied = find_occupied_sequences_for_tag(&self.doc.items, &item.tag, None);
+                                let occupied = find_occupied_sequences_for_tag(
+                                    &self.doc.items,
+                                    &item.tag,
+                                    None,
+                                );
                                 if !occupied.is_empty() {
-                                    let next_seq = (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
+                                    let next_seq =
+                                        (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
                                     let new_pins = kind.generate_pins(next_seq);
                                     for (idx, p_val) in new_pins.into_iter().enumerate() {
                                         if idx < item.pins.len() {
@@ -1194,14 +1242,19 @@ impl CadeSimuApp {
                             for (_, _, (px, py)) in pins {
                                 let hits_wire = self.doc.items.iter().any(|other| {
                                     if other.is_wire() {
-                                        (other.x1 == px && other.y1 == py) || (other.x2 == px && other.y2 == py)
+                                        (other.x1 == px && other.y1 == py)
+                                            || (other.x2 == px && other.y2 == py)
                                     } else {
                                         false
                                     }
                                 });
                                 if hits_wire {
                                     let junc_id = self.doc.next_id();
-                                    self.doc.items.push(crate::model::SchematicItem::new_junction(junc_id, px, py));
+                                    self.doc
+                                        .items
+                                        .push(crate::model::SchematicItem::new_junction(
+                                            junc_id, px, py,
+                                        ));
                                 }
                             }
                         }
@@ -1209,8 +1262,7 @@ impl CadeSimuApp {
                         self.doc.items.push(item);
                         self.selected_id = Some(new_id);
                         self.is_modified = true;
-                        self.status_msg =
-                            format!("Inserido '{}' em ({x}, {y}).", sym.name);
+                        self.status_msg = format!("Inserido '{}' em ({x}, {y}).", sym.name);
                     }
                 }
                 CanvasMessage::AddWire {
@@ -1231,7 +1283,9 @@ impl CadeSimuApp {
                 CanvasMessage::AddJunction { x, y } => {
                     self.push_undo();
                     let new_id = self.doc.next_id();
-                    self.doc.items.push(SchematicItem::new_junction(new_id, x, y));
+                    self.doc
+                        .items
+                        .push(SchematicItem::new_junction(new_id, x, y));
                     self.is_modified = true;
                     self.status_msg = format!("Conexão (nó) adicionada em ({x}, {y}).");
                 }
@@ -1249,7 +1303,11 @@ impl CadeSimuApp {
                     if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
                         let label = find_symbol(item.tipo)
                             .map(|s| s.short_label)
-                            .or_else(|| item.qet_type.as_deref().map(|s| s.split('/').last().unwrap_or(s)))
+                            .or_else(|| {
+                                item.qet_type
+                                    .as_deref()
+                                    .map(|s| s.split('/').next_back().unwrap_or(s))
+                            })
                             .unwrap_or("Item");
                         if crate::sim::is_item_momentary(item) {
                             self.status_msg = format!(
@@ -1277,7 +1335,11 @@ impl CadeSimuApp {
                             let tag = item.tag.clone();
                             let label = find_symbol(item.tipo)
                                 .map(|s| s.short_label.to_string())
-                                .or_else(|| item.qet_type.as_deref().map(|s| s.split('/').last().unwrap_or(s).to_string()))
+                                .or_else(|| {
+                                    item.qet_type
+                                        .as_deref()
+                                        .map(|s| s.split('/').next_back().unwrap_or(s).to_string())
+                                })
                                 .unwrap_or_else(|| "Botão".to_string());
                             Some((tag, label))
                         } else {
@@ -1353,7 +1415,9 @@ impl CadeSimuApp {
             Message::SelectCollectionSymbol(tipo) => {
                 self.dragging_symbol = None;
                 let now = std::time::Instant::now();
-                let is_double_click = if let Some((last_tipo, last_time)) = self.last_collection_click {
+                let is_double_click = if let Some((last_tipo, last_time)) =
+                    self.last_collection_click
+                {
                     last_tipo == tipo && now.duration_since(last_time) < Duration::from_millis(400)
                 } else {
                     false
@@ -1396,7 +1460,11 @@ impl CadeSimuApp {
             Message::CloseDocument => {
                 self.sim_running = false;
                 self.doc = SchematicDocument::default();
-                self.pages = vec![crate::model::ProjectPage::new(1, "Folha 1", SchematicDocument::default())];
+                self.pages = vec![crate::model::ProjectPage::new(
+                    1,
+                    "Folha 1",
+                    SchematicDocument::default(),
+                )];
                 self.active_page_index = 0;
                 self.current_file = None;
                 self.qet_project = None;
@@ -1434,10 +1502,15 @@ impl CadeSimuApp {
                 self.sim_running = false;
                 self.is_modified = true;
                 self.page_context_menu = None;
-                self.status_msg = format!("Nova folha inserida antes da posição {}.", insert_idx + 1);
+                self.status_msg =
+                    format!("Nova folha inserida antes da posição {}.", insert_idx + 1);
             }
             Message::AddPageAfter(raw_idx) => {
-                let idx = if raw_idx == usize::MAX { self.active_page_index } else { raw_idx };
+                let idx = if raw_idx == usize::MAX {
+                    self.active_page_index
+                } else {
+                    raw_idx
+                };
                 self.pages[self.active_page_index].doc = self.doc.clone();
                 let insert_idx = (idx + 1).min(self.pages.len());
                 let new_id = self.pages.len() + 1;
@@ -1456,10 +1529,15 @@ impl CadeSimuApp {
                 self.status_msg = format!("Nova folha inserida na posição {}.", insert_idx + 1);
             }
             Message::DeletePage(raw_idx) => {
-                let idx = if raw_idx == usize::MAX { self.active_page_index } else { raw_idx };
+                let idx = if raw_idx == usize::MAX {
+                    self.active_page_index
+                } else {
+                    raw_idx
+                };
                 if self.pages.len() <= 1 {
                     self.doc = SchematicDocument::default();
-                    self.pages[0] = crate::model::ProjectPage::new(1, "Folha 1", SchematicDocument::default());
+                    self.pages[0] =
+                        crate::model::ProjectPage::new(1, "Folha 1", SchematicDocument::default());
                     self.active_page_index = 0;
                     self.is_modified = true;
                     self.page_context_menu = None;
@@ -1601,10 +1679,15 @@ impl CadeSimuApp {
                         let role = classify_apparatus_role(new_item.tipo);
                         if role.is_independent_apparatus() {
                             let prefix = extract_tag_prefix(&new_item.tag);
-                            new_item.tag = next_sequential_tag_for_role(&self.doc.items, role, prefix);
+                            new_item.tag =
+                                next_sequential_tag_for_role(&self.doc.items, role, prefix);
                         } else if let Some(sym) = find_symbol(new_item.tipo) {
                             if let Some(kind) = detect_contact_kind(new_item.tipo, &sym.pins) {
-                                let occupied = find_occupied_sequences_for_tag(&self.doc.items, &new_item.tag, None);
+                                let occupied = find_occupied_sequences_for_tag(
+                                    &self.doc.items,
+                                    &new_item.tag,
+                                    None,
+                                );
                                 let next_seq = (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
                                 let new_pins = kind.generate_pins(next_seq);
                                 for (idx, p_val) in new_pins.into_iter().enumerate() {
@@ -1630,7 +1713,10 @@ impl CadeSimuApp {
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.orientation = (item.orientation + 1) % 8;
                         self.is_modified = true;
-                        self.status_msg = format!("Elemento #{} girado para orientação {}.", id, item.orientation);
+                        self.status_msg = format!(
+                            "Elemento #{} girado para orientação {}.",
+                            id, item.orientation
+                        );
                     }
                 }
             }
@@ -1641,7 +1727,10 @@ impl CadeSimuApp {
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.orientation = (item.orientation + 7) % 8;
                         self.is_modified = true;
-                        self.status_msg = format!("Elemento #{} girado anti-horário para orientação {}.", id, item.orientation);
+                        self.status_msg = format!(
+                            "Elemento #{} girado anti-horário para orientação {}.",
+                            id, item.orientation
+                        );
                     }
                 }
             }
@@ -1673,7 +1762,10 @@ impl CadeSimuApp {
                         item.x1 = ((item.x1 as f32 / step as f32).round() as i32) * step;
                         item.y1 = ((item.y1 as f32 / step as f32).round() as i32) * step;
                         self.is_modified = true;
-                        self.status_msg = format!("Elemento #{} alinhado à grade ({}, {}).", id, item.x1, item.y1);
+                        self.status_msg = format!(
+                            "Elemento #{} alinhado à grade ({}, {}).",
+                            id, item.x1, item.y1
+                        );
                     }
                 }
             }
@@ -1694,14 +1786,22 @@ impl CadeSimuApp {
                 self.auto_connect = !self.auto_connect;
                 self.status_msg = format!(
                     "Autoconexão de terminais: {}",
-                    if self.auto_connect { "Ativada" } else { "Desativada" }
+                    if self.auto_connect {
+                        "Ativada"
+                    } else {
+                        "Desativada"
+                    }
                 );
             }
             Message::ToggleAutoDisconnect => {
                 self.auto_disconnect = !self.auto_disconnect;
                 self.status_msg = format!(
                     "Desconectar ao mover: {}",
-                    if self.auto_disconnect { "Ativado" } else { "Desativado" }
+                    if self.auto_disconnect {
+                        "Ativado"
+                    } else {
+                        "Desativado"
+                    }
                 );
             }
             Message::SetGridDensity(density) => {
@@ -1746,7 +1846,8 @@ impl CadeSimuApp {
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.color = color_code;
                         self.is_modified = true;
-                        self.status_msg = format!("Cor da lâmpada alterada para código {}.", color_code);
+                        self.status_msg =
+                            format!("Cor da lâmpada alterada para código {}.", color_code);
                     }
                 }
             }
@@ -1838,7 +1939,10 @@ impl CadeSimuApp {
             Message::SelectAll => {
                 if let Some(first) = self.doc.items.first() {
                     self.selected_id = Some(first.id);
-                    self.status_msg = format!("Todos os elementos selecionados (total: {}).", self.doc.items.len());
+                    self.status_msg = format!(
+                        "Todos os elementos selecionados (total: {}).",
+                        self.doc.items.len()
+                    );
                 }
             }
             Message::DeselectAll => {
@@ -1864,7 +1968,8 @@ impl CadeSimuApp {
             Message::CopyElementInfo => {
                 if let Some(id) = self.selected_id {
                     if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
-                        self.copied_info = Some((item.tag.clone(), item.value.clone(), item.pins.clone()));
+                        self.copied_info =
+                            Some((item.tag.clone(), item.value.clone(), item.pins.clone()));
                         self.status_msg = format!("Informações do elemento #{} copiadas.", id);
                     }
                 }
@@ -1907,7 +2012,8 @@ impl CadeSimuApp {
                 self.status_msg = "Zoom ajustado ao conteúdo dos elementos.".to_string();
             }
             Message::ExportDialog => {
-                self.status_msg = "Exportação: Escolha o formato desejado (PDF, SVG, PNG, CAD).".to_string();
+                self.status_msg =
+                    "Exportação: Escolha o formato desejado (PDF, SVG, PNG, CAD).".to_string();
                 return iced::Task::perform(
                     async move {
                         rfd::AsyncFileDialog::new()
@@ -1977,18 +2083,13 @@ impl CadeSimuApp {
             .width(Length::Fill)
             .height(Length::Fill);
 
-            let dropdown_content = column![
-                Space::with_height(MENU_H),
-                self.view_dropdown_menu(active),
-            ]
-            .width(Length::Fill);
+            let dropdown_content =
+                column![Space::with_height(MENU_H), self.view_dropdown_menu(active),]
+                    .width(Length::Fill);
 
-            let menu_overlay = stack![
-                backdrop,
-                dropdown_content,
-            ]
-            .width(Length::Fill)
-            .height(Length::Fill);
+            let menu_overlay = stack![backdrop, dropdown_content,]
+                .width(Length::Fill)
+                .height(Length::Fill);
 
             layers.push(menu_overlay.into());
         }
@@ -2046,11 +2147,13 @@ impl CadeSimuApp {
             let modal_backdrop = mouse_area(
                 container(Space::new(Length::Fill, Length::Fill))
                     .style(|_| container::Style {
-                        background: Some(iced::Background::Color(Color::from_rgba(0.0, 0.0, 0.0, 0.45))),
+                        background: Some(iced::Background::Color(Color::from_rgba(
+                            0.0, 0.0, 0.0, 0.45,
+                        ))),
                         ..Default::default()
                     })
                     .width(Length::Fill)
-                    .height(Length::Fill)
+                    .height(Length::Fill),
             )
             .on_press(Message::CloseAbout);
 
@@ -2059,7 +2162,8 @@ impl CadeSimuApp {
                 container(
                     column![
                         vertical_space(),
-                        row![horizontal_space(), about_card, horizontal_space()].align_y(Alignment::Center),
+                        row![horizontal_space(), about_card, horizontal_space()]
+                            .align_y(Alignment::Center),
                         vertical_space(),
                     ]
                     .width(Length::Fill)
@@ -2095,7 +2199,11 @@ impl CadeSimuApp {
 
         let menu_btn = |menu: ActiveMenu, label: &'static str| {
             let is_open = self.open_menu == Some(menu);
-            let s = if is_open { theme::tool_active } else { theme::menu_item };
+            let s = if is_open {
+                theme::tool_active
+            } else {
+                theme::menu_item
+            };
             button(text(label).size(12).font(UI))
                 .style(s)
                 .padding(Padding::from([4.0, 8.0]))
@@ -2131,15 +2239,9 @@ impl CadeSimuApp {
             .style(theme::mode_badge(self.sim_running))
             .padding(Padding::from([2.0, 6.0]));
 
-        let menubar_row = row![
-            brand,
-            menus,
-            horizontal_space(),
-            file_badge,
-            mode_pill,
-        ]
-        .spacing(10)
-        .align_y(Alignment::Center);
+        let menubar_row = row![brand, menus, horizontal_space(), file_badge, mode_pill,]
+            .spacing(10)
+            .align_y(Alignment::Center);
 
         let top_bar = container(menubar_row)
             .style(theme::bar)
@@ -2153,7 +2255,10 @@ impl CadeSimuApp {
     fn view_dropdown_menu(&self, menu: ActiveMenu) -> Element<'_, Message> {
         let t = tokens(&self.theme());
 
-        let menu_item_btn = |icon_opt: Option<crate::icons::Icon>, label: &'static str, shortcut: &'static str, msg: Message| {
+        let menu_item_btn = |icon_opt: Option<crate::icons::Icon>,
+                             label: &'static str,
+                             shortcut: &'static str,
+                             msg: Message| {
             let left_part = row![
                 if let Some(ic) = icon_opt {
                     container(crate::icons::view_icon(ic, 14, t.text2))
@@ -2176,7 +2281,7 @@ impl CadeSimuApp {
                     text(shortcut).size(11).font(MONO).color(t.text2),
                 ]
                 .width(Length::Fill)
-                .align_y(Alignment::Center)
+                .align_y(Alignment::Center),
             )
             .style(theme::menu_item)
             .padding(Padding::from([5.0, 12.0]))
@@ -2185,118 +2290,397 @@ impl CadeSimuApp {
         };
 
         let items: Element<'_, Message> = match menu {
-            ActiveMenu::Arquivo => {
-                column![
-                    menu_item_btn(Some(crate::icons::Icon::New), "Novo Esquema", "Ctrl+N", Message::NewDocument),
-                    menu_item_btn(Some(crate::icons::Icon::Open), "Abrir Esquema...", "Ctrl+O", Message::OpenFileDialog),
-                    menu_item_btn(Some(crate::icons::Icon::Save), "Salvar", "Ctrl+S", Message::SaveFileDialog),
-                    menu_item_btn(Some(crate::icons::Icon::SaveAs), "Salvar Como...", "Ctrl+Shift+S", Message::SaveFileDialog),
-                    menu_item_btn(Some(crate::icons::Icon::Duplicate), "Salvar Cópia...", "Ctrl+Alt+S", Message::SaveAll),
-                    horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::Close), "Fechar Esquema", "Ctrl+W", Message::CloseDocument),
-                    menu_item_btn(Some(crate::icons::Icon::ExportPdf), "Exportar (PDF, SVG, CAD)...", "Ctrl+Shift+E", Message::ExportDialog),
-                    menu_item_btn(Some(crate::icons::Icon::Print), "Imprimir...", "Ctrl+P", Message::PrintDocument),
-                    horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::Close), "Fechar Menu", "ESC", Message::CloseMenu),
-                ]
-                .spacing(2)
-                .width(280)
-                .into()
-            }
-            ActiveMenu::Editar => {
-                column![
-                    menu_item_btn(Some(crate::icons::Icon::Undo), "Desfazer", "Ctrl+Z", Message::Undo),
-                    menu_item_btn(Some(crate::icons::Icon::Redo), "Refazer", "Ctrl+Shift+Z", Message::Redo),
-                    horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::Cut), "Cortar", "Ctrl+X", Message::Cut),
-                    menu_item_btn(Some(crate::icons::Icon::Copy), "Copiar", "Ctrl+C", Message::Copy),
-                    menu_item_btn(Some(crate::icons::Icon::Paste), "Colar", "Ctrl+V", Message::Paste),
-                    menu_item_btn(Some(crate::icons::Icon::Paste), "Colar na Posição Original", "Ctrl+Shift+V", Message::PasteAtOriginalPos),
-                    menu_item_btn(Some(crate::icons::Icon::Duplicate), "Duplicar", "Ctrl+D", Message::Duplicate),
-                    menu_item_btn(Some(crate::icons::Icon::Bolt), "Inserir o Último Elemento", "A", Message::InsertLastElement),
-                    menu_item_btn(Some(crate::icons::Icon::Palette), "Colorir Elemento...", "", Message::ColorElement),
-                    horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::Select), "Selecionar Tudo", "Ctrl+A", Message::SelectAll),
-                    menu_item_btn(None, "Anular a Seleção", "Ctrl+Shift+A", Message::DeselectAll),
-                    menu_item_btn(Some(crate::icons::Icon::MirrorH), "Inverter Seleção", "Ctrl+I", Message::InvertSelection),
-                    menu_item_btn(Some(crate::icons::Icon::Copy), "Copiar Info do Elemento", "Ctrl+Alt+C", Message::CopyElementInfo),
-                    menu_item_btn(Some(crate::icons::Icon::Paste), "Colar Info do Elemento", "Ctrl+Alt+V", Message::PasteElementInfo),
-                    horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::Delete), "Deletar", "Del", Message::DeleteSelected),
-                    menu_item_btn(Some(crate::icons::Icon::RotateCw), "Rotacionar 90°", "R", Message::RotateClockwise),
-                    menu_item_btn(Some(crate::icons::Icon::RotateCcw), "Rotacionar como Grupo", "Shift+R", Message::RotateCounterClockwise),
-                    menu_item_btn(Some(crate::icons::Icon::MirrorH), "Espelhar Horizontal", "M", Message::MirrorHorizontal),
-                    menu_item_btn(Some(crate::icons::Icon::MirrorV), "Espelhar Vertical", "F", Message::MirrorVertical),
-                    horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::New), "Propriedades da Página", "Ctrl+Shift+Enter", Message::SelectPropTab(0)),
-                ]
-                .spacing(2)
-                .width(290)
-                .into()
-            }
+            ActiveMenu::Arquivo => column![
+                menu_item_btn(
+                    Some(crate::icons::Icon::New),
+                    "Novo Esquema",
+                    "Ctrl+N",
+                    Message::NewDocument
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Open),
+                    "Abrir Esquema...",
+                    "Ctrl+O",
+                    Message::OpenFileDialog
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Save),
+                    "Salvar",
+                    "Ctrl+S",
+                    Message::SaveFileDialog
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::SaveAs),
+                    "Salvar Como...",
+                    "Ctrl+Shift+S",
+                    Message::SaveFileDialog
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Duplicate),
+                    "Salvar Cópia...",
+                    "Ctrl+Alt+S",
+                    Message::SaveAll
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Close),
+                    "Fechar Esquema",
+                    "Ctrl+W",
+                    Message::CloseDocument
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::ExportPdf),
+                    "Exportar (PDF, SVG, CAD)...",
+                    "Ctrl+Shift+E",
+                    Message::ExportDialog
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Print),
+                    "Imprimir...",
+                    "Ctrl+P",
+                    Message::PrintDocument
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Close),
+                    "Fechar Menu",
+                    "ESC",
+                    Message::CloseMenu
+                ),
+            ]
+            .spacing(2)
+            .width(280)
+            .into(),
+            ActiveMenu::Editar => column![
+                menu_item_btn(
+                    Some(crate::icons::Icon::Undo),
+                    "Desfazer",
+                    "Ctrl+Z",
+                    Message::Undo
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Redo),
+                    "Refazer",
+                    "Ctrl+Shift+Z",
+                    Message::Redo
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Cut),
+                    "Cortar",
+                    "Ctrl+X",
+                    Message::Cut
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Copy),
+                    "Copiar",
+                    "Ctrl+C",
+                    Message::Copy
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Paste),
+                    "Colar",
+                    "Ctrl+V",
+                    Message::Paste
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Paste),
+                    "Colar na Posição Original",
+                    "Ctrl+Shift+V",
+                    Message::PasteAtOriginalPos
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Duplicate),
+                    "Duplicar",
+                    "Ctrl+D",
+                    Message::Duplicate
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Bolt),
+                    "Inserir o Último Elemento",
+                    "A",
+                    Message::InsertLastElement
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Palette),
+                    "Colorir Elemento...",
+                    "",
+                    Message::ColorElement
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Select),
+                    "Selecionar Tudo",
+                    "Ctrl+A",
+                    Message::SelectAll
+                ),
+                menu_item_btn(
+                    None,
+                    "Anular a Seleção",
+                    "Ctrl+Shift+A",
+                    Message::DeselectAll
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::MirrorH),
+                    "Inverter Seleção",
+                    "Ctrl+I",
+                    Message::InvertSelection
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Copy),
+                    "Copiar Info do Elemento",
+                    "Ctrl+Alt+C",
+                    Message::CopyElementInfo
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Paste),
+                    "Colar Info do Elemento",
+                    "Ctrl+Alt+V",
+                    Message::PasteElementInfo
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Delete),
+                    "Deletar",
+                    "Del",
+                    Message::DeleteSelected
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::RotateCw),
+                    "Rotacionar 90°",
+                    "R",
+                    Message::RotateClockwise
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::RotateCcw),
+                    "Rotacionar como Grupo",
+                    "Shift+R",
+                    Message::RotateCounterClockwise
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::MirrorH),
+                    "Espelhar Horizontal",
+                    "M",
+                    Message::MirrorHorizontal
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::MirrorV),
+                    "Espelhar Vertical",
+                    "F",
+                    Message::MirrorVertical
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::New),
+                    "Propriedades da Página",
+                    "Ctrl+Shift+Enter",
+                    Message::SelectPropTab(0)
+                ),
+            ]
+            .spacing(2)
+            .width(290)
+            .into(),
             ActiveMenu::Projeto => {
-                let autoconn_str = if self.auto_connect { "[X] Criação Automática de Condutores" } else { "[  ] Criação Automática de Condutores" };
-                let autodisc_str = if self.auto_disconnect { "[X] Desconexão Automática de Condutores" } else { "[  ] Desconexão Automática de Condutores" };
+                let autoconn_str = if self.auto_connect {
+                    "[X] Criação Automática de Condutores"
+                } else {
+                    "[  ] Criação Automática de Condutores"
+                };
+                let autodisc_str = if self.auto_disconnect {
+                    "[X] Desconexão Automática de Condutores"
+                } else {
+                    "[  ] Desconexão Automática de Condutores"
+                };
                 column![
-                    menu_item_btn(Some(crate::icons::Icon::Copy), "Propriedades do Projeto", "", Message::SelectPropTab(0)),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Copy),
+                        "Propriedades do Projeto",
+                        "",
+                        Message::SelectPropTab(0)
+                    ),
                     horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::WireL), autoconn_str, "", Message::ToggleAutoConnect),
-                    menu_item_btn(Some(crate::icons::Icon::DeleteWire), autodisc_str, "", Message::ToggleAutoDisconnect),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::WireL),
+                        autoconn_str,
+                        "",
+                        Message::ToggleAutoConnect
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::DeleteWire),
+                        autodisc_str,
+                        "",
+                        Message::ToggleAutoDisconnect
+                    ),
                     horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::AddAfter), "Adicionar Página", "Ctrl+T", Message::AddPageAfter(self.active_page_index)),
-                    menu_item_btn(Some(crate::icons::Icon::Delete), "Deletar esta Página", "Ctrl+Shift+Bksp", Message::DeletePage(self.active_page_index)),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::AddAfter),
+                        "Adicionar Página",
+                        "Ctrl+T",
+                        Message::AddPageAfter(self.active_page_index)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Delete),
+                        "Deletar esta Página",
+                        "Ctrl+Shift+Bksp",
+                        Message::DeletePage(self.active_page_index)
+                    ),
                     horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::ChevronRight), "Próxima Folha", "Ctrl+PgDn", Message::SelectPage(self.active_page_index + 1)),
-                    menu_item_btn(Some(crate::icons::Icon::ChevronLeft), "Folha Anterior", "Ctrl+PgUp", Message::SelectPage(self.active_page_index.saturating_sub(1))),
-                    menu_item_btn(Some(crate::icons::Icon::Pencil), "Renomear Folha Atual", "", Message::StartEditingPageName(self.active_page_index)),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ChevronRight),
+                        "Próxima Folha",
+                        "Ctrl+PgDn",
+                        Message::SelectPage(self.active_page_index + 1)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ChevronLeft),
+                        "Folha Anterior",
+                        "Ctrl+PgUp",
+                        Message::SelectPage(self.active_page_index.saturating_sub(1))
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Pencil),
+                        "Renomear Folha Atual",
+                        "",
+                        Message::StartEditingPageName(self.active_page_index)
+                    ),
                 ]
                 .spacing(2)
                 .width(310)
                 .into()
             }
             ActiveMenu::Exibicao => {
-                let snap_str = if self.snap_to_grid { "[X] Ajustar à Grelha (Snap)" } else { "[  ] Ajustar à Grelha (Snap)" };
+                let snap_str = if self.snap_to_grid {
+                    "[X] Ajustar à Grelha (Snap)"
+                } else {
+                    "[  ] Ajustar à Grelha (Snap)"
+                };
                 column![
-                    menu_item_btn(Some(crate::icons::Icon::Folder), "Mostrar Projetos", "", Message::SelectLeftDockTab(1)),
-                    menu_item_btn(Some(crate::icons::Icon::Select), "Selecionar (Ponteiro)", "", Message::SelectTool(EditorTool::Select)),
-                    menu_item_btn(Some(crate::icons::Icon::Pan), "Mover (Pan)", "", Message::SelectTool(EditorTool::Pan)),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Folder),
+                        "Mostrar Projetos",
+                        "",
+                        Message::SelectLeftDockTab(1)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Select),
+                        "Selecionar (Ponteiro)",
+                        "",
+                        Message::SelectTool(EditorTool::Select)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Pan),
+                        "Mover (Pan)",
+                        "",
+                        Message::SelectTool(EditorTool::Pan)
+                    ),
                     horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::Grid), "Mostrar a Grelha", "", Message::ToggleGrid(!self.show_grid)),
-                    menu_item_btn(Some(crate::icons::Icon::Magnet), snap_str, "Ctrl+Shift+G", Message::ToggleSnap),
-                    menu_item_btn(Some(crate::icons::Icon::Text), "Visibilidade dos Textos", "", Message::ToggleShowTexts),
-                    menu_item_btn(Some(crate::icons::Icon::Theme), "Alternar Tema", "Ctrl+Shift+T", Message::CycleTheme),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Grid),
+                        "Mostrar a Grelha",
+                        "",
+                        Message::ToggleGrid(!self.show_grid)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Magnet),
+                        snap_str,
+                        "Ctrl+Shift+G",
+                        Message::ToggleSnap
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Text),
+                        "Visibilidade dos Textos",
+                        "",
+                        Message::ToggleShowTexts
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Theme),
+                        "Alternar Tema",
+                        "Ctrl+Shift+T",
+                        Message::CycleTheme
+                    ),
                     horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::ZoomIn), "Ampliar (Zoom In)", "Ctrl++", Message::ZoomIn),
-                    menu_item_btn(Some(crate::icons::Icon::ZoomOut), "Reduzir (Zoom Out)", "Ctrl+-", Message::ZoomOut),
-                    menu_item_btn(Some(crate::icons::Icon::ZoomReset), "Zoom do Conteúdo", "Ctrl+8", Message::ZoomContent),
-                    menu_item_btn(Some(crate::icons::Icon::FitToPage), "Ajustar à Vista", "Ctrl+9", Message::FitToPage),
-                    menu_item_btn(Some(crate::icons::Icon::ZoomReset), "Repor Zoom (100%)", "Ctrl+0", Message::ZoomReset),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ZoomIn),
+                        "Ampliar (Zoom In)",
+                        "Ctrl++",
+                        Message::ZoomIn
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ZoomOut),
+                        "Reduzir (Zoom Out)",
+                        "Ctrl+-",
+                        Message::ZoomOut
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ZoomReset),
+                        "Zoom do Conteúdo",
+                        "Ctrl+8",
+                        Message::ZoomContent
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::FitToPage),
+                        "Ajustar à Vista",
+                        "Ctrl+9",
+                        Message::FitToPage
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ZoomReset),
+                        "Repor Zoom (100%)",
+                        "Ctrl+0",
+                        Message::ZoomReset
+                    ),
                 ]
                 .spacing(2)
                 .width(290)
                 .into()
             }
-            ActiveMenu::Configuracoes => {
-                column![
-                    menu_item_btn(Some(crate::icons::Icon::Grid), "Grade Fina (10 pts/cm)", "", Message::SetGridDensity(crate::model::GridDensity::Fine)),
-                    menu_item_btn(Some(crate::icons::Icon::Grid), "Grade Média (5 pts/cm)", "", Message::SetGridDensity(crate::model::GridDensity::Medium)),
-                    menu_item_btn(Some(crate::icons::Icon::Grid), "Grade Larga (2.5 pts/cm)", "", Message::SetGridDensity(crate::model::GridDensity::Coarse)),
-                ]
-                .spacing(2)
-                .width(270)
-                .into()
-            }
-            ActiveMenu::Ajuda => {
-                column![
-                    menu_item_btn(Some(crate::icons::Icon::Bolt), "Sobre o RustSimu", "", Message::ShowAbout),
-                    menu_item_btn(Some(crate::icons::Icon::Open), "Carregar Exemplo: Partida Direta", "", Message::LoadPresetDol),
-                    horizontal_rule(1),
-                    menu_item_btn(Some(crate::icons::Icon::Close), "Fechar Menu", "ESC", Message::CloseMenu),
-                ]
-                .spacing(2)
-                .width(270)
-                .into()
-            }
+            ActiveMenu::Configuracoes => column![
+                menu_item_btn(
+                    Some(crate::icons::Icon::Grid),
+                    "Grade Fina (10 pts/cm)",
+                    "",
+                    Message::SetGridDensity(crate::model::GridDensity::Fine)
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Grid),
+                    "Grade Média (5 pts/cm)",
+                    "",
+                    Message::SetGridDensity(crate::model::GridDensity::Medium)
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Grid),
+                    "Grade Larga (2.5 pts/cm)",
+                    "",
+                    Message::SetGridDensity(crate::model::GridDensity::Coarse)
+                ),
+            ]
+            .spacing(2)
+            .width(270)
+            .into(),
+            ActiveMenu::Ajuda => column![
+                menu_item_btn(
+                    Some(crate::icons::Icon::Bolt),
+                    "Sobre o RustSimu",
+                    "",
+                    Message::ShowAbout
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Open),
+                    "Carregar Exemplo: Partida Direta",
+                    "",
+                    Message::LoadPresetDol
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Close),
+                    "Fechar Menu",
+                    "ESC",
+                    Message::CloseMenu
+                ),
+            ]
+            .spacing(2)
+            .width(270)
+            .into(),
         };
 
         let left_padding = match menu {
@@ -2339,34 +2723,67 @@ impl CadeSimuApp {
             )
         };
 
-        let icon_toggle = |icon: crate::icons::Icon, tip: &'static str, active: bool, msg: Message| {
-            let s = if active { theme::tool_active } else { theme::tool };
-            let col = if active { t.primary } else { t.text };
-            app_tooltip(
-                button(
-                    container(crate::icons::view_icon(icon, 16, col))
-                        .width(20)
-                        .height(20)
-                        .center_x(20)
-                        .center_y(20),
+        let icon_toggle =
+            |icon: crate::icons::Icon, tip: &'static str, active: bool, msg: Message| {
+                let s = if active {
+                    theme::tool_active
+                } else {
+                    theme::tool
+                };
+                let col = if active { t.primary } else { t.text };
+                app_tooltip(
+                    button(
+                        container(crate::icons::view_icon(icon, 16, col))
+                            .width(20)
+                            .height(20)
+                            .center_x(20)
+                            .center_y(20),
+                    )
+                    .style(s)
+                    .padding(Padding::from([3.0, 5.0]))
+                    .on_press(msg),
+                    tip,
+                    tooltip::Position::Bottom,
                 )
-                .style(s)
-                .padding(Padding::from([3.0, 5.0]))
-                .on_press(msg),
-                tip,
-                tooltip::Position::Bottom,
-            )
-        };
+            };
 
         let file_group = container(
             row![
-                icon_btn(crate::icons::Icon::New, "Novo (Ctrl+N)", Message::NewDocument),
-                icon_btn(crate::icons::Icon::Open, "Abrir (Ctrl+O)", Message::OpenFileDialog),
-                icon_btn(crate::icons::Icon::Save, "Salvar (Ctrl+S)", Message::SaveFileDialog),
-                icon_btn(crate::icons::Icon::SaveAs, "Salvar Como (Ctrl+Shift+S)", Message::SaveFileDialog),
-                icon_btn(crate::icons::Icon::Close, "Fechar (Ctrl+W)", Message::CloseDocument),
-                icon_btn(crate::icons::Icon::Print, "Imprimir (Ctrl+P)", Message::PrintDocument),
-                icon_btn(crate::icons::Icon::ExportPdf, "Exportar em PDF (Ctrl+Shift+E)", Message::ExportDialog),
+                icon_btn(
+                    crate::icons::Icon::New,
+                    "Novo (Ctrl+N)",
+                    Message::NewDocument
+                ),
+                icon_btn(
+                    crate::icons::Icon::Open,
+                    "Abrir (Ctrl+O)",
+                    Message::OpenFileDialog
+                ),
+                icon_btn(
+                    crate::icons::Icon::Save,
+                    "Salvar (Ctrl+S)",
+                    Message::SaveFileDialog
+                ),
+                icon_btn(
+                    crate::icons::Icon::SaveAs,
+                    "Salvar Como (Ctrl+Shift+S)",
+                    Message::SaveFileDialog
+                ),
+                icon_btn(
+                    crate::icons::Icon::Close,
+                    "Fechar (Ctrl+W)",
+                    Message::CloseDocument
+                ),
+                icon_btn(
+                    crate::icons::Icon::Print,
+                    "Imprimir (Ctrl+P)",
+                    Message::PrintDocument
+                ),
+                icon_btn(
+                    crate::icons::Icon::ExportPdf,
+                    "Exportar em PDF (Ctrl+Shift+E)",
+                    Message::ExportDialog
+                ),
             ]
             .spacing(2)
             .align_y(Alignment::Center),
@@ -2377,12 +2794,24 @@ impl CadeSimuApp {
         let edit_group = container(
             row![
                 icon_btn(crate::icons::Icon::Undo, "Desfazer (Ctrl+Z)", Message::Undo),
-                icon_btn(crate::icons::Icon::Redo, "Refazer (Ctrl+Shift+Z)", Message::Redo),
+                icon_btn(
+                    crate::icons::Icon::Redo,
+                    "Refazer (Ctrl+Shift+Z)",
+                    Message::Redo
+                ),
                 icon_btn(crate::icons::Icon::Cut, "Cortar (Ctrl+X)", Message::Cut),
                 icon_btn(crate::icons::Icon::Copy, "Copiar (Ctrl+C)", Message::Copy),
                 icon_btn(crate::icons::Icon::Paste, "Colar (Ctrl+V)", Message::Paste),
-                icon_btn(crate::icons::Icon::Duplicate, "Duplicar (Ctrl+D)", Message::Duplicate),
-                icon_btn(crate::icons::Icon::Delete, "Deletar (Del)", Message::DeleteSelected),
+                icon_btn(
+                    crate::icons::Icon::Duplicate,
+                    "Duplicar (Ctrl+D)",
+                    Message::Duplicate
+                ),
+                icon_btn(
+                    crate::icons::Icon::Delete,
+                    "Deletar (Del)",
+                    Message::DeleteSelected
+                ),
             ]
             .spacing(2)
             .align_y(Alignment::Center),
@@ -2392,11 +2821,31 @@ impl CadeSimuApp {
 
         let transform_group = container(
             row![
-                icon_btn(crate::icons::Icon::RotateCw, "Rotacionar (R)", Message::RotateClockwise),
-                icon_btn(crate::icons::Icon::RotateCcw, "Rotacionar como Grupo (Shift+R)", Message::RotateCounterClockwise),
-                icon_btn(crate::icons::Icon::MirrorH, "Espelhar Horizontalmente (M)", Message::MirrorHorizontal),
-                icon_btn(crate::icons::Icon::MirrorV, "Espelhar Verticalmente (F)", Message::MirrorVertical),
-                icon_btn(crate::icons::Icon::Palette, "Colorir Elemento", Message::ColorElement),
+                icon_btn(
+                    crate::icons::Icon::RotateCw,
+                    "Rotacionar (R)",
+                    Message::RotateClockwise
+                ),
+                icon_btn(
+                    crate::icons::Icon::RotateCcw,
+                    "Rotacionar como Grupo (Shift+R)",
+                    Message::RotateCounterClockwise
+                ),
+                icon_btn(
+                    crate::icons::Icon::MirrorH,
+                    "Espelhar Horizontalmente (M)",
+                    Message::MirrorHorizontal
+                ),
+                icon_btn(
+                    crate::icons::Icon::MirrorV,
+                    "Espelhar Verticalmente (F)",
+                    Message::MirrorVertical
+                ),
+                icon_btn(
+                    crate::icons::Icon::Palette,
+                    "Colorir Elemento",
+                    Message::ColorElement
+                ),
             ]
             .spacing(2)
             .align_y(Alignment::Center),
@@ -2406,7 +2855,11 @@ impl CadeSimuApp {
 
         let tool_btn = |tool: EditorTool, icon: crate::icons::Icon, tip: &'static str| {
             let active = self.tool == tool;
-            let s = if active { theme::tool_active } else { theme::tool };
+            let s = if active {
+                theme::tool_active
+            } else {
+                theme::tool
+            };
             let col = if active { t.primary } else { t.text };
             app_tooltip(
                 button(
@@ -2426,14 +2879,42 @@ impl CadeSimuApp {
 
         let draw_group = container(
             row![
-                tool_btn(EditorTool::Select, crate::icons::Icon::Select, "Selecionar (Ponteiro)"),
+                tool_btn(
+                    EditorTool::Select,
+                    crate::icons::Icon::Select,
+                    "Selecionar (Ponteiro)"
+                ),
                 tool_btn(EditorTool::Pan, crate::icons::Icon::Pan, "Mover (Pan)"),
-                tool_btn(EditorTool::DrawWire(4000), crate::icons::Icon::WireL, "Cabo Fase L"),
-                tool_btn(EditorTool::DrawWire(4009), crate::icons::Icon::WireN, "Cabo Neutro N"),
-                tool_btn(EditorTool::DrawWire(4010), crate::icons::Icon::WirePe, "Cabo Terra PE"),
-                tool_btn(EditorTool::DrawWire(4003), crate::icons::Icon::WireDc, "Cabo Contínuo CC+"),
-                tool_btn(EditorTool::PlaceJunction, crate::icons::Icon::Junction, "Ponto de Junção"),
-                tool_btn(EditorTool::Delete, crate::icons::Icon::DeleteWire, "Apagar Conexão"),
+                tool_btn(
+                    EditorTool::DrawWire(4000),
+                    crate::icons::Icon::WireL,
+                    "Cabo Fase L"
+                ),
+                tool_btn(
+                    EditorTool::DrawWire(4009),
+                    crate::icons::Icon::WireN,
+                    "Cabo Neutro N"
+                ),
+                tool_btn(
+                    EditorTool::DrawWire(4010),
+                    crate::icons::Icon::WirePe,
+                    "Cabo Terra PE"
+                ),
+                tool_btn(
+                    EditorTool::DrawWire(4003),
+                    crate::icons::Icon::WireDc,
+                    "Cabo Contínuo CC+"
+                ),
+                tool_btn(
+                    EditorTool::PlaceJunction,
+                    crate::icons::Icon::Junction,
+                    "Ponto de Junção"
+                ),
+                tool_btn(
+                    EditorTool::Delete,
+                    crate::icons::Icon::DeleteWire,
+                    "Apagar Conexão"
+                ),
             ]
             .spacing(2)
             .align_y(Alignment::Center),
@@ -2443,12 +2924,38 @@ impl CadeSimuApp {
 
         let view_group = container(
             row![
-                icon_btn(crate::icons::Icon::ZoomIn, "Aproximar Zoom (Ctrl++)", Message::ZoomIn),
-                icon_btn(crate::icons::Icon::ZoomOut, "Afastar Zoom (Ctrl+-)", Message::ZoomOut),
-                icon_btn(crate::icons::Icon::ZoomReset, "Repor Zoom (Ctrl+0)", Message::ZoomReset),
-                icon_btn(crate::icons::Icon::FitToPage, "Ajustar à Vista (Ctrl+9)", Message::FitToPage),
-                icon_toggle(crate::icons::Icon::Grid, "Mostrar a Grelha", self.show_grid, Message::ToggleGrid(!self.show_grid)),
-                icon_toggle(crate::icons::Icon::Magnet, "Snap à Grelha", self.snap_to_grid, Message::ToggleSnap),
+                icon_btn(
+                    crate::icons::Icon::ZoomIn,
+                    "Aproximar Zoom (Ctrl++)",
+                    Message::ZoomIn
+                ),
+                icon_btn(
+                    crate::icons::Icon::ZoomOut,
+                    "Afastar Zoom (Ctrl+-)",
+                    Message::ZoomOut
+                ),
+                icon_btn(
+                    crate::icons::Icon::ZoomReset,
+                    "Repor Zoom (Ctrl+0)",
+                    Message::ZoomReset
+                ),
+                icon_btn(
+                    crate::icons::Icon::FitToPage,
+                    "Ajustar à Vista (Ctrl+9)",
+                    Message::FitToPage
+                ),
+                icon_toggle(
+                    crate::icons::Icon::Grid,
+                    "Mostrar a Grelha",
+                    self.show_grid,
+                    Message::ToggleGrid(!self.show_grid)
+                ),
+                icon_toggle(
+                    crate::icons::Icon::Magnet,
+                    "Snap à Grelha",
+                    self.snap_to_grid,
+                    Message::ToggleSnap
+                ),
                 pick_list(
                     &crate::model::GridDensity::ALL[..],
                     Some(self.grid_density),
@@ -2456,7 +2963,12 @@ impl CadeSimuApp {
                 )
                 .text_size(11)
                 .padding(Padding::from([3.0, 6.0])),
-                icon_toggle(crate::icons::Icon::Text, "Textos (Ligado / Desligado)", self.show_texts, Message::ToggleShowTexts),
+                icon_toggle(
+                    crate::icons::Icon::Text,
+                    "Textos (Ligado / Desligado)",
+                    self.show_texts,
+                    Message::ToggleShowTexts
+                ),
             ]
             .spacing(3)
             .align_y(Alignment::Center),
@@ -2464,22 +2976,24 @@ impl CadeSimuApp {
         .style(theme::tool_group)
         .padding(Padding::from([2.0, 4.0]));
 
-        let theme_group = container(
-            app_tooltip(
-                button(
-                    container(crate::icons::view_icon(crate::icons::Icon::Theme, 16, t.text))
-                        .width(20)
-                        .height(20)
-                        .center_x(20)
-                        .center_y(20),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([3.0, 5.0]))
-                .on_press(Message::CycleTheme),
-                "Alternar Tema (Sistema / Claro / Escuro)",
-                tooltip::Position::Bottom,
-            ),
-        )
+        let theme_group = container(app_tooltip(
+            button(
+                container(crate::icons::view_icon(
+                    crate::icons::Icon::Theme,
+                    16,
+                    t.text,
+                ))
+                .width(20)
+                .height(20)
+                .center_x(20)
+                .center_y(20),
+            )
+            .style(theme::tool)
+            .padding(Padding::from([3.0, 5.0]))
+            .on_press(Message::CycleTheme),
+            "Alternar Tema (Sistema / Claro / Escuro)",
+            tooltip::Position::Bottom,
+        ))
         .style(theme::tool_group)
         .padding(Padding::from([2.0, 4.0]));
 
@@ -2487,25 +3001,37 @@ impl CadeSimuApp {
             row![
                 app_tooltip(
                     button(
-                        container(crate::icons::view_icon(crate::icons::Icon::Play, 14, t.on_primary))
-                            .width(20)
-                            .height(20)
-                            .center_x(20)
-                            .center_y(20),
+                        container(crate::icons::view_icon(
+                            crate::icons::Icon::Play,
+                            14,
+                            t.on_primary
+                        ))
+                        .width(20)
+                        .height(20)
+                        .center_x(20)
+                        .center_y(20),
                     )
                     .style(theme::pill_play(self.sim_running))
                     .padding(Padding::from([3.0, 5.0]))
                     .on_press(Message::ToggleSimulation),
-                    if self.sim_running { "Pausar/Parar Simulação" } else { "Iniciar Simulação Elétrica" },
+                    if self.sim_running {
+                        "Pausar/Parar Simulação"
+                    } else {
+                        "Iniciar Simulação Elétrica"
+                    },
                     tooltip::Position::Bottom,
                 ),
                 app_tooltip(
                     button(
-                        container(crate::icons::view_icon(crate::icons::Icon::Stop, 13, t.on_danger))
-                            .width(20)
-                            .height(20)
-                            .center_x(20)
-                            .center_y(20),
+                        container(crate::icons::view_icon(
+                            crate::icons::Icon::Stop,
+                            13,
+                            t.on_danger
+                        ))
+                        .width(20)
+                        .height(20)
+                        .center_x(20)
+                        .center_y(20),
                     )
                     .style(theme::pill_stop(self.sim_running))
                     .padding(Padding::from([3.0, 5.0]))
@@ -2515,11 +3041,15 @@ impl CadeSimuApp {
                 ),
                 app_tooltip(
                     button(
-                        container(crate::icons::view_icon(crate::icons::Icon::Step, 15, t.text))
-                            .width(20)
-                            .height(20)
-                            .center_x(20)
-                            .center_y(20),
+                        container(crate::icons::view_icon(
+                            crate::icons::Icon::Step,
+                            15,
+                            t.text
+                        ))
+                        .width(20)
+                        .height(20)
+                        .center_x(20)
+                        .center_y(20),
                     )
                     .style(theme::pill_ghost)
                     .padding(Padding::from([3.0, 5.0]))
@@ -2555,12 +3085,9 @@ impl CadeSimuApp {
         .width(Length::Fill);
 
         container(
-            row![
-                left_tools,
-                transport_group,
-            ]
-            .spacing(8)
-            .align_y(Alignment::Center),
+            row![left_tools, transport_group,]
+                .spacing(8)
+                .align_y(Alignment::Center),
         )
         .style(theme::bar)
         .height(TOOL_H)
@@ -2574,10 +3101,14 @@ impl CadeSimuApp {
 
         if self.left_dock_collapsed {
             return container(
-                button(crate::icons::view_icon(crate::icons::Icon::ChevronRight, 14, t.text))
-                    .style(theme::tool)
-                    .padding(Padding::from([8.0, 5.0]))
-                    .on_press(Message::ToggleLeftDockCollapse),
+                button(crate::icons::view_icon(
+                    crate::icons::Icon::ChevronRight,
+                    14,
+                    t.text,
+                ))
+                .style(theme::tool)
+                .padding(Padding::from([8.0, 5.0]))
+                .on_press(Message::ToggleLeftDockCollapse),
             )
             .align_x(iced::alignment::Horizontal::Center)
             .style(theme::bar)
@@ -2588,17 +3119,19 @@ impl CadeSimuApp {
 
         let header = container(
             row![
-                text("Elementos e Projetos")
-                    .size(12)
-                    .font(Font {
-                        weight: iced::font::Weight::Bold,
-                        ..UI
-                    }),
+                text("Elementos e Projetos").size(12).font(Font {
+                    weight: iced::font::Weight::Bold,
+                    ..UI
+                }),
                 horizontal_space(),
-                button(crate::icons::view_icon(crate::icons::Icon::ChevronLeft, 12, t.text))
-                    .style(theme::tool)
-                    .padding(Padding::from([3.0, 6.0]))
-                    .on_press(Message::ToggleLeftDockCollapse),
+                button(crate::icons::view_icon(
+                    crate::icons::Icon::ChevronLeft,
+                    12,
+                    t.text
+                ))
+                .style(theme::tool)
+                .padding(Padding::from([3.0, 6.0]))
+                .on_press(Message::ToggleLeftDockCollapse),
             ]
             .align_y(Alignment::Center),
         )
@@ -2613,7 +3146,11 @@ impl CadeSimuApp {
                         crate::icons::view_icon(
                             crate::icons::Icon::Bolt,
                             13,
-                            if self.left_dock_tab == 0 { t.primary } else { t.text },
+                            if self.left_dock_tab == 0 {
+                                t.primary
+                            } else {
+                                t.text
+                            },
                         ),
                         text("Elementos").size(11).font(UI),
                     ]
@@ -2633,7 +3170,11 @@ impl CadeSimuApp {
                         crate::icons::view_icon(
                             crate::icons::Icon::Folder,
                             13,
-                            if self.left_dock_tab == 1 { t.primary } else { t.text },
+                            if self.left_dock_tab == 1 {
+                                t.primary
+                            } else {
+                                t.text
+                            },
                         ),
                         text("Projetos").size(11).font(UI),
                     ]
@@ -2660,206 +3201,207 @@ impl CadeSimuApp {
             0 => {
                 // Barra de busca
                 let search_box = container(
-                    text_input("Filtrar símbolos (ex: disjuntor, motor)...", &self.collection_search)
-                        .on_input(Message::CollectionSearchChanged)
-                        .padding(Padding::from([6.0, 8.0]))
-                        .size(12)
-                        .style(theme::field),
+                    text_input(
+                        "Filtrar símbolos (ex: disjuntor, motor)...",
+                        &self.collection_search,
+                    )
+                    .on_input(Message::CollectionSearchChanged)
+                    .padding(Padding::from([6.0, 8.0]))
+                    .size(12)
+                    .style(theme::field),
                 )
                 .padding(Padding::from([8.0, 10.0]));
 
-        // Lista de símbolos organizados por categoria
-        let query = self.collection_search.trim().to_lowercase();
-        let all_symbols = symbol_catalog();
+                // Lista de símbolos organizados por categoria
+                let query = self.collection_search.trim().to_lowercase();
+                let all_symbols = symbol_catalog();
 
-        let mut tree_col = column![].spacing(6).padding(Padding::from([0.0, 10.0]));
+                let mut tree_col = column![].spacing(6).padding(Padding::from([0.0, 10.0]));
 
-        // Atalhos de cabeamento rápido sempre visíveis
-        let wire_shortcuts = row![
-            button(text("+ Fase L").size(11))
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(Message::SelectTool(EditorTool::DrawWire(4000))),
-            button(text("+ Neutro N").size(11))
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(Message::SelectTool(EditorTool::DrawWire(4009))),
-            button(text("+ Terra").size(11))
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(Message::SelectTool(EditorTool::DrawWire(4010))),
-            button(text("+ Nó").size(11))
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(Message::SelectTool(EditorTool::PlaceJunction)),
-        ]
-        .spacing(4)
-        .align_y(Alignment::Center);
+                // Atalhos de cabeamento rápido sempre visíveis
+                let wire_shortcuts = row![
+                    button(text("+ Fase L").size(11))
+                        .style(theme::tool)
+                        .padding(Padding::from([2.0, 6.0]))
+                        .on_press(Message::SelectTool(EditorTool::DrawWire(4000))),
+                    button(text("+ Neutro N").size(11))
+                        .style(theme::tool)
+                        .padding(Padding::from([2.0, 6.0]))
+                        .on_press(Message::SelectTool(EditorTool::DrawWire(4009))),
+                    button(text("+ Terra").size(11))
+                        .style(theme::tool)
+                        .padding(Padding::from([2.0, 6.0]))
+                        .on_press(Message::SelectTool(EditorTool::DrawWire(4010))),
+                    button(text("+ Nó").size(11))
+                        .style(theme::tool)
+                        .padding(Padding::from([2.0, 6.0]))
+                        .on_press(Message::SelectTool(EditorTool::PlaceJunction)),
+                ]
+                .spacing(4)
+                .align_y(Alignment::Center);
 
-        tree_col = tree_col.push(wire_shortcuts).push(horizontal_rule(1));
+                tree_col = tree_col.push(wire_shortcuts).push(horizontal_rule(1));
 
-        for cat in SymbolCategory::ALL {
-            if cat == SymbolCategory::WiresConnections {
-                continue;
-            }
-            let cat_syms: Vec<_> = all_symbols
-                .iter()
-                .filter(|s| s.category == cat)
-                .filter(|s| {
-                    if query.is_empty() {
-                        true
-                    } else {
-                        s.name.to_lowercase().contains(&query)
-                            || s.default_tag.to_lowercase().contains(&query)
-                            || s.short_label.to_lowercase().contains(&query)
-                            || cat.title().to_lowercase().contains(&query)
+                for cat in SymbolCategory::ALL {
+                    if cat == SymbolCategory::WiresConnections {
+                        continue;
                     }
-                })
-                .collect();
+                    let cat_syms: Vec<_> = all_symbols
+                        .iter()
+                        .filter(|s| s.category == cat)
+                        .filter(|s| {
+                            if query.is_empty() {
+                                true
+                            } else {
+                                s.name.to_lowercase().contains(&query)
+                                    || s.default_tag.to_lowercase().contains(&query)
+                                    || s.short_label.to_lowercase().contains(&query)
+                                    || cat.title().to_lowercase().contains(&query)
+                            }
+                        })
+                        .collect();
 
-            if cat_syms.is_empty() {
-                continue;
-            }
+                    if cat_syms.is_empty() {
+                        continue;
+                    }
 
-            let cat_header = container(
-                text(cat.title())
-                    .size(11)
-                    .font(Font {
-                        weight: iced::font::Weight::Bold,
-                        ..UI
-                    })
-                    .color(t.primary),
-            )
-            .padding(Padding::from([4.0, 2.0]));
+                    let cat_header = container(
+                        text(cat.title())
+                            .size(11)
+                            .font(Font {
+                                weight: iced::font::Weight::Bold,
+                                ..UI
+                            })
+                            .color(t.primary),
+                    )
+                    .padding(Padding::from([4.0, 2.0]));
 
-            tree_col = tree_col.push(cat_header);
+                    tree_col = tree_col.push(cat_header);
 
-            for sym in cat_syms {
-                let is_selected = self.selected_collection_sym == Some(sym.tipo);
-                let pin_count = sym.pins.len();
+                    for sym in cat_syms {
+                        let is_selected = self.selected_collection_sym == Some(sym.tipo);
+                        let pin_count = sym.pins.len();
 
-                let item_row = container(
-                    row![
-                        container(text(format!("[{}]", sym.default_tag)).size(10.5).font(MONO))
-                            .style(move |theme| {
-                                let tok = tokens(theme);
+                        let item_row = container(
+                            row![
+                                container(
+                                    text(format!("[{}]", sym.default_tag)).size(10.5).font(MONO)
+                                )
+                                .style(move |theme| {
+                                    let tok = tokens(theme);
+                                    container::Style {
+                                        text_color: Some(tok.text),
+                                        background: Some(iced::Background::Color(tok.s3)),
+                                        border: iced::Border {
+                                            color: tok.border,
+                                            width: 1.0,
+                                            radius: R.into(),
+                                        },
+                                        shadow: iced::Shadow::default(),
+                                    }
+                                })
+                                .padding(Padding::from([1.0, 4.0])),
+                                text(sym.name).size(12).font(UI).width(Length::Fill),
+                                text(format!("{pin_count}b"))
+                                    .size(10.5)
+                                    .font(MONO)
+                                    .color(t.text2),
+                            ]
+                            .spacing(6)
+                            .align_y(Alignment::Center),
+                        )
+                        .style(move |theme| {
+                            let tok = tokens(theme);
+                            if is_selected {
                                 container::Style {
-                                    text_color: Some(tok.text),
-                                    background: Some(iced::Background::Color(tok.s3)),
+                                    background: Some(iced::Background::Color(tok.sel_bg)),
+                                    text_color: Some(tok.sel_text),
                                     border: iced::Border {
-                                        color: tok.border,
+                                        color: tok.sel_border,
                                         width: 1.0,
                                         radius: R.into(),
                                     },
                                     shadow: iced::Shadow::default(),
                                 }
-                            })
-                            .padding(Padding::from([1.0, 4.0])),
-                        text(sym.name)
-                            .size(12)
-                            .font(UI)
-                            .width(Length::Fill),
-                        text(format!("{pin_count}b"))
-                            .size(10.5)
-                            .font(MONO)
-                            .color(t.text2),
-                    ]
-                    .spacing(6)
-                    .align_y(Alignment::Center),
-                )
-                .style(move |theme| {
-                    let tok = tokens(theme);
-                    if is_selected {
-                        container::Style {
-                            background: Some(iced::Background::Color(tok.sel_bg)),
-                            text_color: Some(tok.sel_text),
-                            border: iced::Border {
-                                color: tok.sel_border,
-                                width: 1.0,
-                                radius: R.into(),
-                            },
-                            shadow: iced::Shadow::default(),
-                        }
-                    } else {
-                        container::Style {
-                            background: Some(iced::Background::Color(Color::TRANSPARENT)),
-                            text_color: Some(tok.text),
-                            border: iced::Border {
-                                color: Color::TRANSPARENT,
-                                width: 1.0,
-                                radius: R.into(),
-                            },
-                            shadow: iced::Shadow::default(),
-                        }
+                            } else {
+                                container::Style {
+                                    background: Some(iced::Background::Color(Color::TRANSPARENT)),
+                                    text_color: Some(tok.text),
+                                    border: iced::Border {
+                                        color: Color::TRANSPARENT,
+                                        width: 1.0,
+                                        radius: R.into(),
+                                    },
+                                    shadow: iced::Shadow::default(),
+                                }
+                            }
+                        })
+                        .padding(Padding::from([4.0, 6.0]))
+                        .width(Length::Fill);
+
+                        let item_area = mouse_area(item_row)
+                            .interaction(iced::mouse::Interaction::Pointer)
+                            .on_press(Message::StartSymbolDrag(sym.tipo))
+                            .on_release(Message::SelectCollectionSymbol(sym.tipo));
+
+                        tree_col = tree_col.push(item_area);
                     }
-                })
-                .padding(Padding::from([4.0, 6.0]))
-                .width(Length::Fill);
+                }
 
-                let item_area = mouse_area(item_row)
-                    .interaction(iced::mouse::Interaction::Pointer)
-                    .on_press(Message::StartSymbolDrag(sym.tipo))
-                    .on_release(Message::SelectCollectionSymbol(sym.tipo));
+                let tree_scroll = container(scrollable(tree_col)).height(Length::Fill);
 
-                tree_col = tree_col.push(item_area);
-            }
-        }
+                // Preview box na parte inferior do painel esquerdo
+                let preview_content = if let Some(tipo) = self.selected_collection_sym {
+                    if let Some(sym) = find_symbol(tipo) {
+                        let is_dark = self.is_dark();
+                        let svg_content =
+                            crate::symbols::get_themed_symbol_svg_string(&sym, is_dark);
+                        let svg_preview: Element<'_, Message> = container(
+                            svg(svg::Handle::from_memory(svg_content.into_bytes()))
+                                .width(Length::Fixed(80.0))
+                                .height(Length::Fixed(60.0)),
+                        )
+                        .align_x(iced::alignment::Horizontal::Center)
+                        .align_y(iced::alignment::Vertical::Center)
+                        .into();
 
-        let tree_scroll = container(scrollable(tree_col)).height(Length::Fill);
+                        column![
+                            row![
+                                text(sym.name)
+                                    .size(11.5)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Semibold,
+                                        ..UI
+                                    })
+                                    .width(Length::Fill),
+                                text(format!("{} bornes", sym.pins.len()))
+                                    .size(10.5)
+                                    .font(MONO)
+                                    .color(t.text2),
+                            ]
+                            .align_y(Alignment::Center),
+                            svg_preview,
+                            button(text("Inserir no Esquema").size(11.5).font(UI))
+                                .style(theme::primary)
+                                .padding(Padding::from([4.0, 10.0]))
+                                .width(Length::Fill)
+                                .on_press(Message::InsertSelectedCollectionSymbol),
+                        ]
+                        .spacing(4)
+                        .align_x(Alignment::Center)
+                    } else {
+                        column![text("Símbolo não encontrado").size(12)]
+                    }
+                } else {
+                    column![text("Selecione um símbolo acima").size(11.5).color(t.text2),]
+                        .align_x(Alignment::Center)
+                };
 
-        // Preview box na parte inferior do painel esquerdo
-        let preview_content = if let Some(tipo) = self.selected_collection_sym {
-            if let Some(sym) = find_symbol(tipo) {
-                let is_dark = self.is_dark();
-                let svg_content = crate::symbols::get_themed_symbol_svg_string(&sym, is_dark);
-                let svg_preview: Element<'_, Message> = container(
-                    svg(svg::Handle::from_memory(svg_content.into_bytes()))
-                        .width(Length::Fixed(80.0))
-                        .height(Length::Fixed(60.0)),
-                )
-                .align_x(iced::alignment::Horizontal::Center)
-                .align_y(iced::alignment::Vertical::Center)
-                .into();
-
-                column![
-                    row![
-                        text(sym.name)
-                            .size(11.5)
-                            .font(Font {
-                                weight: iced::font::Weight::Semibold,
-                                ..UI
-                            })
-                            .width(Length::Fill),
-                        text(format!("{} bornes", sym.pins.len()))
-                            .size(10.5)
-                            .font(MONO)
-                            .color(t.text2),
-                    ]
-                    .align_y(Alignment::Center),
-                    svg_preview,
-                    button(text("Inserir no Esquema").size(11.5).font(UI))
-                        .style(theme::primary)
-                        .padding(Padding::from([4.0, 10.0]))
-                        .width(Length::Fill)
-                        .on_press(Message::InsertSelectedCollectionSymbol),
-                ]
-                .spacing(4)
-                .align_x(Alignment::Center)
-            } else {
-                column![text("Símbolo não encontrado").size(12)].into()
-            }
-        } else {
-            column![
-                text("Selecione um símbolo acima").size(11.5).color(t.text2),
-            ]
-            .align_x(Alignment::Center)
-        };
-
-        let preview_dock = container(preview_content)
-            .style(theme::preview_box)
-            .padding(Padding::from([6.0, 10.0]))
-            .width(Length::Fill)
-            .height(130);
+                let preview_dock = container(preview_content)
+                    .style(theme::preview_box)
+                    .padding(Padding::from([6.0, 10.0]))
+                    .width(Length::Fill)
+                    .height(130);
 
                 column![search_box, tree_scroll, preview_dock]
                     .height(Length::Fill)
@@ -2958,10 +3500,14 @@ impl CadeSimuApp {
                         .width(Length::Fill)
                         .on_press(Message::RecentProjectSelected(path_str.clone()));
 
-                        let del_btn = button(crate::icons::view_icon(crate::icons::Icon::Close, 11, t.text2))
-                            .style(theme::tool)
-                            .padding(Padding::from([3.0, 5.0]))
-                            .on_press(Message::DeleteRecentProject(path_str.clone()));
+                        let del_btn = button(crate::icons::view_icon(
+                            crate::icons::Icon::Close,
+                            11,
+                            t.text2,
+                        ))
+                        .style(theme::tool)
+                        .padding(Padding::from([3.0, 5.0]))
+                        .on_press(Message::DeleteRecentProject(path_str.clone()));
 
                         files_col = files_col.push(
                             row![open_btn, del_btn]
@@ -3025,10 +3571,14 @@ impl CadeSimuApp {
 
         if self.right_dock_collapsed {
             return container(
-                button(crate::icons::view_icon(crate::icons::Icon::ChevronLeft, 14, t.text))
-                    .style(theme::tool)
-                    .padding(Padding::from([8.0, 5.0]))
-                    .on_press(Message::ToggleRightDockCollapse),
+                button(crate::icons::view_icon(
+                    crate::icons::Icon::ChevronLeft,
+                    14,
+                    t.text,
+                ))
+                .style(theme::tool)
+                .padding(Padding::from([8.0, 5.0]))
+                .on_press(Message::ToggleRightDockCollapse),
             )
             .align_x(iced::alignment::Horizontal::Center)
             .style(theme::bar)
@@ -3039,17 +3589,19 @@ impl CadeSimuApp {
 
         let header = container(
             row![
-                text("Propriedades do Elemento")
-                    .size(12)
-                    .font(Font {
-                        weight: iced::font::Weight::Bold,
-                        ..UI
-                    }),
+                text("Propriedades do Elemento").size(12).font(Font {
+                    weight: iced::font::Weight::Bold,
+                    ..UI
+                }),
                 horizontal_space(),
-                button(crate::icons::view_icon(crate::icons::Icon::ChevronRight, 12, t.text))
-                    .style(theme::tool)
-                    .padding(Padding::from([3.0, 6.0]))
-                    .on_press(Message::ToggleRightDockCollapse),
+                button(crate::icons::view_icon(
+                    crate::icons::Icon::ChevronRight,
+                    12,
+                    t.text
+                ))
+                .style(theme::tool)
+                .padding(Padding::from([3.0, 6.0]))
+                .on_press(Message::ToggleRightDockCollapse),
             ]
             .align_y(Alignment::Center),
         )
@@ -3074,12 +3626,9 @@ impl CadeSimuApp {
         };
 
         let tabs_bar = container(
-            row![
-                tab_btn(0, "Propriedades"),
-                tab_btn(1, "Referência Cruzada"),
-            ]
-            .spacing(4)
-            .width(Length::Fill),
+            row![tab_btn(0, "Propriedades"), tab_btn(1, "Referência Cruzada"),]
+                .spacing(4)
+                .width(Length::Fill),
         )
         .style(theme::bar)
         .width(Length::Fill);
@@ -3092,21 +3641,20 @@ impl CadeSimuApp {
 
                 if let Some(sel_id) = self.selected_id {
                     if let Some(item) = self.doc.items.iter().find(|i| i.id == sel_id) {
-                        let title = find_symbol(item.tipo)
-                            .map(|s| s.name)
-                            .unwrap_or(if item.is_wire() {
-                                "Cabo Condutor"
-                            } else {
-                                "Elemento"
-                            });
+                        let title =
+                            find_symbol(item.tipo)
+                                .map(|s| s.name)
+                                .unwrap_or(if item.is_wire() {
+                                    "Cabo Condutor"
+                                } else {
+                                    "Elemento"
+                                });
 
                         body_col = body_col.push(
-                            text(format!("#{sel_id} · {title}"))
-                                .size(13)
-                                .font(Font {
-                                    weight: iced::font::Weight::Bold,
-                                    ..UI
-                                }),
+                            text(format!("#{sel_id} · {title}")).size(13).font(Font {
+                                weight: iced::font::Weight::Bold,
+                                ..UI
+                            }),
                         );
 
                         if !item.is_wire() && !item.is_junction() {
@@ -3133,11 +3681,16 @@ impl CadeSimuApp {
                             if role.is_subordinate_contact() {
                                 // Contato ou polo que necessita de aparelho pai (ex: bobina -KM1)
                                 if let Some(parent) = find_parent_apparatus(&self.doc.items, item) {
-                                    let parent_name = find_symbol(parent.tipo).map(|s| s.name).unwrap_or("Aparelho");
+                                    let parent_name = find_symbol(parent.tipo)
+                                        .map(|s| s.name)
+                                        .unwrap_or("Aparelho");
                                     body_col = body_col.push(
-                                        text(format!("✓ Vinculado a '{}' ({})", parent.tag, parent_name))
-                                            .size(10.5)
-                                            .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                        text(format!(
+                                            "✓ Vinculado a '{}' ({})",
+                                            parent.tag, parent_name
+                                        ))
+                                        .size(10.5)
+                                        .color(Color::from_rgb(0.2, 0.8, 0.4)),
                                     );
                                 } else {
                                     let parent_display = role.parent_display_name();
@@ -3148,9 +3701,13 @@ impl CadeSimuApp {
                                     ]
                                     .spacing(4);
 
-                                    let available = list_available_parent_tags(&self.doc.items, role);
+                                    let available =
+                                        list_available_parent_tags(&self.doc.items, role);
                                     if !available.is_empty() {
-                                        let mut link_row = row![text("Vincular a:").size(10.5).color(t.text2)].spacing(4).align_y(Alignment::Center);
+                                        let mut link_row =
+                                            row![text("Vincular a:").size(10.5).color(t.text2)]
+                                                .spacing(4)
+                                                .align_y(Alignment::Center);
                                         for p_tag in available {
                                             let p_tag_clone = p_tag.clone();
                                             link_row = link_row.push(
@@ -3166,14 +3723,15 @@ impl CadeSimuApp {
                                     body_col = body_col.push(
                                         container(alert_col)
                                             .padding(Padding::from([4.0, 6.0]))
-                                            .style(theme::card)
+                                            .style(theme::card),
                                     );
                                 }
                             } else if role.is_independent_apparatus() {
                                 // Aparelho primário (Bobina, Disjuntor, Motor, Botão...)
                                 if find_duplicate_apparatus(&self.doc.items, item) {
                                     let prefix = extract_tag_prefix(&item.tag);
-                                    let suggested_tag = next_sequential_tag_for_role(&self.doc.items, role, prefix);
+                                    let suggested_tag =
+                                        next_sequential_tag_for_role(&self.doc.items, role, prefix);
                                     let suggested_tag_clone = suggested_tag.clone();
                                     body_col = body_col.push(
                                         container(
@@ -3196,14 +3754,26 @@ impl CadeSimuApp {
                                         .style(theme::card)
                                     );
                                 } else {
-                                    let sub_contacts_count = self.doc.items.iter()
-                                        .filter(|other| other.id != item.id && other.tag.trim().eq_ignore_ascii_case(item.tag.trim()))
+                                    let sub_contacts_count = self
+                                        .doc
+                                        .items
+                                        .iter()
+                                        .filter(|other| {
+                                            other.id != item.id
+                                                && other
+                                                    .tag
+                                                    .trim()
+                                                    .eq_ignore_ascii_case(item.tag.trim())
+                                        })
                                         .count();
                                     if sub_contacts_count > 0 {
                                         body_col = body_col.push(
-                                            text(format!("✓ Contatos associados no esquema: {} elemento(s)", sub_contacts_count))
-                                                .size(10.5)
-                                                .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                            text(format!(
+                                                "✓ Contatos associados no esquema: {} elemento(s)",
+                                                sub_contacts_count
+                                            ))
+                                            .size(10.5)
+                                            .color(Color::from_rgb(0.2, 0.8, 0.4)),
                                         );
                                     }
                                 }
@@ -3232,19 +3802,14 @@ impl CadeSimuApp {
                                 if !sym.pins.is_empty() {
                                     body_col = body_col.push(horizontal_rule(1));
                                     body_col = body_col.push(
-                                        text("Numeração dos Bornes:")
-                                            .size(12)
-                                            .font(Font {
-                                                weight: iced::font::Weight::Semibold,
-                                                ..UI
-                                            }),
+                                        text("Numeração dos Bornes:").size(12).font(Font {
+                                            weight: iced::font::Weight::Semibold,
+                                            ..UI
+                                        }),
                                     );
                                     for (p_idx, p_def) in sym.pins.iter().enumerate() {
-                                        let current_pin_val = item
-                                            .pins
-                                            .get(p_idx)
-                                            .cloned()
-                                            .unwrap_or_default();
+                                        let current_pin_val =
+                                            item.pins.get(p_idx).cloned().unwrap_or_default();
                                         body_col = body_col.push(
                                             row![
                                                 text(format!("Borne {}:", p_idx + 1))
@@ -3270,7 +3835,8 @@ impl CadeSimuApp {
                                             Some(item.id),
                                         );
                                         let current_seq = detect_current_sequence(&item.pins, kind);
-                                        let suggested_digit = (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
+                                        let suggested_digit =
+                                            (1..=9).find(|d| !occupied.contains(d)).unwrap_or(1);
 
                                         let mut options = Vec::with_capacity(9);
                                         for d in 1..=9 {
@@ -3292,14 +3858,13 @@ impl CadeSimuApp {
                                             });
                                         }
 
-                                        let selected_opt = current_seq
-                                            .and_then(|s| options.iter().find(|o| o.digit == s).cloned());
+                                        let selected_opt = current_seq.and_then(|s| {
+                                            options.iter().find(|o| o.digit == s).cloned()
+                                        });
 
-                                        let seq_pick = pick_list(
-                                            options,
-                                            selected_opt,
-                                            |opt| Message::SelectPinSequence(opt.digit),
-                                        )
+                                        let seq_pick = pick_list(options, selected_opt, |opt| {
+                                            Message::SelectPinSequence(opt.digit)
+                                        })
                                         .text_size(11.0)
                                         .padding(Padding::from([3.0, 6.0]))
                                         .width(Length::Fill);
@@ -3349,16 +3914,19 @@ impl CadeSimuApp {
                                                 );
                                             } else {
                                                 body_col = body_col.push(
-                                                    text(format!("✓ Sequência {} conforme IEC 60947", cur_seq))
-                                                        .size(10.5)
-                                                        .color(Color::from_rgb(0.2, 0.8, 0.4))
+                                                    text(format!(
+                                                        "✓ Sequência {} conforme IEC 60947",
+                                                        cur_seq
+                                                    ))
+                                                    .size(10.5)
+                                                    .color(Color::from_rgb(0.2, 0.8, 0.4)),
                                                 );
                                             }
                                         } else {
                                             body_col = body_col.push(
                                                 text("Bornes com numeração personalizada.")
                                                     .size(10.0)
-                                                    .color(t.text2)
+                                                    .color(t.text2),
                                             );
                                         }
                                     }
@@ -3370,27 +3938,46 @@ impl CadeSimuApp {
 
                             if is_lamp {
                                 body_col = body_col.push(horizontal_rule(1));
-                                body_col = body_col.push(text("Cor e Pulso do Sinaleiro Luminoso:").size(11.5).font(Font { weight: iced::font::Weight::Bold, ..UI }));
+                                body_col = body_col.push(
+                                    text("Cor e Pulso do Sinaleiro Luminoso:").size(11.5).font(
+                                        Font {
+                                            weight: iced::font::Weight::Bold,
+                                            ..UI
+                                        },
+                                    ),
+                                );
 
-                                let color_btn = |code: i32, label: &'static str, color_val: Color| {
-                                    let is_sel = item.color == code;
-                                    button(
-                                        row![
-                                            container(Space::with_width(8).height(8))
-                                                .style(move |_| container::Style {
-                                                    background: Some(iced::Background::Color(color_val)),
-                                                    border: iced::Border { color: Color::BLACK, width: 1.0, radius: 2.0.into() },
-                                                    ..container::Style::default()
-                                                }),
-                                            text(label).size(10.0).font(UI),
-                                        ]
-                                        .spacing(3)
-                                        .align_y(Alignment::Center)
-                                    )
-                                    .style(if is_sel { theme::tool_active } else { theme::tool })
-                                    .padding(Padding::from([2.0, 4.0]))
-                                    .on_press(Message::SetLampColor(code))
-                                };
+                                let color_btn =
+                                    |code: i32, label: &'static str, color_val: Color| {
+                                        let is_sel = item.color == code;
+                                        button(
+                                            row![
+                                                container(Space::with_width(8).height(8)).style(
+                                                    move |_| container::Style {
+                                                        background: Some(iced::Background::Color(
+                                                            color_val
+                                                        )),
+                                                        border: iced::Border {
+                                                            color: Color::BLACK,
+                                                            width: 1.0,
+                                                            radius: 2.0.into()
+                                                        },
+                                                        ..container::Style::default()
+                                                    }
+                                                ),
+                                                text(label).size(10.0).font(UI),
+                                            ]
+                                            .spacing(3)
+                                            .align_y(Alignment::Center),
+                                        )
+                                        .style(if is_sel {
+                                            theme::tool_active
+                                        } else {
+                                            theme::tool
+                                        })
+                                        .padding(Padding::from([2.0, 4.0]))
+                                        .on_press(Message::SetLampColor(code))
+                                    };
 
                                 let colors_row = row![
                                     color_btn(1, "Verde", Color::from_rgb(0.1, 0.8, 0.2)),
@@ -3419,14 +4006,11 @@ impl CadeSimuApp {
                     }
                 } else {
                     // Sem elemento selecionado -> Propriedades da Folha (Cajetín)
-                    body_col = body_col.push(
-                        text("Legenda da Folha (Cajetín)")
-                            .size(13)
-                            .font(Font {
-                                weight: iced::font::Weight::Bold,
-                                ..UI
-                            }),
-                    );
+                    body_col =
+                        body_col.push(text("Legenda da Folha (Cajetín)").size(13).font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        }));
                     body_col = body_col.push(
                         column![
                             text("Título do Projeto:").size(11).color(t.text2),
@@ -3462,11 +4046,13 @@ impl CadeSimuApp {
                     );
                     body_col = body_col.push(horizontal_rule(1));
                     body_col = body_col.push(
-                        text("Dica:
+                        text(
+                            "Dica:
 • Clique em qualquer símbolo na folha para editar suas propriedades.
-• Arraste com botão direito ou scroll para navegar.")
-                            .size(11.5)
-                            .color(t.text2),
+• Arraste com botão direito ou scroll para navegar.",
+                        )
+                        .size(11.5)
+                        .color(t.text2),
                     );
                 }
 
@@ -3476,45 +4062,70 @@ impl CadeSimuApp {
                 // Aba Referência Cruzada (XRef)
                 let mut xref_col = column![].spacing(8).padding(Padding::from([10.0, 12.0]));
 
-                xref_col = xref_col.push(
-                    text("Referências Cruzadas no Projeto")
-                        .size(13)
-                        .font(Font {
-                            weight: iced::font::Weight::Bold,
-                            ..UI
-                        }),
-                );
+                xref_col =
+                    xref_col.push(text("Referências Cruzadas no Projeto").size(13).font(Font {
+                        weight: iced::font::Weight::Bold,
+                        ..UI
+                    }));
 
                 // Se houver elemento selecionado, exibe a referência contextual específica em destaque
                 if let Some(sel_id) = self.selected_id {
                     if let Some(sel_item) = self.doc.items.iter().find(|i| i.id == sel_id) {
                         let clean_sel_tag = sel_item.tag.trim();
                         if !clean_sel_tag.is_empty() {
-                            let rel_items: Vec<_> = self.doc.items.iter().filter(|i| i.tag.trim() == clean_sel_tag).collect();
+                            let rel_items: Vec<_> = self
+                                .doc
+                                .items
+                                .iter()
+                                .filter(|i| i.tag.trim() == clean_sel_tag)
+                                .collect();
                             let ctx_card = container(
                                 column![
-                                    text(format!("🔍 Referência do Elemento Selecionado: #{} ({})", sel_id, clean_sel_tag))
-                                        .size(12)
-                                        .font(Font { weight: iced::font::Weight::Bold, ..UI })
-                                        .color(t.primary),
-                                    text(format!("Total de dispositivos vinculados ao tag '{}': {}", clean_sel_tag, rel_items.len()))
-                                        .size(10.5)
-                                        .color(t.text2),
-                                    column(
-                                        rel_items.iter().map(|item| {
-                                            let sname = find_symbol(item.tipo).map(|s| s.name).unwrap_or("Dispositivo");
-                                            let p_list = item.pins.iter().filter(|p| !p.is_empty()).cloned().collect::<Vec<_>>().join("-");
-                                            let status = if item.sim_active { "⚡ Ativo" } else { "○ Desligado" };
-                                            text(format!("• #{} {}: [{}] ({})", item.id, sname, p_list, status))
-                                                .size(11)
-                                                .font(MONO)
-                                                .color(if item.id == sel_id { t.primary } else { t.text })
-                                                .into()
-                                        })
-                                    )
+                                    text(format!(
+                                        "🔍 Referência do Elemento Selecionado: #{} ({})",
+                                        sel_id, clean_sel_tag
+                                    ))
+                                    .size(12)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    })
+                                    .color(t.primary),
+                                    text(format!(
+                                        "Total de dispositivos vinculados ao tag '{}': {}",
+                                        clean_sel_tag,
+                                        rel_items.len()
+                                    ))
+                                    .size(10.5)
+                                    .color(t.text2),
+                                    column(rel_items.iter().map(|item| {
+                                        let sname = find_symbol(item.tipo)
+                                            .map(|s| s.name)
+                                            .unwrap_or("Dispositivo");
+                                        let p_list = item
+                                            .pins
+                                            .iter()
+                                            .filter(|p| !p.is_empty())
+                                            .cloned()
+                                            .collect::<Vec<_>>()
+                                            .join("-");
+                                        let status = if item.sim_active {
+                                            "⚡ Ativo"
+                                        } else {
+                                            "○ Desligado"
+                                        };
+                                        text(format!(
+                                            "• #{} {}: [{}] ({})",
+                                            item.id, sname, p_list, status
+                                        ))
+                                        .size(11)
+                                        .font(MONO)
+                                        .color(if item.id == sel_id { t.primary } else { t.text })
+                                        .into()
+                                    }))
                                     .spacing(2),
                                 ]
-                                .spacing(4)
+                                .spacing(4),
                             )
                             .style(theme::card)
                             .padding(Padding::from([6.0, 8.0]))
@@ -3537,7 +4148,9 @@ impl CadeSimuApp {
 
                 if tags_seen.is_empty() {
                     xref_col = xref_col.push(
-                        text("Nenhum elemento com etiqueta definido.").size(12).color(t.text2),
+                        text("Nenhum elemento com etiqueta definido.")
+                            .size(12)
+                            .color(t.text2),
                     );
                 } else {
                     for tag in tags_seen {
@@ -3548,7 +4161,11 @@ impl CadeSimuApp {
                             .filter(|i| i.tag.trim() == tag)
                             .collect();
 
-                        if matching.len() > 1 || matching.iter().any(|i| matches!(i.tipo, 9000..=9008 | 6000..=6009 | 1000..=1002)) {
+                        if matching.len() > 1
+                            || matching
+                                .iter()
+                                .any(|i| matches!(i.tipo, 9000..=9008 | 6000..=6009 | 1000..=1002))
+                        {
                             xref_col = xref_col.push(
                                 container(
                                     column![
@@ -3567,23 +4184,24 @@ impl CadeSimuApp {
                                                 .color(t.text2),
                                         ]
                                         .align_y(Alignment::Center),
-                                        column(
-                                            matching.iter().map(|item| {
-                                                let sname = find_symbol(item.tipo)
-                                                    .map(|s| s.short_label)
-                                                    .unwrap_or("Item");
-                                                let bornes = if item.pins.is_empty() {
-                                                    String::new()
-                                                } else {
-                                                    format!("· bornes: {}", item.pins.join("-"))
-                                                };
-                                                text(format!("• #{}: {} (X:{}, Y:{}) {}", item.id, sname, item.x1, item.y1, bornes))
-                                                    .size(11)
-                                                    .font(MONO)
-                                                    .color(t.text)
-                                                    .into()
-                                            })
-                                        )
+                                        column(matching.iter().map(|item| {
+                                            let sname = find_symbol(item.tipo)
+                                                .map(|s| s.short_label)
+                                                .unwrap_or("Item");
+                                            let bornes = if item.pins.is_empty() {
+                                                String::new()
+                                            } else {
+                                                format!("· bornes: {}", item.pins.join("-"))
+                                            };
+                                            text(format!(
+                                                "• #{}: {} (X:{}, Y:{}) {}",
+                                                item.id, sname, item.x1, item.y1, bornes
+                                            ))
+                                            .size(11)
+                                            .font(MONO)
+                                            .color(t.text)
+                                            .into()
+                                        }))
                                         .spacing(2),
                                     ]
                                     .spacing(4),
@@ -3602,14 +4220,11 @@ impl CadeSimuApp {
                 // Aba Geral
                 let mut geral_col = column![].spacing(8).padding(Padding::from([10.0, 12.0]));
 
-                geral_col = geral_col.push(
-                    text("Geometria & Propriedades Gerais")
-                        .size(13)
-                        .font(Font {
-                            weight: iced::font::Weight::Bold,
-                            ..UI
-                        }),
-                );
+                geral_col =
+                    geral_col.push(text("Geometria & Propriedades Gerais").size(13).font(Font {
+                        weight: iced::font::Weight::Bold,
+                        ..UI
+                    }));
 
                 if let Some(sel_id) = self.selected_id {
                     if let Some(item) = self.doc.items.iter().find(|i| i.id == sel_id) {
@@ -3617,20 +4232,36 @@ impl CadeSimuApp {
                             container(
                                 column![
                                     row![
-                                        text("ID interno:").size(11).color(t.text2).width(Length::Fixed(90.0)),
+                                        text("ID interno:")
+                                            .size(11)
+                                            .color(t.text2)
+                                            .width(Length::Fixed(90.0)),
                                         text(format!("#{sel_id}")).size(11.5).font(MONO),
                                     ],
                                     row![
-                                        text("Tipo CADe:").size(11).color(t.text2).width(Length::Fixed(90.0)),
+                                        text("Tipo CADe:")
+                                            .size(11)
+                                            .color(t.text2)
+                                            .width(Length::Fixed(90.0)),
                                         text(format!("{}", item.tipo)).size(11.5).font(MONO),
                                     ],
                                     row![
-                                        text("Posição (X, Y):").size(11).color(t.text2).width(Length::Fixed(90.0)),
-                                        text(format!("X: {}, Y: {}", item.x1, item.y1)).size(11.5).font(MONO),
+                                        text("Posição (X, Y):")
+                                            .size(11)
+                                            .color(t.text2)
+                                            .width(Length::Fixed(90.0)),
+                                        text(format!("X: {}, Y: {}", item.x1, item.y1))
+                                            .size(11.5)
+                                            .font(MONO),
                                     ],
                                     row![
-                                        text("Orientação:").size(11).color(t.text2).width(Length::Fixed(90.0)),
-                                        text(format!("{}°", item.orientation * 90)).size(11.5).font(MONO),
+                                        text("Orientação:")
+                                            .size(11)
+                                            .color(t.text2)
+                                            .width(Length::Fixed(90.0)),
+                                        text(format!("{}°", item.orientation * 90))
+                                            .size(11.5)
+                                            .font(MONO),
                                     ],
                                 ]
                                 .spacing(4),
@@ -3642,11 +4273,15 @@ impl CadeSimuApp {
                         geral_col = geral_col.push(
                             button(
                                 row![
-                                    crate::icons::view_icon(crate::icons::Icon::Delete, 14, Color::WHITE),
+                                    crate::icons::view_icon(
+                                        crate::icons::Icon::Delete,
+                                        14,
+                                        Color::WHITE
+                                    ),
                                     text("Excluir Elemento").size(12).font(UI),
                                 ]
                                 .spacing(6)
-                                .align_y(Alignment::Center)
+                                .align_y(Alignment::Center),
                             )
                             .style(theme::pill_stop(true))
                             .padding(Padding::from([5.0, 10.0]))
@@ -3659,16 +4294,33 @@ impl CadeSimuApp {
                         container(
                             column![
                                 row![
-                                    text("Dimensões:").size(11).color(t.text2).width(Length::Fixed(110.0)),
+                                    text("Dimensões:")
+                                        .size(11)
+                                        .color(t.text2)
+                                        .width(Length::Fixed(110.0)),
                                     text("DIN A4 (1040 × 720 px)").size(11.5).font(MONO),
                                 ],
                                 row![
-                                    text("Elementos:").size(11).color(t.text2).width(Length::Fixed(110.0)),
-                                    text(format!("{} itens", self.doc.items.len())).size(11.5).font(MONO),
+                                    text("Elementos:")
+                                        .size(11)
+                                        .color(t.text2)
+                                        .width(Length::Fixed(110.0)),
+                                    text(format!("{} itens", self.doc.items.len()))
+                                        .size(11.5)
+                                        .font(MONO),
                                 ],
                                 row![
-                                    text("Snap de Grade:").size(11).color(t.text2).width(Length::Fixed(110.0)),
-                                    text(if self.show_grid { "Ativo (5px)" } else { "Desligado" }).size(11.5).font(MONO),
+                                    text("Snap de Grade:")
+                                        .size(11)
+                                        .color(t.text2)
+                                        .width(Length::Fixed(110.0)),
+                                    text(if self.show_grid {
+                                        "Ativo (5px)"
+                                    } else {
+                                        "Desligado"
+                                    })
+                                    .size(11.5)
+                                    .font(MONO),
                                 ],
                             ]
                             .spacing(4),
@@ -3720,7 +4372,10 @@ impl CadeSimuApp {
                 .unwrap_or_else(|| self.file_path.clone())
         } else if let Some(ref qp) = self.qet_project {
             let cur = self.active_page_index;
-            qp.diagrams.get(cur).map(|d| d.title.clone()).unwrap_or_else(|| "Esquema QET".to_string())
+            qp.diagrams
+                .get(cur)
+                .map(|d| d.title.clone())
+                .unwrap_or_else(|| "Esquema QET".to_string())
         } else {
             "Novo Esquema".to_string()
         };
@@ -3763,13 +4418,9 @@ impl CadeSimuApp {
         .align_y(Alignment::Center);
 
         container(
-            row![
-                title_badge,
-                horizontal_space(),
-                actions,
-            ]
-            .width(Length::Fill)
-            .align_y(Alignment::Center)
+            row![title_badge, horizontal_space(), actions,]
+                .width(Length::Fill)
+                .align_y(Alignment::Center),
         )
         .style(theme::bar)
         .padding(Padding::from([4.0, 10.0]))
@@ -3811,11 +4462,15 @@ impl CadeSimuApp {
                     .on_press(Message::SelectPage(idx));
 
                 let edit_btn = button(
-                    container(crate::icons::view_icon(crate::icons::Icon::Pencil, 11, t.text2))
-                        .width(14)
-                        .height(14)
-                        .center_x(14)
-                        .center_y(14),
+                    container(crate::icons::view_icon(
+                        crate::icons::Icon::Pencil,
+                        11,
+                        t.text2,
+                    ))
+                    .width(14)
+                    .height(14)
+                    .center_x(14)
+                    .center_y(14),
                 )
                 .style(theme::tool)
                 .padding(Padding::from([2.0, 3.0]))
@@ -3856,11 +4511,15 @@ impl CadeSimuApp {
         // Atalhos de ponta: [◀+] e [+▶]
         let add_before_btn = app_tooltip(
             button(
-                container(crate::icons::view_icon(crate::icons::Icon::AddBefore, 14, t.text))
-                    .width(18)
-                    .height(18)
-                    .center_x(18)
-                    .center_y(18),
+                container(crate::icons::view_icon(
+                    crate::icons::Icon::AddBefore,
+                    14,
+                    t.text,
+                ))
+                .width(18)
+                .height(18)
+                .center_x(18)
+                .center_y(18),
             )
             .style(theme::tool)
             .padding(Padding::from([3.0, 5.0]))
@@ -3871,11 +4530,15 @@ impl CadeSimuApp {
 
         let add_after_btn = app_tooltip(
             button(
-                container(crate::icons::view_icon(crate::icons::Icon::AddAfter, 14, t.text))
-                    .width(18)
-                    .height(18)
-                    .center_x(18)
-                    .center_y(18),
+                container(crate::icons::view_icon(
+                    crate::icons::Icon::AddAfter,
+                    14,
+                    t.text,
+                ))
+                .width(18)
+                .height(18)
+                .center_x(18)
+                .center_y(18),
             )
             .style(theme::tool)
             .padding(Padding::from([3.0, 5.0]))
@@ -3888,128 +4551,142 @@ impl CadeSimuApp {
             .spacing(3)
             .align_y(Alignment::Center);
 
-        let context_banner: Option<Element<'_, Message>> = if let Some(target_idx) = self.page_context_menu {
-            if target_idx < total_pages {
-                let p_name = &self.pages[target_idx].name;
-                let move_left_btn = button(
-                    row![
-                        crate::icons::view_icon(crate::icons::Icon::ChevronLeft, 12, t.text),
-                        text("Esquerda").size(11).font(UI),
-                    ]
-                    .spacing(3)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(if target_idx > 0 { Message::MovePage(target_idx, target_idx - 1) } else { Message::MovePage(target_idx, target_idx) });
-
-                let move_right_btn = button(
-                    row![
-                        text("Direita").size(11).font(UI),
-                        crate::icons::view_icon(crate::icons::Icon::ChevronRight, 12, t.text),
-                    ]
-                    .spacing(3)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(if target_idx + 1 < total_pages { Message::MovePage(target_idx, target_idx + 1) } else { Message::MovePage(target_idx, target_idx) });
-
-                let rename_btn = button(
-                    row![
-                        crate::icons::view_icon(crate::icons::Icon::Pencil, 12, t.text),
-                        text("Renomear").size(11).font(UI),
-                    ]
-                    .spacing(4)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(Message::StartEditingPageName(target_idx));
-
-                let add_bef = button(
-                    row![
-                        crate::icons::view_icon(crate::icons::Icon::AddBefore, 12, t.text),
-                        text("Add Antes").size(11).font(UI),
-                    ]
-                    .spacing(4)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(Message::AddPageBefore(target_idx));
-
-                let add_aft = button(
-                    row![
-                        crate::icons::view_icon(crate::icons::Icon::AddAfter, 12, t.text),
-                        text("Add Depois").size(11).font(UI),
-                    ]
-                    .spacing(4)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(Message::AddPageAfter(target_idx));
-
-                let del_btn = button(
-                    row![
-                        crate::icons::view_icon(crate::icons::Icon::Delete, 12, t.danger),
-                        text("Excluir").size(11).font(UI).color(t.danger),
-                    ]
-                    .spacing(4)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(Message::DeletePage(target_idx));
-
-                let close_btn = button(
-                    crate::icons::view_icon(crate::icons::Icon::Close, 12, t.text2),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([3.0, 6.0]))
-                .on_press(Message::ClosePageContextMenu);
-
-                Some(
-                    container(
+        let context_banner: Option<Element<'_, Message>> =
+            if let Some(target_idx) = self.page_context_menu {
+                if target_idx < total_pages {
+                    let p_name = &self.pages[target_idx].name;
+                    let move_left_btn = button(
                         row![
-                            text(format!("Folha {}:", p_name)).size(11).font(UI).color(t.text2),
-                            rename_btn,
-                            move_left_btn,
-                            move_right_btn,
-                            add_bef,
-                            add_aft,
-                            del_btn,
-                            close_btn,
+                            crate::icons::view_icon(crate::icons::Icon::ChevronLeft, 12, t.text),
+                            text("Esquerda").size(11).font(UI),
+                        ]
+                        .spacing(3)
+                        .align_y(Alignment::Center),
+                    )
+                    .style(theme::tool)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(if target_idx > 0 {
+                        Message::MovePage(target_idx, target_idx - 1)
+                    } else {
+                        Message::MovePage(target_idx, target_idx)
+                    });
+
+                    let move_right_btn = button(
+                        row![
+                            text("Direita").size(11).font(UI),
+                            crate::icons::view_icon(crate::icons::Icon::ChevronRight, 12, t.text),
+                        ]
+                        .spacing(3)
+                        .align_y(Alignment::Center),
+                    )
+                    .style(theme::tool)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(if target_idx + 1 < total_pages {
+                        Message::MovePage(target_idx, target_idx + 1)
+                    } else {
+                        Message::MovePage(target_idx, target_idx)
+                    });
+
+                    let rename_btn = button(
+                        row![
+                            crate::icons::view_icon(crate::icons::Icon::Pencil, 12, t.text),
+                            text("Renomear").size(11).font(UI),
                         ]
                         .spacing(4)
-                        .align_y(Alignment::Center)
+                        .align_y(Alignment::Center),
                     )
-                    .style(theme::card)
-                    .padding(Padding::from([2.0, 8.0]))
-                    .into()
-                )
+                    .style(theme::tool)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::StartEditingPageName(target_idx));
+
+                    let add_bef = button(
+                        row![
+                            crate::icons::view_icon(crate::icons::Icon::AddBefore, 12, t.text),
+                            text("Add Antes").size(11).font(UI),
+                        ]
+                        .spacing(4)
+                        .align_y(Alignment::Center),
+                    )
+                    .style(theme::tool)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::AddPageBefore(target_idx));
+
+                    let add_aft = button(
+                        row![
+                            crate::icons::view_icon(crate::icons::Icon::AddAfter, 12, t.text),
+                            text("Add Depois").size(11).font(UI),
+                        ]
+                        .spacing(4)
+                        .align_y(Alignment::Center),
+                    )
+                    .style(theme::tool)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::AddPageAfter(target_idx));
+
+                    let del_btn = button(
+                        row![
+                            crate::icons::view_icon(crate::icons::Icon::Delete, 12, t.danger),
+                            text("Excluir").size(11).font(UI).color(t.danger),
+                        ]
+                        .spacing(4)
+                        .align_y(Alignment::Center),
+                    )
+                    .style(theme::tool)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::DeletePage(target_idx));
+
+                    let close_btn = button(crate::icons::view_icon(
+                        crate::icons::Icon::Close,
+                        12,
+                        t.text2,
+                    ))
+                    .style(theme::tool)
+                    .padding(Padding::from([3.0, 6.0]))
+                    .on_press(Message::ClosePageContextMenu);
+
+                    Some(
+                        container(
+                            row![
+                                text(format!("Folha {}:", p_name))
+                                    .size(11)
+                                    .font(UI)
+                                    .color(t.text2),
+                                rename_btn,
+                                move_left_btn,
+                                move_right_btn,
+                                add_bef,
+                                add_aft,
+                                del_btn,
+                                close_btn,
+                            ]
+                            .spacing(4)
+                            .align_y(Alignment::Center),
+                        )
+                        .style(theme::card)
+                        .padding(Padding::from([2.0, 8.0]))
+                        .into(),
+                    )
+                } else {
+                    None
+                }
             } else {
                 None
-            }
-        } else {
-            None
-        };
+            };
 
-        let pages_scroll = scrollable(tabs_row)
-            .direction(scrollable::Direction::Horizontal(scrollable::Scrollbar::default()));
+        let pages_scroll = scrollable(tabs_row).direction(scrollable::Direction::Horizontal(
+            scrollable::Scrollbar::default(),
+        ));
 
-        let main_bar = row![
-            pages_scroll,
-            horizontal_space(),
-            nav_controls,
-        ]
-        .width(Length::Fill)
-        .align_y(Alignment::Center);
+        let main_bar = row![pages_scroll, horizontal_space(), nav_controls,]
+            .width(Length::Fill)
+            .align_y(Alignment::Center);
 
         if let Some(ctx) = context_banner {
             column![
-                container(main_bar).style(theme::bar).padding(Padding::from([2.0, 8.0])).width(Length::Fill),
+                container(main_bar)
+                    .style(theme::bar)
+                    .padding(Padding::from([2.0, 8.0]))
+                    .width(Length::Fill),
                 ctx,
             ]
             .spacing(2)
@@ -4029,14 +4706,31 @@ impl CadeSimuApp {
 
         let sep = || text("│").size(11).color(t.border);
 
-        let snap_label = if self.show_grid { "snap ativo" } else { "snap desligado" };
+        let snap_label = if self.show_grid {
+            "snap ativo"
+        } else {
+            "snap desligado"
+        };
         let zoom_pct = (self.zoom * 31.25).round() as i32;
 
         container(
             row![
                 row![
                     text("Coordenadas:").size(11).color(t.text2),
-                    text(format!("X: {:3}, Y: {:3}", self.cursor_world.0, self.cursor_world.1))
+                    text(format!(
+                        "X: {:3}, Y: {:3}",
+                        self.cursor_world.0, self.cursor_world.1
+                    ))
+                    .size(11)
+                    .font(MONO)
+                    .color(t.text),
+                ]
+                .spacing(4)
+                .align_y(Alignment::Center),
+                sep(),
+                row![
+                    text("Grelha:").size(11).color(t.text2),
+                    text(format!("5×5 ({snap_label})"))
                         .size(11)
                         .font(MONO)
                         .color(t.text),
@@ -4044,14 +4738,9 @@ impl CadeSimuApp {
                 .spacing(4)
                 .align_y(Alignment::Center),
                 sep(),
-                row![
-                    text("Grelha:").size(11).color(t.text2),
-                    text(format!("5×5 ({snap_label})")).size(11).font(MONO).color(t.text),
-                ]
-                .spacing(4)
-                .align_y(Alignment::Center),
-                sep(),
-                text("Folha: DIN A4 (1040 × 720 px)").size(11).color(t.text2),
+                text("Folha: DIN A4 (1040 × 720 px)")
+                    .size(11)
+                    .color(t.text2),
                 sep(),
                 text(format!("● {}", self.status_msg))
                     .size(11)
@@ -4060,7 +4749,9 @@ impl CadeSimuApp {
                 sep(),
                 row![
                     text("Zoom:").size(11).color(t.text2),
-                    text(format!("{zoom_pct}%")).size(11).font(MONO)
+                    text(format!("{zoom_pct}%"))
+                        .size(11)
+                        .font(MONO)
                         .color(t.text),
                 ]
                 .spacing(4)
@@ -4080,7 +4771,6 @@ impl CadeSimuApp {
         .width(Length::Fill)
         .into()
     }
-
 }
 
 #[cfg(test)]
@@ -4256,7 +4946,11 @@ mod tests {
         use crate::sim::set_manual_by_tag;
 
         step_simulation(&mut doc, 50);
-        let k1 = doc.items.iter().find(|i| i.tipo == 9000 && i.tag == "K1").unwrap();
+        let k1 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9000 && i.tag == "K1")
+            .unwrap();
         assert!(!k1.sim_active, "{label}: K1 deve iniciar desligado");
 
         // Pulsa E1 -> liga K1 (selo) e solenoide S1
@@ -4265,34 +4959,76 @@ mod tests {
         set_manual_by_tag(&mut doc, "E1", false);
         step_simulation(&mut doc, 50);
 
-        let k1 = doc.items.iter().find(|i| i.tipo == 9000 && i.tag == "K1").unwrap();
-        let s1 = doc.items.iter().find(|i| i.tipo == 9000 && i.tag == "S1").unwrap();
-        assert!(k1.sim_active, "{label}: K1 deve ficar retido após pulsar E1");
-        assert!(s1.sim_active, "{label}: S1 deve estar energizada durante enchimento");
+        let k1 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9000 && i.tag == "K1")
+            .unwrap();
+        let s1 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9000 && i.tag == "S1")
+            .unwrap();
+        assert!(
+            k1.sim_active,
+            "{label}: K1 deve ficar retido após pulsar E1"
+        );
+        assert!(
+            s1.sim_active,
+            "{label}: S1 deve estar energizada durante enchimento"
+        );
 
         // Nível alto E2 atua (tanque cheio mantém E2 fechado) -> desliga K1/S1, liga FS e temporizador T1 (2s)
         set_manual_by_tag(&mut doc, "E2", true);
         step_simulation(&mut doc, 50);
 
-        let k1 = doc.items.iter().find(|i| i.tipo == 9000 && i.tag == "K1").unwrap();
-        let fs = doc.items.iter().find(|i| i.tipo == 9000 && i.tag == "FS").unwrap();
-        let t1 = doc.items.iter().find(|i| i.tipo == 9004 && i.tag == "T1").unwrap();
+        let k1 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9000 && i.tag == "K1")
+            .unwrap();
+        let fs = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9000 && i.tag == "FS")
+            .unwrap();
+        let t1 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9004 && i.tag == "T1")
+            .unwrap();
         assert!(!k1.sim_active, "{label}: K1 deve desligar ao atingir E2");
         assert!(fs.sim_active, "{label}: FS deve ligar após E2");
         assert!(t1.sim_active, "{label}: T1 deve iniciar contagem de 2s");
 
         // Avança 2.1s -> T1 dispara, liga K2, S2 e T2 (3s)
         step_simulation(&mut doc, 2100);
-        let k2 = doc.items.iter().find(|i| i.tipo == 9000 && i.tag == "K2").unwrap();
-        let s2 = doc.items.iter().find(|i| i.tipo == 9000 && i.tag == "S2").unwrap();
-        let t2 = doc.items.iter().find(|i| i.tipo == 9004 && i.tag == "T2").unwrap();
+        let k2 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9000 && i.tag == "K2")
+            .unwrap();
+        let s2 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9000 && i.tag == "S2")
+            .unwrap();
+        let t2 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9004 && i.tag == "T2")
+            .unwrap();
         assert!(k2.sim_active, "{label}: K2 deve ligar após 2s de T1");
         assert!(s2.sim_active, "{label}: S2 deve abrir esvaziamento após T1");
         assert!(t2.sim_active, "{label}: T2 deve iniciar contagem de 3s");
 
         // Avança 3.1s -> T2 dispara e abre contato NF T2 desligando S2
         step_simulation(&mut doc, 3100);
-        let s2 = doc.items.iter().find(|i| i.tipo == 9000 && i.tag == "S2").unwrap();
+        let s2 = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 9000 && i.tag == "S2")
+            .unwrap();
         assert!(!s2.sim_active, "{label}: S2 deve desligar após 3s de T2");
     }
 
@@ -4308,9 +5044,16 @@ mod tests {
         set_manual_by_tag(&mut doc, "B1", false);
         step_simulation(&mut doc, 50);
 
-        let m = doc.items.iter().find(|i| i.tipo == 1000 && i.tag == "-M").unwrap();
+        let m = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 1000 && i.tag == "-M")
+            .unwrap();
         assert!(m.sim_active, "{label}: Motor -M deve ligar com B1");
-        assert_eq!(m.sim_motor_dir, 1, "{label}: Motor -M deve girar CW (1) com K1");
+        assert_eq!(
+            m.sim_motor_dir, 1,
+            "{label}: Motor -M deve girar CW (1) com K1"
+        );
         assert_eq!(m.sim_motor_mode, MotorMode::Direct);
 
         // Pulsa B0 (parada)
@@ -4319,7 +5062,11 @@ mod tests {
         set_manual_by_tag(&mut doc, "B0", false);
         step_simulation(&mut doc, 50);
 
-        let m = doc.items.iter().find(|i| i.tipo == 1000 && i.tag == "-M").unwrap();
+        let m = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 1000 && i.tag == "-M")
+            .unwrap();
         assert!(!m.sim_active, "{label}: Motor -M deve parar com B0");
 
         // Pulsa B2 (sentido anti-horário via K2)
@@ -4328,9 +5075,16 @@ mod tests {
         set_manual_by_tag(&mut doc, "B2", false);
         step_simulation(&mut doc, 50);
 
-        let m = doc.items.iter().find(|i| i.tipo == 1000 && i.tag == "-M").unwrap();
+        let m = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 1000 && i.tag == "-M")
+            .unwrap();
         assert!(m.sim_active, "{label}: Motor -M deve ligar com B2");
-        assert_eq!(m.sim_motor_dir, -1, "{label}: Motor -M deve girar CCW (-1) com K2");
+        assert_eq!(
+            m.sim_motor_dir, -1,
+            "{label}: Motor -M deve girar CCW (-1) com K2"
+        );
     }
 
     fn simulate_estrela_triangulo_sem_inversao(mut doc: SchematicDocument, label: &str) {
@@ -4378,11 +5132,17 @@ mod tests {
         step_simulation(&mut doc, 50);
 
         let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
-        assert_eq!((m.sim_active, m.sim_motor_dir, m.sim_motor_mode), (true, 1, MotorMode::Star));
+        assert_eq!(
+            (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+            (true, 1, MotorMode::Star)
+        );
 
         step_simulation(&mut doc, 5100);
         let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
-        assert_eq!((m.sim_active, m.sim_motor_dir, m.sim_motor_mode), (true, 1, MotorMode::Delta));
+        assert_eq!(
+            (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+            (true, 1, MotorMode::Delta)
+        );
 
         // 2) Parada (B0)
         set_manual_by_tag(&mut doc, "B0", true);
@@ -4399,11 +5159,17 @@ mod tests {
         step_simulation(&mut doc, 50);
 
         let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
-        assert_eq!((m.sim_active, m.sim_motor_dir, m.sim_motor_mode), (true, -1, MotorMode::Star));
+        assert_eq!(
+            (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+            (true, -1, MotorMode::Star)
+        );
 
         step_simulation(&mut doc, 5100);
         let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
-        assert_eq!((m.sim_active, m.sim_motor_dir, m.sim_motor_mode), (true, -1, MotorMode::Delta));
+        assert_eq!(
+            (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+            (true, -1, MotorMode::Delta)
+        );
     }
 
     fn step_secs(doc: &mut SchematicDocument, secs: f64) {
@@ -4569,7 +5335,11 @@ mod tests {
         set_manual_by_tag(&mut doc, "DJ2", true);
         step_simulation(&mut doc, 50);
 
-        let mo = doc.items.iter().find(|i| i.tipo == 1000 && i.tag == "MO").unwrap();
+        let mo = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 1000 && i.tag == "MO")
+            .unwrap();
         assert!(!mo.sim_active, "{label}: Motor MO deve iniciar desligado");
 
         // Pulsa B1 -> liga -KM1 (selo) e gira motor MO
@@ -4578,7 +5348,11 @@ mod tests {
         set_manual_by_tag(&mut doc, "B1", false);
         step_simulation(&mut doc, 50);
 
-        let mo = doc.items.iter().find(|i| i.tipo == 1000 && i.tag == "MO").unwrap();
+        let mo = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 1000 && i.tag == "MO")
+            .unwrap();
         assert!(mo.sim_active, "{label}: Motor MO deve girar após pulsar B1");
         assert_eq!(mo.sim_motor_dir, 1);
 
@@ -4588,8 +5362,15 @@ mod tests {
         set_manual_by_tag(&mut doc, "B0", false);
         step_simulation(&mut doc, 50);
 
-        let mo = doc.items.iter().find(|i| i.tipo == 1000 && i.tag == "MO").unwrap();
-        assert!(!mo.sim_active, "{label}: Motor MO deve parar após pulsar B0");
+        let mo = doc
+            .items
+            .iter()
+            .find(|i| i.tipo == 1000 && i.tag == "MO")
+            .unwrap();
+        assert!(
+            !mo.sim_active,
+            "{label}: Motor MO deve parar após pulsar B0"
+        );
     }
 
     fn simulate_exemplo_desconexao(mut doc: SchematicDocument, label: &str) {
@@ -4619,7 +5400,10 @@ mod tests {
 
         let m1 = doc.items.iter().find(|i| i.id == 6).unwrap();
         let m2 = doc.items.iter().find(|i| i.id == 7).unwrap();
-        assert!(!m1.sim_active, "{label}: Motor 1 deve desligar ao pulsar B0");
+        assert!(
+            !m1.sim_active,
+            "{label}: Motor 1 deve desligar ao pulsar B0"
+        );
         assert!(
             m2.sim_active,
             "{label}: Motor 2 (K2) deve ficar ligado durante os 30s do Off-Delay TP"
@@ -4648,26 +5432,62 @@ mod tests {
         step_simulation(&mut doc, 100);
 
         let m_states = |d: &SchematicDocument| -> (bool, bool, bool, bool) {
-            let m1 = d.items.iter().find(|i| i.tipo == 1000 && i.tag == "M1").unwrap().sim_active;
-            let m2 = d.items.iter().find(|i| i.tipo == 1000 && i.tag == "M2").unwrap().sim_active;
-            let m3 = d.items.iter().find(|i| i.tipo == 1000 && i.tag == "M3").unwrap().sim_active;
-            let ok = d.items.iter().find(|i| i.tipo == 9008 && i.tag == "OK").unwrap().sim_active;
+            let m1 = d
+                .items
+                .iter()
+                .find(|i| i.tipo == 1000 && i.tag == "M1")
+                .unwrap()
+                .sim_active;
+            let m2 = d
+                .items
+                .iter()
+                .find(|i| i.tipo == 1000 && i.tag == "M2")
+                .unwrap()
+                .sim_active;
+            let m3 = d
+                .items
+                .iter()
+                .find(|i| i.tipo == 1000 && i.tag == "M3")
+                .unwrap()
+                .sim_active;
+            let ok = d
+                .items
+                .iter()
+                .find(|i| i.tipo == 9008 && i.tag == "OK")
+                .unwrap()
+                .sim_active;
             (m1, m2, m3, ok)
         };
 
-        assert_eq!(m_states(&doc), (true, false, false, false), "{label}: t=0s (M1 ligado)");
+        assert_eq!(
+            m_states(&doc),
+            (true, false, false, false),
+            "{label}: t=0s (M1 ligado)"
+        );
 
         // Avança 7.2s -> T1 (7s) dispara e liga K2/M2 + inicia T2 (7s)
         step_secs(&mut doc, 7.2);
-        assert_eq!(m_states(&doc), (true, true, false, false), "{label}: t=7.2s (M1 e M2 ligados)");
+        assert_eq!(
+            m_states(&doc),
+            (true, true, false, false),
+            "{label}: t=7.2s (M1 e M2 ligados)"
+        );
 
         // Avança +7.2s (t=14.4s) -> T2 (7s) dispara e liga K3/M3 + inicia T3 (3s)
         step_secs(&mut doc, 7.2);
-        assert_eq!(m_states(&doc), (true, true, true, false), "{label}: t=14.4s (M1, M2, M3 ligados)");
+        assert_eq!(
+            m_states(&doc),
+            (true, true, true, false),
+            "{label}: t=14.4s (M1, M2, M3 ligados)"
+        );
 
         // Avança +3.2s (t=17.6s) -> T3 (3s) dispara e acende sinaleiro OK
         step_secs(&mut doc, 3.2);
-        assert_eq!(m_states(&doc), (true, true, true, true), "{label}: t=17.6s (M1, M2, M3 e sinaleiro OK ligados)");
+        assert_eq!(
+            m_states(&doc),
+            (true, true, true, true),
+            "{label}: t=17.6s (M1, M2, M3 e sinaleiro OK ligados)"
+        );
     }
 
     #[test]
@@ -4681,6 +5501,7 @@ mod tests {
             manifest.parent().unwrap().join("Projetos")
         };
 
+        #[allow(clippy::type_complexity)]
         let test_cases: Vec<(&str, fn(SchematicDocument, &str))> = vec![
             (
                 "EnchimentodeTanqueFluido",
@@ -4787,13 +5608,19 @@ mod tests {
             SvgShape::Polyline { points } => points.iter().any(|(x, _)| *x < -1.0),
             _ => false,
         });
-        assert!(has_open_blade, "Lâmina do botão NA deve estar aberta em repouso");
+        assert!(
+            has_open_blade,
+            "Lâmina do botão NA deve estar aberta em repouso"
+        );
 
         let has_closed_blade = no_active.shapes.iter().any(|s| match s {
             SvgShape::Polyline { points } => points.iter().all(|(x, _)| x.abs() < 0.1),
             _ => false,
         });
-        assert!(has_closed_blade, "Lâmina do botão NA deve fechar (x=0) quando ativo/pressionado");
+        assert!(
+            has_closed_blade,
+            "Lâmina do botão NA deve fechar (x=0) quando ativo/pressionado"
+        );
 
         // Verifica botão NF (8001)
         let sym_nc = find_symbol(8001).expect("Botão NF 8001 deve existir no catálogo");
@@ -4814,7 +5641,10 @@ mod tests {
             SvgShape::Polyline { points } => points.iter().any(|(x, _)| *x >= 8.0),
             _ => false,
         });
-        assert!(has_pushed_blade, "Lâmina do botão NF deve ser empurrada para abrir quando pressionada");
+        assert!(
+            has_pushed_blade,
+            "Lâmina do botão NF deve ser empurrada para abrir quando pressionada"
+        );
 
         // Verifica que o Motor 1000 possui corpo (Ellipse) e texto descritivo
         let sym_motor = find_symbol(1000).expect("Motor 1000 deve existir");
@@ -4822,33 +5652,55 @@ mod tests {
         let m_idle = get_parsed_svg(m_idle_path).expect("Motor idle deve carregar");
         let m_act = get_parsed_svg(m_act_path).expect("Motor active deve carregar");
         assert!(
-            m_idle.shapes.iter().any(|s| matches!(s, SvgShape::Ellipse { .. })),
+            m_idle
+                .shapes
+                .iter()
+                .any(|s| matches!(s, SvgShape::Ellipse { .. })),
             "Motor deve conter elipse/círculo principal de carcaça"
         );
         assert!(
-            m_idle.shapes.iter().any(|s| matches!(s, SvgShape::Text { .. })),
+            m_idle
+                .shapes
+                .iter()
+                .any(|s| matches!(s, SvgShape::Text { .. })),
             "Motor deve conter textos informativos (ex: M, 3~)"
         );
-        assert!(m_act.shapes.iter().any(|s| matches!(s, SvgShape::Ellipse { .. })));
+        assert!(m_act
+            .shapes
+            .iter()
+            .any(|s| matches!(s, SvgShape::Ellipse { .. })));
 
         // Verifica que o Relé Térmico Tripolar 6007 (QElectroTech thermal_relay_4) mapeia perfeitamente os 3 polos (0, 6, 12) e tem linha pontilhada
         let sym_thermal = find_symbol(6007).expect("Relé térmico 6007 deve existir");
-        let (th_idle_path, th_act_path) = sym_thermal.svg_paths().expect("Relé térmico deve ter SVGs");
+        let (th_idle_path, th_act_path) =
+            sym_thermal.svg_paths().expect("Relé térmico deve ter SVGs");
         assert!(th_idle_path.contains("thermal_relay_4.svg"));
         assert!(th_act_path.contains("thermal_relay_4_active.svg"));
         let th_idle = get_parsed_svg(th_idle_path).expect("Relé térmico QET idle deve carregar");
         let _th_act = get_parsed_svg(th_act_path).expect("Relé térmico QET active deve carregar");
         assert_eq!(th_idle.max_term_x, 40.0);
         assert!(
-            th_idle.shapes.iter().any(|s| matches!(s, SvgShape::Rect { dashed: true, .. })),
+            th_idle
+                .shapes
+                .iter()
+                .any(|s| matches!(s, SvgShape::Rect { dashed: true, .. })),
             "Relé térmico 4 deve conter linha pontilhada em volta (rect dashed)"
         );
         let (p1x, _) = th_idle.map_point(0.0, -21.0, 12.0);
         let (p2x, _) = th_idle.map_point(20.0, -21.0, 12.0);
         let (p3x, _) = th_idle.map_point(40.0, -21.0, 12.0);
-        assert!((p1x - 0.0).abs() < 1e-4, "Pólo 1 do relé térmico deve estar em x=0");
-        assert!((p2x - 6.0).abs() < 1e-4, "Pólo 2 do relé térmico deve estar em x=6");
-        assert!((p3x - 12.0).abs() < 1e-4, "Pólo 3 do relé térmico deve estar em x=12");
+        assert!(
+            (p1x - 0.0).abs() < 1e-4,
+            "Pólo 1 do relé térmico deve estar em x=0"
+        );
+        assert!(
+            (p2x - 6.0).abs() < 1e-4,
+            "Pólo 2 do relé térmico deve estar em x=6"
+        );
+        assert!(
+            (p3x - 12.0).abs() < 1e-4,
+            "Pólo 3 do relé térmico deve estar em x=12"
+        );
 
         // Verifica que os contatos auxiliares 8016 e 8017 do relé térmico usam os SVGs QET
         let sym_th_nc = find_symbol(8017).expect("Contato NF relé térmico deve existir");
@@ -4868,10 +5720,22 @@ mod tests {
         assert_eq!(b2_idle.max_term_x, 0.0);
         let (p1, p1_y) = b2_idle.map_point(-20.0, -40.0, 21.0);
         let (p2, p2_y) = b2_idle.map_point(0.0, 40.0, 21.0);
-        assert!((p1 - 0.0).abs() < 1e-4, "Terminal 1 do disjuntor 2P deve estar em x=0");
-        assert!((p1_y - 0.0).abs() < 1e-4, "Terminal 1 do disjuntor 2P deve estar em y=0");
-        assert!((p2 - 6.0).abs() < 1e-4, "Terminal 4 do disjuntor 2P deve estar em x=6");
-        assert!((p2_y - 21.0).abs() < 1e-4, "Terminal 4 do disjuntor 2P deve estar em y=21");
+        assert!(
+            (p1 - 0.0).abs() < 1e-4,
+            "Terminal 1 do disjuntor 2P deve estar em x=0"
+        );
+        assert!(
+            (p1_y - 0.0).abs() < 1e-4,
+            "Terminal 1 do disjuntor 2P deve estar em y=0"
+        );
+        assert!(
+            (p2 - 6.0).abs() < 1e-4,
+            "Terminal 4 do disjuntor 2P deve estar em x=6"
+        );
+        assert!(
+            (p2_y - 21.0).abs() < 1e-4,
+            "Terminal 4 do disjuntor 2P deve estar em y=21"
+        );
 
         // 2. Disjuntor 3P (com 3 pontos) - mesma altura do 2P (target_span=21.0)
         let sym_brk_3p = find_symbol(6003).expect("Disjuntor 3P deve existir");
@@ -4885,10 +5749,22 @@ mod tests {
         let (b3_p1, _) = b3_idle.map_point(-20.0, -40.0, 21.0);
         let (b3_p2, _) = b3_idle.map_point(0.0, -40.0, 21.0);
         let (b3_p3, b3_p3_y) = b3_idle.map_point(20.0, 40.0, 21.0);
-        assert!((b3_p1 - 0.0).abs() < 1e-4, "Pólo 1 do disjuntor 3P deve estar em x=0");
-        assert!((b3_p2 - 6.0).abs() < 1e-4, "Pólo 2 do disjuntor 3P deve estar em x=6");
-        assert!((b3_p3 - 12.0).abs() < 1e-4, "Pólo 3 do disjuntor 3P deve estar em x=12");
-        assert!((b3_p3_y - 21.0).abs() < 1e-4, "Bornes inferiores do disjuntor 3P devem estar em y=21 (altura igual ao 2P)");
+        assert!(
+            (b3_p1 - 0.0).abs() < 1e-4,
+            "Pólo 1 do disjuntor 3P deve estar em x=0"
+        );
+        assert!(
+            (b3_p2 - 6.0).abs() < 1e-4,
+            "Pólo 2 do disjuntor 3P deve estar em x=6"
+        );
+        assert!(
+            (b3_p3 - 12.0).abs() < 1e-4,
+            "Pólo 3 do disjuntor 3P deve estar em x=12"
+        );
+        assert!(
+            (b3_p3_y - 21.0).abs() < 1e-4,
+            "Bornes inferiores do disjuntor 3P devem estar em y=21 (altura igual ao 2P)"
+        );
 
         // 3. Disjuntor 4P (com 4 pontos) - mesma altura do 2P (target_span=21.0)
         let sym_brk_4p = find_symbol(6004).expect("Disjuntor 4P deve existir");
@@ -4903,11 +5779,26 @@ mod tests {
         let (b4_p1, _) = b4_idle.map_point(0.0, -40.0, 21.0);
         let (b4_p2, _) = b4_idle.map_point(20.0, -40.0, 21.0);
         let (b4_p3, b4_p3_y) = b4_idle.map_point(40.0, 40.0, 21.0);
-        assert!((b4_pn - 0.0).abs() < 1e-4, "Pólo N do disjuntor 4P deve estar em x=0");
-        assert!((b4_p1 - 6.0).abs() < 1e-4, "Pólo 1 do disjuntor 4P deve estar em x=6");
-        assert!((b4_p2 - 12.0).abs() < 1e-4, "Pólo 2 do disjuntor 4P deve estar em x=12");
-        assert!((b4_p3 - 18.0).abs() < 1e-4, "Pólo 3 do disjuntor 4P deve estar em x=18");
-        assert!((b4_p3_y - 21.0).abs() < 1e-4, "Bornes inferiores do disjuntor 4P devem estar em y=21 (altura igual ao 2P)");
+        assert!(
+            (b4_pn - 0.0).abs() < 1e-4,
+            "Pólo N do disjuntor 4P deve estar em x=0"
+        );
+        assert!(
+            (b4_p1 - 6.0).abs() < 1e-4,
+            "Pólo 1 do disjuntor 4P deve estar em x=6"
+        );
+        assert!(
+            (b4_p2 - 12.0).abs() < 1e-4,
+            "Pólo 2 do disjuntor 4P deve estar em x=12"
+        );
+        assert!(
+            (b4_p3 - 18.0).abs() < 1e-4,
+            "Pólo 3 do disjuntor 4P deve estar em x=18"
+        );
+        assert!(
+            (b4_p3_y - 21.0).abs() < 1e-4,
+            "Bornes inferiores do disjuntor 4P devem estar em y=21 (altura igual ao 2P)"
+        );
     }
 
     #[test]
@@ -4925,7 +5816,11 @@ mod tests {
             .expect("Deve carregar o arquivo Kaefer_1303_20260204-2.qet com sucesso");
 
         assert_eq!(project.title, "Kaefer_1303_20251206");
-        assert_eq!(project.diagrams.len(), 23, "Projeto do Fusca deve conter 23 diagramas");
+        assert_eq!(
+            project.diagrams.len(),
+            23,
+            "Projeto do Fusca deve conter 23 diagramas"
+        );
         assert!(
             project.element_definitions.len() >= 100,
             "Coleção de símbolos embutidos deve ter mais de 100 elementos definidos"
@@ -4952,7 +5847,10 @@ mod tests {
                 .map(|t| t.to_ascii_lowercase().contains("battery"))
                 .unwrap_or(false)
         });
-        assert!(has_battery, "Diagrama 2 deve conter o componente da Bateria 12V");
+        assert!(
+            has_battery,
+            "Diagrama 2 deve conter o componente da Bateria 12V"
+        );
 
         let starter_idx = doc
             .items
@@ -4984,7 +5882,10 @@ mod tests {
             .position(|i| {
                 i.qet_type
                     .as_deref()
-                    .map(|t| t.to_ascii_lowercase().contains("ignition_starter_switch_with_park"))
+                    .map(|t| {
+                        t.to_ascii_lowercase()
+                            .contains("ignition_starter_switch_with_park")
+                    })
                     .unwrap_or(false)
             })
             .expect("Diagrama 2 deve conter o comutador de ignição");
@@ -5043,7 +5944,10 @@ mod tests {
             .expect("Diagrama 12 deve conter o botão da buzina (horn_switch_001.elmt)");
 
         step_simulation(&mut doc_horn, 0);
-        assert!(!doc_horn.items[horn_idx].sim_active, "Buzina desligada em repouso");
+        assert!(
+            !doc_horn.items[horn_idx].sim_active,
+            "Buzina desligada em repouso"
+        );
 
         doc_horn.items[horn_sw_idx].sim_manual_latched = true;
         step_simulation(&mut doc_horn, 0);
@@ -5108,7 +6012,11 @@ mod tests {
         let items_before = app.doc.items.len();
         let _ = app.update(Message::StartSymbolDrag(6008));
         assert_eq!(app.dragging_symbol, Some(6008));
-        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 6008, x: 100, y: 150 }));
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent {
+            tipo: 6008,
+            x: 100,
+            y: 150,
+        }));
         assert_eq!(app.doc.items.len(), items_before + 1);
         assert_eq!(app.dragging_symbol, None);
         assert_eq!(app.tool, EditorTool::Select);
@@ -5149,7 +6057,9 @@ mod tests {
         // Renomeia folha ativa
         let _ = app.update(Message::StartEditingPageName(1));
         assert!(app.editing_page_name.is_some());
-        let _ = app.update(Message::UpdateEditingPageName("Diagrama de Comando".to_string()));
+        let _ = app.update(Message::UpdateEditingPageName(
+            "Diagrama de Comando".to_string(),
+        ));
         let _ = app.update(Message::CommitEditingPageName);
         assert_eq!(app.pages[1].name, "Diagrama de Comando");
 
@@ -5205,7 +6115,11 @@ mod tests {
         assert!(app.auto_disconnect);
 
         // 4) IEC Presets e Edição de Propriedades
-        let original_page_idx = app.pages.iter().position(|p| !p.doc.items.is_empty()).unwrap_or(0);
+        let original_page_idx = app
+            .pages
+            .iter()
+            .position(|p| !p.doc.items.is_empty())
+            .unwrap_or(0);
         let _ = app.update(Message::SelectPage(original_page_idx));
         assert!(!app.doc.items.is_empty());
 
@@ -5335,18 +6249,27 @@ mod tests {
         let sym_na = find_symbol(7000).expect("Contato NA deve existir");
         let item_na = sym_na.instantiate(101, 10, 10, 0);
         assert_eq!(item_na.tipo, 7000);
-        assert!(!item_na.is_lamp_or_signaling(), "Contato NA (7000) NÃO deve ser considerado lâmpada");
+        assert!(
+            !item_na.is_lamp_or_signaling(),
+            "Contato NA (7000) NÃO deve ser considerado lâmpada"
+        );
 
         let sym_nf = find_symbol(7001).expect("Contato NF deve existir");
         let item_nf = sym_nf.instantiate(102, 20, 20, 0);
         assert_eq!(item_nf.tipo, 7001);
-        assert!(!item_nf.is_lamp_or_signaling(), "Contato NF (7001) NÃO deve ser considerado lâmpada");
+        assert!(
+            !item_nf.is_lamp_or_signaling(),
+            "Contato NF (7001) NÃO deve ser considerado lâmpada"
+        );
 
         // 2) Sinaleiro Luminoso (Piloto, 9008) DEVE ser sinaleiro/lâmpada
         let sym_lamp = find_symbol(9008).expect("Sinaleiro 9008 deve existir");
         let item_lamp = sym_lamp.instantiate(103, 30, 30, 0);
         assert_eq!(item_lamp.tipo, 9008);
-        assert!(item_lamp.is_lamp_or_signaling(), "Sinaleiro (9008) DEVE ser considerado lâmpada");
+        assert!(
+            item_lamp.is_lamp_or_signaling(),
+            "Sinaleiro (9008) DEVE ser considerado lâmpada"
+        );
 
         // 3) Ao inserir o sinaleiro, ele deve ter cor verde por padrão (1) e permitir alterar
         assert_eq!(item_lamp.color, 1); // Verde padrão
@@ -5382,17 +6305,54 @@ mod tests {
     fn test_all_icons_render_valid_svg() {
         use crate::icons::{view_icon, Icon};
         let all_icons = [
-            Icon::New, Icon::Open, Icon::Save, Icon::SaveAs, Icon::Close,
-            Icon::Print, Icon::ExportPdf, Icon::Undo, Icon::Redo, Icon::Cut,
-            Icon::Copy, Icon::Paste, Icon::Duplicate, Icon::Delete,
-            Icon::RotateCw, Icon::RotateCcw, Icon::MirrorH, Icon::MirrorV,
-            Icon::Palette, Icon::Select, Icon::Pan, Icon::WireL, Icon::WireN,
-            Icon::WirePe, Icon::WireDc, Icon::Junction, Icon::DeleteWire,
-            Icon::ZoomIn, Icon::ZoomOut, Icon::ZoomReset, Icon::FitToPage,
-            Icon::Grid, Icon::Magnet, Icon::Text, Icon::Theme,
-            Icon::Play, Icon::Pause, Icon::Stop, Icon::Step, Icon::Reset,
-            Icon::ChevronLeft, Icon::ChevronRight, Icon::AddBefore, Icon::AddAfter,
-            Icon::Search, Icon::Pencil, Icon::Folder, Icon::Bolt,
+            Icon::New,
+            Icon::Open,
+            Icon::Save,
+            Icon::SaveAs,
+            Icon::Close,
+            Icon::Print,
+            Icon::ExportPdf,
+            Icon::Undo,
+            Icon::Redo,
+            Icon::Cut,
+            Icon::Copy,
+            Icon::Paste,
+            Icon::Duplicate,
+            Icon::Delete,
+            Icon::RotateCw,
+            Icon::RotateCcw,
+            Icon::MirrorH,
+            Icon::MirrorV,
+            Icon::Palette,
+            Icon::Select,
+            Icon::Pan,
+            Icon::WireL,
+            Icon::WireN,
+            Icon::WirePe,
+            Icon::WireDc,
+            Icon::Junction,
+            Icon::DeleteWire,
+            Icon::ZoomIn,
+            Icon::ZoomOut,
+            Icon::ZoomReset,
+            Icon::FitToPage,
+            Icon::Grid,
+            Icon::Magnet,
+            Icon::Text,
+            Icon::Theme,
+            Icon::Play,
+            Icon::Pause,
+            Icon::Stop,
+            Icon::Step,
+            Icon::Reset,
+            Icon::ChevronLeft,
+            Icon::ChevronRight,
+            Icon::AddBefore,
+            Icon::AddAfter,
+            Icon::Search,
+            Icon::Pencil,
+            Icon::Folder,
+            Icon::Bolt,
         ];
         for icon in all_icons {
             let bytes = icon.bytes();
@@ -5407,17 +6367,17 @@ mod tests {
 
         // 1. Testa resolução de temas (LIGHT, DARK, SYSTEM)
         app.theme_mode = ThemeMode::Light;
-        assert_eq!(app.is_dark(), false);
+        assert!(!app.is_dark());
 
         app.theme_mode = ThemeMode::Dark;
-        assert_eq!(app.is_dark(), true);
+        assert!(app.is_dark());
 
         app.theme_mode = ThemeMode::System;
         app.system_is_dark = true;
-        assert_eq!(app.is_dark(), true);
+        assert!(app.is_dark());
 
         app.system_is_dark = false;
-        assert_eq!(app.is_dark(), false);
+        assert!(!app.is_dark());
 
         // 2. Testa comportamento do wire_color no Canvas
         let mut wire_phase = SchematicItem::new_wire(1, 4000, 10, 10, 20, 10);
@@ -5494,7 +6454,10 @@ mod tests {
         let (col_cust_light, _) = canvas_light.wire_color(&wire_phase);
         let (col_cust_dark, _) = canvas_dark.wire_color(&wire_phase);
         assert_eq!(col_cust_light, col_cust_dark);
-        assert_eq!(col_cust_light, Color::from_rgb(0.0, 1.0, 0x88 as f32 / 255.0));
+        assert_eq!(
+            col_cust_light,
+            Color::from_rgb(0.0, 1.0, 0x88 as f32 / 255.0)
+        );
 
         // 4. Renderiza view em modo claro e escuro sem erros
         app.theme_mode = ThemeMode::Light;
@@ -5509,7 +6472,8 @@ mod tests {
         let svg_dj_dark = crate::symbols::get_themed_symbol_svg_string(&sym_dj, true);
 
         assert!(
-            svg_dj_light.contains("stroke=\"#111827\"") || svg_dj_light.contains("stroke=\"black\""),
+            svg_dj_light.contains("stroke=\"#111827\"")
+                || svg_dj_light.contains("stroke=\"black\""),
             "No tema claro, o traço da miniatura deve ser escuro"
         );
         assert!(
@@ -5517,20 +6481,30 @@ mod tests {
             "No tema escuro, o traço da miniatura deve ser claro (#E2E8F0)"
         );
         assert!(
-            !svg_dj_dark.contains("stroke=\"#111827\"") && !svg_dj_dark.contains("stroke=\"black\""),
+            !svg_dj_dark.contains("stroke=\"#111827\"")
+                && !svg_dj_dark.contains("stroke=\"black\""),
             "No tema escuro, traços pretos devem ter sido substituídos por claros"
         );
 
         // Testa também para botão de emergência com trava (8030)
         let sym_emg = find_symbol(8030).unwrap();
         let svg_emg_dark = crate::symbols::get_themed_symbol_svg_string(&sym_emg, true);
-        assert!(svg_emg_dark.contains("stroke=\"#E2E8F0\""), "Emergência 8030 deve ter traços claros em dark mode");
-        assert!(!svg_emg_dark.contains("stroke=\"black\""), "Emergência 8030 não pode ter stroke='black' em dark mode");
+        assert!(
+            svg_emg_dark.contains("stroke=\"#E2E8F0\""),
+            "Emergência 8030 deve ter traços claros em dark mode"
+        );
+        assert!(
+            !svg_emg_dark.contains("stroke=\"black\""),
+            "Emergência 8030 não pode ter stroke='black' em dark mode"
+        );
 
         // Testa para componente gerado dinamicamente (ex: motor 1000)
         let sym_motor = find_symbol(1000).unwrap();
         let svg_motor_dark = crate::symbols::get_themed_symbol_svg_string(&sym_motor, true);
-        assert!(svg_motor_dark.contains("stroke=\"#E2E8F0\""), "Motor 1000 deve ter traços claros em dark mode");
+        assert!(
+            svg_motor_dark.contains("stroke=\"#E2E8F0\""),
+            "Motor 1000 deve ter traços claros em dark mode"
+        );
 
         // Renderiza app.view() com o símbolo selecionado em ambos os temas para garantir integração total
         app.theme_mode = ThemeMode::Light;
@@ -5586,52 +6560,137 @@ mod tests {
         // Cabos ligando em série:
         // Cabo 1: L -> S1 (72, 10) -> (72, 20)
         let w_l_s1 = next_id();
-        doc.items.push(SchematicItem::new_wire(w_l_s1, 4000, 72, 10, 72, 20));
+        doc.items
+            .push(SchematicItem::new_wire(w_l_s1, 4000, 72, 10, 72, 20));
         // Cabo 2: S1 -> S2 (72, 32) -> (72, 40)
         let w_s1_s2 = next_id();
-        doc.items.push(SchematicItem::new_wire(w_s1_s2, 4000, 72, 32, 72, 40));
+        doc.items
+            .push(SchematicItem::new_wire(w_s1_s2, 4000, 72, 32, 72, 40));
         // Cabo 3: S2 -> KM1 (72, 52) -> (72, 60)
         let w_s2_km = next_id();
-        doc.items.push(SchematicItem::new_wire(w_s2_km, 4000, 72, 52, 72, 60));
+        doc.items
+            .push(SchematicItem::new_wire(w_s2_km, 4000, 72, 52, 72, 60));
         // Cabo 4: KM1 -> N (72, 72) -> (72, 80)
         let w_km_n = next_id();
-        doc.items.push(SchematicItem::new_wire(w_km_n, 4009, 72, 72, 72, 80));
+        doc.items
+            .push(SchematicItem::new_wire(w_km_n, 4009, 72, 72, 72, 80));
 
         // Caso 1: (S1=0, S2=0) -> Ambos abertos
         step_simulation(&mut doc, 50);
-        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        let km = doc
+            .items
+            .iter()
+            .find(|i| i.tag == "-KM1" && i.tipo == 9000)
+            .unwrap();
         assert!(!km.sim_active, "AND (0,0): Bobina deve estar DESLIGADA");
-        assert_eq!(doc.items.iter().find(|i| i.id == w_s1_s2).unwrap().sim_potential, Potential::None);
-        assert_eq!(doc.items.iter().find(|i| i.id == w_s2_km).unwrap().sim_potential, Potential::None);
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_s1_s2)
+                .unwrap()
+                .sim_potential,
+            Potential::None
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_s2_km)
+                .unwrap()
+                .sim_potential,
+            Potential::None
+        );
 
         // Caso 2: (S1=1, S2=0) -> S1 fechado, S2 aberto
         // A eletricidade passa por S1 (cabo w_s1_s2 recebe L1), mas NÃO passa por S2 (w_s2_km é None)!
         set_manual_by_tag(&mut doc, "-S1", true);
         step_simulation(&mut doc, 50);
-        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
-        assert!(!km.sim_active, "AND (1,0): Bobina deve estar DESLIGADA se S2 estiver aberto");
-        assert_eq!(doc.items.iter().find(|i| i.id == w_s1_s2).unwrap().sim_potential, Potential::L1);
-        assert_eq!(doc.items.iter().find(|i| i.id == w_s2_km).unwrap().sim_potential, Potential::None);
+        let km = doc
+            .items
+            .iter()
+            .find(|i| i.tag == "-KM1" && i.tipo == 9000)
+            .unwrap();
+        assert!(
+            !km.sim_active,
+            "AND (1,0): Bobina deve estar DESLIGADA se S2 estiver aberto"
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_s1_s2)
+                .unwrap()
+                .sim_potential,
+            Potential::L1
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_s2_km)
+                .unwrap()
+                .sim_potential,
+            Potential::None
+        );
 
         // Caso 3: (S1=0, S2=1) -> S1 aberto, S2 fechado
         // A eletricidade é barrada em S1!
         set_manual_by_tag(&mut doc, "-S1", false);
         set_manual_by_tag(&mut doc, "-S2", true);
         step_simulation(&mut doc, 50);
-        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
-        assert!(!km.sim_active, "AND (0,1): Bobina deve estar DESLIGADA se S1 estiver aberto");
-        assert_eq!(doc.items.iter().find(|i| i.id == w_s1_s2).unwrap().sim_potential, Potential::None);
-        assert_eq!(doc.items.iter().find(|i| i.id == w_s2_km).unwrap().sim_potential, Potential::None);
+        let km = doc
+            .items
+            .iter()
+            .find(|i| i.tag == "-KM1" && i.tipo == 9000)
+            .unwrap();
+        assert!(
+            !km.sim_active,
+            "AND (0,1): Bobina deve estar DESLIGADA se S1 estiver aberto"
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_s1_s2)
+                .unwrap()
+                .sim_potential,
+            Potential::None
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_s2_km)
+                .unwrap()
+                .sim_potential,
+            Potential::None
+        );
 
         // Caso 4: (S1=1, S2=1) -> Ambos fechados!
         // Condição AND satisfeita: eletricidade passa por S1 E por S2, energizando KM1!
         set_manual_by_tag(&mut doc, "-S1", true);
         set_manual_by_tag(&mut doc, "-S2", true);
         step_simulation(&mut doc, 50);
-        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
-        assert!(km.sim_active, "AND (1,1): Bobina DEVE LIGAR quando ambos estiverem fechados");
-        assert_eq!(doc.items.iter().find(|i| i.id == w_s1_s2).unwrap().sim_potential, Potential::L1);
-        assert_eq!(doc.items.iter().find(|i| i.id == w_s2_km).unwrap().sim_potential, Potential::L1);
+        let km = doc
+            .items
+            .iter()
+            .find(|i| i.tag == "-KM1" && i.tipo == 9000)
+            .unwrap();
+        assert!(
+            km.sim_active,
+            "AND (1,1): Bobina DEVE LIGAR quando ambos estiverem fechados"
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_s1_s2)
+                .unwrap()
+                .sim_potential,
+            Potential::L1
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_s2_km)
+                .unwrap()
+                .sim_potential,
+            Potential::L1
+        );
 
         // ==================== 2. CIRCUITO DE POTÊNCIA EM SÉRIE (AND / &&) ====================
         // Monta: Alimentação 3F (3004) -> Disjuntor 3P -Q1 (6003) -> Contator 3P -KM2 (2001) -> Motor 3~ -M1 (1000)
@@ -5652,7 +6711,9 @@ mod tests {
         // Circuito de comando para acionar a bobina KM2:
         // L -> S_KM2 (8000) -> Bobina KM2 (9000) -> N
         let sym_l_cmd = find_symbol(3000).unwrap();
-        doc_pwr.items.push(sym_l_cmd.instantiate(next_id(), 72, 45, 0));
+        doc_pwr
+            .items
+            .push(sym_l_cmd.instantiate(next_id(), 72, 45, 0));
 
         let sym_s_km2 = find_symbol(8000).unwrap();
         let mut it_s_km2 = sym_s_km2.instantiate(next_id(), 72, 50, 0);
@@ -5664,12 +6725,20 @@ mod tests {
         doc_pwr.items.push(it_km2_coil);
 
         let sym_n_cmd = find_symbol(3001).unwrap();
-        doc_pwr.items.push(sym_n_cmd.instantiate(next_id(), 72, 85, 2));
+        doc_pwr
+            .items
+            .push(sym_n_cmd.instantiate(next_id(), 72, 85, 2));
 
         // Cabos de comando da bobina KM2:
-        doc_pwr.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 45, 72, 50));
-        doc_pwr.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 62, 72, 68));
-        doc_pwr.items.push(SchematicItem::new_wire(next_id(), 4009, 72, 80, 72, 85));
+        doc_pwr
+            .items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 45, 72, 50));
+        doc_pwr
+            .items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 62, 72, 68));
+        doc_pwr
+            .items
+            .push(SchematicItem::new_wire(next_id(), 4009, 72, 80, 72, 85));
 
         let sym_m1 = find_symbol(1000).unwrap();
         let mut it_m1 = sym_m1.instantiate(next_id(), 24, 69, 0);
@@ -5681,30 +6750,56 @@ mod tests {
         let mut wires_bot = Vec::new();
         for dx in [0, 6, 12] {
             let x = 24 + dx;
-            doc_pwr.items.push(SchematicItem::new_wire(next_id(), 4000, x, 18, x, 24));
+            doc_pwr
+                .items
+                .push(SchematicItem::new_wire(next_id(), 4000, x, 18, x, 24));
             let w_m = next_id();
-            doc_pwr.items.push(SchematicItem::new_wire(w_m, 4000, x, 45, x, 51));
+            doc_pwr
+                .items
+                .push(SchematicItem::new_wire(w_m, 4000, x, 45, x, 51));
             wires_mid.push(w_m);
             let w_b = next_id();
-            doc_pwr.items.push(SchematicItem::new_wire(w_b, 4000, x, 63, x, 69));
+            doc_pwr
+                .items
+                .push(SchematicItem::new_wire(w_b, 4000, x, 63, x, 69));
             wires_bot.push(w_b);
         }
 
         // Q1 aberto, KM2 aberto -> Motor Parado
         step_simulation(&mut doc_pwr, 50);
         let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
-        assert!(!m1.sim_active, "Potência: Motor desligado quando Q1 e KM2 abertos");
+        assert!(
+            !m1.sim_active,
+            "Potência: Motor desligado quando Q1 e KM2 abertos"
+        );
 
         // Q1 fechado, KM2 aberto -> Eletricidade chega até a entrada de KM2, mas NÃO passa para o motor!
         set_manual_by_tag(&mut doc_pwr, "-Q1", true);
         step_simulation(&mut doc_pwr, 50);
         let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
-        assert!(!m1.sim_active, "Potência: Motor desligado se contator KM2 estiver aberto");
+        assert!(
+            !m1.sim_active,
+            "Potência: Motor desligado se contator KM2 estiver aberto"
+        );
         for &w in &wires_mid {
-            assert!(doc_pwr.items.iter().find(|i| i.id == w).unwrap().sim_potential.is_energized());
+            assert!(doc_pwr
+                .items
+                .iter()
+                .find(|i| i.id == w)
+                .unwrap()
+                .sim_potential
+                .is_energized());
         }
         for &w in &wires_bot {
-            assert_eq!(doc_pwr.items.iter().find(|i| i.id == w).unwrap().sim_potential, Potential::None);
+            assert_eq!(
+                doc_pwr
+                    .items
+                    .iter()
+                    .find(|i| i.id == w)
+                    .unwrap()
+                    .sim_potential,
+                Potential::None
+            );
         }
 
         // Q1 aberto, KM2 fechado -> Eletricidade NÃO passa por Q1, motor parado!
@@ -5712,17 +6807,29 @@ mod tests {
         set_manual_by_tag(&mut doc_pwr, "-SKM2", true);
         step_simulation(&mut doc_pwr, 50);
         let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
-        assert!(!m1.sim_active, "Potência: Motor desligado se disjuntor Q1 estiver aberto");
+        assert!(
+            !m1.sim_active,
+            "Potência: Motor desligado se disjuntor Q1 estiver aberto"
+        );
 
         // Q1 fechado E KM2 fechado -> Eletricidade passa por ambos e motor gira!
         set_manual_by_tag(&mut doc_pwr, "-Q1", true);
         set_manual_by_tag(&mut doc_pwr, "-SKM2", true);
         step_simulation(&mut doc_pwr, 50);
         let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
-        assert!(m1.sim_active, "Potência: Motor DEVE LIGAR quando Q1 E KM2 estiverem fechados");
+        assert!(
+            m1.sim_active,
+            "Potência: Motor DEVE LIGAR quando Q1 E KM2 estiverem fechados"
+        );
         assert_eq!(m1.sim_motor_dir, 1);
         for &w in &wires_bot {
-            assert!(doc_pwr.items.iter().find(|i| i.id == w).unwrap().sim_potential.is_energized());
+            assert!(doc_pwr
+                .items
+                .iter()
+                .find(|i| i.id == w)
+                .unwrap()
+                .sim_potential
+                .is_energized());
         }
     }
 
@@ -5773,58 +6880,119 @@ mod tests {
         doc.items.push(it_n);
 
         // Cabo Fase até o Nó J1 (72, 20)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 10, 72, 20));
-        doc.items.push(SchematicItem::new_junction(next_id(), 72, 20));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 10, 72, 20));
+        doc.items
+            .push(SchematicItem::new_junction(next_id(), 72, 20));
 
         // Ramo A: (72, 20) -> (72, 25)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 20, 72, 25));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 20, 72, 25));
         // Saída Ramo A: (72, 37) -> (72, 45)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 37, 72, 45));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 37, 72, 45));
 
         // Ramo B: (72, 20) -> (84, 20) -> (84, 25)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 20, 84, 20));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 20, 84, 25));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 20, 84, 20));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 84, 20, 84, 25));
         // Saída Ramo B: (84, 37) -> (84, 45) -> (72, 45)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 37, 84, 45));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 45, 72, 45));
-        doc.items.push(SchematicItem::new_junction(next_id(), 72, 45));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 84, 37, 84, 45));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 84, 45, 72, 45));
+        doc.items
+            .push(SchematicItem::new_junction(next_id(), 72, 45));
 
         // Cabo de J2 (72, 45) até Bobina A1 (72, 50)
         let w_out = next_id();
-        doc.items.push(SchematicItem::new_wire(w_out, 4000, 72, 45, 72, 50));
+        doc.items
+            .push(SchematicItem::new_wire(w_out, 4000, 72, 45, 72, 50));
         // Cabo Bobina A2 (72, 62) até Neutro (72, 70)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4009, 72, 62, 72, 70));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4009, 72, 62, 72, 70));
 
         // Caso 1: (S1=0, S2=0) -> Ambos abertos
         step_simulation(&mut doc, 50);
-        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        let km = doc
+            .items
+            .iter()
+            .find(|i| i.tag == "-KM1" && i.tipo == 9000)
+            .unwrap();
         assert!(!km.sim_active, "OR (0,0): Bobina deve estar DESLIGADA");
-        assert_eq!(doc.items.iter().find(|i| i.id == w_out).unwrap().sim_potential, Potential::None);
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_out)
+                .unwrap()
+                .sim_potential,
+            Potential::None
+        );
 
         // Caso 2: (S1=1, S2=0) -> S1 fechado, S2 aberto
         // A corrente flui pelo ramo A, alcança o nó J2 e liga a bobina!
         set_manual_by_tag(&mut doc, "-S1", true);
         step_simulation(&mut doc, 50);
-        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
-        assert!(km.sim_active, "OR (1,0): Bobina DEVE LIGAR pelo ramo A fechado");
-        assert_eq!(doc.items.iter().find(|i| i.id == w_out).unwrap().sim_potential, Potential::L1);
+        let km = doc
+            .items
+            .iter()
+            .find(|i| i.tag == "-KM1" && i.tipo == 9000)
+            .unwrap();
+        assert!(
+            km.sim_active,
+            "OR (1,0): Bobina DEVE LIGAR pelo ramo A fechado"
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_out)
+                .unwrap()
+                .sim_potential,
+            Potential::L1
+        );
 
         // Caso 3: (S1=0, S2=1) -> S1 aberto, S2 fechado
         // A corrente flui pelo ramo B, alcança o nó J2 e liga a bobina!
         set_manual_by_tag(&mut doc, "-S1", false);
         set_manual_by_tag(&mut doc, "-S2", true);
         step_simulation(&mut doc, 50);
-        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
-        assert!(km.sim_active, "OR (0,1): Bobina DEVE LIGAR pelo ramo B fechado");
-        assert_eq!(doc.items.iter().find(|i| i.id == w_out).unwrap().sim_potential, Potential::L1);
+        let km = doc
+            .items
+            .iter()
+            .find(|i| i.tag == "-KM1" && i.tipo == 9000)
+            .unwrap();
+        assert!(
+            km.sim_active,
+            "OR (0,1): Bobina DEVE LIGAR pelo ramo B fechado"
+        );
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_out)
+                .unwrap()
+                .sim_potential,
+            Potential::L1
+        );
 
         // Caso 4: (S1=1, S2=1) -> Ambos fechados
         set_manual_by_tag(&mut doc, "-S1", true);
         set_manual_by_tag(&mut doc, "-S2", true);
         step_simulation(&mut doc, 50);
-        let km = doc.items.iter().find(|i| i.tag == "-KM1" && i.tipo == 9000).unwrap();
+        let km = doc
+            .items
+            .iter()
+            .find(|i| i.tag == "-KM1" && i.tipo == 9000)
+            .unwrap();
         assert!(km.sim_active, "OR (1,1): Bobina DEVE LIGAR");
-        assert_eq!(doc.items.iter().find(|i| i.id == w_out).unwrap().sim_potential, Potential::L1);
+        assert_eq!(
+            doc.items
+                .iter()
+                .find(|i| i.id == w_out)
+                .unwrap()
+                .sim_potential,
+            Potential::L1
+        );
     }
 
     #[test]
@@ -5877,25 +7045,37 @@ mod tests {
 
         // Fiação:
         // L -> C (72, 10) -> (72, 15)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 10, 72, 15));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 10, 72, 15));
         // C saída (72, 27) -> Nó J1 (72, 30)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 27, 72, 30));
-        doc.items.push(SchematicItem::new_junction(next_id(), 72, 30));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 27, 72, 30));
+        doc.items
+            .push(SchematicItem::new_junction(next_id(), 72, 30));
 
         // Ramo A: (72, 30) -> (72, 35) e saída (72, 47) -> (72, 55)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 30, 72, 35));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 47, 72, 55));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 30, 72, 35));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 47, 72, 55));
 
         // Ramo B: (72, 30) -> (84, 30) -> (84, 35) e saída (84, 47) -> (84, 55) -> (72, 55)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 30, 84, 30));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 30, 84, 35));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 47, 84, 55));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 84, 55, 72, 55));
-        doc.items.push(SchematicItem::new_junction(next_id(), 72, 55));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 30, 84, 30));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 84, 30, 84, 35));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 84, 47, 84, 55));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 84, 55, 72, 55));
+        doc.items
+            .push(SchematicItem::new_junction(next_id(), 72, 55));
 
         // J2 (72, 55) -> Y (72, 60) e Y (72, 72) -> N (72, 80)
-        doc.items.push(SchematicItem::new_wire(next_id(), 4000, 72, 55, 72, 60));
-        doc.items.push(SchematicItem::new_wire(next_id(), 4009, 72, 72, 72, 80));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4000, 72, 55, 72, 60));
+        doc.items
+            .push(SchematicItem::new_wire(next_id(), 4009, 72, 72, 72, 80));
 
         // Valida todas as 8 combinações da tabela verdade: Y = (A || B) && !C_pressed
         for (a_val, b_val, c_pressed) in [
@@ -5914,10 +7094,14 @@ mod tests {
             step_simulation(&mut doc, 50);
 
             let expected = (a_val || b_val) && !c_pressed;
-            let y_active = doc.items.iter().find(|i| i.tag == "-Y" && i.tipo == 9000).unwrap().sim_active;
+            let y_active = doc
+                .items
+                .iter()
+                .find(|i| i.tag == "-Y" && i.tipo == 9000)
+                .unwrap()
+                .sim_active;
             assert_eq!(
-                y_active,
-                expected,
+                y_active, expected,
                 "Falha na tabela verdade para A={}, B={}, C_pressed={}: esperado {}, obtido {}",
                 a_val, b_val, c_pressed, expected, y_active
             );
@@ -5952,8 +7136,14 @@ mod tests {
         // Seleciona Sequência 2 -> 23 e 24
         let _ = app.update(Message::SelectPinSequence(2));
         let item = app.doc.items.iter().find(|i| i.id == id_btn1).unwrap();
-        assert_eq!(item.pins[0], "23", "Borne 1 deve atualizar para 23 na sequência 2");
-        assert_eq!(item.pins[1], "24", "Borne 2 deve atualizar para 24 na sequência 2");
+        assert_eq!(
+            item.pins[0], "23",
+            "Borne 1 deve atualizar para 23 na sequência 2"
+        );
+        assert_eq!(
+            item.pins[1], "24",
+            "Borne 2 deve atualizar para 24 na sequência 2"
+        );
 
         // Seleciona Sequência 3 -> 33 e 34
         let _ = app.update(Message::SelectPinSequence(3));
@@ -5978,8 +7168,14 @@ mod tests {
         // Seleciona Sequência 2 em NF -> 21 e 22
         let _ = app.update(Message::SelectPinSequence(2));
         let item = app.doc.items.iter().find(|i| i.id == id_btn2).unwrap();
-        assert_eq!(item.pins[0], "21", "Borne 1 de NF na sequência 2 deve ser 21");
-        assert_eq!(item.pins[1], "22", "Borne 2 de NF na sequência 2 deve ser 22");
+        assert_eq!(
+            item.pins[0], "21",
+            "Borne 1 de NF na sequência 2 deve ser 21"
+        );
+        assert_eq!(
+            item.pins[1], "22",
+            "Borne 2 de NF na sequência 2 deve ser 22"
+        );
 
         // 3. Testa edição livre de texto nos bornes (inputs manuais continuam livres)
         let _ = app.update(Message::EditPin(0, "COM".to_string()));
@@ -6009,12 +7205,18 @@ mod tests {
 
         // Contexto: quais sequências de -KM1 estão ocupadas excluindo o próprio cont_nf1?
         let occupied = find_occupied_sequences_for_tag(&app.doc.items, "-KM1", Some(id_km_nf1));
-        assert!(occupied.contains(&1), "Sequência 1 deve ser detectada como ocupada pelo cont_na1");
+        assert!(
+            occupied.contains(&1),
+            "Sequência 1 deve ser detectada como ocupada pelo cont_na1"
+        );
         assert!(!occupied.contains(&2), "Sequência 2 deve estar livre");
 
         // Próxima sequência sugerida deve ser 2
         let suggested = (1..=9).find(|d| !occupied.contains(d)).unwrap();
-        assert_eq!(suggested, 2, "A próxima sequência sugerida para -KM1 deve ser 2");
+        assert_eq!(
+            suggested, 2,
+            "A próxima sequência sugerida para -KM1 deve ser 2"
+        );
 
         // Seleciona o contato NF com conflito e aplica a sequência sugerida 2
         app.selected_id = Some(id_km_nf1);
@@ -6028,49 +7230,87 @@ mod tests {
         assert!(occupied_all.contains(&1));
         assert!(occupied_all.contains(&2));
         let next_suggested = (1..=9).find(|d| !occupied_all.contains(d)).unwrap();
-        assert_eq!(next_suggested, 3, "Novo contato de -KM1 deve sugerir sequência 3");
+        assert_eq!(
+            next_suggested, 3,
+            "Novo contato de -KM1 deve sugerir sequência 3"
+        );
 
         // 5. Testa Bobinas: bornes SEMPRE A1-A2 e sequenciamento de tags (-KM1, -KM2)
         let sym_coil = find_symbol(9000).expect("Bobina deve existir");
         // Bobina NUNCA deve ser classificada como contato com sequência aberta/fechada
-        assert!(detect_contact_kind(9000, &sym_coil.pins).is_none(), "Bobina não deve ter ContactKind");
+        assert!(
+            detect_contact_kind(9000, &sym_coil.pins).is_none(),
+            "Bobina não deve ter ContactKind"
+        );
 
         // Insere primeira bobina no Canvas -> deve ser -KM1 e bornes A1-A2
-        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 9000, x: 400, y: 100 }));
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent {
+            tipo: 9000,
+            x: 400,
+            y: 100,
+        }));
         let coil1 = app.doc.items.last().unwrap();
         assert_eq!(coil1.tag, "-KM1", "Primeira bobina deve receber tag -KM1");
         assert_eq!(coil1.pins[0], "A1", "Borne 1 da bobina DEVE ser A1");
         assert_eq!(coil1.pins[1], "A2", "Borne 2 da bobina DEVE ser A2");
 
         // Insere segunda bobina no Canvas -> deve ser -KM2 e bornes A1-A2
-        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 9000, x: 450, y: 100 }));
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent {
+            tipo: 9000,
+            x: 450,
+            y: 100,
+        }));
         let (coil2_id, coil2_tag, coil2_p0, coil2_p1) = {
             let c2 = app.doc.items.last().unwrap();
-            (c2.id, c2.tag.clone(), c2.pins[0].clone(), c2.pins[1].clone())
+            (
+                c2.id,
+                c2.tag.clone(),
+                c2.pins[0].clone(),
+                c2.pins[1].clone(),
+            )
         };
-        assert_eq!(coil2_tag, "-KM2", "Segunda bobina deve receber tag sequencial -KM2");
+        assert_eq!(
+            coil2_tag, "-KM2",
+            "Segunda bobina deve receber tag sequencial -KM2"
+        );
         assert_eq!(coil2_p0, "A1", "Borne 1 da segunda bobina DEVE ser A1");
         assert_eq!(coil2_p1, "A2", "Borne 2 da segunda bobina DEVE ser A2");
 
         // Insere botões/interruptores no Canvas -> -S1, -S2...
-        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 8000, x: 500, y: 100 }));
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent {
+            tipo: 8000,
+            x: 500,
+            y: 100,
+        }));
         let btn_s = app.doc.items.last().unwrap();
-        assert!(btn_s.tag.starts_with("-S"), "Botão deve iniciar com prefixo -S");
+        assert!(
+            btn_s.tag.starts_with("-S"),
+            "Botão deve iniciar com prefixo -S"
+        );
 
         // 6. Testa verificação de contato com e sem bobina
         let mut orphan_contact = sym_cont_na.instantiate(3001, 600, 100, 0);
         orphan_contact.tag = "-KM99".to_string(); // Bobina inexistente no esquema
-        assert!(find_parent_apparatus(&app.doc.items, &orphan_contact).is_none(), "Contato -KM99 deve ser identificado como sem bobina");
+        assert!(
+            find_parent_apparatus(&app.doc.items, &orphan_contact).is_none(),
+            "Contato -KM99 deve ser identificado como sem bobina"
+        );
 
         let mut linked_contact = sym_cont_na.instantiate(3002, 650, 100, 0);
         linked_contact.tag = "-KM1".to_string(); // Bobina existente
-        assert!(find_parent_apparatus(&app.doc.items, &linked_contact).is_some(), "Contato -KM1 deve encontrar a bobina -KM1");
+        assert!(
+            find_parent_apparatus(&app.doc.items, &linked_contact).is_some(),
+            "Contato -KM1 deve encontrar a bobina -KM1"
+        );
 
         // 7. Testa duplicação de aparelhos (Ctrl+D)
         app.selected_id = Some(coil2_id); // seleciona -KM2
         let _ = app.update(Message::Duplicate);
         let duplicated_coil = app.doc.items.last().unwrap();
-        assert_eq!(duplicated_coil.tag, "-KM3", "Duplicar bobina -KM2 deve gerar -KM3");
+        assert_eq!(
+            duplicated_coil.tag, "-KM3",
+            "Duplicar bobina -KM2 deve gerar -KM3"
+        );
         assert_eq!(duplicated_coil.pins[0], "A1");
         assert_eq!(duplicated_coil.pins[1], "A2");
 
@@ -6084,7 +7324,11 @@ mod tests {
         app.doc.items.clear();
 
         // 1. Posiciona componente inicial em (100, 100)
-        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 9000, x: 100, y: 100 }));
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent {
+            tipo: 9000,
+            x: 100,
+            y: 100,
+        }));
         let item_id = app.doc.items[0].id;
         assert_eq!(app.doc.items[0].x1, 100);
         assert_eq!(app.doc.items[0].y1, 100);
@@ -6141,7 +7385,11 @@ mod tests {
         app.doc.items.clear();
 
         // Insere componente e fio conectado
-        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent { tipo: 9000, x: 100, y: 100 }));
+        let _ = app.update(Message::Canvas(CanvasMessage::PlaceComponent {
+            tipo: 9000,
+            x: 100,
+            y: 100,
+        }));
         let comp_id = app.doc.items[0].id;
         let _ = app.update(Message::Canvas(CanvasMessage::AddWire {
             tipo: 4000,
@@ -6154,8 +7402,15 @@ mod tests {
         let initial_undo_len = app.undo_stack.len();
 
         // 1. Arraste cancelado via ESC / Botão Direito (CancelAction)
-        let _ = app.update(Message::Canvas(CanvasMessage::MoveItem { id: comp_id, x1: 140, y1: 100 }));
-        assert_eq!(app.doc.items.iter().find(|i| i.id == comp_id).unwrap().x1, 140);
+        let _ = app.update(Message::Canvas(CanvasMessage::MoveItem {
+            id: comp_id,
+            x1: 140,
+            y1: 100,
+        }));
+        assert_eq!(
+            app.doc.items.iter().find(|i| i.id == comp_id).unwrap().x1,
+            140
+        );
         let _ = app.update(Message::Canvas(CanvasMessage::CancelAction));
         assert_eq!(
             app.doc.items.iter().find(|i| i.id == comp_id).unwrap().x1,
@@ -6169,7 +7424,11 @@ mod tests {
         );
 
         // 2. Arraste concluído com fio conectado
-        let _ = app.update(Message::Canvas(CanvasMessage::MoveItem { id: comp_id, x1: 130, y1: 100 }));
+        let _ = app.update(Message::Canvas(CanvasMessage::MoveItem {
+            id: comp_id,
+            x1: 130,
+            y1: 100,
+        }));
         let _ = app.update(Message::Canvas(CanvasMessage::EndMoveItem { id: comp_id }));
         assert_eq!(app.undo_stack.len(), initial_undo_len + 1);
 
@@ -6197,27 +7456,49 @@ mod tests {
     #[test]
     fn test_teste_cad_loading_and_mushroom_button_dj() {
         let cad_path = "Projetos/teste.cad";
-        let content = std::fs::read_to_string(cad_path)
-            .expect("teste.cad deve existir na pasta Projetos");
-        let doc = crate::io::parse_cad_str(&content)
-            .expect("teste.cad deve carregar com sucesso");
+        let content =
+            std::fs::read_to_string(cad_path).expect("teste.cad deve existir na pasta Projetos");
+        let doc = crate::io::parse_cad_str(&content).expect("teste.cad deve carregar com sucesso");
 
         // Verifica que o elemento 139 existe no arquivo e foi decodificado como 8008 (Interruptor NA / DJ)
-        let item_dj = doc.items.iter().find(|i| i.id == 139)
+        let item_dj = doc
+            .items
+            .iter()
+            .find(|i| i.id == 139)
             .expect("Item #139 (DJ) deve estar presente no teste.cad");
-        assert_eq!(item_dj.tipo, 8008, "Item #139 deve ser tipo 8008 (Contacto interruptor NA - DJ)");
+        assert_eq!(
+            item_dj.tipo, 8008,
+            "Item #139 deve ser tipo 8008 (Contacto interruptor NA - DJ)"
+        );
         assert_eq!(item_dj.tag.trim(), "DJ", "Tag do elemento #139 deve ser DJ");
         assert_eq!(item_dj.pins[0].trim(), "13", "Pino 0 deve ser 13");
         assert_eq!(item_dj.pins[1].trim(), "14", "Pino 1 deve ser 14");
 
         // Verifica que o símbolo existe no catálogo do programa com primitivas vetoriais completas
         let sym = find_symbol(8008).expect("Símbolo 8008 deve existir no catálogo de símbolos");
-        assert_eq!(sym.category, crate::symbols::SymbolCategory::PushbuttonsActuators);
-        assert!(sym.name.contains("Interruptor") || sym.name.contains("Chave"), "8008 deve ser Interruptor / Chave");
-        assert!(!sym.idle_cmds.is_empty(), "Comandos idle não podem ser vazios");
-        assert!(!sym.active_cmds.is_empty(), "Comandos active não podem ser vazios");
+        assert_eq!(
+            sym.category,
+            crate::symbols::SymbolCategory::PushbuttonsActuators
+        );
+        assert!(
+            sym.name.contains("Interruptor") || sym.name.contains("Chave"),
+            "8008 deve ser Interruptor / Chave"
+        );
+        assert!(
+            !sym.idle_cmds.is_empty(),
+            "Comandos idle não podem ser vazios"
+        );
+        assert!(
+            !sym.active_cmds.is_empty(),
+            "Comandos active não podem ser vazios"
+        );
         // Verifica que contém o comando do traço degrau de retenção do interruptor (LINE,-030,+020,-030,+040)
-        assert!(sym.idle_cmds.iter().any(|cmd| cmd.contains("-030,+020,-030,+040")), "Deve conter degrau retentivo do interruptor");
+        assert!(
+            sym.idle_cmds
+                .iter()
+                .any(|cmd| cmd.contains("-030,+020,-030,+040")),
+            "Deve conter degrau retentivo do interruptor"
+        );
         assert_eq!(sym.pins.len(), 2, "Interruptor NA tem 2 pinos");
     }
 
@@ -6229,17 +7510,31 @@ mod tests {
             8008, 8009, 8010, 8011, // Chaves / Interruptores retentivos (8008 = DJ)
             8012, 8013, 8014, 8015, // Fim de Curso pulsadores
             8016, 8017, 8018, 8019, // Relé Térmico auxiliares
-            8020, 8021, 8022,       // Chaves Seletoras I-0-II, I-II-III, Inversora
-            8023,                   // Botão Pulsador 2D
-            8030, 8031, 8032, 8033, 8034, // Botões de Parada de Emergência Retentivos com travas
+            8020, 8021, 8022, // Chaves Seletoras I-0-II, I-II-III, Inversora
+            8023, // Botão Pulsador 2D
+            8030, 8031, 8032, 8033,
+            8034, // Botões de Parada de Emergência Retentivos com travas
         ];
 
         for &tipo in &expected_types {
-            let sym = find_symbol(tipo).unwrap_or_else(|| panic!("Tipo {} deve existir no catálogo", tipo));
-            assert!(!sym.idle_cmds.is_empty(), "Tipo {} deve ter comandos idle", tipo);
-            assert!(!sym.active_cmds.is_empty(), "Tipo {} deve ter comandos active", tipo);
+            let sym = find_symbol(tipo)
+                .unwrap_or_else(|| panic!("Tipo {} deve existir no catálogo", tipo));
+            assert!(
+                !sym.idle_cmds.is_empty(),
+                "Tipo {} deve ter comandos idle",
+                tipo
+            );
+            assert!(
+                !sym.active_cmds.is_empty(),
+                "Tipo {} deve ter comandos active",
+                tipo
+            );
             if tipo != 8023 {
-                assert!(!sym.pins.is_empty(), "Tipo {} deve ter pinos declarados", tipo);
+                assert!(
+                    !sym.pins.is_empty(),
+                    "Tipo {} deve ter pinos declarados",
+                    tipo
+                );
             }
         }
     }
@@ -6249,12 +7544,24 @@ mod tests {
         use crate::sim::{is_momentary_button, press_component_on_sim, release_component_on_sim};
 
         // 1. Verifica momentâneos (pulsadores simples, cogumelos simples 8004..=8007, fins de curso 8012..=8015)
-        for &m in &[8000, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8012, 8013, 8014, 8015, 8023] {
-            assert!(is_momentary_button(m), "Tipo {} deve ser momentâneo (diferencial/pulsador)", m);
+        for &m in &[
+            8000, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8012, 8013, 8014, 8015, 8023,
+        ] {
+            assert!(
+                is_momentary_button(m),
+                "Tipo {} deve ser momentâneo (diferencial/pulsador)",
+                m
+            );
         }
         // 2. Verifica retentivos / bi-estáveis (interruptores 8008..=8011, chaves 8020..=8022, emergências 8030..=8034)
-        for &b in &[8008, 8009, 8010, 8011, 8020, 8021, 8022, 8030, 8031, 8032, 8033, 8034] {
-            assert!(!is_momentary_button(b), "Tipo {} deve ser bi-estável / retentivo", b);
+        for &b in &[
+            8008, 8009, 8010, 8011, 8020, 8021, 8022, 8030, 8031, 8032, 8033, 8034,
+        ] {
+            assert!(
+                !is_momentary_button(b),
+                "Tipo {} deve ser bi-estável / retentivo",
+                b
+            );
         }
 
         let mut doc = crate::model::SchematicDocument::default();
@@ -6277,31 +7584,55 @@ mod tests {
 
         // Pressiona o botão momentâneo -> fica ativo
         press_component_on_sim(&mut doc, 1);
-        assert!(doc.items[0].sim_manual_latched, "Botão momentâneo deve ficar ativo ao pressionar");
+        assert!(
+            doc.items[0].sim_manual_latched,
+            "Botão momentâneo deve ficar ativo ao pressionar"
+        );
 
         // Solta o botão momentâneo -> volta a repouso
         release_component_on_sim(&mut doc, 1);
-        assert!(!doc.items[0].sim_manual_latched, "Botão momentâneo deve soltar ao liberar o mouse");
+        assert!(
+            !doc.items[0].sim_manual_latched,
+            "Botão momentâneo deve soltar ao liberar o mouse"
+        );
 
         // Pressiona a chave interruptor (8008) -> retém ativo
         press_component_on_sim(&mut doc, 2);
-        assert!(doc.items[1].sim_manual_latched, "Chave interruptor deve reter ativo");
+        assert!(
+            doc.items[1].sim_manual_latched,
+            "Chave interruptor deve reter ativo"
+        );
 
         // Solta a chave interruptor -> DEVE CONTINUAR ATIVO (retentivo/bi-estável)
         release_component_on_sim(&mut doc, 2);
-        assert!(doc.items[1].sim_manual_latched, "Chave interruptor deve permanecer retida após soltar mouse");
+        assert!(
+            doc.items[1].sim_manual_latched,
+            "Chave interruptor deve permanecer retida após soltar mouse"
+        );
 
         // Segundo clique na chave interruptor -> desativa (alterna)
         press_component_on_sim(&mut doc, 2);
-        assert!(!doc.items[1].sim_manual_latched, "Segundo clique desativa chave interruptor");
+        assert!(
+            !doc.items[1].sim_manual_latched,
+            "Segundo clique desativa chave interruptor"
+        );
 
         // Pressiona o botão de emergência retentivo (8030)
         press_component_on_sim(&mut doc, 3);
-        assert!(doc.items[2].sim_manual_latched, "Botão de emergência deve travar ao pressionar");
+        assert!(
+            doc.items[2].sim_manual_latched,
+            "Botão de emergência deve travar ao pressionar"
+        );
         release_component_on_sim(&mut doc, 3);
-        assert!(doc.items[2].sim_manual_latched, "Botão de emergência retém travado ao soltar mouse");
+        assert!(
+            doc.items[2].sim_manual_latched,
+            "Botão de emergência retém travado ao soltar mouse"
+        );
         press_component_on_sim(&mut doc, 3);
-        assert!(!doc.items[2].sim_manual_latched, "Segundo clique destrava o botão de emergência");
+        assert!(
+            !doc.items[2].sim_manual_latched,
+            "Segundo clique destrava o botão de emergência"
+        );
     }
 
     #[test]
@@ -6317,8 +7648,22 @@ mod tests {
         let wp = sym_dj.world_pins(&item_dj);
 
         // Cria fios conectados exatamente nos pinos do símbolo
-        let wire1 = crate::model::SchematicItem::new_wire(201, 4000, wp[0].2.0, wp[0].2.1 - 20, wp[0].2.0, wp[0].2.1);
-        let wire2 = crate::model::SchematicItem::new_wire(202, 4000, wp[1].2.0, wp[1].2.1, wp[1].2.0, wp[1].2.1 + 20);
+        let wire1 = crate::model::SchematicItem::new_wire(
+            201,
+            4000,
+            wp[0].2 .0,
+            wp[0].2 .1 - 20,
+            wp[0].2 .0,
+            wp[0].2 .1,
+        );
+        let wire2 = crate::model::SchematicItem::new_wire(
+            202,
+            4000,
+            wp[1].2 .0,
+            wp[1].2 .1,
+            wp[1].2 .0,
+            wp[1].2 .1 + 20,
+        );
 
         // Fio horizontal cruzando por trás do símbolo
         let wire3 = crate::model::SchematicItem::new_wire(203, 4000, 30, 55, 70, 55);
@@ -6348,20 +7693,32 @@ mod tests {
 
         // Clicar no corpo do símbolo deve retornar o ID do símbolo (100) e JAMAIS o ID de um fio
         let hit = canvas.hit_test(50, 55);
-        assert_eq!(hit, Some(100), "Hit test no centro do símbolo deve selecionar o símbolo e não fios adjacentes");
+        assert_eq!(
+            hit,
+            Some(100),
+            "Hit test no centro do símbolo deve selecionar o símbolo e não fios adjacentes"
+        );
 
-        let hit_pin = canvas.hit_test(wp[0].2.0, wp[0].2.1);
-        assert_eq!(hit_pin, Some(100), "Hit test no pino do símbolo deve priorizar o símbolo sobre o fio conectado");
+        let hit_pin = canvas.hit_test(wp[0].2 .0, wp[0].2 .1);
+        assert_eq!(
+            hit_pin,
+            Some(100),
+            "Hit test no pino do símbolo deve priorizar o símbolo sobre o fio conectado"
+        );
 
         // Clicar longe do símbolo, em ponto exclusivo do fio
-        let hit_wire = canvas.hit_test(wp[0].2.0, wp[0].2.1 - 15);
-        assert_eq!(hit_wire, Some(201), "Hit test longe do símbolo deve selecionar o fio");
+        let hit_wire = canvas.hit_test(wp[0].2 .0, wp[0].2 .1 - 15);
+        assert_eq!(
+            hit_wire,
+            Some(201),
+            "Hit test longe do símbolo deve selecionar o fio"
+        );
     }
 
     #[test]
     fn test_crossover_switch_and_limit_switches_conduction() {
-        use crate::sim::step_simulation;
         use crate::model::Potential;
+        use crate::sim::step_simulation;
 
         let mut doc = crate::model::SchematicDocument::default();
         doc.items.clear();
@@ -6390,12 +7747,30 @@ mod tests {
         doc.items.push(cross);
 
         // Fios conectando L1 ao pino 0 e N ao pino 1
-        doc.items.push(crate::model::SchematicItem::new_wire(4, 4000, pt_l1.0, pt_l1.1, pt_c0.0, pt_c0.1));
-        doc.items.push(crate::model::SchematicItem::new_wire(5, 4002, pt_n.0, pt_n.1, pt_c1.0, pt_c1.1));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            4, 4000, pt_l1.0, pt_l1.1, pt_c0.0, pt_c0.1,
+        ));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            5, 4002, pt_n.0, pt_n.1, pt_c1.0, pt_c1.1,
+        ));
 
         // Cabos de saída a partir dos pinos 2 e 3
-        doc.items.push(crate::model::SchematicItem::new_wire(6, 4000, pt_c2.0, pt_c2.1, pt_c2.0, pt_c2.1 + 20));
-        doc.items.push(crate::model::SchematicItem::new_wire(7, 4002, pt_c3.0, pt_c3.1, pt_c3.0, pt_c3.1 + 20));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            6,
+            4000,
+            pt_c2.0,
+            pt_c2.1,
+            pt_c2.0,
+            pt_c2.1 + 20,
+        ));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            7,
+            4002,
+            pt_c3.0,
+            pt_c3.1,
+            pt_c3.0,
+            pt_c3.1 + 20,
+        ));
 
         // Executa simulação em repouso (cross.sim_manual_latched = false)
         // No repouso: conexão direta -> pino 0 (L1) liga ao pino 2 (fio 6), pino 1 (N) liga ao pino 3 (fio 7)
@@ -6403,24 +7778,44 @@ mod tests {
 
         let pot_out_left = doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential;
         let pot_out_right = doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential;
-        assert_eq!(pot_out_left, Potential::L1, "Em repouso, saída esquerda deve ser L1");
-        assert_eq!(pot_out_right, Potential::N, "Em repouso, saída direita deve ser N");
+        assert_eq!(
+            pot_out_left,
+            Potential::L1,
+            "Em repouso, saída esquerda deve ser L1"
+        );
+        assert_eq!(
+            pot_out_right,
+            Potential::N,
+            "Em repouso, saída direita deve ser N"
+        );
 
         // Ativa a chave inversora (cross.sim_manual_latched = true)
         // No ativo: conexão cruzada -> pino 0 (L1) liga ao pino 3 (fio 7), pino 1 (N) liga ao pino 2 (fio 6)
-        doc.items.iter_mut().find(|i| i.id == 3).unwrap().sim_manual_latched = true;
+        doc.items
+            .iter_mut()
+            .find(|i| i.id == 3)
+            .unwrap()
+            .sim_manual_latched = true;
         step_simulation(&mut doc, 50);
 
         let pot_out_left_inv = doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential;
         let pot_out_right_inv = doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential;
-        assert_eq!(pot_out_left_inv, Potential::N, "Ao inverter, saída esquerda deve trocar para N");
-        assert_eq!(pot_out_right_inv, Potential::L1, "Ao inverter, saída direita deve trocar para L1");
+        assert_eq!(
+            pot_out_left_inv,
+            Potential::N,
+            "Ao inverter, saída esquerda deve trocar para N"
+        );
+        assert_eq!(
+            pot_out_right_inv,
+            Potential::L1,
+            "Ao inverter, saída direita deve trocar para L1"
+        );
     }
 
     #[test]
     fn test_limit_switches_and_thermal_aux_contacts() {
-        use crate::sim::step_simulation;
         use crate::model::Potential;
+        use crate::sim::step_simulation;
 
         let mut doc = crate::model::SchematicDocument::default();
         doc.items.clear();
@@ -6444,24 +7839,72 @@ mod tests {
         doc.items.push(lim_nc);
 
         // Fios de entrada: L1 -> pino 0 de lim_no e lim_nc
-        doc.items.push(crate::model::SchematicItem::new_wire(4, 4000, pt_l1.0, pt_l1.1, wp_no[0].2.0, wp_no[0].2.1));
-        doc.items.push(crate::model::SchematicItem::new_wire(5, 4000, pt_l1.0, pt_l1.1, wp_nc[0].2.0, wp_nc[0].2.1));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            4,
+            4000,
+            pt_l1.0,
+            pt_l1.1,
+            wp_no[0].2 .0,
+            wp_no[0].2 .1,
+        ));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            5,
+            4000,
+            pt_l1.0,
+            pt_l1.1,
+            wp_nc[0].2 .0,
+            wp_nc[0].2 .1,
+        ));
 
         // Fios de saída: pino 1 -> carga
-        doc.items.push(crate::model::SchematicItem::new_wire(6, 4000, wp_no[1].2.0, wp_no[1].2.1, wp_no[1].2.0, wp_no[1].2.1 + 20));
-        doc.items.push(crate::model::SchematicItem::new_wire(7, 4000, wp_nc[1].2.0, wp_nc[1].2.1, wp_nc[1].2.0, wp_nc[1].2.1 + 20));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            6,
+            4000,
+            wp_no[1].2 .0,
+            wp_no[1].2 .1,
+            wp_no[1].2 .0,
+            wp_no[1].2 .1 + 20,
+        ));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            7,
+            4000,
+            wp_nc[1].2 .0,
+            wp_nc[1].2 .1,
+            wp_nc[1].2 .0,
+            wp_nc[1].2 .1 + 20,
+        ));
 
         // Em repouso: NO aberto (saída None), NC fechado (saída L1)
         step_simulation(&mut doc, 50);
-        assert_eq!(doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential, Potential::None);
-        assert_eq!(doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential, Potential::L1);
+        assert_eq!(
+            doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential,
+            Potential::None
+        );
+        assert_eq!(
+            doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential,
+            Potential::L1
+        );
 
         // Ativa ambos os fins de curso: NO fecha (saída L1), NC abre (saída None)
-        doc.items.iter_mut().find(|i| i.id == 2).unwrap().sim_manual_latched = true;
-        doc.items.iter_mut().find(|i| i.id == 3).unwrap().sim_manual_latched = true;
+        doc.items
+            .iter_mut()
+            .find(|i| i.id == 2)
+            .unwrap()
+            .sim_manual_latched = true;
+        doc.items
+            .iter_mut()
+            .find(|i| i.id == 3)
+            .unwrap()
+            .sim_manual_latched = true;
         step_simulation(&mut doc, 50);
-        assert_eq!(doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential, Potential::L1);
-        assert_eq!(doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential, Potential::None);
+        assert_eq!(
+            doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential,
+            Potential::L1
+        );
+        assert_eq!(
+            doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential,
+            Potential::None
+        );
 
         // 3. Testa atuação do relé térmico pai (6007) sobre contato auxiliar térmico duplo (8018)
         let sym_f = find_symbol(6007).unwrap();
@@ -6478,22 +7921,68 @@ mod tests {
         doc.items.push(aux_term);
 
         // Alimenta 95 (NF) e 97 (NA) com L1
-        doc.items.push(crate::model::SchematicItem::new_wire(12, 4000, pt_l1.0, pt_l1.1, wp_aux[0].2.0, wp_aux[0].2.1));
-        doc.items.push(crate::model::SchematicItem::new_wire(13, 4000, pt_l1.0, pt_l1.1, wp_aux[1].2.0, wp_aux[1].2.1));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            12,
+            4000,
+            pt_l1.0,
+            pt_l1.1,
+            wp_aux[0].2 .0,
+            wp_aux[0].2 .1,
+        ));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            13,
+            4000,
+            pt_l1.0,
+            pt_l1.1,
+            wp_aux[1].2 .0,
+            wp_aux[1].2 .1,
+        ));
         // Saídas de 96 (NF) e 98 (NA)
-        doc.items.push(crate::model::SchematicItem::new_wire(14, 4000, wp_aux[2].2.0, wp_aux[2].2.1, wp_aux[2].2.0, wp_aux[2].2.1 + 20));
-        doc.items.push(crate::model::SchematicItem::new_wire(15, 4000, wp_aux[3].2.0, wp_aux[3].2.1, wp_aux[3].2.0, wp_aux[3].2.1 + 20));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            14,
+            4000,
+            wp_aux[2].2 .0,
+            wp_aux[2].2 .1,
+            wp_aux[2].2 .0,
+            wp_aux[2].2 .1 + 20,
+        ));
+        doc.items.push(crate::model::SchematicItem::new_wire(
+            15,
+            4000,
+            wp_aux[3].2 .0,
+            wp_aux[3].2 .1,
+            wp_aux[3].2 .0,
+            wp_aux[3].2 .1 + 20,
+        ));
 
         // Em repouso do relé térmico: 95-96 conduz (fio 14 = L1), 97-98 aberto (fio 15 = None)
         step_simulation(&mut doc, 50);
-        assert_eq!(doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential, Potential::L1);
-        assert_eq!(doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential, Potential::None);
+        assert_eq!(
+            doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential,
+            Potential::L1
+        );
+        assert_eq!(
+            doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential,
+            Potential::None
+        );
 
         // Dispara o relé térmico principal -F1 -> o contato auxiliar 8018 comuta automaticamente via tag!
-        doc.items.iter_mut().find(|i| i.id == 10).unwrap().sim_manual_latched = true;
+        doc.items
+            .iter_mut()
+            .find(|i| i.id == 10)
+            .unwrap()
+            .sim_manual_latched = true;
         step_simulation(&mut doc, 50);
-        assert_eq!(doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential, Potential::None, "95-96 abre quando -F1 desarma");
-        assert_eq!(doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential, Potential::L1, "97-98 fecha quando -F1 desarma");
+        assert_eq!(
+            doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential,
+            Potential::None,
+            "95-96 abre quando -F1 desarma"
+        );
+        assert_eq!(
+            doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential,
+            Potential::L1,
+            "97-98 fecha quando -F1 desarma"
+        );
     }
 
     #[test]
@@ -6535,7 +8024,9 @@ mod tests {
         let (mut app, _) = CadeSimuApp::new();
 
         // 1. Testa redimensionamento do painel esquerdo
-        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragStart(crate::layout::Side::Left)));
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragStart(
+            crate::layout::Side::Left,
+        )));
         assert_eq!(app.layout.drag, Some(crate::layout::Side::Left));
 
         // Move para 350px (dentro do intervalo 160..=480)
@@ -6555,7 +8046,9 @@ mod tests {
         assert_eq!(app.layout.drag, None);
 
         // 2. Testa redimensionamento do painel direito (largura da janela = 1420px)
-        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragStart(crate::layout::Side::Right)));
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragStart(
+            crate::layout::Side::Right,
+        )));
         assert_eq!(app.layout.drag, Some(crate::layout::Side::Right));
 
         // Posiciona o cursor em x = 1100 -> right_width = 1420 - 1100 = 320px
@@ -6574,7 +8067,9 @@ mod tests {
         assert_eq!(app.layout.drag, None);
 
         // 3. Testa redimensionamento da janela
-        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::WindowResized(1600.0)));
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::WindowResized(
+            1600.0,
+        )));
         assert_eq!(app.layout.window_w, 1600.0);
 
         // 4. Renderiza view com painéis redimensionados
@@ -6665,8 +8160,8 @@ mod tests {
 
     #[test]
     fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
+        use crate::model::{Potential, SchematicDocument, SchematicItem};
         use crate::sim::{step_simulation, toggle_component_on_click};
-        use crate::model::{SchematicDocument, SchematicItem, Potential};
 
         let mut doc = SchematicDocument::default();
         doc.items.clear();
@@ -6687,13 +8182,41 @@ mod tests {
         doc.items.push(q1);
 
         // Fios de alimentação: L1, L2, L3 para entradas do disjuntor (pinos 0, 1, 2)
-        doc.items.push(SchematicItem::new_wire(3, 4000, wp_src[0].2.0, wp_src[0].2.1, wp_q1[0].2.0, wp_q1[0].2.1));
-        doc.items.push(SchematicItem::new_wire(4, 4000, wp_src[1].2.0, wp_src[1].2.1, wp_q1[1].2.0, wp_q1[1].2.1));
-        doc.items.push(SchematicItem::new_wire(5, 4000, wp_src[2].2.0, wp_src[2].2.1, wp_q1[2].2.0, wp_q1[2].2.1));
+        doc.items.push(SchematicItem::new_wire(
+            3,
+            4000,
+            wp_src[0].2 .0,
+            wp_src[0].2 .1,
+            wp_q1[0].2 .0,
+            wp_q1[0].2 .1,
+        ));
+        doc.items.push(SchematicItem::new_wire(
+            4,
+            4000,
+            wp_src[1].2 .0,
+            wp_src[1].2 .1,
+            wp_q1[1].2 .0,
+            wp_q1[1].2 .1,
+        ));
+        doc.items.push(SchematicItem::new_wire(
+            5,
+            4000,
+            wp_src[2].2 .0,
+            wp_src[2].2 .1,
+            wp_q1[2].2 .0,
+            wp_q1[2].2 .1,
+        ));
 
         // Fio de curto-circuito franco entre saída L1 (pino 3) e saída L2 (pino 4)
         let sc_wire_id = 6;
-        doc.items.push(SchematicItem::new_wire(sc_wire_id, 4000, wp_q1[3].2.0, wp_q1[3].2.1, wp_q1[4].2.0, wp_q1[4].2.1));
+        doc.items.push(SchematicItem::new_wire(
+            sc_wire_id,
+            4000,
+            wp_q1[3].2 .0,
+            wp_q1[3].2 .1,
+            wp_q1[4].2 .0,
+            wp_q1[4].2 .1,
+        ));
 
         // Em repouso (disjuntor aberto), nada conduz a jusante e o disjuntor está sem falha
         step_simulation(&mut doc, 50);
@@ -6702,28 +8225,56 @@ mod tests {
         assert!(!q1_item.sim_fault);
 
         // Fecha o disjuntor -Q1 -> a corrente de curto entre L1 e L2 faz o disjuntor DESARMAR (trip magnético)!
-        doc.items.iter_mut().find(|i| i.id == 2).unwrap().sim_manual_latched = true;
+        doc.items
+            .iter_mut()
+            .find(|i| i.id == 2)
+            .unwrap()
+            .sim_manual_latched = true;
         step_simulation(&mut doc, 50);
 
         let q1_after = doc.items.iter().find(|i| i.id == 2).unwrap();
-        assert!(!q1_after.sim_manual_latched, "O disjuntor -Q1 deve desarmar (abrir) por curto-circuito!");
-        assert!(q1_after.sim_fault, "O disjuntor -Q1 deve registrar estado de trip/falha!");
-        assert!(!q1_after.sim_active, "O disjuntor desarmado não deve conduzir!");
+        assert!(
+            !q1_after.sim_manual_latched,
+            "O disjuntor -Q1 deve desarmar (abrir) por curto-circuito!"
+        );
+        assert!(
+            q1_after.sim_fault,
+            "O disjuntor -Q1 deve registrar estado de trip/falha!"
+        );
+        assert!(
+            !q1_after.sim_active,
+            "O disjuntor desarmado não deve conduzir!"
+        );
 
         // Como o disjuntor desarmou, as saídas são desenergizadas, extinguindo o curto
-        let sc_wire_pot = doc.items.iter().find(|i| i.id == sc_wire_id).unwrap().sim_potential;
-        assert_ne!(sc_wire_pot, Potential::ShortCircuit, "A abertura do disjuntor deve extinguir o curto a jusante");
+        let sc_wire_pot = doc
+            .items
+            .iter()
+            .find(|i| i.id == sc_wire_id)
+            .unwrap()
+            .sim_potential;
+        assert_ne!(
+            sc_wire_pot,
+            Potential::ShortCircuit,
+            "A abertura do disjuntor deve extinguir o curto a jusante"
+        );
 
         // 2. Testa rearme do disjuntor após remoção do curto
         doc.items.retain(|i| i.id != sc_wire_id);
         toggle_component_on_click(&mut doc, 2);
         let q1_rearmed = doc.items.iter().find(|i| i.id == 2).unwrap();
         assert!(q1_rearmed.sim_manual_latched);
-        assert!(!q1_rearmed.sim_fault, "O rearme do disjuntor deve limpar o flag de trip");
+        assert!(
+            !q1_rearmed.sim_fault,
+            "O rearme do disjuntor deve limpar o flag de trip"
+        );
 
         step_simulation(&mut doc, 50);
         let q1_holding = doc.items.iter().find(|i| i.id == 2).unwrap();
-        assert!(q1_holding.sim_manual_latched, "Sem curto-circuito, o disjuntor deve permanecer fechado");
+        assert!(
+            q1_holding.sim_manual_latched,
+            "Sem curto-circuito, o disjuntor deve permanecer fechado"
+        );
         assert!(!q1_holding.sim_fault);
 
         // 3. Testa Disjuntor Unipolar 6000 (-Q2) com curto fase-neutro
@@ -6748,13 +8299,30 @@ mod tests {
         doc2.items.push(q2);
 
         // Alimentação L1 -> entrada pino 0 de -Q2
-        doc2.items.push(SchematicItem::new_wire(13, 4000, wp_l1[0].2.0, wp_l1[0].2.1, wp_q2[0].2.0, wp_q2[0].2.1));
+        doc2.items.push(SchematicItem::new_wire(
+            13,
+            4000,
+            wp_l1[0].2 .0,
+            wp_l1[0].2 .1,
+            wp_q2[0].2 .0,
+            wp_q2[0].2 .1,
+        ));
         // Curto direto: saída pino 1 de -Q2 -> Neutro N
-        doc2.items.push(SchematicItem::new_wire(14, 4009, wp_q2[1].2.0, wp_q2[1].2.1, wp_n[0].2.0, wp_n[0].2.1));
+        doc2.items.push(SchematicItem::new_wire(
+            14,
+            4009,
+            wp_q2[1].2 .0,
+            wp_q2[1].2 .1,
+            wp_n[0].2 .0,
+            wp_n[0].2 .1,
+        ));
 
         step_simulation(&mut doc2, 50);
         let q2_tripped = doc2.items.iter().find(|i| i.id == 12).unwrap();
-        assert!(!q2_tripped.sim_manual_latched, "Disjuntor 1P deve desarmar por curto fase-neutro!");
+        assert!(
+            !q2_tripped.sim_manual_latched,
+            "Disjuntor 1P deve desarmar por curto fase-neutro!"
+        );
         assert!(q2_tripped.sim_fault);
 
         // 4. Testa Fusível Seccionador 5008 (-F1) desarmando em curto-circuito
@@ -6772,15 +8340,42 @@ mod tests {
         doc3.items.push(f1);
 
         // Alimenta L1 e L2 no fusível
-        doc3.items.push(SchematicItem::new_wire(22, 4000, wp_src3[0].2.0, wp_src3[0].2.1, wp_f1[0].2.0, wp_f1[0].2.1));
-        doc3.items.push(SchematicItem::new_wire(23, 4000, wp_src3[1].2.0, wp_src3[1].2.1, wp_f1[1].2.0, wp_f1[1].2.1));
+        doc3.items.push(SchematicItem::new_wire(
+            22,
+            4000,
+            wp_src3[0].2 .0,
+            wp_src3[0].2 .1,
+            wp_f1[0].2 .0,
+            wp_f1[0].2 .1,
+        ));
+        doc3.items.push(SchematicItem::new_wire(
+            23,
+            4000,
+            wp_src3[1].2 .0,
+            wp_src3[1].2 .1,
+            wp_f1[1].2 .0,
+            wp_f1[1].2 .1,
+        ));
         // Curto entre saídas L1 (pino 3) e L2 (pino 4) do fusível
-        doc3.items.push(SchematicItem::new_wire(24, 4000, wp_f1[3].2.0, wp_f1[3].2.1, wp_f1[4].2.0, wp_f1[4].2.1));
+        doc3.items.push(SchematicItem::new_wire(
+            24,
+            4000,
+            wp_f1[3].2 .0,
+            wp_f1[3].2 .1,
+            wp_f1[4].2 .0,
+            wp_f1[4].2 .1,
+        ));
 
         step_simulation(&mut doc3, 50);
         let f1_blown = doc3.items.iter().find(|i| i.id == 21).unwrap();
-        assert!(!f1_blown.sim_manual_latched, "Fusível seccionador deve desarmar (abrir) por curto-circuito!");
-        assert!(f1_blown.sim_fault, "Fusível queimado deve registrar estado de falha");
+        assert!(
+            !f1_blown.sim_manual_latched,
+            "Fusível seccionador deve desarmar (abrir) por curto-circuito!"
+        );
+        assert!(
+            f1_blown.sim_fault,
+            "Fusível queimado deve registrar estado de falha"
+        );
         assert!(!f1_blown.sim_active);
 
         // 5. Testa Fusível Permanente 5003 (-F2) queimando em curto-circuito
@@ -6795,18 +8390,38 @@ mod tests {
 
         doc4.items.push(src4);
         doc4.items.push(f2);
-        doc4.items.push(SchematicItem::new_wire(32, 4000, wp_src4[0].2.0, wp_src4[0].2.1, wp_f2[0].2.0, wp_f2[0].2.1));
-        doc4.items.push(SchematicItem::new_wire(33, 4000, wp_src4[1].2.0, wp_src4[1].2.1, wp_f2[1].2.0, wp_f2[1].2.1));
-        doc4.items.push(SchematicItem::new_wire(34, 4000, wp_f2[3].2.0, wp_f2[3].2.1, wp_f2[4].2.0, wp_f2[4].2.1));
+        doc4.items.push(SchematicItem::new_wire(
+            32,
+            4000,
+            wp_src4[0].2 .0,
+            wp_src4[0].2 .1,
+            wp_f2[0].2 .0,
+            wp_f2[0].2 .1,
+        ));
+        doc4.items.push(SchematicItem::new_wire(
+            33,
+            4000,
+            wp_src4[1].2 .0,
+            wp_src4[1].2 .1,
+            wp_f2[1].2 .0,
+            wp_f2[1].2 .1,
+        ));
+        doc4.items.push(SchematicItem::new_wire(
+            34,
+            4000,
+            wp_f2[3].2 .0,
+            wp_f2[3].2 .1,
+            wp_f2[4].2 .0,
+            wp_f2[4].2 .1,
+        ));
 
         step_simulation(&mut doc4, 50);
         let f2_blown = doc4.items.iter().find(|i| i.id == 31).unwrap();
-        assert!(f2_blown.sim_manual_latched, "Fusível fixo deve queimar (sim_manual_latched: true)!");
+        assert!(
+            f2_blown.sim_manual_latched,
+            "Fusível fixo deve queimar (sim_manual_latched: true)!"
+        );
         assert!(f2_blown.sim_fault);
         assert!(!f2_blown.sim_active);
     }
 }
-
-
-
-

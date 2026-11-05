@@ -23,9 +23,19 @@ pub enum EditorTool {
 #[derive(Debug, Clone)]
 pub enum CanvasMessage {
     SelectItem(Option<i32>),
-    MoveItem { id: i32, x1: i32, y1: i32 },
-    EndMoveItem { id: i32 },
-    PlaceComponent { tipo: i32, x: i32, y: i32 },
+    MoveItem {
+        id: i32,
+        x1: i32,
+        y1: i32,
+    },
+    EndMoveItem {
+        id: i32,
+    },
+    PlaceComponent {
+        tipo: i32,
+        x: i32,
+        y: i32,
+    },
     AddWire {
         tipo: i32,
         x1: i32,
@@ -33,13 +43,19 @@ pub enum CanvasMessage {
         x2: i32,
         y2: i32,
     },
-    AddJunction { x: i32, y: i32 },
+    AddJunction {
+        x: i32,
+        y: i32,
+    },
     DeleteItem(i32),
     SimPressComponent(i32),
     SimReleaseComponent(i32),
     RotatePlacement,
     PanBy(f32, f32),
-    ZoomAt { factor: f32, cursor: Point },
+    ZoomAt {
+        factor: f32,
+        cursor: Point,
+    },
     CursorMoved(i32, i32),
     CancelAction,
 }
@@ -97,7 +113,7 @@ impl<'a> SchematicCanvas<'a> {
     }
 
     /// Encontra o componente ou cabo sob a coordenada `(wx, wy)` do mundo (escala `.cad`).
-    pub(crate) fn hit_test(&self, wx: i32, wy: i32) -> Option<i32> {
+    pub fn hit_test(&self, wx: i32, wy: i32) -> Option<i32> {
         // Prioriza símbolos sobre cabos
         for item in self.doc.items.iter().rev() {
             if item.is_wire() {
@@ -136,7 +152,10 @@ impl<'a> SchematicCanvas<'a> {
                 if (wx - item.x1).abs() <= 3 && (wy - item.y1).abs() <= 3 {
                     return Some(item.id);
                 }
-            } else if !matches!(item.tipo, 1 | 2 | 8) && (wx - item.x1).abs() <= 6 && (wy - item.y1).abs() <= 6 {
+            } else if !matches!(item.tipo, 1 | 2 | 8)
+                && (wx - item.x1).abs() <= 6
+                && (wy - item.y1).abs() <= 6
+            {
                 return Some(item.id);
             }
         }
@@ -209,9 +228,7 @@ impl<'a> SchematicCanvas<'a> {
         // Grade de linhas suaves conforme densidade selecionada
         if self.show_grid {
             let step = self.grid_density.step();
-            let grid_stroke = Stroke::default()
-                .with_color(grid_color)
-                .with_width(1.0);
+            let grid_stroke = Stroke::default().with_color(grid_color).with_width(1.0);
             let mut gx = step;
             while (gx as f32) < sheet_w - 6.0 {
                 let a = self.world_to_screen(gx as f32, 6.0);
@@ -229,9 +246,7 @@ impl<'a> SchematicCanvas<'a> {
         }
 
         // Moldura externa e interna da folha A4
-        let border_stroke = Stroke::default()
-            .with_color(border_color)
-            .with_width(1.5);
+        let border_stroke = Stroke::default().with_color(border_color).with_width(1.5);
         frame.stroke(&Path::rectangle(p0, size), border_stroke);
 
         let inner_p0 = self.world_to_screen(6.0, 6.0);
@@ -354,11 +369,11 @@ impl<'a> SchematicCanvas<'a> {
             if self.is_dark {
                 match item.tipo {
                     4000 | 4018 => (Color::from_rgb(0.94, 0.58, 0.50), 1.8), // Fase / Comando (claro)
-                    4009 | 4019 => (Color::from_rgb(0.45, 0.75, 1.0), 1.8),  // Neutro / 0V (azul claro)
+                    4009 | 4019 => (Color::from_rgb(0.45, 0.75, 1.0), 1.8), // Neutro / 0V (azul claro)
                     4002 | 4010 => (Color::from_rgb(0.35, 0.90, 0.45), 1.6), // PE (verde claro)
                     4003 => (Color::from_rgb(1.0, 0.45, 0.48), 1.8),        // DC+ (vermelho claro)
-                    4004 => (Color::from_rgb(0.85, 0.88, 0.95), 1.8),        // DC- (azul-acinzentado claro)
-                    _ => (Color::from_rgb(0.88, 0.92, 0.98), 1.6),           // Genérico (traço claro)
+                    4004 => (Color::from_rgb(0.85, 0.88, 0.95), 1.8), // DC- (azul-acinzentado claro)
+                    _ => (Color::from_rgb(0.88, 0.92, 0.98), 1.6),    // Genérico (traço claro)
                 }
             } else {
                 match item.tipo {
@@ -373,6 +388,7 @@ impl<'a> SchematicCanvas<'a> {
         }
     }
 
+    #[allow(clippy::too_many_arguments)]
     fn draw_symbol_primitives(
         &self,
         frame: &mut Frame,
@@ -474,6 +490,7 @@ impl<'a> SchematicCanvas<'a> {
         }
     }
 
+    #[allow(clippy::too_many_arguments)]
     fn draw_svg_symbol(
         &self,
         frame: &mut Frame,
@@ -619,7 +636,8 @@ impl<'a> SchematicCanvas<'a> {
                     } else if parsed.is_cade_svg {
                         (r / 5.0) * self.zoom
                     } else {
-                        (r * (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs().max(1.0)))
+                        (r * (target_span
+                            / (parsed.term_bottom_y - parsed.term_top_y).abs().max(1.0)))
                             * self.zoom
                     };
                     let circle_path = Path::circle(center, rad.max(1.2));
@@ -770,7 +788,10 @@ impl<'a> SchematicCanvas<'a> {
         if item.is_junction() {
             let (color, _) = self.wire_color(item);
             let center = self.world_to_screen(item.x1 as f32, item.y1 as f32);
-            frame.fill(&Path::circle(center, (0.9 * self.zoom).clamp(2.2, 5.0)), color);
+            frame.fill(
+                &Path::circle(center, (0.9 * self.zoom).clamp(2.2, 5.0)),
+                color,
+            );
             return;
         }
 
@@ -805,9 +826,7 @@ impl<'a> SchematicCanvas<'a> {
             };
             frame.stroke(
                 &Path::line(a, b),
-                Stroke::default()
-                    .with_color(line_color)
-                    .with_width(1.2),
+                Stroke::default().with_color(line_color).with_width(1.2),
             );
             return;
         }
@@ -827,9 +846,7 @@ impl<'a> SchematicCanvas<'a> {
             };
             frame.stroke(
                 &Path::rectangle(tl, sz),
-                Stroke::default()
-                    .with_color(rect_color)
-                    .with_width(1.3),
+                Stroke::default().with_color(rect_color).with_width(1.3),
             );
             return;
         }
@@ -965,7 +982,7 @@ impl<'a> SchematicCanvas<'a> {
         }
 
         // Escolhe comandos vetoriais e cores conforme o estado de simulação
-        let is_motor_active = matches!(item.tipo, 1000 | 1001 | 1002)
+        let is_motor_active = matches!(item.tipo, 1000..=1002)
             && (item.sim_motor_dir != 0 || item.sim_motor_mode != crate::model::MotorMode::Off);
         let active_in_sim = self.sim_running && (item.sim_active || is_motor_active);
         let cmds = if active_in_sim {
@@ -991,7 +1008,7 @@ impl<'a> SchematicCanvas<'a> {
                 }
             } else {
                 match item.tipo {
-                    1000 | 1001 | 1002 => Color::from_rgb(0.08, 0.65, 0.24),
+                    1000..=1002 => Color::from_rgb(0.08, 0.65, 0.24),
                     _ => Color::from_rgb(0.88, 0.14, 0.12),
                 }
             }
@@ -1013,7 +1030,7 @@ impl<'a> SchematicCanvas<'a> {
             } else {
                 match item.tipo {
                     9000 | 9004 | 9005 | 9013 => Some(Color::from_rgba(0.95, 0.25, 0.20, 0.35)),
-                    1000 | 1001 | 1002 => Some(Color::from_rgba(0.15, 0.82, 0.35, 0.30)),
+                    1000..=1002 => Some(Color::from_rgba(0.15, 0.82, 0.35, 0.30)),
                     _ => None,
                 }
             }
@@ -1034,11 +1051,7 @@ impl<'a> SchematicCanvas<'a> {
 
         let mut drew_svg = false;
         if let Some((svg_idle, svg_active)) = sym.svg_paths() {
-            let svg_path = if active_in_sim {
-                svg_active
-            } else {
-                svg_idle
-            };
+            let svg_path = if active_in_sim { svg_active } else { svg_idle };
             let max_pin_y = sym.pins.iter().map(|p| p.conn_pos.1).fold(0, i32::max) as f32;
             let target_span = if max_pin_y > 0.0 { max_pin_y } else { 12.0 };
             drew_svg = self.draw_svg_symbol(
@@ -1075,14 +1088,15 @@ impl<'a> SchematicCanvas<'a> {
                     .with_color(Color::from_rgb(0.75, 0.18, 0.18))
                     .with_width(1.0),
             );
-            if self.show_texts && self.doc.settings.show_pin_refs >= 1 && item.pin_visibility[idx] == 1 {
+            if self.show_texts
+                && self.doc.settings.show_pin_refs >= 1
+                && item.pin_visibility[idx] == 1
+            {
                 let p_def = &sym.pins[idx];
                 let (lx, ly) =
                     transform_offset(p_def.label_pos.0, p_def.label_pos.1, item.orientation);
-                let lpos = self.world_to_screen(
-                    (item.x1 + lx) as f32 + 0.4,
-                    (item.y1 + ly) as f32 - 0.5,
-                );
+                let lpos =
+                    self.world_to_screen((item.x1 + lx) as f32 + 0.4, (item.y1 + ly) as f32 - 0.5);
                 let pin_color = if self.is_dark {
                     Color::from_rgb(0.75, 0.80, 0.90)
                 } else {
@@ -1285,7 +1299,10 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
             Event::Mouse(mouse::Event::ButtonPressed(mouse::Button::Right)) => {
                 if state.wire_start.is_some() {
                     state.wire_start = None;
-                    return (canvas::event::Status::Captured, Some(CanvasMessage::CancelAction));
+                    return (
+                        canvas::event::Status::Captured,
+                        Some(CanvasMessage::CancelAction),
+                    );
                 }
                 if self.tool != EditorTool::Select || self.dragging_symbol.is_some() {
                     return (
@@ -1337,7 +1354,7 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 match self.tool {
                     EditorTool::Pan => {
                         state.panning_from = Some(cursor_pos);
-                        return (canvas::event::Status::Captured, None);
+                        (canvas::event::Status::Captured, None)
                     }
                     EditorTool::Select => {
                         if let Some(id) = hit {
@@ -1347,15 +1364,15 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                                         Some((id, snapped_x - item.x1, snapped_y - item.y1));
                                 }
                             }
-                            return (
+                            (
                                 canvas::event::Status::Captured,
                                 Some(CanvasMessage::SelectItem(Some(id))),
-                            );
+                            )
                         } else {
-                            return (
+                            (
                                 canvas::event::Status::Captured,
                                 Some(CanvasMessage::SelectItem(None)),
-                            );
+                            )
                         }
                     }
                     EditorTool::PlaceSymbol(tipo) => (
@@ -1453,7 +1470,8 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 if let Some(sym) = find_symbol(tipo) {
                     let mut drew_svg = false;
                     if let Some((svg_idle, _)) = sym.svg_paths() {
-                        let max_pin_y = sym.pins.iter().map(|p| p.conn_pos.1).fold(0, i32::max) as f32;
+                        let max_pin_y =
+                            sym.pins.iter().map(|p| p.conn_pos.1).fold(0, i32::max) as f32;
                         let target_span = if max_pin_y > 0.0 { max_pin_y } else { 12.0 };
                         drew_svg = self.draw_svg_symbol(
                             &mut frame,

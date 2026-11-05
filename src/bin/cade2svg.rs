@@ -9,15 +9,18 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     create_dir_all(out_dir)?;
 
     let catalog = symbol_catalog();
-    println!("Convertendo todos os {} componentes do CADe C++ para SVG animado...", catalog.len());
+    println!(
+        "Convertendo todos os {} componentes do CADe C++ para SVG animado...",
+        catalog.len()
+    );
 
     let mut count = 0;
     for sym in catalog {
-        let clean_name = sym.name
+        let clean_name = sym
+            .name
             .replace('/', "-")
             .replace(' ', "_")
-            .replace('(', "")
-            .replace(')', "")
+            .replace(['(', ')'], "")
             .replace('+', "_")
             .to_lowercase();
 
@@ -26,7 +29,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         // 1. Gera o SVG do estado de Repouso (idle)
         let idle_svg = generate_svg_from_cmds(
             sym.name,
-            &sym.idle_cmds,
+            sym.idle_cmds,
             &sym.pins,
             sym.bounds,
             "#111827",
@@ -39,7 +42,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         if !sym.active_cmds.is_empty() {
             let active_svg = generate_svg_from_cmds(
                 &format!("{} (Ativo)", sym.name),
-                &sym.active_cmds,
+                sym.active_cmds,
                 &sym.pins,
                 sym.bounds,
                 "#dc2626", // Vermelho de acionamento elétrico
@@ -52,6 +55,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         count += 1;
     }
 
-    println!("[OK] Sucesso! {} símbolos exportados com seus pares de animação em '{}'", count, out_dir.display());
+    println!(
+        "[OK] Sucesso! {} símbolos exportados com seus pares de animação em '{}'",
+        count,
+        out_dir.display()
+    );
     Ok(())
 }

@@ -1,0 +1,60 @@
+name: CI (Build, Test, Clippy & Fmt)
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ci-linux:
+    name: Lint & Test (Linux)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Linux build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libxkbcommon-dev libfontconfig1-dev
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Check code formatting (cargo fmt)
+        run: cargo fmt --all -- --check
+
+      - name: Static analysis (cargo clippy)
+        run: cargo clippy --all-targets -- -D warnings
+
+      - name: Run test suite (cargo test)
+        run: cargo test --all-targets
+
+  ci-windows:
+    name: Build & Test (Windows)
+    runs-on: windows-latest
+    steps:
+      - name: Enable long paths in Git
+        run: git config --system core.longpaths true
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Build and Test on Windows
+        run: |
+          cargo check --all-targets
+          cargo test --all-targets

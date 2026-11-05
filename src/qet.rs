@@ -250,7 +250,9 @@ pub fn load_qet_from_str(xml: &str) -> Result<QetProject, String> {
 
     let root = doc.root_element();
     if root.tag_name().name() != "project" {
-        return Err("O arquivo não possui elemento raiz <project> válido do QElectroTech".to_string());
+        return Err(
+            "O arquivo não possui elemento raiz <project> válido do QElectroTech".to_string(),
+        );
     }
 
     let mut project = QetProject {
@@ -280,7 +282,10 @@ pub fn load_qet_from_str(xml: &str) -> Result<QetProject, String> {
     }
 
     // Se o XML tiver coleção embutida como texto, preserva para gravação
-    if let Some(coll_node) = root.children().find(|c| c.tag_name().name() == "collection") {
+    if let Some(coll_node) = root
+        .children()
+        .find(|c| c.tag_name().name() == "collection")
+    {
         let coll_range = coll_node.range();
         project.raw_collection = Some(xml[coll_range].to_string());
     }
@@ -317,7 +322,10 @@ fn scan_collection_node<'a>(
                 let el_name = child.attribute("name").unwrap_or("");
                 let full_uri = format!("embed://{cat_path}/{el_name}");
 
-                if let Some(def_node) = child.children().find(|c| c.tag_name().name() == "definition") {
+                if let Some(def_node) = child
+                    .children()
+                    .find(|c| c.tag_name().name() == "definition")
+                {
                     let (definition, parsed_symbol) = parse_definition_node(&def_node, el_name);
 
                     // Registra terminais
@@ -344,10 +352,22 @@ fn parse_definition_node<'a>(
     def_node: &roxmltree::Node<'a, 'a>,
     name: &str,
 ) -> (QetDefinition, ParsedSvgSymbol) {
-    let width: f32 = def_node.attribute("width").and_then(|v| v.parse().ok()).unwrap_or(40.0);
-    let height: f32 = def_node.attribute("height").and_then(|v| v.parse().ok()).unwrap_or(40.0);
-    let hotspot_x: f32 = def_node.attribute("hotspot_x").and_then(|v| v.parse().ok()).unwrap_or(20.0);
-    let hotspot_y: f32 = def_node.attribute("hotspot_y").and_then(|v| v.parse().ok()).unwrap_or(20.0);
+    let width: f32 = def_node
+        .attribute("width")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(40.0);
+    let height: f32 = def_node
+        .attribute("height")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(40.0);
+    let hotspot_x: f32 = def_node
+        .attribute("hotspot_x")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(20.0);
+    let hotspot_y: f32 = def_node
+        .attribute("hotspot_y")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(20.0);
 
     let mut terminals = Vec::new();
     let mut shapes = Vec::new();
@@ -356,7 +376,10 @@ fn parse_definition_node<'a>(
     let mut term_top_y = f32::INFINITY;
     let mut term_bottom_y = f32::NEG_INFINITY;
 
-    if let Some(desc_node) = def_node.children().find(|c| c.tag_name().name() == "description") {
+    if let Some(desc_node) = def_node
+        .children()
+        .find(|c| c.tag_name().name() == "description")
+    {
         for child in desc_node.children() {
             if !child.is_element() {
                 continue;
@@ -367,32 +390,102 @@ fn parse_definition_node<'a>(
 
             match child.tag_name().name() {
                 "line" => {
-                    let x1: f32 = child.attribute("x1").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y1: f32 = child.attribute("y1").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let x2: f32 = child.attribute("x2").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y2: f32 = child.attribute("y2").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    shapes.push(SvgShape::Line { x1, y1, x2, y2, dashed });
+                    let x1: f32 = child
+                        .attribute("x1")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y1: f32 = child
+                        .attribute("y1")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let x2: f32 = child
+                        .attribute("x2")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y2: f32 = child
+                        .attribute("y2")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    shapes.push(SvgShape::Line {
+                        x1,
+                        y1,
+                        x2,
+                        y2,
+                        dashed,
+                    });
                 }
                 "rect" => {
-                    let x: f32 = child.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y: f32 = child.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let w: f32 = child.attribute("width").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let h: f32 = child.attribute("height").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    shapes.push(SvgShape::Rect { x, y, w, h, dashed, fill });
+                    let x: f32 = child
+                        .attribute("x")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y: f32 = child
+                        .attribute("y")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let w: f32 = child
+                        .attribute("width")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let h: f32 = child
+                        .attribute("height")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    shapes.push(SvgShape::Rect {
+                        x,
+                        y,
+                        w,
+                        h,
+                        dashed,
+                        fill,
+                    });
                 }
                 "circle" => {
-                    let x: f32 = child.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y: f32 = child.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let diameter: f32 = child.attribute("diameter").and_then(|v| v.parse().ok()).unwrap_or(0.0);
+                    let x: f32 = child
+                        .attribute("x")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y: f32 = child
+                        .attribute("y")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let diameter: f32 = child
+                        .attribute("diameter")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
                     let r = diameter / 2.0;
-                    shapes.push(SvgShape::Circle { cx: x + r, cy: y + r, r, is_terminal: false, fill });
+                    shapes.push(SvgShape::Circle {
+                        cx: x + r,
+                        cy: y + r,
+                        r,
+                        is_terminal: false,
+                        fill,
+                    });
                 }
                 "ellipse" => {
-                    let x: f32 = child.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y: f32 = child.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let w: f32 = child.attribute("width").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let h: f32 = child.attribute("height").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    shapes.push(SvgShape::Ellipse { cx: x + w / 2.0, cy: y + h / 2.0, rx: w / 2.0, ry: h / 2.0, fill });
+                    let x: f32 = child
+                        .attribute("x")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y: f32 = child
+                        .attribute("y")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let w: f32 = child
+                        .attribute("width")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let h: f32 = child
+                        .attribute("height")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    shapes.push(SvgShape::Ellipse {
+                        cx: x + w / 2.0,
+                        cy: y + h / 2.0,
+                        rx: w / 2.0,
+                        ry: h / 2.0,
+                        fill,
+                    });
                 }
                 "polygon" => {
                     let mut points = Vec::new();
@@ -416,19 +509,46 @@ fn parse_definition_node<'a>(
                     }
                 }
                 "arc" => {
-                    let x: f32 = child.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y: f32 = child.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let w: f32 = child.attribute("width").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let h: f32 = child.attribute("height").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let start: f32 = child.attribute("start").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let angle: f32 = child.attribute("angle").and_then(|v| v.parse().ok()).unwrap_or(0.0);
+                    let x: f32 = child
+                        .attribute("x")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y: f32 = child
+                        .attribute("y")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let w: f32 = child
+                        .attribute("width")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let h: f32 = child
+                        .attribute("height")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let start: f32 = child
+                        .attribute("start")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let angle: f32 = child
+                        .attribute("angle")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
                     let points = arc_to_polyline(x, y, w, h, start, angle);
                     shapes.push(SvgShape::Polyline { points });
                 }
                 "dynamic_text" | "text" => {
-                    let x: f32 = child.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y: f32 = child.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let rotation: f32 = child.attribute("rotation").and_then(|v| v.parse().ok()).unwrap_or(0.0);
+                    let x: f32 = child
+                        .attribute("x")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y: f32 = child
+                        .attribute("y")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let rotation: f32 = child
+                        .attribute("rotation")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
                     let size: f32 = child
                         .attribute("size")
                         .and_then(|v| v.parse().ok())
@@ -442,7 +562,9 @@ fn parse_definition_node<'a>(
 
                     let mut text_str = child.attribute("text").unwrap_or("").to_string();
                     if text_str.is_empty() {
-                        if let Some(t_child) = child.children().find(|c| c.tag_name().name() == "text") {
+                        if let Some(t_child) =
+                            child.children().find(|c| c.tag_name().name() == "text")
+                        {
                             if let Some(txt) = t_child.text() {
                                 text_str = txt.trim().to_string();
                             }
@@ -462,8 +584,14 @@ fn parse_definition_node<'a>(
                     }
                 }
                 "terminal" => {
-                    let x: f32 = child.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y: f32 = child.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
+                    let x: f32 = child
+                        .attribute("x")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y: f32 = child
+                        .attribute("y")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
                     let uuid = child.attribute("uuid").unwrap_or("").to_string();
                     let t_name = child.attribute("name").unwrap_or("").to_string();
                     let ori = child.attribute("orientation").unwrap_or("n").to_string();
@@ -495,22 +623,54 @@ fn parse_definition_node<'a>(
         }
     }
 
-    if min_term_x.is_infinite() { min_term_x = 0.0; }
-    if max_term_x.is_infinite() { max_term_x = width; }
-    if term_top_y.is_infinite() { term_top_y = 0.0; }
-    if term_bottom_y.is_infinite() { term_bottom_y = height; }
+    if min_term_x.is_infinite() {
+        min_term_x = 0.0;
+    }
+    if max_term_x.is_infinite() {
+        max_term_x = width;
+    }
+    if term_top_y.is_infinite() {
+        term_top_y = 0.0;
+    }
+    if term_bottom_y.is_infinite() {
+        term_bottom_y = height;
+    }
 
     shapes.sort_by_key(|s| match s {
         SvgShape::Rect { dashed: true, .. } => 0,
-        SvgShape::Circle { fill: SvgFill::White, .. }
-        | SvgShape::Ellipse { fill: SvgFill::White, .. }
-        | SvgShape::Rect { fill: SvgFill::White, .. }
-        | SvgShape::Polygon { fill: SvgFill::White, .. } => 1,
+        SvgShape::Circle {
+            fill: SvgFill::White,
+            ..
+        }
+        | SvgShape::Ellipse {
+            fill: SvgFill::White,
+            ..
+        }
+        | SvgShape::Rect {
+            fill: SvgFill::White,
+            ..
+        }
+        | SvgShape::Polygon {
+            fill: SvgFill::White,
+            ..
+        } => 1,
         SvgShape::Line { .. } | SvgShape::Polyline { .. } => 2,
-        SvgShape::Circle { fill: SvgFill::Solid, .. }
-        | SvgShape::Ellipse { fill: SvgFill::Solid, .. }
-        | SvgShape::Rect { fill: SvgFill::Solid, .. }
-        | SvgShape::Polygon { fill: SvgFill::Solid, .. } => 4,
+        SvgShape::Circle {
+            fill: SvgFill::Solid,
+            ..
+        }
+        | SvgShape::Ellipse {
+            fill: SvgFill::Solid,
+            ..
+        }
+        | SvgShape::Rect {
+            fill: SvgFill::Solid,
+            ..
+        }
+        | SvgShape::Polygon {
+            fill: SvgFill::Solid,
+            ..
+        } => 4,
         SvgShape::Text { .. } => 5,
         _ => 3,
     });
@@ -547,16 +707,34 @@ fn parse_diagram_node<'a>(diag_node: &roxmltree::Node<'a, 'a>) -> QetDiagram {
         raw_attributes.insert(attr.name().to_string(), attr.value().to_string());
     }
 
-    let order = diag_node.attribute("order").and_then(|v| v.parse().ok()).unwrap_or(1);
+    let order = diag_node
+        .attribute("order")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(1);
     let title = diag_node.attribute("title").unwrap_or("").to_string();
     let author = diag_node.attribute("author").unwrap_or("").to_string();
     let date = diag_node.attribute("date").unwrap_or("").to_string();
     let filename = diag_node.attribute("filename").unwrap_or("").to_string();
-    let rows = diag_node.attribute("rows").and_then(|v| v.parse().ok()).unwrap_or(8);
-    let cols = diag_node.attribute("cols").and_then(|v| v.parse().ok()).unwrap_or(6);
-    let rowsize: f32 = diag_node.attribute("rowsize").and_then(|v| v.parse().ok()).unwrap_or(80.0);
-    let colsize: f32 = diag_node.attribute("colsize").and_then(|v| v.parse().ok()).unwrap_or(170.0);
-    let height: f32 = diag_node.attribute("height").and_then(|v| v.parse().ok()).unwrap_or(660.0);
+    let rows = diag_node
+        .attribute("rows")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(8);
+    let cols = diag_node
+        .attribute("cols")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(6);
+    let rowsize: f32 = diag_node
+        .attribute("rowsize")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(80.0);
+    let colsize: f32 = diag_node
+        .attribute("colsize")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(170.0);
+    let height: f32 = diag_node
+        .attribute("height")
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(660.0);
     let width = cols as f32 * colsize;
 
     let mut elements = Vec::new();
@@ -570,7 +748,10 @@ fn parse_diagram_node<'a>(diag_node: &roxmltree::Node<'a, 'a>) -> QetDiagram {
 
         match child.tag_name().name() {
             "elements" => {
-                for el_node in child.children().filter(|c| c.tag_name().name() == "element") {
+                for el_node in child
+                    .children()
+                    .filter(|c| c.tag_name().name() == "element")
+                {
                     let mut el_attrs = HashMap::new();
                     for attr in el_node.attributes() {
                         el_attrs.insert(attr.name().to_string(), attr.value().to_string());
@@ -578,15 +759,33 @@ fn parse_diagram_node<'a>(diag_node: &roxmltree::Node<'a, 'a>) -> QetDiagram {
 
                     let uuid = el_node.attribute("uuid").unwrap_or("").to_string();
                     let element_type = el_node.attribute("type").unwrap_or("").to_string();
-                    let x: f32 = el_node.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y: f32 = el_node.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let orientation = el_node.attribute("orientation").and_then(|v| v.parse().ok()).unwrap_or(0);
-                    let z = el_node.attribute("z").and_then(|v| v.parse().ok()).unwrap_or(10);
+                    let x: f32 = el_node
+                        .attribute("x")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y: f32 = el_node
+                        .attribute("y")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let orientation = el_node
+                        .attribute("orientation")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0);
+                    let z = el_node
+                        .attribute("z")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(10);
                     let prefix = el_node.attribute("prefix").unwrap_or("").to_string();
 
                     let mut labels = Vec::new();
-                    for info_block in el_node.children().filter(|c| c.tag_name().name() == "elementInformations") {
-                        for info in info_block.children().filter(|c| c.tag_name().name() == "elementInformation") {
+                    for info_block in el_node
+                        .children()
+                        .filter(|c| c.tag_name().name() == "elementInformations")
+                    {
+                        for info in info_block
+                            .children()
+                            .filter(|c| c.tag_name().name() == "elementInformation")
+                        {
                             if info.attribute("name") == Some("label") {
                                 let t = clean_html_text(info.text().unwrap_or(""));
                                 if !t.is_empty() && !labels.contains(&t) {
@@ -595,8 +794,13 @@ fn parse_diagram_node<'a>(diag_node: &roxmltree::Node<'a, 'a>) -> QetDiagram {
                             }
                         }
                     }
-                    for inp in el_node.children().filter(|c| c.tag_name().name() == "input") {
-                        let t = clean_html_text(inp.text().or_else(|| inp.attribute("text")).unwrap_or(""));
+                    for inp in el_node
+                        .children()
+                        .filter(|c| c.tag_name().name() == "input")
+                    {
+                        let t = clean_html_text(
+                            inp.text().or_else(|| inp.attribute("text")).unwrap_or(""),
+                        );
                         if !t.is_empty() && !labels.contains(&t) {
                             labels.push(t);
                         }
@@ -616,7 +820,10 @@ fn parse_diagram_node<'a>(diag_node: &roxmltree::Node<'a, 'a>) -> QetDiagram {
                 }
             }
             "conductors" => {
-                for cond_node in child.children().filter(|c| c.tag_name().name() == "conductor") {
+                for cond_node in child
+                    .children()
+                    .filter(|c| c.tag_name().name() == "conductor")
+                {
                     let mut cond_attrs = HashMap::new();
                     for attr in cond_node.attributes() {
                         cond_attrs.insert(attr.name().to_string(), attr.value().to_string());
@@ -631,9 +838,18 @@ fn parse_diagram_node<'a>(diag_node: &roxmltree::Node<'a, 'a>) -> QetDiagram {
                     let formula = cond_node.attribute("formula").map(|s| s.to_string());
 
                     let mut segments = Vec::new();
-                    for seg_node in cond_node.children().filter(|c| c.tag_name().name() == "segment") {
-                        let ori = seg_node.attribute("orientation").unwrap_or("horizontal").to_string();
-                        let len: f32 = seg_node.attribute("length").and_then(|v| v.parse().ok()).unwrap_or(0.0);
+                    for seg_node in cond_node
+                        .children()
+                        .filter(|c| c.tag_name().name() == "segment")
+                    {
+                        let ori = seg_node
+                            .attribute("orientation")
+                            .unwrap_or("horizontal")
+                            .to_string();
+                        let len: f32 = seg_node
+                            .attribute("length")
+                            .and_then(|v| v.parse().ok())
+                            .unwrap_or(0.0);
                         segments.push(QetConductorSegment {
                             orientation: ori,
                             length: len,
@@ -655,11 +871,25 @@ fn parse_diagram_node<'a>(diag_node: &roxmltree::Node<'a, 'a>) -> QetDiagram {
             }
             "inputs" => {
                 for inp_node in child.children().filter(|c| c.tag_name().name() == "input") {
-                    let x: f32 = inp_node.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let y: f32 = inp_node.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                    let text = clean_html_text(inp_node.attribute("text").or_else(|| inp_node.text()).unwrap_or(""));
+                    let x: f32 = inp_node
+                        .attribute("x")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let y: f32 = inp_node
+                        .attribute("y")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0.0);
+                    let text = clean_html_text(
+                        inp_node
+                            .attribute("text")
+                            .or_else(|| inp_node.text())
+                            .unwrap_or(""),
+                    );
                     let font = inp_node.attribute("font").unwrap_or("").to_string();
-                    let rotation = inp_node.attribute("rotation").and_then(|v| v.parse().ok()).unwrap_or(0);
+                    let rotation = inp_node
+                        .attribute("rotation")
+                        .and_then(|v| v.parse().ok())
+                        .unwrap_or(0);
 
                     if !text.is_empty() {
                         inputs.push(QetInput {
@@ -698,7 +928,8 @@ fn parse_diagram_node<'a>(diag_node: &roxmltree::Node<'a, 'a>) -> QetDiagram {
 /// Carrega um arquivo .qet do disco.
 pub fn load_qet_file(path: &Path) -> Result<QetProject, String> {
     let bytes = fs::read(path).map_err(|e| format!("Falha ao ler {}: {e}", path.display()))?;
-    let text = String::from_utf8(bytes).map_err(|e| format!("Erro UTF-8 ao ler {}: {e}", path.display()))?;
+    let text = String::from_utf8(bytes)
+        .map_err(|e| format!("Erro UTF-8 ao ler {}: {e}", path.display()))?;
     load_qet_from_str(&text)
 }
 
@@ -1037,7 +1268,10 @@ pub fn export_doc_to_qet(doc: &SchematicDocument, path: &Path) -> Result<(), Str
         title: proj.title.clone(),
         author: doc.title_block.drawn_by.clone(),
         date: doc.title_block.drawn_date.clone(),
-        filename: path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default(),
+        filename: path
+            .file_name()
+            .map(|n| n.to_string_lossy().to_string())
+            .unwrap_or_default(),
         rows: 8,
         cols: 6,
         rowsize: 80.0,
@@ -1092,8 +1326,14 @@ pub fn export_doc_to_qet(doc: &SchematicDocument, path: &Path) -> Result<(), Str
                 rotation: 0,
             });
         } else {
-            let el_type = item.qet_type.clone().unwrap_or_else(|| format!("type_{}", item.tipo));
-            let uuid = item.qet_uuid.clone().unwrap_or_else(|| format!("item_{}", item.id));
+            let el_type = item
+                .qet_type
+                .clone()
+                .unwrap_or_else(|| format!("type_{}", item.tipo));
+            let uuid = item
+                .qet_uuid
+                .clone()
+                .unwrap_or_else(|| format!("item_{}", item.id));
             diagram.elements.push(QetElementInstance {
                 uuid,
                 element_type: el_type,
@@ -1102,7 +1342,11 @@ pub fn export_doc_to_qet(doc: &SchematicDocument, path: &Path) -> Result<(), Str
                 orientation: item.orientation,
                 z: 10,
                 prefix: String::new(),
-                labels: if item.tag.is_empty() { vec![] } else { vec![item.tag.clone()] },
+                labels: if item.tag.is_empty() {
+                    vec![]
+                } else {
+                    vec![item.tag.clone()]
+                },
                 ..Default::default()
             });
         }

@@ -69,7 +69,14 @@ fn parse_style(style_str: &str) -> (String, String, Option<String>) {
     (stroke, fill, dasharray)
 }
 
-fn arc_to_svg_path(x: f64, y: f64, width: f64, height: f64, start_deg: f64, angle_deg: f64) -> String {
+fn arc_to_svg_path(
+    x: f64,
+    y: f64,
+    width: f64,
+    height: f64,
+    start_deg: f64,
+    angle_deg: f64,
+) -> String {
     let rx = width / 2.0;
     let ry = height / 2.0;
     let cx = x + rx;
@@ -96,7 +103,13 @@ fn arc_to_svg_path(x: f64, y: f64, width: f64, height: f64, start_deg: f64, angl
 fn sanitize_filename(name: &str) -> String {
     let s: String = name
         .chars()
-        .map(|c| if c.is_alphanumeric() || c == '_' || c == '-' { c } else { '_' })
+        .map(|c| {
+            if c.is_alphanumeric() || c == '_' || c == '-' {
+                c
+            } else {
+                '_'
+            }
+        })
         .collect();
     let trimmed = s.trim_matches('_');
     if trimmed.is_empty() {
@@ -123,10 +136,26 @@ pub fn convert_elmt_file(
         return Err("Not a valid QET definition".into());
     }
 
-    let width: f64 = root.attribute("width").unwrap_or("60").parse().unwrap_or(60.0);
-    let height: f64 = root.attribute("height").unwrap_or("60").parse().unwrap_or(60.0);
-    let hotspot_x: f64 = root.attribute("hotspot_x").unwrap_or("30").parse().unwrap_or(30.0);
-    let hotspot_y: f64 = root.attribute("hotspot_y").unwrap_or("30").parse().unwrap_or(30.0);
+    let width: f64 = root
+        .attribute("width")
+        .unwrap_or("60")
+        .parse()
+        .unwrap_or(60.0);
+    let height: f64 = root
+        .attribute("height")
+        .unwrap_or("60")
+        .parse()
+        .unwrap_or(60.0);
+    let hotspot_x: f64 = root
+        .attribute("hotspot_x")
+        .unwrap_or("30")
+        .parse()
+        .unwrap_or(30.0);
+    let hotspot_y: f64 = root
+        .attribute("hotspot_y")
+        .unwrap_or("30")
+        .parse()
+        .unwrap_or(30.0);
 
     let mut name_en = None;
     let mut name_pt = None;
@@ -138,7 +167,8 @@ pub fn convert_elmt_file(
                 let text = name_node.text().unwrap_or("").trim();
                 if lang == "en" && !text.is_empty() {
                     name_en = Some(text.to_string());
-                } else if (lang == "pt" || lang == "pt_BR") && !text.is_empty() && name_pt.is_none() {
+                } else if (lang == "pt" || lang == "pt_BR") && !text.is_empty() && name_pt.is_none()
+                {
                     name_pt = Some(text.to_string());
                 }
             }
@@ -150,12 +180,10 @@ pub fn convert_elmt_file(
         .and_then(|s| s.to_str())
         .unwrap_or("symbol");
 
-    let final_name_en = name_en.unwrap_or_else(|| {
-        file_stem.replace('_', " ")
-    });
+    let final_name_en = name_en.unwrap_or_else(|| file_stem.replace('_', " "));
 
     let safe_stem = sanitize_filename(&final_name_en);
-    
+
     // Evita sobrescrever arquivos se dois elementos tiverem o mesmo nome em inglês na mesma pasta
     let count = used_filenames.entry(safe_stem.clone()).or_insert(0);
     *count += 1;
@@ -182,7 +210,10 @@ pub fn convert_elmt_file(
 
     let mut terminals = Vec::new();
 
-    if let Some(description) = root.children().find(|n| n.tag_name().name() == "description") {
+    if let Some(description) = root
+        .children()
+        .find(|n| n.tag_name().name() == "description")
+    {
         for child in description.children() {
             if !child.is_element() {
                 continue;
@@ -209,8 +240,16 @@ pub fn convert_elmt_file(
                 "rect" => {
                     let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
                     let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
-                    let w: f64 = child.attribute("width").unwrap_or("0").parse().unwrap_or(0.0);
-                    let h: f64 = child.attribute("height").unwrap_or("0").parse().unwrap_or(0.0);
+                    let w: f64 = child
+                        .attribute("width")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
+                    let h: f64 = child
+                        .attribute("height")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
                     svg.push_str(&format!(
                         "    <rect x=\"{:.2}\" y=\"{:.2}\" width=\"{:.2}\" height=\"{:.2}\" stroke=\"{}\" fill=\"{}\"{} />\n",
                         x, y, w, h, stroke, fill, dash_attr
@@ -219,8 +258,16 @@ pub fn convert_elmt_file(
                 "ellipse" => {
                     let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
                     let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
-                    let w: f64 = child.attribute("width").unwrap_or("0").parse().unwrap_or(0.0);
-                    let h: f64 = child.attribute("height").unwrap_or("0").parse().unwrap_or(0.0);
+                    let w: f64 = child
+                        .attribute("width")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
+                    let h: f64 = child
+                        .attribute("height")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
                     let rx = w / 2.0;
                     let ry = h / 2.0;
                     let cx = x + rx;
@@ -233,7 +280,11 @@ pub fn convert_elmt_file(
                 "circle" => {
                     let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
                     let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
-                    let diameter: f64 = child.attribute("diameter").unwrap_or("0").parse().unwrap_or(0.0);
+                    let diameter: f64 = child
+                        .attribute("diameter")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
                     let r = diameter / 2.0;
                     let cx = x + r;
                     let cy = y + r;
@@ -257,12 +308,18 @@ pub fn convert_elmt_file(
                         if is_closed {
                             svg.push_str(&format!(
                                 "    <polygon points=\"{}\" stroke=\"{}\" fill=\"{}\"{} />\n",
-                                points.join(" "), stroke, fill, dash_attr
+                                points.join(" "),
+                                stroke,
+                                fill,
+                                dash_attr
                             ));
                         } else {
                             svg.push_str(&format!(
                                 "    <polyline points=\"{}\" stroke=\"{}\" fill=\"{}\"{} />\n",
-                                points.join(" "), stroke, fill, dash_attr
+                                points.join(" "),
+                                stroke,
+                                fill,
+                                dash_attr
                             ));
                         }
                     }
@@ -270,10 +327,26 @@ pub fn convert_elmt_file(
                 "arc" => {
                     let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
                     let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
-                    let w: f64 = child.attribute("width").unwrap_or("0").parse().unwrap_or(0.0);
-                    let h: f64 = child.attribute("height").unwrap_or("0").parse().unwrap_or(0.0);
-                    let start: f64 = child.attribute("start").unwrap_or("0").parse().unwrap_or(0.0);
-                    let angle: f64 = child.attribute("angle").unwrap_or("0").parse().unwrap_or(0.0);
+                    let w: f64 = child
+                        .attribute("width")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
+                    let h: f64 = child
+                        .attribute("height")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
+                    let start: f64 = child
+                        .attribute("start")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
+                    let angle: f64 = child
+                        .attribute("angle")
+                        .unwrap_or("0")
+                        .parse()
+                        .unwrap_or(0.0);
                     let d = arc_to_svg_path(x, y, w, h, start, angle);
                     svg.push_str(&format!(
                         "    <path d=\"{}\" data-arc=\"{:.2},{:.2},{:.2},{:.2},{:.2},{:.2}\" stroke=\"{}\" fill=\"none\"{} />\n",
@@ -283,7 +356,10 @@ pub fn convert_elmt_file(
                 "dynamic_text" | "text" => {
                     let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
                     let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
-                    let rotation: f64 = child.attribute("rotation").and_then(|r| r.parse().ok()).unwrap_or(0.0);
+                    let rotation: f64 = child
+                        .attribute("rotation")
+                        .and_then(|r| r.parse().ok())
+                        .unwrap_or(0.0);
                     let size: f64 = child
                         .attribute("size")
                         .and_then(|v| v.parse().ok())
@@ -297,7 +373,9 @@ pub fn convert_elmt_file(
 
                     let mut text_str = child.attribute("text").unwrap_or("").to_string();
                     if text_str.is_empty() {
-                        if let Some(t_child) = child.children().find(|c| c.tag_name().name() == "text") {
+                        if let Some(t_child) =
+                            child.children().find(|c| c.tag_name().name() == "text")
+                        {
                             if let Some(txt) = t_child.text() {
                                 text_str = txt.trim().to_string();
                             }
@@ -400,12 +478,15 @@ fn process_category_recursive(
                 }
             }
         } else if path.is_dir() {
-            let sub_name = path
-                .file_name()
-                .and_then(|s| s.to_str())
-                .unwrap_or("sub");
+            let sub_name = path.file_name().and_then(|s| s.to_str()).unwrap_or("sub");
             let sub_slug = format!("{}/{}", category_slug, sanitize_filename(sub_name));
-            count += process_category_recursive(&path, output_base_dir, &sub_slug, catalog, used_filenames);
+            count += process_category_recursive(
+                &path,
+                output_base_dir,
+                &sub_slug,
+                catalog,
+                used_filenames,
+            );
         }
     }
 
@@ -417,7 +498,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let qet_base = if args.len() > 1 {
         PathBuf::from(&args[1])
     } else {
-        PathBuf::from("/tmp/.mount_QElectDhPJcI/usr/share/qelectrotech/elements/10_electric/10_allpole")
+        PathBuf::from(
+            "/tmp/.mount_QElectDhPJcI/usr/share/qelectrotech/elements/10_electric/10_allpole",
+        )
     };
 
     let output_base = if args.len() > 2 {
@@ -449,10 +532,20 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             let clean_slug = dir_name
                 .trim_start_matches(|c: char| c.is_ascii_digit() || c == '_')
                 .to_string();
-            let slug = if clean_slug.is_empty() { dir_name.to_string() } else { clean_slug };
+            let slug = if clean_slug.is_empty() {
+                dir_name.to_string()
+            } else {
+                clean_slug
+            };
 
             print!("Converting category '{}' ... ", slug);
-            let n = process_category_recursive(&path, &output_base, &slug, &mut catalog, &mut used_filenames);
+            let n = process_category_recursive(
+                &path,
+                &output_base,
+                &slug,
+                &mut catalog,
+                &mut used_filenames,
+            );
             println!("{} symbols converted.", n);
             total_converted += n;
         }

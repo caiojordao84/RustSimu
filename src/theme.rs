@@ -61,16 +61,18 @@ impl ThemeMode {
 
 /// Detecta a preferência do sistema operacional para modo escuro (Dark/Light).
 pub fn detect_system_dark() -> bool {
-    use std::process::Command;
     #[cfg(target_os = "windows")]
     use std::os::windows::process::CommandExt;
+    use std::process::Command;
 
     let run = |prog: &str, args: &[&str]| -> String {
         let mut c = Command::new(prog);
         c.args(args);
         #[cfg(target_os = "windows")]
         c.creation_flags(0x0800_0000); // CREATE_NO_WINDOW: sem janela de consola no Windows
-        c.output().map(|o| String::from_utf8_lossy(&o.stdout).to_lowercase()).unwrap_or_default()
+        c.output()
+            .map(|o| String::from_utf8_lossy(&o.stdout).to_lowercase())
+            .unwrap_or_default()
     };
 
     #[cfg(target_os = "windows")]
@@ -114,7 +116,14 @@ pub fn detect_system_dark() -> bool {
         // KDE Plasma via kdeglobals
         if run(
             "kreadconfig6",
-            &["--file", "kdeglobals", "--group", "General", "--key", "ColorScheme"],
+            &[
+                "--file",
+                "kdeglobals",
+                "--group",
+                "General",
+                "--key",
+                "ColorScheme",
+            ],
         )
         .contains("dark")
         {
@@ -127,7 +136,11 @@ pub fn detect_system_dark() -> bool {
             }
         }
         // GNOME desktop interface fallback
-        return run("gsettings", &["get", "org.gnome.desktop.interface", "color-scheme"]).contains("dark");
+        return run(
+            "gsettings",
+            &["get", "org.gnome.desktop.interface", "color-scheme"],
+        )
+        .contains("dark");
     }
     #[allow(unreachable_code)]
     false
@@ -317,7 +330,11 @@ impl Tokens {
 
 // ---------- Helpers ----------
 fn border(color: Color, width: f32, radius: f32) -> Border {
-    Border { color, width, radius: radius.into() }
+    Border {
+        color,
+        width,
+        radius: radius.into(),
+    }
 }
 
 fn dim(c: Color, a: f32) -> Color {
@@ -340,7 +357,10 @@ pub fn tool(theme: &Theme, status: button::Status) -> button::Style {
         shadow: Shadow::default(),
     };
     if matches!(status, button::Status::Disabled) {
-        button::Style { text_color: dim(t.text, 0.4), ..s }
+        button::Style {
+            text_color: dim(t.text, 0.4),
+            ..s
+        }
     } else {
         s
     }
@@ -386,7 +406,11 @@ pub fn pill_play(running: bool) -> impl Fn(&Theme, button::Status) -> button::St
             background: bg(base),
             text_color: t.on_primary,
             border: border(
-                if running { Color::WHITE } else { Color::TRANSPARENT },
+                if running {
+                    Color::WHITE
+                } else {
+                    Color::TRANSPARENT
+                },
                 if running { 1.5 } else { 0.0 },
                 PILL,
             ),
@@ -577,7 +601,10 @@ pub fn transport(theme: &Theme) -> container::Style {
 /// Fundo do espaço de trabalho à volta da folha.
 pub fn workspace(theme: &Theme) -> container::Style {
     let t = tokens(theme);
-    container::Style { background: bg(t.workspace), ..boxed(t.workspace, t.workspace, 0.0, theme) }
+    container::Style {
+        background: bg(t.workspace),
+        ..boxed(t.workspace, t.workspace, 0.0, theme)
+    }
 }
 
 /// Caixa de pré-visualização do símbolo (128 px).
@@ -593,7 +620,11 @@ pub fn mode_badge(sim: bool) -> impl Fn(&Theme) -> container::Style {
         let c = if sim { t.amber } else { t.primary };
         container::Style {
             text_color: Some(t.text),
-            background: bg(if sim { dim(t.amber, 0.14) } else { t.primary_soft }),
+            background: bg(if sim {
+                dim(t.amber, 0.14)
+            } else {
+                t.primary_soft
+            }),
             border: border(c, 1.0, R),
             shadow: Shadow::default(),
         }
@@ -605,7 +636,11 @@ pub fn tab_underline(active: bool) -> impl Fn(&Theme) -> container::Style {
     move |theme| {
         let t = tokens(theme);
         container::Style {
-            background: bg(if active { t.primary } else { Color::TRANSPARENT }),
+            background: bg(if active {
+                t.primary
+            } else {
+                Color::TRANSPARENT
+            }),
             ..Default::default()
         }
     }
@@ -613,7 +648,10 @@ pub fn tab_underline(active: bool) -> impl Fn(&Theme) -> container::Style {
 
 /// Filete horizontal/vertical de 1 px.
 pub fn divider(theme: &Theme) -> container::Style {
-    container::Style { background: bg(tokens(theme).border), ..Default::default() }
+    container::Style {
+        background: bg(tokens(theme).border),
+        ..Default::default()
+    }
 }
 
 // ---------- Campos de texto ----------
@@ -629,7 +667,11 @@ pub fn field(theme: &Theme, status: text_input::Status) -> text_input::Style {
         border: border(c, 1.0, R),
         icon: t.text2,
         placeholder: t.text2,
-        value: if matches!(status, text_input::Status::Disabled) { t.text2 } else { t.text },
+        value: if matches!(status, text_input::Status::Disabled) {
+            t.text2
+        } else {
+            t.text
+        },
         selection: dim(t.focus, 0.35),
     }
 }
@@ -637,13 +679,19 @@ pub fn field(theme: &Theme, status: text_input::Status) -> text_input::Style {
 // ---------- Texto ----------
 /// Rótulos técnicos em maiúsculas (usar com MONO, size 10).
 pub fn muted(theme: &Theme) -> text::Style {
-    text::Style { color: Some(tokens(theme).text2) }
+    text::Style {
+        color: Some(tokens(theme).text2),
+    }
 }
 
 pub fn accent(theme: &Theme) -> text::Style {
-    text::Style { color: Some(tokens(theme).primary) }
+    text::Style {
+        color: Some(tokens(theme).primary),
+    }
 }
 
 pub fn warning(theme: &Theme) -> text::Style {
-    text::Style { color: Some(tokens(theme).amber) }
+    text::Style {
+        color: Some(tokens(theme).amber),
+    }
 }

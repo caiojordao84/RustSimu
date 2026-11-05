@@ -215,10 +215,22 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
 
         match node.tag_name().name() {
             "line" => {
-                let x1 = node.attribute("x1").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let y1 = node.attribute("y1").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let x2 = node.attribute("x2").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let y2 = node.attribute("y2").and_then(|v| v.parse().ok()).unwrap_or(0.0);
+                let x1 = node
+                    .attribute("x1")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let y1 = node
+                    .attribute("y1")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let x2 = node
+                    .attribute("x2")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let y2 = node
+                    .attribute("y2")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
                 let dashed = node.attribute("stroke-dasharray").is_some();
                 shapes.push(SvgShape::Line {
                     x1,
@@ -235,7 +247,9 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
                         .filter_map(|s| s.trim().parse().ok())
                         .collect();
                     if nums.len() == 6 {
-                        let pts = qet_arc_to_polyline(nums[0], nums[1], nums[2], nums[3], nums[4], nums[5]);
+                        let pts = qet_arc_to_polyline(
+                            nums[0], nums[1], nums[2], nums[3], nums[4], nums[5],
+                        );
                         if pts.len() >= 2 {
                             shapes.push(SvgShape::Polyline { points: pts });
                         }
@@ -264,9 +278,18 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
                 }
             }
             "circle" => {
-                let cx = node.attribute("cx").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let cy = node.attribute("cy").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let r = node.attribute("r").and_then(|v| v.parse().ok()).unwrap_or(1.5);
+                let cx = node
+                    .attribute("cx")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let cy = node
+                    .attribute("cy")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let r = node
+                    .attribute("r")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(1.5);
                 let is_terminal = node
                     .attribute("class")
                     .map(|c| c.contains("qet-terminal"))
@@ -285,10 +308,22 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
                 });
             }
             "ellipse" => {
-                let cx = node.attribute("cx").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let cy = node.attribute("cy").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let rx = node.attribute("rx").and_then(|v| v.parse().ok()).unwrap_or(5.0);
-                let ry = node.attribute("ry").and_then(|v| v.parse().ok()).unwrap_or(5.0);
+                let cx = node
+                    .attribute("cx")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let cy = node
+                    .attribute("cy")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let rx = node
+                    .attribute("rx")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(5.0);
+                let ry = node
+                    .attribute("ry")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(5.0);
                 shapes.push(SvgShape::Ellipse {
                     cx,
                     cy,
@@ -298,10 +333,22 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
                 });
             }
             "rect" => {
-                let x = node.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let y = node.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let w = node.attribute("width").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let h = node.attribute("height").and_then(|v| v.parse().ok()).unwrap_or(0.0);
+                let x = node
+                    .attribute("x")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let y = node
+                    .attribute("y")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let w = node
+                    .attribute("width")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let h = node
+                    .attribute("height")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
                 let dashed = node.attribute("stroke-dasharray").is_some();
                 shapes.push(SvgShape::Rect {
                     x,
@@ -313,21 +360,39 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
                 });
             }
             "text" => {
-                let x = node.attribute("x").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let y = node.attribute("y").and_then(|v| v.parse().ok()).unwrap_or(0.0);
-                let size = node.attribute("font-size").and_then(|v| v.parse().ok()).unwrap_or(10.0);
-                let rotation = node.attribute("transform").and_then(|t| {
-                    if let Some(idx) = t.find("rotate(") {
-                        let rest = &t[idx + 7..];
-                        let num_str = rest.split([' ', ')', ',']).next()?;
-                        num_str.parse::<f32>().ok()
-                    } else {
-                        None
-                    }
-                }).unwrap_or(0.0);
+                let x = node
+                    .attribute("x")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let y = node
+                    .attribute("y")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(0.0);
+                let size = node
+                    .attribute("font-size")
+                    .and_then(|v| v.parse().ok())
+                    .unwrap_or(10.0);
+                let rotation = node
+                    .attribute("transform")
+                    .and_then(|t| {
+                        if let Some(idx) = t.find("rotate(") {
+                            let rest = &t[idx + 7..];
+                            let num_str = rest.split([' ', ')', ',']).next()?;
+                            num_str.parse::<f32>().ok()
+                        } else {
+                            None
+                        }
+                    })
+                    .unwrap_or(0.0);
                 let text = node.text().unwrap_or("").trim().to_string();
                 if !text.is_empty() {
-                    shapes.push(SvgShape::Text { x, y, text, size, rotation });
+                    shapes.push(SvgShape::Text {
+                        x,
+                        y,
+                        text,
+                        size,
+                        rotation,
+                    });
                 }
             }
             _ => {}
@@ -348,22 +413,49 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
     };
 
     let max_term_x = if !terminal_xs.is_empty() {
-        terminal_xs.iter().cloned().fold(f32::NEG_INFINITY, f32::max)
+        terminal_xs
+            .iter()
+            .cloned()
+            .fold(f32::NEG_INFINITY, f32::max)
     } else {
         0.0
     };
 
     shapes.sort_by_key(|s| match s {
         SvgShape::Rect { dashed: true, .. } => 0,
-        SvgShape::Circle { fill: SvgFill::White, .. }
-        | SvgShape::Ellipse { fill: SvgFill::White, .. }
-        | SvgShape::Rect { fill: SvgFill::White, .. }
-        | SvgShape::Polygon { fill: SvgFill::White, .. } => 1,
+        SvgShape::Circle {
+            fill: SvgFill::White,
+            ..
+        }
+        | SvgShape::Ellipse {
+            fill: SvgFill::White,
+            ..
+        }
+        | SvgShape::Rect {
+            fill: SvgFill::White,
+            ..
+        }
+        | SvgShape::Polygon {
+            fill: SvgFill::White,
+            ..
+        } => 1,
         SvgShape::Line { .. } | SvgShape::Polyline { .. } => 2,
-        SvgShape::Circle { fill: SvgFill::Solid, .. }
-        | SvgShape::Ellipse { fill: SvgFill::Solid, .. }
-        | SvgShape::Rect { fill: SvgFill::Solid, .. }
-        | SvgShape::Polygon { fill: SvgFill::Solid, .. } => 4,
+        SvgShape::Circle {
+            fill: SvgFill::Solid,
+            ..
+        }
+        | SvgShape::Ellipse {
+            fill: SvgFill::Solid,
+            ..
+        }
+        | SvgShape::Rect {
+            fill: SvgFill::Solid,
+            ..
+        }
+        | SvgShape::Polygon {
+            fill: SvgFill::Solid,
+            ..
+        } => 4,
         SvgShape::Text { .. } => 5,
         _ => 3,
     });
@@ -389,7 +481,12 @@ pub fn parse_svg_fill_attr(fill_opt: Option<&str>) -> SvgFill {
         SvgFill::None
     } else if f == "black" || f == "#000000" || f == "#000" {
         SvgFill::Solid
-    } else if f == "white" || f == "#ffffff" || f == "#fff" || f.contains("white") || f.contains("ivory") {
+    } else if f == "white"
+        || f == "#ffffff"
+        || f == "#fff"
+        || f.contains("white")
+        || f.contains("ivory")
+    {
         SvgFill::White
     } else {
         SvgFill::Tint
@@ -468,13 +565,9 @@ fn parse_svg_arc_d(d: &str) -> Vec<(f32, f32)> {
         } else if !sweep && d_ang > 0.0 {
             d_ang -= two_pi;
         }
-        if large_arc && d_ang.abs() < std::f32::consts::PI {
-            if d_ang >= 0.0 {
-                d_ang -= two_pi;
-            } else {
-                d_ang += two_pi;
-            }
-        } else if !large_arc && d_ang.abs() > std::f32::consts::PI {
+        if (large_arc && d_ang.abs() < std::f32::consts::PI)
+            || (!large_arc && d_ang.abs() > std::f32::consts::PI)
+        {
             if d_ang >= 0.0 {
                 d_ang -= two_pi;
             } else {
