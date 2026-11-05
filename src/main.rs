@@ -6150,6 +6150,243 @@ mod tests {
             "Clique sem deslocamento não deve adicionar entrada na pilha de undo"
         );
     }
+
+    #[test]
+    fn test_teste_cad_loading_and_mushroom_button_dj() {
+        let cad_path = "Projetos/teste.cad";
+        let content = std::fs::read_to_string(cad_path)
+            .expect("teste.cad deve existir na pasta Projetos");
+        let doc = crate::io::parse_cad_str(&content)
+            .expect("teste.cad deve carregar com sucesso");
+
+        // Verifica que o elemento 139 existe no arquivo e foi decodificado como 8008
+        let item_dj = doc.items.iter().find(|i| i.id == 139)
+            .expect("Item #139 (DJ) deve estar presente no teste.cad");
+        assert_eq!(item_dj.tipo, 8008, "Item #139 deve ser tipo 8008 (Botão Cogumelo NA)");
+        assert_eq!(item_dj.tag.trim(), "DJ", "Tag do elemento #139 deve ser DJ");
+        assert_eq!(item_dj.pins[0].trim(), "13", "Pino 0 deve ser 13");
+        assert_eq!(item_dj.pins[1].trim(), "14", "Pino 1 deve ser 14");
+
+        // Verifica que o símbolo existe no catálogo do programa com primitivas vetoriais completas
+        let sym = find_symbol(8008).expect("Símbolo 8008 deve existir no catálogo de símbolos");
+        assert_eq!(sym.category, crate::symbols::SymbolCategory::PushbuttonsActuators);
+        assert!(!sym.idle_cmds.is_empty(), "Comandos idle não podem ser vazios");
+        assert!(!sym.active_cmds.is_empty(), "Comandos active não podem ser vazios");
+        assert_eq!(sym.pins.len(), 2, "Botão cogumelo NA tem 2 pinos");
+    }
+
+    #[test]
+    fn test_actuators_and_switches_catalog_completeness() {
+        let expected_types = [
+            8005, // Chave NF
+            8006, // Chave NA+NF
+            8007, // Chave CON
+            8008, // Cogumelo NA
+            8009, // Cogumelo NF
+            8010, // Cogumelo NA+NF
+            8011, // Cogumelo CON
+            8012, // Fim de Curso NA
+            8013, // Fim de Curso NF
+            8014, // Fim de Curso NA+NF
+            8015, // Fim de Curso CON
+            8018, // Relé Térmico NA+NF
+            8019, // Relé Térmico CON
+            8020, // Chave Seletora I-0-II
+            8021, // Chave Seletora I-II-III
+            8022, // Chave Inversora / Crossover
+        ];
+
+        for &tipo in &expected_types {
+            let sym = find_symbol(tipo).unwrap_or_else(|| panic!("Tipo {} deve existir no catálogo", tipo));
+            assert!(!sym.idle_cmds.is_empty(), "Tipo {} deve ter comandos idle", tipo);
+            assert!(!sym.active_cmds.is_empty(), "Tipo {} deve ter comandos active", tipo);
+            assert!(!sym.pins.is_empty(), "Tipo {} deve ter pinos declarados", tipo);
+        }
+    }
+
+    #[test]
+    fn test_actuator_switches_latching_and_momentary_distinction() {
+        use crate::sim::{is_momentary_button, press_component_on_sim, release_component_on_sim};
+
+        // 1. Verifica momentâneos vs bi-estáveis
+        for &m in &[8000, 8001, 8002, 8003, 8023] {
+            assert!(is_momentary_button(m), "Tipo {} deve ser momentâneo", m);
+        }
+        for &b in &[8004, 8005, 8006, 8007, 8008, 8009, 8010, 8011, 8012, 8013, 8014, 8015, 8018, 8019, 8020, 8021, 8022] {
+            assert!(!is_momentary_button(b), "Tipo {} deve ser bi-estável / retentivo", b);
+        }
+
+        let mut doc = crate::model::SchematicDocument::default();
+        doc.items.clear();
+
+        // 2. Insere um botão pulsador momentâneo (8000) e um botão cogumelo retentivo (8008)
+        let mut btn_mom = crate::model::SchematicItem::new_symbol(1, 8000, 50, 50, "-S1");
+        btn_mom.pins[0] = "13".to_string();
+        btn_mom.pins[1] = "14".to_string();
+        let mut btn_cog = crate::model::SchematicItem::new_symbol(2, 8008, 100, 50, "-S2");
+        btn_cog.pins[0] = "13".to_string();
+        btn_cog.pins[1] = "14".to_string();
+        doc.items.push(btn_mom);
+        doc.items.push(btn_cog);
+
+        // Pressiona o botão momentâneo -> fica ativo
+        press_component_on_sim(&mut doc, 1);
+        assert!(doc.items[0].sim_manual_latched, "Botão momentâneo deve ficar ativo ao pressionar");
+
+        // Solta o botão momentâneo -> volta a repouso
+        release_component_on_sim(&mut doc, 1);
+        assert!(!doc.items[0].sim_manual_latched, "Botão momentâneo deve soltar ao liberar o mouse");
+
+        // Pressiona o botão cogumelo (8008) -> retém ativo
+        press_component_on_sim(&mut doc, 2);
+        assert!(doc.items[1].sim_manual_latched, "Botão cogumelo deve reter ativo");
+
+        // Solta o botão cogumelo -> DEVE CONTINUAR ATIVO (retentivo/bi-estável)
+        release_component_on_sim(&mut doc, 2);
+        assert!(doc.items[1].sim_manual_latched, "Botão cogumelo deve permanecer retido após soltar mouse");
+
+        // Segundo clique no cogumelo -> desativa (destrava)
+        press_component_on_sim(&mut doc, 2);
+        assert!(!doc.items[1].sim_manual_latched, "Segundo clique destrava o cogumelo retentivo");
+    }
+
+    #[test]
+    fn test_crossover_switch_and_limit_switches_conduction() {
+        use crate::sim::step_simulation;
+        use crate::model::Potential;
+
+        let mut doc = crate::model::SchematicDocument::default();
+        doc.items.clear();
+
+        let sym_l1 = find_symbol(3000).unwrap();
+        let sym_n = find_symbol(3001).unwrap();
+        let sym_cross = find_symbol(8022).unwrap();
+
+        let src_l1 = sym_l1.instantiate(1, 50, 40, 0);
+        let src_n = sym_n.instantiate(2, 56, 40, 0);
+        let cross = sym_cross.instantiate(3, 50, 50, 0);
+
+        let wp_l1 = sym_l1.world_pins(&src_l1);
+        let wp_n = sym_n.world_pins(&src_n);
+        let wp_cross = sym_cross.world_pins(&cross);
+
+        let pt_l1 = wp_l1[0].2;
+        let pt_n = wp_n[0].2;
+        let pt_c0 = wp_cross[0].2; // pino 0 ("1")
+        let pt_c1 = wp_cross[1].2; // pino 1 ("3")
+        let pt_c2 = wp_cross[2].2; // pino 2 ("2")
+        let pt_c3 = wp_cross[3].2; // pino 3 ("4")
+
+        doc.items.push(src_l1);
+        doc.items.push(src_n);
+        doc.items.push(cross);
+
+        // Fios conectando L1 ao pino 0 e N ao pino 1
+        doc.items.push(crate::model::SchematicItem::new_wire(4, 4000, pt_l1.0, pt_l1.1, pt_c0.0, pt_c0.1));
+        doc.items.push(crate::model::SchematicItem::new_wire(5, 4002, pt_n.0, pt_n.1, pt_c1.0, pt_c1.1));
+
+        // Cabos de saída a partir dos pinos 2 e 3
+        doc.items.push(crate::model::SchematicItem::new_wire(6, 4000, pt_c2.0, pt_c2.1, pt_c2.0, pt_c2.1 + 20));
+        doc.items.push(crate::model::SchematicItem::new_wire(7, 4002, pt_c3.0, pt_c3.1, pt_c3.0, pt_c3.1 + 20));
+
+        // Executa simulação em repouso (cross.sim_manual_latched = false)
+        // No repouso: conexão direta -> pino 0 (L1) liga ao pino 2 (fio 6), pino 1 (N) liga ao pino 3 (fio 7)
+        step_simulation(&mut doc, 50);
+
+        let pot_out_left = doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential;
+        let pot_out_right = doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential;
+        assert_eq!(pot_out_left, Potential::L1, "Em repouso, saída esquerda deve ser L1");
+        assert_eq!(pot_out_right, Potential::N, "Em repouso, saída direita deve ser N");
+
+        // Ativa a chave inversora (cross.sim_manual_latched = true)
+        // No ativo: conexão cruzada -> pino 0 (L1) liga ao pino 3 (fio 7), pino 1 (N) liga ao pino 2 (fio 6)
+        doc.items.iter_mut().find(|i| i.id == 3).unwrap().sim_manual_latched = true;
+        step_simulation(&mut doc, 50);
+
+        let pot_out_left_inv = doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential;
+        let pot_out_right_inv = doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential;
+        assert_eq!(pot_out_left_inv, Potential::N, "Ao inverter, saída esquerda deve trocar para N");
+        assert_eq!(pot_out_right_inv, Potential::L1, "Ao inverter, saída direita deve trocar para L1");
+    }
+
+    #[test]
+    fn test_limit_switches_and_thermal_aux_contacts() {
+        use crate::sim::step_simulation;
+        use crate::model::Potential;
+
+        let mut doc = crate::model::SchematicDocument::default();
+        doc.items.clear();
+
+        // 1. Fonte L1 em (50, 40)
+        let sym_l1 = find_symbol(3000).unwrap();
+        let src_l1 = sym_l1.instantiate(1, 50, 40, 0);
+        let pt_l1 = sym_l1.world_pins(&src_l1)[0].2;
+        doc.items.push(src_l1);
+
+        // 2. Fim de curso NA (8012) e NF (8013)
+        let sym_no = find_symbol(8012).unwrap();
+        let sym_nc = find_symbol(8013).unwrap();
+        let lim_no = sym_no.instantiate(2, 50, 50, 0);
+        let lim_nc = sym_nc.instantiate(3, 80, 50, 0);
+
+        let wp_no = sym_no.world_pins(&lim_no);
+        let wp_nc = sym_nc.world_pins(&lim_nc);
+
+        doc.items.push(lim_no);
+        doc.items.push(lim_nc);
+
+        // Fios de entrada: L1 -> pino 0 de lim_no e lim_nc
+        doc.items.push(crate::model::SchematicItem::new_wire(4, 4000, pt_l1.0, pt_l1.1, wp_no[0].2.0, wp_no[0].2.1));
+        doc.items.push(crate::model::SchematicItem::new_wire(5, 4000, pt_l1.0, pt_l1.1, wp_nc[0].2.0, wp_nc[0].2.1));
+
+        // Fios de saída: pino 1 -> carga
+        doc.items.push(crate::model::SchematicItem::new_wire(6, 4000, wp_no[1].2.0, wp_no[1].2.1, wp_no[1].2.0, wp_no[1].2.1 + 20));
+        doc.items.push(crate::model::SchematicItem::new_wire(7, 4000, wp_nc[1].2.0, wp_nc[1].2.1, wp_nc[1].2.0, wp_nc[1].2.1 + 20));
+
+        // Em repouso: NO aberto (saída None), NC fechado (saída L1)
+        step_simulation(&mut doc, 50);
+        assert_eq!(doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential, Potential::None);
+        assert_eq!(doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential, Potential::L1);
+
+        // Ativa ambos os fins de curso: NO fecha (saída L1), NC abre (saída None)
+        doc.items.iter_mut().find(|i| i.id == 2).unwrap().sim_manual_latched = true;
+        doc.items.iter_mut().find(|i| i.id == 3).unwrap().sim_manual_latched = true;
+        step_simulation(&mut doc, 50);
+        assert_eq!(doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential, Potential::L1);
+        assert_eq!(doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential, Potential::None);
+
+        // 3. Testa atuação do relé térmico pai (6007) sobre contato auxiliar térmico duplo (8018)
+        let sym_f = find_symbol(6007).unwrap();
+        let sym_f_aux = find_symbol(8018).unwrap();
+        let mut r_term = sym_f.instantiate(10, 120, 50, 0);
+        r_term.tag = "-F1".to_string();
+        let mut aux_term = sym_f_aux.instantiate(11, 150, 50, 0);
+        aux_term.tag = "-F1".to_string();
+
+        let wp_aux = sym_f_aux.world_pins(&aux_term);
+        // pino 0 ("95") e pino 2 ("96") formam o contato NF
+        // pino 1 ("97") e pino 3 ("98") formam o contato NA
+        doc.items.push(r_term);
+        doc.items.push(aux_term);
+
+        // Alimenta 95 (NF) e 97 (NA) com L1
+        doc.items.push(crate::model::SchematicItem::new_wire(12, 4000, pt_l1.0, pt_l1.1, wp_aux[0].2.0, wp_aux[0].2.1));
+        doc.items.push(crate::model::SchematicItem::new_wire(13, 4000, pt_l1.0, pt_l1.1, wp_aux[1].2.0, wp_aux[1].2.1));
+        // Saídas de 96 (NF) e 98 (NA)
+        doc.items.push(crate::model::SchematicItem::new_wire(14, 4000, wp_aux[2].2.0, wp_aux[2].2.1, wp_aux[2].2.0, wp_aux[2].2.1 + 20));
+        doc.items.push(crate::model::SchematicItem::new_wire(15, 4000, wp_aux[3].2.0, wp_aux[3].2.1, wp_aux[3].2.0, wp_aux[3].2.1 + 20));
+
+        // Em repouso do relé térmico: 95-96 conduz (fio 14 = L1), 97-98 aberto (fio 15 = None)
+        step_simulation(&mut doc, 50);
+        assert_eq!(doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential, Potential::L1);
+        assert_eq!(doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential, Potential::None);
+
+        // Dispara o relé térmico principal -F1 -> o contato auxiliar 8018 comuta automaticamente via tag!
+        doc.items.iter_mut().find(|i| i.id == 10).unwrap().sim_manual_latched = true;
+        step_simulation(&mut doc, 50);
+        assert_eq!(doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential, Potential::None, "95-96 abre quando -F1 desarma");
+        assert_eq!(doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential, Potential::L1, "97-98 fecha quando -F1 desarma");
+    }
 }
 
 

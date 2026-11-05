@@ -352,6 +352,46 @@ impl SchematicItem {
     pub fn new_junction(id: i32, x: i32, y: i32) -> Self {
         Self::new_wire(id, 4001, x, y, x, y)
     }
+
+    pub fn new_symbol(id: i32, tipo: i32, x: i32, y: i32, tag: impl Into<String>) -> Self {
+        let tag_str = tag.into();
+        let mut pins: [String; 9] = Default::default();
+        if let Some(sym) = crate::symbols::find_symbol(tipo) {
+            for (i, p) in sym.pins.iter().enumerate().take(9) {
+                pins[i] = p.default_label.to_string();
+            }
+        }
+        Self {
+            id,
+            tipo,
+            tag: tag_str,
+            value: String::new(),
+            pins,
+            pin_visibility: [1; 9],
+            x1: x,
+            y1: y,
+            x2: 0,
+            y2: 0,
+            aux_coords: [0, 0, 0, 0],
+            color: 0,
+            orientation: 0,
+            subvariant: 0,
+            show_tag: 1,
+            show_value: 0,
+            extra_int1: 0,
+            extra_int2: 0,
+            trailing_str: String::new(),
+            qet_type: None,
+            qet_uuid: None,
+            sim_active: false,
+            sim_manual_latched: false,
+            sim_timer_elapsed_ms: 0,
+            sim_fault: false,
+            sim_motor_dir: 0,
+            sim_motor_mode: MotorMode::Off,
+            sim_potential: Potential::None,
+        }
+    }
 }
 
 /// Página individual de um projeto esquemático multipáginas.

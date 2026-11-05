@@ -115,6 +115,8 @@ impl<'a> SchematicCanvas<'a> {
                 if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
                     return Some(item.id);
                 }
+            } else if item.tipo > 0 && (wx - item.x1).abs() <= 15 && (wy - item.y1).abs() <= 15 {
+                return Some(item.id);
             } else if let Some(ref qet_type) = item.qet_type {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     let (vx, vy, vw, vh) = parsed.view_box;
@@ -479,10 +481,13 @@ impl<'a> SchematicCanvas<'a> {
         stroke_width: f32,
         fill_active: Option<Color>,
         target_span: f32,
-    ) {
+    ) -> bool {
         let Some(parsed) = crate::svg_symbol::get_parsed_svg(svg_path) else {
-            return;
+            return false;
         };
+        if parsed.shapes.is_empty() {
+            return false;
+        }
 
         let stroke_regular = Stroke::default()
             .with_color(stroke_color)
@@ -739,6 +744,7 @@ impl<'a> SchematicCanvas<'a> {
                 }
             }
         }
+        true
     }
 
     fn draw_item(&self, frame: &mut Frame, item: &SchematicItem) {
@@ -899,6 +905,33 @@ impl<'a> SchematicCanvas<'a> {
         }
 
         let Some(sym) = find_symbol(item.tipo) else {
+            // Símbolo não catalogado: desenha fallback visual explícito (retângulo tracejado com tag e tipo)
+            // para garantir que NUNCA fique invisível ou em branco no canvas.
+            let tl = self.world_to_screen((item.x1 - 2) as f32, (item.y1 - 2) as f32);
+            let sz = Size::new(12.0 * self.zoom, 14.0 * self.zoom);
+            let box_color = if self.is_dark {
+                Color::from_rgb(0.90, 0.55, 0.20)
+            } else {
+                Color::from_rgb(0.85, 0.35, 0.10)
+            };
+            let mut stroke = Stroke::default().with_color(box_color).with_width(1.3);
+            stroke.line_dash = iced::widget::canvas::stroke::LineDash {
+                segments: &[3.0, 2.0],
+                offset: 0,
+            };
+            frame.stroke(&Path::rectangle(tl, sz), stroke);
+            let label = if !item.tag.is_empty() {
+                format!("{}:{}", item.tag, item.tipo)
+            } else {
+                format!("?{}", item.tipo)
+            };
+            frame.fill_text(Text {
+                content: label,
+                position: Point::new(tl.x + 2.0, tl.y + 2.0),
+                color: box_color,
+                size: (2.8 * self.zoom).clamp(7.5, 13.0).into(),
+                ..Text::default()
+            });
             return;
         };
 
@@ -995,6 +1028,7 @@ impl<'a> SchematicCanvas<'a> {
             None
         };
 
+        let mut drew_svg = false;
         if let Some((svg_idle, svg_active)) = sym.svg_paths() {
             let svg_path = if active_in_sim {
                 svg_active
@@ -1003,7 +1037,7 @@ impl<'a> SchematicCanvas<'a> {
             };
             let max_pin_y = sym.pins.iter().map(|p| p.conn_pos.1).fold(0, i32::max) as f32;
             let target_span = if max_pin_y > 0.0 { max_pin_y } else { 12.0 };
-            self.draw_svg_symbol(
+            drew_svg = self.draw_svg_symbol(
                 frame,
                 item.x1,
                 item.y1,
@@ -1014,7 +1048,8 @@ impl<'a> SchematicCanvas<'a> {
                 fill_active,
                 target_span,
             );
-        } else {
+        }
+        if !drew_svg {
             self.draw_symbol_primitives(
                 frame,
                 item.x1,
@@ -1408,10 +1443,11 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
             };
             if let Some(tipo) = active_sym {
                 if let Some(sym) = find_symbol(tipo) {
+                    let mut drew_svg = false;
                     if let Some((svg_idle, _)) = sym.svg_paths() {
                         let max_pin_y = sym.pins.iter().map(|p| p.conn_pos.1).fold(0, i32::max) as f32;
                         let target_span = if max_pin_y > 0.0 { max_pin_y } else { 12.0 };
-                        self.draw_svg_symbol(
+                        drew_svg = self.draw_svg_symbol(
                             &mut frame,
                             hx,
                             hy,
@@ -1422,7 +1458,8 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             None,
                             target_span,
                         );
-                    } else {
+                    }
+                    if !drew_svg {
                         self.draw_symbol_primitives(
                             &mut frame,
                             hx,

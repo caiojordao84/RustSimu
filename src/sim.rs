@@ -134,7 +134,7 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
 
     let is_manual = matches!(
         tipo,
-        2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000 | 8001 | 8002 | 8003 | 8004 | 8008 | 8009 | 8010 | 8011 | 8016 | 8017 | 8023
+        2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8023
     ) || doc.items[idx].qet_type.as_ref().map(|t| {
         let l = t.to_ascii_lowercase();
         l.contains("switch") || l.contains("schalter") || l.contains("ignition") || l.contains("button") || l.contains("taster")
@@ -153,8 +153,7 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
                 let item_is_manual = matches!(
                     item.tipo,
                     2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
-                        | 8000 | 8001 | 8002 | 8003 | 8004 | 8008 | 8009 | 8010 | 8011
-                        | 8016 | 8017 | 8023
+                        | 8000..=8023
                 ) || item.qet_type.as_ref().map(|t| {
                     let l = t.to_ascii_lowercase();
                     l.contains("switch") || l.contains("schalter") || l.contains("ignition") || l.contains("button") || l.contains("taster")
@@ -175,7 +174,8 @@ pub fn set_manual_by_tag(doc: &mut SchematicDocument, tag: &str, pressed: bool) 
         if item.tag.trim().eq_ignore_ascii_case(target)
             && matches!(
                 item.tipo,
-                2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000 | 8001 | 8002 | 8003 | 8004 | 8008 | 8009 | 8010 | 8011 | 8016 | 8017 | 8023
+                2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
+                    | 8000..=8023
             )
         {
             item.sim_manual_latched = pressed;
@@ -308,7 +308,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         5000 | 5003 if !item.sim_manual_latched => {
                             breakers_active.insert(tag);
                         }
-                        2004 | 5008 | 6000 | 6003 | 6004 | 6008 | 6009 | 8004 if item.sim_manual_latched => {
+                        2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8004..=8015 | 8020..=8022 if item.sim_manual_latched => {
                             breakers_active.insert(tag);
                         }
                         _ => {}
@@ -323,9 +323,15 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     5000 | 5003 => {
                         item.sim_active = !item.sim_manual_latched;
                     }
-                    // Disjuntores, chaves seccionadoras, botões e relés térmicos: seguem o acionamento manual
-                    2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000 | 8001 | 8002 | 8003
-                    | 8004 | 8008 | 8009 | 8010 | 8011 | 8016 | 8017 | 8023 => {
+                    // Contatos auxiliares de relé térmico (8016 NA, 8017 NF, 8018 NA+NF, 8019 CON):
+                    // Ativam se manuseados manualmente OU se o relé térmico pai tripou (breakers_active)
+                    8016 | 8017 | 8018 | 8019 => {
+                        item.sim_active = item.sim_manual_latched
+                            || (!tag.is_empty() && breakers_active.contains(&tag));
+                    }
+                    // Disjuntores, chaves seccionadoras, botões, fins de curso e chaves seletoras: seguem o acionamento manual
+                    2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009
+                    | 8000..=8015 | 8020..=8023 => {
                         item.sim_active = item.sim_manual_latched;
                     }
                     // Contatores de potência e contatos auxiliares instantâneos
@@ -371,31 +377,54 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
 
                 match item.tipo {
                     // Elementos 1P NA (fecham quando sim_active == true)
-                    5000 | 6000 | 2006 | 7000 | 7004 | 7008 | 8000 | 8004 | 8008 | 8016 => {
+                    5000 | 6000 | 2006 | 7000 | 7004 | 7008 | 8000 | 8004 | 8008 | 8012 | 8016 => {
                         if item.sim_active {
                             connect_pair(0, 1);
                         }
                     }
                     // Elementos 1P NF (conduzem quando sim_active == false)
-                    7001 | 7005 | 7009 | 8001 | 8009 | 8017 => {
+                    7001 | 7005 | 7009 | 8001 | 8005 | 8009 | 8013 | 8017 => {
                         if !item.sim_active {
                             connect_pair(0, 1);
                         }
                     }
-                    // Contato duplo 4 terminais NA+NF (pino 0-2 é NF 11-12; pino 1-3 é NA 13-14)
-                    7002 | 7006 | 8002 | 8006 | 8010 => {
+                    // Contato duplo 4 terminais NA+NF (pino 0-2 é NF 11-12/95-96; pino 1-3 é NA 13-14/97-98)
+                    7002 | 7006 | 8002 | 8006 | 8010 | 8014 | 8018 => {
                         if !item.sim_active {
                             connect_pair(0, 2);
                         } else {
                             connect_pair(1, 3);
                         }
                     }
-                    // Botão / Contato Comutador CON 3 terminais SPDT (pino 0 comum 11; pino 1 NF 12; pino 2 NA 14)
+                    // Botão / Contato Comutador CON 3 terminais SPDT (pino 0 comum; pino 1 NF; pino 2 NA)
                     7003 | 7007 | 8003 | 8007 | 8011 | 8015 | 8019 => {
                         if !item.sim_active {
                             connect_pair(0, 1);
                         } else {
                             connect_pair(0, 2);
+                        }
+                    }
+                    // Chave Seletora 3 Posições (I-0-II): em ativo fecha polo 1-2 (pinos 0 e 2)
+                    8020 => {
+                        if item.sim_active {
+                            connect_pair(0, 2);
+                        }
+                    }
+                    // Chave Seletora 3 Posições (I-II-III): em ativo fecha polos 1-2 e 3-4 (pinos 0-3 e 1-4)
+                    8021 => {
+                        if item.sim_active {
+                            connect_pair(0, 3);
+                            connect_pair(1, 4);
+                        }
+                    }
+                    // Chave Inversora / Crossover: em repouso direto (0-2 e 1-3), em ativo cruzado (0-3 e 1-2)
+                    8022 => {
+                        if !item.sim_active {
+                            connect_pair(0, 2);
+                            connect_pair(1, 3);
+                        } else {
+                            connect_pair(0, 3);
+                            connect_pair(1, 2);
                         }
                     }
                     // Contator 2P / Disjuntor 2P (1-2, 3-4)
