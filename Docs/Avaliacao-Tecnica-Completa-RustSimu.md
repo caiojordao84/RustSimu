@@ -206,36 +206,36 @@ Um diferencial grande do projeto: as estruturas reproduzem os arrays paralelos d
 
 ## 11. Dívidas técnicas priorizadas
 
-### P0 — higiene imediata (alto ganho/1 dia no total)
+### P0 — higiene imediata (alto ganho/1 dia no total) — [CONCLUÍDO]
 
-| # | Dívida | Esforço | Ganho |
-|---|---|---|---|
-| 1 | CI de qualidade (build+test+clippy+fmt) | 0,5 d | Contrato de regressão-zero para humano + 2 IAs |
-| 2 | Memorizar `symbol_catalog()` (`LazyLock`) | 0,5 d | Corta trabalho por `find_symbol` × 98 call-sites × 69 defs (sim/render/hit-test a cada 80 ms) |
-| 3 | Remover `pub mod` duplicados do `main.rs` | 0,25 d | Compilação mais simples e única |
-| 4 | Dedup das heurísticas QET (5× substring) em `sim.rs` | 0,5 d | Corretibilidade |
+| # | Dívida | Esforço | Ganho | Status |
+|---|---|---|---|---|
+| 1 | CI de qualidade (build+test+clippy+fmt) | 0,5 d | Contrato de regressão-zero para humano + 2 IAs | **Concluído** (commit `68e0dbb`) |
+| 2 | Memorizar `symbol_catalog()` (`LazyLock`) | 0,5 d | Corta trabalho por `find_symbol` × 98 call-sites × 69 defs (sim/render/hit-test a cada 80 ms) | **Concluído** (commit `68e0dbb`) |
+| 3 | Remover `pub mod` duplicados do `main.rs` | 0,25 d | Compilação mais simples e única | **Concluído** (commit `68e0dbb`) |
+| 4 | Dedup das heurísticas QET (5× substring) em `sim.rs` | 0,5 d | Corretibilidade | **Concluído** (commit `68e0dbb`) |
 
 ### P1 — estrutura (1–2 semanas)
 
-| # | Dívida | Esforço | Ganho |
-|---|---|---|---|
-| 5 | Mover `mod tests` (≈2.700 linhas) para `tests/` | 1 d | `main.rs` -40%, suíte compartilhável |
-| 6 | Extrair `SimState` dos campos `sim_*` de `SchematicItem` | 2 d | Model puro; abre caminho para sim em threads e snapshot barato |
-| 7 | Fragmentar `main.rs` em `src/ui/` + `src/app/` por domínio de `Message` | 3–5 d | Recupera separação de responsabilidades e reduz o contexto de agentes |
-| 8 | Modularizar `sim.rs` (graph/solver/rules/timers) com cache da rede | 3 d | Performance e legibilidade do motor |
-| 9 | Export real: folha → SVG → PNG/PDF (stub hoje) | 2–4 d | Fecha promessa do README e da spec §1.1 |
-| 10 | Cores do canvas via `theme::tokens` (+ base da folha) | 0,5 d | Coerência de tema |
-| 11 | Decoder CP-1252 (bytes 0x80–0x9F) | 0,5 d | Textos legados corretos |
-| 12 | Tipos fantasma 7003/7007 + `Msg::Resized`/`ToggleFocus` mortos | 0,5 d | Menos code-ruído |
+| # | Dívida | Esforço | Ganho | Status |
+|---|---|---|---|---|
+| 5 | Mover `mod tests` (≈3.750 linhas) para `tests/` | 1 d | `main.rs` de 8.926 para 9 linhas, testes em `tests/integration_tests.rs` e app em `src/app.rs` | **Concluído** |
+| 6 | Extrair `SimState` dos campos `sim_*` de `SchematicItem` | 2 d | Model puro; abre caminho para sim em threads e snapshot barato | Pendente |
+| 7 | Fragmentar `main.rs` em `src/ui/` + `src/app/` por domínio de `Message` | 3–5 d | Recupera separação de responsabilidades e reduz o contexto de agentes | Em andamento (app desacoplado de main) |
+| 8 | Modularizar `sim.rs` (graph/solver/rules/timers) com cache da rede | 3 d | Performance e legibilidade do motor | Pendente |
+| 9 | Export real: folha → SVG → PNG/PDF (stub hoje) | 2–4 d | Fecha promessa do README e da spec §1.1 | Pendente |
+| 10 | Cores do canvas via `theme::tokens` (+ base da folha) | 0,5 d | Coerência de tema | Pendente |
+| 11 | Decoder CP-1252 (bytes 0x80–0x9F) | 0,5 d | Textos legados corretos | Pendente |
+| 12 | Tipos fantasma 7003/7007 + `Msg::Resized`/`ToggleFocus` mortos | 0,5 d | Menos code-ruído | Pendente |
 
 ### P2 — produto (roadmap)
 
-| # | Item | justificativa |
-|---|---|---|
-| 13 | **Implementar decisão D1**: remover `SaveFormat::Cad` da rota Salvar/Salvar como (`SaveFormat::ALL` em `main.rs`); `.cad` restringe-se a exportar (folha única) com seletor de página para projetos multipágina; salvar passa a `.json` (padrão), `.toml`, `.qet` | 0,5–1 d | Elimina a perda silenciosa de folhas na origem; alinha o código à spec §1.1 (Salvar Como: JSON/TOML/QET; CAD somente em Exportar) |
-| 14 | Biblioteca QET completa na UI (index/busca/paginação sobre o `catalog.json` de ~8.890 entradas; drag-and-drop já existe para nativos) | Libera os 9.327 SVGs que hoje ficam como assets não expostos |
-| 15 | Numeração global de bornes + referência cruzada de projeto | Fechar spec §4.2 |
-| 16 | Undo granular (command pattern), i18n pt/en, BOM/CSV, grupo Ctrl+G, ferramentas de desenho (texto/arco/retângulo) | Alinhados à spec e prática CAD |
+| # | Item | justificativa | Status |
+|---|---|---|---|
+| 13 | **Implementar decisão D1**: remover `SaveFormat::Cad` da rota Salvar/Salvar como (`SaveFormat::ALL` em `main.rs`); `.cad` restringe-se a exportar (folha única) com seletor de página para projetos multipágina; salvar passa a `.json` (padrão), `.toml`, `.qet` | 0,5–1 d | Elimina a perda silenciosa de folhas na origem; alinha o código à spec §1.1 (Salvar Como: JSON/TOML/QET; CAD somente em Exportar) | **Concluído** (commit `4fd0f3f`) |
+| 14 | Biblioteca QET completa na UI (index/busca/paginação sobre o `catalog.json` de ~8.890 entradas; drag-and-drop já existe para nativos) | Libera os 9.327 SVGs que hoje ficam como assets não expostos | Pendente |
+| 15 | Numeração global de bornes + referência cruzada de projeto | Fechar spec §4.2 | Pendente |
+| 16 | Undo granular (command pattern), i18n pt/en, BOM/CSV, grupo Ctrl+G, ferramentas de desenho (texto/arco/retângulo) | Alinhados à spec e prática CAD | Pendente |
 
 ---
 

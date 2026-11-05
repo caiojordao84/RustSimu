@@ -1,3 +1,4 @@
+pub mod app;
 pub mod canvas_view;
 pub mod icons;
 pub mod io;
@@ -8,3 +9,8 @@ pub mod sim;
 pub mod svg_symbol;
 pub mod symbols;
 pub mod theme;
+
+pub use app::{
+    ActiveMenu, CadeSimuApp, ExportFormat, ExportPageOption, Message, PinSequenceOption, SaveFormat,
+};
+pub use canvas_view::EditorTool;
