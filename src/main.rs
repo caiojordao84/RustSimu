@@ -1246,7 +1246,9 @@ impl CadeSimuApp {
                             self.status_msg = format!(
                                 "Simulação: '{}' ({label}) -> {}",
                                 item.tag,
-                                if item.sim_manual_latched {
+                                if item.sim_fault {
+                                    "DESARMADO POR CURTO-CIRCUITO (TRIP)"
+                                } else if item.sim_manual_latched {
                                     "ACIONADO / FECHADO"
                                 } else {
                                     "REARME / REPOUSO"
@@ -6594,6 +6596,149 @@ mod tests {
         // 4. Clicar fora ou fechar menu encerra o overlay normalmente
         let _ = app.update(Message::ToggleMenu(None));
         assert_eq!(app.open_menu, None);
+    }
+
+    #[test]
+    fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
+        use crate::sim::{step_simulation, toggle_component_on_click};
+        use crate::model::{SchematicDocument, SchematicItem, Potential};
+
+        let mut doc = SchematicDocument::default();
+        doc.items.clear();
+
+        // 1. Testa Disjuntor Tripolar 6003 (-Q1) com curto-circuito entre fases L1 e L2
+        let sym_src3 = find_symbol(3004).unwrap();
+        let sym_q3p = find_symbol(6003).unwrap();
+
+        let src = sym_src3.instantiate(1, 20, 20, 0);
+        let wp_src = sym_src3.world_pins(&src);
+
+        let mut q1 = sym_q3p.instantiate(2, 20, 40, 0);
+        q1.tag = "-Q1".to_string();
+        q1.sim_manual_latched = false; // Começa aberto
+        let wp_q1 = sym_q3p.world_pins(&q1);
+
+        doc.items.push(src);
+        doc.items.push(q1);
+
+        // Fios de alimentação: L1, L2, L3 para entradas do disjuntor (pinos 0, 1, 2)
+        doc.items.push(SchematicItem::new_wire(3, 4000, wp_src[0].2.0, wp_src[0].2.1, wp_q1[0].2.0, wp_q1[0].2.1));
+        doc.items.push(SchematicItem::new_wire(4, 4000, wp_src[1].2.0, wp_src[1].2.1, wp_q1[1].2.0, wp_q1[1].2.1));
+        doc.items.push(SchematicItem::new_wire(5, 4000, wp_src[2].2.0, wp_src[2].2.1, wp_q1[2].2.0, wp_q1[2].2.1));
+
+        // Fio de curto-circuito franco entre saída L1 (pino 3) e saída L2 (pino 4)
+        let sc_wire_id = 6;
+        doc.items.push(SchematicItem::new_wire(sc_wire_id, 4000, wp_q1[3].2.0, wp_q1[3].2.1, wp_q1[4].2.0, wp_q1[4].2.1));
+
+        // Em repouso (disjuntor aberto), nada conduz a jusante e o disjuntor está sem falha
+        step_simulation(&mut doc, 50);
+        let q1_item = doc.items.iter().find(|i| i.id == 2).unwrap();
+        assert!(!q1_item.sim_manual_latched);
+        assert!(!q1_item.sim_fault);
+
+        // Fecha o disjuntor -Q1 -> a corrente de curto entre L1 e L2 faz o disjuntor DESARMAR (trip magnético)!
+        doc.items.iter_mut().find(|i| i.id == 2).unwrap().sim_manual_latched = true;
+        step_simulation(&mut doc, 50);
+
+        let q1_after = doc.items.iter().find(|i| i.id == 2).unwrap();
+        assert!(!q1_after.sim_manual_latched, "O disjuntor -Q1 deve desarmar (abrir) por curto-circuito!");
+        assert!(q1_after.sim_fault, "O disjuntor -Q1 deve registrar estado de trip/falha!");
+        assert!(!q1_after.sim_active, "O disjuntor desarmado não deve conduzir!");
+
+        // Como o disjuntor desarmou, as saídas são desenergizadas, extinguindo o curto
+        let sc_wire_pot = doc.items.iter().find(|i| i.id == sc_wire_id).unwrap().sim_potential;
+        assert_ne!(sc_wire_pot, Potential::ShortCircuit, "A abertura do disjuntor deve extinguir o curto a jusante");
+
+        // 2. Testa rearme do disjuntor após remoção do curto
+        doc.items.retain(|i| i.id != sc_wire_id);
+        toggle_component_on_click(&mut doc, 2);
+        let q1_rearmed = doc.items.iter().find(|i| i.id == 2).unwrap();
+        assert!(q1_rearmed.sim_manual_latched);
+        assert!(!q1_rearmed.sim_fault, "O rearme do disjuntor deve limpar o flag de trip");
+
+        step_simulation(&mut doc, 50);
+        let q1_holding = doc.items.iter().find(|i| i.id == 2).unwrap();
+        assert!(q1_holding.sim_manual_latched, "Sem curto-circuito, o disjuntor deve permanecer fechado");
+        assert!(!q1_holding.sim_fault);
+
+        // 3. Testa Disjuntor Unipolar 6000 (-Q2) com curto fase-neutro
+        let mut doc2 = SchematicDocument::default();
+        doc2.items.clear();
+        let sym_l1 = find_symbol(3000).unwrap();
+        let sym_n = find_symbol(3001).unwrap();
+        let sym_q1p = find_symbol(6000).unwrap();
+
+        let l1 = sym_l1.instantiate(10, 10, 10, 0);
+        let n = sym_n.instantiate(11, 30, 10, 0);
+        let mut q2 = sym_q1p.instantiate(12, 10, 30, 0);
+        q2.tag = "-Q2".to_string();
+        q2.sim_manual_latched = true; // Fecha o disjuntor
+
+        let wp_l1 = sym_l1.world_pins(&l1);
+        let wp_n = sym_n.world_pins(&n);
+        let wp_q2 = sym_q1p.world_pins(&q2);
+
+        doc2.items.push(l1);
+        doc2.items.push(n);
+        doc2.items.push(q2);
+
+        // Alimentação L1 -> entrada pino 0 de -Q2
+        doc2.items.push(SchematicItem::new_wire(13, 4000, wp_l1[0].2.0, wp_l1[0].2.1, wp_q2[0].2.0, wp_q2[0].2.1));
+        // Curto direto: saída pino 1 de -Q2 -> Neutro N
+        doc2.items.push(SchematicItem::new_wire(14, 4009, wp_q2[1].2.0, wp_q2[1].2.1, wp_n[0].2.0, wp_n[0].2.1));
+
+        step_simulation(&mut doc2, 50);
+        let q2_tripped = doc2.items.iter().find(|i| i.id == 12).unwrap();
+        assert!(!q2_tripped.sim_manual_latched, "Disjuntor 1P deve desarmar por curto fase-neutro!");
+        assert!(q2_tripped.sim_fault);
+
+        // 4. Testa Fusível Seccionador 5008 (-F1) desarmando em curto-circuito
+        let mut doc3 = SchematicDocument::default();
+        doc3.items.clear();
+        let sym_f3p = find_symbol(5008).unwrap();
+        let src3 = sym_src3.instantiate(20, 10, 10, 0);
+        let wp_src3 = sym_src3.world_pins(&src3);
+        let mut f1 = sym_f3p.instantiate(21, 10, 30, 0);
+        f1.tag = "-F1".to_string();
+        f1.sim_manual_latched = true; // Fecha a seccionadora fusível
+        let wp_f1 = sym_f3p.world_pins(&f1);
+
+        doc3.items.push(src3);
+        doc3.items.push(f1);
+
+        // Alimenta L1 e L2 no fusível
+        doc3.items.push(SchematicItem::new_wire(22, 4000, wp_src3[0].2.0, wp_src3[0].2.1, wp_f1[0].2.0, wp_f1[0].2.1));
+        doc3.items.push(SchematicItem::new_wire(23, 4000, wp_src3[1].2.0, wp_src3[1].2.1, wp_f1[1].2.0, wp_f1[1].2.1));
+        // Curto entre saídas L1 (pino 3) e L2 (pino 4) do fusível
+        doc3.items.push(SchematicItem::new_wire(24, 4000, wp_f1[3].2.0, wp_f1[3].2.1, wp_f1[4].2.0, wp_f1[4].2.1));
+
+        step_simulation(&mut doc3, 50);
+        let f1_blown = doc3.items.iter().find(|i| i.id == 21).unwrap();
+        assert!(!f1_blown.sim_manual_latched, "Fusível seccionador deve desarmar (abrir) por curto-circuito!");
+        assert!(f1_blown.sim_fault, "Fusível queimado deve registrar estado de falha");
+        assert!(!f1_blown.sim_active);
+
+        // 5. Testa Fusível Permanente 5003 (-F2) queimando em curto-circuito
+        let mut doc4 = SchematicDocument::default();
+        doc4.items.clear();
+        let sym_f3_fixed = find_symbol(5003).unwrap();
+        let src4 = sym_src3.instantiate(30, 10, 10, 0);
+        let wp_src4 = sym_src3.world_pins(&src4);
+        let mut f2 = sym_f3_fixed.instantiate(31, 10, 30, 0);
+        f2.tag = "-F2".to_string();
+        let wp_f2 = sym_f3_fixed.world_pins(&f2);
+
+        doc4.items.push(src4);
+        doc4.items.push(f2);
+        doc4.items.push(SchematicItem::new_wire(32, 4000, wp_src4[0].2.0, wp_src4[0].2.1, wp_f2[0].2.0, wp_f2[0].2.1));
+        doc4.items.push(SchematicItem::new_wire(33, 4000, wp_src4[1].2.0, wp_src4[1].2.1, wp_f2[1].2.0, wp_f2[1].2.1));
+        doc4.items.push(SchematicItem::new_wire(34, 4000, wp_f2[3].2.0, wp_f2[3].2.1, wp_f2[4].2.0, wp_f2[4].2.1));
+
+        step_simulation(&mut doc4, 50);
+        let f2_blown = doc4.items.iter().find(|i| i.id == 31).unwrap();
+        assert!(f2_blown.sim_manual_latched, "Fusível fixo deve queimar (sim_manual_latched: true)!");
+        assert!(f2_blown.sim_fault);
+        assert!(!f2_blown.sim_active);
     }
 }
 

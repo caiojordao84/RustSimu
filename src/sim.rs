@@ -82,6 +82,130 @@ pub fn is_item_momentary(item: &crate::model::SchematicItem) -> bool {
     false
 }
 
+/// Verifica se o item representa um disjuntor ou chave seccionadora de proteção
+/// que conduz quando acionado manualmente (`sim_manual_latched == true`).
+pub fn is_circuit_breaker(item: &crate::model::SchematicItem) -> bool {
+    matches!(
+        item.tipo,
+        5008 | 6000 | 6003 | 6004 | 6008 | 6009
+    ) || item.qet_type.as_ref().map(|t| {
+        let l = t.to_ascii_lowercase();
+        l.contains("breaker") || l.contains("disjoncteur") || l.contains("leistungs_schalter")
+    }).unwrap_or(false)
+}
+
+/// Verifica se o item representa um cartucho fusível permanente
+/// que conduz em repouso (`sim_manual_latched == false`) e abre ao queimar.
+pub fn is_fuse(item: &crate::model::SchematicItem) -> bool {
+    matches!(
+        item.tipo,
+        5000 | 5003
+    ) || item.qet_type.as_ref().map(|t| {
+        let l = t.to_ascii_lowercase();
+        l.contains("fuse") || l.contains("sicherung")
+    }).unwrap_or(false)
+}
+
+/// Retorna os pares de índices de pinos correspondentes aos polos de condução de disjuntores e fusíveis.
+pub fn protective_device_poles(tipo: i32) -> &'static [(usize, usize)] {
+    match tipo {
+        // Unipolar 1P: pino 0 (entrada) - pino 1 (saída)
+        5000 | 6000 => &[(0, 1)],
+        // Bipolar 2P: polos 1-2 e 3-4 (pinos 0-2 e 1-3)
+        6008 => &[(0, 2), (1, 3)],
+        // Tripolar 3P: polos 1-2, 3-4, 5-6 (pinos 0-3, 1-4, 2-5)
+        5003 | 5008 | 6003 | 6009 => &[(0, 3), (1, 4), (2, 5)],
+        // Tetrapolar 4P: polo Neutro N-N e polos 1-2, 3-4, 5-6 (pinos 0-4, 1-5, 2-6, 3-7)
+        6004 => &[(0, 4), (1, 5), (2, 6), (3, 7)],
+        _ => &[],
+    }
+}
+
+/// Detecta se algum disjuntor fechado ou fusível intacto está conduzindo corrente de curto-circuito
+/// (`Potential::ShortCircuit`). Se houver, desarma (trip) os dispositivos e comuta os contatos para aberto.
+pub fn detect_and_trip_protective_devices(
+    doc: &mut SchematicDocument,
+    item_pin_nodes: &HashMap<usize, Vec<usize>>,
+    node_potentials: &[Potential],
+) -> bool {
+    let mut tripped_tags = HashSet::new();
+    let mut tripped_indices = HashSet::new();
+
+    for (idx, item) in doc.items.iter().enumerate() {
+        let Some(p) = item_pin_nodes.get(&idx) else {
+            continue;
+        };
+
+        let is_cb = is_circuit_breaker(item);
+        let is_fu = is_fuse(item);
+
+        if is_cb && item.sim_manual_latched {
+            let poles = protective_device_poles(item.tipo);
+            let has_sc = if !poles.is_empty() {
+                poles.iter().any(|&(a, b)| {
+                    (a < p.len() && node_potentials[p[a]] == Potential::ShortCircuit)
+                        || (b < p.len() && node_potentials[p[b]] == Potential::ShortCircuit)
+                })
+            } else {
+                p.iter().any(|&node| node_potentials[node] == Potential::ShortCircuit)
+            };
+
+            if has_sc {
+                tripped_indices.insert(idx);
+                let tag = item.tag.trim().to_uppercase();
+                if !tag.is_empty() {
+                    tripped_tags.insert(tag);
+                }
+            }
+        } else if is_fu && !item.sim_manual_latched {
+            let poles = protective_device_poles(item.tipo);
+            let has_sc = if !poles.is_empty() {
+                poles.iter().any(|&(a, b)| {
+                    (a < p.len() && node_potentials[p[a]] == Potential::ShortCircuit)
+                        || (b < p.len() && node_potentials[p[b]] == Potential::ShortCircuit)
+                })
+            } else {
+                p.iter().any(|&node| node_potentials[node] == Potential::ShortCircuit)
+            };
+
+            if has_sc {
+                tripped_indices.insert(idx);
+                let tag = item.tag.trim().to_uppercase();
+                if !tag.is_empty() {
+                    tripped_tags.insert(tag);
+                }
+            }
+        }
+    }
+
+    if tripped_indices.is_empty() {
+        return false;
+    }
+
+    for (idx, item) in doc.items.iter_mut().enumerate() {
+        let tag = item.tag.trim().to_uppercase();
+        let is_match = tripped_indices.contains(&idx)
+            || (!tag.is_empty() && tripped_tags.contains(&tag));
+
+        if is_match {
+            if is_circuit_breaker(item) {
+                item.sim_manual_latched = false; // Desarma o disjuntor (abre os contatos principais)
+                item.sim_fault = true;           // Sinaliza visualmente TRIP / FALHA
+                item.sim_active = false;
+            } else if is_fuse(item) {
+                item.sim_manual_latched = true;  // Fusível queima (abre circuito)
+                item.sim_fault = true;
+                item.sim_active = false;
+            } else {
+                item.sim_fault = true;
+                item.sim_active = false;
+            }
+        }
+    }
+
+    true
+}
+
 /// Aciona um componente ao pressionar o botão esquerdo do mouse durante a simulação:
 /// - Para botões pulsadores momentâneos, define o estado como pressionado (`true`).
 /// - Para chaves seletoras/interruptores bi-estáveis, disjuntores e relés térmicos, alterna o estado (`!sim_manual_latched`).
@@ -149,6 +273,9 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
 
     let new_state = !doc.items[idx].sim_manual_latched;
     doc.items[idx].sim_manual_latched = new_state;
+    if new_state {
+        doc.items[idx].sim_fault = false;
+    }
 
     if !tag.is_empty() {
         for item in &mut doc.items {
@@ -164,6 +291,9 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
 
                 if item_is_manual {
                     item.sim_manual_latched = new_state;
+                    if new_state {
+                        item.sim_fault = false;
+                    }
                 }
             }
         }
@@ -182,6 +312,9 @@ pub fn set_manual_by_tag(doc: &mut SchematicDocument, tag: &str, pressed: bool) 
             )
         {
             item.sim_manual_latched = pressed;
+            if pressed {
+                item.sim_fault = false;
+            }
         }
     }
 }
@@ -675,6 +808,21 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
         &tof_triggered,
     );
 
+    // Passo A.1: Detecção de Curto-Circuito e Desarme (Trip) de Disjuntores e Fusíveis
+    // Se houver curto-circuito (Potential::ShortCircuit), qualquer disjuntor fechado ou fusível
+    // intacto que esteja conduzindo a corrente de falta desarma (abre) imediatamente,
+    // comutando sim_manual_latched para false e sim_fault para true, extinguindo o curto.
+    if detect_and_trip_protective_devices(doc, &item_pin_nodes, &final_node_potentials) {
+        let (pots2, adj2) = resolve_cascade(
+            doc,
+            &mut energized_coils,
+            &ton_triggered,
+            &tof_triggered,
+        );
+        final_node_potentials = pots2;
+        final_adj = adj2;
+    }
+
     // Passo B: Avança os acumuladores dos temporizadores TON (9004) e TOF (9005)
     if dt_ms > 0 {
         let mut new_ton = HashSet::new();
@@ -722,6 +870,17 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
             );
             final_node_potentials = pots2;
             final_adj = adj2;
+
+            if detect_and_trip_protective_devices(doc, &item_pin_nodes, &final_node_potentials) {
+                let (pots3, adj3) = resolve_cascade(
+                    doc,
+                    &mut energized_coils,
+                    &ton_triggered,
+                    &tof_triggered,
+                );
+                final_node_potentials = pots3;
+                final_adj = adj3;
+            }
         }
     }
 
