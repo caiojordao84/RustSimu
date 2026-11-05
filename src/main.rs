@@ -2796,27 +2796,16 @@ impl CadeSimuApp {
         // Preview box na parte inferior do painel esquerdo
         let preview_content = if let Some(tipo) = self.selected_collection_sym {
             if let Some(sym) = find_symbol(tipo) {
-                let svg_preview: Element<'_, Message> = if let Some((svg_idle_path, _)) = sym.svg_paths() {
-                    let full_path = svg_symbol::resolve_svg_path(svg_idle_path);
-                    container(
-                        svg(svg::Handle::from_path(full_path))
-                            .width(Length::Fixed(80.0))
-                            .height(Length::Fixed(60.0)),
-                    )
-                    .align_x(iced::alignment::Horizontal::Center)
-                    .align_y(iced::alignment::Vertical::Center)
-                    .into()
-                } else {
-                    container(
-                        text(format!("[ {} ]", sym.default_tag))
-                            .size(16)
-                            .font(MONO)
-                            .color(t.primary),
-                    )
-                    .align_x(iced::alignment::Horizontal::Center)
-                    .align_y(iced::alignment::Vertical::Center)
-                    .into()
-                };
+                let is_dark = self.is_dark();
+                let svg_content = crate::symbols::get_themed_symbol_svg_string(&sym, is_dark);
+                let svg_preview: Element<'_, Message> = container(
+                    svg(svg::Handle::from_memory(svg_content.into_bytes()))
+                        .width(Length::Fixed(80.0))
+                        .height(Length::Fixed(60.0)),
+                )
+                .align_x(iced::alignment::Horizontal::Center)
+                .align_y(iced::alignment::Vertical::Center)
+                .into();
 
                 column![
                     row![
@@ -5490,6 +5479,42 @@ mod tests {
         assert_eq!(col_cust_light, Color::from_rgb(0.0, 1.0, 0x88 as f32 / 255.0));
 
         // 4. Renderiza view em modo claro e escuro sem erros
+        app.theme_mode = ThemeMode::Light;
+        let _ = app.view();
+        app.theme_mode = ThemeMode::Dark;
+        let _ = app.view();
+
+        // 5. Testa adaptação da miniatura de preview (preview_dock) ao tema claro e escuro
+        app.selected_collection_sym = Some(8008); // Chave interruptor DJ
+        let sym_dj = find_symbol(8008).unwrap();
+        let svg_dj_light = crate::symbols::get_themed_symbol_svg_string(&sym_dj, false);
+        let svg_dj_dark = crate::symbols::get_themed_symbol_svg_string(&sym_dj, true);
+
+        assert!(
+            svg_dj_light.contains("stroke=\"#111827\"") || svg_dj_light.contains("stroke=\"black\""),
+            "No tema claro, o traço da miniatura deve ser escuro"
+        );
+        assert!(
+            svg_dj_dark.contains("stroke=\"#E2E8F0\""),
+            "No tema escuro, o traço da miniatura deve ser claro (#E2E8F0)"
+        );
+        assert!(
+            !svg_dj_dark.contains("stroke=\"#111827\"") && !svg_dj_dark.contains("stroke=\"black\""),
+            "No tema escuro, traços pretos devem ter sido substituídos por claros"
+        );
+
+        // Testa também para botão de emergência com trava (8030)
+        let sym_emg = find_symbol(8030).unwrap();
+        let svg_emg_dark = crate::symbols::get_themed_symbol_svg_string(&sym_emg, true);
+        assert!(svg_emg_dark.contains("stroke=\"#E2E8F0\""), "Emergência 8030 deve ter traços claros em dark mode");
+        assert!(!svg_emg_dark.contains("stroke=\"black\""), "Emergência 8030 não pode ter stroke='black' em dark mode");
+
+        // Testa para componente gerado dinamicamente (ex: motor 1000)
+        let sym_motor = find_symbol(1000).unwrap();
+        let svg_motor_dark = crate::symbols::get_themed_symbol_svg_string(&sym_motor, true);
+        assert!(svg_motor_dark.contains("stroke=\"#E2E8F0\""), "Motor 1000 deve ter traços claros em dark mode");
+
+        // Renderiza app.view() com o símbolo selecionado em ambos os temas para garantir integração total
         app.theme_mode = ThemeMode::Light;
         let _ = app.view();
         app.theme_mode = ThemeMode::Dark;

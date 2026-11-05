@@ -3264,4 +3264,184 @@ pub fn find_duplicate_apparatus(
     })
 }
 
+/// Adapta as cores de um documento SVG para tema claro ou escuro.
+/// No tema escuro, substitui traços e preenchimentos escuros/pretos por traços claros (#E2E8F0)
+/// e suaviza preenchimentos brancos para (#1E293B).
+pub fn adapt_svg_colors(svg_content: &str, is_dark: bool) -> String {
+    if !is_dark {
+        return svg_content.to_string();
+    }
+    let mut s = svg_content.to_string();
+
+    // Lista de padrões de traço escuro para substituir por claro (#E2E8F0)
+    let dark_strokes = [
+        "stroke=\"black\"", "stroke='black'",
+        "stroke=\"#111827\"", "stroke='#111827'",
+        "stroke=\"#000000\"", "stroke='#000000'",
+        "stroke=\"#000\"", "stroke='#000'",
+        "stroke=\"HTMLGrayBlack\"", "stroke='HTMLGrayBlack'",
+        "stroke=\"#1f2937\"", "stroke='#1f2937'",
+        "stroke=\"#212529\"", "stroke='#212529'",
+        "stroke=\"#222222\"", "stroke='#222222'",
+        "stroke=\"#222\"", "stroke='#222'",
+        "stroke=\"#333333\"", "stroke='#333333'",
+        "stroke=\"#333\"", "stroke='#333'",
+        "stroke=\"#1a1a1a\"", "stroke='#1a1a1a'",
+        "stroke=\"#111\"", "stroke='#111'",
+    ];
+    for ds in dark_strokes {
+        s = s.replace(ds, "stroke=\"#E2E8F0\"");
+    }
+
+    // Lista de padrões de preenchimento escuro (sólido) para substituir por claro (#E2E8F0)
+    let dark_fills = [
+        "fill=\"black\"", "fill='black'",
+        "fill=\"#111827\"", "fill='#111827'",
+        "fill=\"#000000\"", "fill='#000000'",
+        "fill=\"#000\"", "fill='#000'",
+        "fill=\"HTMLGrayBlack\"", "fill='HTMLGrayBlack'",
+        "fill=\"#1f2937\"", "fill='#1f2937'",
+        "fill=\"#212529\"", "fill='#212529'",
+        "fill=\"#222222\"", "fill='#222222'",
+        "fill=\"#222\"", "fill='#222'",
+        "fill=\"#333333\"", "fill='#333333'",
+        "fill=\"#333\"", "fill='#333'",
+    ];
+    for df in dark_fills {
+        s = s.replace(df, "fill=\"#E2E8F0\"");
+    }
+
+    // Substitui preenchimento branco opaco por tom escuro suave (#1E293B)
+    let white_fills = [
+        "fill=\"white\"", "fill='white'",
+        "fill=\"#ffffff\"", "fill='#ffffff'",
+        "fill=\"#fff\"", "fill='#fff'",
+        "fill=\"HTMLWhiteIvory\"", "fill='HTMLWhiteIvory'",
+        "fill=\"HTMLWhiteSnow\"", "fill='HTMLWhiteSnow'",
+        "fill=\"HTMLWhiteGhostWhite\"", "fill='HTMLWhiteGhostWhite'",
+        "fill=\"HTMLWhiteAliceBlue\"", "fill='HTMLWhiteAliceBlue'",
+    ];
+    for wf in white_fills {
+        s = s.replace(wf, "fill=\"#1E293B\"");
+    }
+
+    s
+}
+
+/// Gera uma string SVG a partir dos comandos vetoriais do símbolo com o traço especificado.
+pub fn generate_svg_from_cmds(
+    title: &str,
+    cmds: &[&str],
+    pins: &[SymbolPin],
+    bounds: (i32, i32, i32, i32),
+    stroke_color: &str,
+    is_active: bool,
+) -> String {
+    let margin = 10;
+    let min_x = bounds.0 - margin;
+    let min_y = bounds.1 - margin;
+    let width = ((bounds.2 - bounds.0).abs() + margin * 2).max(10);
+    let height = ((bounds.3 - bounds.1).abs() + margin * 2).max(10);
+
+    let mut svg = String::new();
+    svg.push_str("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+    svg.push_str(&format!(
+        "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{width}\" height=\"{height}\" viewBox=\"{min_x} {min_y} {width} {height}\" data-generator=\"cade2svg\">\n"
+    ));
+    svg.push_str(&format!("  <title>{title}</title>\n"));
+    svg.push_str(&format!(
+        "  <g stroke=\"{stroke_color}\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n"
+    ));
+
+    for &cmd in cmds {
+        if let Some(prim) = parse_vector_cmd(cmd) {
+            match prim {
+                VectorPrimitive::Line { x1, y1, x2, y2 } => {
+                    svg.push_str(&format!(
+                        "    <line x1=\"{x1}\" y1=\"{y1}\" x2=\"{x2}\" y2=\"{y2}\" />\n"
+                    ));
+                }
+                VectorPrimitive::Ellipse { x1, y1, x2, y2 } => {
+                    let cx = (x1 + x2) as f32 * 0.5;
+                    let cy = (y1 + y2) as f32 * 0.5;
+                    let rx = (x2 - x1).abs() as f32 * 0.5;
+                    let ry = (y2 - y1).abs() as f32 * 0.5;
+                    let fill = if is_active { "#fee2e2" } else { "none" };
+                    svg.push_str(&format!(
+                        "    <ellipse cx=\"{cx}\" cy=\"{cy}\" rx=\"{rx}\" ry=\"{ry}\" fill=\"{fill}\" />\n"
+                    ));
+                }
+                VectorPrimitive::Polygon { pts } => {
+                    let pts_str = pts
+                        .iter()
+                        .map(|(x, y)| format!("{x},{y}"))
+                        .collect::<Vec<_>>()
+                        .join(" ");
+                    let fill = if is_active { "#fee2e2" } else { "none" };
+                    svg.push_str(&format!(
+                        "    <polygon points=\"{pts_str}\" fill=\"{fill}\" />\n"
+                    ));
+                }
+                VectorPrimitive::Arc { x1, y1, x2, y2, .. } => {
+                    let cx = (x1 + x2) as f32 * 0.5;
+                    let cy = (y1 + y2) as f32 * 0.5;
+                    let r = ((x2 - x1).abs().min((y2 - y1).abs()) as f32) * 0.45;
+                    svg.push_str(&format!(
+                        "    <circle cx=\"{cx}\" cy=\"{cy}\" r=\"{r}\" />\n"
+                    ));
+                }
+                VectorPrimitive::Text { x, y, text } => {
+                    svg.push_str(&format!(
+                        "    <text x=\"{x}\" y=\"{y}\" font-size=\"10\" fill=\"{stroke_color}\" stroke=\"none\">{text}</text>\n"
+                    ));
+                }
+            }
+        }
+    }
+
+    // Desenha os bornes / terminais
+    for pin in pins {
+        let (px, py) = (pin.conn_pos.0 * 5, pin.conn_pos.1 * 5);
+        svg.push_str(&format!(
+            "    <circle class=\"qet-terminal\" cx=\"{px}\" cy=\"{py}\" r=\"2.5\" fill=\"#dc2626\" stroke=\"none\" data-label=\"{}\" />\n",
+            pin.default_label
+        ));
+    }
+
+    svg.push_str("  </g>\n");
+    svg.push_str("</svg>\n");
+
+    svg
+}
+
+/// Obtém o conteúdo SVG do símbolo já devidamente adaptado para o tema (claro ou escuro).
+pub fn get_themed_symbol_svg_string(sym: &SymbolDef, is_dark: bool) -> String {
+    // 1. Tenta carregar do caminho SVG declarado no símbolo (QElectroTech ou especializado)
+    if let Some((svg_idle_path, _)) = sym.svg_paths() {
+        let full_path = crate::svg_symbol::resolve_svg_path(svg_idle_path);
+        if let Ok(content) = std::fs::read_to_string(&full_path) {
+            return adapt_svg_colors(&content, is_dark);
+        }
+    }
+
+    // 2. Tenta encontrar arquivo gerado correspondente em symbols_qet_all/cade_native/{tipo:04}_*.svg
+    let clean_name = sym.name
+        .replace('/', "-")
+        .replace(' ', "_")
+        .replace('(', "")
+        .replace(')', "")
+        .replace('+', "_")
+        .to_lowercase();
+    let base_filename = format!("{:04}_{}", sym.tipo, clean_name);
+    let native_path = format!("symbols_qet_all/cade_native/{base_filename}.svg");
+    let full_native = crate::svg_symbol::resolve_svg_path(&native_path);
+    if let Ok(content) = std::fs::read_to_string(&full_native) {
+        return adapt_svg_colors(&content, is_dark);
+    }
+
+    // 3. Fallback dinâmico: gera o SVG diretamente a partir dos comandos vetoriais e pinos do símbolo
+    let stroke_color = if is_dark { "#E2E8F0" } else { "#111827" };
+    generate_svg_from_cmds(sym.name, sym.idle_cmds, &sym.pins, sym.bounds, stroke_color, false)
+}
+
 
