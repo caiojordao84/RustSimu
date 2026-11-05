@@ -287,6 +287,24 @@ fn next_token<'a>(input: &'a str, delims: &[char]) -> Result<(String, &'a str), 
     }
 }
 
+/// Grava um arquivo de forma atômica utilizando um arquivo temporário no mesmo diretório e rename.
+pub fn atomic_write(path: &Path, content: impl AsRef<[u8]>) -> Result<(), String> {
+    let tmp_path = path.with_extension(format!(
+        "{}.tmp",
+        path.extension().and_then(|e| e.to_str()).unwrap_or("dat")
+    ));
+    fs::write(&tmp_path, content.as_ref()).map_err(|e| {
+        format!(
+            "Falha ao gravar arquivo temporário {}: {e}",
+            tmp_path.display()
+        )
+    })?;
+    fs::rename(&tmp_path, path).map_err(|e| {
+        let _ = fs::remove_file(&tmp_path);
+        format!("Falha ao renomear {}: {e}", path.display())
+    })
+}
+
 /// Salva um documento em `.cad`, `.json`, `.toml` ou `.qet` com base na extensão do arquivo.
 pub fn save_document(path: &Path, doc: &SchematicDocument) -> Result<(), String> {
     let ext = path
@@ -305,7 +323,7 @@ pub fn save_document(path: &Path, doc: &SchematicDocument) -> Result<(), String>
         _ => serde_json::to_string_pretty(doc).map_err(|e| format!("Erro JSON: {e}"))?,
     };
 
-    fs::write(path, content).map_err(|e| format!("Falha ao gravar {}: {e}", path.display()))
+    atomic_write(path, content)
 }
 
 /// Salva um projeto completo (mono ou multipáginas) em arquivo `.json`, `.toml` ou `.qet`.
@@ -321,12 +339,7 @@ pub fn save_project(
         .to_ascii_lowercase();
 
     if ext == "qet" {
-        let active_doc = pages
-            .get(active_page_index)
-            .map(|p| &p.doc)
-            .or_else(|| pages.first().map(|p| &p.doc))
-            .ok_or_else(|| "Nenhuma folha disponível para exportar em QET".to_string())?;
-        return crate::qet::export_doc_to_qet(active_doc, path);
+        return crate::qet::export_pages_to_qet(pages, active_page_index, path, None);
     }
 
     if ext == "cad" {
@@ -344,7 +357,7 @@ pub fn save_project(
         _ => serde_json::to_string_pretty(&project).map_err(|e| format!("Erro JSON: {e}"))?,
     };
 
-    fs::write(path, content).map_err(|e| format!("Falha ao gravar {}: {e}", path.display()))
+    atomic_write(path, content)
 }
 
 /// Carrega um projeto completo (mono ou multipáginas) a partir de `.json`, `.toml`, `.cad` ou `.qet`.
@@ -392,38 +405,64 @@ pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
         Ok(ProjectDocument::from_single_document(title, doc))
     } else if ext == "toml" {
         // Tenta desserializar primeiro como ProjectDocument (multipáginas)
-        if let Ok(proj) = toml::from_str::<ProjectDocument>(&text) {
-            return Ok(proj);
+        match toml::from_str::<ProjectDocument>(&text) {
+            Ok(proj) => Ok(proj),
+            Err(err_proj) => {
+                // Fallback para SchematicDocument (monofolha legado)
+                match toml::from_str::<SchematicDocument>(&text) {
+                    Ok(doc) => {
+                        let title = if doc.title_block.title.trim().is_empty() {
+                            path.file_stem()
+                                .and_then(|s| s.to_str())
+                                .unwrap_or("Esquema")
+                                .to_string()
+                        } else {
+                            doc.title_block.title.clone()
+                        };
+                        Ok(ProjectDocument::from_single_document(title, doc))
+                    }
+                    Err(err_legacy) => {
+                        if text.contains("pages") {
+                            Err(format!("Erro ao ler projeto TOML: {err_proj}"))
+                        } else {
+                            Err(format!(
+                                "Erro ao ler TOML: {err_legacy} (tentativa de projeto: {err_proj})"
+                            ))
+                        }
+                    }
+                }
+            }
         }
-        // Fallback para SchematicDocument (monofolha legado)
-        let doc: SchematicDocument =
-            toml::from_str(&text).map_err(|e| format!("Erro ao ler TOML: {e}"))?;
-        let title = if doc.title_block.title.trim().is_empty() {
-            path.file_stem()
-                .and_then(|s| s.to_str())
-                .unwrap_or("Esquema")
-                .to_string()
-        } else {
-            doc.title_block.title.clone()
-        };
-        Ok(ProjectDocument::from_single_document(title, doc))
     } else {
         // JSON: Tenta desserializar primeiro como ProjectDocument (multipáginas)
-        if let Ok(proj) = serde_json::from_str::<ProjectDocument>(&text) {
-            return Ok(proj);
+        match serde_json::from_str::<ProjectDocument>(&text) {
+            Ok(proj) => Ok(proj),
+            Err(err_proj) => {
+                // Fallback para SchematicDocument (monofolha legado)
+                match serde_json::from_str::<SchematicDocument>(&text) {
+                    Ok(doc) => {
+                        let title = if doc.title_block.title.trim().is_empty() {
+                            path.file_stem()
+                                .and_then(|s| s.to_str())
+                                .unwrap_or("Esquema")
+                                .to_string()
+                        } else {
+                            doc.title_block.title.clone()
+                        };
+                        Ok(ProjectDocument::from_single_document(title, doc))
+                    }
+                    Err(err_legacy) => {
+                        if text.contains("\"pages\"") {
+                            Err(format!("Erro ao ler projeto JSON: {err_proj}"))
+                        } else {
+                            Err(format!(
+                                "Erro ao ler JSON: {err_legacy} (tentativa de projeto: {err_proj})"
+                            ))
+                        }
+                    }
+                }
+            }
         }
-        // Fallback para SchematicDocument (monofolha legado)
-        let doc: SchematicDocument =
-            serde_json::from_str(&text).map_err(|e| format!("Erro ao ler JSON: {e}"))?;
-        let title = if doc.title_block.title.trim().is_empty() {
-            path.file_stem()
-                .and_then(|s| s.to_str())
-                .unwrap_or("Esquema")
-                .to_string()
-        } else {
-            doc.title_block.title.clone()
-        };
-        Ok(ProjectDocument::from_single_document(title, doc))
     }
 }
 

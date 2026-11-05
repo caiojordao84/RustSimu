@@ -1245,33 +1245,44 @@ pub fn serialize_qet_xml(project: &QetProject) -> String {
     xml
 }
 
-/// Salva um `QetProject` no caminho especificado.
+/// Salva um `QetProject` no caminho especificado de forma atômica.
 pub fn save_qet_file(path: &Path, project: &QetProject) -> Result<(), String> {
     let xml = serialize_qet_xml(project);
-    fs::write(path, xml).map_err(|e| format!("Falha ao gravar arquivo QET {}: {e}", path.display()))
+    let tmp_path = path.with_extension(format!(
+        "{}.tmp",
+        path.extension().and_then(|e| e.to_str()).unwrap_or("qet")
+    ));
+    fs::write(&tmp_path, &xml).map_err(|e| {
+        format!(
+            "Falha ao gravar arquivo temporário QET {}: {e}",
+            tmp_path.display()
+        )
+    })?;
+    fs::rename(&tmp_path, path).map_err(|e| {
+        let _ = fs::remove_file(&tmp_path);
+        format!("Falha ao renomear arquivo QET {}: {e}", path.display())
+    })
 }
 
-/// Exporta um documento `SchematicDocument` simples como um arquivo `.qet` válido.
-pub fn export_doc_to_qet(doc: &SchematicDocument, path: &Path) -> Result<(), String> {
-    let mut proj = QetProject {
-        title: if doc.title_block.title.is_empty() {
-            "Export CADe_SIMU".to_string()
-        } else {
-            doc.title_block.title.clone()
-        },
-        version: "0.100.0".to_string(),
-        ..Default::default()
-    };
-
+/// Converte um `SchematicDocument` em uma página `QetDiagram`.
+pub fn document_to_diagram(
+    doc: &SchematicDocument,
+    page_name: &str,
+    order: i32,
+    filename: &str,
+) -> QetDiagram {
     let mut diagram = QetDiagram {
-        order: 1,
-        title: proj.title.clone(),
+        order,
+        title: if !page_name.is_empty() {
+            page_name.to_string()
+        } else if !doc.title_block.title.is_empty() {
+            doc.title_block.title.clone()
+        } else {
+            format!("Folha {order}")
+        },
         author: doc.title_block.drawn_by.clone(),
         date: doc.title_block.drawn_date.clone(),
-        filename: path
-            .file_name()
-            .map(|n| n.to_string_lossy().to_string())
-            .unwrap_or_default(),
+        filename: filename.to_string(),
         rows: 8,
         cols: 6,
         rowsize: 80.0,
@@ -1283,7 +1294,6 @@ pub fn export_doc_to_qet(doc: &SchematicDocument, path: &Path) -> Result<(), Str
 
     for item in &doc.items {
         if item.is_wire() {
-            // Converte fio CADe em condutor com segmentos
             let seg_h = item.x2 - item.x1;
             let seg_v = item.y2 - item.y1;
             let mut segs = Vec::new();
@@ -1352,8 +1362,52 @@ pub fn export_doc_to_qet(doc: &SchematicDocument, path: &Path) -> Result<(), Str
         }
     }
 
-    proj.diagrams.push(diagram);
+    diagram
+}
+
+/// Exporta todas as folhas de um projeto (`ProjectPage`) como um projeto `.qet` multipáginas.
+pub fn export_pages_to_qet(
+    pages: &[crate::model::ProjectPage],
+    active_page_index: usize,
+    path: &Path,
+    existing_proj: Option<&QetProject>,
+) -> Result<(), String> {
+    let filename = path
+        .file_name()
+        .map(|n| n.to_string_lossy().to_string())
+        .unwrap_or_default();
+
+    let mut proj = if let Some(p) = existing_proj {
+        p.clone()
+    } else {
+        let title = pages
+            .first()
+            .map(|p| p.doc.title_block.title.as_str())
+            .filter(|t| !t.is_empty())
+            .unwrap_or("Projeto RustSimu")
+            .to_string();
+        QetProject {
+            title,
+            version: "0.100.0".to_string(),
+            ..Default::default()
+        }
+    };
+
+    proj.diagrams.clear();
+    for (idx, page) in pages.iter().enumerate() {
+        let order = (idx + 1) as i32;
+        let diagram = document_to_diagram(&page.doc, &page.name, order, &filename);
+        proj.diagrams.push(diagram);
+    }
+    proj.active_diagram_index = active_page_index.min(pages.len().saturating_sub(1));
+
     save_qet_file(path, &proj)
+}
+
+/// Exporta um documento `SchematicDocument` simples como um arquivo `.qet` válido.
+pub fn export_doc_to_qet(doc: &SchematicDocument, path: &Path) -> Result<(), String> {
+    let page = crate::model::ProjectPage::new(1, doc.title_block.title.clone(), doc.clone());
+    export_pages_to_qet(&[page], 0, path, None)
 }
 
 fn escape_xml_attr(s: &str) -> String {

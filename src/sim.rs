@@ -48,51 +48,69 @@ fn point_on_segment(px: i32, py: i32, x1: i32, y1: i32, x2: i32, y2: i32) -> boo
     cross == 0
 }
 
+/// Verifica se `label` contém qualquer uma das palavras/tokens fornecidos como palavra inteira (delimitada por pontuação, barra ou underline).
+pub fn has_any_token(label: &str, tokens: &[&str]) -> bool {
+    let mut words = label.split(|c: char| !c.is_alphanumeric());
+    words.any(|w| tokens.iter().any(|t| w.eq_ignore_ascii_case(t)))
+}
+
 /// Heurística para identificar interruptores, seccionadores ou botões manuais da biblioteca QET.
 pub fn is_qet_switch_or_button(label: &str) -> bool {
-    let l = label.to_ascii_lowercase();
-    l.contains("switch")
-        || l.contains("schalter")
-        || l.contains("ignition")
-        || l.contains("button")
-        || l.contains("taster")
+    has_any_token(
+        label,
+        &[
+            "switch",
+            "schalter",
+            "ignition",
+            "button",
+            "taster",
+            "bouton",
+            "interrupteur",
+        ],
+    )
 }
 
 /// Heurística para identificar distribuidores, divisores ou conexões passivas da biblioteca QET.
 pub fn is_qet_splitter_or_passive(label: &str) -> bool {
-    let l = label.to_ascii_lowercase();
-    l.contains("splitter")
-        || l.contains("verteiler")
-        || l.contains("distributor")
-        || l.contains("splice")
-        || l.contains("connector")
+    has_any_token(
+        label,
+        &[
+            "splitter",
+            "verteiler",
+            "distributor",
+            "splice",
+            "connector",
+            "bornier",
+            "terminal",
+            "repartiteur",
+        ],
+    )
 }
 
 /// Heurística para identificar cargas elétricas consumidoras (motores, lâmpadas, buzinas, ventoinhas) da QET.
 pub fn is_qet_load(label: &str) -> bool {
-    let l = label.to_ascii_lowercase();
-    let is_switch_or_diag =
-        l.contains("switch") || l.contains("connector") || l.contains("diagram");
+    let is_switch_or_diag = has_any_token(
+        label,
+        &["switch", "connector", "diagram", "plan", "schalter"],
+    );
     !is_switch_or_diag
-        && (l.contains("starter")
-            || l.contains("motor")
-            || l.contains("horn")
-            || l.contains("fan")
-            || l.contains("light")
-            || l.contains("lamp")
-            || l.contains("bulb"))
+        && has_any_token(
+            label,
+            &[
+                "starter", "motor", "horn", "fan", "light", "lamp", "lampe", "bulb", "klaxon",
+                "sirene", "voyant",
+            ],
+        )
 }
 
 /// Heurística para identificar fontes de alimentação contínua positiva (bateria / terminal positivo) da QET.
 pub fn is_qet_source_dc_pos(label: &str) -> bool {
-    let l = label.to_ascii_lowercase();
-    l.contains("battery") || l.contains("batterie")
+    has_any_token(label, &["battery", "batterie", "plus", "dcpos"])
 }
 
 /// Heurística para identificar terra / referência negativa de corrente contínua da QET.
 pub fn is_qet_source_ground(label: &str) -> bool {
-    let l = label.to_ascii_lowercase();
-    l.contains("ground") || l.contains("masse")
+    has_any_token(label, &["ground", "masse", "gnd", "earth", "terre"])
 }
 
 /// Verifica se o item pode ser acionado/comutado manualmente pelo usuário.
@@ -426,8 +444,9 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
 
     let num_nodes = all_points.len();
     if num_nodes == 0 {
-        // Atualiza estado base dos componentes (fusíveis, botoeiras, etc.) mesmo sem fiação
+        // Atualiza estado base dos componentes e zera bobinas, motores e lâmpadas sem fiação
         for item in &mut doc.items {
+            item.sim_potential = Potential::None;
             match item.tipo {
                 5000 | 5003 => {
                     item.sim_active = !item.sim_manual_latched;
@@ -435,13 +454,30 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                 2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034 => {
                     item.sim_active = item.sim_manual_latched;
                 }
+                // Motores
+                1000..=1002 => {
+                    item.sim_active = false;
+                    item.sim_fault = false;
+                    item.sim_motor_dir = 0;
+                    item.sim_motor_mode = MotorMode::Off;
+                }
+                // Bobinas, contatores, temporizadores, sinaleiros e buzinas
+                2000 | 2001 | 2005 | 2006 | 2007 | 2008 | 2009 | 7000..=7009 | 9004 | 9005 => {
+                    item.sim_active = false;
+                    item.sim_timer_elapsed_ms = 0;
+                }
                 _ => {
                     if let Some(ref qet_type) = item.qet_type {
                         if is_qet_switch_or_button(qet_type) {
                             item.sim_active = item.sim_manual_latched;
                         } else if is_fuse(item) {
                             item.sim_active = !item.sim_manual_latched;
+                        } else {
+                            item.sim_active = false;
+                            item.sim_motor_dir = 0;
                         }
+                    } else {
+                        item.sim_active = false;
                     }
                 }
             }
@@ -1040,7 +1076,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         && comp_id[p[5]] == comp_id[p[6]]
                         && w2 != Potential::ShortCircuit;
 
-                    // Verifica se W2, U2, V2 estão alimentados em Triângulo (Δ)
+                    // Verifica se W2, U2, V2 estão alimentados em Triângulo (Delta)
                     let bot_phases = [w2, u2, v2];
                     let bot_all_3 = bot_phases.contains(&Potential::L1)
                         && bot_phases.contains(&Potential::L2)

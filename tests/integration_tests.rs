@@ -3892,3 +3892,199 @@ fn test_qet_fuse_opens_circuit_when_blown() {
         "Fusível QET queimado (latched) deve abrir o circuito e ter sim_active: false"
     );
 }
+
+#[test]
+fn test_multipage_qet_save_and_reload() {
+    let (mut app, _) = CadeSimuApp::new();
+
+    // 1. Folha 1 (Potência)
+    app.doc.title_block.title = "Potência QET".to_string();
+    app.doc.items.clear();
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(1, 1000, 100, 100, ""));
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(2, 6003, 100, 150, "-Q1"));
+    if !app.pages.is_empty() {
+        app.pages[0].name = "Potência".to_string();
+        app.pages[0].doc = app.doc.clone();
+    }
+
+    // 2. Folha 2 (Comando)
+    let _ = app.update(Message::AddPageAfter(0));
+    assert_eq!(app.pages.len(), 2);
+    assert_eq!(app.active_page_index, 1);
+
+    app.doc.title_block.title = "Comando QET".to_string();
+    app.doc.items.clear();
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(3, 7000, 200, 200, "-KM1"));
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(4, 2000, 200, 250, "-S1"));
+    app.pages[1].name = "Comando".to_string();
+    app.pages[1].doc = app.doc.clone();
+
+    // 3. Salva em arquivo .qet temporário
+    let temp_dir = std::env::temp_dir();
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let qet_path = temp_dir.join(format!(
+        "test_project_multipage_{}_{}.qet",
+        std::process::id(),
+        unique_id
+    ));
+
+    let save_res = cade_simu_rs::io::save_project(&qet_path, &app.pages, app.active_page_index);
+    assert!(
+        save_res.is_ok(),
+        "save_project em .qet multipáginas deve ser bem-sucedido"
+    );
+
+    // 4. Recarrega o projeto via load_project
+    let loaded_proj =
+        cade_simu_rs::io::load_project(&qet_path).expect("Leitura do .qet multipáginas");
+    assert_eq!(
+        loaded_proj.pages.len(),
+        2,
+        "Projeto QET multipáginas deve recarregar ambas as folhas"
+    );
+    assert_eq!(loaded_proj.pages[0].name, "Potência");
+    assert_eq!(loaded_proj.pages[0].doc.items.len(), 2);
+    assert_eq!(loaded_proj.pages[1].name, "Comando");
+    assert_eq!(loaded_proj.pages[1].doc.items.len(), 2);
+
+    let _ = std::fs::remove_file(qet_path);
+}
+
+#[test]
+fn test_project_version_and_error_reporting() {
+    use cade_simu_rs::model::{ProjectDocument, ProjectPage, SchematicDocument};
+
+    // 1. Testa que ProjectDocument inclui versão padrão 1
+    let proj = ProjectDocument::new(
+        vec![ProjectPage::new(1, "Folha 1", SchematicDocument::default())],
+        0,
+    );
+    assert_eq!(proj.version, 1);
+
+    let json = serde_json::to_string(&proj).unwrap();
+    assert!(
+        json.contains("\"version\":1"),
+        "JSON serializado deve conter o campo 'version': 1"
+    );
+
+    // 2. Testa desserialização de JSON antigo sem campo version (deve assumir version = 1 por padrão)
+    let legacy_json = r#"{"pages":[{"id":1,"name":"Teste","doc":{"title_block":{"title":"","subtitle":"","drawn_by":"","drawn_date":"","scale":"","folio":"","organization":""},"settings":{"width":1040,"height":720,"grid_density":"Standard"},"items":[]}}],"active_page_index":0}"#;
+    let parsed: ProjectDocument = serde_json::from_str(legacy_json).unwrap();
+    assert_eq!(parsed.version, 1);
+
+    // 3. Testa relatório de erro no load_project para JSON com campo de projeto inválido
+    let temp_dir = std::env::temp_dir();
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let bad_json_path = temp_dir.join(format!(
+        "test_bad_project_{}_{}.json",
+        std::process::id(),
+        unique_id
+    ));
+    // pages como string em vez de array
+    std::fs::write(&bad_json_path, r#"{"pages": "invalido"}"#).unwrap();
+
+    let err = cade_simu_rs::io::load_project(&bad_json_path).unwrap_err();
+    assert!(
+        err.contains("Erro ao ler projeto JSON"),
+        "Deve acusar erro específico de projeto JSON em vez de fallback silencioso: {err}"
+    );
+
+    let _ = std::fs::remove_file(bad_json_path);
+}
+
+#[test]
+fn test_num_nodes_zero_resets_energized_loads() {
+    use cade_simu_rs::model::MotorMode;
+    use cade_simu_rs::sim::step_simulation;
+
+    let mut doc = SchematicDocument::default();
+    doc.items.clear();
+
+    // Motor 1000 ativo
+    let mut motor = SchematicItem::new_symbol(1, 1000, 100, 100, "-M1");
+    motor.sim_active = true;
+    motor.sim_motor_dir = 1;
+    motor.sim_motor_mode = MotorMode::Direct;
+    doc.items.push(motor);
+
+    // Bobina 9000 ativa
+    let mut coil = SchematicItem::new_symbol(2, 9000, 200, 200, "-KM1");
+    coil.sim_active = true;
+    doc.items.push(coil);
+
+    // Lâmpada sinaleira 9008 ativa
+    let mut lamp = SchematicItem::new_symbol(3, 9008, 300, 300, "-H1");
+    lamp.sim_active = true;
+    doc.items.push(lamp);
+
+    // Sem nenhum fio (sem fontes/diferença de potencial)
+    step_simulation(&mut doc, 50);
+
+    // Motor, bobina e lâmpada devem ser zerados
+    assert!(
+        !doc.items[0].sim_active,
+        "Motor deve ser desligado sem fios"
+    );
+    assert_eq!(doc.items[0].sim_motor_dir, 0);
+    assert_eq!(doc.items[0].sim_motor_mode, MotorMode::Off);
+
+    assert!(
+        !doc.items[1].sim_active,
+        "Bobina deve ser desenergizada sem fios"
+    );
+    assert!(
+        !doc.items[2].sim_active,
+        "Lâmpada deve ser desligada sem fios"
+    );
+
+    // Também valida o ramo num_nodes == 0 estrito (itens sem pinos catalogados)
+    let mut doc_empty_nodes = SchematicDocument::default();
+    let mut custom_load = SchematicItem::new_symbol(1, 0, 100, 100, "-H2");
+    custom_load.sim_active = true;
+    doc_empty_nodes.items.push(custom_load);
+    step_simulation(&mut doc_empty_nodes, 50);
+    assert!(
+        !doc_empty_nodes.items[0].sim_active,
+        "Item sem nós deve ser desativado no ramo num_nodes == 0"
+    );
+}
+
+#[test]
+fn test_qet_heuristic_token_matching_no_false_positives() {
+    use cade_simu_rs::sim::is_qet_load;
+
+    // Falsos positivos comuns de substring não devem casar
+    assert!(
+        !is_qet_load("flight_control_unit.elmt"),
+        "flight não deve ser reconhecido como light"
+    );
+    assert!(
+        !is_qet_load("logic/fanout_gate.elmt"),
+        "fanout não deve ser reconhecido como fan"
+    );
+    assert!(
+        !is_qet_load("terminal_clamping.elmt"),
+        "clamping não deve ser reconhecido como lamp"
+    );
+
+    // Palavras legítimas delimitadas devem ser reconhecidas
+    assert!(is_qet_load("cooling/cooling_fan_24v.elmt"));
+    assert!(is_qet_load("signal/warning_light_red.elmt"));
+    assert!(is_qet_load("eclairage/lampe_temoin.elmt"));
+    assert!(is_qet_load("actuators/horn_12v.elmt"));
+    assert!(is_qet_load("engines/starter_motor.elmt"));
+}

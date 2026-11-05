@@ -1,7 +1,7 @@
-//! RustSimu — tema e estilos (iced 0.13.x)
+//! RustSimu - tema e estilos (iced 0.13.x)
 //! Fonte: styles.css (variáveis em :root / [data-theme]) + DESIGN.md.
 //! Uso: `Theme` = `AppTheme::theme()`; cada widget lê os tokens com `tokens(theme)`.
-//! Nota: não compilado neste ambiente — confirme com `cargo check`.
+//! Nota: não compilado neste ambiente - confirme com `cargo check`.
 
 use iced::theme::Palette;
 use iced::widget::{button, container, text, text_input};
@@ -35,7 +35,7 @@ pub enum ThemeMode {
 }
 
 impl ThemeMode {
-    /// Ciclo do botão de tema: sistema → claro → escuro.
+    /// Ciclo do botão de tema: sistema -> claro -> escuro.
     pub fn next(self) -> Self {
         match self {
             Self::System => Self::Light,

@@ -70,7 +70,7 @@ impl Potential {
     }
 }
 
-/// Modo de operação de motores trifásicos (Partida Direta, Estrela `Y` ou Triângulo `Δ`).
+/// Modo de operação de motores trifásicos (Partida Direta, Estrela `Y` ou Triângulo `Delta`).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
 pub enum MotorMode {
     #[default]
@@ -86,7 +86,7 @@ impl MotorMode {
             MotorMode::Off => "PARADO",
             MotorMode::Direct => "DIRETA",
             MotorMode::Star => "ESTRELA (Y)",
-            MotorMode::Delta => "TRIÂNGULO (Δ)",
+            MotorMode::Delta => "TRIÂNGULO (Delta)",
         }
     }
 }
@@ -124,6 +124,7 @@ pub fn transform_offset_f32(dx: f32, dy: f32, orientation: i32) -> (f32, f32) {
 
 /// Bloco de legenda (Cajetín) do CADe_SIMU (serializado após `&&&` no formato `.cad`).
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(default)]
 pub struct TitleBlock {
     pub drawn_date: String,
     pub drawn_by: String,
@@ -156,6 +157,7 @@ impl Default for TitleBlock {
 
 /// Configurações da folha e visualização do documento (serializadas entre `$$$` e `&&&`).
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(default)]
 pub struct DocumentSettings {
     pub format_code: i32,
     pub format_orientation: i32,
@@ -421,17 +423,34 @@ impl ProjectPage {
     }
 }
 
+fn default_project_version() -> u32 {
+    1
+}
+
 /// Projeto esquemático completo (mono ou multipáginas), formato nativo RustSimu (.json / .toml).
-#[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ProjectDocument {
+    #[serde(default = "default_project_version")]
+    pub version: u32,
     pub pages: Vec<ProjectPage>,
     #[serde(default)]
     pub active_page_index: usize,
 }
 
+impl Default for ProjectDocument {
+    fn default() -> Self {
+        Self {
+            version: 1,
+            pages: Vec::new(),
+            active_page_index: 0,
+        }
+    }
+}
+
 impl ProjectDocument {
     pub fn new(pages: Vec<ProjectPage>, active_page_index: usize) -> Self {
         Self {
+            version: 1,
             pages,
             active_page_index,
         }
@@ -439,6 +458,7 @@ impl ProjectDocument {
 
     pub fn from_single_document(title: impl Into<String>, doc: SchematicDocument) -> Self {
         Self {
+            version: 1,
             pages: vec![ProjectPage::new(1, title, doc)],
             active_page_index: 0,
         }

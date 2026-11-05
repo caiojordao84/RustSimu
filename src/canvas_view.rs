@@ -317,7 +317,7 @@ impl<'a> SchematicCanvas<'a> {
             ..Text::default()
         });
         frame.fill_text(Text {
-            content: format!("Título: {} — {}", tb.title, tb.subtitle),
+            content: format!("Título: {} - {}", tb.title, tb.subtitle),
             position: self.world_to_screen(caj_x + 3.0, caj_y + 8.5),
             color: caj_text2,
             size: (font_sz * 1.08).into(),

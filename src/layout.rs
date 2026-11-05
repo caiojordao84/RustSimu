@@ -1,4 +1,4 @@
-//! RustSimu — layout responsivo com painéis laterais recolhíveis e área de trabalho expansível.
+//! RustSimu - layout responsivo com painéis laterais recolhíveis e área de trabalho expansível.
 //! Colunas: Coleções (DOCK_W ou 28px recolhido) | Folha (Fill) | Propriedades (DOCK_W ou 28px recolhido).
 
 use iced::widget::pane_grid::ResizeEvent;

@@ -418,7 +418,7 @@ impl CadeSimuApp {
                 recent_files,
                 last_dir,
                 save_format: SaveFormat::Json,
-                status_msg: "Pronto — RustSimu ativo".to_string(),
+                status_msg: "Pronto - RustSimu ativo".to_string(),
                 theme_mode: ThemeMode::Dark,
                 system_is_dark: crate::theme::detect_system_dark(),
                 layout,
@@ -877,15 +877,12 @@ impl CadeSimuApp {
                         }
                         let path_clone = path.clone();
                         let res = if ext == "qet" {
-                            if let Some(ref mut qet_proj) = self.qet_project {
-                                let active_idx = qet_proj.active_diagram_index;
-                                if let Some(diag) = qet_proj.diagrams.get_mut(active_idx) {
-                                    crate::qet::update_diagram_from_document(diag, &self.doc);
-                                }
-                                crate::qet::save_qet_file(&path_clone, qet_proj)
-                            } else {
-                                crate::qet::export_doc_to_qet(&self.doc, &path_clone)
-                            }
+                            crate::qet::export_pages_to_qet(
+                                &self.pages,
+                                self.active_page_index,
+                                &path_clone,
+                                self.qet_project.as_ref(),
+                            )
                         } else {
                             crate::io::save_project(
                                 &path_clone,
@@ -1111,15 +1108,12 @@ impl CadeSimuApp {
                     .unwrap_or_default();
 
                 let res = if ext == "qet" {
-                    if let Some(ref mut qet_proj) = self.qet_project {
-                        let active_idx = qet_proj.active_diagram_index;
-                        if let Some(diag) = qet_proj.diagrams.get_mut(active_idx) {
-                            crate::qet::update_diagram_from_document(diag, &self.doc);
-                        }
-                        crate::qet::save_qet_file(&path, qet_proj)
-                    } else {
-                        crate::qet::export_doc_to_qet(&self.doc, &path)
-                    }
+                    crate::qet::export_pages_to_qet(
+                        &self.pages,
+                        self.active_page_index,
+                        &path,
+                        self.qet_project.as_ref(),
+                    )
                 } else {
                     crate::io::save_project(&path, &self.pages, self.active_page_index)
                 };
@@ -1684,7 +1678,7 @@ impl CadeSimuApp {
                     self.tool = EditorTool::PlaceSymbol(tipo);
                     if let Some(sym) = find_symbol(tipo) {
                         self.status_msg = format!(
-                            "Símbolo '{}' pronto no ponteiro — clique na folha para posicionar.",
+                            "Símbolo '{}' pronto no ponteiro - clique na folha para posicionar.",
                             sym.name
                         );
                     }
@@ -1703,7 +1697,7 @@ impl CadeSimuApp {
                     self.tool = EditorTool::PlaceSymbol(tipo);
                     if let Some(sym) = find_symbol(tipo) {
                         self.status_msg = format!(
-                            "Símbolo '{}' pronto no ponteiro — clique na folha para posicionar.",
+                            "Símbolo '{}' pronto no ponteiro - clique na folha para posicionar.",
                             sym.name
                         );
                     }
@@ -2367,7 +2361,7 @@ impl CadeSimuApp {
                             weight: iced::font::Weight::Semibold,
                             ..UI
                         }),
-                    text("• Suporte completo a arquivos CADe_SIMU (.cad) e esquemas industriais multipáginas do QElectroTech (.qet).\n• Exportação e importação em formatos modernos abertos (.json, .toml).\n• Conformidade com normas de numeração IEC 60947-1 e identificação IEC 81346.\n• Motor de simulação física em tempo real para comando, potência trifásica, motores, inversores e softstarters.\n• Arquitetura 100% nativa em Rust com interface reativa acelerada por GPU.")
+                    text("- Suporte completo a arquivos CADe_SIMU (.cad) e esquemas industriais multipáginas do QElectroTech (.qet).\n- Exportação e importação em formatos modernos abertos (.json, .toml).\n- Conformidade com normas de numeração IEC 60947-1 e identificação IEC 81346.\n- Motor de simulação física em tempo real para comando, potência trifásica, motores, inversores e softstarters.\n- Arquitetura 100% nativa em Rust com interface reativa acelerada por GPU.")
                         .size(11.5)
                         .color(t.text),
                     horizontal_rule(1),
@@ -4569,9 +4563,7 @@ impl CadeSimuApp {
                     body_col = body_col.push(horizontal_rule(1));
                     body_col = body_col.push(
                         text(
-                            "Dica:
-• Clique em qualquer símbolo na folha para editar suas propriedades.
-• Arraste com botão direito ou scroll para navegar.",
+                            "Dica:\n- Clique em qualquer símbolo na folha para editar suas propriedades.\n- Arraste com botão direito ou scroll para navegar.",
                         )
                         .size(11.5)
                         .color(t.text2),
@@ -4722,10 +4714,10 @@ impl CadeSimuApp {
                                             let bornes = if item.pins.is_empty() {
                                                 String::new()
                                             } else {
-                                                format!("· bornes: {}", item.pins.join("-"))
+                                                format!("- bornes: {}", item.pins.join("-"))
                                             };
                                             text(format!(
-                                                "• #{}: {} (X:{}, Y:{}) {}",
+                                                "- #{}: {} (X:{}, Y:{}) {}",
                                                 item.id, sname, item.x1, item.y1, bornes
                                             ))
                                             .size(11)
@@ -5047,7 +5039,7 @@ impl CadeSimuApp {
             tabs_row = tabs_row.push(tab_box);
         }
 
-        // Atalhos de ponta: [◀+] e [+▶]
+        // Atalhos de ponta: [<-+] e [+->]
         let add_before_btn = app_tooltip(
             button(
                 container(crate::icons::view_icon(
