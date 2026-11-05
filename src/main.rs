@@ -449,6 +449,20 @@ impl CadeSimuApp {
         if self.sim_running {
             subs.push(iced::time::every(Duration::from_millis(80)).map(|_| Message::SimTick));
         }
+        if self.layout.drag.is_some() {
+            subs.push(iced::event::listen_with(|event, _status, _window| match event {
+                iced::Event::Mouse(iced::mouse::Event::CursorMoved { position }) => {
+                    Some(Message::LayoutMsg(crate::layout::Msg::DragMove(position.x)))
+                }
+                iced::Event::Mouse(iced::mouse::Event::ButtonReleased(iced::mouse::Button::Left)) => {
+                    Some(Message::LayoutMsg(crate::layout::Msg::DragEnd))
+                }
+                _ => None,
+            }));
+        }
+        subs.push(iced::window::resize_events().map(|(_id, size)| {
+            Message::LayoutMsg(crate::layout::Msg::WindowResized(size.width))
+        }));
         subs.push(iced::keyboard::on_key_press(|key, modifiers| {
             use iced::keyboard::key::Named;
             use iced::keyboard::Key;
@@ -2473,7 +2487,7 @@ impl CadeSimuApp {
             row![
                 app_tooltip(
                     button(
-                        container(crate::icons::view_icon(crate::icons::Icon::Play, 14, Color::WHITE))
+                        container(crate::icons::view_icon(crate::icons::Icon::Play, 14, t.on_primary))
                             .width(20)
                             .height(20)
                             .center_x(20)
@@ -2487,7 +2501,7 @@ impl CadeSimuApp {
                 ),
                 app_tooltip(
                     button(
-                        container(crate::icons::view_icon(crate::icons::Icon::Stop, 13, Color::WHITE))
+                        container(crate::icons::view_icon(crate::icons::Icon::Stop, 13, t.on_danger))
                             .width(20)
                             .height(20)
                             .center_x(20)
@@ -6513,6 +6527,57 @@ mod tests {
         // 4. Expande o painel direito novamente
         let _ = app.update(Message::ToggleRightDockCollapse);
         assert!(!app.right_dock_collapsed);
+        let _ = app.view();
+    }
+
+    #[test]
+    fn test_dock_panels_resize_drag_and_clamp() {
+        let (mut app, _) = CadeSimuApp::new();
+
+        // 1. Testa redimensionamento do painel esquerdo
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragStart(crate::layout::Side::Left)));
+        assert_eq!(app.layout.drag, Some(crate::layout::Side::Left));
+
+        // Move para 350px (dentro do intervalo 160..=480)
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragMove(350.0)));
+        assert_eq!(app.layout.left_width, 350.0);
+
+        // Clamping inferior: tenta mover para 50px -> limita a 160px
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragMove(50.0)));
+        assert_eq!(app.layout.left_width, 160.0);
+
+        // Clamping superior: tenta mover para 600px -> limita a 480px
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragMove(600.0)));
+        assert_eq!(app.layout.left_width, 480.0);
+
+        // Solta o botão do mouse
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragEnd));
+        assert_eq!(app.layout.drag, None);
+
+        // 2. Testa redimensionamento do painel direito (largura da janela = 1420px)
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragStart(crate::layout::Side::Right)));
+        assert_eq!(app.layout.drag, Some(crate::layout::Side::Right));
+
+        // Posiciona o cursor em x = 1100 -> right_width = 1420 - 1100 = 320px
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragMove(1100.0)));
+        assert_eq!(app.layout.right_width, 320.0);
+
+        // Clamping inferior do painel direito: x = 1380 -> 1420 - 1380 = 40px -> limita a 160px
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragMove(1380.0)));
+        assert_eq!(app.layout.right_width, 160.0);
+
+        // Clamping superior do painel direito: x = 800 -> 1420 - 800 = 620px -> limita a 480px
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragMove(800.0)));
+        assert_eq!(app.layout.right_width, 480.0);
+
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::DragEnd));
+        assert_eq!(app.layout.drag, None);
+
+        // 3. Testa redimensionamento da janela
+        let _ = app.update(Message::LayoutMsg(crate::layout::Msg::WindowResized(1600.0)));
+        assert_eq!(app.layout.window_w, 1600.0);
+
+        // 4. Renderiza view com painéis redimensionados
         let _ = app.view();
     }
 

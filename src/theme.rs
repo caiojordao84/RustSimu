@@ -61,32 +61,76 @@ impl ThemeMode {
 
 /// Detecta a preferência do sistema operacional para modo escuro (Dark/Light).
 pub fn detect_system_dark() -> bool {
+    use std::process::Command;
+    #[cfg(target_os = "windows")]
+    use std::os::windows::process::CommandExt;
+
+    let run = |prog: &str, args: &[&str]| -> String {
+        let mut c = Command::new(prog);
+        c.args(args);
+        #[cfg(target_os = "windows")]
+        c.creation_flags(0x0800_0000); // CREATE_NO_WINDOW: sem janela de consola no Windows
+        c.output().map(|o| String::from_utf8_lossy(&o.stdout).to_lowercase()).unwrap_or_default()
+    };
+
+    #[cfg(target_os = "windows")]
+    {
+        // 0x0 = tema de apps escuro no Windows Personalize
+        return run(
+            "reg",
+            &[
+                "query",
+                r"HKCU\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize",
+                "/v",
+                "AppsUseLightTheme",
+            ],
+        )
+        .contains("0x0");
+    }
     #[cfg(target_os = "linux")]
     {
+        // Portal freedesktop: 1 = escuro, 2 = claro (KDE Plasma 6 e GNOME modernos)
+        let p = run(
+            "gdbus",
+            &[
+                "call",
+                "--session",
+                "--dest",
+                "org.freedesktop.portal.Desktop",
+                "--object-path",
+                "/org/freedesktop/portal/desktop",
+                "--method",
+                "org.freedesktop.portal.Settings.Read",
+                "org.freedesktop.appearance",
+                "color-scheme",
+            ],
+        );
+        if p.contains("uint32 1") {
+            return true;
+        }
+        if p.contains("uint32 2") {
+            return false;
+        }
+        // KDE Plasma via kdeglobals
+        if run(
+            "kreadconfig6",
+            &["--file", "kdeglobals", "--group", "General", "--key", "ColorScheme"],
+        )
+        .contains("dark")
+        {
+            return true;
+        }
+        // Variável de ambiente GTK_THEME
         if let Ok(theme) = std::env::var("GTK_THEME") {
             if theme.to_lowercase().contains("dark") {
                 return true;
             }
         }
-        if let Ok(out) = std::process::Command::new("gsettings")
-            .args(["get", "org.gnome.desktop.interface", "color-scheme"])
-            .output()
-        {
-            let s = String::from_utf8_lossy(&out.stdout).to_lowercase();
-            if s.contains("dark") {
-                return true;
-            }
-        }
-        false
+        // GNOME desktop interface fallback
+        return run("gsettings", &["get", "org.gnome.desktop.interface", "color-scheme"]).contains("dark");
     }
-    #[cfg(target_os = "windows")]
-    {
-        false
-    }
-    #[cfg(not(any(target_os = "linux", target_os = "windows")))]
-    {
-        false
-    }
+    #[allow(unreachable_code)]
+    false
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -340,7 +384,7 @@ pub fn pill_play(running: bool) -> impl Fn(&Theme, button::Status) -> button::St
         };
         button::Style {
             background: bg(base),
-            text_color: Color::WHITE,
+            text_color: t.on_primary,
             border: border(
                 if running { Color::WHITE } else { Color::TRANSPARENT },
                 if running { 1.5 } else { 0.0 },
@@ -476,7 +520,7 @@ pub fn card(theme: &Theme) -> container::Style {
 /// Menu suspenso dropdown flutuante (superfície 2 elevada com borda e sombra suave).
 pub fn dropdown_menu(theme: &Theme) -> container::Style {
     let t = tokens(theme);
-    let shadow_color = if t.workspace.r < 0.2 {
+    let shadow_color = if theme.extended_palette().is_dark {
         Color::from_rgba(0.0, 0.0, 0.0, 0.55)
     } else {
         Color::from_rgba(0.0, 0.0, 0.0, 0.22)
@@ -496,7 +540,7 @@ pub fn dropdown_menu(theme: &Theme) -> container::Style {
 /// Tooltip flutuante com fundo elevado seguindo o tema, borda e cantos arredondados.
 pub fn tooltip(theme: &Theme) -> container::Style {
     let t = tokens(theme);
-    let shadow_color = if t.workspace.r < 0.2 {
+    let shadow_color = if theme.extended_palette().is_dark {
         Color::from_rgba(0.0, 0.0, 0.0, 0.55)
     } else {
         Color::from_rgba(0.0, 0.0, 0.0, 0.18)
@@ -511,6 +555,11 @@ pub fn tooltip(theme: &Theme) -> container::Style {
             blur_radius: 6.0,
         },
     }
+}
+
+/// Separador / divisor de colunas redimensionáveis.
+pub fn splitter(_theme: &Theme) -> container::Style {
+    container::Style::default()
 }
 
 /// Grupo da toolbar (.tgroup).

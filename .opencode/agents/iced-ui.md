@@ -31,8 +31,7 @@ neles antes de inventar valores.
 - **Overlays em `Stack`**: menu/modal ativo ⇒ canvas `is_blocked: true`
   (retorna Ignored); eventos `CanvasMessage::CursorMoved` NUNCA fecham menus.
 - **Hit-test** prioriza símbolos sobre fios.
-- **Docks**: 288px expandidos ↔ 28px recolhidos (chevron centralizado); canvas
-  usa `Length::Fill`.
+- **Docks**: 288px padrão (redimensionáveis entre 160px e 480px via separador de 6px) ↔ 28px recolhidos (separador desativado, chevron centralizado); canvas usa `Length::Fill`.
 - **Toolbar**: ferramentas à esquerda em `scrollable` horizontal; grupo
   Play/Stop/Step fixo à direita, botões icônicos compactos; Play com brilho
   radial quando ativo.

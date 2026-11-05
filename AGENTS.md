@@ -92,14 +92,15 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
 2. **Hit-Testing com Prioridade para Símbolos:**
    * O clique do mouse em coordenadas onde símbolos e fios se cruzam **deve sempre selecionar o símbolo** (componente) e não o fio que passa por baixo.
 3. **Layout Físico Responsivo:**
-   * **Docks Laterais:** Largura de `288px` quando expandidos e `28px` quando recolhidos (com botão chevron centralizado em `align_x: Center`).
+   * **Docks Laterais:** Largura padrão de `288px` quando expandidos (redimensionáveis entre `160px` e `480px` via separador de 6px) e `28px` quando recolhidos (com botão chevron centralizado em `align_x: Center`). O separador é desativado quando o dock correspondente está recolhido.
    * **Área Central (Canvas):** Expande dinamicamente para consumir todo o espaço liberado (`Length::Fill`).
    * **Toolbar:** As ferramentas à esquerda usam container com rolagem suave (`scrollable`), enquanto o grupo de simulação (**Play**, **Stop**, **Step**) fica fixado à direita com botões icônicos compactos (sem textos).
-   * **Efeito Play:** O botão Play exibe brilho radial (*neon glow* emitido via `Shadow`) quando ativo.
+   * **Efeito Play:** O botão Play exibe brilho radial (*neon glow* emitido via `Shadow`) quando ativo, com cor de texto adaptada via `tokens.on_primary`.
 4. **Histórico Undo / Redo:**
    * Alterações de posição por arrasto no Canvas só devem ser empilhadas no `undo_stack` quando o usuário soltar o botão do mouse (`ButtonReleased` / `EndMoveItem`), jamais em movimentações intermediárias.
 5. **Adaptação a Temas:**
    * Todas as miniaturas de símbolos e pré-visualizações na biblioteca devem se adaptar dinamicamente ao contraste do tema ativo (Dark, Light, System) via `adapt_svg_colors`.
+   * **Detecção do Sistema:** `detect_system_dark()` detecta a preferência do SO nativamente no Windows (via registro `AppsUseLightTheme`), Linux GNOME e KDE Plasma 6 (via portal freedesktop `Settings.Read`, `kreadconfig6`, `GTK_THEME` e `gsettings`). Sombras de menus e tooltips utilizam `theme.extended_palette().is_dark`.
 
 ---
 
