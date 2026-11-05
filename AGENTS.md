@@ -109,6 +109,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
 1. **Sincronismo Rígido de Tipos:** Alterações em structs ou enums em `model.rs` exigem atualização imediata e atômica em `sim.rs`, `symbols.rs` e `io.rs`.
 2. **Preservação de Dados de Engenharia Reversa:** **Nunca** remova nem altere comentários contendo offsets e ponteiros hexadecimais (ex.: `// RE: 0x00431xxx`), pois mapeiam o binário original do CADe_SIMU.
 3. **Windows Long Paths no Git:** Os repositórios QElectroTech possuem caminhos de arquivo extensos. No Windows ou CI, garanta `git config core.longpaths true`.
+4. **Política de Arquivos — Salvamento (Decisão D1 de 05/11/2026):** O formato legado `.cad` **NÃO** deve mais ser oferecido como opção de *Salvar / Salvar Como* — ele é single-sheet e perderia páginas multipágina silenciosamente. Restrito a **importação** e **exportação** (folha única; com seletor de página quando o projeto tiver mais de uma folha). Salvamento nativo: `.json` (padrão na primeira gravação), `.toml` e `.qet`. Ao implementar: remover `SaveFormat::Cad` de `SaveFormat::ALL`/rota de save em `main.rs` e reutilizar o escritor byte-exato de `io.rs` no fluxo de Exportação **sem alterar o formato** (roundtrip obrigatório — v. agente `compat-cad`).
 
 ---
 

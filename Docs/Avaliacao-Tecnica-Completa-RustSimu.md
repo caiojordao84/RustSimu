@@ -10,6 +10,7 @@
 > | Escopo | Todo o repositório: `src/` (14 arquivos Rust), testes, CI, assets, docs e ferramental de agentes |
 > | Método | Leitura integral dos módulos, medições com `cargo check/test`, greps de inventário, revisão de histórico Git (13 commits) e cotejo do código contra as especificações (`AGENTS.md`, `Layout RustSimu HTML/`) |
 > | Status do build | `cargo check --all-targets` limpo · `cargo test` **28/28 verde (~4,4 s)** |
+> | Revisão | **Rev. 2 (05/11/2026)** — decisão **D1** registrada no Anexo A: `.cad` deixa de ser formato de salvamento e passa a ser somente exportação; pontos afetados reajustados (§5, §6, §11-#13, §12-#4, §13) |
 
 ---
 
@@ -131,10 +132,10 @@ Aplicativo iced 0.13 no padrão Elm: `CadeSimuApp` (≈47 campos de estado) + en
 
 | Formato | Escrita | Leitura | Observações |
 |---|---|---|---|
-| `.cad` | ✅ byte-exato (`OnFileSave 0x00431600`) | ✅ tolerante (`OnFileOpen 0x0042c290`) | 8/9 pinos (1052, 1073, 10500..=10550); cajetín com truncamentos fixos; trailer `***$$$&&&***$$$&&&`; decoder UTF-8 → Latin-1 por byte (CP-1252 não mapeado 1:1) |
-| `.json`/`.toml` | ✅ pretty | ✅ | Espelhos exatos; campos `sim_*` nunca persistidos (`#[serde(skip)]`) |
+| `.cad` | ✅ **somente exportação** (escritor byte-exato `OnFileSave 0x00431600`, mantido) | ✅ tolerante (`OnFileOpen 0x0042c290`) | **Decisão D1**: sai da rota Salvar/Salvar como. Export de folha única com seletor de página quando houver multipágina. 8/9 pinos (1052, 1073, 10500..=10550); cajetín com truncamentos fixos; trailer `***$$$&&&***$$$&&&`; decoder UTF-8 → Latin-1 por byte (CP-1252 não mapeado 1:1) |
+| `.json`/`.toml` | ✅ pretty | ✅ | **Formatos nativos de salvamento** (decisão D1; JSON é o padrão da primeira gravação conforme spec §1.1). Espelhos exatos; campos `sim_*` nunca persistidos (`#[serde(skip)]`) |
 | `.qet` | ✅ (folha única) | ✅ coleção embutida + multi-diagrama (abre o 1º não vazio) | Condutores sintéticos `node_{id}` na exportação |
-| Multipágina | `.json`/`.toml`/`.qet` | `.cad` **perde páginas silenciosamente** | Definir formato "projeto" ou avisar no save |
+| Multipágina | ✅ preservada em `.json`/`.toml`/`.qet` | — | **Risco de perda de páginas resolvido pela decisão D1** (corte da rota de save `.cad` na origem; implementação pendente — v. P2-#13) |
 
 ---
 
@@ -144,7 +145,7 @@ O gap analysis abaixo usa a spec `Layout RustSimu HTML/Modificações (1).md` co
 
 | Seção da spec | Implementado | Parcial | Pendente |
 |---|---|---|---|
-| Arquivo | Novo, Abrir, Salvar, Salvar como, Fechar | Exportar (dialog ✅, formatos PDF/SVG/PNG **ainda não geram arquivo real** — `save_document` cai em JSON para extensões desconhecidas) · Imprimir (só status) | Salvar cópia |
+| Arquivo | Novo, Abrir, Salvar, Salvar como (JSON/TOML/QET após D1), Fechar | Exportar (dialog ✅, formatos PDF/SVG/PNG **ainda não geram arquivo real** — `save_document` cai em JSON para extensões desconhecidas; após D1, o `.cad` volta ao **Exportar** com seletor de página) · Imprimir (só status) · **`SaveFormat::Cad` ainda está na rota de Salvar — remover (D1)** | Salvar cópia |
 | Editar | Undo/Redo, Cortar/Copiar/Colar (na posição do mouse e na origem), Duplicar, Inserir último, Selecionar tudo/inverter/anular, Copiar/colar infos, Cor do elemento (lamp/elementos com preset) | — | Agrupar Ctrl+G/U, linhas/colunas, adicionar (arco/texto/imagem), propriedades página |
 | Projeto | Página antes/depois/deletar/mover/rename, auto-conexão, desconexão | — | Propriedades do projeto, CSV/BOM |
 | Display | Grade + snap + densidades, zoom (in/out/reset/content/fit), tema System nativo | — | Mira em todo fólio, grelha de texto, guias |
@@ -210,7 +211,7 @@ Um diferencial grande do projeto: as estruturas reproduzem os arrays paralelos d
 | # | Dívida | Esforço | Ganho |
 |---|---|---|---|
 | 1 | CI de qualidade (build+test+clippy+fmt) | 0,5 d | Contrato de regressão-zero para humano + 2 IAs |
-| 2 | Memoizar `symbol_catalog()` (`LazyLock`) | 0,5 d | Corta trabalho por `find_symbol` × 98 call-sites × 69 defs (sim/render/hit-test a cada 80 ms) |
+| 2 | Memorizar `symbol_catalog()` (`LazyLock`) | 0,5 d | Corta trabalho por `find_symbol` × 98 call-sites × 69 defs (sim/render/hit-test a cada 80 ms) |
 | 3 | Remover `pub mod` duplicados do `main.rs` | 0,25 d | Compilação mais simples e única |
 | 4 | Dedup das heurísticas QET (5× substring) em `sim.rs` | 0,5 d | Corretibilidade |
 
@@ -231,7 +232,7 @@ Um diferencial grande do projeto: as estruturas reproduzem os arrays paralelos d
 
 | # | Item | justificativa |
 |---|---|---|
-| 13 | Formato de projeto multipágina (`.rsim` zipado?) com aviso em `.cad` | Evita perda silenciosa de folhas |
+| 13 | **Implementar decisão D1**: remover `SaveFormat::Cad` da rota Salvar/Salvar como (`SaveFormat::ALL` em `main.rs`); `.cad` restringe-se a exportar (folha única) com seletor de página para projetos multipágina; salvar passa a `.json` (padrão), `.toml`, `.qet` | 0,5–1 d | Elimina a perda silenciosa de folhas na origem; alinha o código à spec §1.1 (Salvar Como: JSON/TOML/QET; CAD somente em Exportar) |
 | 14 | Biblioteca QET completa na UI (index/busca/paginação sobre o `catalog.json` de ~8.890 entradas; drag-and-drop já existe para nativos) | Libera os 9.327 SVGs que hoje ficam como assets não expostos |
 | 15 | Numeração global de bornes + referência cruzada de projeto | Fechar spec §4.2 |
 | 16 | Undo granular (command pattern), i18n pt/en, BOM/CSV, grupo Ctrl+G, ferramentas de desenho (texto/arco/retângulo) | Alinhados à spec e prática CAD |
@@ -243,7 +244,7 @@ Um diferencial grande do projeto: as estruturas reproduzem os arrays paralelos d
 1. **Concentração de contexto em `main.rs`** — risco de regressão em UI a cada mudança + custo de contexto alto para agentes; mitigação P1-#7.
 2. **Knowledge lock de RE** — os offsets RE vivem apenas no código; mitigação `docs/cad-format.md` + bloqueio linter.
 3. **Performance de sim em esquemas grandes** — rebuild O(N²)/tick; mitigação P1-#8.
-4. **`.cad` multipágina** — perda silenciosa de dados (leitura do arquivo salva no `.cad` pega só a folha ativa); mitigação P2-#13.
+4. **`.cad` e multipágina** — resolvido **por decisão (D1, 05/11/2026)**: `.cad` não será mais oferecido como formato de salvamento (folha única por natureza). O risco permanece apenas até a implementação do P2-#13, que corta efetivamente a rota de save; até lá, salvar **multipágina** em `.cad` perde folhas silenciosamente.
 5. **Barramento de três escritores** (humano + OpenCode + Antigravity) — furo de disciplina se CI (P0-#1) não existir; sem CI, `cargo test` local continua sendo o único selo verde.
 
 ---
@@ -252,8 +253,16 @@ Um diferencial grande do projeto: as estruturas reproduzem os arrays paralelos d
 
 O RustSimu realizou em poucos dias de trabalho o que normalmente toma semanas: **núcleo de simulação funcional e testado, compatibilidade byte-exata com um binário proprietário reverse-escrito e documentado, UI responsiva com temas completos e ferramentação de agentes com protocolo escrito**. Os dois próximos passos de maior valor são o **P0 (CI + memoização)** — baratos e desbloqueiam todo o restante — e o **saneamento estrutural da P1** (fragmentar `main.rs`/`tests`), que transforma o código em um terreno amigável tanto para humanos quanto para os agentes OpenCode/Antigravity agora em operação.
 
-Nenhum bloqueio arquitetural existe. O relatório recomenda atacar na ordem: **P0 → #5/#6/#7 (estrutura) → #9 (export real) → #14 (biblioteca QET)**, mantendo o contrato de regressão-zero já estabelecido no `AGENTS.md`.
+Nenhum bloqueio arquitetural existe. O relatório recomenda atacar na ordem: **P0 → P2-#13 (corte da rota de save `.cad`, decisão D1 — trabalho pequeno que se aproveita junto ao #9) → #5/#6/#7 (estrutura) → #9 (export real, ganha o seletor de página do D1) → #14 (biblioteca QET)**, mantendo o contrato de regressão-zero já estabelecido no `AGENTS.md`.
 
 ---
 
-*Relatório gerado por avaliação de agente (OpenCode) a pedido do mantenedor. Métricas colhidas em 05/11/2026 @ `37e06c2`. Ambiente de medição: `cargo test` 28/28 verde no momento da avaliação.*
+## Anexo A — Registro de Decisões (documento vivo)
+
+| ID | Data | Decisão | Justificativa | Impactos no código | Estado |
+|---|---|---|---|---|---|
+| **D1** | 05/11/2026 | **`.cad` deixa de ser formato de salvamento nativo.** Permanece exclusivamente para importação e exportação (folha única; com seletor de página quando o projeto tiver mais de uma folha). Salvamento passa a ser em `.json` (padrão da primeira gravação), `.toml` e `.qet`. | O formato legado é single-sheet: salvar multipágina em `.cad` perde folhas silenciosamente. A decisão elimina esse risco na origem e **realinha o código à spec** `Modificações (1).md` §1.1 — que já prescreve "Salvar Como: JSON, TOML, QET" e "Exportar: ... CAD". | Remover `SaveFormat::Cad` de `SaveFormat::ALL` e da rota de save em `main.rs` (SaveFileDialog / `SaveAsCad` reclassificado como export); reusar o escritor byte-exato de `io.rs` no fluxo de Exportação **sem alterar o formato**; acrescentar seletor de página no dialog de export. Gestão de compatibilidade incumbida ao agente `compat-cad` (roundtrip preservado). | **Decidida** — implementação pendente (P2-#13). Novas mudanças devem ser acrescentadas como linhas seguintes desta tabela (IDs sequenciais). |
+
+---
+
+*Relatório gerado por avaliação de agente (OpenCode) a pedido do mantenedor. Métricas colhidas em 05/11/2026 @ `37e06c2`. Ambiente de medição: `cargo test` 28/28 verde no momento da avaliação. Rev. 2: decisão D1 incorporada (Anexo A).*
