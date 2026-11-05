@@ -15,6 +15,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
   ```bash
   cargo test
   ```
+  * Os testes (simulação de circuitos reais, roundtrip de formatos, UI) vivem inline no `mod tests` do `main.rs`, e usam como fixtures os esquemas originais do diretório `Projetos/*.cad`. É a rede de proteção de toda simulação — qualquer mudança em `sim.rs`, `symbols.rs`, `io.rs` ou `model.rs` deve acrescentar ou atualizar pelo menos um teste nele.
 * **Execução do aplicativo em modo desenvolvimento ou release:**
   ```bash
   cargo run
@@ -25,6 +26,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
   cargo run --bin cade2svg   # Regenera SVGs nativos a partir dos assets legados
   cargo run --bin elmt2svg   # Processa a biblioteca QElectroTech e regenera catalog.json
   ```
+  * *Nota:* O `elmt2svg` depende de uma coleção **QElectroTech instalada localmente** (caminho padrão `/usr/share/qelectrotech`; aceita caminho customizado por argumento). Se o comando falhar por ausência dessa coleção, não é defeito do código nem do ambiente do agente — regere-o apenas quando a coleção estiver disponível.
 
 ---
 
@@ -43,13 +45,14 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
 ```
 
 * **`model.rs`**: Representação pura de dados do esquema (`SchematicDocument`, `SchematicItem`, condutores, bornes, nós de conexão, páginas e potenciais).
-* **`sim.rs`**: Motor de propagação física e lógica de potenciais (L1–L3, N, PE, CC+/CC-, acoplamentos magnéticos, intertravamentos e contatos auxiliares).
-* **`canvas_view.rs`**: Renderização acelerada via GPU no Iced Canvas (`iced::widget::canvas`), cálculo de auto-conexão (*smart wiring*), *hit-test* com priorização de símbolos sobre fios, e manipulação na grade (*grid snap*).
+* **`sim.rs`**: Motor de propagação física e lógica de potenciais (L1–L3, N, PE, CC+/CC-; curto-circuito com desarme de disjuntores e queima de fusíveis; intertravamentos e contatos auxiliares). O acoplamento entre bobinas e contatos é **exclusivamente por TAG** (não há modelo de acoplamento magnético no motor).
+* **`canvas_view.rs`**: Renderização acelerada via GPU no Iced Canvas (`iced::widget::canvas`), emissão das mensagens de auto-conexão (*smart wiring* — a lógica de fusão de condutores e junções é aplicada no `main.rs`), *hit-test* com priorização de símbolos sobre fios, e manipulação na grade (*grid snap*).
 * **`symbols.rs` / `svg_symbol.rs`**: Catálogo universal com primitivas geométricas, mapeamento de bornes e adaptação de contraste SVG por tema (`adapt_svg_colors`).
 * **`icons.rs`**: Renderização de ícones vetoriais modernos da interface em SVG.
 * **`layout.rs` / `theme.rs`**: Sistema de colunas físicas recolhíveis (288px ↔ 28px) e design system com paletas semânticas Dark, Light e System.
 * **`io.rs`**: Serialização e desserialização multiprotocolo (`.cad`, `.json`, `.toml`, `.qet`).
 * **`main.rs`**: Ponto de entrada, coordenador de estado, toolbar responsiva, menubar em overlays e loop de mensagens principal.
+* *Dependências adicionais fora do diagrama:* `sim.rs` depende de `symbols.rs` (`find_symbol`, bornes no mundo a cada passo) e de `svg_symbol.rs` (terminais de símbolos SVG QElectroTech); `io.rs` depende de `symbols.rs` (instanciação do preset de partida direta); `main.rs` orquestra todos os módulos acima.
 
 ---
 
@@ -64,7 +67,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
    * **Neutro & Terra:** `Potential::N`, `Potential::PE`
    * **Corrente Contínua:** `Potential::DcPos` (CC+), `Potential::DcNeg` (CC-)
    * **Desenergizado:** `Potential::None`
-   * *Curto-Circuito:* Conexão direta entre potenciais de polaridades opostas (ex.: L1 com N, ou L1 com L2) deve disparar estado de falta (*trip*) e desarmar disjuntores magnéticos associados.
+   * **Estado de Curto-Circuito:** `Potential::ShortCircuit` (já implementado em `model.rs`, rótulo visual `"CC!"`; condutores sob curto são pintados em vermelho espesso em `canvas_view.rs`). Conexão direta entre potenciais de polaridades opostas (ex.: L1 com N, ou L1 com L2) marca este estado, dispara a falta (*trip*) e **desarma disjuntores magnéticos** associados, além de **queimar fusíveis** no circuito afetado.
 3. **Numeração de Bornes e Terminais (IEC 60947-1):**
    * **Contatos NA (Normalmente Abertos):** Terminações com dígitos `3` e `4` (ex.: `13-14`, `23-24`, `33-34`).
    * **Contatos NF (Normalmente Fechados):** Terminações com dígitos `1` e `2` (ex.: `11-12`, `21-22`, `31-32`).
@@ -118,4 +121,4 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
    * Use Conventional Commits em Português do Brasil (ex.: `feat(ui): ...`, `fix(sim): ...`, `test(core): ...`).
    * É estritamente **proibido** o uso de `git push --force` para evitar corrupção de commits feitos por outros agentes ou pelo usuário.
 4. **Geração de Releases:**
-   * A esteira de CI no GitHub Actions constrói executáveis portáteis de Windows e Linux automaticamente ao receber tags no padrão `vX.Y.Z-demo`.
+   * A esteira de CI no GitHub Actions constrói executáveis portáteis de Windows e Linux automaticamente ao receber tags no padrão `v*` (ex.: `v0.4.1-demo`; o workflow também aceita disparo manual via `workflow_dispatch`).
