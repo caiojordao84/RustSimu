@@ -1,7 +1,9 @@
 use std::fs;
 use std::path::Path;
 
-use crate::model::{DocumentSettings, SchematicDocument, SchematicItem, TitleBlock};
+use crate::model::{
+    DocumentSettings, ProjectDocument, ProjectPage, SchematicDocument, SchematicItem, TitleBlock,
+};
 use crate::symbols::find_symbol;
 
 /// Serializa um `SchematicDocument` para o formato legado exato `.cad` do `CADe_SIMU.exe`
@@ -306,8 +308,47 @@ pub fn save_document(path: &Path, doc: &SchematicDocument) -> Result<(), String>
     fs::write(path, content).map_err(|e| format!("Falha ao gravar {}: {e}", path.display()))
 }
 
-/// Carrega um documento `.cad`, `.json`, `.toml` ou `.qet`.
-pub fn load_document(path: &Path) -> Result<SchematicDocument, String> {
+/// Salva um projeto completo (mono ou multipáginas) em arquivo `.json`, `.toml` ou `.qet`.
+pub fn save_project(
+    path: &Path,
+    pages: &[ProjectPage],
+    active_page_index: usize,
+) -> Result<(), String> {
+    let ext = path
+        .extension()
+        .and_then(|e| e.to_str())
+        .unwrap_or("json")
+        .to_ascii_lowercase();
+
+    if ext == "qet" {
+        let active_doc = pages
+            .get(active_page_index)
+            .map(|p| &p.doc)
+            .or_else(|| pages.first().map(|p| &p.doc))
+            .ok_or_else(|| "Nenhuma folha disponível para exportar em QET".to_string())?;
+        return crate::qet::export_doc_to_qet(active_doc, path);
+    }
+
+    if ext == "cad" {
+        let active_doc = pages
+            .get(active_page_index)
+            .map(|p| &p.doc)
+            .or_else(|| pages.first().map(|p| &p.doc))
+            .ok_or_else(|| "Nenhuma folha disponível para salvar em CAD".to_string())?;
+        return save_document(path, active_doc);
+    }
+
+    let project = ProjectDocument::new(pages.to_vec(), active_page_index);
+    let content = match ext.as_str() {
+        "toml" => toml::to_string_pretty(&project).map_err(|e| format!("Erro TOML: {e}"))?,
+        _ => serde_json::to_string_pretty(&project).map_err(|e| format!("Erro JSON: {e}"))?,
+    };
+
+    fs::write(path, content).map_err(|e| format!("Falha ao gravar {}: {e}", path.display()))
+}
+
+/// Carrega um projeto completo (mono ou multipáginas) a partir de `.json`, `.toml`, `.cad` ou `.qet`.
+pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
     let bytes = fs::read(path).map_err(|e| format!("Falha ao ler {}: {e}", path.display()))?;
     // Arquivos .cad originais usam codificação Latin-1 (ISO-8859-1) / Windows-1252
     let text = match String::from_utf8(bytes.clone()) {
@@ -323,19 +364,76 @@ pub fn load_document(path: &Path) -> Result<SchematicDocument, String> {
 
     if ext == "qet" || text.trim_start().starts_with("<project") {
         let proj = crate::qet::load_qet_from_str(&text)?;
-        let active_idx = proj
-            .diagrams
+        let mut pages = Vec::new();
+        for (idx, diag) in proj.diagrams.iter().enumerate() {
+            let doc = crate::qet::diagram_to_document(&proj, idx);
+            let title = if diag.title.trim().is_empty() {
+                format!("Folha {}", idx + 1)
+            } else {
+                diag.title.clone()
+            };
+            pages.push(ProjectPage::new(idx + 1, title, doc));
+        }
+        let active_idx = pages
             .iter()
-            .position(|d| !d.elements.is_empty())
+            .position(|p| !p.doc.items.is_empty())
             .unwrap_or(0);
-        Ok(crate::qet::diagram_to_document(&proj, active_idx))
+        Ok(ProjectDocument::new(pages, active_idx))
     } else if ext == "cad" || text.trim_start().starts_with("CADe_SIMU") {
-        parse_cad_str(&text)
+        let doc = parse_cad_str(&text)?;
+        let title = if doc.title_block.title.trim().is_empty() {
+            path.file_stem()
+                .and_then(|s| s.to_str())
+                .unwrap_or("Esquema")
+                .to_string()
+        } else {
+            doc.title_block.title.clone()
+        };
+        Ok(ProjectDocument::from_single_document(title, doc))
     } else if ext == "toml" {
-        toml::from_str(&text).map_err(|e| format!("Erro ao ler TOML: {e}"))
+        // Tenta desserializar primeiro como ProjectDocument (multipáginas)
+        if let Ok(proj) = toml::from_str::<ProjectDocument>(&text) {
+            return Ok(proj);
+        }
+        // Fallback para SchematicDocument (monofolha legado)
+        let doc: SchematicDocument =
+            toml::from_str(&text).map_err(|e| format!("Erro ao ler TOML: {e}"))?;
+        let title = if doc.title_block.title.trim().is_empty() {
+            path.file_stem()
+                .and_then(|s| s.to_str())
+                .unwrap_or("Esquema")
+                .to_string()
+        } else {
+            doc.title_block.title.clone()
+        };
+        Ok(ProjectDocument::from_single_document(title, doc))
     } else {
-        serde_json::from_str(&text).map_err(|e| format!("Erro ao ler JSON: {e}"))
+        // JSON: Tenta desserializar primeiro como ProjectDocument (multipáginas)
+        if let Ok(proj) = serde_json::from_str::<ProjectDocument>(&text) {
+            return Ok(proj);
+        }
+        // Fallback para SchematicDocument (monofolha legado)
+        let doc: SchematicDocument =
+            serde_json::from_str(&text).map_err(|e| format!("Erro ao ler JSON: {e}"))?;
+        let title = if doc.title_block.title.trim().is_empty() {
+            path.file_stem()
+                .and_then(|s| s.to_str())
+                .unwrap_or("Esquema")
+                .to_string()
+        } else {
+            doc.title_block.title.clone()
+        };
+        Ok(ProjectDocument::from_single_document(title, doc))
     }
+}
+
+/// Carrega um documento `.cad`, `.json`, `.toml` ou `.qet`.
+/// Se o arquivo for um projeto multipáginas (.json/.toml/.qet), retorna a folha ativa.
+pub fn load_document(path: &Path) -> Result<SchematicDocument, String> {
+    let proj = load_project(path)?;
+    proj.active_document()
+        .cloned()
+        .ok_or_else(|| "Nenhum documento encontrado no projeto".to_string())
 }
 
 /// Constrói um circuito completo de **Partida Direta de Motor Trifásico com Selo e Sinalização**

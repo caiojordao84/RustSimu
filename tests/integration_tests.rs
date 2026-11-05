@@ -1585,6 +1585,9 @@ fn test_all_icons_render_valid_svg() {
         Icon::Pencil,
         Icon::Folder,
         Icon::Bolt,
+        Icon::Info,
+        Icon::Warning,
+        Icon::Check,
     ];
     for icon in all_icons {
         let bytes = icon.bytes();
@@ -3750,7 +3753,15 @@ fn test_decision_d1_native_save_and_cad_export_with_sheet_selector() {
         .push(SchematicItem::new_symbol(2, 6003, 100, 150, "-Q1")); // Disjuntor 3P
 
     let temp_dir = std::env::temp_dir();
-    let export_cad_path = temp_dir.join("test_export_sheet1.cad");
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let export_cad_path = temp_dir.join(format!(
+        "test_export_sheet1_{}_{}.cad",
+        std::process::id(),
+        unique_id
+    ));
 
     let export_res = cade_simu_rs::io::save_document(&export_cad_path, &test_doc);
     assert!(
@@ -3766,4 +3777,118 @@ fn test_decision_d1_native_save_and_cad_export_with_sheet_selector() {
 
     // Limpeza
     let _ = std::fs::remove_file(export_cad_path);
+}
+
+#[test]
+fn test_multipage_json_save_and_reload() {
+    let (mut app, _) = CadeSimuApp::new();
+
+    // 1. Configura folha 1 (Potência)
+    app.doc.title_block.title = "Potência Trifásica".to_string();
+    app.doc.items.clear();
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(1, 1000, 100, 100, "")); // Fonte 3P
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(2, 6003, 100, 150, "-Q1")); // Disjuntor 3P
+    if !app.pages.is_empty() {
+        app.pages[0].name = "Potência".to_string();
+        app.pages[0].doc = app.doc.clone();
+    }
+
+    // 2. Adiciona folha 2 (Comando)
+    let _ = app.update(Message::AddPageAfter(0));
+    assert_eq!(app.pages.len(), 2);
+    assert_eq!(app.active_page_index, 1);
+
+    // Configura folha 2
+    app.doc.title_block.title = "Comando 24V".to_string();
+    app.doc.items.clear();
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(3, 7000, 200, 200, "-KM1")); // Bobina
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(4, 2000, 200, 250, "-S1")); // Botão NA
+    app.pages[1].name = "Comando".to_string();
+    app.pages[1].doc = app.doc.clone();
+
+    // 3. Salva projeto em JSON com nome único
+    let temp_dir = std::env::temp_dir();
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let project_path = temp_dir.join(format!(
+        "test_project_multipage_{}_{}.json",
+        std::process::id(),
+        unique_id
+    ));
+
+    let _ = app.update(Message::FileSaved(Some(project_path.clone())));
+    assert!(!app.is_modified);
+
+    // 4. Cria nova instância em branco da aplicação e recarrega o projeto
+    let (mut new_app, _) = CadeSimuApp::new();
+    assert_eq!(new_app.pages.len(), 1);
+
+    let _ = new_app.update(Message::FileOpened(Some(project_path.clone())));
+    assert_eq!(
+        new_app.pages.len(),
+        2,
+        "Projeto multipáginas deve conter exatamente 2 folhas após recarregamento"
+    );
+    assert_eq!(new_app.pages[0].name, "Potência");
+    assert_eq!(new_app.pages[0].doc.items.len(), 2);
+    assert_eq!(new_app.pages[0].doc.title_block.title, "Potência Trifásica");
+
+    assert_eq!(new_app.pages[1].name, "Comando");
+    assert_eq!(new_app.pages[1].doc.items.len(), 2);
+    assert_eq!(new_app.pages[1].doc.title_block.title, "Comando 24V");
+
+    // Limpeza
+    let _ = std::fs::remove_file(project_path);
+}
+
+#[test]
+fn test_qet_fuse_opens_circuit_when_blown() {
+    use cade_simu_rs::sim::{is_fuse, is_qet_splitter_or_passive, step_simulation};
+
+    // 1. Valida que o nome "fuse" NÃO é mais considerado splitter/passivo contínuo
+    assert!(
+        !is_qet_splitter_or_passive("qet:protection/fuse.elmt"),
+        "Fusível QET não pode ser tratado como splitter passivo (circuito fechado incondicional)"
+    );
+    assert!(!is_qet_splitter_or_passive("fuse_10a.elmt"));
+    assert!(!is_qet_splitter_or_passive("fusible_nh00.elmt"));
+
+    // 2. Cria item representando fusível QET
+    let mut qet_fuse = SchematicItem::new_symbol(10, 0, 100, 100, "-F1");
+    qet_fuse.qet_type = Some("qet:protection/fuse.elmt".to_string());
+    assert!(is_fuse(&qet_fuse), "Deve ser reconhecido como fusível");
+
+    // 3. Em estado intacto (sim_manual_latched: false), sim_active deve ser true após step
+    let mut doc = SchematicDocument::default();
+    doc.items.push(qet_fuse.clone());
+    step_simulation(&mut doc, 50);
+
+    let fuse_intact = &doc.items[0];
+    assert!(
+        fuse_intact.sim_active,
+        "Fusível QET intacto deve estar ativo e condutivo"
+    );
+
+    // 4. Em estado queimado / desarmado (sim_manual_latched: true), sim_active deve ser false
+    let mut doc_blown = SchematicDocument::default();
+    let mut qet_blown = qet_fuse;
+    qet_blown.sim_manual_latched = true;
+    doc_blown.items.push(qet_blown);
+    step_simulation(&mut doc_blown, 50);
+
+    let fuse_blown = &doc_blown.items[0];
+    assert!(
+        !fuse_blown.sim_active,
+        "Fusível QET queimado (latched) deve abrir o circuito e ter sim_active: false"
+    );
 }

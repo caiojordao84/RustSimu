@@ -57,6 +57,9 @@ pub enum Icon {
     Pencil,
     Folder,
     Bolt,
+    Info,
+    Warning,
+    Check,
 }
 
 impl Icon {
@@ -384,6 +387,28 @@ impl Icon {
             Icon::Bolt => concat!(
                 r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
                 r#"<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::Info => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<circle cx="12" cy="12" r="10"/>"#,
+                r#"<line x1="12" y1="16" x2="12" y2="12"/>"#,
+                r#"<line x1="12" y1="8" x2="12.01" y2="8"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::Warning => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>"#,
+                r#"<line x1="12" y1="9" x2="12" y2="13"/>"#,
+                r#"<line x1="12" y1="17" x2="12.01" y2="17"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::Check => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<polyline points="20 6 9 17 4 12"/>"#,
                 r#"</svg>"#
             ).as_bytes(),
         }

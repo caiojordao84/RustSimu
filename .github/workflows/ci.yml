@@ -30,6 +30,9 @@ jobs:
         with:
           components: clippy, rustfmt
 
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
       - name: Check code formatting (cargo fmt)
         run: cargo fmt --all -- --check
 
@@ -53,6 +56,9 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: x86_64-pc-windows-msvc
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
 
       - name: Build and Test on Windows
         run: |

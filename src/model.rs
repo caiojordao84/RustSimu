@@ -404,7 +404,7 @@ impl SchematicItem {
 }
 
 /// Página individual de um projeto esquemático multipáginas.
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ProjectPage {
     pub id: usize,
     pub name: String,
@@ -418,6 +418,37 @@ impl ProjectPage {
             name: name.into(),
             doc,
         }
+    }
+}
+
+/// Projeto esquemático completo (mono ou multipáginas), formato nativo RustSimu (.json / .toml).
+#[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
+pub struct ProjectDocument {
+    pub pages: Vec<ProjectPage>,
+    #[serde(default)]
+    pub active_page_index: usize,
+}
+
+impl ProjectDocument {
+    pub fn new(pages: Vec<ProjectPage>, active_page_index: usize) -> Self {
+        Self {
+            pages,
+            active_page_index,
+        }
+    }
+
+    pub fn from_single_document(title: impl Into<String>, doc: SchematicDocument) -> Self {
+        Self {
+            pages: vec![ProjectPage::new(1, title, doc)],
+            active_page_index: 0,
+        }
+    }
+
+    pub fn active_document(&self) -> Option<&SchematicDocument> {
+        self.pages
+            .get(self.active_page_index)
+            .map(|p| &p.doc)
+            .or_else(|| self.pages.first().map(|p| &p.doc))
     }
 }
 

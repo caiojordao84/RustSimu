@@ -123,9 +123,9 @@ impl std::fmt::Display for ExportFormat {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             ExportFormat::Cad => write!(f, "CADe_SIMU Original (.cad)"),
-            ExportFormat::Pdf => write!(f, "Documento PDF (.pdf)"),
-            ExportFormat::Svg => write!(f, "Gráfico Vetorial (.svg)"),
-            ExportFormat::Png => write!(f, "Imagem PNG (.png)"),
+            ExportFormat::Pdf => write!(f, "Documento PDF (.pdf) [Em breve]"),
+            ExportFormat::Svg => write!(f, "Gráfico Vetorial (.svg) [Em breve]"),
+            ExportFormat::Png => write!(f, "Imagem PNG (.png) [Em breve]"),
         }
     }
 }
@@ -808,32 +808,47 @@ impl CadeSimuApp {
                     }
                 } else {
                     self.qet_project = None;
-                    match load_document(&path) {
-                        Ok(loaded) => {
+                    match crate::io::load_project(&path) {
+                        Ok(project) => {
                             self.sim_running = false;
-                            let count = loaded.items.len();
-                            let title = if loaded.title_block.title.trim().is_empty() {
-                                path.file_stem()
-                                    .and_then(|s| s.to_str())
-                                    .unwrap_or("Esquema Principal")
-                                    .to_string()
-                            } else {
-                                loaded.title_block.title.clone()
-                            };
-                            self.pages =
-                                vec![crate::model::ProjectPage::new(1, title, loaded.clone())];
-                            self.active_page_index = 0;
-                            self.doc = loaded;
+                            let total_pages = project.pages.len();
+                            self.pages = project.pages;
+                            self.active_page_index = project
+                                .active_page_index
+                                .min(self.pages.len().saturating_sub(1));
+                            self.doc = self
+                                .pages
+                                .get(self.active_page_index)
+                                .map(|p| p.doc.clone())
+                                .unwrap_or_default();
                             self.selected_id = None;
                             self.is_modified = false;
                             self.editing_page_name = None;
                             self.page_context_menu = None;
-                            self.status_msg = format!(
-                                "Projeto '{}' aberto com sucesso ({count} elementos).",
-                                path.file_name()
-                                    .map(|n| n.to_string_lossy().to_string())
-                                    .unwrap_or_else(|| path.display().to_string())
-                            );
+                            let count = self.doc.items.len();
+                            let page_title = self
+                                .pages
+                                .get(self.active_page_index)
+                                .map(|p| p.name.clone())
+                                .unwrap_or_else(|| "Principal".to_string());
+                            self.status_msg = if total_pages > 1 {
+                                format!(
+                                    "Projeto '{}' aberto ({total_pages} folhas). Folha {}/{}: {} ({count} elementos).",
+                                    path.file_name()
+                                        .map(|n| n.to_string_lossy().to_string())
+                                        .unwrap_or_else(|| path.display().to_string()),
+                                    self.active_page_index + 1,
+                                    total_pages,
+                                    page_title
+                                )
+                            } else {
+                                format!(
+                                    "Projeto '{}' aberto com sucesso ({count} elementos).",
+                                    path.file_name()
+                                        .map(|n| n.to_string_lossy().to_string())
+                                        .unwrap_or_else(|| path.display().to_string())
+                                )
+                            };
                         }
                         Err(err) => {
                             self.status_msg = format!("Erro ao abrir '{}': {err}", path.display());
@@ -857,8 +872,11 @@ impl CadeSimuApp {
                         .map(|s| s.to_ascii_lowercase())
                         .unwrap_or_default();
                     if ext == "json" || ext == "toml" || ext == "qet" {
+                        if self.active_page_index < self.pages.len() {
+                            self.pages[self.active_page_index].doc = self.doc.clone();
+                        }
                         let path_clone = path.clone();
-                        let res = if self.save_format == SaveFormat::Qet || ext == "qet" {
+                        let res = if ext == "qet" {
                             if let Some(ref mut qet_proj) = self.qet_project {
                                 let active_idx = qet_proj.active_diagram_index;
                                 if let Some(diag) = qet_proj.diagrams.get_mut(active_idx) {
@@ -869,15 +887,16 @@ impl CadeSimuApp {
                                 crate::qet::export_doc_to_qet(&self.doc, &path_clone)
                             }
                         } else {
-                            save_document(&path_clone, &self.doc)
+                            crate::io::save_project(
+                                &path_clone,
+                                &self.pages,
+                                self.active_page_index,
+                            )
                         };
 
                         match res {
                             Ok(()) => {
                                 self.is_modified = false;
-                                if self.active_page_index < self.pages.len() {
-                                    self.pages[self.active_page_index].doc = self.doc.clone();
-                                }
                                 self.status_msg = format!(
                                     "Projeto salvo com sucesso em '{}'.",
                                     path_clone.display()
@@ -954,6 +973,17 @@ impl CadeSimuApp {
             }
             Message::ConfirmExport => {
                 self.show_export_modal = false;
+                if matches!(
+                    self.export_format,
+                    ExportFormat::Svg | ExportFormat::Pdf | ExportFormat::Png
+                ) {
+                    self.status_msg = format!(
+                        "Exportação para {} ainda não implementada (item #9 do roadmap); nenhum arquivo foi escrito.",
+                        self.export_format
+                    );
+                    return iced::Task::none();
+                }
+
                 let page_idx = self
                     .export_page_index
                     .min(self.pages.len().saturating_sub(1));
@@ -1045,20 +1075,10 @@ impl CadeSimuApp {
                         }
                     },
                     ExportFormat::Svg | ExportFormat::Pdf | ExportFormat::Png => {
-                        match save_document(&path, &doc) {
-                            Ok(()) => {
-                                self.status_msg = format!(
-                                    "Folha '{}' exportada em '{}' ({}).",
-                                    page_title,
-                                    path.display(),
-                                    fmt
-                                );
-                            }
-                            Err(err) => {
-                                self.status_msg =
-                                    format!("Erro ao exportar arquivo {}: {err}", fmt);
-                            }
-                        }
+                        self.status_msg = format!(
+                            "Exportação para {} ainda não implementada (item #9 do roadmap); nenhum arquivo foi escrito.",
+                            fmt
+                        );
                     }
                 }
             }
@@ -1080,7 +1100,17 @@ impl CadeSimuApp {
                 self.file_path = path.to_string_lossy().to_string();
                 self.current_file = Some(path.clone());
 
-                let res = if self.save_format == SaveFormat::Qet {
+                if self.active_page_index < self.pages.len() {
+                    self.pages[self.active_page_index].doc = self.doc.clone();
+                }
+
+                let ext = path
+                    .extension()
+                    .and_then(|e| e.to_str())
+                    .map(|s| s.to_ascii_lowercase())
+                    .unwrap_or_default();
+
+                let res = if ext == "qet" {
                     if let Some(ref mut qet_proj) = self.qet_project {
                         let active_idx = qet_proj.active_diagram_index;
                         if let Some(diag) = qet_proj.diagrams.get_mut(active_idx) {
@@ -1091,15 +1121,12 @@ impl CadeSimuApp {
                         crate::qet::export_doc_to_qet(&self.doc, &path)
                     }
                 } else {
-                    save_document(&path, &self.doc)
+                    crate::io::save_project(&path, &self.pages, self.active_page_index)
                 };
 
                 match res {
                     Ok(()) => {
                         self.is_modified = false;
-                        if self.active_page_index < self.pages.len() {
-                            self.pages[self.active_page_index].doc = self.doc.clone();
-                        }
                         self.status_msg = format!(
                             "Projeto salvo com sucesso em '{}' ({}).",
                             path.display(),
@@ -2487,7 +2514,7 @@ impl CadeSimuApp {
             if is_cad {
                 let cad_notice = container(
                     row![
-                        text("ℹ️").size(14),
+                        crate::icons::view_icon(crate::icons::Icon::Info, 16, t.amber),
                         column![
                             text("Compatibilidade CADe_SIMU 4.0 (.cad):")
                                 .size(11.5)
@@ -2619,14 +2646,33 @@ impl CadeSimuApp {
 
         let file_badge = text(file_name).size(11).font(MONO).color(t.text2);
 
-        let mode_text = if self.sim_running {
-            "● Simulação"
+        let mode_dot = container(Space::new(6, 6)).style(move |_| container::Style {
+            background: Some(iced::Background::Color(if self.sim_running {
+                t.amber
+            } else {
+                t.primary
+            })),
+            border: Border {
+                radius: 3.0.into(),
+                ..Default::default()
+            },
+            ..Default::default()
+        });
+        let mode_label = text(if self.sim_running {
+            "Simulação"
         } else {
-            "● Edição"
-        };
-        let mode_pill = container(text(mode_text).size(10.5).font(MONO))
-            .style(theme::mode_badge(self.sim_running))
-            .padding(Padding::from([2.0, 6.0]));
+            "Edição"
+        })
+        .size(10.5)
+        .font(MONO);
+
+        let mode_pill = container(
+            row![mode_dot, mode_label]
+                .spacing(4)
+                .align_y(Alignment::Center),
+        )
+        .style(theme::mode_badge(self.sim_running))
+        .padding(Padding::from([2.0, 6.0]));
 
         let menubar_row = row![brand, menus, horizontal_space(), file_badge, mode_pill,]
             .spacing(10)
@@ -3817,9 +3863,18 @@ impl CadeSimuApp {
                             text(format!("{}. {}", idx + 1, p.name)).size(11.5).font(UI),
                             horizontal_space(),
                             if is_cur {
-                                text("● Ativa").size(10.5).color(t.primary)
+                                row![
+                                    crate::icons::view_icon(
+                                        crate::icons::Icon::Check,
+                                        11,
+                                        t.primary
+                                    ),
+                                    text("Ativa").size(10.5).color(t.primary)
+                                ]
+                                .spacing(3)
+                                .align_y(Alignment::Center)
                             } else {
-                                text("").size(10.5)
+                                row![text("").size(10.5)]
                             },
                         ]
                         .align_y(Alignment::Center),
@@ -4074,19 +4129,40 @@ impl CadeSimuApp {
                                         .map(|s| s.name)
                                         .unwrap_or("Aparelho");
                                     body_col = body_col.push(
-                                        text(format!(
-                                            "✓ Vinculado a '{}' ({})",
-                                            parent.tag, parent_name
-                                        ))
-                                        .size(10.5)
-                                        .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                        row![
+                                            crate::icons::view_icon(
+                                                crate::icons::Icon::Check,
+                                                12,
+                                                Color::from_rgb(0.2, 0.8, 0.4)
+                                            ),
+                                            text(format!(
+                                                "Vinculado a '{}' ({})",
+                                                parent.tag, parent_name
+                                            ))
+                                            .size(10.5)
+                                            .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                        ]
+                                        .spacing(4)
+                                        .align_y(Alignment::Center),
                                     );
                                 } else {
                                     let parent_display = role.parent_display_name();
                                     let mut alert_col = column![
-                                        text(format!("⚠️ Contato sem bobina: Nenhuma {} com a tag '{}' no esquema.", parent_display, item.tag))
+                                        row![
+                                            crate::icons::view_icon(
+                                                crate::icons::Icon::Warning,
+                                                12,
+                                                Color::from_rgb(0.95, 0.7, 0.2)
+                                            ),
+                                            text(format!(
+                                                "Contato sem bobina: Nenhuma {} com a tag '{}' no esquema.",
+                                                parent_display, item.tag
+                                            ))
                                             .size(10.5)
                                             .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                        ]
+                                        .spacing(4)
+                                        .align_y(Alignment::Center),
                                     ]
                                     .spacing(4);
 
@@ -4125,13 +4201,34 @@ impl CadeSimuApp {
                                     body_col = body_col.push(
                                         container(
                                             column![
-                                                text(format!("⚠️ Tag duplicada: já existe outro aparelho primário com a tag '{}'", item.tag))
+                                                row![
+                                                    crate::icons::view_icon(
+                                                        crate::icons::Icon::Warning,
+                                                        12,
+                                                        Color::from_rgb(0.95, 0.7, 0.2)
+                                                    ),
+                                                    text(format!(
+                                                        "Tag duplicada: já existe outro aparelho primário com a tag '{}'",
+                                                        item.tag
+                                                    ))
                                                     .size(10.5)
                                                     .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                                ]
+                                                .spacing(4)
+                                                .align_y(Alignment::Center),
                                                 button(
-                                                    text(format!("⚡ Renomear para {suggested_tag}"))
-                                                        .size(10.5)
-                                                        .font(UI)
+                                                    row![
+                                                        crate::icons::view_icon(
+                                                            crate::icons::Icon::Bolt,
+                                                            12,
+                                                            Color::WHITE
+                                                        ),
+                                                        text(format!("Renomear para {suggested_tag}"))
+                                                            .size(10.5)
+                                                            .font(UI),
+                                                    ]
+                                                    .spacing(4)
+                                                    .align_y(Alignment::Center)
                                                 )
                                                 .style(theme::tool_active)
                                                 .padding(Padding::from([2.0, 6.0]))
@@ -4157,12 +4254,21 @@ impl CadeSimuApp {
                                         .count();
                                     if sub_contacts_count > 0 {
                                         body_col = body_col.push(
-                                            text(format!(
-                                                "✓ Contatos associados no esquema: {} elemento(s)",
-                                                sub_contacts_count
-                                            ))
-                                            .size(10.5)
-                                            .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                            row![
+                                                crate::icons::view_icon(
+                                                    crate::icons::Icon::Check,
+                                                    12,
+                                                    Color::from_rgb(0.2, 0.8, 0.4)
+                                                ),
+                                                text(format!(
+                                                    "Contatos associados no esquema: {} elemento(s)",
+                                                    sub_contacts_count
+                                                ))
+                                                .size(10.5)
+                                                .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                            ]
+                                            .spacing(4)
+                                            .align_y(Alignment::Center),
                                         );
                                     }
                                 }
@@ -4277,20 +4383,38 @@ impl CadeSimuApp {
                                                 body_col = body_col.push(
                                                     container(
                                                         column![
-                                                            text(format!(
-                                                                "⚠️ Sequência {} já em uso por outro contato de '{}'",
-                                                                cur_seq, item.tag
-                                                            ))
-                                                            .size(10.5)
-                                                            .color(Color::from_rgb(0.95, 0.7, 0.2)),
-                                                            button(
+                                                            row![
+                                                                crate::icons::view_icon(
+                                                                    crate::icons::Icon::Warning,
+                                                                    12,
+                                                                    Color::from_rgb(0.95, 0.7, 0.2)
+                                                                ),
                                                                 text(format!(
-                                                                    "⚡ Usar Sequência {} recomendada ({})",
-                                                                    suggested_digit,
-                                                                    kind.generate_pins(suggested_digit).join("-")
+                                                                    "Sequência {} já em uso por outro contato de '{}'",
+                                                                    cur_seq, item.tag
                                                                 ))
                                                                 .size(10.5)
-                                                                .font(UI)
+                                                                .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                                            ]
+                                                            .spacing(4)
+                                                            .align_y(Alignment::Center),
+                                                            button(
+                                                                row![
+                                                                    crate::icons::view_icon(
+                                                                        crate::icons::Icon::Bolt,
+                                                                        12,
+                                                                        Color::WHITE
+                                                                    ),
+                                                                    text(format!(
+                                                                        "Usar Sequência {} recomendada ({})",
+                                                                        suggested_digit,
+                                                                        kind.generate_pins(suggested_digit).join("-")
+                                                                    ))
+                                                                    .size(10.5)
+                                                                    .font(UI),
+                                                                ]
+                                                                .spacing(4)
+                                                                .align_y(Alignment::Center)
                                                             )
                                                             .style(theme::tool_active)
                                                             .padding(Padding::from([2.0, 6.0]))
@@ -4303,12 +4427,21 @@ impl CadeSimuApp {
                                                 );
                                             } else {
                                                 body_col = body_col.push(
-                                                    text(format!(
-                                                        "✓ Sequência {} conforme IEC 60947",
-                                                        cur_seq
-                                                    ))
-                                                    .size(10.5)
-                                                    .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                                    row![
+                                                        crate::icons::view_icon(
+                                                            crate::icons::Icon::Check,
+                                                            12,
+                                                            Color::from_rgb(0.2, 0.8, 0.4)
+                                                        ),
+                                                        text(format!(
+                                                            "Sequência {} conforme IEC 60947",
+                                                            cur_seq
+                                                        ))
+                                                        .size(10.5)
+                                                        .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                                    ]
+                                                    .spacing(4)
+                                                    .align_y(Alignment::Center),
                                                 );
                                             }
                                         } else {
@@ -4470,16 +4603,25 @@ impl CadeSimuApp {
                                 .collect();
                             let ctx_card = container(
                                 column![
-                                    text(format!(
-                                        "🔍 Referência do Elemento Selecionado: #{} ({})",
-                                        sel_id, clean_sel_tag
-                                    ))
-                                    .size(12)
-                                    .font(Font {
-                                        weight: iced::font::Weight::Bold,
-                                        ..UI
-                                    })
-                                    .color(t.primary),
+                                    row![
+                                        crate::icons::view_icon(
+                                            crate::icons::Icon::Search,
+                                            13,
+                                            t.primary
+                                        ),
+                                        text(format!(
+                                            "Referência do Elemento Selecionado: #{} ({})",
+                                            sel_id, clean_sel_tag
+                                        ))
+                                        .size(12)
+                                        .font(Font {
+                                            weight: iced::font::Weight::Bold,
+                                            ..UI
+                                        })
+                                        .color(t.primary),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center),
                                     text(format!(
                                         "Total de dispositivos vinculados ao tag '{}': {}",
                                         clean_sel_tag,
@@ -4499,12 +4641,12 @@ impl CadeSimuApp {
                                             .collect::<Vec<_>>()
                                             .join("-");
                                         let status = if item.sim_active {
-                                            "⚡ Ativo"
+                                            "[Ativo]"
                                         } else {
-                                            "○ Desligado"
+                                            "[Desligado]"
                                         };
                                         text(format!(
-                                            "• #{} {}: [{}] ({})",
+                                            "- #{} {}: [{}] ({})",
                                             item.id, sname, p_list, status
                                         ))
                                         .size(11)
@@ -4734,9 +4876,17 @@ impl CadeSimuApp {
         } else {
             t.border_strong
         };
+        let dock_dot = container(Space::new(7, 7)).style(move |_| container::Style {
+            background: Some(iced::Background::Color(led_color)),
+            border: Border {
+                radius: 3.5.into(),
+                ..Default::default()
+            },
+            ..Default::default()
+        });
         let dock_foot = container(
             row![
-                text("●").size(14).color(led_color),
+                dock_dot,
                 text(sim_status_text).size(11).font(MONO).color(t.text2),
             ]
             .spacing(6)
@@ -5093,7 +5243,7 @@ impl CadeSimuApp {
     fn view_statusbar(&self) -> Element<'_, Message> {
         let t = tokens(&self.theme());
 
-        let sep = || text("│").size(11).color(t.border);
+        let sep = || text("|").size(11).color(t.border);
 
         let snap_label = if self.show_grid {
             "snap ativo"
@@ -5131,10 +5281,24 @@ impl CadeSimuApp {
                     .size(11)
                     .color(t.text2),
                 sep(),
-                text(format!("● {}", self.status_msg))
-                    .size(11)
-                    .color(if self.sim_running { t.primary } else { t.text2 })
-                    .width(Length::Fill),
+                {
+                    let status_color = if self.sim_running { t.primary } else { t.text2 };
+                    let status_dot = container(Space::new(6, 6)).style(move |_| container::Style {
+                        background: Some(iced::Background::Color(status_color)),
+                        border: Border {
+                            radius: 3.0.into(),
+                            ..Default::default()
+                        },
+                        ..Default::default()
+                    });
+                    row![
+                        status_dot,
+                        text(&self.status_msg).size(11).color(status_color)
+                    ]
+                    .spacing(6)
+                    .align_y(Alignment::Center)
+                    .width(Length::Fill)
+                },
                 sep(),
                 row![
                     text("Zoom:").size(11).color(t.text2),

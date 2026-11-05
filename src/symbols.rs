@@ -356,6 +356,13 @@ fn supply_pin(index: usize, default_label: &'static str, conn_x: i32, conn_y: i3
 use std::sync::LazyLock;
 
 static CATALOG: LazyLock<Vec<SymbolDef>> = LazyLock::new(build_symbol_catalog);
+static CATALOG_INDEX: LazyLock<std::collections::HashMap<i32, usize>> = LazyLock::new(|| {
+    CATALOG
+        .iter()
+        .enumerate()
+        .map(|(idx, s)| (s.tipo, idx))
+        .collect()
+});
 
 /// Retorna a fatia estática do catálogo completo de símbolos extraídos de `CADe_SIMU.exe`.
 pub fn symbol_catalog() -> &'static [SymbolDef] {
@@ -2784,14 +2791,15 @@ fn build_symbol_catalog() -> Vec<SymbolDef> {
     ]
 }
 
-/// Busca um símbolo pelo seu código `tipo`.
-pub fn find_symbol(tipo: i32) -> Option<SymbolDef> {
-    CATALOG.iter().find(|s| s.tipo == tipo).cloned()
+/// Busca a referência estática a um símbolo pelo seu código `tipo` sem clonar (O(1)).
+pub fn find_symbol_ref(tipo: i32) -> Option<&'static SymbolDef> {
+    let &idx = CATALOG_INDEX.get(&tipo)?;
+    CATALOG.get(idx)
 }
 
-/// Busca a referência estática a um símbolo pelo seu código `tipo` sem clonar.
-pub fn find_symbol_ref(tipo: i32) -> Option<&'static SymbolDef> {
-    CATALOG.iter().find(|s| s.tipo == tipo)
+/// Busca um símbolo pelo seu código `tipo`.
+pub fn find_symbol(tipo: i32) -> Option<SymbolDef> {
+    find_symbol_ref(tipo).cloned()
 }
 
 /// Tipos de contatos elétricos e botoeiras segundo a norma IEC 60947-5-1 / EN 60947.

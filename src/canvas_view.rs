@@ -6,7 +6,7 @@ use crate::model::{
     transform_offset, transform_offset_f32, Potential, SchematicDocument, SchematicItem,
 };
 use crate::sim::timer_preset_ms;
-use crate::symbols::{find_symbol, parse_vector_cmd, VectorPrimitive};
+use crate::symbols::{find_symbol_ref, parse_vector_cmd, VectorPrimitive};
 
 /// Ferramenta ativa no editor esquemático.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -119,7 +119,7 @@ impl<'a> SchematicCanvas<'a> {
             if item.is_wire() {
                 continue;
             }
-            if let Some(sym) = find_symbol(item.tipo) {
+            if let Some(sym) = find_symbol_ref(item.tipo) {
                 let (bx1, by1, bx2, by2) = (
                     sym.bounds.0 / 5,
                     sym.bounds.1 / 5,
@@ -925,7 +925,7 @@ impl<'a> SchematicCanvas<'a> {
             return;
         }
 
-        let Some(sym) = find_symbol(item.tipo) else {
+        let Some(sym) = find_symbol_ref(item.tipo) else {
             // Símbolo não catalogado: desenha fallback visual explícito (retângulo tracejado com tag e tipo)
             // para garantir que NUNCA fique invisível ou em branco no canvas.
             let tl = self.world_to_screen((item.x1 - 2) as f32, (item.y1 - 2) as f32);
@@ -1467,7 +1467,7 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 _ => self.dragging_symbol,
             };
             if let Some(tipo) = active_sym {
-                if let Some(sym) = find_symbol(tipo) {
+                if let Some(sym) = find_symbol_ref(tipo) {
                     let mut drew_svg = false;
                     if let Some((svg_idle, _)) = sym.svg_paths() {
                         let max_pin_y =

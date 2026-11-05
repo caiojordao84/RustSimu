@@ -1,7 +1,7 @@
 use std::collections::{HashMap, HashSet, VecDeque};
 
 use crate::model::{MotorMode, Potential, SchematicDocument};
-use crate::symbols::find_symbol;
+use crate::symbols::find_symbol_ref;
 
 /// Verifica se dois potenciais formam uma diferença de tensão válida para acionar bobinas, lâmpadas ou motores 1~.
 pub fn has_voltage_diff(p1: Potential, p2: Potential) -> bool {
@@ -65,7 +65,6 @@ pub fn is_qet_splitter_or_passive(label: &str) -> bool {
         || l.contains("verteiler")
         || l.contains("distributor")
         || l.contains("splice")
-        || l.contains("fuse")
         || l.contains("connector")
 }
 
@@ -355,12 +354,7 @@ pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
 pub fn set_manual_by_tag(doc: &mut SchematicDocument, tag: &str, pressed: bool) {
     let target = tag.trim();
     for item in &mut doc.items {
-        if item.tag.trim().eq_ignore_ascii_case(target)
-            && matches!(
-                item.tipo,
-                2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
-            )
-        {
+        if item.tag.trim().eq_ignore_ascii_case(target) && is_item_manual(item) {
             item.sim_manual_latched = pressed;
             if pressed {
                 item.sim_fault = false;
@@ -399,7 +393,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
     // 2. Registra os pinos de todos os símbolos
     let mut item_pin_nodes: HashMap<usize, Vec<usize>> = HashMap::new();
     for (idx, item) in doc.items.iter().enumerate() {
-        if let Some(sym) = find_symbol(item.tipo) {
+        if let Some(sym) = find_symbol_ref(item.tipo) {
             let mut p_nodes = Vec::new();
             for (_, _, wpos) in sym.world_pins(item) {
                 p_nodes.push(add_unique_pt(wpos));
@@ -432,6 +426,26 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
 
     let num_nodes = all_points.len();
     if num_nodes == 0 {
+        // Atualiza estado base dos componentes (fusíveis, botoeiras, etc.) mesmo sem fiação
+        for item in &mut doc.items {
+            match item.tipo {
+                5000 | 5003 => {
+                    item.sim_active = !item.sim_manual_latched;
+                }
+                2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034 => {
+                    item.sim_active = item.sim_manual_latched;
+                }
+                _ => {
+                    if let Some(ref qet_type) = item.qet_type {
+                        if is_qet_switch_or_button(qet_type) {
+                            item.sim_active = item.sim_manual_latched;
+                        } else if is_fuse(item) {
+                            item.sim_active = !item.sim_manual_latched;
+                        }
+                    }
+                }
+            }
+        }
         return;
     }
 
@@ -558,6 +572,8 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         if let Some(ref qet_type) = item.qet_type {
                             if is_qet_switch_or_button(qet_type) {
                                 item.sim_active = item.sim_manual_latched;
+                            } else if is_fuse(item) {
+                                item.sim_active = !item.sim_manual_latched;
                             }
                         }
                     }
@@ -663,6 +679,14 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         if let Some(ref qet_type) = item.qet_type {
                             if is_qet_switch_or_button(qet_type) {
                                 if item.sim_manual_latched {
+                                    for i in 0..p.len() {
+                                        for j in (i + 1)..p.len() {
+                                            connect_pair(i, j);
+                                        }
+                                    }
+                                }
+                            } else if is_fuse(item) {
+                                if !item.sim_manual_latched {
                                     for i in 0..p.len() {
                                         for j in (i + 1)..p.len() {
                                             connect_pair(i, j);
