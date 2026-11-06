@@ -396,7 +396,7 @@ pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
             } else {
                 diag.title.clone()
             };
-            pages.push(ProjectPage::new(idx + 1, title, doc));
+            pages.push(ProjectPage::with_origin(idx + 1, title, doc, Some(idx)));
         }
         let active_idx = pages
             .iter()

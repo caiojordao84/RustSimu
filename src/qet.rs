@@ -968,6 +968,11 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
     // 2. Elementos gráficos / componentes
     for el in &diag.elements {
         elem_by_uuid.insert(el.uuid.clone(), el);
+        if el.uuid.starts_with("node_") {
+            continue;
+        }
+
+        doc.imported_uuids.insert(el.uuid.clone());
 
         let mut item = SchematicItem::new_wire(
             id_counter,
@@ -996,7 +1001,7 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
     }
 
     // 3. Condutores (cabos elétricos)
-    for cond in &diag.conductors {
+    for (cond_idx, cond) in diag.conductors.iter().enumerate() {
         let el1 = elem_by_uuid.get(&cond.element1);
         let el2 = elem_by_uuid.get(&cond.element2);
         if el1.is_none() || el2.is_none() {
@@ -1004,6 +1009,8 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
         }
         let el1 = el1.unwrap();
         let el2 = el2.unwrap();
+        let cond_uuid = format!("cond_{cond_idx}");
+        doc.imported_uuids.insert(cond_uuid.clone());
 
         let t1_offset = project
             .terminal_coords
@@ -1054,6 +1061,7 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
                 id_counter += 1;
                 wire.color = wire_color_int;
                 wire.trailing_str = cond.num.clone().unwrap_or_default();
+                wire.qet_uuid = Some(cond_uuid.clone());
                 doc.items.push(wire);
 
                 cx = nx;
@@ -1065,6 +1073,7 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
                 let mut wire = SchematicItem::new_wire(id_counter, tipo, cx, cy, w2x, w2y);
                 id_counter += 1;
                 wire.color = wire_color_int;
+                wire.qet_uuid = Some(cond_uuid.clone());
                 doc.items.push(wire);
             }
         } else if w1x == w2x || w1y == w2y {
@@ -1073,6 +1082,7 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
             id_counter += 1;
             wire.color = wire_color_int;
             wire.trailing_str = cond.num.clone().unwrap_or_default();
+            wire.qet_uuid = Some(cond_uuid.clone());
             doc.items.push(wire);
         } else {
             // Rota ortogonal padrão em L (Manhattan)
@@ -1080,11 +1090,13 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
             id_counter += 1;
             wire1.color = wire_color_int;
             wire1.trailing_str = cond.num.clone().unwrap_or_default();
+            wire1.qet_uuid = Some(cond_uuid.clone());
             doc.items.push(wire1);
 
             let mut wire2 = SchematicItem::new_wire(id_counter, tipo, w2x, w1y, w2x, w2y);
             id_counter += 1;
             wire2.color = wire_color_int;
+            wire2.qet_uuid = Some(cond_uuid.clone());
             doc.items.push(wire2);
         }
     }
@@ -1122,6 +1134,54 @@ pub fn update_diagram_from_document(diagram: &mut QetDiagram, doc: &SchematicDoc
         diagram.date = doc.title_block.drawn_date.clone();
     }
 
+    // 1. Identifica UUIDs atualmente presentes no documento editado
+    let current_uuids: std::collections::HashSet<&str> = doc
+        .items
+        .iter()
+        .filter_map(|i| i.qet_uuid.as_deref())
+        .collect();
+
+    // 2. Remove elementos que foram importados originalmente do QET mas foram apagados pelo usuário
+    let removed_element_uuids: std::collections::HashSet<String> = diagram
+        .elements
+        .iter()
+        .filter(|e| {
+            doc.imported_uuids.contains(&e.uuid) && !current_uuids.contains(e.uuid.as_str())
+        })
+        .map(|e| e.uuid.clone())
+        .collect();
+
+    diagram
+        .elements
+        .retain(|e| !removed_element_uuids.contains(&e.uuid));
+
+    // 3. Remove condutores conectados a elementos removidos ou condutores importados apagados
+    let mut retained_conductors = Vec::with_capacity(diagram.conductors.len());
+    for (cond_idx, cond) in diagram.conductors.drain(..).enumerate() {
+        let cond_id = format!("cond_{cond_idx}");
+        if removed_element_uuids.contains(&cond.element1)
+            || removed_element_uuids.contains(&cond.element2)
+        {
+            continue;
+        }
+        if doc.imported_uuids.contains(&cond_id) && !current_uuids.contains(cond_id.as_str()) {
+            continue;
+        }
+        retained_conductors.push(cond);
+    }
+    diagram.conductors = retained_conductors;
+
+    // Limpa nós de junção gerados para fios ("node_...") que ficaram sem nenhum condutor conectado
+    let active_conductor_elements: std::collections::HashSet<&str> = diagram
+        .conductors
+        .iter()
+        .flat_map(|c| [&c.element1[..], &c.element2[..]])
+        .collect();
+    diagram.elements.retain(|e| {
+        !e.uuid.starts_with("node_") || active_conductor_elements.contains(e.uuid.as_str())
+    });
+
+    // 4. Atualiza elementos existentes e insere novos elementos e novos condutores
     for item in &doc.items {
         if let Some(ref uuid) = item.qet_uuid {
             if let Some(el) = diagram.elements.iter_mut().find(|e| &e.uuid == uuid) {
@@ -1136,7 +1196,59 @@ pub fn update_diagram_from_document(diagram: &mut QetDiagram, doc: &SchematicDoc
                     }
                 }
             }
-        } else if !item.is_wire() && item.tipo != 8 {
+        } else if item.is_wire() {
+            // Novo fio desenhado pelo usuário no editor
+            let node1 = format!("node_{}", item.id);
+            let node2 = format!("node_{}_end", item.id);
+            diagram.elements.push(QetElementInstance {
+                uuid: node1.clone(),
+                element_type: "junction".to_string(),
+                x: item.x1 as f32,
+                y: item.y1 as f32,
+                ..Default::default()
+            });
+            diagram.elements.push(QetElementInstance {
+                uuid: node2.clone(),
+                element_type: "junction".to_string(),
+                x: item.x2 as f32,
+                y: item.y2 as f32,
+                ..Default::default()
+            });
+
+            let seg_h = item.x2 - item.x1;
+            let seg_v = item.y2 - item.y1;
+            let mut segs = Vec::new();
+            if seg_h != 0 {
+                segs.push(QetConductorSegment {
+                    orientation: "horizontal".to_string(),
+                    length: seg_h as f32,
+                });
+            }
+            if seg_v != 0 {
+                segs.push(QetConductorSegment {
+                    orientation: "vertical".to_string(),
+                    length: seg_v as f32,
+                });
+            }
+            diagram.conductors.push(QetConductor {
+                element1: node1,
+                terminal1: "1".to_string(),
+                element2: node2,
+                terminal2: "2".to_string(),
+                color: if item.color != 0 {
+                    Some(format_hex_color(item.color))
+                } else {
+                    None
+                },
+                num: if !item.trailing_str.is_empty() {
+                    Some(item.trailing_str.clone())
+                } else {
+                    None
+                },
+                segments: segs,
+                ..Default::default()
+            });
+        } else if item.tipo != 8 {
             // Novo elemento adicionado sem UUID QET prévio
             let el_type = item
                 .qet_type
@@ -1313,6 +1425,23 @@ pub fn document_to_diagram(
 
     for item in &doc.items {
         if item.is_wire() {
+            let node1 = format!("node_{}", item.id);
+            let node2 = format!("node_{}_end", item.id);
+            diagram.elements.push(QetElementInstance {
+                uuid: node1.clone(),
+                element_type: "junction".to_string(),
+                x: item.x1 as f32,
+                y: item.y1 as f32,
+                ..Default::default()
+            });
+            diagram.elements.push(QetElementInstance {
+                uuid: node2.clone(),
+                element_type: "junction".to_string(),
+                x: item.x2 as f32,
+                y: item.y2 as f32,
+                ..Default::default()
+            });
+
             let seg_h = item.x2 - item.x1;
             let seg_v = item.y2 - item.y1;
             let mut segs = Vec::new();
@@ -1329,9 +1458,9 @@ pub fn document_to_diagram(
                 });
             }
             diagram.conductors.push(QetConductor {
-                element1: format!("node_{}", item.id),
+                element1: node1,
                 terminal1: "1".to_string(),
-                element2: format!("node_{}_end", item.id),
+                element2: node2,
                 terminal2: "2".to_string(),
                 color: if item.color != 0 {
                     Some(format_hex_color(item.color))
@@ -1417,13 +1546,16 @@ pub fn export_pages_to_qet(
     let mut new_diagrams = Vec::with_capacity(pages.len());
     for (idx, page) in pages.iter().enumerate() {
         let order = (idx + 1) as i32;
-        if let Some(existing_diag) = proj.diagrams.get(idx) {
+        let matched_diag = page
+            .origin_index
+            .and_then(|orig_i| proj.diagrams.get(orig_i));
+        if let Some(existing_diag) = matched_diag {
             let mut diag = existing_diag.clone();
             diag.order = order;
+            update_diagram_from_document(&mut diag, &page.doc);
             if !page.name.is_empty() {
                 diag.title = page.name.clone();
             }
-            update_diagram_from_document(&mut diag, &page.doc);
             new_diagrams.push(diag);
         } else {
             let diagram = document_to_diagram(&page.doc, &page.name, order, &filename);

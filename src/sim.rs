@@ -79,8 +79,6 @@ pub fn is_qet_switch_or_button(label: &str) -> bool {
 }
 
 /// Heurística para identificar distribuidores, divisores ou conexões passivas da biblioteca QET.
-/// Notar que "terminal", "connector" e "bornier" genérico são intencionalmente omitidos para evitar curto-circuitar
-/// bornes independentes de réguas de bornes / conectores multipinos.
 pub fn is_qet_splitter_or_passive(label: &str) -> bool {
     matches_label(
         label,
@@ -90,6 +88,26 @@ pub fn is_qet_splitter_or_passive(label: &str) -> bool {
             "distributor",
             "splice",
             "repartiteur",
+            "combine",
+            "lphd",
+        ],
+        &[],
+    )
+}
+
+/// Heurística para identificar conectores, réguas de bornes ou terminais da biblioteca QET.
+/// Quando possuem exatamente 2 pinos (caso comum de bornes de passagem), conduzem de um lado para o outro.
+pub fn is_qet_connector_or_terminal(label: &str) -> bool {
+    matches_label(
+        label,
+        &[
+            "terminal",
+            "bornier",
+            "borne",
+            "connector",
+            "connecteur",
+            "klemme",
+            "stecker",
         ],
         &[],
     )
@@ -791,6 +809,8 @@ pub fn step_simulation_state(items: &[SchematicItem], sim: &mut SimState, dt_ms:
                                         connect_pair(i, j);
                                     }
                                 }
+                            } else if is_qet_connector_or_terminal(qet_type) && p.len() == 2 {
+                                connect_pair(0, 1);
                             }
                         }
                     }

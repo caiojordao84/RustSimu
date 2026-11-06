@@ -770,10 +770,11 @@ impl CadeSimuApp {
                                 } else {
                                     diag.title.clone()
                                 };
-                                pages.push(crate::model::ProjectPage::new(
+                                pages.push(crate::model::ProjectPage::with_origin(
                                     idx + 1,
                                     title,
                                     page_doc,
+                                    Some(idx),
                                 ));
                             }
                             let active_idx = pages

@@ -1272,6 +1272,42 @@ fn test_qet_kaefer_open_simulate_and_roundtrip() {
         "Buzina deve tocar ao acionar o botão horn_switch!"
     );
 
+    // 3c. Simulação em todas as 23 folhas do projeto Kaefer
+    let mut total_energized = 0;
+    for idx in 0..project.diagrams.len() {
+        let mut d = cade_simu_rs::qet::diagram_to_document(&project, idx);
+        let source_ids: Vec<i32> = d
+            .items
+            .iter()
+            .filter(|i| {
+                i.qet_type
+                    .as_deref()
+                    .map(cade_simu_rs::sim::is_qet_source_dc_pos)
+                    .unwrap_or(false)
+            })
+            .map(|i| i.id)
+            .collect();
+        for id in source_ids {
+            d.set_sim_latched(id, true);
+        }
+        step_simulation(&mut d, 0);
+        let count = d
+            .items
+            .iter()
+            .filter(|i| d.sim_potential(i.id) != Potential::None || d.sim_active(i.id))
+            .count();
+        total_energized += count;
+    }
+    println!(
+        "Total de itens energizados nas 23 folhas do Kaefer: {}",
+        total_energized
+    );
+    assert!(
+        total_energized >= 401,
+        "Total de elementos energizados ({}) não deve regredir!",
+        total_energized
+    );
+
     // 4. Testa roundtrip de gravação e recarregamento em XML .qet
     let tmp_out = Path::new("/tmp/test_kaefer_roundtrip.qet");
     cade_simu_rs::qet::save_qet_file(tmp_out, &project)
@@ -4168,8 +4204,8 @@ fn test_qet_multipage_merge_preserves_existing_diagram_properties() {
     let doc3 = SchematicDocument::default();
 
     let pages = vec![
-        ProjectPage::new(1, "Folha Original 1".to_string(), doc1),
-        ProjectPage::new(2, "Folha Original 2".to_string(), doc2),
+        ProjectPage::with_origin(1, "Folha Original 1".to_string(), doc1, Some(0)),
+        ProjectPage::with_origin(2, "Folha Original 2".to_string(), doc2, Some(1)),
         ProjectPage::new(3, "Folha Nova 3".to_string(), doc3),
     ];
 
@@ -4243,4 +4279,361 @@ fn test_qet_multipage_merge_preserves_existing_diagram_properties() {
     assert_eq!(d3.title, "Folha Nova 3");
 
     let _ = std::fs::remove_file(out_path);
+}
+
+#[test]
+fn test_qet_multipage_reorder_and_delete_preserves_elements() {
+    use cade_simu_rs::model::ProjectPage;
+    use cade_simu_rs::qet::{
+        export_pages_to_qet, load_qet_file, QetDiagram, QetElementInstance, QetProject,
+    };
+
+    // 1. Cria projeto original com 2 folhas distintas
+    let mut diag1 = QetDiagram {
+        order: 1,
+        title: "Folha Original 1".to_string(),
+        rows: 12,
+        ..Default::default()
+    };
+    diag1.elements.push(QetElementInstance {
+        uuid: "uuid-elem-A".to_string(),
+        element_type: "motor_a".to_string(),
+        x: 100.0,
+        y: 100.0,
+        labels: vec!["-MA".to_string()],
+        ..Default::default()
+    });
+
+    let mut diag2 = QetDiagram {
+        order: 2,
+        title: "Folha Original 2".to_string(),
+        rows: 16,
+        ..Default::default()
+    };
+    diag2.elements.push(QetElementInstance {
+        uuid: "uuid-elem-B".to_string(),
+        element_type: "contactor_b".to_string(),
+        x: 200.0,
+        y: 200.0,
+        labels: vec!["-KM1".to_string()],
+        ..Default::default()
+    });
+
+    let original_project = QetProject {
+        title: "Projeto Multipage Teste".to_string(),
+        version: "0.100.0".to_string(),
+        diagrams: vec![diag1, diag2],
+        ..Default::default()
+    };
+
+    let doc1 = cade_simu_rs::qet::diagram_to_document(&original_project, 0);
+    let doc2 = cade_simu_rs::qet::diagram_to_document(&original_project, 1);
+
+    let temp_dir = std::env::temp_dir();
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+
+    // Caso A: Reordenação de folhas (Folha 2 movida para a 1ª posição, Folha 1 para a 2ª posição)
+    let reordered_pages = vec![
+        ProjectPage::with_origin(1, "Folha B (Reordenada)".to_string(), doc2.clone(), Some(1)),
+        ProjectPage::with_origin(2, "Folha A (Reordenada)".to_string(), doc1, Some(0)),
+    ];
+    let path_reordered = temp_dir.join(format!("test_reorder_{}.qet", unique_id));
+    export_pages_to_qet(
+        &reordered_pages,
+        0,
+        &path_reordered,
+        Some(&original_project),
+    )
+    .expect("export com reordenação deve salvar");
+
+    let reloaded_reordered = load_qet_file(&path_reordered).expect("recarrega reordenado");
+    assert_eq!(reloaded_reordered.diagrams.len(), 2);
+    // Diagrama 0 agora é o original 1 (Folha B)
+    assert_eq!(reloaded_reordered.diagrams[0].rows, 16);
+    assert_eq!(reloaded_reordered.diagrams[0].title, "Folha B (Reordenada)");
+    assert_eq!(
+        reloaded_reordered.diagrams[0].elements[0].uuid,
+        "uuid-elem-B"
+    );
+    // Diagrama 1 agora é o original 0 (Folha A)
+    assert_eq!(reloaded_reordered.diagrams[1].rows, 12);
+    assert_eq!(reloaded_reordered.diagrams[1].title, "Folha A (Reordenada)");
+    assert_eq!(
+        reloaded_reordered.diagrams[1].elements[0].uuid,
+        "uuid-elem-A"
+    );
+    let _ = std::fs::remove_file(path_reordered);
+
+    // Caso B: Exclusão de folha (mantém apenas a Folha 2)
+    let single_page = vec![ProjectPage::with_origin(
+        1,
+        "Folha B Única".to_string(),
+        doc2,
+        Some(1),
+    )];
+    let path_deleted = temp_dir.join(format!("test_delete_{}.qet", unique_id));
+    export_pages_to_qet(&single_page, 0, &path_deleted, Some(&original_project))
+        .expect("export com folha apagada deve salvar");
+
+    let reloaded_deleted = load_qet_file(&path_deleted).expect("recarrega após exclusão");
+    assert_eq!(reloaded_deleted.diagrams.len(), 1);
+    assert_eq!(reloaded_deleted.diagrams[0].order, 1);
+    assert_eq!(reloaded_deleted.diagrams[0].rows, 16);
+    assert_eq!(reloaded_deleted.diagrams[0].elements[0].uuid, "uuid-elem-B");
+    let _ = std::fs::remove_file(path_deleted);
+}
+
+#[test]
+fn test_qet_delete_element_and_wire_propagates_to_save() {
+    use cade_simu_rs::model::ProjectPage;
+    use cade_simu_rs::qet::{
+        export_pages_to_qet, load_qet_file, QetConductor, QetDiagram, QetElementInstance,
+        QetProject,
+    };
+
+    let mut diag = QetDiagram {
+        order: 1,
+        title: "Folha Teste Remoções".to_string(),
+        ..Default::default()
+    };
+    diag.elements.push(QetElementInstance {
+        uuid: "uuid-orig-1".to_string(),
+        element_type: "borne_1".to_string(),
+        x: 100.0,
+        y: 100.0,
+        ..Default::default()
+    });
+    diag.elements.push(QetElementInstance {
+        uuid: "uuid-orig-2".to_string(),
+        element_type: "borne_2".to_string(),
+        x: 200.0,
+        y: 100.0,
+        ..Default::default()
+    });
+    diag.conductors.push(QetConductor {
+        element1: "uuid-orig-1".to_string(),
+        terminal1: "1".to_string(),
+        element2: "uuid-orig-2".to_string(),
+        terminal2: "2".to_string(),
+        ..Default::default()
+    });
+
+    let project = QetProject {
+        title: "Projeto Remocao Teste".to_string(),
+        version: "0.100.0".to_string(),
+        diagrams: vec![diag],
+        ..Default::default()
+    };
+
+    // 1. Importa para SchematicDocument
+    let mut doc = cade_simu_rs::qet::diagram_to_document(&project, 0);
+    assert_eq!(doc.items.len(), 3); // 2 elementos + 1 fio importado
+    assert!(doc.imported_uuids.contains("uuid-orig-1"));
+    assert!(doc.imported_uuids.contains("uuid-orig-2"));
+    assert!(doc.imported_uuids.contains("cond_0"));
+
+    // 2. Apaga o fio importado (condutor)
+    doc.items.retain(|i| !i.is_wire());
+    assert_eq!(doc.items.len(), 2);
+
+    let temp_dir = std::env::temp_dir();
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let path1 = temp_dir.join(format!("test_del_wire_{}.qet", unique_id));
+
+    let pages1 = vec![ProjectPage::with_origin(1, "Folha 1", doc.clone(), Some(0))];
+    export_pages_to_qet(&pages1, 0, &path1, Some(&project))
+        .expect("deve salvar após remoção de fio");
+
+    let reloaded1 = load_qet_file(&path1).expect("recarrega após remoção de fio");
+    assert_eq!(
+        reloaded1.diagrams[0].conductors.len(),
+        0,
+        "Condutor apagado não deve reaparecer!"
+    );
+    assert_eq!(
+        reloaded1.diagrams[0].elements.len(),
+        2,
+        "Elementos devem permanecer"
+    );
+    let _ = std::fs::remove_file(path1);
+
+    // 3. Apaga o elemento uuid-orig-2 e adiciona um novo fio desenhado pelo usuário
+    doc.items
+        .retain(|i| i.qet_uuid.as_deref() != Some("uuid-orig-2"));
+    assert_eq!(doc.items.len(), 1); // sobrou apenas uuid-orig-1
+
+    // Adiciona um novo fio desenhado pelo usuário (qet_uuid == None)
+    doc.items
+        .push(SchematicItem::new_wire(999, 4000, 100, 100, 150, 100));
+
+    let path2 = temp_dir.join(format!("test_del_elem_add_wire_{}.qet", unique_id));
+    let pages2 = vec![ProjectPage::with_origin(1, "Folha 1", doc, Some(0))];
+    export_pages_to_qet(&pages2, 0, &path2, Some(&project))
+        .expect("deve salvar após remoção de elemento e adição de novo fio");
+
+    let reloaded2 = load_qet_file(&path2).expect("recarrega após remoção e adição");
+    // O elemento uuid-orig-2 não deve reaparecer
+    assert!(
+        !reloaded2.diagrams[0]
+            .elements
+            .iter()
+            .any(|e| e.uuid == "uuid-orig-2"),
+        "Elemento apagado não deve reaparecer!"
+    );
+    // O novo fio desenhado deve ser gravado como condutor
+    assert_eq!(
+        reloaded2.diagrams[0].conductors.len(),
+        1,
+        "Novo fio desenhado deve persistir no QET!"
+    );
+    let _ = std::fs::remove_file(path2);
+}
+
+#[test]
+fn test_qet_rename_sheet_persists_over_title_block() {
+    use cade_simu_rs::model::ProjectPage;
+    use cade_simu_rs::qet::{export_pages_to_qet, load_qet_file, QetDiagram, QetProject};
+
+    let diag = QetDiagram {
+        order: 1,
+        title: "Nome Antigo Folha".to_string(),
+        ..Default::default()
+    };
+    let project = QetProject {
+        title: "Projeto Rename Teste".to_string(),
+        version: "0.100.0".to_string(),
+        diagrams: vec![diag],
+        ..Default::default()
+    };
+
+    let mut doc = cade_simu_rs::qet::diagram_to_document(&project, 0);
+    // Suponha que o carimbo tenha um título preenchido diferente do novo nome da aba
+    doc.title_block.title = "Título Antigo do Carimbo".to_string();
+
+    let new_sheet_name = "Folha Renomeada Pelo Usuário".to_string();
+    let pages = vec![ProjectPage::with_origin(
+        1,
+        new_sheet_name.clone(),
+        doc,
+        Some(0),
+    )];
+
+    let temp_dir = std::env::temp_dir();
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let path = temp_dir.join(format!("test_rename_sheet_{}.qet", unique_id));
+
+    export_pages_to_qet(&pages, 0, &path, Some(&project)).expect("deve salvar com nome renomeado");
+
+    let reloaded = load_qet_file(&path).expect("recarrega projeto renomeado");
+    assert_eq!(
+        reloaded.diagrams[0].title, new_sheet_name,
+        "O nome da folha editado pelo usuário deve prevalecer sobre o carimbo!"
+    );
+    let _ = std::fs::remove_file(path);
+}
+
+#[test]
+fn test_qet_connector_two_pin_conduction_and_multi_pin_isolation() {
+    use cade_simu_rs::sim::{
+        is_qet_connector_or_terminal, is_qet_splitter_or_passive, step_simulation,
+    };
+    use cade_simu_rs::svg_symbol::{register_parsed_svg, ParsedSvgSymbol, SvgFill, SvgShape};
+
+    // 1. Testa heurísticas de classificação
+    assert!(is_qet_connector_or_terminal("terminal/terminal_001.elmt"));
+    assert!(is_qet_connector_or_terminal("bornier/bornier_1.elmt"));
+    assert!(is_qet_connector_or_terminal(
+        "connectors/connector_001.elmt"
+    ));
+    assert!(is_qet_connector_or_terminal(
+        "connectors/kfz_klemme_2pol_001.elmt"
+    ));
+    assert!(is_qet_splitter_or_passive("connections/combine.elmt"));
+    assert!(is_qet_splitter_or_passive("connections/lphd.elmt"));
+
+    // Registra símbolos SVG no cache com 2 terminais e 4 terminais
+    let term_circle = |cx: f32, cy: f32| SvgShape::Circle {
+        cx,
+        cy,
+        r: 2.0,
+        is_terminal: true,
+        fill: SvgFill::None,
+    };
+
+    let sym_2pin = ParsedSvgSymbol {
+        view_box: (0.0, 0.0, 100.0, 100.0),
+        shapes: vec![term_circle(0.0, 0.0), term_circle(20.0, 0.0)],
+        term_top_y: 0.0,
+        term_bottom_y: 0.0,
+        min_term_x: 0.0,
+        max_term_x: 20.0,
+        is_cade_svg: false,
+        is_qet_native: true,
+    };
+    register_parsed_svg("terminal/test_2pol.elmt", sym_2pin);
+
+    let sym_4pin = ParsedSvgSymbol {
+        view_box: (0.0, 0.0, 100.0, 100.0),
+        shapes: vec![
+            term_circle(0.0, 0.0),
+            term_circle(20.0, 0.0),
+            term_circle(40.0, 0.0),
+            term_circle(60.0, 0.0),
+        ],
+        term_top_y: 0.0,
+        term_bottom_y: 0.0,
+        min_term_x: 0.0,
+        max_term_x: 60.0,
+        is_cade_svg: false,
+        is_qet_native: true,
+    };
+    register_parsed_svg("connectors/test_4pol.elmt", sym_4pin);
+
+    // 2. Conector/borne de 2 pinos conduz entre os pinos 0 e 1
+    let mut doc = SchematicDocument::default();
+    // Fonte DC+ (3000 = fonte L1/DC+) na posição (100, 100)
+    let p_dc = SchematicItem::new_symbol(1, 3000, 100, 100, "+24V");
+    // Borne/Conector de 2 pinos: pino 0 em (100, 100), pino 1 em (120, 100)
+    let mut terminal = SchematicItem::new_symbol(2, 20000, 100, 100, "-X1");
+    terminal.qet_type = Some("terminal/test_2pol.elmt".to_string());
+    // Fio de saída conectado ao pino 1 em (120, 100) até (150, 100)
+    let wire_out = SchematicItem::new_wire(3, 4000, 120, 100, 150, 100);
+
+    doc.items = vec![p_dc, terminal, wire_out];
+    step_simulation(&mut doc, 0);
+
+    // O borne de 2 pinos conduziu de (100, 100) para (120, 100), energizando o fio de saída
+    assert!(
+        doc.sim_active(3),
+        "Conector/borne de 2 pinos deve conduzir a corrente e energizar o circuito a jusante!"
+    );
+    assert_ne!(doc.sim_potential(3), Potential::None);
+
+    // 3. Conector multipinos (4 pinos) NÃO curto-circuita pinos independentes
+    let mut doc_multi = SchematicDocument::default();
+    let p_dc2 = SchematicItem::new_symbol(1, 3000, 100, 100, "+24V");
+    // Conector de 4 pinos em (100, 100): pino 0 em (100, 100), pino 1 em (120, 100), etc.
+    let mut multi_conn = SchematicItem::new_symbol(2, 20000, 100, 100, "-X2");
+    multi_conn.qet_type = Some("connectors/test_4pol.elmt".to_string());
+    // Fio conectado ao pino 1 em (120, 100)
+    let wire_out2 = SchematicItem::new_wire(3, 4000, 120, 100, 150, 100);
+
+    doc_multi.items = vec![p_dc2, multi_conn, wire_out2];
+    step_simulation(&mut doc_multi, 0);
+
+    // Como tem 4 pinos (> 2), não conduz cegamente entre pinos distintos
+    assert!(
+        !doc_multi.sim_active(3),
+        "Conector multipinos (> 2) não deve curto-circuitar todos os circuitos!"
+    );
+    assert_eq!(doc_multi.sim_potential(3), Potential::None);
 }

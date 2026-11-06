@@ -480,6 +480,8 @@ pub struct ProjectPage {
     pub id: usize,
     pub name: String,
     pub doc: SchematicDocument,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub origin_index: Option<usize>,
 }
 
 impl ProjectPage {
@@ -488,6 +490,21 @@ impl ProjectPage {
             id,
             name: name.into(),
             doc,
+            origin_index: None,
+        }
+    }
+
+    pub fn with_origin(
+        id: usize,
+        name: impl Into<String>,
+        doc: SchematicDocument,
+        origin_index: Option<usize>,
+    ) -> Self {
+        Self {
+            id,
+            name: name.into(),
+            doc,
+            origin_index,
         }
     }
 }
@@ -553,6 +570,10 @@ pub struct SchematicDocument {
     /// Estado dinâmico de simulação da folha (desacoplado do modelo puro do circuito).
     #[serde(skip)]
     pub sim: SimState,
+    /// Identificadores/UUIDs de elementos e condutores importados originalmente (ex: QET).
+    /// Usado para rastrear remoções com segurança no salvamento.
+    #[serde(skip)]
+    pub imported_uuids: std::collections::HashSet<String>,
 }
 
 impl SchematicDocument {
