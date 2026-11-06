@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 
 /// Densidade da grade do diagrama (pontos por centímetro / passo da grade).
@@ -88,6 +90,98 @@ impl MotorMode {
             MotorMode::Star => "ESTRELA (Y)",
             MotorMode::Delta => "TRIÂNGULO (Δ)",
         }
+    }
+}
+
+/// Estado de simulação transitório de um elemento individual do circuito.
+/// Desacoplado do modelo puro do circuito (`SchematicItem`).
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub struct ItemSimState {
+    pub active: bool,
+    pub manual_latched: bool,
+    pub timer_elapsed_ms: u64,
+    pub fault: bool,
+    pub motor_dir: i8, // 0 = parado, 1 = horário (CW), -1 = anti-horário (CCW)
+    pub motor_mode: MotorMode,
+    pub potential: Potential,
+}
+
+impl ItemSimState {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    pub fn reset(&mut self) {
+        *self = Self::default();
+    }
+}
+
+/// Estado dinâmico completo de simulação de um circuito/folha esquemática.
+/// Totalmente transitório e desacoplado dos dados persistidos de desenho do circuito.
+#[derive(Debug, Clone, PartialEq, Eq, Default)]
+pub struct SimState {
+    pub items: HashMap<i32, ItemSimState>,
+}
+
+impl SimState {
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    /// Retorna uma cópia do estado do item pelo seu ID (ou estado padrão se não registrado).
+    #[inline]
+    pub fn get(&self, id: i32) -> ItemSimState {
+        self.items.get(&id).copied().unwrap_or_default()
+    }
+
+    /// Retorna uma referência mutável ao estado do item, criando-o com valores padrão se não existir.
+    #[inline]
+    pub fn get_mut(&mut self, id: i32) -> &mut ItemSimState {
+        self.items.entry(id).or_default()
+    }
+
+    /// Define o estado do item informado.
+    #[inline]
+    pub fn set(&mut self, id: i32, state: ItemSimState) {
+        self.items.insert(id, state);
+    }
+
+    /// Define apenas a flag de acionamento manual do item.
+    #[inline]
+    pub fn set_latched(&mut self, id: i32, latched: bool) {
+        self.get_mut(id).manual_latched = latched;
+    }
+
+    /// Define apenas a flag ativa do item.
+    #[inline]
+    pub fn set_active(&mut self, id: i32, active: bool) {
+        self.get_mut(id).active = active;
+    }
+
+    /// Retorna se o item está ativo na simulação.
+    #[inline]
+    pub fn is_active(&self, id: i32) -> bool {
+        self.items.get(&id).map(|s| s.active).unwrap_or(false)
+    }
+
+    /// Retorna se o item está com acionamento manual travado na simulação.
+    #[inline]
+    pub fn is_latched(&self, id: i32) -> bool {
+        self.items
+            .get(&id)
+            .map(|s| s.manual_latched)
+            .unwrap_or(false)
+    }
+
+    /// Retorna se o item está em estado de falha/trip na simulação.
+    #[inline]
+    pub fn is_fault(&self, id: i32) -> bool {
+        self.items.get(&id).map(|s| s.fault).unwrap_or(false)
+    }
+
+    /// Zera todos os estados da simulação (desliga componentes, zera timers e potenciais).
+    pub fn reset(&mut self) {
+        self.items.clear();
     }
 }
 
@@ -237,25 +331,14 @@ pub struct SchematicItem {
     /// UUID original do elemento no arquivo .qet
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub qet_uuid: Option<String>,
-
-    // --- Estado transitório de simulação (não salvo no .cad) ---
-    #[serde(skip)]
-    pub sim_active: bool,
-    #[serde(skip)]
-    pub sim_manual_latched: bool,
-    #[serde(skip)]
-    pub sim_timer_elapsed_ms: u64,
-    #[serde(skip)]
-    pub sim_fault: bool,
-    #[serde(skip)]
-    pub sim_motor_dir: i8, // 0 = parado, 1 = horário (CW), -1 = anti-horário (CCW)
-    #[serde(skip)]
-    pub sim_motor_mode: MotorMode,
-    #[serde(skip)]
-    pub sim_potential: Potential,
 }
 
 impl SchematicItem {
+    /// Retorna o estado dinâmico de simulação deste item a partir de um `SimState`.
+    pub fn sim(&self, sim: &SimState) -> ItemSimState {
+        sim.get(self.id)
+    }
+
     /// Verifica se este `tipo` utiliza o formato estendido (11 strings + 24 inteiros) no `.cad`
     /// conforme `0x00431886` em `CADe_SIMU.exe` (`1052`, `1073`, `10500..=10550`).
     pub fn is_extended_cad_type(tipo: i32) -> bool {
@@ -350,13 +433,6 @@ impl SchematicItem {
             trailing_str: String::new(),
             qet_type: None,
             qet_uuid: None,
-            sim_active: false,
-            sim_manual_latched: false,
-            sim_timer_elapsed_ms: 0,
-            sim_fault: false,
-            sim_motor_dir: 0,
-            sim_motor_mode: MotorMode::Off,
-            sim_potential: Potential::None,
         }
     }
 
@@ -394,13 +470,6 @@ impl SchematicItem {
             trailing_str: String::new(),
             qet_type: None,
             qet_uuid: None,
-            sim_active: false,
-            sim_manual_latched: false,
-            sim_timer_elapsed_ms: 0,
-            sim_fault: false,
-            sim_motor_dir: 0,
-            sim_motor_mode: MotorMode::Off,
-            sim_potential: Potential::None,
         }
     }
 }
@@ -481,6 +550,9 @@ pub struct SchematicDocument {
     pub items: Vec<SchematicItem>,
     pub settings: DocumentSettings,
     pub title_block: TitleBlock,
+    /// Estado dinâmico de simulação da folha (desacoplado do modelo puro do circuito).
+    #[serde(skip)]
+    pub sim: SimState,
 }
 
 impl SchematicDocument {
@@ -488,15 +560,62 @@ impl SchematicDocument {
         self.items.iter().map(|i| i.id).max().unwrap_or(0) + 1
     }
 
+    /// Reinicia todos os estados de simulação da folha.
     pub fn reset_simulation_state(&mut self) {
-        for item in &mut self.items {
-            item.sim_active = false;
-            item.sim_manual_latched = false;
-            item.sim_timer_elapsed_ms = 0;
-            item.sim_fault = false;
-            item.sim_motor_dir = 0;
-            item.sim_motor_mode = MotorMode::Off;
-            item.sim_potential = Potential::None;
-        }
+        self.sim.reset();
+    }
+
+    /// Retorna uma cópia do estado de simulação do item com o ID informado.
+    #[inline]
+    pub fn sim_state(&self, id: i32) -> ItemSimState {
+        self.sim.get(id)
+    }
+
+    /// Retorna uma referência mutável ao estado de simulação do item informado.
+    #[inline]
+    pub fn sim_state_mut(&mut self, id: i32) -> &mut ItemSimState {
+        self.sim.get_mut(id)
+    }
+
+    /// Retorna se o item está ativo na simulação.
+    #[inline]
+    pub fn sim_active(&self, id: i32) -> bool {
+        self.sim.is_active(id)
+    }
+
+    /// Retorna se o item está com acionamento manual travado na simulação.
+    #[inline]
+    pub fn sim_latched(&self, id: i32) -> bool {
+        self.sim.is_latched(id)
+    }
+
+    /// Define o estado de acionamento manual travado do item informado.
+    #[inline]
+    pub fn set_sim_latched(&mut self, id: i32, val: bool) {
+        self.sim.set_latched(id, val);
+    }
+
+    /// Retorna o sentido de rotação do motor (0 = parado, 1 = CW, -1 = CCW).
+    #[inline]
+    pub fn sim_motor_dir(&self, id: i32) -> i8 {
+        self.sim.get(id).motor_dir
+    }
+
+    /// Retorna o modo de acionamento do motor (Off, Direct, Star, Delta).
+    #[inline]
+    pub fn sim_motor_mode(&self, id: i32) -> MotorMode {
+        self.sim.get(id).motor_mode
+    }
+
+    /// Retorna se o item está em estado de falha/trip.
+    #[inline]
+    pub fn sim_fault(&self, id: i32) -> bool {
+        self.sim.is_fault(id)
+    }
+
+    /// Retorna o potencial elétrico do item.
+    #[inline]
+    pub fn sim_potential(&self, id: i32) -> Potential {
+        self.sim.get(id).potential
     }
 }

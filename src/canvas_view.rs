@@ -337,7 +337,7 @@ impl<'a> SchematicCanvas<'a> {
 
     pub fn wire_color(&self, item: &SchematicItem) -> (Color, f32) {
         if self.sim_running {
-            match item.sim_potential {
+            match self.doc.sim_potential(item.id) {
                 Potential::L1 => (Color::from_rgb(0.92, 0.15, 0.12), 2.5),
                 Potential::L2 => (Color::from_rgb(0.90, 0.52, 0.05), 2.5),
                 Potential::L3 => (Color::from_rgb(0.65, 0.18, 0.85), 2.5),
@@ -853,10 +853,11 @@ impl<'a> SchematicCanvas<'a> {
 
         // Elemento nativo importado de projeto QElectroTech (.qet)
         if let Some(ref qet_type) = item.qet_type {
-            let active_in_sim = self.sim_running && (item.sim_active || item.sim_manual_latched);
+            let sim_st = self.doc.sim.get(item.id);
+            let active_in_sim = self.sim_running && (sim_st.active || sim_st.manual_latched);
             let stroke_color = if is_selected {
                 Color::from_rgb(0.05, 0.45, 0.90)
-            } else if self.sim_running && item.sim_fault {
+            } else if self.sim_running && sim_st.fault {
                 Color::from_rgb(0.95, 0.15, 0.10)
             } else if active_in_sim {
                 Color::from_rgb(0.08, 0.70, 0.25)
@@ -982,9 +983,10 @@ impl<'a> SchematicCanvas<'a> {
         }
 
         // Escolhe comandos vetoriais e cores conforme o estado de simulação
+        let sim_st = self.doc.sim.get(item.id);
         let is_motor_active = matches!(item.tipo, 1000..=1002)
-            && (item.sim_motor_dir != 0 || item.sim_motor_mode != crate::model::MotorMode::Off);
-        let active_in_sim = self.sim_running && (item.sim_active || is_motor_active);
+            && (sim_st.motor_dir != 0 || sim_st.motor_mode != crate::model::MotorMode::Off);
+        let active_in_sim = self.sim_running && (sim_st.active || is_motor_active);
         let cmds = if active_in_sim {
             sym.active_cmds
         } else {
@@ -995,7 +997,7 @@ impl<'a> SchematicCanvas<'a> {
 
         let stroke_color = if is_selected {
             Color::from_rgb(0.05, 0.45, 0.90)
-        } else if self.sim_running && item.sim_fault {
+        } else if self.sim_running && sim_st.fault {
             Color::from_rgb(0.95, 0.15, 0.10)
         } else if active_in_sim {
             if is_lamp {
@@ -1034,7 +1036,7 @@ impl<'a> SchematicCanvas<'a> {
                     _ => None,
                 }
             }
-        } else if self.sim_running && item.sim_fault {
+        } else if self.sim_running && sim_st.fault {
             Some(Color::from_rgba(0.95, 0.20, 0.15, 0.30))
         } else if is_lamp {
             // Em repouso (idle), preenchimento suave da lente para indicar visualmente a cor configurada
@@ -1135,8 +1137,13 @@ impl<'a> SchematicCanvas<'a> {
         }
 
         // Desenha Valor / Contagem do Temporizador / Status do Motor
+        let sim_st = if self.sim_running {
+            self.doc.sim.get(item.id)
+        } else {
+            crate::model::ItemSimState::default()
+        };
         if self.sim_running && (item.tipo == 9004 || item.tipo == 9005) {
-            let sec = item.sim_timer_elapsed_ms as f64 / 1000.0;
+            let sec = sim_st.timer_elapsed_ms as f64 / 1000.0;
             let preset = timer_preset_ms(&item.pins, &item.value) as f64 / 1000.0;
             let vpos = self.world_to_screen((item.x1 + 5) as f32, (item.y1 + 4) as f32);
             frame.fill_text(Text {
@@ -1147,11 +1154,11 @@ impl<'a> SchematicCanvas<'a> {
                 ..Text::default()
             });
         } else if self.sim_running && (item.tipo == 1000 || item.tipo == 1001) {
-            let status_txt = if item.sim_fault {
+            let status_txt = if sim_st.fault {
                 "FALTA DE FASE!".to_string()
-            } else if item.sim_motor_dir != 0 {
-                let dir_str = if item.sim_motor_dir == 1 { "CW" } else { "CCW" };
-                format!("{} ({dir_str})", item.sim_motor_mode.label())
+            } else if sim_st.motor_dir != 0 {
+                let dir_str = if sim_st.motor_dir == 1 { "CW" } else { "CCW" };
+                format!("{} ({dir_str})", sim_st.motor_mode.label())
             } else {
                 String::new()
             };
@@ -1160,7 +1167,7 @@ impl<'a> SchematicCanvas<'a> {
                 frame.fill_text(Text {
                     content: status_txt,
                     position: spos,
-                    color: if item.sim_fault {
+                    color: if sim_st.fault {
                         Color::from_rgb(0.92, 0.12, 0.10)
                     } else {
                         Color::from_rgb(0.06, 0.58, 0.22)

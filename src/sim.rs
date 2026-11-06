@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet, VecDeque};
 
-use crate::model::{MotorMode, Potential, SchematicDocument};
+use crate::model::{MotorMode, Potential, SchematicDocument, SchematicItem, SimState};
 use crate::symbols::find_symbol_ref;
 
 /// Verifica se dois potenciais formam uma diferença de tensão válida para acionar bobinas, lâmpadas ou motores 1~.
@@ -217,22 +217,24 @@ pub fn protective_device_poles(tipo: i32) -> &'static [(usize, usize)] {
 /// Detecta se algum disjuntor fechado ou fusível intacto está conduzindo corrente de curto-circuito
 /// (`Potential::ShortCircuit`). Se houver, desarma (trip) os dispositivos e comuta os contatos para aberto.
 pub fn detect_and_trip_protective_devices(
-    doc: &mut SchematicDocument,
+    items: &[SchematicItem],
+    sim: &mut SimState,
     item_pin_nodes: &HashMap<usize, Vec<usize>>,
     node_potentials: &[Potential],
 ) -> bool {
     let mut tripped_tags = HashSet::new();
     let mut tripped_indices = HashSet::new();
 
-    for (idx, item) in doc.items.iter().enumerate() {
+    for (idx, item) in items.iter().enumerate() {
         let Some(p) = item_pin_nodes.get(&idx) else {
             continue;
         };
 
         let is_cb = is_circuit_breaker(item);
         let is_fu = is_fuse(item);
+        let s = sim.get(item.id);
 
-        if is_cb && item.sim_manual_latched {
+        if is_cb && s.manual_latched {
             let poles = protective_device_poles(item.tipo);
             let has_sc = if !poles.is_empty() {
                 poles.iter().any(|&(a, b)| {
@@ -251,7 +253,7 @@ pub fn detect_and_trip_protective_devices(
                     tripped_tags.insert(tag);
                 }
             }
-        } else if is_fu && !item.sim_manual_latched {
+        } else if is_fu && !s.manual_latched {
             let poles = protective_device_poles(item.tipo);
             let has_sc = if !poles.is_empty() {
                 poles.iter().any(|&(a, b)| {
@@ -277,23 +279,24 @@ pub fn detect_and_trip_protective_devices(
         return false;
     }
 
-    for (idx, item) in doc.items.iter_mut().enumerate() {
+    for (idx, item) in items.iter().enumerate() {
         let tag = item.tag.trim().to_uppercase();
         let is_match =
             tripped_indices.contains(&idx) || (!tag.is_empty() && tripped_tags.contains(&tag));
 
         if is_match {
+            let s = sim.get_mut(item.id);
             if is_circuit_breaker(item) {
-                item.sim_manual_latched = false; // Desarma o disjuntor (abre os contatos principais)
-                item.sim_fault = true; // Sinaliza visualmente TRIP / FALHA
-                item.sim_active = false;
+                s.manual_latched = false; // Desarma o disjuntor (abre os contatos principais)
+                s.fault = true; // Sinaliza visualmente TRIP / FALHA
+                s.active = false;
             } else if is_fuse(item) {
-                item.sim_manual_latched = true; // Fusível queima (abre circuito)
-                item.sim_fault = true;
-                item.sim_active = false;
+                s.manual_latched = true; // Fusível queima (abre circuito)
+                s.fault = true;
+                s.active = false;
             } else {
-                item.sim_fault = true;
-                item.sim_active = false;
+                s.fault = true;
+                s.active = false;
             }
         }
     }
@@ -303,93 +306,133 @@ pub fn detect_and_trip_protective_devices(
 
 /// Aciona um componente ao pressionar o botão esquerdo do mouse durante a simulação:
 /// - Para botões pulsadores momentâneos, define o estado como pressionado (`true`).
-/// - Para chaves seletoras/interruptores bi-estáveis, disjuntores e relés térmicos, alterna o estado (`!sim_manual_latched`).
-pub fn press_component_on_sim(doc: &mut SchematicDocument, clicked_id: i32) {
-    let Some(idx) = doc.items.iter().position(|i| i.id == clicked_id) else {
+/// - Para chaves seletoras/interruptores bi-estáveis, disjuntores e relés térmicos, alterna o estado (`!manual_latched`).
+pub fn press_component_on_sim_state(items: &[SchematicItem], sim: &mut SimState, clicked_id: i32) {
+    let Some(idx) = items.iter().position(|i| i.id == clicked_id) else {
         return;
     };
-    let tag = doc.items[idx].tag.trim().to_uppercase();
+    let tag = items[idx].tag.trim().to_uppercase();
 
-    if is_item_momentary(&doc.items[idx]) {
-        doc.items[idx].sim_manual_latched = true;
+    if is_item_momentary(&items[idx]) {
+        sim.get_mut(clicked_id).manual_latched = true;
         if !tag.is_empty() {
-            for item in &mut doc.items {
+            for item in items {
                 if is_item_momentary(item) && item.tag.trim().eq_ignore_ascii_case(&tag) {
-                    item.sim_manual_latched = true;
+                    sim.get_mut(item.id).manual_latched = true;
                 }
             }
         }
         return;
     }
 
-    toggle_component_on_click(doc, clicked_id);
+    toggle_component_on_click_state(items, sim, clicked_id);
+}
+
+pub fn press_component_on_sim(doc: &mut SchematicDocument, clicked_id: i32) {
+    press_component_on_sim_state(&doc.items, &mut doc.sim, clicked_id);
 }
 
 /// Solta um botão pulsador momentâneo ao liberar o botão esquerdo do mouse,
 /// fazendo-o retornar imediatamente ao seu estado de repouso original (`false`).
-pub fn release_component_on_sim(doc: &mut SchematicDocument, released_id: i32) {
-    let Some(idx) = doc.items.iter().position(|i| i.id == released_id) else {
+pub fn release_component_on_sim_state(
+    items: &[SchematicItem],
+    sim: &mut SimState,
+    released_id: i32,
+) {
+    let Some(idx) = items.iter().position(|i| i.id == released_id) else {
         return;
     };
-    if !is_item_momentary(&doc.items[idx]) {
+    if !is_item_momentary(&items[idx]) {
         return;
     }
-    let tag = doc.items[idx].tag.trim().to_uppercase();
-    doc.items[idx].sim_manual_latched = false;
+    let tag = items[idx].tag.trim().to_uppercase();
+    sim.get_mut(released_id).manual_latched = false;
     if !tag.is_empty() {
-        for item in &mut doc.items {
+        for item in items {
             if is_item_momentary(item) && item.tag.trim().eq_ignore_ascii_case(&tag) {
-                item.sim_manual_latched = false;
+                sim.get_mut(item.id).manual_latched = false;
             }
         }
     }
 }
 
+pub fn release_component_on_sim(doc: &mut SchematicDocument, released_id: i32) {
+    release_component_on_sim_state(&doc.items, &mut doc.sim, released_id);
+}
+
 /// Alterna o estado manual de um componente clicado durante a simulação
 /// (disjuntores, chaves, botões pulsadores, relés térmicos) e sincroniza irmãos com a mesma tag.
-pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
-    let Some(idx) = doc.items.iter().position(|i| i.id == clicked_id) else {
+pub fn toggle_component_on_click_state(
+    items: &[SchematicItem],
+    sim: &mut SimState,
+    clicked_id: i32,
+) {
+    let Some(idx) = items.iter().position(|i| i.id == clicked_id) else {
         return;
     };
-    let tag = doc.items[idx].tag.trim().to_uppercase();
+    let tag = items[idx].tag.trim().to_uppercase();
 
-    if !is_item_manual(&doc.items[idx]) {
+    if !is_item_manual(&items[idx]) {
         return;
     }
 
-    let new_state = !doc.items[idx].sim_manual_latched;
-    doc.items[idx].sim_manual_latched = new_state;
-    if new_state {
-        doc.items[idx].sim_fault = false;
+    let new_state = !sim.get(clicked_id).manual_latched;
+    {
+        let s = sim.get_mut(clicked_id);
+        s.manual_latched = new_state;
+        if new_state {
+            s.fault = false;
+        }
     }
 
     if !tag.is_empty() {
-        for item in &mut doc.items {
+        for item in items {
             if item.tag.trim().eq_ignore_ascii_case(&tag) && is_item_manual(item) {
-                item.sim_manual_latched = new_state;
+                let s = sim.get_mut(item.id);
+                s.manual_latched = new_state;
                 if new_state {
-                    item.sim_fault = false;
+                    s.fault = false;
                 }
             }
         }
     }
 }
 
+pub fn toggle_component_on_click(doc: &mut SchematicDocument, clicked_id: i32) {
+    toggle_component_on_click_state(&doc.items, &mut doc.sim, clicked_id);
+}
+
 /// Define explicitamente o estado manual (`pressed`) de todos os botões/chaves/disjuntores com a `tag` informada.
-pub fn set_manual_by_tag(doc: &mut SchematicDocument, tag: &str, pressed: bool) {
+pub fn set_manual_by_tag_state(
+    items: &[SchematicItem],
+    sim: &mut SimState,
+    tag: &str,
+    pressed: bool,
+) {
     let target = tag.trim();
-    for item in &mut doc.items {
+    for item in items {
         if item.tag.trim().eq_ignore_ascii_case(target) && is_item_manual(item) {
-            item.sim_manual_latched = pressed;
+            let s = sim.get_mut(item.id);
+            s.manual_latched = pressed;
             if pressed {
-                item.sim_fault = false;
+                s.fault = false;
             }
         }
     }
 }
 
-/// Executa um passo da simulação elétrica e de comando (`dt_ms` milissegundos).
+pub fn set_manual_by_tag(doc: &mut SchematicDocument, tag: &str, pressed: bool) {
+    set_manual_by_tag_state(&doc.items, &mut doc.sim, tag, pressed);
+}
+
+/// Executa um passo da simulação elétrica e de comando (`dt_ms` milissegundos) utilizando o `SimState` da folha.
 pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
+    step_simulation_state(&doc.items, &mut doc.sim, dt_ms);
+}
+
+/// Executa um passo da simulação elétrica e de comando (`dt_ms` milissegundos) de forma totalmente desacoplada,
+/// mantendo a lista de elementos `items` estritamente imutável (somente leitura) e aplicando todas as mutações no `SimState`.
+pub fn step_simulation_state(items: &[SchematicItem], sim: &mut SimState, dt_ms: u64) {
     let mut all_points: Vec<(i32, i32)> = Vec::new();
     let mut pt_map: HashMap<(i32, i32), usize> = HashMap::new();
     let mut add_unique_pt = |pt: (i32, i32)| -> usize {
@@ -405,7 +448,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
 
     // 1. Registra pontas de cabos e pontos de conexão (empalmes 4001)
     let mut wire_nodes: Vec<(usize, usize, usize)> = Vec::new(); // (item_idx, n1, n2)
-    for (idx, item) in doc.items.iter().enumerate() {
+    for (idx, item) in items.iter().enumerate() {
         if item.is_wire() {
             let n1 = add_unique_pt((item.x1, item.y1));
             let n2 = add_unique_pt((item.x2, item.y2));
@@ -417,7 +460,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
 
     // 2. Registra os pinos de todos os símbolos
     let mut item_pin_nodes: HashMap<usize, Vec<usize>> = HashMap::new();
-    for (idx, item) in doc.items.iter().enumerate() {
+    for (idx, item) in items.iter().enumerate() {
         if let Some(sym) = find_symbol_ref(item.tipo) {
             let mut p_nodes = Vec::new();
             for (_, _, wpos) in sym.world_pins(item) {
@@ -452,39 +495,40 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
     let num_nodes = all_points.len();
     if num_nodes == 0 {
         // Atualiza estado base dos componentes e zera bobinas, motores e lâmpadas sem fiação
-        for item in &mut doc.items {
-            item.sim_potential = Potential::None;
+        for item in items {
+            let s = sim.get_mut(item.id);
+            s.potential = Potential::None;
             match item.tipo {
                 5000 | 5003 => {
-                    item.sim_active = !item.sim_manual_latched;
+                    s.active = !s.manual_latched;
                 }
                 2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034 => {
-                    item.sim_active = item.sim_manual_latched;
+                    s.active = s.manual_latched;
                 }
                 // Motores
                 1000..=1002 => {
-                    item.sim_active = false;
-                    item.sim_fault = false;
-                    item.sim_motor_dir = 0;
-                    item.sim_motor_mode = MotorMode::Off;
+                    s.active = false;
+                    s.fault = false;
+                    s.motor_dir = 0;
+                    s.motor_mode = MotorMode::Off;
                 }
                 // Bobinas, contatores, temporizadores, sinaleiros e buzinas
                 2000 | 2001 | 2005 | 2006 | 2007 | 2008 | 2009 | 7000..=7009 | 9004 | 9005 => {
-                    item.sim_active = false;
-                    item.sim_timer_elapsed_ms = 0;
+                    s.active = false;
+                    s.timer_elapsed_ms = 0;
                 }
                 _ => {
                     if let Some(ref qet_type) = item.qet_type {
                         if is_qet_switch_or_button(qet_type) {
-                            item.sim_active = item.sim_manual_latched;
+                            s.active = s.manual_latched;
                         } else if is_fuse(item) {
-                            item.sim_active = !item.sim_manual_latched;
+                            s.active = !s.manual_latched;
                         } else {
-                            item.sim_active = false;
-                            item.sim_motor_dir = 0;
+                            s.active = false;
+                            s.motor_dir = 0;
                         }
                     } else {
-                        item.sim_active = false;
+                        s.active = false;
                     }
                 }
             }
@@ -519,22 +563,23 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
     let mut ton_triggered: HashSet<String> = HashSet::new();
     let mut tof_triggered: HashSet<String> = HashSet::new();
 
-    for item in &doc.items {
+    for item in items {
         let tag = item.tag.trim().to_uppercase();
         if tag.is_empty() {
             continue;
         }
+        let s = sim.get(item.id);
         match item.tipo {
-            9000 if item.sim_active => {
+            9000 if s.active => {
                 energized_coils.insert(tag);
             }
             9004 => {
                 let preset_ms = timer_preset_ms(&item.pins, &item.value);
-                if item.sim_active && item.sim_timer_elapsed_ms >= preset_ms {
+                if s.active && s.timer_elapsed_ms >= preset_ms {
                     ton_triggered.insert(tag);
                 }
             }
-            9005 if (item.sim_active || item.sim_timer_elapsed_ms > 0) => {
+            9005 if (s.active || s.timer_elapsed_ms > 0) => {
                 tof_triggered.insert(tag);
             }
             _ => {}
@@ -542,7 +587,8 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
     }
 
     // Função auxiliar que resolve a cascata instantânea de relés e contatores até atingir ponto fixo
-    let resolve_cascade = |doc: &mut SchematicDocument,
+    let resolve_cascade = |items: &[SchematicItem],
+                           sim: &mut SimState,
                            coils: &mut HashSet<String>,
                            ton_trig: &HashSet<String>,
                            tof_trig: &HashSet<String>|
@@ -552,15 +598,16 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
 
         for pass in 0..32 {
             let mut breakers_active: HashSet<String> = HashSet::new();
-            for item in &doc.items {
+            for item in items {
                 let tag = item.tag.trim().to_uppercase();
                 if !tag.is_empty() {
+                    let s = sim.get(item.id);
                     match item.tipo {
-                        5000 | 5003 if !item.sim_manual_latched => {
+                        5000 | 5003 if !s.manual_latched => {
                             breakers_active.insert(tag);
                         }
                         2004 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
-                            if item.sim_manual_latched =>
+                            if s.manual_latched =>
                         {
                             breakers_active.insert(tag);
                         }
@@ -569,18 +616,19 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                 }
             }
 
-            for item in &mut doc.items {
+            for item in items {
                 let tag = item.tag.trim().to_uppercase();
+                let s = sim.get_mut(item.id);
                 match item.tipo {
-                    // Fusíveis 1P / 3P: conduzem por padrão (sim_manual_latched == false)
+                    // Fusíveis 1P / 3P: conduzem por padrão (manual_latched == false)
                     5000 | 5003 => {
-                        item.sim_active = !item.sim_manual_latched;
+                        s.active = !s.manual_latched;
                     }
                     // Contatos auxiliares de relé térmico (8016 NA, 8017 NF, 8018 NA+NF, 8019 CON):
                     // Ativam se manuseados manualmente OU se o relé térmico pai tripou (breakers_active)
                     8016..=8019 => {
-                        item.sim_active = item.sim_manual_latched
-                            || (!tag.is_empty() && breakers_active.contains(&tag));
+                        s.active =
+                            s.manual_latched || (!tag.is_empty() && breakers_active.contains(&tag));
                     }
                     // Disjuntores, chaves seccionadoras, botões, fins de curso, emergências e chaves seletoras: seguem o acionamento manual
                     2004
@@ -594,29 +642,29 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     | 8000..=8015
                     | 8020..=8023
                     | 8030..=8034 => {
-                        item.sim_active = item.sim_manual_latched;
+                        s.active = s.manual_latched;
                     }
                     // Contatores de potência e contatos auxiliares instantâneos
                     2000 | 2001 | 2006 | 2008 | 7000 | 7001 | 7002 | 7003 => {
-                        item.sim_active = !tag.is_empty()
+                        s.active = !tag.is_empty()
                             && (coils.contains(&tag)
                                 || ton_trig.contains(&tag)
                                 || breakers_active.contains(&tag));
                     }
                     // Contatos temporizados On-Delay (TON: 7004 NA, 7005 NF, 7006 Comutador, 7007 SPDT)
                     7004..=7007 => {
-                        item.sim_active = !tag.is_empty() && ton_trig.contains(&tag);
+                        s.active = !tag.is_empty() && ton_trig.contains(&tag);
                     }
                     // Contatos temporizados Off-Delay (TOF: 7008 NA, 7009 NF)
                     7008 | 7009 => {
-                        item.sim_active = !tag.is_empty() && tof_trig.contains(&tag);
+                        s.active = !tag.is_empty() && tof_trig.contains(&tag);
                     }
                     _ => {
                         if let Some(ref qet_type) = item.qet_type {
                             if is_qet_switch_or_button(qet_type) {
-                                item.sim_active = item.sim_manual_latched;
+                                s.active = s.manual_latched;
                             } else if is_fuse(item) {
-                                item.sim_active = !item.sim_manual_latched;
+                                s.active = !s.manual_latched;
                             }
                         }
                     }
@@ -624,7 +672,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
             }
 
             let mut adj = base_adj.clone();
-            for (idx, item) in doc.items.iter().enumerate() {
+            for (idx, item) in items.iter().enumerate() {
                 let Some(p) = item_pin_nodes.get(&idx) else {
                     continue;
                 };
@@ -635,23 +683,24 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     }
                 };
 
+                let s = sim.get(item.id);
                 match item.tipo {
-                    // Elementos 1P NA (fecham quando sim_active == true)
+                    // Elementos 1P NA (fecham quando active == true)
                     5000 | 6000 | 2006 | 7000 | 7004 | 7008 | 8000 | 8004 | 8008 | 8012 | 8016
                     | 8031 => {
-                        if item.sim_active {
+                        if s.active {
                             connect_pair(0, 1);
                         }
                     }
-                    // Elementos 1P NF (conduzem quando sim_active == false)
+                    // Elementos 1P NF (conduzem quando active == false)
                     7001 | 7005 | 7009 | 8001 | 8005 | 8009 | 8013 | 8017 | 8030 | 8033 | 8034 => {
-                        if !item.sim_active {
+                        if !s.active {
                             connect_pair(0, 1);
                         }
                     }
                     // Contato duplo 4 terminais NA+NF (pino 0-2 é NF 11-12/95-96; pino 1-3 é NA 13-14/97-98)
                     7002 | 7006 | 8002 | 8006 | 8010 | 8014 | 8018 | 8032 => {
-                        if !item.sim_active {
+                        if !s.active {
                             connect_pair(0, 2);
                         } else {
                             connect_pair(1, 3);
@@ -659,7 +708,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     }
                     // Botão / Contato Comutador CON 3 terminais SPDT (pino 0 comum; pino 1 NF; pino 2 NA)
                     7003 | 7007 | 8003 | 8007 | 8011 | 8015 | 8019 => {
-                        if !item.sim_active {
+                        if !s.active {
                             connect_pair(0, 1);
                         } else {
                             connect_pair(0, 2);
@@ -667,20 +716,20 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     }
                     // Chave Seletora 3 Posições (I-0-II): em ativo fecha polo 1-2 (pinos 0 e 2)
                     8020 => {
-                        if item.sim_active {
+                        if s.active {
                             connect_pair(0, 2);
                         }
                     }
                     // Chave Seletora 3 Posições (I-II-III): em ativo fecha polos 1-2 e 3-4 (pinos 0-3 e 1-4)
                     8021 => {
-                        if item.sim_active {
+                        if s.active {
                             connect_pair(0, 3);
                             connect_pair(1, 4);
                         }
                     }
                     // Chave Inversora / Crossover: em repouso direto (0-2 e 1-3), em ativo cruzado (0-3 e 1-2)
                     8022 => {
-                        if !item.sim_active {
+                        if !s.active {
                             connect_pair(0, 2);
                             connect_pair(1, 3);
                         } else {
@@ -690,14 +739,14 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     }
                     // Contator 2P / Disjuntor 2P (1-2, 3-4)
                     2000 | 6008 => {
-                        if item.sim_active {
+                        if s.active {
                             connect_pair(0, 2);
                             connect_pair(1, 3);
                         }
                     }
                     // Elementos Tripolares 3P (1-2, 3-4, 5-6)
                     5003 | 5008 | 6003 | 6009 | 2001 | 2004 | 2008 => {
-                        if item.sim_active {
+                        if s.active {
                             connect_pair(0, 3);
                             connect_pair(1, 4);
                             connect_pair(2, 5);
@@ -705,7 +754,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     }
                     // Disjuntor Tetrapolar 4P (N-N, 1-2, 3-4, 5-6)
                     6004 => {
-                        if item.sim_active {
+                        if s.active {
                             connect_pair(0, 4);
                             connect_pair(1, 5);
                             connect_pair(2, 6);
@@ -721,7 +770,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     _ => {
                         if let Some(ref qet_type) = item.qet_type {
                             if is_qet_switch_or_button(qet_type) {
-                                if item.sim_manual_latched {
+                                if s.manual_latched {
                                     for i in 0..p.len() {
                                         for j in (i + 1)..p.len() {
                                             connect_pair(i, j);
@@ -729,7 +778,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                                     }
                                 }
                             } else if is_fuse(item) {
-                                if !item.sim_manual_latched {
+                                if !s.manual_latched {
                                     for i in 0..p.len() {
                                         for j in (i + 1)..p.len() {
                                             connect_pair(i, j);
@@ -765,7 +814,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                 }
             };
 
-            for (idx, item) in doc.items.iter().enumerate() {
+            for (idx, item) in items.iter().enumerate() {
                 let Some(p) = item_pin_nodes.get(&idx) else {
                     continue;
                 };
@@ -814,7 +863,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                                     inject_source(pin_node, pot);
                                 }
                             } else if (l.contains("going_arrow") && item.y1 >= 600)
-                                || (l.contains("horn_switch") && item.sim_manual_latched)
+                                || (l.contains("horn_switch") && sim.get(item.id).manual_latched)
                             {
                                 for &pin_node in p {
                                     inject_source(pin_node, Potential::DcNeg);
@@ -843,7 +892,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
             }
 
             let mut next_coils = HashSet::new();
-            for (idx, item) in doc.items.iter_mut().enumerate() {
+            for (idx, item) in items.iter().enumerate() {
                 let Some(p) = item_pin_nodes.get(&idx) else {
                     continue;
                 };
@@ -851,8 +900,9 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     9000 if p.len() >= 2 => {
                         let energized =
                             has_voltage_diff(node_potentials[p[0]], node_potentials[p[1]]);
-                        item.sim_active = energized;
-                        item.sim_potential = if energized {
+                        let s = sim.get_mut(item.id);
+                        s.active = energized;
+                        s.potential = if energized {
                             node_potentials[p[0]]
                         } else {
                             Potential::None
@@ -865,8 +915,9 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     9004 | 9005 | 9008 | 9013 if p.len() >= 2 => {
                         let powered =
                             has_voltage_diff(node_potentials[p[0]], node_potentials[p[1]]);
-                        item.sim_active = powered;
-                        item.sim_potential = if powered {
+                        let s = sim.get_mut(item.id);
+                        s.active = powered;
+                        s.potential = if powered {
                             node_potentials[p[0]]
                         } else {
                             Potential::None
@@ -902,11 +953,12 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                                     }
                                     diff
                                 };
-                                item.sim_active = powered;
+                                let s = sim.get_mut(item.id);
+                                s.active = powered;
                                 if powered {
-                                    item.sim_motor_dir = 1;
+                                    s.motor_dir = 1;
                                 } else {
-                                    item.sim_motor_dir = 0;
+                                    s.motor_dir = 0;
                                 }
                             }
                         }
@@ -926,16 +978,26 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
     };
 
     // Passo A: Resolve a cascata de relés para o estado atual
-    let (mut final_node_potentials, mut final_adj) =
-        resolve_cascade(doc, &mut energized_coils, &ton_triggered, &tof_triggered);
+    let (mut final_node_potentials, mut final_adj) = resolve_cascade(
+        items,
+        sim,
+        &mut energized_coils,
+        &ton_triggered,
+        &tof_triggered,
+    );
 
     // Passo A.1: Detecção de Curto-Circuito e Desarme (Trip) de Disjuntores e Fusíveis
     // Se houver curto-circuito (Potential::ShortCircuit), qualquer disjuntor fechado ou fusível
     // intacto que esteja conduzindo a corrente de falta desarma (abre) imediatamente,
-    // comutando sim_manual_latched para false e sim_fault para true, extinguindo o curto.
-    if detect_and_trip_protective_devices(doc, &item_pin_nodes, &final_node_potentials) {
-        let (pots2, adj2) =
-            resolve_cascade(doc, &mut energized_coils, &ton_triggered, &tof_triggered);
+    // comutando manual_latched para false e fault para true, extinguindo o curto.
+    if detect_and_trip_protective_devices(items, sim, &item_pin_nodes, &final_node_potentials) {
+        let (pots2, adj2) = resolve_cascade(
+            items,
+            sim,
+            &mut energized_coils,
+            &ton_triggered,
+            &tof_triggered,
+        );
         final_node_potentials = pots2;
         final_adj = adj2;
     }
@@ -945,29 +1007,29 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
         let mut new_ton = HashSet::new();
         let mut new_tof = HashSet::new();
 
-        for item in &mut doc.items {
+        for item in items {
             let tag = item.tag.trim().to_uppercase();
+            let s = sim.get_mut(item.id);
             match item.tipo {
                 9004 => {
                     let preset_ms = timer_preset_ms(&item.pins, &item.value);
-                    if item.sim_active {
-                        item.sim_timer_elapsed_ms = item.sim_timer_elapsed_ms.saturating_add(dt_ms);
+                    if s.active {
+                        s.timer_elapsed_ms = s.timer_elapsed_ms.saturating_add(dt_ms);
                     } else {
-                        item.sim_timer_elapsed_ms = 0;
+                        s.timer_elapsed_ms = 0;
                     }
-                    if item.sim_active && item.sim_timer_elapsed_ms >= preset_ms && !tag.is_empty()
-                    {
+                    if s.active && s.timer_elapsed_ms >= preset_ms && !tag.is_empty() {
                         new_ton.insert(tag);
                     }
                 }
                 9005 => {
                     let preset_ms = timer_preset_ms(&item.pins, &item.value);
-                    if item.sim_active {
-                        item.sim_timer_elapsed_ms = preset_ms;
+                    if s.active {
+                        s.timer_elapsed_ms = preset_ms;
                     } else {
-                        item.sim_timer_elapsed_ms = item.sim_timer_elapsed_ms.saturating_sub(dt_ms);
+                        s.timer_elapsed_ms = s.timer_elapsed_ms.saturating_sub(dt_ms);
                     }
-                    if (item.sim_active || item.sim_timer_elapsed_ms > 0) && !tag.is_empty() {
+                    if (s.active || s.timer_elapsed_ms > 0) && !tag.is_empty() {
                         new_tof.insert(tag);
                     }
                 }
@@ -979,14 +1041,29 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
         if new_ton != ton_triggered || new_tof != tof_triggered {
             ton_triggered = new_ton;
             tof_triggered = new_tof;
-            let (pots2, adj2) =
-                resolve_cascade(doc, &mut energized_coils, &ton_triggered, &tof_triggered);
+            let (pots2, adj2) = resolve_cascade(
+                items,
+                sim,
+                &mut energized_coils,
+                &ton_triggered,
+                &tof_triggered,
+            );
             final_node_potentials = pots2;
             final_adj = adj2;
 
-            if detect_and_trip_protective_devices(doc, &item_pin_nodes, &final_node_potentials) {
-                let (pots3, adj3) =
-                    resolve_cascade(doc, &mut energized_coils, &ton_triggered, &tof_triggered);
+            if detect_and_trip_protective_devices(
+                items,
+                sim,
+                &item_pin_nodes,
+                &final_node_potentials,
+            ) {
+                let (pots3, adj3) = resolve_cascade(
+                    items,
+                    sim,
+                    &mut energized_coils,
+                    &ton_triggered,
+                    &tof_triggered,
+                );
                 final_node_potentials = pots3;
                 final_adj = adj3;
             }
@@ -1013,7 +1090,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
     }
 
     // Avalia estado final de todos os motores (1000, 1001, 1002)
-    for (idx, item) in doc.items.iter_mut().enumerate() {
+    for (idx, item) in items.iter().enumerate() {
         let Some(p) = item_pin_nodes.get(&idx) else {
             continue;
         };
@@ -1032,27 +1109,28 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     .filter(|&&pt| matches!(pt, Potential::L1 | Potential::L2 | Potential::L3))
                     .count();
 
+                let s = sim.get_mut(item.id);
                 if has_l1 && has_l2 && has_l3 {
-                    item.sim_active = true;
-                    item.sim_fault = false;
+                    s.active = true;
+                    s.fault = false;
                     let cw = matches!(
                         (u, v, w),
                         (Potential::L1, Potential::L2, Potential::L3)
                             | (Potential::L2, Potential::L3, Potential::L1)
                             | (Potential::L3, Potential::L1, Potential::L2)
                     );
-                    item.sim_motor_dir = if cw { 1 } else { -1 };
-                    item.sim_motor_mode = MotorMode::Direct;
+                    s.motor_dir = if cw { 1 } else { -1 };
+                    s.motor_mode = MotorMode::Direct;
                 } else if energized_count >= 1 {
-                    item.sim_active = false;
-                    item.sim_fault = true;
-                    item.sim_motor_dir = 0;
-                    item.sim_motor_mode = MotorMode::Off;
+                    s.active = false;
+                    s.fault = true;
+                    s.motor_dir = 0;
+                    s.motor_mode = MotorMode::Off;
                 } else {
-                    item.sim_active = false;
-                    item.sim_fault = false;
-                    item.sim_motor_dir = 0;
-                    item.sim_motor_mode = MotorMode::Off;
+                    s.active = false;
+                    s.fault = false;
+                    s.motor_dir = 0;
+                    s.motor_mode = MotorMode::Off;
                 }
             }
             // Motor Trifásico 6 terminais Estrela-Triângulo (U1, V1, W1, PE, W2, U2, V2)
@@ -1069,6 +1147,7 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                     && top_phases.contains(&Potential::L2)
                     && top_phases.contains(&Potential::L3);
 
+                let s = sim.get_mut(item.id);
                 if top_all_3 {
                     let cw = matches!(
                         (u1, v1, w1),
@@ -1093,34 +1172,35 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
                         && w1 != w2;
 
                     if star_bridged {
-                        item.sim_active = true;
-                        item.sim_fault = false;
-                        item.sim_motor_dir = dir;
-                        item.sim_motor_mode = MotorMode::Star;
+                        s.active = true;
+                        s.fault = false;
+                        s.motor_dir = dir;
+                        s.motor_mode = MotorMode::Star;
                     } else if bot_all_3 {
-                        item.sim_active = true;
-                        item.sim_fault = false;
-                        item.sim_motor_dir = dir;
-                        item.sim_motor_mode = MotorMode::Delta;
+                        s.active = true;
+                        s.fault = false;
+                        s.motor_dir = dir;
+                        s.motor_mode = MotorMode::Delta;
                     } else {
-                        item.sim_active = false;
-                        item.sim_fault = false;
-                        item.sim_motor_dir = 0;
-                        item.sim_motor_mode = MotorMode::Off;
+                        s.active = false;
+                        s.fault = false;
+                        s.motor_dir = 0;
+                        s.motor_mode = MotorMode::Off;
                     }
                 } else {
-                    item.sim_active = false;
-                    item.sim_fault = false;
-                    item.sim_motor_dir = 0;
-                    item.sim_motor_mode = MotorMode::Off;
+                    s.active = false;
+                    s.fault = false;
+                    s.motor_dir = 0;
+                    s.motor_mode = MotorMode::Off;
                 }
             }
             // Motor Monofásico (U1, V1, PE)
             1002 if p.len() >= 2 => {
                 let on = has_voltage_diff(final_node_potentials[p[0]], final_node_potentials[p[1]]);
-                item.sim_active = on;
-                item.sim_motor_dir = if on { 1 } else { 0 };
-                item.sim_motor_mode = if on {
+                let s = sim.get_mut(item.id);
+                s.active = on;
+                s.motor_dir = if on { 1 } else { 0 };
+                s.motor_mode = if on {
                     MotorMode::Direct
                 } else {
                     MotorMode::Off
@@ -1134,14 +1214,16 @@ pub fn step_simulation(doc: &mut SchematicDocument, dt_ms: u64) {
     for &(w_idx, n1, n2) in &wire_nodes {
         let p1 = final_node_potentials[n1];
         let p2 = final_node_potentials[n2];
-        doc.items[w_idx].sim_potential = if p1 != Potential::None { p1 } else { p2 };
-        doc.items[w_idx].sim_active = doc.items[w_idx].sim_potential.is_energized();
+        let s = sim.get_mut(items[w_idx].id);
+        s.potential = if p1 != Potential::None { p1 } else { p2 };
+        s.active = s.potential.is_energized();
     }
-    for item in &mut doc.items {
+    for item in items {
         if item.is_junction() {
             if let Some(&node_idx) = pt_map.get(&(item.x1, item.y1)) {
-                item.sim_potential = final_node_potentials[node_idx];
-                item.sim_active = item.sim_potential.is_energized();
+                let s = sim.get_mut(item.id);
+                s.potential = final_node_potentials[node_idx];
+                s.active = s.potential.is_energized();
             }
         }
     }

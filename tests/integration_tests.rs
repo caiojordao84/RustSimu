@@ -32,8 +32,8 @@ fn test_dol_starter_simulation_self_holding_and_thermal_trip() {
 
     // Inicialmente o motor -M1 está parado
     let m1 = doc.items.iter().find(|i| i.tipo == 1000).unwrap();
-    assert!(!m1.sim_active);
-    assert_eq!(m1.sim_motor_dir, 0);
+    assert!(!doc.sim_active(m1.id));
+    assert_eq!(doc.sim_motor_dir(m1.id), 0);
 
     // 1) Fecha o disjuntor tripolar -Q1 (bi-estável)
     let q1_id = doc.items.iter().find(|i| i.tag == "-Q1").unwrap().id;
@@ -43,7 +43,7 @@ fn test_dol_starter_simulation_self_holding_and_thermal_trip() {
 
     // Motor ainda parado porque -KM1 está aberto
     let m1 = doc.items.iter().find(|i| i.tipo == 1000).unwrap();
-    assert!(!m1.sim_active);
+    assert!(!doc.sim_active(m1.id));
 
     // 2) Pressiona o botão de partida -S1 (NA, 8000)
     let s1_id = doc.items.iter().find(|i| i.tag == "-S1").unwrap().id;
@@ -56,11 +56,14 @@ fn test_dol_starter_simulation_self_holding_and_thermal_trip() {
         .iter()
         .find(|i| i.tipo == 9000 && i.tag == "-KM1")
         .unwrap();
-    assert!(km1_coil.sim_active, "Bobina -KM1 deveria estar energizada");
+    assert!(
+        doc.sim_active(km1_coil.id),
+        "Bobina -KM1 deveria estar energizada"
+    );
 
     let m1 = doc.items.iter().find(|i| i.tipo == 1000).unwrap();
-    assert!(m1.sim_active, "Motor -M1 deveria estar girando");
-    assert_eq!(m1.sim_motor_dir, 1);
+    assert!(doc.sim_active(m1.id), "Motor -M1 deveria estar girando");
+    assert_eq!(doc.sim_motor_dir(m1.id), 1);
 
     // 3) Solta o botão pulsador -S1 -> -S1 retorna automaticamente ao estado original (aberto),
     //    e o motor DEVE permanecer ligado pelo contato de selo 13-14 de -KM1!
@@ -68,13 +71,13 @@ fn test_dol_starter_simulation_self_holding_and_thermal_trip() {
     step_simulation(&mut doc, 50);
     let s1 = doc.items.iter().find(|i| i.id == s1_id).unwrap();
     assert!(
-        !s1.sim_manual_latched && !s1.sim_active,
+        !doc.sim_latched(s1.id) && !doc.sim_active(s1.id),
         "Botão -S1 deve retornar ao estado original quando solto"
     );
 
     let m1 = doc.items.iter().find(|i| i.tipo == 1000).unwrap();
     assert!(
-        m1.sim_active,
+        doc.sim_active(m1.id),
         "Motor -M1 deve permanecer ligado via contato de selo -KM1 (13-14)"
     );
 
@@ -91,7 +94,7 @@ fn test_dol_starter_simulation_self_holding_and_thermal_trip() {
 
     let m1 = doc.items.iter().find(|i| i.tipo == 1000).unwrap();
     assert!(
-        !m1.sim_active,
+        !doc.sim_active(m1.id),
         "Motor -M1 deve desligar imediatamente após atuação do relé térmico -F1"
     );
 }
@@ -114,7 +117,7 @@ fn test_momentary_buttons_press_and_release_all_4_types() {
         step_simulation(&mut doc, 10);
         let it = doc.items.iter().find(|i| i.id == id).unwrap();
         assert!(
-            it.sim_manual_latched && it.sim_active,
+            doc.sim_latched(it.id) && doc.sim_active(it.id),
             "Botão tipo {} deve ativar enquanto pressionado",
             it.tipo
         );
@@ -123,7 +126,7 @@ fn test_momentary_buttons_press_and_release_all_4_types() {
         step_simulation(&mut doc, 10);
         let it = doc.items.iter().find(|i| i.id == id).unwrap();
         assert!(
-            !it.sim_manual_latched && !it.sim_active,
+            !doc.sim_latched(it.id) && !doc.sim_active(it.id),
             "Botão tipo {} deve voltar ao estado original quando solto",
             it.tipo
         );
@@ -135,13 +138,13 @@ fn test_momentary_buttons_press_and_release_all_4_types() {
     release_component_on_sim(&mut doc, 5);
     step_simulation(&mut doc, 10);
     let sw = doc.items.iter().find(|i| i.id == 5).unwrap();
-    assert!(sw.sim_manual_latched && sw.sim_active);
+    assert!(doc.sim_latched(sw.id) && doc.sim_active(sw.id));
 
     press_component_on_sim(&mut doc, 5);
     release_component_on_sim(&mut doc, 5);
     step_simulation(&mut doc, 10);
     let sw = doc.items.iter().find(|i| i.id == 5).unwrap();
-    assert!(!sw.sim_manual_latched && !sw.sim_active);
+    assert!(!doc.sim_latched(sw.id) && !doc.sim_active(sw.id));
 }
 
 fn verify_doc_equivalence(a: &SchematicDocument, b: &SchematicDocument, ctx: &str) {
@@ -180,7 +183,7 @@ fn simulate_enchimento_de_tanque_fluido(mut doc: SchematicDocument, label: &str)
         .iter()
         .find(|i| i.tipo == 9000 && i.tag == "K1")
         .unwrap();
-    assert!(!k1.sim_active, "{label}: K1 deve iniciar desligado");
+    assert!(!doc.sim_active(k1.id), "{label}: K1 deve iniciar desligado");
 
     // Pulsa E1 -> liga K1 (selo) e solenoide S1
     set_manual_by_tag(&mut doc, "E1", true);
@@ -199,11 +202,11 @@ fn simulate_enchimento_de_tanque_fluido(mut doc: SchematicDocument, label: &str)
         .find(|i| i.tipo == 9000 && i.tag == "S1")
         .unwrap();
     assert!(
-        k1.sim_active,
+        doc.sim_active(k1.id),
         "{label}: K1 deve ficar retido após pulsar E1"
     );
     assert!(
-        s1.sim_active,
+        doc.sim_active(s1.id),
         "{label}: S1 deve estar energizada durante enchimento"
     );
 
@@ -226,9 +229,15 @@ fn simulate_enchimento_de_tanque_fluido(mut doc: SchematicDocument, label: &str)
         .iter()
         .find(|i| i.tipo == 9004 && i.tag == "T1")
         .unwrap();
-    assert!(!k1.sim_active, "{label}: K1 deve desligar ao atingir E2");
-    assert!(fs.sim_active, "{label}: FS deve ligar após E2");
-    assert!(t1.sim_active, "{label}: T1 deve iniciar contagem de 2s");
+    assert!(
+        !doc.sim_active(k1.id),
+        "{label}: K1 deve desligar ao atingir E2"
+    );
+    assert!(doc.sim_active(fs.id), "{label}: FS deve ligar após E2");
+    assert!(
+        doc.sim_active(t1.id),
+        "{label}: T1 deve iniciar contagem de 2s"
+    );
 
     // Avança 2.1s -> T1 dispara, liga K2, S2 e T2 (3s)
     step_simulation(&mut doc, 2100);
@@ -247,9 +256,18 @@ fn simulate_enchimento_de_tanque_fluido(mut doc: SchematicDocument, label: &str)
         .iter()
         .find(|i| i.tipo == 9004 && i.tag == "T2")
         .unwrap();
-    assert!(k2.sim_active, "{label}: K2 deve ligar após 2s de T1");
-    assert!(s2.sim_active, "{label}: S2 deve abrir esvaziamento após T1");
-    assert!(t2.sim_active, "{label}: T2 deve iniciar contagem de 3s");
+    assert!(
+        doc.sim_active(k2.id),
+        "{label}: K2 deve ligar após 2s de T1"
+    );
+    assert!(
+        doc.sim_active(s2.id),
+        "{label}: S2 deve abrir esvaziamento após T1"
+    );
+    assert!(
+        doc.sim_active(t2.id),
+        "{label}: T2 deve iniciar contagem de 3s"
+    );
 
     // Avança 3.1s -> T2 dispara e abre contato NF T2 desligando S2
     step_simulation(&mut doc, 3100);
@@ -258,7 +276,10 @@ fn simulate_enchimento_de_tanque_fluido(mut doc: SchematicDocument, label: &str)
         .iter()
         .find(|i| i.tipo == 9000 && i.tag == "S2")
         .unwrap();
-    assert!(!s2.sim_active, "{label}: S2 deve desligar após 3s de T2");
+    assert!(
+        !doc.sim_active(s2.id),
+        "{label}: S2 deve desligar após 3s de T2"
+    );
 }
 
 fn simulate_inversao_rotacao_motor_trifasico(mut doc: SchematicDocument, label: &str) {
@@ -278,12 +299,13 @@ fn simulate_inversao_rotacao_motor_trifasico(mut doc: SchematicDocument, label: 
         .iter()
         .find(|i| i.tipo == 1000 && i.tag == "-M")
         .unwrap();
-    assert!(m.sim_active, "{label}: Motor -M deve ligar com B1");
+    assert!(doc.sim_active(m.id), "{label}: Motor -M deve ligar com B1");
     assert_eq!(
-        m.sim_motor_dir, 1,
+        doc.sim_motor_dir(m.id),
+        1,
         "{label}: Motor -M deve girar CW (1) com K1"
     );
-    assert_eq!(m.sim_motor_mode, MotorMode::Direct);
+    assert_eq!(doc.sim_motor_mode(m.id), MotorMode::Direct);
 
     // Pulsa B0 (parada)
     set_manual_by_tag(&mut doc, "B0", true);
@@ -296,7 +318,7 @@ fn simulate_inversao_rotacao_motor_trifasico(mut doc: SchematicDocument, label: 
         .iter()
         .find(|i| i.tipo == 1000 && i.tag == "-M")
         .unwrap();
-    assert!(!m.sim_active, "{label}: Motor -M deve parar com B0");
+    assert!(!doc.sim_active(m.id), "{label}: Motor -M deve parar com B0");
 
     // Pulsa B2 (sentido anti-horário via K2)
     set_manual_by_tag(&mut doc, "B2", true);
@@ -309,9 +331,10 @@ fn simulate_inversao_rotacao_motor_trifasico(mut doc: SchematicDocument, label: 
         .iter()
         .find(|i| i.tipo == 1000 && i.tag == "-M")
         .unwrap();
-    assert!(m.sim_active, "{label}: Motor -M deve ligar com B2");
+    assert!(doc.sim_active(m.id), "{label}: Motor -M deve ligar com B2");
     assert_eq!(
-        m.sim_motor_dir, -1,
+        doc.sim_motor_dir(m.id),
+        -1,
         "{label}: Motor -M deve girar CCW (-1) com K2"
     );
 }
@@ -328,10 +351,13 @@ fn simulate_estrela_triangulo_sem_inversao(mut doc: SchematicDocument, label: &s
     step_simulation(&mut doc, 50);
 
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
-    assert!(m.sim_active, "{label}: Motor deve partir ao pulsar S1");
-    assert_eq!(m.sim_motor_dir, 1, "{label}: Motor deve girar CW");
+    assert!(
+        doc.sim_active(m.id),
+        "{label}: Motor deve partir ao pulsar S1"
+    );
+    assert_eq!(doc.sim_motor_dir(m.id), 1, "{label}: Motor deve girar CW");
     assert_eq!(
-        m.sim_motor_mode,
+        doc.sim_motor_mode(m.id),
         MotorMode::Star,
         "{label}: Motor deve iniciar em Estrela (Y)"
     );
@@ -339,10 +365,17 @@ fn simulate_estrela_triangulo_sem_inversao(mut doc: SchematicDocument, label: &s
     // Avança 5.1s -> Comuta para Triângulo (K1 + K2)
     step_simulation(&mut doc, 5100);
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
-    assert!(m.sim_active, "{label}: Motor deve continuar ligado após 5s");
-    assert_eq!(m.sim_motor_dir, 1, "{label}: Motor deve manter sentido CW");
+    assert!(
+        doc.sim_active(m.id),
+        "{label}: Motor deve continuar ligado após 5s"
+    );
     assert_eq!(
-        m.sim_motor_mode,
+        doc.sim_motor_dir(m.id),
+        1,
+        "{label}: Motor deve manter sentido CW"
+    );
+    assert_eq!(
+        doc.sim_motor_mode(m.id),
         MotorMode::Delta,
         "{label}: Motor deve comutar para Triângulo (Δ) após 5s"
     );
@@ -362,14 +395,22 @@ fn simulate_estrela_triangulo_com_inversao(mut doc: SchematicDocument, label: &s
 
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (true, 1, MotorMode::Star)
     );
 
     step_simulation(&mut doc, 5100);
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (true, 1, MotorMode::Delta)
     );
 
@@ -379,7 +420,7 @@ fn simulate_estrela_triangulo_com_inversao(mut doc: SchematicDocument, label: &s
     set_manual_by_tag(&mut doc, "B0", false);
     step_simulation(&mut doc, 50);
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
-    assert!(!m.sim_active, "{label}: Motor deve parar com B0");
+    assert!(!doc.sim_active(m.id), "{label}: Motor deve parar com B0");
 
     // 3) Sentido anti-horário (B2): Estrela -> Triângulo
     set_manual_by_tag(&mut doc, "B2", true);
@@ -389,14 +430,22 @@ fn simulate_estrela_triangulo_com_inversao(mut doc: SchematicDocument, label: &s
 
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (true, -1, MotorMode::Star)
     );
 
     step_simulation(&mut doc, 5100);
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (true, -1, MotorMode::Delta)
     );
 }
@@ -423,7 +472,11 @@ fn simulate_estrela_triangulo_com_inversao_automatico(mut doc: SchematicDocument
     // t = 0..4s: Horário em Estrela (K1 + K4)
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (true, 1, MotorMode::Star),
         "{label}: t=0s deve estar CW Star"
     );
@@ -432,7 +485,11 @@ fn simulate_estrela_triangulo_com_inversao_automatico(mut doc: SchematicDocument
     step_secs(&mut doc, 5.5);
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (true, 1, MotorMode::Delta),
         "{label}: t=5.5s deve estar CW Delta"
     );
@@ -441,7 +498,11 @@ fn simulate_estrela_triangulo_com_inversao_automatico(mut doc: SchematicDocument
     step_secs(&mut doc, 5.5);
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (false, 0, MotorMode::Off),
         "{label}: t=11s deve estar em pausa antes de inverter"
     );
@@ -450,7 +511,11 @@ fn simulate_estrela_triangulo_com_inversao_automatico(mut doc: SchematicDocument
     step_secs(&mut doc, 5.5);
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (true, -1, MotorMode::Star),
         "{label}: t=16.5s deve estar CCW Star"
     );
@@ -459,7 +524,11 @@ fn simulate_estrela_triangulo_com_inversao_automatico(mut doc: SchematicDocument
     step_secs(&mut doc, 5.5);
     let m = doc.items.iter().find(|i| i.tipo == 1001).unwrap();
     assert_eq!(
-        (m.sim_active, m.sim_motor_dir, m.sim_motor_mode),
+        (
+            doc.sim_active(m.id),
+            doc.sim_motor_dir(m.id),
+            doc.sim_motor_mode(m.id)
+        ),
         (true, -1, MotorMode::Delta),
         "{label}: t=22s deve estar CCW Delta"
     );
@@ -480,7 +549,7 @@ fn simulate_ligacao_tres_motores(mut doc: SchematicDocument, label: &str) {
         d.items
             .iter()
             .filter(|i| i.tipo == 1001)
-            .map(|i| (i.tag.clone(), i.sim_motor_mode))
+            .map(|i| (i.tag.clone(), d.sim_motor_mode(i.id)))
             .collect()
     };
 
@@ -569,7 +638,10 @@ fn simulate_partida_direta(mut doc: SchematicDocument, label: &str) {
         .iter()
         .find(|i| i.tipo == 1000 && i.tag == "MO")
         .unwrap();
-    assert!(!mo.sim_active, "{label}: Motor MO deve iniciar desligado");
+    assert!(
+        !doc.sim_active(mo.id),
+        "{label}: Motor MO deve iniciar desligado"
+    );
 
     // Pulsa B1 -> liga -KM1 (selo) e gira motor MO
     set_manual_by_tag(&mut doc, "B1", true);
@@ -582,8 +654,11 @@ fn simulate_partida_direta(mut doc: SchematicDocument, label: &str) {
         .iter()
         .find(|i| i.tipo == 1000 && i.tag == "MO")
         .unwrap();
-    assert!(mo.sim_active, "{label}: Motor MO deve girar após pulsar B1");
-    assert_eq!(mo.sim_motor_dir, 1);
+    assert!(
+        doc.sim_active(mo.id),
+        "{label}: Motor MO deve girar após pulsar B1"
+    );
+    assert_eq!(doc.sim_motor_dir(mo.id), 1);
 
     // Pulsa B0 -> desliga -KM1 e para motor MO
     set_manual_by_tag(&mut doc, "B0", true);
@@ -597,7 +672,7 @@ fn simulate_partida_direta(mut doc: SchematicDocument, label: &str) {
         .find(|i| i.tipo == 1000 && i.tag == "MO")
         .unwrap();
     assert!(
-        !mo.sim_active,
+        !doc.sim_active(mo.id),
         "{label}: Motor MO deve parar após pulsar B0"
     );
 }
@@ -618,8 +693,14 @@ fn simulate_exemplo_desconexao(mut doc: SchematicDocument, label: &str) {
 
     let m1 = doc.items.iter().find(|i| i.id == 6).unwrap();
     let m2 = doc.items.iter().find(|i| i.id == 7).unwrap();
-    assert!(m1.sim_active, "{label}: Motor 1 (K1) deve ligar com B1");
-    assert!(!m2.sim_active, "{label}: Motor 2 (K2) ainda desligado");
+    assert!(
+        doc.sim_active(m1.id),
+        "{label}: Motor 1 (K1) deve ligar com B1"
+    );
+    assert!(
+        !doc.sim_active(m2.id),
+        "{label}: Motor 2 (K2) ainda desligado"
+    );
 
     // Pulsa B0 -> desliga K1 (motor 1) e dispara temporizador Off-Delay TP (30s) ligando K2 (motor 2)
     set_manual_by_tag(&mut doc, "B0", true);
@@ -630,11 +711,11 @@ fn simulate_exemplo_desconexao(mut doc: SchematicDocument, label: &str) {
     let m1 = doc.items.iter().find(|i| i.id == 6).unwrap();
     let m2 = doc.items.iter().find(|i| i.id == 7).unwrap();
     assert!(
-        !m1.sim_active,
+        !doc.sim_active(m1.id),
         "{label}: Motor 1 deve desligar ao pulsar B0"
     );
     assert!(
-        m2.sim_active,
+        doc.sim_active(m2.id),
         "{label}: Motor 2 (K2) deve ficar ligado durante os 30s do Off-Delay TP"
     );
 
@@ -642,7 +723,7 @@ fn simulate_exemplo_desconexao(mut doc: SchematicDocument, label: &str) {
     step_secs(&mut doc, 30.5);
     let m2 = doc.items.iter().find(|i| i.id == 7).unwrap();
     assert!(
-        !m2.sim_active,
+        !doc.sim_active(m2.id),
         "{label}: Motor 2 (K2) deve desligar após os 30s do Off-Delay TP"
     );
 }
@@ -661,30 +742,34 @@ fn simulate_partida_motores_escalonada(mut doc: SchematicDocument, label: &str) 
     step_simulation(&mut doc, 100);
 
     let m_states = |d: &SchematicDocument| -> (bool, bool, bool, bool) {
-        let m1 = d
-            .items
-            .iter()
-            .find(|i| i.tipo == 1000 && i.tag == "M1")
-            .unwrap()
-            .sim_active;
-        let m2 = d
-            .items
-            .iter()
-            .find(|i| i.tipo == 1000 && i.tag == "M2")
-            .unwrap()
-            .sim_active;
-        let m3 = d
-            .items
-            .iter()
-            .find(|i| i.tipo == 1000 && i.tag == "M3")
-            .unwrap()
-            .sim_active;
-        let ok = d
-            .items
-            .iter()
-            .find(|i| i.tipo == 9008 && i.tag == "OK")
-            .unwrap()
-            .sim_active;
+        let m1 = d.sim_active(
+            d.items
+                .iter()
+                .find(|i| i.tipo == 1000 && i.tag == "M1")
+                .unwrap()
+                .id,
+        );
+        let m2 = d.sim_active(
+            d.items
+                .iter()
+                .find(|i| i.tipo == 1000 && i.tag == "M2")
+                .unwrap()
+                .id,
+        );
+        let m3 = d.sim_active(
+            d.items
+                .iter()
+                .find(|i| i.tipo == 1000 && i.tag == "M3")
+                .unwrap()
+                .id,
+        );
+        let ok = d.sim_active(
+            d.items
+                .iter()
+                .find(|i| i.tipo == 9008 && i.tag == "OK")
+                .unwrap()
+                .id,
+        );
         (m1, m2, m3, ok)
     };
 
@@ -1121,30 +1206,33 @@ fn test_qet_kaefer_open_simulate_and_roundtrip() {
     // 3. Testa a simulação elétrica do circuito de partida do Fusca
     // Estado inicial de repouso: motor de partida desligado
     step_simulation(&mut doc, 0);
+    let starter_id = doc.items[starter_idx].id;
+    let switch_id = doc.items[switch_idx].id;
     assert!(
-        !doc.items[starter_idx].sim_active,
+        !doc.sim_active(starter_id),
         "Motor de partida deve estar desativado com a chave de ignição aberta"
     );
 
     // Aciona a chave de ignição (partida)
-    doc.items[switch_idx].sim_manual_latched = true;
+    doc.set_sim_latched(switch_id, true);
     step_simulation(&mut doc, 0);
 
     // O motor de partida deve ser energizado pela bateria via comutador
     assert!(
-        doc.items[starter_idx].sim_active,
+        doc.sim_active(starter_id),
         "Motor de partida deve estar ativo quando a chave de ignição for ligada!"
     );
     assert_eq!(
-        doc.items[starter_idx].sim_motor_dir, 1,
+        doc.sim_motor_dir(starter_id),
+        1,
         "Motor de partida deve indicar rotação ativa (dir = 1)"
     );
 
     // Ao desligar a chave de ignição, o motor de partida desliga
-    doc.items[switch_idx].sim_manual_latched = false;
+    doc.set_sim_latched(switch_id, false);
     step_simulation(&mut doc, 0);
     assert!(
-        !doc.items[starter_idx].sim_active,
+        !doc.sim_active(starter_id),
         "Motor de partida deve desligar ao soltar a chave de ignição"
     );
 
@@ -1171,16 +1259,16 @@ fn test_qet_kaefer_open_simulate_and_roundtrip() {
         })
         .expect("Diagrama 12 deve conter o botão da buzina (horn_switch_001.elmt)");
 
-    step_simulation(&mut doc_horn, 0);
-    assert!(
-        !doc_horn.items[horn_idx].sim_active,
-        "Buzina desligada em repouso"
-    );
+    let horn_id = doc_horn.items[horn_idx].id;
+    let horn_sw_id = doc_horn.items[horn_sw_idx].id;
 
-    doc_horn.items[horn_sw_idx].sim_manual_latched = true;
+    step_simulation(&mut doc_horn, 0);
+    assert!(!doc_horn.sim_active(horn_id), "Buzina desligada em repouso");
+
+    doc_horn.set_sim_latched(horn_sw_id, true);
     step_simulation(&mut doc_horn, 0);
     assert!(
-        doc_horn.items[horn_idx].sim_active,
+        doc_horn.sim_active(horn_id),
         "Buzina deve tocar ao acionar o botão horn_switch!"
     );
 
@@ -1815,23 +1903,12 @@ fn test_strict_and_series_conduction_command_and_power() {
         .iter()
         .find(|i| i.tag == "-KM1" && i.tipo == 9000)
         .unwrap();
-    assert!(!km.sim_active, "AND (0,0): Bobina deve estar DESLIGADA");
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_s1_s2)
-            .unwrap()
-            .sim_potential,
-        Potential::None
+    assert!(
+        !doc.sim_active(km.id),
+        "AND (0,0): Bobina deve estar DESLIGADA"
     );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_s2_km)
-            .unwrap()
-            .sim_potential,
-        Potential::None
-    );
+    assert_eq!(doc.sim_potential(w_s1_s2), Potential::None);
+    assert_eq!(doc.sim_potential(w_s2_km), Potential::None);
 
     // Caso 2: (S1=1, S2=0) -> S1 fechado, S2 aberto
     // A eletricidade passa por S1 (cabo w_s1_s2 recebe L1), mas NÃO passa por S2 (w_s2_km é None)!
@@ -1843,25 +1920,11 @@ fn test_strict_and_series_conduction_command_and_power() {
         .find(|i| i.tag == "-KM1" && i.tipo == 9000)
         .unwrap();
     assert!(
-        !km.sim_active,
+        !doc.sim_active(km.id),
         "AND (1,0): Bobina deve estar DESLIGADA se S2 estiver aberto"
     );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_s1_s2)
-            .unwrap()
-            .sim_potential,
-        Potential::L1
-    );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_s2_km)
-            .unwrap()
-            .sim_potential,
-        Potential::None
-    );
+    assert_eq!(doc.sim_potential(w_s1_s2), Potential::L1);
+    assert_eq!(doc.sim_potential(w_s2_km), Potential::None);
 
     // Caso 3: (S1=0, S2=1) -> S1 aberto, S2 fechado
     // A eletricidade é barrada em S1!
@@ -1874,25 +1937,11 @@ fn test_strict_and_series_conduction_command_and_power() {
         .find(|i| i.tag == "-KM1" && i.tipo == 9000)
         .unwrap();
     assert!(
-        !km.sim_active,
+        !doc.sim_active(km.id),
         "AND (0,1): Bobina deve estar DESLIGADA se S1 estiver aberto"
     );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_s1_s2)
-            .unwrap()
-            .sim_potential,
-        Potential::None
-    );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_s2_km)
-            .unwrap()
-            .sim_potential,
-        Potential::None
-    );
+    assert_eq!(doc.sim_potential(w_s1_s2), Potential::None);
+    assert_eq!(doc.sim_potential(w_s2_km), Potential::None);
 
     // Caso 4: (S1=1, S2=1) -> Ambos fechados!
     // Condição AND satisfeita: eletricidade passa por S1 E por S2, energizando KM1!
@@ -1905,25 +1954,11 @@ fn test_strict_and_series_conduction_command_and_power() {
         .find(|i| i.tag == "-KM1" && i.tipo == 9000)
         .unwrap();
     assert!(
-        km.sim_active,
+        doc.sim_active(km.id),
         "AND (1,1): Bobina DEVE LIGAR quando ambos estiverem fechados"
     );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_s1_s2)
-            .unwrap()
-            .sim_potential,
-        Potential::L1
-    );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_s2_km)
-            .unwrap()
-            .sim_potential,
-        Potential::L1
-    );
+    assert_eq!(doc.sim_potential(w_s1_s2), Potential::L1);
+    assert_eq!(doc.sim_potential(w_s2_km), Potential::L1);
 
     // ==================== 2. CIRCUITO DE POTÊNCIA EM SÉRIE (AND / &&) ====================
     // Monta: Alimentação 3F (3004) -> Disjuntor 3P -Q1 (6003) -> Contator 3P -KM2 (2001) -> Motor 3~ -M1 (1000)
@@ -2002,7 +2037,7 @@ fn test_strict_and_series_conduction_command_and_power() {
     step_simulation(&mut doc_pwr, 50);
     let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
     assert!(
-        !m1.sim_active,
+        !doc_pwr.sim_active(m1.id),
         "Potência: Motor desligado quando Q1 e KM2 abertos"
     );
 
@@ -2011,28 +2046,14 @@ fn test_strict_and_series_conduction_command_and_power() {
     step_simulation(&mut doc_pwr, 50);
     let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
     assert!(
-        !m1.sim_active,
+        !doc_pwr.sim_active(m1.id),
         "Potência: Motor desligado se contator KM2 estiver aberto"
     );
     for &w in &wires_mid {
-        assert!(doc_pwr
-            .items
-            .iter()
-            .find(|i| i.id == w)
-            .unwrap()
-            .sim_potential
-            .is_energized());
+        assert!(doc_pwr.sim_potential(w).is_energized());
     }
     for &w in &wires_bot {
-        assert_eq!(
-            doc_pwr
-                .items
-                .iter()
-                .find(|i| i.id == w)
-                .unwrap()
-                .sim_potential,
-            Potential::None
-        );
+        assert_eq!(doc_pwr.sim_potential(w), Potential::None);
     }
 
     // Q1 aberto, KM2 fechado -> Eletricidade NÃO passa por Q1, motor parado!
@@ -2041,7 +2062,7 @@ fn test_strict_and_series_conduction_command_and_power() {
     step_simulation(&mut doc_pwr, 50);
     let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
     assert!(
-        !m1.sim_active,
+        !doc_pwr.sim_active(m1.id),
         "Potência: Motor desligado se disjuntor Q1 estiver aberto"
     );
 
@@ -2051,18 +2072,12 @@ fn test_strict_and_series_conduction_command_and_power() {
     step_simulation(&mut doc_pwr, 50);
     let m1 = doc_pwr.items.iter().find(|i| i.tipo == 1000).unwrap();
     assert!(
-        m1.sim_active,
+        doc_pwr.sim_active(m1.id),
         "Potência: Motor DEVE LIGAR quando Q1 E KM2 estiverem fechados"
     );
-    assert_eq!(m1.sim_motor_dir, 1);
+    assert_eq!(doc_pwr.sim_motor_dir(m1.id), 1);
     for &w in &wires_bot {
-        assert!(doc_pwr
-            .items
-            .iter()
-            .find(|i| i.id == w)
-            .unwrap()
-            .sim_potential
-            .is_energized());
+        assert!(doc_pwr.sim_potential(w).is_energized());
     }
 }
 
@@ -2153,15 +2168,11 @@ fn test_strict_or_parallel_conduction_command_and_power() {
         .iter()
         .find(|i| i.tag == "-KM1" && i.tipo == 9000)
         .unwrap();
-    assert!(!km.sim_active, "OR (0,0): Bobina deve estar DESLIGADA");
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_out)
-            .unwrap()
-            .sim_potential,
-        Potential::None
+    assert!(
+        !doc.sim_active(km.id),
+        "OR (0,0): Bobina deve estar DESLIGADA"
     );
+    assert_eq!(doc.sim_potential(w_out), Potential::None);
 
     // Caso 2: (S1=1, S2=0) -> S1 fechado, S2 aberto
     // A corrente flui pelo ramo A, alcança o nó J2 e liga a bobina!
@@ -2173,17 +2184,10 @@ fn test_strict_or_parallel_conduction_command_and_power() {
         .find(|i| i.tag == "-KM1" && i.tipo == 9000)
         .unwrap();
     assert!(
-        km.sim_active,
+        doc.sim_active(km.id),
         "OR (1,0): Bobina DEVE LIGAR pelo ramo A fechado"
     );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_out)
-            .unwrap()
-            .sim_potential,
-        Potential::L1
-    );
+    assert_eq!(doc.sim_potential(w_out), Potential::L1);
 
     // Caso 3: (S1=0, S2=1) -> S1 aberto, S2 fechado
     // A corrente flui pelo ramo B, alcança o nó J2 e liga a bobina!
@@ -2196,17 +2200,10 @@ fn test_strict_or_parallel_conduction_command_and_power() {
         .find(|i| i.tag == "-KM1" && i.tipo == 9000)
         .unwrap();
     assert!(
-        km.sim_active,
+        doc.sim_active(km.id),
         "OR (0,1): Bobina DEVE LIGAR pelo ramo B fechado"
     );
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_out)
-            .unwrap()
-            .sim_potential,
-        Potential::L1
-    );
+    assert_eq!(doc.sim_potential(w_out), Potential::L1);
 
     // Caso 4: (S1=1, S2=1) -> Ambos fechados
     set_manual_by_tag(&mut doc, "-S1", true);
@@ -2217,15 +2214,8 @@ fn test_strict_or_parallel_conduction_command_and_power() {
         .iter()
         .find(|i| i.tag == "-KM1" && i.tipo == 9000)
         .unwrap();
-    assert!(km.sim_active, "OR (1,1): Bobina DEVE LIGAR");
-    assert_eq!(
-        doc.items
-            .iter()
-            .find(|i| i.id == w_out)
-            .unwrap()
-            .sim_potential,
-        Potential::L1
-    );
+    assert!(doc.sim_active(km.id), "OR (1,1): Bobina DEVE LIGAR");
+    assert_eq!(doc.sim_potential(w_out), Potential::L1);
 }
 
 #[test]
@@ -2327,12 +2317,13 @@ fn test_ladder_and_fluid_power_boolean_equivalence() {
         step_simulation(&mut doc, 50);
 
         let expected = (a_val || b_val) && !c_pressed;
-        let y_active = doc
+        let y_id = doc
             .items
             .iter()
             .find(|i| i.tag == "-Y" && i.tipo == 9000)
             .unwrap()
-            .sim_active;
+            .id;
+        let y_active = doc.sim_active(y_id);
         assert_eq!(
             y_active, expected,
             "Falha na tabela verdade para A={}, B={}, C_pressed={}: esperado {}, obtido {}",
@@ -2821,52 +2812,49 @@ fn test_actuator_switches_latching_and_momentary_distinction() {
     // Pressiona o botão momentâneo -> fica ativo
     press_component_on_sim(&mut doc, 1);
     assert!(
-        doc.items[0].sim_manual_latched,
+        doc.sim_latched(1),
         "Botão momentâneo deve ficar ativo ao pressionar"
     );
 
     // Solta o botão momentâneo -> volta a repouso
     release_component_on_sim(&mut doc, 1);
     assert!(
-        !doc.items[0].sim_manual_latched,
+        !doc.sim_latched(1),
         "Botão momentâneo deve soltar ao liberar o mouse"
     );
 
     // Pressiona a chave interruptor (8008) -> retém ativo
     press_component_on_sim(&mut doc, 2);
-    assert!(
-        doc.items[1].sim_manual_latched,
-        "Chave interruptor deve reter ativo"
-    );
+    assert!(doc.sim_latched(2), "Chave interruptor deve reter ativo");
 
     // Solta a chave interruptor -> DEVE CONTINUAR ATIVO (retentivo/bi-estável)
     release_component_on_sim(&mut doc, 2);
     assert!(
-        doc.items[1].sim_manual_latched,
+        doc.sim_latched(2),
         "Chave interruptor deve permanecer retida após soltar mouse"
     );
 
     // Segundo clique na chave interruptor -> desativa (alterna)
     press_component_on_sim(&mut doc, 2);
     assert!(
-        !doc.items[1].sim_manual_latched,
+        !doc.sim_latched(2),
         "Segundo clique desativa chave interruptor"
     );
 
     // Pressiona o botão de emergência retentivo (8030)
     press_component_on_sim(&mut doc, 3);
     assert!(
-        doc.items[2].sim_manual_latched,
+        doc.sim_latched(3),
         "Botão de emergência deve travar ao pressionar"
     );
     release_component_on_sim(&mut doc, 3);
     assert!(
-        doc.items[2].sim_manual_latched,
+        doc.sim_latched(3),
         "Botão de emergência retém travado ao soltar mouse"
     );
     press_component_on_sim(&mut doc, 3);
     assert!(
-        !doc.items[2].sim_manual_latched,
+        !doc.sim_latched(3),
         "Segundo clique destrava o botão de emergência"
     );
 }
@@ -3012,8 +3000,8 @@ fn test_crossover_switch_and_limit_switches_conduction() {
     // No repouso: conexão direta -> pino 0 (L1) liga ao pino 2 (fio 6), pino 1 (N) liga ao pino 3 (fio 7)
     step_simulation(&mut doc, 50);
 
-    let pot_out_left = doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential;
-    let pot_out_right = doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential;
+    let pot_out_left = doc.sim_potential(6);
+    let pot_out_right = doc.sim_potential(7);
     assert_eq!(
         pot_out_left,
         Potential::L1,
@@ -3027,15 +3015,11 @@ fn test_crossover_switch_and_limit_switches_conduction() {
 
     // Ativa a chave inversora (cross.sim_manual_latched = true)
     // No ativo: conexão cruzada -> pino 0 (L1) liga ao pino 3 (fio 7), pino 1 (N) liga ao pino 2 (fio 6)
-    doc.items
-        .iter_mut()
-        .find(|i| i.id == 3)
-        .unwrap()
-        .sim_manual_latched = true;
+    doc.set_sim_latched(3, true);
     step_simulation(&mut doc, 50);
 
-    let pot_out_left_inv = doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential;
-    let pot_out_right_inv = doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential;
+    let pot_out_left_inv = doc.sim_potential(6);
+    let pot_out_right_inv = doc.sim_potential(7);
     assert_eq!(
         pot_out_left_inv,
         Potential::N,
@@ -3112,35 +3096,15 @@ fn test_limit_switches_and_thermal_aux_contacts() {
 
     // Em repouso: NO aberto (saída None), NC fechado (saída L1)
     step_simulation(&mut doc, 50);
-    assert_eq!(
-        doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential,
-        Potential::None
-    );
-    assert_eq!(
-        doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential,
-        Potential::L1
-    );
+    assert_eq!(doc.sim_potential(6), Potential::None);
+    assert_eq!(doc.sim_potential(7), Potential::L1);
 
     // Ativa ambos os fins de curso: NO fecha (saída L1), NC abre (saída None)
-    doc.items
-        .iter_mut()
-        .find(|i| i.id == 2)
-        .unwrap()
-        .sim_manual_latched = true;
-    doc.items
-        .iter_mut()
-        .find(|i| i.id == 3)
-        .unwrap()
-        .sim_manual_latched = true;
+    doc.set_sim_latched(2, true);
+    doc.set_sim_latched(3, true);
     step_simulation(&mut doc, 50);
-    assert_eq!(
-        doc.items.iter().find(|i| i.id == 6).unwrap().sim_potential,
-        Potential::L1
-    );
-    assert_eq!(
-        doc.items.iter().find(|i| i.id == 7).unwrap().sim_potential,
-        Potential::None
-    );
+    assert_eq!(doc.sim_potential(6), Potential::L1);
+    assert_eq!(doc.sim_potential(7), Potential::None);
 
     // 3. Testa atuação do relé térmico pai (6007) sobre contato auxiliar térmico duplo (8018)
     let sym_f = find_symbol(6007).unwrap();
@@ -3193,29 +3157,19 @@ fn test_limit_switches_and_thermal_aux_contacts() {
 
     // Em repouso do relé térmico: 95-96 conduz (fio 14 = L1), 97-98 aberto (fio 15 = None)
     step_simulation(&mut doc, 50);
-    assert_eq!(
-        doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential,
-        Potential::L1
-    );
-    assert_eq!(
-        doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential,
-        Potential::None
-    );
+    assert_eq!(doc.sim_potential(14), Potential::L1);
+    assert_eq!(doc.sim_potential(15), Potential::None);
 
     // Dispara o relé térmico principal -F1 -> o contato auxiliar 8018 comuta automaticamente via tag!
-    doc.items
-        .iter_mut()
-        .find(|i| i.id == 10)
-        .unwrap()
-        .sim_manual_latched = true;
+    doc.set_sim_latched(10, true);
     step_simulation(&mut doc, 50);
     assert_eq!(
-        doc.items.iter().find(|i| i.id == 14).unwrap().sim_potential,
+        doc.sim_potential(14),
         Potential::None,
         "95-96 abre quando -F1 desarma"
     );
     assert_eq!(
-        doc.items.iter().find(|i| i.id == 15).unwrap().sim_potential,
+        doc.sim_potential(15),
         Potential::L1,
         "97-98 fecha quando -F1 desarma"
     );
@@ -3423,7 +3377,6 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
 
     let mut q1 = sym_q3p.instantiate(2, 20, 40, 0);
     q1.tag = "-Q1".to_string();
-    q1.sim_manual_latched = false; // Começa aberto
     let wp_q1 = sym_q3p.world_pins(&q1);
 
     doc.items.push(src);
@@ -3468,39 +3421,28 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
 
     // Em repouso (disjuntor aberto), nada conduz a jusante e o disjuntor está sem falha
     step_simulation(&mut doc, 50);
-    let q1_item = doc.items.iter().find(|i| i.id == 2).unwrap();
-    assert!(!q1_item.sim_manual_latched);
-    assert!(!q1_item.sim_fault);
+    assert!(!doc.sim_latched(2));
+    assert!(!doc.sim_fault(2));
 
     // Fecha o disjuntor -Q1 -> a corrente de curto entre L1 e L2 faz o disjuntor DESARMAR (trip magnético)!
-    doc.items
-        .iter_mut()
-        .find(|i| i.id == 2)
-        .unwrap()
-        .sim_manual_latched = true;
+    doc.set_sim_latched(2, true);
     step_simulation(&mut doc, 50);
 
-    let q1_after = doc.items.iter().find(|i| i.id == 2).unwrap();
     assert!(
-        !q1_after.sim_manual_latched,
+        !doc.sim_latched(2),
         "O disjuntor -Q1 deve desarmar (abrir) por curto-circuito!"
     );
     assert!(
-        q1_after.sim_fault,
+        doc.sim_fault(2),
         "O disjuntor -Q1 deve registrar estado de trip/falha!"
     );
     assert!(
-        !q1_after.sim_active,
+        !doc.sim_active(2),
         "O disjuntor desarmado não deve conduzir!"
     );
 
     // Como o disjuntor desarmou, as saídas são desenergizadas, extinguindo o curto
-    let sc_wire_pot = doc
-        .items
-        .iter()
-        .find(|i| i.id == sc_wire_id)
-        .unwrap()
-        .sim_potential;
+    let sc_wire_pot = doc.sim_potential(sc_wire_id);
     assert_ne!(
         sc_wire_pot,
         Potential::ShortCircuit,
@@ -3510,20 +3452,18 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
     // 2. Testa rearme do disjuntor após remoção do curto
     doc.items.retain(|i| i.id != sc_wire_id);
     toggle_component_on_click(&mut doc, 2);
-    let q1_rearmed = doc.items.iter().find(|i| i.id == 2).unwrap();
-    assert!(q1_rearmed.sim_manual_latched);
+    assert!(doc.sim_latched(2));
     assert!(
-        !q1_rearmed.sim_fault,
+        !doc.sim_fault(2),
         "O rearme do disjuntor deve limpar o flag de trip"
     );
 
     step_simulation(&mut doc, 50);
-    let q1_holding = doc.items.iter().find(|i| i.id == 2).unwrap();
     assert!(
-        q1_holding.sim_manual_latched,
+        doc.sim_latched(2),
         "Sem curto-circuito, o disjuntor deve permanecer fechado"
     );
-    assert!(!q1_holding.sim_fault);
+    assert!(!doc.sim_fault(2));
 
     // 3. Testa Disjuntor Unipolar 6000 (-Q2) com curto fase-neutro
     let mut doc2 = SchematicDocument::default();
@@ -3536,7 +3476,6 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
     let n = sym_n.instantiate(11, 30, 10, 0);
     let mut q2 = sym_q1p.instantiate(12, 10, 30, 0);
     q2.tag = "-Q2".to_string();
-    q2.sim_manual_latched = true; // Fecha o disjuntor
 
     let wp_l1 = sym_l1.world_pins(&l1);
     let wp_n = sym_n.world_pins(&n);
@@ -3545,6 +3484,7 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
     doc2.items.push(l1);
     doc2.items.push(n);
     doc2.items.push(q2);
+    doc2.set_sim_latched(12, true); // Fecha o disjuntor
 
     // Alimentação L1 -> entrada pino 0 de -Q2
     doc2.items.push(SchematicItem::new_wire(
@@ -3566,12 +3506,11 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
     ));
 
     step_simulation(&mut doc2, 50);
-    let q2_tripped = doc2.items.iter().find(|i| i.id == 12).unwrap();
     assert!(
-        !q2_tripped.sim_manual_latched,
+        !doc2.sim_latched(12),
         "Disjuntor 1P deve desarmar por curto fase-neutro!"
     );
-    assert!(q2_tripped.sim_fault);
+    assert!(doc2.sim_fault(12));
 
     // 4. Testa Fusível Seccionador 5008 (-F1) desarmando em curto-circuito
     let mut doc3 = SchematicDocument::default();
@@ -3581,11 +3520,11 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
     let wp_src3 = sym_src3.world_pins(&src3);
     let mut f1 = sym_f3p.instantiate(21, 10, 30, 0);
     f1.tag = "-F1".to_string();
-    f1.sim_manual_latched = true; // Fecha a seccionadora fusível
     let wp_f1 = sym_f3p.world_pins(&f1);
 
     doc3.items.push(src3);
     doc3.items.push(f1);
+    doc3.set_sim_latched(21, true); // Fecha a seccionadora fusível
 
     // Alimenta L1 e L2 no fusível
     doc3.items.push(SchematicItem::new_wire(
@@ -3615,16 +3554,15 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
     ));
 
     step_simulation(&mut doc3, 50);
-    let f1_blown = doc3.items.iter().find(|i| i.id == 21).unwrap();
     assert!(
-        !f1_blown.sim_manual_latched,
+        !doc3.sim_latched(21),
         "Fusível seccionador deve desarmar (abrir) por curto-circuito!"
     );
     assert!(
-        f1_blown.sim_fault,
+        doc3.sim_fault(21),
         "Fusível queimado deve registrar estado de falha"
     );
-    assert!(!f1_blown.sim_active);
+    assert!(!doc3.sim_active(21));
 
     // 5. Testa Fusível Permanente 5003 (-F2) queimando em curto-circuito
     let mut doc4 = SchematicDocument::default();
@@ -3664,13 +3602,12 @@ fn test_circuit_breakers_and_fuses_trip_on_short_circuit() {
     ));
 
     step_simulation(&mut doc4, 50);
-    let f2_blown = doc4.items.iter().find(|i| i.id == 31).unwrap();
     assert!(
-        f2_blown.sim_manual_latched,
+        doc4.sim_latched(31),
         "Fusível fixo deve queimar (sim_manual_latched: true)!"
     );
-    assert!(f2_blown.sim_fault);
-    assert!(!f2_blown.sim_active);
+    assert!(doc4.sim_fault(31));
+    assert!(!doc4.sim_active(31));
 }
 
 #[test]
@@ -3875,20 +3812,19 @@ fn test_qet_fuse_opens_circuit_when_blown() {
 
     let fuse_intact = &doc.items[0];
     assert!(
-        fuse_intact.sim_active,
+        doc.sim_active(fuse_intact.id),
         "Fusível QET intacto deve estar ativo e condutivo"
     );
 
     // 4. Em estado queimado / desarmado (sim_manual_latched: true), sim_active deve ser false
     let mut doc_blown = SchematicDocument::default();
-    let mut qet_blown = qet_fuse;
-    qet_blown.sim_manual_latched = true;
-    doc_blown.items.push(qet_blown);
+    doc_blown.items.push(qet_fuse);
+    doc_blown.set_sim_latched(10, true);
     step_simulation(&mut doc_blown, 50);
 
     let fuse_blown = &doc_blown.items[0];
     assert!(
-        !fuse_blown.sim_active,
+        !doc_blown.sim_active(fuse_blown.id),
         "Fusível QET queimado (latched) deve abrir o circuito e ter sim_active: false"
     );
 }
@@ -4033,50 +3969,42 @@ fn test_num_nodes_zero_resets_energized_loads() {
     doc.items.clear();
 
     // Motor 1000 ativo
-    let mut motor = SchematicItem::new_symbol(1, 1000, 100, 100, "-M1");
-    motor.sim_active = true;
-    motor.sim_motor_dir = 1;
-    motor.sim_motor_mode = MotorMode::Direct;
+    let motor = SchematicItem::new_symbol(1, 1000, 100, 100, "-M1");
     doc.items.push(motor);
+    let s_motor = doc.sim.get_mut(1);
+    s_motor.active = true;
+    s_motor.motor_dir = 1;
+    s_motor.motor_mode = MotorMode::Direct;
 
     // Bobina 9000 ativa
-    let mut coil = SchematicItem::new_symbol(2, 9000, 200, 200, "-KM1");
-    coil.sim_active = true;
+    let coil = SchematicItem::new_symbol(2, 9000, 200, 200, "-KM1");
     doc.items.push(coil);
+    doc.sim.get_mut(2).active = true;
 
     // Lâmpada sinaleira 9008 ativa
-    let mut lamp = SchematicItem::new_symbol(3, 9008, 300, 300, "-H1");
-    lamp.sim_active = true;
+    let lamp = SchematicItem::new_symbol(3, 9008, 300, 300, "-H1");
     doc.items.push(lamp);
+    doc.sim.get_mut(3).active = true;
 
     // Sem nenhum fio (sem fontes/diferença de potencial)
     step_simulation(&mut doc, 50);
 
     // Motor, bobina e lâmpada devem ser zerados
-    assert!(
-        !doc.items[0].sim_active,
-        "Motor deve ser desligado sem fios"
-    );
-    assert_eq!(doc.items[0].sim_motor_dir, 0);
-    assert_eq!(doc.items[0].sim_motor_mode, MotorMode::Off);
+    assert!(!doc.sim_active(1), "Motor deve ser desligado sem fios");
+    assert_eq!(doc.sim_motor_dir(1), 0);
+    assert_eq!(doc.sim_motor_mode(1), MotorMode::Off);
 
-    assert!(
-        !doc.items[1].sim_active,
-        "Bobina deve ser desenergizada sem fios"
-    );
-    assert!(
-        !doc.items[2].sim_active,
-        "Lâmpada deve ser desligada sem fios"
-    );
+    assert!(!doc.sim_active(2), "Bobina deve ser desenergizada sem fios");
+    assert!(!doc.sim_active(3), "Lâmpada deve ser desligada sem fios");
 
     // Também valida o ramo num_nodes == 0 estrito (itens sem pinos catalogados)
     let mut doc_empty_nodes = SchematicDocument::default();
-    let mut custom_load = SchematicItem::new_symbol(1, 0, 100, 100, "-H2");
-    custom_load.sim_active = true;
+    let custom_load = SchematicItem::new_symbol(1, 0, 100, 100, "-H2");
     doc_empty_nodes.items.push(custom_load);
+    doc_empty_nodes.sim.get_mut(1).active = true;
     step_simulation(&mut doc_empty_nodes, 50);
     assert!(
-        !doc_empty_nodes.items[0].sim_active,
+        !doc_empty_nodes.sim_active(1),
         "Item sem nós deve ser desativado no ramo num_nodes == 0"
     );
 }

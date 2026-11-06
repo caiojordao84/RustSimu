@@ -225,13 +225,6 @@ pub fn parse_cad_str(input: &str) -> Result<SchematicDocument, String> {
             trailing_str: trailing_str.trim().to_string(),
             qet_type: None,
             qet_uuid: None,
-            sim_active: false,
-            sim_manual_latched: false,
-            sim_timer_elapsed_ms: 0,
-            sim_fault: false,
-            sim_motor_dir: 0,
-            sim_motor_mode: crate::model::MotorMode::Off,
-            sim_potential: crate::model::Potential::None,
         });
     }
 
@@ -277,6 +270,7 @@ pub fn parse_cad_str(input: &str) -> Result<SchematicDocument, String> {
         items,
         settings,
         title_block,
+        ..Default::default()
     })
 }
 

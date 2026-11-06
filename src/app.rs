@@ -1559,9 +1559,9 @@ impl CadeSimuApp {
                             self.status_msg = format!(
                                 "Simulação: '{}' ({label}) -> {}",
                                 item.tag,
-                                if item.sim_fault {
+                                if self.doc.sim_fault(item.id) {
                                     "DESARMADO POR CURTO-CIRCUITO (TRIP)"
-                                } else if item.sim_manual_latched {
+                                } else if self.doc.sim_latched(item.id) {
                                     "ACIONADO / FECHADO"
                                 } else {
                                     "REARME / REPOUSO"
@@ -4632,7 +4632,7 @@ impl CadeSimuApp {
                                             .cloned()
                                             .collect::<Vec<_>>()
                                             .join("-");
-                                        let status = if item.sim_active {
+                                        let status = if self.doc.sim_active(item.id) {
                                             "[Ativo]"
                                         } else {
                                             "[Desligado]"
