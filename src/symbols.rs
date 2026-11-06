@@ -1128,7 +1128,7 @@ fn build_symbol_catalog() -> Vec<SymbolDef> {
             tipo: 1001,
             category: SymbolCategory::Motors,
             name: "Motor Trifásico 6 Terminais (Estrela-Triângulo)",
-            short_label: "Motor 3~ Y/D",
+            short_label: "Motor 3~ Y/Δ",
             default_tag: "-M",
             default_value: "",
             pins: vec![

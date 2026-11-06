@@ -86,7 +86,7 @@ impl MotorMode {
             MotorMode::Off => "PARADO",
             MotorMode::Direct => "DIRETA",
             MotorMode::Star => "ESTRELA (Y)",
-            MotorMode::Delta => "TRIÂNGULO (Delta)",
+            MotorMode::Delta => "TRIÂNGULO (Δ)",
         }
     }
 }
@@ -423,8 +423,11 @@ impl ProjectPage {
     }
 }
 
+/// Versão corrente suportada do formato de projeto RustSimu.
+pub const CURRENT_PROJECT_VERSION: u32 = 1;
+
 fn default_project_version() -> u32 {
-    1
+    CURRENT_PROJECT_VERSION
 }
 
 /// Projeto esquemático completo (mono ou multipáginas), formato nativo RustSimu (.json / .toml).

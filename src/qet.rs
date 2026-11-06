@@ -1112,6 +1112,16 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
 
 /// Atualiza as posições e tags dos elementos em um `QetDiagram` a partir do `SchematicDocument` editado.
 pub fn update_diagram_from_document(diagram: &mut QetDiagram, doc: &SchematicDocument) {
+    if !doc.title_block.title.is_empty() {
+        diagram.title = doc.title_block.title.clone();
+    }
+    if !doc.title_block.drawn_by.is_empty() {
+        diagram.author = doc.title_block.drawn_by.clone();
+    }
+    if !doc.title_block.drawn_date.is_empty() {
+        diagram.date = doc.title_block.drawn_date.clone();
+    }
+
     for item in &doc.items {
         if let Some(ref uuid) = item.qet_uuid {
             if let Some(el) = diagram.elements.iter_mut().find(|e| &e.uuid == uuid) {
@@ -1126,6 +1136,28 @@ pub fn update_diagram_from_document(diagram: &mut QetDiagram, doc: &SchematicDoc
                     }
                 }
             }
+        } else if !item.is_wire() && item.tipo != 8 {
+            // Novo elemento adicionado sem UUID QET prévio
+            let el_type = item
+                .qet_type
+                .clone()
+                .unwrap_or_else(|| format!("type_{}", item.tipo));
+            let uuid = format!("item_{}", item.id);
+            diagram.elements.push(QetElementInstance {
+                uuid,
+                element_type: el_type,
+                x: item.x1 as f32,
+                y: item.y1 as f32,
+                orientation: item.orientation,
+                z: 10,
+                prefix: String::new(),
+                labels: if item.tag.is_empty() {
+                    vec![]
+                } else {
+                    vec![item.tag.clone()]
+                },
+                ..Default::default()
+            });
         }
     }
 }
@@ -1245,23 +1277,10 @@ pub fn serialize_qet_xml(project: &QetProject) -> String {
     xml
 }
 
-/// Salva um `QetProject` no caminho especificado de forma atômica.
+/// Salva um `QetProject` no caminho especificado de forma atômica utilizando o helper centralizado.
 pub fn save_qet_file(path: &Path, project: &QetProject) -> Result<(), String> {
     let xml = serialize_qet_xml(project);
-    let tmp_path = path.with_extension(format!(
-        "{}.tmp",
-        path.extension().and_then(|e| e.to_str()).unwrap_or("qet")
-    ));
-    fs::write(&tmp_path, &xml).map_err(|e| {
-        format!(
-            "Falha ao gravar arquivo temporário QET {}: {e}",
-            tmp_path.display()
-        )
-    })?;
-    fs::rename(&tmp_path, path).map_err(|e| {
-        let _ = fs::remove_file(&tmp_path);
-        format!("Falha ao renomear arquivo QET {}: {e}", path.display())
-    })
+    crate::io::atomic_write(path, xml)
 }
 
 /// Converte um `SchematicDocument` em uma página `QetDiagram`.
@@ -1366,6 +1385,8 @@ pub fn document_to_diagram(
 }
 
 /// Exporta todas as folhas de um projeto (`ProjectPage`) como um projeto `.qet` multipáginas.
+/// Quando `existing_proj` é fornecido, preserva as dimensões, propriedades e condutores de cada folha existente,
+/// atualizando apenas o conteúdo editado e criando novos diagramas apenas para folhas adicionadas.
 pub fn export_pages_to_qet(
     pages: &[crate::model::ProjectPage],
     active_page_index: usize,
@@ -1393,12 +1414,23 @@ pub fn export_pages_to_qet(
         }
     };
 
-    proj.diagrams.clear();
+    let mut new_diagrams = Vec::with_capacity(pages.len());
     for (idx, page) in pages.iter().enumerate() {
         let order = (idx + 1) as i32;
-        let diagram = document_to_diagram(&page.doc, &page.name, order, &filename);
-        proj.diagrams.push(diagram);
+        if let Some(existing_diag) = proj.diagrams.get(idx) {
+            let mut diag = existing_diag.clone();
+            diag.order = order;
+            if !page.name.is_empty() {
+                diag.title = page.name.clone();
+            }
+            update_diagram_from_document(&mut diag, &page.doc);
+            new_diagrams.push(diag);
+        } else {
+            let diagram = document_to_diagram(&page.doc, &page.name, order, &filename);
+            new_diagrams.push(diagram);
+        }
     }
+    proj.diagrams = new_diagrams;
     proj.active_diagram_index = active_page_index.min(pages.len().saturating_sub(1));
 
     save_qet_file(path, &proj)

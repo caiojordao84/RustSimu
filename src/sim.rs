@@ -54,9 +54,16 @@ pub fn has_any_token(label: &str, tokens: &[&str]) -> bool {
     words.any(|w| tokens.iter().any(|t| w.eq_ignore_ascii_case(t)))
 }
 
+/// Casador híbrido: verifica se algum radical (stem) está contido em qualquer parte de `label` (para compostos como
+/// "Endschalter", "limitswitch", "microswitch", "Drucktaster", "pushbutton") OU se casa exatamente como palavra inteira (exact).
+pub fn matches_label(label: &str, stems: &[&str], exact: &[&str]) -> bool {
+    let l = label.to_ascii_lowercase();
+    stems.iter().any(|s| l.contains(s)) || has_any_token(label, exact)
+}
+
 /// Heurística para identificar interruptores, seccionadores ou botões manuais da biblioteca QET.
 pub fn is_qet_switch_or_button(label: &str) -> bool {
-    has_any_token(
+    matches_label(
         label,
         &[
             "switch",
@@ -67,50 +74,50 @@ pub fn is_qet_switch_or_button(label: &str) -> bool {
             "bouton",
             "interrupteur",
         ],
+        &[],
     )
 }
 
 /// Heurística para identificar distribuidores, divisores ou conexões passivas da biblioteca QET.
+/// Notar que "terminal", "connector" e "bornier" genérico são intencionalmente omitidos para evitar curto-circuitar
+/// bornes independentes de réguas de bornes / conectores multipinos.
 pub fn is_qet_splitter_or_passive(label: &str) -> bool {
-    has_any_token(
+    matches_label(
         label,
         &[
             "splitter",
             "verteiler",
             "distributor",
             "splice",
-            "connector",
-            "bornier",
-            "terminal",
             "repartiteur",
         ],
+        &[],
     )
 }
 
 /// Heurística para identificar cargas elétricas consumidoras (motores, lâmpadas, buzinas, ventoinhas) da QET.
 pub fn is_qet_load(label: &str) -> bool {
-    let is_switch_or_diag = has_any_token(
+    let is_switch_or_diag = matches_label(
         label,
-        &["switch", "connector", "diagram", "plan", "schalter"],
+        &["switch", "schalter"],
+        &["connector", "diagram", "plan"],
     );
     !is_switch_or_diag
-        && has_any_token(
+        && matches_label(
             label,
-            &[
-                "starter", "motor", "horn", "fan", "light", "lamp", "lampe", "bulb", "klaxon",
-                "sirene", "voyant",
-            ],
+            &["motor", "starter", "klaxon", "sirene", "voyant"],
+            &["fan", "light", "lamp", "lampe", "bulb", "horn"],
         )
 }
 
 /// Heurística para identificar fontes de alimentação contínua positiva (bateria / terminal positivo) da QET.
 pub fn is_qet_source_dc_pos(label: &str) -> bool {
-    has_any_token(label, &["battery", "batterie", "plus", "dcpos"])
+    matches_label(label, &["batter"], &["plus", "dcpos"])
 }
 
 /// Heurística para identificar terra / referência negativa de corrente contínua da QET.
 pub fn is_qet_source_ground(label: &str) -> bool {
-    has_any_token(label, &["ground", "masse", "gnd", "earth", "terre"])
+    matches_label(label, &["ground", "masse"], &["gnd", "earth", "terre"])
 }
 
 /// Verifica se o item pode ser acionado/comutado manualmente pelo usuário.

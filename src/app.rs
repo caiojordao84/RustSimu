@@ -4638,7 +4638,7 @@ impl CadeSimuApp {
                                             "[Desligado]"
                                         };
                                         text(format!(
-                                            "- #{} {}: [{}] ({})",
+                                            "• #{} {}: [{}] ({})",
                                             item.id, sname, p_list, status
                                         ))
                                         .size(11)
@@ -4717,7 +4717,7 @@ impl CadeSimuApp {
                                                 format!("- bornes: {}", item.pins.join("-"))
                                             };
                                             text(format!(
-                                                "- #{}: {} (X:{}, Y:{}) {}",
+                                                "• #{}: {} (X:{}, Y:{}) {}",
                                                 item.id, sname, item.x1, item.y1, bornes
                                             ))
                                             .size(11)

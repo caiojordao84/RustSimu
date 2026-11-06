@@ -4004,6 +4004,24 @@ fn test_project_version_and_error_reporting() {
     );
 
     let _ = std::fs::remove_file(bad_json_path);
+
+    // 4. Testa rejeição de projeto com versão futura (version > CURRENT_PROJECT_VERSION)
+    let future_json_path = temp_dir.join(format!(
+        "test_future_project_{}_{}.json",
+        std::process::id(),
+        unique_id
+    ));
+    std::fs::write(
+        &future_json_path,
+        r#"{"version": 99, "pages": [], "active_page_index": 0}"#,
+    )
+    .unwrap();
+    let err_future = cade_simu_rs::io::load_project(&future_json_path).unwrap_err();
+    assert!(
+        err_future.contains("não suportada por esta versão do RustSimu"),
+        "Deve rejeitar versão futura de projeto: {err_future}"
+    );
+    let _ = std::fs::remove_file(future_json_path);
 }
 
 #[test]
@@ -4065,9 +4083,27 @@ fn test_num_nodes_zero_resets_energized_loads() {
 
 #[test]
 fn test_qet_heuristic_token_matching_no_false_positives() {
-    use cade_simu_rs::sim::is_qet_load;
+    use cade_simu_rs::sim::{
+        is_qet_load, is_qet_source_dc_pos, is_qet_source_ground, is_qet_splitter_or_passive,
+        is_qet_switch_or_button,
+    };
 
-    // Falsos positivos comuns de substring não devem casar
+    // 1. Interruptores e botões com palavras compostas (alemão, inglês, francês)
+    assert!(is_qet_switch_or_button("sensors/limitswitch_no.elmt"));
+    assert!(is_qet_switch_or_button("relays/microswitch.elmt"));
+    assert!(is_qet_switch_or_button("buttons/pushbutton_green.elmt"));
+    assert!(is_qet_switch_or_button("automatisme/endschalter_nc.elmt"));
+    assert!(is_qet_switch_or_button("bedienung/drucktaster_rot.elmt"));
+    assert!(is_qet_switch_or_button("commandes/bouton_poussoir.elmt"));
+    assert!(is_qet_switch_or_button(
+        "contacteurs/interrupteur_sectionneur.elmt"
+    ));
+    assert!(is_qet_switch_or_button("auto/ignition_starter_switch.elmt"));
+
+    assert!(!is_qet_switch_or_button("transformateurs/transfo_1p.elmt"));
+    assert!(!is_qet_switch_or_button("borniers/terminal_block_3p.elmt"));
+
+    // 2. Cargas elétricas: falsos positivos comuns de substring não devem casar
     assert!(
         !is_qet_load("flight_control_unit.elmt"),
         "flight não deve ser reconhecido como light"
@@ -4081,10 +4117,202 @@ fn test_qet_heuristic_token_matching_no_false_positives() {
         "clamping não deve ser reconhecido como lamp"
     );
 
-    // Palavras legítimas delimitadas devem ser reconhecidas
+    // Cargas compostas e legítimas
     assert!(is_qet_load("cooling/cooling_fan_24v.elmt"));
     assert!(is_qet_load("signal/warning_light_red.elmt"));
     assert!(is_qet_load("eclairage/lampe_temoin.elmt"));
     assert!(is_qet_load("actuators/horn_12v.elmt"));
     assert!(is_qet_load("engines/starter_motor.elmt"));
+    assert!(is_qet_load("motors/servomotor_ac.elmt"));
+    assert!(is_qet_load("alarmes/sirene_electronique.elmt"));
+    assert!(is_qet_load("signalisation/voyant_led.elmt"));
+
+    // 3. Fontes DC+ e Terra
+    assert!(is_qet_source_dc_pos("auto/autobatterie_12v.elmt"));
+    assert!(is_qet_source_dc_pos("power/battery_pack.elmt"));
+    assert!(is_qet_source_dc_pos("dc_power/terminal_plus.elmt"));
+    assert!(!is_qet_source_dc_pos("terminals/chassis_ground.elmt"));
+
+    assert!(is_qet_source_ground("power/chassis_ground.elmt"));
+    assert!(is_qet_source_ground("auto/masse_carrosserie.elmt"));
+    assert!(is_qet_source_ground("protection/earth_ground.elmt"));
+    assert!(is_qet_source_ground("logic/gnd_plane.elmt"));
+
+    // 4. Conexões passivas e distribuidores
+    assert!(is_qet_splitter_or_passive("distribution/verteiler_3p.elmt"));
+    assert!(is_qet_splitter_or_passive("power/distributor_block.elmt"));
+    assert!(is_qet_splitter_or_passive("cables/splice_point.elmt"));
+    assert!(is_qet_splitter_or_passive(
+        "cables/bornier_repartiteur.elmt"
+    ));
+    // Conectores e bornes NÃO devem ser splitters automáticos para não curto-circuitar todos os pinos
+    assert!(!is_qet_splitter_or_passive(
+        "borniers/terminal_strip_24p.elmt"
+    ));
+    assert!(!is_qet_splitter_or_passive(
+        "connectors/connector_db25.elmt"
+    ));
+}
+
+#[test]
+fn test_qet_multipage_merge_preserves_existing_diagram_properties() {
+    use cade_simu_rs::model::ProjectPage;
+    use cade_simu_rs::qet::{
+        export_pages_to_qet, load_qet_file, QetConductor, QetConductorSegment, QetDiagram,
+        QetElementInstance, QetProject,
+    };
+
+    // 1. Cria um QetProject simulado com propriedades e dimensões customizadas
+    let mut custom_diag1 = QetDiagram {
+        order: 1,
+        title: "Folha Original 1".to_string(),
+        author: "Engenharia".to_string(),
+        date: "2026-11-05".to_string(),
+        rows: 14,
+        cols: 10,
+        rowsize: 65.5,
+        colsize: 145.0,
+        height: 920.0,
+        width: 1450.0,
+        ..Default::default()
+    };
+    custom_diag1.elements.push(QetElementInstance {
+        uuid: "uuid-orig-1".to_string(),
+        element_type: "motor_custom".to_string(),
+        x: 120.0,
+        y: 180.0,
+        orientation: 0,
+        labels: vec!["-M1".to_string()],
+        ..Default::default()
+    });
+    custom_diag1.conductors.push(QetConductor {
+        element1: "uuid-orig-1".to_string(),
+        terminal1: "1".to_string(),
+        element2: "uuid-orig-2".to_string(),
+        terminal2: "2".to_string(),
+        segments: vec![QetConductorSegment {
+            orientation: "horizontal".to_string(),
+            length: 50.0,
+        }],
+        ..Default::default()
+    });
+
+    let custom_diag2 = QetDiagram {
+        order: 2,
+        title: "Folha Original 2".to_string(),
+        author: "Engenharia".to_string(),
+        date: "2026-11-05".to_string(),
+        rows: 10,
+        cols: 8,
+        rowsize: 70.0,
+        colsize: 160.0,
+        height: 700.0,
+        width: 1280.0,
+        ..Default::default()
+    };
+
+    let original_project = QetProject {
+        title: "Projeto Customizado QET".to_string(),
+        version: "0.100.0".to_string(),
+        diagrams: vec![custom_diag1, custom_diag2],
+        ..Default::default()
+    };
+
+    // 2. Converte para páginas editadas:
+    // Na folha 1, alteramos a posição do elemento uuid-orig-1 e adicionamos um novo elemento
+    let mut doc1 = cade_simu_rs::qet::diagram_to_document(&original_project, 0);
+    // Move o elemento
+    if let Some(item) = doc1
+        .items
+        .iter_mut()
+        .find(|i| i.qet_uuid.as_deref() == Some("uuid-orig-1"))
+    {
+        item.x1 = 200;
+        item.y1 = 250;
+    }
+    // Adiciona novo elemento
+    doc1.items
+        .push(SchematicItem::new_symbol(99, 1000, 300, 300, "-M2"));
+
+    let doc2 = cade_simu_rs::qet::diagram_to_document(&original_project, 1);
+
+    // E adicionamos uma nova Folha 3 (criada do zero no RustSimu)
+    let doc3 = SchematicDocument::default();
+
+    let pages = vec![
+        ProjectPage::new(1, "Folha Original 1".to_string(), doc1),
+        ProjectPage::new(2, "Folha Original 2".to_string(), doc2),
+        ProjectPage::new(3, "Folha Nova 3".to_string(), doc3),
+    ];
+
+    let temp_dir = std::env::temp_dir();
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let out_path = temp_dir.join(format!(
+        "test_merge_qet_{}_{}.qet",
+        std::process::id(),
+        unique_id
+    ));
+
+    // Exporta utilizando o existing_proj
+    export_pages_to_qet(&pages, 0, &out_path, Some(&original_project))
+        .expect("export_pages_to_qet com merge deve salvar com sucesso");
+
+    // 3. Recarrega o arquivo gerado
+    let reloaded = load_qet_file(&out_path).expect("load_qet_file do arquivo mesclado");
+    assert_eq!(
+        reloaded.diagrams.len(),
+        3,
+        "Deve conter 3 diagramas no total"
+    );
+
+    // Folha 1: dimensões originais preservadas intactas!
+    let d1 = &reloaded.diagrams[0];
+    assert_eq!(d1.rows, 14, "rows da folha 1 deve ser preservado");
+    assert_eq!(d1.cols, 10, "cols da folha 1 deve ser preservado");
+    assert_eq!(d1.rowsize, 65.5, "rowsize da folha 1 deve ser preservado");
+    assert_eq!(d1.colsize, 145.0, "colsize da folha 1 deve ser preservado");
+    assert_eq!(d1.height, 920.0, "height da folha 1 deve ser preservado");
+    assert_eq!(d1.width, 1450.0, "width da folha 1 deve ser preservado");
+    assert_eq!(
+        d1.conductors.len(),
+        1,
+        "Condutor original deve ser preservado"
+    );
+    let moved_el = d1
+        .elements
+        .iter()
+        .find(|e| e.uuid == "uuid-orig-1")
+        .expect("Elemento original existente");
+    assert_eq!(
+        moved_el.x, 200.0,
+        "Posição x do elemento editado deve ser atualizada"
+    );
+    assert_eq!(
+        moved_el.y, 250.0,
+        "Posição y do elemento editado deve ser atualizada"
+    );
+    let added_el = d1
+        .elements
+        .iter()
+        .find(|e| e.uuid == "item_99")
+        .expect("Novo elemento adicionado");
+    assert_eq!(added_el.x, 300.0);
+    assert_eq!(added_el.labels, vec!["-M2"]);
+
+    // Folha 2: dimensões originais preservadas intactas!
+    let d2 = &reloaded.diagrams[1];
+    assert_eq!(d2.rows, 10, "rows da folha 2 deve ser preservado");
+    assert_eq!(d2.cols, 8, "cols da folha 2 deve ser preservado");
+    assert_eq!(d2.rowsize, 70.0);
+    assert_eq!(d2.colsize, 160.0);
+
+    // Folha 3: folha nova gerada via document_to_diagram
+    let d3 = &reloaded.diagrams[2];
+    assert_eq!(d3.order, 3);
+    assert_eq!(d3.title, "Folha Nova 3");
+
+    let _ = std::fs::remove_file(out_path);
 }

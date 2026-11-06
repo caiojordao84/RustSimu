@@ -1,4 +1,5 @@
 use std::fs;
+use std::io::Write;
 use std::path::Path;
 
 use crate::model::{
@@ -287,18 +288,34 @@ fn next_token<'a>(input: &'a str, delims: &[char]) -> Result<(String, &'a str), 
     }
 }
 
-/// Grava um arquivo de forma atômica utilizando um arquivo temporário no mesmo diretório e rename.
+/// Grava um arquivo de forma atômica utilizando um arquivo temporário no mesmo diretório,
+/// sincronização com o disco (fsync) e rename para prevenir corrupção em caso de falha de energia.
 pub fn atomic_write(path: &Path, content: impl AsRef<[u8]>) -> Result<(), String> {
     let tmp_path = path.with_extension(format!(
         "{}.tmp",
         path.extension().and_then(|e| e.to_str()).unwrap_or("dat")
     ));
-    fs::write(&tmp_path, content.as_ref()).map_err(|e| {
+    let mut file = fs::File::create(&tmp_path).map_err(|e| {
+        format!(
+            "Falha ao criar arquivo temporário {}: {e}",
+            tmp_path.display()
+        )
+    })?;
+    file.write_all(content.as_ref()).map_err(|e| {
+        let _ = fs::remove_file(&tmp_path);
         format!(
             "Falha ao gravar arquivo temporário {}: {e}",
             tmp_path.display()
         )
     })?;
+    file.sync_all().map_err(|e| {
+        let _ = fs::remove_file(&tmp_path);
+        format!(
+            "Falha ao sincronizar arquivo temporário com o disco {}: {e}",
+            tmp_path.display()
+        )
+    })?;
+    drop(file);
     fs::rename(&tmp_path, path).map_err(|e| {
         let _ = fs::remove_file(&tmp_path);
         format!("Falha ao renomear {}: {e}", path.display())
@@ -375,7 +392,7 @@ pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
         .unwrap_or("")
         .to_ascii_lowercase();
 
-    if ext == "qet" || text.trim_start().starts_with("<project") {
+    let proj: ProjectDocument = if ext == "qet" || text.trim_start().starts_with("<project") {
         let proj = crate::qet::load_qet_from_str(&text)?;
         let mut pages = Vec::new();
         for (idx, diag) in proj.diagrams.iter().enumerate() {
@@ -391,7 +408,7 @@ pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
             .iter()
             .position(|p| !p.doc.items.is_empty())
             .unwrap_or(0);
-        Ok(ProjectDocument::new(pages, active_idx))
+        ProjectDocument::new(pages, active_idx)
     } else if ext == "cad" || text.trim_start().starts_with("CADe_SIMU") {
         let doc = parse_cad_str(&text)?;
         let title = if doc.title_block.title.trim().is_empty() {
@@ -402,11 +419,11 @@ pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
         } else {
             doc.title_block.title.clone()
         };
-        Ok(ProjectDocument::from_single_document(title, doc))
+        ProjectDocument::from_single_document(title, doc)
     } else if ext == "toml" {
         // Tenta desserializar primeiro como ProjectDocument (multipáginas)
         match toml::from_str::<ProjectDocument>(&text) {
-            Ok(proj) => Ok(proj),
+            Ok(proj) => proj,
             Err(err_proj) => {
                 // Fallback para SchematicDocument (monofolha legado)
                 match toml::from_str::<SchematicDocument>(&text) {
@@ -419,15 +436,15 @@ pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
                         } else {
                             doc.title_block.title.clone()
                         };
-                        Ok(ProjectDocument::from_single_document(title, doc))
+                        ProjectDocument::from_single_document(title, doc)
                     }
                     Err(err_legacy) => {
                         if text.contains("pages") {
-                            Err(format!("Erro ao ler projeto TOML: {err_proj}"))
+                            return Err(format!("Erro ao ler projeto TOML: {err_proj}"));
                         } else {
-                            Err(format!(
+                            return Err(format!(
                                 "Erro ao ler TOML: {err_legacy} (tentativa de projeto: {err_proj})"
-                            ))
+                            ));
                         }
                     }
                 }
@@ -436,7 +453,7 @@ pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
     } else {
         // JSON: Tenta desserializar primeiro como ProjectDocument (multipáginas)
         match serde_json::from_str::<ProjectDocument>(&text) {
-            Ok(proj) => Ok(proj),
+            Ok(proj) => proj,
             Err(err_proj) => {
                 // Fallback para SchematicDocument (monofolha legado)
                 match serde_json::from_str::<SchematicDocument>(&text) {
@@ -449,21 +466,31 @@ pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
                         } else {
                             doc.title_block.title.clone()
                         };
-                        Ok(ProjectDocument::from_single_document(title, doc))
+                        ProjectDocument::from_single_document(title, doc)
                     }
                     Err(err_legacy) => {
                         if text.contains("\"pages\"") {
-                            Err(format!("Erro ao ler projeto JSON: {err_proj}"))
+                            return Err(format!("Erro ao ler projeto JSON: {err_proj}"));
                         } else {
-                            Err(format!(
+                            return Err(format!(
                                 "Erro ao ler JSON: {err_legacy} (tentativa de projeto: {err_proj})"
-                            ))
+                            ));
                         }
                     }
                 }
             }
         }
+    };
+
+    if proj.version > crate::model::CURRENT_PROJECT_VERSION {
+        return Err(format!(
+            "Versão do projeto ({}) não suportada por esta versão do RustSimu (máxima suportada: {})",
+            proj.version,
+            crate::model::CURRENT_PROJECT_VERSION
+        ));
     }
+
+    Ok(proj)
 }
 
 /// Carrega um documento `.cad`, `.json`, `.toml` ou `.qet`.
