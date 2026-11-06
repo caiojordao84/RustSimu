@@ -83,52 +83,7 @@ impl std::fmt::Display for SaveFormat {
     }
 }
 
-/// Formatos disponíveis para exportação de folhas do esquema (Decisão D1).
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ExportFormat {
-    Cad,
-    Pdf,
-    Svg,
-    Png,
-}
-
-impl ExportFormat {
-    pub const ALL: [ExportFormat; 4] = [
-        ExportFormat::Cad,
-        ExportFormat::Pdf,
-        ExportFormat::Svg,
-        ExportFormat::Png,
-    ];
-
-    pub fn extension(self) -> &'static str {
-        match self {
-            ExportFormat::Cad => "cad",
-            ExportFormat::Pdf => "pdf",
-            ExportFormat::Svg => "svg",
-            ExportFormat::Png => "png",
-        }
-    }
-
-    pub fn filter_label(self) -> &'static str {
-        match self {
-            ExportFormat::Cad => "CADe_SIMU Original (*.cad)",
-            ExportFormat::Pdf => "Documento PDF (*.pdf)",
-            ExportFormat::Svg => "Gráfico Vetorial SVG (*.svg)",
-            ExportFormat::Png => "Imagem PNG (*.png)",
-        }
-    }
-}
-
-impl std::fmt::Display for ExportFormat {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            ExportFormat::Cad => write!(f, "CADe_SIMU Original (.cad)"),
-            ExportFormat::Pdf => write!(f, "Documento PDF (.pdf) [Em breve]"),
-            ExportFormat::Svg => write!(f, "Gráfico Vetorial (.svg) [Em breve]"),
-            ExportFormat::Png => write!(f, "Imagem PNG (.png) [Em breve]"),
-        }
-    }
-}
+pub use crate::export::{ExportFormat, ExportScope};
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExportPageOption {
@@ -169,13 +124,18 @@ pub enum Message {
     OpenExportModal,
     CloseExportModal,
     SelectExportFormat(ExportFormat),
+    SelectExportScope(ExportScope),
     SelectExportPage(usize),
+    ToggleExportCajetin(bool),
     ConfirmExport,
     FileExported(
         Option<PathBuf>,
         Box<SchematicDocument>,
         String,
         ExportFormat,
+        ExportScope,
+        bool,
+        Option<i32>,
     ),
     FilePathChanged(String),
     LoadFromPath,
@@ -323,7 +283,9 @@ pub struct CadeSimuApp {
     pub show_about_modal: bool,
     pub show_export_modal: bool,
     pub export_format: ExportFormat,
+    pub export_scope: ExportScope,
     pub export_page_index: usize,
+    pub export_include_cajetin: bool,
     pub undo_stack: Vec<SchematicDocument>,
     pub redo_stack: Vec<SchematicDocument>,
     pub drag_undo_snapshot: Option<SchematicDocument>,
@@ -435,7 +397,9 @@ impl CadeSimuApp {
                 show_about_modal: false,
                 show_export_modal: false,
                 export_format: ExportFormat::Cad,
+                export_scope: ExportScope::Page,
                 export_page_index: 0,
+                export_include_cajetin: true,
                 undo_stack: Vec::new(),
                 redo_stack: Vec::new(),
                 drag_undo_snapshot: None,
@@ -965,20 +929,29 @@ impl CadeSimuApp {
             }
             Message::SelectExportFormat(fmt) => {
                 self.export_format = fmt;
+                let valid_scopes = ExportScope::valid_scopes(fmt, self.pages.len() > 1);
+                if !valid_scopes.contains(&self.export_scope) {
+                    self.export_scope = valid_scopes[0];
+                }
+            }
+            Message::SelectExportScope(scope) => {
+                self.export_scope = scope;
+            }
+            Message::ToggleExportCajetin(enabled) => {
+                self.export_include_cajetin = enabled;
             }
             Message::SelectExportPage(idx) => {
                 self.export_page_index = idx;
             }
             Message::ConfirmExport => {
                 self.show_export_modal = false;
-                if matches!(
-                    self.export_format,
-                    ExportFormat::Svg | ExportFormat::Pdf | ExportFormat::Png
-                ) {
-                    self.status_msg = format!(
-                        "Exportação para {} ainda não implementada (item #9 do roadmap); nenhum arquivo foi escrito.",
-                        self.export_format
-                    );
+                let fmt = self.export_format;
+                let scope = self.export_scope;
+                let include_cajetin = self.export_include_cajetin;
+                let selected_id = self.selected_id;
+
+                if scope == ExportScope::Selection && selected_id.is_none() {
+                    self.status_msg = "Aviso: Nenhum elemento selecionado na folha para exportar a seleção. Selecione um elemento antes de exportar.".to_string();
                     return iced::Task::none();
                 }
 
@@ -999,7 +972,6 @@ impl CadeSimuApp {
                     "Folha 1".to_string()
                 };
 
-                let fmt = self.export_format;
                 let start_dir = self.last_dir.clone();
                 let stem = self
                     .current_file
@@ -1019,21 +991,30 @@ impl CadeSimuApp {
                     })
                     .collect();
 
-                let default_name = if self.pages.len() > 1 {
-                    format!(
-                        "{}_{}.{}",
-                        stem,
+                let default_name = match scope {
+                    ExportScope::Project => format!("{stem}_completo.{}", fmt.extension()),
+                    ExportScope::Selection => format!(
+                        "{stem}_{}_selecao.{}",
                         clean_title.trim_matches('_'),
                         fmt.extension()
-                    )
-                } else {
-                    format!("{}.{}", stem, fmt.extension())
+                    ),
+                    ExportScope::Page => {
+                        if self.pages.len() > 1 {
+                            format!(
+                                "{stem}_{}.{}",
+                                clean_title.trim_matches('_'),
+                                fmt.extension()
+                            )
+                        } else {
+                            format!("{stem}.{}", fmt.extension())
+                        }
+                    }
                 };
 
                 return iced::Task::perform(
                     async move {
                         let dialog = rfd::AsyncFileDialog::new()
-                            .set_title("Exportar Folha do Esquema")
+                            .set_title("Exportar Esquema Elétrico")
                             .set_directory(&start_dir)
                             .set_file_name(&default_name)
                             .add_filter(fmt.filter_label(), &[fmt.extension()]);
@@ -1046,11 +1027,22 @@ impl CadeSimuApp {
                             Box::new(doc_to_export.clone()),
                             page_title.clone(),
                             fmt,
+                            scope,
+                            include_cajetin,
+                            selected_id,
                         )
                     },
                 );
             }
-            Message::FileExported(maybe_path, doc, page_title, fmt) => {
+            Message::FileExported(
+                maybe_path,
+                doc,
+                page_title,
+                fmt,
+                scope,
+                include_cajetin,
+                selected_id,
+            ) => {
                 let Some(path) = maybe_path else {
                     self.status_msg = "Exportação cancelada.".to_string();
                     return iced::Task::none();
@@ -1059,24 +1051,46 @@ impl CadeSimuApp {
                     self.last_dir = parent.to_path_buf();
                 }
 
-                match fmt {
-                    ExportFormat::Cad => match save_document(&path, &doc) {
-                        Ok(()) => {
-                            self.status_msg = format!(
-                                "Folha '{}' exportada com sucesso em formato CADe_SIMU original (.cad): '{}'",
-                                page_title,
-                                path.display()
-                            );
-                        }
-                        Err(err) => {
-                            self.status_msg = format!("Erro ao exportar arquivo .cad: {err}");
-                        }
-                    },
-                    ExportFormat::Svg | ExportFormat::Pdf | ExportFormat::Png => {
+                let filter_slice = if scope == ExportScope::Selection {
+                    selected_id.map(|id| vec![id])
+                } else {
+                    None
+                };
+                let items_filter = filter_slice.as_deref();
+
+                let res: Result<(), String> = match fmt {
+                    ExportFormat::Cad => {
+                        let bytes = crate::export::export_to_cad(&doc, include_cajetin);
+                        crate::io::atomic_write(&path, bytes)
+                    }
+                    ExportFormat::Svg => {
+                        let svg = crate::export::export_to_svg(&doc, items_filter, include_cajetin);
+                        crate::io::atomic_write(&path, svg.as_bytes())
+                    }
+                    ExportFormat::Png => {
+                        crate::export::export_to_png(&doc, items_filter, include_cajetin, 2.5)
+                            .and_then(|bytes| crate::io::atomic_write(&path, bytes))
+                    }
+                    ExportFormat::Pdf => {
+                        let pdf_res = if scope == ExportScope::Project {
+                            crate::export::export_project_to_pdf(&self.pages, include_cajetin)
+                        } else {
+                            crate::export::export_doc_to_pdf(&doc, items_filter, include_cajetin)
+                        };
+                        pdf_res.and_then(|bytes| crate::io::atomic_write(&path, bytes))
+                    }
+                };
+
+                match res {
+                    Ok(()) => {
                         self.status_msg = format!(
-                            "Exportação para {} ainda não implementada (item #9 do roadmap); nenhum arquivo foi escrito.",
-                            fmt
+                            "Exportação de '{page_title}' concluída com sucesso ({fmt} - {}): '{}'",
+                            scope.label(),
+                            path.display()
                         );
+                    }
+                    Err(err) => {
+                        self.status_msg = format!("Erro ao exportar arquivo: {err}");
                     }
                 }
             }
@@ -2429,6 +2443,7 @@ impl CadeSimuApp {
 
             let is_cad = self.export_format == ExportFormat::Cad;
             let is_multipage = self.pages.len() > 1;
+            let valid_scopes = ExportScope::valid_scopes(self.export_format, is_multipage);
 
             let mut modal_content = column![
                 row![
@@ -2438,7 +2453,7 @@ impl CadeSimuApp {
                             weight: iced::font::Weight::Bold,
                             ..UI
                         }),
-                        text("Exporte para CADe_SIMU original (.cad) ou formatos portáteis")
+                        text("Exporte para SVG, PNG, PDF ou formato original CADe_SIMU (.cad)")
                             .size(11.5)
                             .color(t.text2),
                     ]
@@ -2455,6 +2470,7 @@ impl CadeSimuApp {
                 ]
                 .align_y(Alignment::Center),
                 horizontal_rule(1),
+                // 1. Formato
                 column![
                     text("Formato de Exportação:").size(12).font(Font {
                         weight: iced::font::Weight::Semibold,
@@ -2470,35 +2486,168 @@ impl CadeSimuApp {
                     .width(Length::Fill),
                 ]
                 .spacing(4),
-            ]
-            .spacing(12);
-
-            if is_multipage {
-                let page_picker = column![
-                    text("Selecione a Folha a Exportar:").size(12).font(Font {
+                // 2. Escopo
+                column![
+                    text("Abrangência / Escopo:").size(12).font(Font {
                         weight: iced::font::Weight::Semibold,
                         ..UI
                     }),
-                    pick_list(page_options, current_page_opt, |opt| {
-                        Message::SelectExportPage(opt.index)
-                    },)
+                    pick_list(
+                        valid_scopes,
+                        Some(self.export_scope),
+                        Message::SelectExportScope,
+                    )
                     .text_size(12.0)
                     .padding(Padding::from([5.0, 8.0]))
                     .width(Length::Fill),
                 ]
-                .spacing(4);
-                modal_content = modal_content.push(page_picker);
-            } else {
-                let single_page_info = text(format!(
-                    "Folha a ser exportada: Folha 1 ({})",
-                    self.pages
-                        .first()
-                        .map(|p| p.name.as_str())
-                        .unwrap_or("Principal")
-                ))
-                .size(11.5)
-                .color(t.text2);
-                modal_content = modal_content.push(single_page_info);
+                .spacing(4),
+            ]
+            .spacing(12);
+
+            // Se escopo for Página:
+            if self.export_scope == ExportScope::Page {
+                if is_multipage {
+                    let page_picker = column![
+                        text("Selecione a Folha a Exportar:").size(12).font(Font {
+                            weight: iced::font::Weight::Semibold,
+                            ..UI
+                        }),
+                        pick_list(page_options, current_page_opt, |opt| {
+                            Message::SelectExportPage(opt.index)
+                        },)
+                        .text_size(12.0)
+                        .padding(Padding::from([5.0, 8.0]))
+                        .width(Length::Fill),
+                    ]
+                    .spacing(4);
+                    modal_content = modal_content.push(page_picker);
+                } else {
+                    let single_page_info = text(format!(
+                        "Folha a ser exportada: Folha 1 ({})",
+                        self.pages
+                            .first()
+                            .map(|p| p.name.as_str())
+                            .unwrap_or("Principal")
+                    ))
+                    .size(11.5)
+                    .color(t.text2);
+                    modal_content = modal_content.push(single_page_info);
+                }
+            }
+
+            // Se escopo for Seleção:
+            if self.export_scope == ExportScope::Selection {
+                let sel_info = if let Some(id) = self.selected_id {
+                    let item_label = self
+                        .doc
+                        .items
+                        .iter()
+                        .find(|i| i.id == id)
+                        .map(|i| {
+                            if !i.tag.is_empty() {
+                                format!("{} (Tipo {})", i.tag, i.tipo)
+                            } else {
+                                format!("Item #{} (Tipo {})", i.id, i.tipo)
+                            }
+                        })
+                        .unwrap_or_else(|| format!("Item #{id}"));
+
+                    container(
+                        row![
+                            crate::icons::view_icon(crate::icons::Icon::Info, 16, t.primary),
+                            column![
+                                text(format!("Exportando elemento selecionado: {item_label}"))
+                                    .size(11.5)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    })
+                                    .color(t.primary),
+                                text("As dimensões do arquivo gerado serão calculadas dinamicamente com base nas bordas do componente.")
+                                    .size(11.0)
+                                    .color(t.text2),
+                            ]
+                            .spacing(2),
+                        ]
+                        .spacing(8)
+                        .align_y(Alignment::Start),
+                    )
+                    .style(theme::card)
+                    .padding(Padding::from([8.0, 10.0]))
+                } else {
+                    container(
+                        row![
+                            crate::icons::view_icon(crate::icons::Icon::Info, 16, t.amber),
+                            column![
+                                text("Nenhum elemento selecionado na tela!")
+                                    .size(11.5)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    })
+                                    .color(t.amber),
+                                text("Clique em um componente no canvas antes de exportar a seleção, ou alterne o escopo para Folha Atual.")
+                                    .size(11.0)
+                                    .color(t.text2),
+                            ]
+                            .spacing(2),
+                        ]
+                        .spacing(8)
+                        .align_y(Alignment::Start),
+                    )
+                    .style(theme::card)
+                    .padding(Padding::from([8.0, 10.0]))
+                };
+                modal_content = modal_content.push(sel_info);
+            }
+
+            // Se escopo for Projeto:
+            if self.export_scope == ExportScope::Project {
+                let project_notice = container(
+                    row![
+                        crate::icons::view_icon(crate::icons::Icon::ExportPdf, 16, t.primary),
+                        column![
+                            text(format!(
+                                "Exportando Projeto Completo ({} folhas):",
+                                self.pages.len()
+                            ))
+                            .size(11.5)
+                            .font(Font {
+                                weight: iced::font::Weight::Bold,
+                                ..UI
+                            })
+                            .color(t.primary),
+                            text("Todas as páginas do projeto serão empacotadas em ordem cronológica num único documento PDF multipágina.")
+                                .size(11.0)
+                                .color(t.text2),
+                        ]
+                        .spacing(2),
+                    ]
+                    .spacing(8)
+                    .align_y(Alignment::Start),
+                )
+                .style(theme::card)
+                .padding(Padding::from([8.0, 10.0]));
+                modal_content = modal_content.push(project_notice);
+            }
+
+            // Opção Cajetín (apenas se não for seleção)
+            if self.export_scope != ExportScope::Selection {
+                let cajetin_box = column![
+                    checkbox(
+                        "Incluir Moldura e Cajetín (Margens, Réguas e Carimbo)",
+                        self.export_include_cajetin,
+                    )
+                    .size(15)
+                    .text_size(12.0)
+                    .on_toggle(Message::ToggleExportCajetin),
+                    text("Se desmarcado, exporta a folha limpa contendo estritamente os circuitos sem moldura externa.")
+                        .size(10.5)
+                        .color(t.text2),
+                ]
+                .spacing(3);
+                modal_content = modal_content.push(cajetin_box);
             }
 
             if is_cad {

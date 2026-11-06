@@ -2,6 +2,7 @@ use iced::Color;
 
 use cade_simu_rs::app::*;
 use cade_simu_rs::canvas_view::*;
+use cade_simu_rs::export::*;
 use cade_simu_rs::io::*;
 use cade_simu_rs::model::*;
 use cade_simu_rs::sim::*;
@@ -4724,4 +4725,185 @@ fn test_cp1252_tipo_8_text_items_and_legacy_projects_reading() {
         .title_block
         .title
         .contains("Esquema Especial – Teste"));
+}
+
+#[test]
+fn test_export_real_svg_png_pdf_cad_scopes_and_cajetin_toggle() {
+    // 1. Cria aplicação multipáginas com elementos realistas
+    let (mut app, _) = CadeSimuApp::new();
+
+    // Folha 1: Potência Trifásica
+    app.doc = build_dol_starter_preset();
+    app.doc.title_block.title = "Potência Trifásica".to_string();
+    app.pages[0].name = "Potência".to_string();
+    app.pages[0].doc = app.doc.clone();
+
+    // Folha 2: Comando Auxiliar
+    let _ = app.update(Message::AddPageAfter(0));
+    assert_eq!(app.pages.len(), 2);
+    app.active_page_index = 1;
+    app.doc.items.clear();
+    app.doc.title_block.title = "Circuito de Comando 24V".to_string();
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(10, 8000, 200, 200, "-S1"));
+    app.doc
+        .items
+        .push(SchematicItem::new_symbol(11, 7001, 200, 300, "-H1"));
+    app.pages[1].name = "Comando".to_string();
+    app.pages[1].doc = app.doc.clone();
+
+    // Retorna para a Folha 1
+    app.active_page_index = 0;
+    app.doc = app.pages[0].doc.clone();
+
+    // 2. Exportação SVG
+    // 2.1 Folha completa com Cajetín ON
+    let svg_cajetin_on = export_to_svg(&app.doc, None, true);
+    assert!(svg_cajetin_on.starts_with("<?xml"));
+    assert!(svg_cajetin_on.contains("<svg"));
+    assert!(svg_cajetin_on.contains("Potência Trifásica"));
+    assert!(svg_cajetin_on.contains("Entidade:"));
+    assert!(svg_cajetin_on.ends_with("</svg>\n"));
+
+    // 2.2 Folha completa com Cajetín OFF
+    let svg_cajetin_off = export_to_svg(&app.doc, None, false);
+    assert!(svg_cajetin_off.starts_with("<?xml"));
+    assert!(!svg_cajetin_off.contains("Entidade:"));
+    assert!(!svg_cajetin_off.contains("Potência Trifásica"));
+    // Contém os símbolos do esquema mesmo sem cajetín
+    assert!(svg_cajetin_off.contains("-Q1"));
+
+    // 2.3 Seleção de Elemento
+    let q1_id = app.doc.items.iter().find(|i| i.tag == "-Q1").unwrap().id;
+    let svg_sel = export_to_svg(&app.doc, Some(&[q1_id]), false);
+    assert!(svg_sel.contains("-Q1"));
+    assert!(!svg_sel.contains("-KM1"));
+    assert!(!svg_sel.contains("Entidade:"));
+
+    // 3. Exportação PNG
+    let png_page = export_to_png(&app.doc, None, true, 1.5).expect("Render PNG de folha completa");
+    assert!(
+        png_page.starts_with(b"\x89PNG\r\n\x1a\n"),
+        "Deve conter cabeçalho mágico PNG válido"
+    );
+    assert!(png_page.len() > 1000, "PNG deve ter tamanho substancial");
+
+    let png_sel =
+        export_to_png(&app.doc, Some(&[q1_id]), false, 2.0).expect("Render PNG de seleção");
+    assert!(
+        png_sel.starts_with(b"\x89PNG\r\n\x1a\n"),
+        "Seleção deve produzir PNG válido"
+    );
+
+    // 4. Exportação PDF
+    // 4.1 PDF de Folha Única
+    let pdf_page = export_doc_to_pdf(&app.doc, None, true).expect("PDF folha única");
+    assert!(pdf_page.starts_with(b"%PDF-1.4"));
+    assert!(pdf_page.windows(8).any(|w| w == b"/Count 1"));
+    assert!(pdf_page.windows(5).any(|w| w == b"%%EOF"));
+
+    // 4.2 PDF de Seleção
+    let pdf_sel = export_doc_to_pdf(&app.doc, Some(&[q1_id]), false).expect("PDF seleção");
+    assert!(pdf_sel.starts_with(b"%PDF-1.4"));
+    assert!(pdf_sel.windows(8).any(|w| w == b"/Count 1"));
+
+    // 4.3 PDF de Projeto Completo (Multi-páginas)
+    let pdf_project = export_project_to_pdf(&app.pages, true).expect("PDF multipáginas");
+    assert!(pdf_project.starts_with(b"%PDF-1.4"));
+    assert!(
+        pdf_project.windows(8).any(|w| w == b"/Count 2"),
+        "PDF de projeto com 2 páginas deve ter /Count 2"
+    );
+    assert!(pdf_project.windows(5).any(|w| w == b"%%EOF"));
+
+    // 5. Exportação CAD (.cad)
+    let cad_cajetin_on = export_to_cad(&app.doc, true);
+    assert!(cad_cajetin_on.starts_with(b"CADe_SIMU*"));
+    assert!(cad_cajetin_on.ends_with(b"***$$$&&&***$$$&&&"));
+    let parsed_on = parse_cad_bytes(&cad_cajetin_on).expect("Parser CAD com cajetin");
+    assert_eq!(parsed_on.title_block.title, "Potência Trifásica");
+
+    let cad_cajetin_off = export_to_cad(&app.doc, false);
+    let parsed_off = parse_cad_bytes(&cad_cajetin_off).expect("Parser CAD sem cajetin");
+    assert!(
+        parsed_off.title_block.title.is_empty(),
+        "Título do bloco de carimbo deve ser vazio quando cajetín está desativado"
+    );
+
+    // 6. Ciclo Completo de Mensagens e UX no CadeSimuApp
+    assert!(!app.show_export_modal);
+    let _ = app.update(Message::OpenExportModal);
+    assert!(app.show_export_modal);
+
+    // Seleciona PDF e escopo Projeto
+    let _ = app.update(Message::SelectExportFormat(ExportFormat::Pdf));
+    assert_eq!(app.export_format, ExportFormat::Pdf);
+    let _ = app.update(Message::SelectExportScope(ExportScope::Project));
+    assert_eq!(app.export_scope, ExportScope::Project);
+
+    // Desativa cajetín
+    let _ = app.update(Message::ToggleExportCajetin(false));
+    assert!(!app.export_include_cajetin);
+
+    // Altera para SVG: escopo Projeto não é válido para SVG em multipáginas,
+    // então deve reverter automaticamente para Page
+    let _ = app.update(Message::SelectExportFormat(ExportFormat::Svg));
+    assert_eq!(app.export_format, ExportFormat::Svg);
+    assert_eq!(app.export_scope, ExportScope::Page);
+
+    // Testa gravação em disco via FileExported
+    let temp_dir = std::env::temp_dir();
+    let unique_id = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+
+    // 6.1 Gravação real de arquivo SVG via FileExported
+    let temp_svg = temp_dir.join(format!(
+        "test_app_export_{}_{}.svg",
+        std::process::id(),
+        unique_id
+    ));
+    let _ = app.update(Message::FileExported(
+        Some(temp_svg.clone()),
+        Box::new(app.doc.clone()),
+        app.pages[0].name.clone(),
+        ExportFormat::Svg,
+        ExportScope::Page,
+        true,
+        None,
+    ));
+    assert!(
+        temp_svg.exists(),
+        "Arquivo SVG deve ter sido gravado em disco"
+    );
+    let svg_content = std::fs::read_to_string(&temp_svg).expect("Leitura do SVG gravado");
+    assert!(svg_content.contains("<svg"));
+    assert!(app.status_msg.contains("concluída com sucesso"));
+    let _ = std::fs::remove_file(temp_svg);
+
+    // 6.2 Gravação real de arquivo PDF multipáginas via FileExported
+    let temp_pdf = temp_dir.join(format!(
+        "test_app_export_{}_{}.pdf",
+        std::process::id(),
+        unique_id
+    ));
+    let _ = app.update(Message::FileExported(
+        Some(temp_pdf.clone()),
+        Box::new(app.doc.clone()),
+        "Projeto Completo".to_string(),
+        ExportFormat::Pdf,
+        ExportScope::Project,
+        true,
+        None,
+    ));
+    assert!(
+        temp_pdf.exists(),
+        "Arquivo PDF multipáginas deve ter sido gravado em disco"
+    );
+    let pdf_bytes = std::fs::read(&temp_pdf).expect("Leitura do PDF gravado");
+    assert!(pdf_bytes.starts_with(b"%PDF-1.4"));
+    assert!(app.status_msg.contains("Projeto Completo"));
+    let _ = std::fs::remove_file(temp_pdf);
 }

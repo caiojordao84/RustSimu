@@ -6,9 +6,12 @@ default-run = "cade-simu-rs"
 description = "Reescrita nativa em Rust (iced) do CADe_SIMU 4.0 — Editor CAD Eletrotécnico e Simulador de Comandos Elétricos"
 
 [dependencies]
+flate2 = "1.0"
 iced = { version = "0.13", features = ["canvas", "tokio", "svg"] }
+resvg = "0.42"
 rfd = "0.15"
 roxmltree = "0.20"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+tiny-skia = "0.11"
 toml = "0.8"
