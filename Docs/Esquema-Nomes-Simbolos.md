@@ -206,27 +206,42 @@ Um `#[test]` na suíte chama o mesmo validador.
 
 | Invariante | Violações hoje | Gravidade |
 |---|---:|---|
-| Nomes de bornes únicos por elemento | **4.479** | 🔴 bloqueia a simulação |
-| Elementos sem terminal | **2.764** | 🟠 não cabáveis (gráficos) |
-| `name_pt` ≠ `name_en` | **4.255** | 🟡 metade não traduzida |
-| IDs com sufixo `_2`/`_3` | **2.246** | 🟡 resolvido pelo ID numérico |
-| `name_pt` nulo/vazio | 2 | 🟡 |
-| IDs duplicados | 2 | 🟠 |
-| Colisões case-insensitive | 2 | 🟠 |
+| Nomes de bornes únicos por elemento | **4.699** | 🔴 bloqueia a simulação (P3-#17) |
+| Elementos sem terminal | **2.820** | 🟠 não cabáveis (P3-#18) |
+| `name_pt` ≠ `name_en` | **4.345** | 🟡 metade não traduzida (P3-#19) |
+| IDs com sufixo `_2`/`_3` | **2.533** | 🟡 resolvido pelo ID numérico (D2) |
+| `name_pt` nulo/vazio | **349** | 🟡 (P3-#19) |
+| `id` divergente do nome do arquivo | 37 | 🟡 transitório (some com D2) |
+| IDs duplicados | **0** | ✅ (normalizado por `--index-only`) |
 | SVG ausente no disco | **0** | ✅ |
+| SVG no disco fora do catálogo | **0** | ✅ (9.327/9.327) |
 | Hotspot fora da bbox | **0** | ✅ |
+| Colisões case-insensitive | **10** | 🟠 `import/` — portabilidade Windows (P3-#20) |
 | `subcategoria` única por família | — | ✅ (855/999) |
 
-### 6.1 SVGs órfãos
+### 6.1 SVGs órfãos — resolvido em 06/11/2026
 
-**437 SVGs no disco não estão no `catalog.json`:**
+O modo `elmt2svg --index-only` varre a árvore e indexa qualquer SVG ausente do `catalog.json`,
+sem exigir a coleção QElectroTech instalada. Resultado da execução:
 
-- `cade_native/` — 90 SVGs
-- `import/` — 338 SVGs
-- `electric/` — 9 SVGs
+| Origem | SVGs indexados |
+|---|---:|
+| `cade_native/` | 90 |
+| `import/` | 338 |
+| `electric/` (`_active`) | 9 |
+| **Total** | **437** |
 
-Decisão necessária: catalogar ou excluir explicitamente (lista `_unused`). Enquanto não houver
-decisão, o validador deve emitir **aviso**, não erro.
+O catálogo passou de 8.890 para **9.327 entradas = 9.327 SVGs em disco (0 órfãos)**. O comando é
+idempotente (segunda execução indexa 0) e o conversor normal o executa ao final, de modo que a
+invariante "nenhum arquivo fora do catálogo" é estrutural, não manual.
+
+Cada variante `_active` foi indexada com `state: "active"` e `variant_of` apontando para o
+elemento-base — a ponte para o modelo de `states[]` da D2. Os `cade_native` recebem
+`source: "cade_native"`; o restante, `source: "qet"`.
+
+**Pendência remanescente:** 10 pares de arquivos em `import/` diferem apenas por caixa
+(`Chassis_ground_001.svg` × `chassis_ground_001.svg`). No Linux coexistem; no Windows/macOS
+apenas um é materializado. Requer decisão de remoção/renomeação (P3-#20).
 
 ---
 
