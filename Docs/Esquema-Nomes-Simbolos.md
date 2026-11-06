@@ -180,7 +180,7 @@ e por reservar a faixa `Fxxxx` para símbolos sintéticos/gerados.
 ### 5.2 Campo `kind` — obrigatório
 
 Hoje o motor de simulação **infere o comportamento elétrico a partir do texto do slug**
-(`sim.rs`: `contains("push_button")`, `contains("breaker")`, `contains("fuse")`...). Com IDs
+(`sim/rules.rs`: `contains("push_button")`, `contains("breaker")`, `contains("fuse")`...). Com IDs
 numéricos essa inferência desaparece; o `kind` a substitui e elimina as heurísticas por substring.
 
 Valores canônicos:
@@ -252,7 +252,7 @@ apenas um é materializado. Requer decisão de remoção/renomeação (P3-#20).
 | `symbols_qet_all/electric/.../ac_motor_3-phases.svg` | `symbols_qet/electric/012-00020-0.svg` |
 | `SchematicItem.qet_type = "ac_motor_3-phases"` | `SchematicItem.symbol_id = "00020"` + `symbol_state = '0'` |
 | `get_parsed_svg("ac_motor_3-phases")` | `get_parsed_svg("00020", '0')` |
-| `sim.rs` heurísticas `contains(...)` | `dict.kind("00020")` |
+| `sim/rules.rs` heurísticas `contains(...)` | `dict.kind("00020")` |
 
 - `qet_uuid` **permanece** (rastreio de remoção em merge multipágina).
 - `slug` **permanece** no JSON como mapa de migração.
