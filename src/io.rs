@@ -106,6 +106,13 @@ pub fn serialize_cad_str(doc: &SchematicDocument) -> String {
     out
 }
 
+/// Serializa um `SchematicDocument` para bytes brutos codificados em Windows-1252 (CP-1252),
+/// garantindo fidelidade estrita byte-a-byte com o `CADe_SIMU.exe` original.
+pub fn serialize_cad_bytes(doc: &SchematicDocument) -> Vec<u8> {
+    let text = serialize_cad_str(doc);
+    crate::cp1252::encode_cp1252(&text)
+}
+
 fn truncate_str(s: &str, max_chars: usize) -> String {
     s.chars().take(max_chars).collect()
 }
@@ -274,6 +281,12 @@ pub fn parse_cad_str(input: &str) -> Result<SchematicDocument, String> {
     })
 }
 
+/// Faz o parse de um arquivo `.cad` legado a partir de seus bytes brutos (codificados em CP-1252 ou UTF-8).
+pub fn parse_cad_bytes(bytes: &[u8]) -> Result<SchematicDocument, String> {
+    let text = crate::cp1252::decode_cad_bytes(bytes);
+    parse_cad_str(&text)
+}
+
 fn next_token<'a>(input: &'a str, delims: &[char]) -> Result<(String, &'a str), String> {
     if let Some(pos) = input.find(delims) {
         Ok((input[..pos].to_string(), &input[pos + 1..]))
@@ -328,10 +341,14 @@ pub fn save_document(path: &Path, doc: &SchematicDocument) -> Result<(), String>
         return crate::qet::export_doc_to_qet(doc, path);
     }
 
-    let content = match ext.as_str() {
-        "cad" => serialize_cad_str(doc),
-        "toml" => toml::to_string_pretty(doc).map_err(|e| format!("Erro TOML: {e}"))?,
-        _ => serde_json::to_string_pretty(doc).map_err(|e| format!("Erro JSON: {e}"))?,
+    let content: Vec<u8> = match ext.as_str() {
+        "cad" => serialize_cad_bytes(doc),
+        "toml" => toml::to_string_pretty(doc)
+            .map_err(|e| format!("Erro TOML: {e}"))?
+            .into_bytes(),
+        _ => serde_json::to_string_pretty(doc)
+            .map_err(|e| format!("Erro JSON: {e}"))?
+            .into_bytes(),
     };
 
     atomic_write(path, content)
@@ -374,11 +391,8 @@ pub fn save_project(
 /// Carrega um projeto completo (mono ou multipáginas) a partir de `.json`, `.toml`, `.cad` ou `.qet`.
 pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
     let bytes = fs::read(path).map_err(|e| format!("Falha ao ler {}: {e}", path.display()))?;
-    // Arquivos .cad originais usam codificação Latin-1 (ISO-8859-1) / Windows-1252
-    let text = match String::from_utf8(bytes.clone()) {
-        Ok(s) => s,
-        Err(_) => bytes.iter().map(|&b| b as char).collect(),
-    };
+    // Decodifica bytes com suporte completo a Windows-1252 (CP-1252) e UTF-8
+    let text = crate::cp1252::decode_cad_bytes(&bytes);
 
     let ext = path
         .extension()

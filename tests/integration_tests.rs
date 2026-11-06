@@ -3742,9 +3742,9 @@ fn test_decision_d1_native_save_and_cad_export_with_sheet_selector() {
         "Exportação para .cad deve ser bem sucedida"
     );
 
-    // Valida que o arquivo gerado pode ser lido de volta perfeitamente
-    let raw_cad = std::fs::read_to_string(&export_cad_path).expect("Leitura do .cad exportado");
-    let parsed_doc = parse_cad_str(&raw_cad).expect("Parser do .cad exportado");
+    // Valida que o arquivo gerado em CP-1252 pode ser lido de volta perfeitamente
+    let raw_bytes = std::fs::read(&export_cad_path).expect("Leitura dos bytes do .cad exportado");
+    let parsed_doc = parse_cad_bytes(&raw_bytes).expect("Parser do .cad exportado");
     assert_eq!(parsed_doc.items.len(), 2);
     assert_eq!(parsed_doc.title_block.title, "Motor Trifásico Folha 1");
 
@@ -4636,4 +4636,92 @@ fn test_qet_connector_two_pin_conduction_and_multi_pin_isolation() {
         "Conector multipinos (> 2) não deve curto-circuitar todos os circuitos!"
     );
     assert_eq!(doc_multi.sim_potential(3), Potential::None);
+}
+
+#[test]
+fn test_cp1252_tipo_8_text_items_and_legacy_projects_reading() {
+    use std::path::Path;
+
+    let manifest = Path::new(env!("CARGO_MANIFEST_DIR"));
+    let projetos_dir = if manifest.join("Projetos").is_dir() {
+        manifest.join("Projetos")
+    } else {
+        manifest.parent().unwrap().join("Projetos")
+    };
+
+    // 1. Carrega 'Partida Direta.cad' legado e valida texto tipo == 8 com acento CP-1252 (É = 0xC9)
+    let doc_partida = load_document(&projetos_dir.join("Partida Direta.cad"))
+        .expect("Deve carregar 'Partida Direta.cad'");
+    let text_item = doc_partida
+        .items
+        .iter()
+        .find(|i| i.tipo == 8 && i.trailing_str.contains("BLOG ENSINANDO"))
+        .expect("Elemento de texto tipo == 8 com 'BLOG ENSINANDO ELÉTRICA' deve existir");
+    assert_eq!(
+        text_item.trailing_str, "BLOG ENSINANDO ELÉTRICA",
+        "Texto CP-1252 deve ser decodificado com acento correto (ELÉTRICA com 'É', não C1 control code)"
+    );
+
+    // 2. Carrega 'Inversão de rotação motor trifásico.cad' legado e valida acentuação no cajetín
+    let doc_inversao = load_document(&projetos_dir.join("Inversão de rotação motor trifásico.cad"))
+        .expect("Deve carregar 'Inversão de rotação motor trifásico.cad'");
+    assert_eq!(
+        doc_inversao.title_block.signature, "Inversão de rotação motor trifásico",
+        "Assinatura do cajetín deve preservar ã, ç, á corretamente decodificados de CP-1252: '{}'",
+        doc_inversao.title_block.signature
+    );
+
+    // 3. Roundtrip completo com caracteres da faixa 0x80..=0x9F em itens tipo == 8
+    let mut doc_custom = SchematicDocument::default();
+    let mut custom_text = SchematicItem::new_symbol(1, 8, 50, 50, "");
+    custom_text.trailing_str = "Comando – Painel “A” • 380V ± 5% • 10µF • €150 • TM™".to_string();
+    doc_custom.items.push(custom_text);
+    doc_custom.title_block.title = "Esquema Especial – Teste".to_string();
+
+    let cad_bytes = serialize_cad_bytes(&doc_custom);
+
+    // Valida que os bytes foram gravados como bytes únicos CP-1252:
+    // '–' (en dash) deve ser byte 0x96
+    assert!(
+        cad_bytes.contains(&0x96),
+        "Byte 0x96 (en dash) deve estar presente no arquivo .cad gerado"
+    );
+    // '“' (left quote) deve ser byte 0x93
+    assert!(
+        cad_bytes.contains(&0x93),
+        "Byte 0x93 (left quote) deve estar presente no arquivo .cad gerado"
+    );
+    // '”' (right quote) deve ser byte 0x94
+    assert!(
+        cad_bytes.contains(&0x94),
+        "Byte 0x94 (right quote) deve estar presente no arquivo .cad gerado"
+    );
+    // '•' (bullet) deve ser byte 0x95
+    assert!(
+        cad_bytes.contains(&0x95),
+        "Byte 0x95 (bullet) deve estar presente no arquivo .cad gerado"
+    );
+    // '€' (euro) deve ser byte 0x80
+    assert!(
+        cad_bytes.contains(&0x80),
+        "Byte 0x80 (euro) deve estar presente no arquivo .cad gerado"
+    );
+    // '™' (trademark) deve ser byte 0x99
+    assert!(
+        cad_bytes.contains(&0x99),
+        "Byte 0x99 (trademark) deve estar presente no arquivo .cad gerado"
+    );
+
+    // Reabre através de parse_cad_bytes
+    let reloaded = parse_cad_bytes(&cad_bytes).expect("Deve reabrir bytes .cad sem erro");
+    assert_eq!(reloaded.items.len(), 1);
+    assert_eq!(reloaded.items[0].tipo, 8);
+    assert_eq!(
+        reloaded.items[0].trailing_str,
+        "Comando – Painel “A” • 380V ± 5% • 10µF • €150 • TM™"
+    );
+    assert!(reloaded
+        .title_block
+        .title
+        .contains("Esquema Especial – Teste"));
 }

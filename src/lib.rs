@@ -1,5 +1,6 @@
 pub mod app;
 pub mod canvas_view;
+pub mod cp1252;
 pub mod icons;
 pub mod io;
 pub mod layout;
