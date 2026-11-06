@@ -7,6 +7,7 @@ use crate::model::{
 };
 use crate::sim::timer_preset_ms;
 use crate::symbols::{find_symbol_ref, parse_vector_cmd, VectorPrimitive};
+use crate::theme::Tokens;
 
 /// Ferramenta ativa no editor esquemático.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -89,6 +90,14 @@ pub struct SchematicCanvas<'a> {
 }
 
 impl<'a> SchematicCanvas<'a> {
+    pub fn tokens(&self) -> Tokens {
+        if self.is_dark {
+            Tokens::dark()
+        } else {
+            Tokens::light()
+        }
+    }
+
     pub fn view(self) -> Element<'a, CanvasMessage> {
         Canvas::new(self)
             .width(Length::Fill)
@@ -196,26 +205,11 @@ impl<'a> SchematicCanvas<'a> {
         let p0 = self.world_to_screen(0.0, 0.0);
         let size = Size::new(sheet_w * self.zoom, sheet_h * self.zoom);
 
-        let paper_color = if self.is_dark {
-            Color::from_rgb(0.12, 0.13, 0.16)
-        } else {
-            Color::from_rgb(0.99, 0.99, 0.98)
-        };
-        let grid_color = if self.is_dark {
-            Color::from_rgb(0.20, 0.22, 0.27)
-        } else {
-            Color::from_rgb(0.91, 0.92, 0.94)
-        };
-        let border_color = if self.is_dark {
-            Color::from_rgb(0.55, 0.60, 0.70)
-        } else {
-            Color::from_rgb(0.15, 0.18, 0.24)
-        };
-        let text_color = if self.is_dark {
-            Color::from_rgb(0.70, 0.75, 0.85)
-        } else {
-            Color::from_rgb(0.30, 0.35, 0.45)
-        };
+        let tok = self.tokens();
+        let paper_color = tok.sheet;
+        let grid_color = tok.grid;
+        let border_color = tok.sheet_line;
+        let text_color = tok.text2;
 
         // Sombra e fundo da folha
         frame.fill_rectangle(
@@ -284,31 +278,15 @@ impl<'a> SchematicCanvas<'a> {
         let caj_y = sheet_h - caj_h - 6.0;
         let cp = self.world_to_screen(caj_x, caj_y);
         let cs = Size::new(caj_w * self.zoom, caj_h * self.zoom);
-        let caj_bg = if self.is_dark {
-            Color::from_rgb(0.16, 0.18, 0.23)
-        } else {
-            Color::from_rgb(0.96, 0.97, 0.99)
-        };
+        let caj_bg = tok.s1;
         frame.fill_rectangle(cp, cs, caj_bg);
         frame.stroke(&Path::rectangle(cp, cs), border_stroke);
 
         let tb = &self.doc.title_block;
         let font_sz = (3.0 * self.zoom).clamp(7.0, 13.0);
-        let caj_text1 = if self.is_dark {
-            Color::from_rgb(0.80, 0.84, 0.92)
-        } else {
-            Color::from_rgb(0.15, 0.18, 0.25)
-        };
-        let caj_text2 = if self.is_dark {
-            Color::from_rgb(0.92, 0.95, 1.0)
-        } else {
-            Color::from_rgb(0.08, 0.12, 0.22)
-        };
-        let caj_text3 = if self.is_dark {
-            Color::from_rgb(0.72, 0.77, 0.88)
-        } else {
-            Color::from_rgb(0.25, 0.30, 0.40)
-        };
+        let caj_text1 = tok.text2;
+        let caj_text2 = tok.text;
+        let caj_text3 = tok.text2;
         frame.fill_text(Text {
             content: format!("Entidade: {}  |  Data: {}", tb.entity, tb.drawn_date),
             position: self.world_to_screen(caj_x + 3.0, caj_y + 2.5),
@@ -336,26 +314,25 @@ impl<'a> SchematicCanvas<'a> {
     }
 
     pub fn wire_color(&self, item: &SchematicItem) -> (Color, f32) {
+        let tok = self.tokens();
         if self.sim_running {
             match self.doc.sim_potential(item.id) {
-                Potential::L1 => (Color::from_rgb(0.92, 0.15, 0.12), 2.5),
-                Potential::L2 => (Color::from_rgb(0.90, 0.52, 0.05), 2.5),
-                Potential::L3 => (Color::from_rgb(0.65, 0.18, 0.85), 2.5),
-                Potential::N => (Color::from_rgb(0.08, 0.48, 0.95), 2.4),
-                Potential::PE => (Color::from_rgb(0.12, 0.68, 0.22), 2.0),
-                Potential::DcPos => (Color::from_rgb(0.95, 0.12, 0.20), 2.5),
-                Potential::DcNeg => (Color::from_rgb(0.15, 0.25, 0.45), 2.4),
-                Potential::ShortCircuit => (Color::from_rgb(1.0, 0.0, 0.0), 3.6),
+                Potential::L1 => (tok.potential_l1, 2.5),
+                Potential::L2 => (tok.potential_l2, 2.5),
+                Potential::L3 => (tok.potential_l3, 2.5),
+                Potential::N => (tok.potential_n, 2.4),
+                Potential::PE => (tok.w_pe, 2.0),
+                Potential::DcPos => (tok.potential_dc_pos, 2.5),
+                Potential::DcNeg => (tok.potential_dc_neg, 2.4),
+                Potential::ShortCircuit => (tok.danger, 3.6),
                 Potential::None => {
                     if item.color != 0 {
                         let r = (((item.color >> 16) & 0xFF) as f32 / 255.0) * 0.70;
                         let g = (((item.color >> 8) & 0xFF) as f32 / 255.0) * 0.70;
                         let b = ((item.color & 0xFF) as f32 / 255.0) * 0.70;
                         (Color::from_rgb(r, g, b), 1.6)
-                    } else if self.is_dark {
-                        (Color::from_rgb(0.55, 0.58, 0.66), 1.5)
                     } else {
-                        (Color::from_rgb(0.45, 0.48, 0.54), 1.5)
+                        (tok.wire_off, 1.5)
                     }
                 }
             }
@@ -366,24 +343,13 @@ impl<'a> SchematicCanvas<'a> {
                 let b = (item.color & 0xFF) as f32 / 255.0;
                 return (Color::from_rgb(r, g, b), 1.8);
             }
-            if self.is_dark {
-                match item.tipo {
-                    4000 | 4018 => (Color::from_rgb(0.94, 0.58, 0.50), 1.8), // Fase / Comando (claro)
-                    4009 | 4019 => (Color::from_rgb(0.45, 0.75, 1.0), 1.8), // Neutro / 0V (azul claro)
-                    4002 | 4010 => (Color::from_rgb(0.35, 0.90, 0.45), 1.6), // PE (verde claro)
-                    4003 => (Color::from_rgb(1.0, 0.45, 0.48), 1.8),        // DC+ (vermelho claro)
-                    4004 => (Color::from_rgb(0.85, 0.88, 0.95), 1.8), // DC- (azul-acinzentado claro)
-                    _ => (Color::from_rgb(0.88, 0.92, 0.98), 1.6),    // Genérico (traço claro)
-                }
-            } else {
-                match item.tipo {
-                    4000 | 4018 => (Color::from_rgb(0.55, 0.18, 0.12), 1.8), // Fase / Comando
-                    4009 | 4019 => (Color::from_rgb(0.08, 0.38, 0.82), 1.8), // Neutro / 0V
-                    4002 | 4010 => (Color::from_rgb(0.12, 0.62, 0.20), 1.6), // PE
-                    4003 => (Color::from_rgb(0.82, 0.12, 0.15), 1.8),        // DC+
-                    4004 => (Color::from_rgb(0.15, 0.15, 0.20), 1.8),        // DC-
-                    _ => (Color::from_rgb(0.15, 0.18, 0.24), 1.6),
-                }
+            match item.tipo {
+                4000 | 4018 => (tok.w_power, 1.8),
+                4009 | 4019 => (tok.w_neutral, 1.8), // Neutro / 0V
+                4002 | 4010 => (tok.w_pe, 1.6),      // PE
+                4003 => (tok.w_dc, 1.8),             // DC+
+                4004 => (tok.w_dc_neg, 1.8),         // DC-
+                _ => (tok.ink, 1.6),                 // Genérico
             }
         }
     }
@@ -528,16 +494,9 @@ impl<'a> SchematicCanvas<'a> {
             offset: 0,
         };
 
-        let default_fill = if self.is_dark {
-            Color::from_rgba(0.90, 0.93, 0.98, 0.08)
-        } else {
-            Color::from_rgba(0.12, 0.14, 0.20, 0.08)
-        };
-        let white_fill = if self.is_dark {
-            Color::from_rgb(0.16, 0.18, 0.23)
-        } else {
-            Color::from_rgb(0.99, 0.99, 1.0)
-        };
+        let tok = self.tokens();
+        let default_fill = Color { a: 0.08, ..tok.ink };
+        let white_fill = tok.s1;
         let ox = origin_x as f32;
         let oy = origin_y as f32;
 
@@ -771,11 +730,12 @@ impl<'a> SchematicCanvas<'a> {
 
     fn draw_item(&self, frame: &mut Frame, item: &SchematicItem) {
         let is_selected = self.selected_id == Some(item.id);
+        let tok = self.tokens();
 
         if item.is_wire() {
             let (mut color, mut width) = self.wire_color(item);
             if is_selected {
-                color = Color::from_rgb(0.0, 0.55, 1.0);
+                color = tok.focus;
                 width += 1.0;
             }
             let a = self.world_to_screen(item.x1 as f32, item.y1 as f32);
@@ -799,11 +759,7 @@ impl<'a> SchematicCanvas<'a> {
         if item.tipo == 8 {
             if !item.trailing_str.is_empty() {
                 let pos = self.world_to_screen(item.x1 as f32, item.y1 as f32);
-                let text_color = if self.is_dark {
-                    Color::from_rgb(0.90, 0.93, 0.98)
-                } else {
-                    Color::from_rgb(0.12, 0.16, 0.28)
-                };
+                let text_color = tok.text;
                 frame.fill_text(Text {
                     content: item.trailing_str.clone(),
                     position: pos,
@@ -819,11 +775,7 @@ impl<'a> SchematicCanvas<'a> {
         if item.tipo == 1 {
             let a = self.world_to_screen(item.x1 as f32, item.y1 as f32);
             let b = self.world_to_screen(item.x2 as f32, item.y2 as f32);
-            let line_color = if self.is_dark {
-                Color::from_rgb(0.78, 0.82, 0.90)
-            } else {
-                Color::from_rgb(0.25, 0.28, 0.35)
-            };
+            let line_color = tok.sheet_line;
             frame.stroke(
                 &Path::line(a, b),
                 Stroke::default().with_color(line_color).with_width(1.2),
@@ -839,11 +791,7 @@ impl<'a> SchematicCanvas<'a> {
             let h = (item.y2 - item.y1).abs() as f32;
             let tl = self.world_to_screen(min_x, min_y);
             let sz = Size::new(w * self.zoom, h * self.zoom);
-            let rect_color = if self.is_dark {
-                Color::from_rgb(0.78, 0.82, 0.90)
-            } else {
-                Color::from_rgb(0.25, 0.28, 0.35)
-            };
+            let rect_color = tok.sheet_line;
             frame.stroke(
                 &Path::rectangle(tl, sz),
                 Stroke::default().with_color(rect_color).with_width(1.3),
@@ -856,19 +804,20 @@ impl<'a> SchematicCanvas<'a> {
             let sim_st = self.doc.sim.get(item.id);
             let active_in_sim = self.sim_running && (sim_st.active || sim_st.manual_latched);
             let stroke_color = if is_selected {
-                Color::from_rgb(0.05, 0.45, 0.90)
+                tok.focus
             } else if self.sim_running && sim_st.fault {
-                Color::from_rgb(0.95, 0.15, 0.10)
+                tok.danger
             } else if active_in_sim {
-                Color::from_rgb(0.08, 0.70, 0.25)
-            } else if self.is_dark {
-                Color::from_rgb(0.90, 0.93, 0.98)
+                tok.success
             } else {
-                Color::from_rgb(0.10, 0.12, 0.18)
+                tok.ink
             };
 
             let fill_active = if active_in_sim {
-                Some(Color::from_rgba(0.15, 0.85, 0.35, 0.35))
+                Some(Color {
+                    a: 0.35,
+                    ..tok.success
+                })
             } else {
                 None
             };
@@ -884,12 +833,17 @@ impl<'a> SchematicCanvas<'a> {
                     let max_y = (item.y1 as f32 + p1y.max(p2y)) + 2.0;
                     let tl = self.world_to_screen(min_x, min_y);
                     let sz = Size::new((max_x - min_x) * self.zoom, (max_y - min_y) * self.zoom);
-                    frame.fill_rectangle(tl, sz, Color::from_rgba(0.10, 0.55, 0.98, 0.10));
+                    frame.fill_rectangle(
+                        tl,
+                        sz,
+                        Color {
+                            a: 0.10,
+                            ..tok.focus
+                        },
+                    );
                     frame.stroke(
                         &Path::rectangle(tl, sz),
-                        Stroke::default()
-                            .with_color(Color::from_rgb(0.10, 0.55, 0.98))
-                            .with_width(1.2),
+                        Stroke::default().with_color(tok.focus).with_width(1.2),
                     );
                 }
             }
@@ -909,11 +863,7 @@ impl<'a> SchematicCanvas<'a> {
             // Desenha tag do elemento
             if !item.tag.is_empty() {
                 let tpos = self.world_to_screen((item.x1 - 6) as f32, (item.y1 - 6) as f32);
-                let tag_color = if self.is_dark {
-                    Color::from_rgb(0.45, 0.75, 1.0)
-                } else {
-                    Color::from_rgb(0.06, 0.22, 0.58)
-                };
+                let tag_color = tok.w_cmd;
                 frame.fill_text(Text {
                     content: item.tag.clone(),
                     position: tpos,
@@ -931,11 +881,7 @@ impl<'a> SchematicCanvas<'a> {
             // para garantir que NUNCA fique invisível ou em branco no canvas.
             let tl = self.world_to_screen((item.x1 - 2) as f32, (item.y1 - 2) as f32);
             let sz = Size::new(12.0 * self.zoom, 14.0 * self.zoom);
-            let box_color = if self.is_dark {
-                Color::from_rgb(0.90, 0.55, 0.20)
-            } else {
-                Color::from_rgb(0.85, 0.35, 0.10)
-            };
+            let box_color = tok.amber;
             let mut stroke = Stroke::default().with_color(box_color).with_width(1.3);
             stroke.line_dash = iced::widget::canvas::stroke::LineDash {
                 segments: &[3.0, 2.0],
@@ -973,12 +919,17 @@ impl<'a> SchematicCanvas<'a> {
             let max_y = (item.y1 + p1y.max(p2y) + 1) as f32;
             let tl = self.world_to_screen(min_x, min_y);
             let sz = Size::new((max_x - min_x) * self.zoom, (max_y - min_y) * self.zoom);
-            frame.fill_rectangle(tl, sz, Color::from_rgba(0.10, 0.55, 0.98, 0.10));
+            frame.fill_rectangle(
+                tl,
+                sz,
+                Color {
+                    a: 0.10,
+                    ..tok.focus
+                },
+            );
             frame.stroke(
                 &Path::rectangle(tl, sz),
-                Stroke::default()
-                    .with_color(Color::from_rgb(0.10, 0.55, 0.98))
-                    .with_width(1.2),
+                Stroke::default().with_color(tok.focus).with_width(1.2),
             );
         }
 
@@ -996,57 +947,52 @@ impl<'a> SchematicCanvas<'a> {
         let is_lamp = item.is_lamp_or_signaling();
 
         let stroke_color = if is_selected {
-            Color::from_rgb(0.05, 0.45, 0.90)
+            tok.focus
         } else if self.sim_running && sim_st.fault {
-            Color::from_rgb(0.95, 0.15, 0.10)
+            tok.danger
         } else if active_in_sim {
             if is_lamp {
-                match item.color {
-                    2 => Color::from_rgb(0.88, 0.14, 0.12), // Vermelho
-                    3 => Color::from_rgb(0.85, 0.70, 0.05), // Amarelo
-                    4 => Color::from_rgb(0.10, 0.45, 0.90), // Azul
-                    0 => Color::from_rgb(0.70, 0.70, 0.70), // Branco
-                    _ => Color::from_rgb(0.08, 0.65, 0.24), // Verde (código 1 ou outro)
-                }
+                tok.lamp_color(item.color)
             } else {
                 match item.tipo {
-                    1000..=1002 => Color::from_rgb(0.08, 0.65, 0.24),
-                    _ => Color::from_rgb(0.88, 0.14, 0.12),
+                    1000..=1002 => tok.success,
+                    _ => tok.danger,
                 }
             }
-        } else if self.is_dark {
-            Color::from_rgb(0.90, 0.93, 0.98)
         } else {
-            Color::from_rgb(0.10, 0.12, 0.18)
+            tok.ink
         };
 
         let fill_active = if active_in_sim {
             if is_lamp {
-                match item.color {
-                    2 => Some(Color::from_rgba(0.95, 0.20, 0.15, 0.75)), // Vermelho
-                    3 => Some(Color::from_rgba(0.98, 0.85, 0.15, 0.75)), // Amarelo
-                    4 => Some(Color::from_rgba(0.20, 0.55, 0.95, 0.75)), // Azul
-                    0 => Some(Color::from_rgba(0.95, 0.95, 0.95, 0.85)), // Branco
-                    _ => Some(Color::from_rgba(0.20, 0.95, 0.40, 0.75)), // Verde (padrão)
-                }
+                Some(Color {
+                    a: 0.75,
+                    ..tok.lamp_color(item.color)
+                })
             } else {
                 match item.tipo {
-                    9000 | 9004 | 9005 | 9013 => Some(Color::from_rgba(0.95, 0.25, 0.20, 0.35)),
-                    1000..=1002 => Some(Color::from_rgba(0.15, 0.82, 0.35, 0.30)),
+                    9000 | 9004 | 9005 | 9013 => Some(Color {
+                        a: 0.35,
+                        ..tok.danger
+                    }),
+                    1000..=1002 => Some(Color {
+                        a: 0.30,
+                        ..tok.success
+                    }),
                     _ => None,
                 }
             }
         } else if self.sim_running && sim_st.fault {
-            Some(Color::from_rgba(0.95, 0.20, 0.15, 0.30))
+            Some(Color {
+                a: 0.30,
+                ..tok.danger
+            })
         } else if is_lamp {
             // Em repouso (idle), preenchimento suave da lente para indicar visualmente a cor configurada
-            match item.color {
-                2 => Some(Color::from_rgba(0.90, 0.15, 0.15, 0.18)), // Vermelho suave
-                3 => Some(Color::from_rgba(0.95, 0.85, 0.10, 0.22)), // Amarelo suave
-                4 => Some(Color::from_rgba(0.15, 0.45, 0.90, 0.18)), // Azul suave
-                0 => Some(Color::from_rgba(0.90, 0.90, 0.90, 0.25)), // Branco suave
-                _ => Some(Color::from_rgba(0.10, 0.80, 0.20, 0.18)), // Verde suave (padrão)
-            }
+            Some(Color {
+                a: 0.20,
+                ..tok.lamp_color(item.color)
+            })
         } else {
             None
         };
@@ -1086,9 +1032,7 @@ impl<'a> SchematicCanvas<'a> {
             let pt = self.world_to_screen(wx as f32, wy as f32);
             frame.stroke(
                 &Path::circle(pt, (0.55 * self.zoom).clamp(1.5, 3.2)),
-                Stroke::default()
-                    .with_color(Color::from_rgb(0.75, 0.18, 0.18))
-                    .with_width(1.0),
+                Stroke::default().with_color(tok.danger).with_width(1.0),
             );
             if self.show_texts
                 && self.doc.settings.show_pin_refs >= 1
@@ -1099,11 +1043,7 @@ impl<'a> SchematicCanvas<'a> {
                     transform_offset(p_def.label_pos.0, p_def.label_pos.1, item.orientation);
                 let lpos =
                     self.world_to_screen((item.x1 + lx) as f32 + 0.4, (item.y1 + ly) as f32 - 0.5);
-                let pin_color = if self.is_dark {
-                    Color::from_rgb(0.75, 0.80, 0.90)
-                } else {
-                    Color::from_rgb(0.32, 0.36, 0.44)
-                };
+                let pin_color = tok.text2;
                 frame.fill_text(Text {
                     content: pin_label,
                     position: lpos,
@@ -1122,11 +1062,7 @@ impl<'a> SchematicCanvas<'a> {
                 _ => (item.x1 - 8, item.y1 + 3),
             };
             let tpos = self.world_to_screen(tx as f32, ty as f32);
-            let tag_color = if self.is_dark {
-                Color::from_rgb(0.45, 0.75, 1.0)
-            } else {
-                Color::from_rgb(0.06, 0.22, 0.58)
-            };
+            let tag_color = tok.w_cmd;
             frame.fill_text(Text {
                 content: item.tag.clone(),
                 position: tpos,
@@ -1149,7 +1085,7 @@ impl<'a> SchematicCanvas<'a> {
             frame.fill_text(Text {
                 content: format!("{sec:.1}s/{preset:.0}s"),
                 position: vpos,
-                color: Color::from_rgb(0.80, 0.15, 0.10),
+                color: tok.danger,
                 size: (2.7 * self.zoom).clamp(7.0, 12.5).into(),
                 ..Text::default()
             });
@@ -1168,9 +1104,9 @@ impl<'a> SchematicCanvas<'a> {
                     content: status_txt,
                     position: spos,
                     color: if sim_st.fault {
-                        Color::from_rgb(0.92, 0.12, 0.10)
+                        tok.danger
                     } else {
-                        Color::from_rgb(0.06, 0.58, 0.22)
+                        tok.success
                     },
                     size: (2.8 * self.zoom).clamp(7.5, 13.0).into(),
                     ..Text::default()
@@ -1178,11 +1114,7 @@ impl<'a> SchematicCanvas<'a> {
             }
         } else if self.show_texts && item.show_value == 1 && !item.value.is_empty() {
             let vpos = self.world_to_screen((item.x1 + 5) as f32, (item.y1 + 5) as f32);
-            let val_color = if self.is_dark {
-                Color::from_rgb(0.75, 0.80, 0.90)
-            } else {
-                Color::from_rgb(0.25, 0.28, 0.35)
-            };
+            let val_color = tok.text2;
             frame.fill_text(Text {
                 content: format!("{}s", item.value),
                 position: vpos,
@@ -1442,14 +1374,11 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         bounds: Rectangle,
         _cursor: mouse::Cursor,
     ) -> Vec<Geometry> {
+        let tok = self.tokens();
         let mut frame = Frame::new(renderer, bounds.size());
 
         // Fundo da área de trabalho do CADe_SIMU
-        frame.fill_rectangle(
-            Point::ORIGIN,
-            bounds.size(),
-            Color::from_rgb(0.82, 0.85, 0.89),
-        );
+        frame.fill_rectangle(Point::ORIGIN, bounds.size(), tok.workspace);
 
         // Folha A4 + grade + Cajetín
         self.draw_sheet_and_cajetin(&mut frame);
@@ -1486,7 +1415,10 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             hy,
                             self.placement_orientation,
                             svg_idle,
-                            Color::from_rgba(0.10, 0.48, 0.92, 0.65),
+                            Color {
+                                a: 0.65,
+                                ..tok.focus
+                            },
                             1.8,
                             None,
                             target_span,
@@ -1499,7 +1431,10 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             hy,
                             self.placement_orientation,
                             sym.idle_cmds,
-                            Color::from_rgba(0.10, 0.48, 0.92, 0.65),
+                            Color {
+                                a: 0.65,
+                                ..tok.focus
+                            },
                             None,
                             1.8,
                         );
@@ -1511,16 +1446,17 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                     let hpt = self.world_to_screen(hx as f32, hy as f32);
                     frame.stroke(
                         &Path::circle(hpt, 3.5 * self.zoom),
-                        Stroke::default()
-                            .with_color(Color::from_rgb(0.10, 0.50, 0.95))
-                            .with_width(1.5),
+                        Stroke::default().with_color(tok.focus).with_width(1.5),
                     );
                     if let Some((sx, sy)) = state.wire_start {
                         let spt = self.world_to_screen(sx as f32, sy as f32);
                         frame.stroke(
                             &Path::line(spt, hpt),
                             Stroke::default()
-                                .with_color(Color::from_rgba(0.10, 0.50, 0.95, 0.80))
+                                .with_color(Color {
+                                    a: 0.80,
+                                    ..tok.focus
+                                })
                                 .with_width(2.0),
                         );
                     }
@@ -1529,7 +1465,10 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                     let hpt = self.world_to_screen(hx as f32, hy as f32);
                     frame.fill(
                         &Path::circle(hpt, 3.8 * self.zoom),
-                        Color::from_rgba(0.10, 0.50, 0.95, 0.75),
+                        Color {
+                            a: 0.75,
+                            ..tok.focus
+                        },
                     );
                 }
                 _ => {}

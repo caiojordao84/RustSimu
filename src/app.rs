@@ -5,7 +5,7 @@ use iced::widget::{
     button, checkbox, column, container, horizontal_rule, horizontal_space, mouse_area, pick_list,
     row, scrollable, stack, svg, text, text_input, tooltip, vertical_space, Space, Stack,
 };
-use iced::{Alignment, Border, Color, Element, Font, Length, Padding, Subscription, Theme, Vector};
+use iced::{Alignment, Element, Font, Length, Padding, Subscription, Theme, Vector};
 
 use crate::canvas_view::{CanvasMessage, EditorTool, SchematicCanvas};
 use crate::io::{build_dol_starter_preset, load_document, save_document};
@@ -17,7 +17,7 @@ use crate::symbols::{
     find_duplicate_apparatus, find_occupied_sequences_for_tag, find_parent_apparatus, find_symbol,
     list_available_parent_tags, next_sequential_tag_for_role, symbol_catalog, SymbolCategory,
 };
-use crate::theme::{self, tokens, ThemeMode, MENU_H, MONO, R, STATUS_H, TOOL_H, UI};
+use crate::theme::{self, tokens, ThemeMode, MENU_H, MONO, STATUS_H, TOOL_H, UI};
 
 /// Opção do menu dropdown sequencial de contatos (IEC 60947).
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -2382,12 +2382,7 @@ impl CadeSimuApp {
 
             let modal_backdrop = mouse_area(
                 container(Space::new(Length::Fill, Length::Fill))
-                    .style(|_| container::Style {
-                        background: Some(iced::Background::Color(Color::from_rgba(
-                            0.0, 0.0, 0.0, 0.45,
-                        ))),
-                        ..Default::default()
-                    })
+                    .style(theme::modal_backdrop)
                     .width(Length::Fill)
                     .height(Length::Fill),
             )
@@ -2557,12 +2552,7 @@ impl CadeSimuApp {
 
             let modal_backdrop = mouse_area(
                 container(Space::new(Length::Fill, Length::Fill))
-                    .style(|_| container::Style {
-                        background: Some(iced::Background::Color(Color::from_rgba(
-                            0.0, 0.0, 0.0, 0.45,
-                        ))),
-                        ..Default::default()
-                    })
+                    .style(theme::modal_backdrop)
                     .width(Length::Fill)
                     .height(Length::Fill),
             )
@@ -2641,18 +2631,11 @@ impl CadeSimuApp {
 
         let file_badge = text(file_name).size(11).font(MONO).color(t.text2);
 
-        let mode_dot = container(Space::new(6, 6)).style(move |_| container::Style {
-            background: Some(iced::Background::Color(if self.sim_running {
-                t.amber
-            } else {
-                t.primary
-            })),
-            border: Border {
-                radius: 3.0.into(),
-                ..Default::default()
-            },
-            ..Default::default()
-        });
+        let mode_dot = container(Space::new(6, 6)).style(theme::status_dot(if self.sim_running {
+            t.amber
+        } else {
+            t.primary
+        }));
         let mode_label = text(if self.sim_running {
             "Simulação"
         } else {
@@ -3717,19 +3700,7 @@ impl CadeSimuApp {
                                 container(
                                     text(format!("[{}]", sym.default_tag)).size(10.5).font(MONO)
                                 )
-                                .style(move |theme| {
-                                    let tok = tokens(theme);
-                                    container::Style {
-                                        text_color: Some(tok.text),
-                                        background: Some(iced::Background::Color(tok.s3)),
-                                        border: iced::Border {
-                                            color: tok.border,
-                                            width: 1.0,
-                                            radius: R.into(),
-                                        },
-                                        shadow: iced::Shadow::default(),
-                                    }
-                                })
+                                .style(theme::tag_badge)
                                 .padding(Padding::from([1.0, 4.0])),
                                 text(sym.name).size(12).font(UI).width(Length::Fill),
                                 text(format!("{pin_count}b"))
@@ -3740,32 +3711,7 @@ impl CadeSimuApp {
                             .spacing(6)
                             .align_y(Alignment::Center),
                         )
-                        .style(move |theme| {
-                            let tok = tokens(theme);
-                            if is_selected {
-                                container::Style {
-                                    background: Some(iced::Background::Color(tok.sel_bg)),
-                                    text_color: Some(tok.sel_text),
-                                    border: iced::Border {
-                                        color: tok.sel_border,
-                                        width: 1.0,
-                                        radius: R.into(),
-                                    },
-                                    shadow: iced::Shadow::default(),
-                                }
-                            } else {
-                                container::Style {
-                                    background: Some(iced::Background::Color(Color::TRANSPARENT)),
-                                    text_color: Some(tok.text),
-                                    border: iced::Border {
-                                        color: Color::TRANSPARENT,
-                                        width: 1.0,
-                                        radius: R.into(),
-                                    },
-                                    shadow: iced::Shadow::default(),
-                                }
-                            }
-                        })
+                        .style(theme::catalog_item(is_selected))
                         .padding(Padding::from([4.0, 6.0]))
                         .width(Length::Fill);
 
@@ -4128,14 +4074,14 @@ impl CadeSimuApp {
                                             crate::icons::view_icon(
                                                 crate::icons::Icon::Check,
                                                 12,
-                                                Color::from_rgb(0.2, 0.8, 0.4)
+                                                t.success
                                             ),
                                             text(format!(
                                                 "Vinculado a '{}' ({})",
                                                 parent.tag, parent_name
                                             ))
                                             .size(10.5)
-                                            .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                            .color(t.success),
                                         ]
                                         .spacing(4)
                                         .align_y(Alignment::Center),
@@ -4147,14 +4093,14 @@ impl CadeSimuApp {
                                             crate::icons::view_icon(
                                                 crate::icons::Icon::Warning,
                                                 12,
-                                                Color::from_rgb(0.95, 0.7, 0.2)
+                                                t.amber
                                             ),
                                             text(format!(
                                                 "Contato sem bobina: Nenhuma {} com a tag '{}' no esquema.",
                                                 parent_display, item.tag
                                             ))
                                             .size(10.5)
-                                            .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                            .color(t.amber),
                                         ]
                                         .spacing(4)
                                         .align_y(Alignment::Center),
@@ -4200,14 +4146,14 @@ impl CadeSimuApp {
                                                     crate::icons::view_icon(
                                                         crate::icons::Icon::Warning,
                                                         12,
-                                                        Color::from_rgb(0.95, 0.7, 0.2)
+                                                        t.amber
                                                     ),
                                                     text(format!(
                                                         "Tag duplicada: já existe outro aparelho primário com a tag '{}'",
                                                         item.tag
                                                     ))
                                                     .size(10.5)
-                                                    .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                                    .color(t.amber),
                                                 ]
                                                 .spacing(4)
                                                 .align_y(Alignment::Center),
@@ -4216,7 +4162,7 @@ impl CadeSimuApp {
                                                         crate::icons::view_icon(
                                                             crate::icons::Icon::Bolt,
                                                             12,
-                                                            Color::WHITE
+                                                            t.primary
                                                         ),
                                                         text(format!("Renomear para {suggested_tag}"))
                                                             .size(10.5)
@@ -4253,14 +4199,14 @@ impl CadeSimuApp {
                                                 crate::icons::view_icon(
                                                     crate::icons::Icon::Check,
                                                     12,
-                                                    Color::from_rgb(0.2, 0.8, 0.4)
+                                                    t.success
                                                 ),
                                                 text(format!(
                                                     "Contatos associados no esquema: {} elemento(s)",
                                                     sub_contacts_count
                                                 ))
                                                 .size(10.5)
-                                                .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                                .color(t.success),
                                             ]
                                             .spacing(4)
                                             .align_y(Alignment::Center),
@@ -4382,14 +4328,14 @@ impl CadeSimuApp {
                                                                 crate::icons::view_icon(
                                                                     crate::icons::Icon::Warning,
                                                                     12,
-                                                                    Color::from_rgb(0.95, 0.7, 0.2)
+                                                                    t.amber
                                                                 ),
                                                                 text(format!(
                                                                     "Sequência {} já em uso por outro contato de '{}'",
                                                                     cur_seq, item.tag
                                                                 ))
                                                                 .size(10.5)
-                                                                .color(Color::from_rgb(0.95, 0.7, 0.2)),
+                                                                .color(t.amber),
                                                             ]
                                                             .spacing(4)
                                                             .align_y(Alignment::Center),
@@ -4398,7 +4344,7 @@ impl CadeSimuApp {
                                                                     crate::icons::view_icon(
                                                                         crate::icons::Icon::Bolt,
                                                                         12,
-                                                                        Color::WHITE
+                                                                        t.primary
                                                                     ),
                                                                     text(format!(
                                                                         "Usar Sequência {} recomendada ({})",
@@ -4426,14 +4372,14 @@ impl CadeSimuApp {
                                                         crate::icons::view_icon(
                                                             crate::icons::Icon::Check,
                                                             12,
-                                                            Color::from_rgb(0.2, 0.8, 0.4)
+                                                            t.success
                                                         ),
                                                         text(format!(
                                                             "Sequência {} conforme IEC 60947",
                                                             cur_seq
                                                         ))
                                                         .size(10.5)
-                                                        .color(Color::from_rgb(0.2, 0.8, 0.4)),
+                                                        .color(t.success),
                                                     ]
                                                     .spacing(4)
                                                     .align_y(Alignment::Center),
@@ -4464,44 +4410,32 @@ impl CadeSimuApp {
                                     ),
                                 );
 
-                                let color_btn =
-                                    |code: i32, label: &'static str, color_val: Color| {
-                                        let is_sel = item.color == code;
-                                        button(
-                                            row![
-                                                container(Space::with_width(8).height(8)).style(
-                                                    move |_| container::Style {
-                                                        background: Some(iced::Background::Color(
-                                                            color_val
-                                                        )),
-                                                        border: iced::Border {
-                                                            color: Color::BLACK,
-                                                            width: 1.0,
-                                                            radius: 2.0.into()
-                                                        },
-                                                        ..container::Style::default()
-                                                    }
-                                                ),
-                                                text(label).size(10.0).font(UI),
-                                            ]
-                                            .spacing(3)
-                                            .align_y(Alignment::Center),
-                                        )
-                                        .style(if is_sel {
-                                            theme::tool_active
-                                        } else {
-                                            theme::tool
-                                        })
-                                        .padding(Padding::from([2.0, 4.0]))
-                                        .on_press(Message::SetLampColor(code))
-                                    };
+                                let color_btn = |code: i32, label: &'static str| {
+                                    let is_sel = item.color == code;
+                                    button(
+                                        row![
+                                            container(Space::with_width(8).height(8))
+                                                .style(theme::lamp_swatch(t.lamp_color(code))),
+                                            text(label).size(10.0).font(UI),
+                                        ]
+                                        .spacing(3)
+                                        .align_y(Alignment::Center),
+                                    )
+                                    .style(if is_sel {
+                                        theme::tool_active
+                                    } else {
+                                        theme::tool
+                                    })
+                                    .padding(Padding::from([2.0, 4.0]))
+                                    .on_press(Message::SetLampColor(code))
+                                };
 
                                 let colors_row = row![
-                                    color_btn(1, "Verde", Color::from_rgb(0.1, 0.8, 0.2)),
-                                    color_btn(2, "Vermelho", Color::from_rgb(0.9, 0.1, 0.1)),
-                                    color_btn(3, "Amarelo", Color::from_rgb(0.9, 0.8, 0.1)),
-                                    color_btn(4, "Azul", Color::from_rgb(0.1, 0.4, 0.9)),
-                                    color_btn(0, "Branco", Color::from_rgb(0.95, 0.95, 0.95)),
+                                    color_btn(1, "Verde"),
+                                    color_btn(2, "Vermelho"),
+                                    color_btn(3, "Amarelo"),
+                                    color_btn(4, "Azul"),
+                                    color_btn(0, "Branco"),
                                 ]
                                 .spacing(3);
 
@@ -4800,7 +4734,7 @@ impl CadeSimuApp {
                                     crate::icons::view_icon(
                                         crate::icons::Icon::Delete,
                                         14,
-                                        Color::WHITE
+                                        t.on_danger
                                     ),
                                     text("Excluir Elemento").size(12).font(UI),
                                 ]
@@ -4869,14 +4803,7 @@ impl CadeSimuApp {
         } else {
             t.border_strong
         };
-        let dock_dot = container(Space::new(7, 7)).style(move |_| container::Style {
-            background: Some(iced::Background::Color(led_color)),
-            border: Border {
-                radius: 3.5.into(),
-                ..Default::default()
-            },
-            ..Default::default()
-        });
+        let dock_dot = container(Space::new(7, 7)).style(theme::status_dot(led_color));
         let dock_foot = container(
             row![
                 dock_dot,
@@ -5025,17 +4952,7 @@ impl CadeSimuApp {
 
             let tab_box = container(tab_content)
                 .padding(Padding::from([1.0, 2.0]))
-                .style(move |theme: &Theme| {
-                    let mut s = container::transparent(theme);
-                    if is_active {
-                        s.border = Border {
-                            color: t.primary,
-                            width: 1.0,
-                            radius: 4.0.into(),
-                        };
-                    }
-                    s
-                });
+                .style(theme::page_tab_box(is_active));
 
             tabs_row = tabs_row.push(tab_box);
         }
@@ -5276,14 +5193,8 @@ impl CadeSimuApp {
                 sep(),
                 {
                     let status_color = if self.sim_running { t.primary } else { t.text2 };
-                    let status_dot = container(Space::new(6, 6)).style(move |_| container::Style {
-                        background: Some(iced::Background::Color(status_color)),
-                        border: Border {
-                            radius: 3.0.into(),
-                            ..Default::default()
-                        },
-                        ..Default::default()
-                    });
+                    let status_dot =
+                        container(Space::new(6, 6)).style(theme::status_dot(status_color));
                     row![
                         status_dot,
                         text(&self.status_msg).size(11).color(status_color)

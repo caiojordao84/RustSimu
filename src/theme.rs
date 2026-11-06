@@ -211,13 +211,31 @@ pub struct Tokens {
     pub w_cmd: Color,
     pub w_dc: Color,
     pub w_pe: Color,
+    pub w_neutral: Color,
+    pub w_dc_neg: Color,
     pub ink: Color,
     pub sheet: Color,
     pub sheet_line: Color,
+    pub success: Color,
+    pub modal_backdrop: Color,
+    pub lamp_green: Color,
+    pub lamp_red: Color,
+    pub lamp_yellow: Color,
+    pub lamp_blue: Color,
+    pub lamp_white: Color,
+    pub potential_l1: Color,
+    pub potential_l2: Color,
+    pub potential_l3: Color,
+    pub potential_n: Color,
+    pub potential_dc_pos: Color,
+    pub potential_dc_neg: Color,
 }
 
 fn rgb(hex: u32) -> Color {
     Color::from_rgb8((hex >> 16) as u8, (hex >> 8) as u8, hex as u8)
+}
+const fn rgb_f(r: f32, g: f32, b: f32) -> Color {
+    Color { r, g, b, a: 1.0 }
 }
 fn rgba(hex: u32, a: f32) -> Color {
     Color::from_rgba8((hex >> 16) as u8, (hex >> 8) as u8, hex as u8, a)
@@ -249,14 +267,29 @@ impl Tokens {
             sel_bg: rgb(0x0B3D2B),
             sel_text: rgb(0x6DFFBA),
             sel_border: rgb(0x00E599),
-            wire_off: rgb(0x606B7D),
-            w_power: rgb(0xF87171),
-            w_cmd: rgb(0x38BDF8),
-            w_dc: rgb(0xFBBF24),
-            w_pe: rgb(0x4ADE80),
-            ink: rgb(0xE1E2E9),
+            wire_off: rgb_f(0.55, 0.58, 0.66),
+            w_power: rgb_f(0.94, 0.58, 0.50),
+            w_cmd: rgb_f(0.94, 0.58, 0.50),
+            w_dc: rgb_f(1.0, 0.45, 0.48),
+            w_pe: rgb_f(0.35, 0.90, 0.45),
+            w_neutral: rgb_f(0.45, 0.75, 1.0),
+            w_dc_neg: rgb_f(0.85, 0.88, 0.95),
+            ink: rgb_f(0.88, 0.92, 0.98),
             sheet: rgb(0x0B0D11),
             sheet_line: rgb(0xC9D1DD),
+            success: rgb(0x22C55E),
+            modal_backdrop: rgba(0x000000, 0.45),
+            lamp_green: rgb(0x16A34A),
+            lamp_red: rgb(0xDC2626),
+            lamp_yellow: rgb(0xCA8A04),
+            lamp_blue: rgb(0x2563EB),
+            lamp_white: rgb(0xF1F5F9),
+            potential_l1: rgb_f(0.92, 0.15, 0.12),
+            potential_l2: rgb_f(0.90, 0.52, 0.05),
+            potential_l3: rgb_f(0.65, 0.18, 0.85),
+            potential_n: rgb_f(0.08, 0.48, 0.95),
+            potential_dc_pos: rgb_f(0.95, 0.12, 0.20),
+            potential_dc_neg: rgb_f(0.15, 0.25, 0.45),
         }
     }
 
@@ -285,14 +318,41 @@ impl Tokens {
             sel_bg: rgb(0xDDF3E8),
             sel_text: rgb(0x005A34),
             sel_border: rgb(0x009959),
-            wire_off: rgb(0x4A5568),
-            w_power: rgb(0xDC2626),
-            w_cmd: rgb(0x2563EB),
-            w_dc: rgb(0xD97706),
-            w_pe: rgb(0x15803D),
-            ink: rgb(0x0F141C),
+            wire_off: rgb_f(0.45, 0.48, 0.54),
+            w_power: rgb_f(0.55, 0.18, 0.12),
+            w_cmd: rgb_f(0.55, 0.18, 0.12),
+            w_dc: rgb_f(0.82, 0.12, 0.15),
+            w_pe: rgb_f(0.12, 0.62, 0.20),
+            w_neutral: rgb_f(0.08, 0.38, 0.82),
+            w_dc_neg: rgb_f(0.15, 0.15, 0.20),
+            ink: rgb_f(0.15, 0.18, 0.24),
             sheet: rgb(0xFFFFFF),
             sheet_line: rgb(0x1B2230),
+            success: rgb(0x16A34A),
+            modal_backdrop: rgba(0x000000, 0.35),
+            lamp_green: rgb(0x16A34A),
+            lamp_red: rgb(0xDC2626),
+            lamp_yellow: rgb(0xCA8A04),
+            lamp_blue: rgb(0x2563EB),
+            lamp_white: rgb(0xE2E8F0),
+            potential_l1: rgb_f(0.92, 0.15, 0.12),
+            potential_l2: rgb_f(0.90, 0.52, 0.05),
+            potential_l3: rgb_f(0.65, 0.18, 0.85),
+            potential_n: rgb_f(0.08, 0.48, 0.95),
+            potential_dc_pos: rgb_f(0.95, 0.12, 0.20),
+            potential_dc_neg: rgb_f(0.15, 0.25, 0.45),
+        }
+    }
+
+    /// Retorna a cor correspondente ao código numérico do sinaleiro luminoso (0..=4).
+    pub fn lamp_color(&self, code: i32) -> Color {
+        match code {
+            1 => self.lamp_green,
+            2 => self.lamp_red,
+            3 => self.lamp_yellow,
+            4 => self.lamp_blue,
+            0 => self.lamp_white,
+            _ => self.lamp_green,
         }
     }
 }
@@ -654,6 +714,85 @@ pub fn divider(theme: &Theme) -> container::Style {
     }
 }
 
+/// Fundo escurecido semitransparente para modais e caixas de diálogo sobrepostas.
+pub fn modal_backdrop(theme: &Theme) -> container::Style {
+    let t = tokens(theme);
+    container::Style {
+        background: bg(t.modal_backdrop),
+        ..Default::default()
+    }
+}
+
+/// Tag badge de componente ([KM], [-Q], etc.) na lista de símbolos.
+pub fn tag_badge(theme: &Theme) -> container::Style {
+    let t = tokens(theme);
+    container::Style {
+        text_color: Some(t.text),
+        background: bg(t.s3),
+        border: border(t.border, 1.0, R),
+        shadow: Shadow::default(),
+    }
+}
+
+/// Item da lista de símbolos do catálogo / biblioteca (.catalog_item).
+pub fn catalog_item(selected: bool) -> impl Fn(&Theme) -> container::Style {
+    move |theme| {
+        let t = tokens(theme);
+        if selected {
+            container::Style {
+                background: bg(t.sel_bg),
+                text_color: Some(t.sel_text),
+                border: border(t.sel_border, 1.0, R),
+                shadow: Shadow::default(),
+            }
+        } else {
+            container::Style {
+                background: None,
+                text_color: Some(t.text),
+                border: border(Color::TRANSPARENT, 0.0, R),
+                shadow: Shadow::default(),
+            }
+        }
+    }
+}
+
+/// Amostra de cor do sinaleiro luminoso com borda padronizada do tema.
+pub fn lamp_swatch(color: Color) -> impl Fn(&Theme) -> container::Style {
+    move |theme| {
+        let t = tokens(theme);
+        container::Style {
+            text_color: None,
+            background: bg(color),
+            border: border(t.border_strong, 1.0, 2.0),
+            shadow: Shadow::default(),
+        }
+    }
+}
+
+/// Ponto ou indicador circular de estado (LED, modo, status).
+pub fn status_dot(color: Color) -> impl Fn(&Theme) -> container::Style {
+    move |_theme| container::Style {
+        background: bg(color),
+        border: border(Color::TRANSPARENT, 0.0, 4.0),
+        ..Default::default()
+    }
+}
+
+/// Caixa da aba de página do rodapé com borda destacada quando ativa.
+pub fn page_tab_box(active: bool) -> impl Fn(&Theme) -> container::Style {
+    move |theme| {
+        let t = tokens(theme);
+        container::Style {
+            border: if active {
+                border(t.primary, 1.0, R)
+            } else {
+                border(Color::TRANSPARENT, 0.0, R)
+            },
+            ..Default::default()
+        }
+    }
+}
+
 // ---------- Campos de texto ----------
 pub fn field(theme: &Theme, status: text_input::Status) -> text_input::Style {
     let t = tokens(theme);
@@ -693,5 +832,11 @@ pub fn accent(theme: &Theme) -> text::Style {
 pub fn warning(theme: &Theme) -> text::Style {
     text::Style {
         color: Some(tokens(theme).amber),
+    }
+}
+
+pub fn success(theme: &Theme) -> text::Style {
+    text::Style {
+        color: Some(tokens(theme).success),
     }
 }

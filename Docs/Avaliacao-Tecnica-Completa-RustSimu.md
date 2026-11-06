@@ -224,7 +224,7 @@ Um diferencial grande do projeto: as estruturas reproduzem os arrays paralelos d
 | 7 | Fragmentar `main.rs` em `src/ui/` + `src/app/` por domínio de `Message` | 3–5 d | Recupera separação de responsabilidades e reduz o contexto de agentes | Em andamento (app desacoplado de main) |
 | 8 | Modularizar `sim.rs` (graph/solver/rules/timers) com cache da rede | 3 d | Performance e legibilidade do motor | Pendente |
 | 9 | Export real: folha → SVG → PNG/PDF (stub hoje) | 2–4 d | Fecha promessa do README e da spec §1.1 | Pendente |
-| 10 | Cores do canvas via `theme::tokens` (+ base da folha) | 0,5 d | Coerência de tema | Pendente |
+| 10 | Cores do canvas via `theme::tokens` (+ base da folha) e eliminação de cores hardcoded | 0,5 d | Coerência total de tema, tokens no canvas e eliminação de `Color` em `app.rs` | **Concluído** |
 | 11 | Decoder CP-1252 (bytes 0x80–0x9F) | 0,5 d | Textos legados corretos | Pendente |
 | 12 | Tipos fantasma 7003/7007 + `Msg::Resized`/`ToggleFocus` mortos | 0,5 d | Menos code-ruído | Pendente |
 
