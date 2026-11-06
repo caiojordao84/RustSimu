@@ -222,7 +222,7 @@ Um diferencial grande do projeto: as estruturas reproduzem os arrays paralelos d
 | 5 | Mover `mod tests` (≈3.750 linhas) para `tests/` | 1 d | `main.rs` de 8.926 para 9 linhas, testes em `tests/integration_tests.rs` e app em `src/app.rs` | **Concluído** |
 | 6 | Extrair `SimState` dos campos `sim_*` de `SchematicItem` | 2 d | Model puro; abre caminho para sim em threads e snapshot barato | Pendente |
 | 7 | Fragmentar `main.rs` em `src/ui/` + `src/app/` por domínio de `Message` | 3–5 d | Recupera separação de responsabilidades e reduz o contexto de agentes | Em andamento (app desacoplado de main) |
-| 8 | Modularizar `sim.rs` (graph/solver/rules/timers) com cache da rede | 3 d | Performance e legibilidade do motor | Pendente |
+| 8 | Modularizar `sim.rs` (graph/solver/rules/timers) com cache da rede | 3 d | Performance e legibilidade do motor | **Concluído** |
 | 9 | Export real: folha → SVG → PNG/PDF (stub hoje) | 2–4 d | Fecha promessa do README e da spec §1.1 | **Concluído** |
 | 10 | Cores do canvas via `theme::tokens` (+ base da folha) e eliminação de cores hardcoded | 0,5 d | Coerência total de tema, tokens no canvas e eliminação de `Color` em `app.rs` | **Concluído** |
 | 11 | Decoder CP-1252 (bytes 0x80–0x9F) | 0,5 d | Textos legados e exportação .cad corretos (0x80..=0x9F e roundtrip total para textos tipo 8) | **Concluído** |

@@ -121,11 +121,19 @@ impl ItemSimState {
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct SimState {
     pub items: HashMap<i32, ItemSimState>,
+    /// Cache da rede topológica estática do circuito (evita recalculação O(N^2) a cada tick).
+    pub network_cache: Option<std::sync::Arc<crate::sim::NetworkGraph>>,
 }
 
 impl SimState {
     pub fn new() -> Self {
         Self::default()
+    }
+
+    /// Invalida explicitamente o cache de rede da folha.
+    #[inline]
+    pub fn invalidate_cache(&mut self) {
+        self.network_cache = None;
     }
 
     /// Retorna uma cópia do estado do item pelo seu ID (ou estado padrão se não registrado).
@@ -179,9 +187,10 @@ impl SimState {
         self.items.get(&id).map(|s| s.fault).unwrap_or(false)
     }
 
-    /// Zera todos os estados da simulação (desliga componentes, zera timers e potenciais).
+    /// Zera todos os estados da simulação (desliga componentes, zera timers e potenciais) e invalida o cache de rede.
     pub fn reset(&mut self) {
         self.items.clear();
+        self.network_cache = None;
     }
 }
 
