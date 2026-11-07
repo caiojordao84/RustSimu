@@ -159,6 +159,16 @@ pub enum Message {
     SelectCollectionSymbol(i32),
     StartSymbolDrag(i32),
     InsertSelectedCollectionSymbol,
+    SelectLibrarySubtab(usize),
+    CanonicalSearchChanged(String),
+    SelectCanonicalFamily(Option<String>),
+    SelectCanonicalKind(Option<String>),
+    SelectCanonicalPage(usize),
+    NextCanonicalPage,
+    PrevCanonicalPage,
+    SelectCanonicalSymbol(String),
+    StartCanonicalSymbolDrag(String),
+    InsertSelectedCanonicalSymbol,
     CancelAction,
     GlobalMouseReleased,
     SelectPropTab(usize),
@@ -275,6 +285,15 @@ pub struct CadeSimuApp {
     pub dragging_symbol: Option<i32>,
     pub last_collection_click: Option<(i32, std::time::Instant)>,
     pub last_placed_sym: Option<i32>,
+    // Biblioteca Canônica D2
+    pub library_subtab: usize,
+    pub canonical_search: String,
+    pub canonical_family_filter: Option<String>,
+    pub canonical_kind_filter: Option<String>,
+    pub canonical_page: usize,
+    pub selected_canonical_id: Option<String>,
+    pub dragging_canonical_id: Option<String>,
+    pub last_canonical_click: Option<(String, std::time::Instant)>,
     pub prop_tab: usize,
     pub left_dock_tab: usize,
     pub left_dock_collapsed: bool,
@@ -389,6 +408,14 @@ impl CadeSimuApp {
                 dragging_symbol: None,
                 last_collection_click: None,
                 last_placed_sym: None,
+                library_subtab: 0,
+                canonical_search: String::new(),
+                canonical_family_filter: None,
+                canonical_kind_filter: None,
+                canonical_page: 0,
+                selected_canonical_id: Some("00001".to_string()),
+                dragging_canonical_id: None,
+                last_canonical_click: None,
                 prop_tab: 0,
                 left_dock_tab: 0,
                 left_dock_collapsed: false,
@@ -558,12 +585,12 @@ impl CadeSimuApp {
                 self.active_category = cat;
             }
             Message::SelectTool(tool) => {
-                self.tool = tool;
                 if self.sim_running && !matches!(tool, EditorTool::Select) {
                     self.sim_running = false;
                     self.doc.reset_simulation_state();
                     self.status_msg = "Simulação encerrada para edição.".to_string();
                 }
+                self.tool = tool;
             }
             Message::ToggleSimulation => {
                 self.sim_running = !self.sim_running;
@@ -1521,6 +1548,90 @@ impl CadeSimuApp {
                         self.status_msg = format!("Inserido '{}' em ({x}, {y}).", sym.name);
                     }
                 }
+                CanvasMessage::PlaceCanonicalComponent { symbol_id, x, y } => {
+                    self.dragging_canonical_id = None;
+                    self.tool = EditorTool::Select;
+                    if let Some(dict) = crate::canonical::global_dictionary() {
+                        if let Some(el) = dict.get_by_id(&symbol_id) {
+                            self.push_undo();
+                            let new_id = self.doc.next_id();
+                            let native_tipo = if el.family == "cade_native" {
+                                el.slug
+                                    .split('_')
+                                    .next()
+                                    .and_then(|p| p.parse::<i32>().ok())
+                                    .unwrap_or(0)
+                            } else {
+                                0
+                            };
+
+                            let prefix = match el.kind.as_str() {
+                                "motor" => "-M",
+                                "circuit_breaker" | "disconnector" => "-Q",
+                                "fuse" => "-F",
+                                "relay_coil" => "-KM",
+                                "contactor_contact" => "-KM",
+                                "thermal_contact" => "-F",
+                                "momentary_button" | "latching_switch" | "selector_switch"
+                                | "emergency_stop" => "-S",
+                                "limit_switch" => "-SQ",
+                                "lamp" => "-H",
+                                "source" => "-G",
+                                "terminal" | "connector" => "-X",
+                                "load" => "-R",
+                                _ => "-E",
+                            };
+
+                            let count = self
+                                .doc
+                                .items
+                                .iter()
+                                .filter(|i| i.tag.starts_with(prefix))
+                                .count()
+                                + 1;
+                            let tag = format!("{}{}", prefix, count);
+
+                            let mut pins: [String; 9] = Default::default();
+                            for (idx, term) in el.terminals.iter().take(9).enumerate() {
+                                pins[idx] = term.name.clone();
+                            }
+
+                            let item = SchematicItem {
+                                id: new_id,
+                                tipo: native_tipo,
+                                tag,
+                                value: String::new(),
+                                pins,
+                                pin_visibility: [1; 9],
+                                x1: x,
+                                y1: y,
+                                x2: 0,
+                                y2: 0,
+                                aux_coords: [0, 0, 0, 0],
+                                color: 0,
+                                orientation: self.placement_orientation,
+                                subvariant: 0,
+                                show_tag: 1,
+                                show_value: 0,
+                                extra_int1: 0,
+                                extra_int2: 0,
+                                trailing_str: String::new(),
+                                qet_type: Some(el.slug.clone()),
+                                qet_uuid: None,
+                                symbol_id: Some(el.id.clone()),
+                                symbol_state: Some('0'),
+                            };
+
+                            self.doc.items.push(item);
+                            self.selected_id = Some(new_id);
+                            self.is_modified = true;
+                            self.status_msg = format!(
+                                "Símbolo '{}' ({}) inserido em ({x}, {y}).",
+                                el.name_pt, el.id
+                            );
+                        }
+                    }
+                }
                 CanvasMessage::AddWire {
                     tipo,
                     x1,
@@ -1638,6 +1749,7 @@ impl CadeSimuApp {
                     }
                     self.tool = EditorTool::Select;
                     self.dragging_symbol = None;
+                    self.dragging_canonical_id = None;
                 }
             },
             Message::CycleTheme => {
@@ -1671,9 +1783,11 @@ impl CadeSimuApp {
                 self.open_menu = None;
                 self.tool = EditorTool::Select;
                 self.dragging_symbol = None;
+                self.dragging_canonical_id = None;
             }
             Message::GlobalMouseReleased => {
                 self.dragging_symbol = None;
+                self.dragging_canonical_id = None;
                 self.commit_drag_undo();
             }
             Message::SelectCollectionSymbol(tipo) => {
@@ -1715,6 +1829,94 @@ impl CadeSimuApp {
                             "Símbolo '{}' pronto no ponteiro - clique na folha para posicionar.",
                             sym.name
                         );
+                    }
+                }
+            }
+            Message::SelectLibrarySubtab(idx) => {
+                self.library_subtab = idx;
+            }
+            Message::CanonicalSearchChanged(query) => {
+                self.canonical_search = query;
+                self.canonical_page = 0;
+            }
+            Message::SelectCanonicalFamily(fam) => {
+                self.canonical_family_filter = fam;
+                self.canonical_page = 0;
+            }
+            Message::SelectCanonicalKind(kind) => {
+                self.canonical_kind_filter = kind;
+                self.canonical_page = 0;
+            }
+            Message::SelectCanonicalPage(page) => {
+                self.canonical_page = page;
+            }
+            Message::NextCanonicalPage => {
+                if let Some(dict) = crate::canonical::global_dictionary() {
+                    let filtered = dict.filter_elements(
+                        &self.canonical_search,
+                        self.canonical_family_filter.as_deref(),
+                        self.canonical_kind_filter.as_deref(),
+                    );
+                    let total_pages = if filtered.is_empty() {
+                        1
+                    } else {
+                        filtered.len().div_ceil(35)
+                    };
+                    if self.canonical_page + 1 < total_pages {
+                        self.canonical_page += 1;
+                    }
+                }
+            }
+            Message::PrevCanonicalPage => {
+                if self.canonical_page > 0 {
+                    self.canonical_page -= 1;
+                }
+            }
+            Message::StartCanonicalSymbolDrag(id) => {
+                self.dragging_canonical_id = Some(id.clone());
+                self.selected_canonical_id = Some(id);
+            }
+            Message::SelectCanonicalSymbol(id) => {
+                self.dragging_canonical_id = None;
+                let now = std::time::Instant::now();
+                let is_double_click =
+                    if let Some((ref last_id, last_time)) = self.last_canonical_click {
+                        last_id == &id && now.duration_since(last_time) < Duration::from_millis(400)
+                    } else {
+                        false
+                    };
+                self.last_canonical_click = Some((id.clone(), now));
+                self.selected_canonical_id = Some(id.clone());
+
+                if is_double_click {
+                    self.tool = EditorTool::PlaceCanonicalSymbol(id.clone());
+                    if let Some(dict) = crate::canonical::global_dictionary() {
+                        if let Some(el) = dict.get_by_id(&id) {
+                            self.status_msg = format!(
+                                "Símbolo '{}' ({}) pronto no ponteiro - clique na folha para posicionar.",
+                                el.name_pt, el.id
+                            );
+                        }
+                    }
+                } else if let Some(dict) = crate::canonical::global_dictionary() {
+                    if let Some(el) = dict.get_by_id(&id) {
+                        self.status_msg = format!(
+                            "Símbolo '{}' ({}) selecionado. Dê duplo clique, arraste ou clique em 'Inserir no Esquema'.",
+                            el.name_pt, el.id
+                        );
+                    }
+                }
+            }
+            Message::InsertSelectedCanonicalSymbol => {
+                if let Some(ref id) = self.selected_canonical_id {
+                    self.tool = EditorTool::PlaceCanonicalSymbol(id.clone());
+                    if let Some(dict) = crate::canonical::global_dictionary() {
+                        if let Some(el) = dict.get_by_id(id) {
+                            self.status_msg = format!(
+                                "Símbolo '{}' ({}) pronto no ponteiro - clique na folha para posicionar.",
+                                el.name_pt, el.id
+                            );
+                        }
                     }
                 }
             }
@@ -3761,174 +3963,41 @@ impl CadeSimuApp {
 
         let content: Element<'_, Message> = match self.left_dock_tab {
             0 => {
-                // Barra de busca
-                let search_box = container(
-                    text_input(
-                        "Filtrar símbolos (ex: disjuntor, motor)...",
-                        &self.collection_search,
-                    )
-                    .on_input(Message::CollectionSearchChanged)
-                    .padding(Padding::from([6.0, 8.0]))
-                    .size(12)
-                    .style(theme::field),
-                )
-                .padding(Padding::from([8.0, 10.0]));
-
-                // Lista de símbolos organizados por categoria
-                let query = self.collection_search.trim().to_lowercase();
-                let all_symbols = symbol_catalog();
-
-                let mut tree_col = column![].spacing(6).padding(Padding::from([0.0, 10.0]));
-
-                // Atalhos de cabeamento rápido sempre visíveis
-                let wire_shortcuts = row![
-                    button(text("+ Fase L").size(11))
-                        .style(theme::tool)
-                        .padding(Padding::from([2.0, 6.0]))
-                        .on_press(Message::SelectTool(EditorTool::DrawWire(4000))),
-                    button(text("+ Neutro N").size(11))
-                        .style(theme::tool)
-                        .padding(Padding::from([2.0, 6.0]))
-                        .on_press(Message::SelectTool(EditorTool::DrawWire(4009))),
-                    button(text("+ Terra").size(11))
-                        .style(theme::tool)
-                        .padding(Padding::from([2.0, 6.0]))
-                        .on_press(Message::SelectTool(EditorTool::DrawWire(4010))),
-                    button(text("+ Nó").size(11))
-                        .style(theme::tool)
-                        .padding(Padding::from([2.0, 6.0]))
-                        .on_press(Message::SelectTool(EditorTool::PlaceJunction)),
-                ]
-                .spacing(4)
-                .align_y(Alignment::Center);
-
-                tree_col = tree_col.push(wire_shortcuts).push(horizontal_rule(1));
-
-                for cat in SymbolCategory::ALL {
-                    if cat == SymbolCategory::WiresConnections {
-                        continue;
-                    }
-                    let cat_syms: Vec<_> = all_symbols
-                        .iter()
-                        .filter(|s| s.category == cat)
-                        .filter(|s| {
-                            if query.is_empty() {
-                                true
+                let subtab_selector = container(
+                    row![
+                        button(text("⚡ CADe Nativos (~40)").size(10.5).font(UI))
+                            .style(if self.library_subtab == 0 {
+                                theme::tool_active
                             } else {
-                                s.name.to_lowercase().contains(&query)
-                                    || s.default_tag.to_lowercase().contains(&query)
-                                    || s.short_label.to_lowercase().contains(&query)
-                                    || cat.title().to_lowercase().contains(&query)
-                            }
-                        })
-                        .collect();
-
-                    if cat_syms.is_empty() {
-                        continue;
-                    }
-
-                    let cat_header = container(
-                        text(cat.title())
-                            .size(11)
-                            .font(Font {
-                                weight: iced::font::Weight::Bold,
-                                ..UI
+                                theme::tool
                             })
-                            .color(t.primary),
-                    )
-                    .padding(Padding::from([4.0, 2.0]));
+                            .padding(Padding::from([3.0, 6.0]))
+                            .width(Length::Fill)
+                            .on_press(Message::SelectLibrarySubtab(0)),
+                        button(text("📚 QET Completa (9.3k)").size(10.5).font(UI))
+                            .style(if self.library_subtab == 1 {
+                                theme::tool_active
+                            } else {
+                                theme::tool
+                            })
+                            .padding(Padding::from([3.0, 6.0]))
+                            .width(Length::Fill)
+                            .on_press(Message::SelectLibrarySubtab(1)),
+                    ]
+                    .spacing(4)
+                    .width(Length::Fill),
+                )
+                .style(theme::bar)
+                .padding(Padding::from([3.0, 8.0]))
+                .width(Length::Fill);
 
-                    tree_col = tree_col.push(cat_header);
-
-                    for sym in cat_syms {
-                        let is_selected = self.selected_collection_sym == Some(sym.tipo);
-                        let pin_count = sym.pins.len();
-
-                        let item_row = container(
-                            row![
-                                container(
-                                    text(format!("[{}]", sym.default_tag)).size(10.5).font(MONO)
-                                )
-                                .style(theme::tag_badge)
-                                .padding(Padding::from([1.0, 4.0])),
-                                text(sym.name).size(12).font(UI).width(Length::Fill),
-                                text(format!("{pin_count}b"))
-                                    .size(10.5)
-                                    .font(MONO)
-                                    .color(t.text2),
-                            ]
-                            .spacing(6)
-                            .align_y(Alignment::Center),
-                        )
-                        .style(theme::catalog_item(is_selected))
-                        .padding(Padding::from([4.0, 6.0]))
-                        .width(Length::Fill);
-
-                        let item_area = mouse_area(item_row)
-                            .interaction(iced::mouse::Interaction::Pointer)
-                            .on_press(Message::StartSymbolDrag(sym.tipo))
-                            .on_release(Message::SelectCollectionSymbol(sym.tipo));
-
-                        tree_col = tree_col.push(item_area);
-                    }
-                }
-
-                let tree_scroll = container(scrollable(tree_col)).height(Length::Fill);
-
-                // Preview box na parte inferior do painel esquerdo
-                let preview_content = if let Some(tipo) = self.selected_collection_sym {
-                    if let Some(sym) = find_symbol(tipo) {
-                        let is_dark = self.is_dark();
-                        let svg_content =
-                            crate::symbols::get_themed_symbol_svg_string(&sym, is_dark);
-                        let svg_preview: Element<'_, Message> = container(
-                            svg(svg::Handle::from_memory(svg_content.into_bytes()))
-                                .width(Length::Fixed(80.0))
-                                .height(Length::Fixed(60.0)),
-                        )
-                        .align_x(iced::alignment::Horizontal::Center)
-                        .align_y(iced::alignment::Vertical::Center)
-                        .into();
-
-                        column![
-                            row![
-                                text(sym.name)
-                                    .size(11.5)
-                                    .font(Font {
-                                        weight: iced::font::Weight::Semibold,
-                                        ..UI
-                                    })
-                                    .width(Length::Fill),
-                                text(format!("{} bornes", sym.pins.len()))
-                                    .size(10.5)
-                                    .font(MONO)
-                                    .color(t.text2),
-                            ]
-                            .align_y(Alignment::Center),
-                            svg_preview,
-                            button(text("Inserir no Esquema").size(11.5).font(UI))
-                                .style(theme::primary)
-                                .padding(Padding::from([4.0, 10.0]))
-                                .width(Length::Fill)
-                                .on_press(Message::InsertSelectedCollectionSymbol),
-                        ]
-                        .spacing(4)
-                        .align_x(Alignment::Center)
-                    } else {
-                        column![text("Símbolo não encontrado").size(12)]
-                    }
+                let lib_content = if self.library_subtab == 0 {
+                    self.view_native_library_panel()
                 } else {
-                    column![text("Selecione um símbolo acima").size(11.5).color(t.text2),]
-                        .align_x(Alignment::Center)
+                    self.view_canonical_library_panel()
                 };
 
-                let preview_dock = container(preview_content)
-                    .style(theme::preview_box)
-                    .padding(Padding::from([6.0, 10.0]))
-                    .width(Length::Fill)
-                    .height(130);
-
-                column![search_box, tree_scroll, preview_dock]
+                column![subtab_selector, lib_content]
                     .height(Length::Fill)
                     .into()
             }
@@ -4061,6 +4130,496 @@ impl CadeSimuApp {
             .into()
     }
 
+    fn view_native_library_panel(&self) -> Element<'_, Message> {
+        let t = tokens(&self.theme());
+
+        // Barra de busca
+        let search_box = container(
+            text_input(
+                "Filtrar símbolos (ex: disjuntor, motor)...",
+                &self.collection_search,
+            )
+            .on_input(Message::CollectionSearchChanged)
+            .padding(Padding::from([6.0, 8.0]))
+            .size(12)
+            .style(theme::field),
+        )
+        .padding(Padding::from([8.0, 10.0]));
+
+        // Lista de símbolos organizados por categoria
+        let query = self.collection_search.trim().to_lowercase();
+        let all_symbols = symbol_catalog();
+
+        let mut tree_col = column![].spacing(6).padding(Padding::from([0.0, 10.0]));
+
+        // Atalhos de cabeamento rápido sempre visíveis
+        let wire_shortcuts = row![
+            button(text("+ Fase L").size(11))
+                .style(theme::tool)
+                .padding(Padding::from([2.0, 6.0]))
+                .on_press(Message::SelectTool(EditorTool::DrawWire(4000))),
+            button(text("+ Neutro N").size(11))
+                .style(theme::tool)
+                .padding(Padding::from([2.0, 6.0]))
+                .on_press(Message::SelectTool(EditorTool::DrawWire(4009))),
+            button(text("+ Terra").size(11))
+                .style(theme::tool)
+                .padding(Padding::from([2.0, 6.0]))
+                .on_press(Message::SelectTool(EditorTool::DrawWire(4010))),
+            button(text("+ Nó").size(11))
+                .style(theme::tool)
+                .padding(Padding::from([2.0, 6.0]))
+                .on_press(Message::SelectTool(EditorTool::PlaceJunction)),
+        ]
+        .spacing(4)
+        .align_y(Alignment::Center);
+
+        tree_col = tree_col.push(wire_shortcuts).push(horizontal_rule(1));
+
+        for cat in SymbolCategory::ALL {
+            if cat == SymbolCategory::WiresConnections {
+                continue;
+            }
+            let cat_syms: Vec<_> = all_symbols
+                .iter()
+                .filter(|s| s.category == cat)
+                .filter(|s| {
+                    if query.is_empty() {
+                        true
+                    } else {
+                        s.name.to_lowercase().contains(&query)
+                            || s.default_tag.to_lowercase().contains(&query)
+                            || s.short_label.to_lowercase().contains(&query)
+                            || cat.title().to_lowercase().contains(&query)
+                    }
+                })
+                .collect();
+
+            if cat_syms.is_empty() {
+                continue;
+            }
+
+            let cat_header = container(
+                text(cat.title())
+                    .size(11)
+                    .font(Font {
+                        weight: iced::font::Weight::Bold,
+                        ..UI
+                    })
+                    .color(t.primary),
+            )
+            .padding(Padding::from([4.0, 2.0]));
+
+            tree_col = tree_col.push(cat_header);
+
+            for sym in cat_syms {
+                let is_selected = self.selected_collection_sym == Some(sym.tipo);
+                let pin_count = sym.pins.len();
+
+                let item_row = container(
+                    row![
+                        container(text(format!("[{}]", sym.default_tag)).size(10.5).font(MONO))
+                            .style(theme::tag_badge)
+                            .padding(Padding::from([1.0, 4.0])),
+                        text(sym.name).size(12).font(UI).width(Length::Fill),
+                        text(format!("{pin_count}b"))
+                            .size(10.5)
+                            .font(MONO)
+                            .color(t.text2),
+                    ]
+                    .spacing(6)
+                    .align_y(Alignment::Center),
+                )
+                .style(theme::catalog_item(is_selected))
+                .padding(Padding::from([4.0, 6.0]))
+                .width(Length::Fill);
+
+                let item_area = mouse_area(item_row)
+                    .interaction(iced::mouse::Interaction::Pointer)
+                    .on_press(Message::StartSymbolDrag(sym.tipo))
+                    .on_release(Message::SelectCollectionSymbol(sym.tipo));
+
+                tree_col = tree_col.push(item_area);
+            }
+        }
+
+        let tree_scroll = container(scrollable(tree_col)).height(Length::Fill);
+
+        // Preview box na parte inferior do painel esquerdo
+        let preview_content = if let Some(tipo) = self.selected_collection_sym {
+            if let Some(sym) = find_symbol(tipo) {
+                let is_dark = self.is_dark();
+                let svg_content = crate::symbols::get_themed_symbol_svg_string(&sym, is_dark);
+                let svg_preview: Element<'_, Message> = container(
+                    svg(svg::Handle::from_memory(svg_content.into_bytes()))
+                        .width(Length::Fixed(80.0))
+                        .height(Length::Fixed(60.0)),
+                )
+                .align_x(iced::alignment::Horizontal::Center)
+                .align_y(iced::alignment::Vertical::Center)
+                .into();
+
+                column![
+                    row![
+                        text(sym.name)
+                            .size(11.5)
+                            .font(Font {
+                                weight: iced::font::Weight::Semibold,
+                                ..UI
+                            })
+                            .width(Length::Fill),
+                        text(format!("{} bornes", sym.pins.len()))
+                            .size(10.5)
+                            .font(MONO)
+                            .color(t.text2),
+                    ]
+                    .align_y(Alignment::Center),
+                    svg_preview,
+                    button(text("Inserir no Esquema").size(11.5).font(UI))
+                        .style(theme::primary)
+                        .padding(Padding::from([4.0, 10.0]))
+                        .width(Length::Fill)
+                        .on_press(Message::InsertSelectedCollectionSymbol),
+                ]
+                .spacing(4)
+                .align_x(Alignment::Center)
+            } else {
+                column![text("Símbolo não encontrado").size(12)]
+            }
+        } else {
+            column![text("Selecione um símbolo acima").size(11.5).color(t.text2),]
+                .align_x(Alignment::Center)
+        };
+
+        let preview_dock = container(preview_content)
+            .style(theme::preview_box)
+            .padding(Padding::from([6.0, 10.0]))
+            .width(Length::Fill)
+            .height(130);
+
+        column![search_box, tree_scroll, preview_dock]
+            .height(Length::Fill)
+            .into()
+    }
+
+    fn view_canonical_library_panel(&self) -> Element<'_, Message> {
+        let t = tokens(&self.theme());
+        let is_dark = self.is_dark();
+
+        // 1. Barra de busca com botão de limpar
+        let search_input = text_input(
+            "Filtrar 9.3k símbolos (pt/en/slug/id)...",
+            &self.canonical_search,
+        )
+        .on_input(Message::CanonicalSearchChanged)
+        .padding(Padding::from([5.0, 8.0]))
+        .size(11.5)
+        .style(theme::field);
+
+        let search_box = if self.canonical_search.is_empty() {
+            container(search_input).padding(Padding::from([6.0, 10.0]))
+        } else {
+            container(
+                row![
+                    search_input,
+                    button(text("✖").size(10.0).font(UI))
+                        .style(theme::tool)
+                        .padding(Padding::from([4.0, 6.0]))
+                        .on_press(Message::CanonicalSearchChanged(String::new())),
+                ]
+                .spacing(4)
+                .align_y(Alignment::Center),
+            )
+            .padding(Padding::from([6.0, 10.0]))
+        };
+
+        // 2. Chips de filtro por Família
+        let mut fam_chips = row![].spacing(4).align_y(Alignment::Center);
+        for (label, fam_opt) in [
+            ("Todas", None),
+            ("⚡ Elétrica", Some("electric")),
+            ("🔋 Energia", Some("energy")),
+            ("💨 Pneumática", Some("pneumatic")),
+            ("💧 Hidráulica", Some("hydraulic")),
+            ("🔣 Lógica", Some("logic")),
+            ("📦 Import", Some("import")),
+            ("🔌 CADe", Some("cade_native")),
+        ] {
+            let is_active = self.canonical_family_filter.as_deref() == fam_opt;
+            let fam_val = fam_opt.map(|s| s.to_string());
+            fam_chips = fam_chips.push(
+                button(text(label).size(10.0).font(UI))
+                    .style(if is_active {
+                        theme::tool_active
+                    } else {
+                        theme::tool
+                    })
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::SelectCanonicalFamily(fam_val)),
+            );
+        }
+        let fam_scroll = container(
+            scrollable(fam_chips)
+                .direction(scrollable::Direction::Horizontal(
+                    scrollable::Scrollbar::new()
+                        .width(2.0)
+                        .scroller_width(2.0)
+                        .margin(0.0),
+                ))
+                .width(Length::Fill),
+        )
+        .padding(Padding::from([0.0, 10.0]));
+
+        // 3. Chips de filtro por Tipo elétrico (Kind)
+        let mut kind_chips = row![].spacing(4).align_y(Alignment::Center);
+        for (label, kind_opt) in [
+            ("Todos", None),
+            ("Motores", Some("motor")),
+            ("Disjuntores", Some("circuit_breaker")),
+            ("Fusíveis", Some("fuse")),
+            ("Bobinas", Some("relay_coil")),
+            ("Contatos", Some("contactor_contact")),
+            ("Botoeiras", Some("momentary_button")),
+            ("Chaves", Some("latching_switch")),
+            ("Sinaleiros", Some("lamp")),
+            ("Fontes", Some("source")),
+            ("Bornes", Some("terminal")),
+            ("Cargas", Some("load")),
+        ] {
+            let is_active = self.canonical_kind_filter.as_deref() == kind_opt;
+            let kind_val = kind_opt.map(|s| s.to_string());
+            kind_chips = kind_chips.push(
+                button(text(label).size(10.0).font(UI))
+                    .style(if is_active {
+                        theme::tool_active
+                    } else {
+                        theme::tool
+                    })
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::SelectCanonicalKind(kind_val)),
+            );
+        }
+        let kind_scroll = container(
+            scrollable(kind_chips)
+                .direction(scrollable::Direction::Horizontal(
+                    scrollable::Scrollbar::new()
+                        .width(2.0)
+                        .scroller_width(2.0)
+                        .margin(0.0),
+                ))
+                .width(Length::Fill),
+        )
+        .padding(Padding::from([2.0, 10.0]));
+
+        // 4. Filtragem e Paginação dos Elementos
+        let (page_elements, current_page, total_pages, total_count) =
+            if let Some(dict) = crate::canonical::global_dictionary() {
+                let filtered = dict.filter_elements(
+                    &self.canonical_search,
+                    self.canonical_family_filter.as_deref(),
+                    self.canonical_kind_filter.as_deref(),
+                );
+                let total = filtered.len();
+                let total_pages = if total == 0 { 1 } else { total.div_ceil(35) };
+                let cur_page = self.canonical_page.min(total_pages.saturating_sub(1));
+                let start = cur_page * 35;
+                let end = total.min(start + 35);
+                let page_slice: Vec<_> = filtered[start..end].to_vec();
+                (page_slice, cur_page, total_pages, total)
+            } else {
+                (Vec::new(), 0, 1, 0)
+            };
+
+        // 5. Barra de controle de paginação
+        let prev_btn = button(text("◀").size(10.0).font(UI))
+            .style(theme::tool)
+            .padding(Padding::from([2.0, 6.0]));
+        let prev_btn = if current_page > 0 {
+            prev_btn.on_press(Message::PrevCanonicalPage)
+        } else {
+            prev_btn
+        };
+
+        let next_btn = button(text("▶").size(10.0).font(UI))
+            .style(theme::tool)
+            .padding(Padding::from([2.0, 6.0]));
+        let next_btn = if current_page + 1 < total_pages {
+            next_btn.on_press(Message::NextCanonicalPage)
+        } else {
+            next_btn
+        };
+
+        let pagination_bar = container(
+            row![
+                prev_btn,
+                horizontal_space(),
+                text(format!(
+                    "Pág {}/{} ({} símbolos)",
+                    current_page + 1,
+                    total_pages,
+                    total_count
+                ))
+                .size(10.5)
+                .font(UI)
+                .color(t.text2),
+                horizontal_space(),
+                next_btn,
+            ]
+            .align_y(Alignment::Center)
+            .width(Length::Fill),
+        )
+        .padding(Padding::from([4.0, 10.0]));
+
+        // 6. Lista paginada de símbolos
+        let mut list_col = column![].spacing(3).padding(Padding::from([0.0, 10.0]));
+        if page_elements.is_empty() {
+            list_col = list_col.push(
+                container(
+                    text("Nenhum símbolo encontrado para os filtros atuais.")
+                        .size(11.0)
+                        .color(t.text2),
+                )
+                .padding(Padding::from([12.0, 4.0])),
+            );
+        } else {
+            for el in page_elements {
+                let is_selected = self.selected_canonical_id.as_deref() == Some(&el.id);
+                let pin_count = el.terminals.len();
+
+                let item_row = container(
+                    row![
+                        container(text(format!("[{}]", el.id)).size(9.5).font(MONO))
+                            .style(theme::tag_badge)
+                            .padding(Padding::from([1.0, 3.0])),
+                        column![
+                            text(el.name_pt.clone())
+                                .size(11.0)
+                                .font(UI)
+                                .width(Length::Fill),
+                            text(format!("{}: {}", el.family, el.kind))
+                                .size(9.0)
+                                .font(MONO)
+                                .color(t.text2),
+                        ]
+                        .spacing(1)
+                        .width(Length::Fill),
+                        text(format!("{pin_count}b"))
+                            .size(10.0)
+                            .font(MONO)
+                            .color(t.text2),
+                    ]
+                    .spacing(5)
+                    .align_y(Alignment::Center),
+                )
+                .style(theme::catalog_item(is_selected))
+                .padding(Padding::from([3.0, 5.0]))
+                .width(Length::Fill);
+
+                let item_area = mouse_area(item_row)
+                    .interaction(iced::mouse::Interaction::Pointer)
+                    .on_press(Message::StartCanonicalSymbolDrag(el.id.clone()))
+                    .on_release(Message::SelectCanonicalSymbol(el.id.clone()));
+
+                list_col = list_col.push(item_area);
+            }
+        }
+        let list_scroll = container(scrollable(list_col)).height(Length::Fill);
+
+        // 7. Preview box na parte inferior do painel
+        let preview_content = if let Some(ref id) = self.selected_canonical_id {
+            if let Some(dict) = crate::canonical::global_dictionary() {
+                if let Some(el) = dict.get_by_id(id) {
+                    let svg_preview: Element<'_, Message> =
+                        if let Some(path) = dict.resolve_svg_path(&el.id, None) {
+                            if let Ok(raw) = std::fs::read_to_string(path) {
+                                let themed = crate::symbols::adapt_svg_colors(&raw, is_dark);
+                                container(
+                                    svg(svg::Handle::from_memory(themed.into_bytes()))
+                                        .width(Length::Fixed(80.0))
+                                        .height(Length::Fixed(60.0)),
+                                )
+                                .align_x(iced::alignment::Horizontal::Center)
+                                .align_y(iced::alignment::Vertical::Center)
+                                .into()
+                            } else {
+                                container(text("Erro ao carregar SVG").size(10.5).color(t.danger))
+                                    .into()
+                            }
+                        } else {
+                            container(text("SVG não encontrado").size(10.5).color(t.text2)).into()
+                        };
+
+                    let term_names: Vec<&str> =
+                        el.terminals.iter().map(|t| t.name.as_str()).collect();
+                    let term_str = if term_names.is_empty() {
+                        "Sem bornes".to_string()
+                    } else {
+                        format!("Bornes: {}", term_names.join(", "))
+                    };
+
+                    column![
+                        row![
+                            text(el.name_pt.clone())
+                                .size(11.5)
+                                .font(Font {
+                                    weight: iced::font::Weight::Semibold,
+                                    ..UI
+                                })
+                                .width(Length::Fill),
+                            text(format!("[{}]", el.id))
+                                .size(10.0)
+                                .font(MONO)
+                                .color(t.primary),
+                        ]
+                        .align_y(Alignment::Center),
+                        row![
+                            text(format!("{} • {}", el.family, el.kind))
+                                .size(9.5)
+                                .font(MONO)
+                                .color(t.text2)
+                                .width(Length::Fill),
+                            text(term_str).size(9.5).font(MONO).color(t.text2),
+                        ]
+                        .align_y(Alignment::Center),
+                        svg_preview,
+                        button(text("➕ Inserir no Esquema").size(11.0).font(UI))
+                            .style(theme::primary)
+                            .padding(Padding::from([3.0, 8.0]))
+                            .width(Length::Fill)
+                            .on_press(Message::InsertSelectedCanonicalSymbol),
+                    ]
+                    .spacing(3)
+                    .align_x(Alignment::Center)
+                } else {
+                    column![text("Símbolo não encontrado").size(11.5).color(t.text2)]
+                }
+            } else {
+                column![text("Dicionário não carregado").size(11.5).color(t.text2)]
+            }
+        } else {
+            column![text("Selecione um símbolo acima").size(11.5).color(t.text2)]
+                .align_x(Alignment::Center)
+        };
+
+        let preview_dock = container(preview_content)
+            .style(theme::preview_box)
+            .padding(Padding::from([6.0, 10.0]))
+            .width(Length::Fill)
+            .height(145);
+
+        column![
+            search_box,
+            fam_scroll,
+            kind_scroll,
+            horizontal_rule(1),
+            pagination_bar,
+            list_scroll,
+            preview_dock
+        ]
+        .height(Length::Fill)
+        .into()
+    }
+
     fn view_sheet_panel(&self) -> Element<'_, Message> {
         let title_line = self.view_canvas_title_line();
         let pages_bar = self.view_canvas_pages_bar();
@@ -4069,7 +4628,7 @@ impl CadeSimuApp {
 
         let canvas_el = SchematicCanvas {
             doc: &self.doc,
-            tool: self.tool,
+            tool: self.tool.clone(),
             selected_id: self.selected_id,
             sim_running: self.sim_running,
             show_grid: self.show_grid,
@@ -4082,6 +4641,7 @@ impl CadeSimuApp {
             pan: self.pan,
             placement_orientation: self.placement_orientation,
             dragging_symbol: self.dragging_symbol,
+            dragging_canonical_symbol: self.dragging_canonical_id.as_deref(),
             is_blocked: self.open_menu.is_some() || self.show_about_modal || self.show_export_modal,
         }
         .view()

@@ -1748,7 +1748,7 @@ fn test_canvas_theme_adaptation_light_dark_system() {
 
     let canvas_light = SchematicCanvas {
         doc: &app.doc,
-        tool: app.tool,
+        tool: app.tool.clone(),
         selected_id: None,
         sim_running: false,
         show_grid: true,
@@ -1761,12 +1761,13 @@ fn test_canvas_theme_adaptation_light_dark_system() {
         pan: iced::Vector::default(),
         placement_orientation: 0,
         dragging_symbol: None,
+        dragging_canonical_symbol: None,
         is_blocked: false,
     };
 
     let canvas_dark = SchematicCanvas {
         doc: &app.doc,
-        tool: app.tool,
+        tool: app.tool.clone(),
         selected_id: None,
         sim_running: false,
         show_grid: true,
@@ -1779,6 +1780,7 @@ fn test_canvas_theme_adaptation_light_dark_system() {
         pan: iced::Vector::default(),
         placement_orientation: 0,
         dragging_symbol: None,
+        dragging_canonical_symbol: None,
         is_blocked: false,
     };
 
@@ -2950,6 +2952,7 @@ fn test_canvas_selection_prioritizes_symbols_over_wires() {
         pan: iced::Vector::ZERO,
         placement_orientation: 0,
         dragging_symbol: None,
+        dragging_canonical_symbol: None,
         is_blocked: false,
     };
 
@@ -3364,7 +3367,7 @@ fn test_menu_overlay_stays_open_over_canvas() {
 
     let canvas_blocked = cade_simu_rs::canvas_view::SchematicCanvas {
         doc: &app.doc,
-        tool: app.tool,
+        tool: app.tool.clone(),
         selected_id: None,
         sim_running: false,
         show_grid: true,
@@ -3377,6 +3380,7 @@ fn test_menu_overlay_stays_open_over_canvas() {
         pan: iced::Vector::ZERO,
         placement_orientation: 0,
         dragging_symbol: None,
+        dragging_canonical_symbol: None,
         is_blocked: app.open_menu.is_some(),
     };
 
@@ -5003,4 +5007,92 @@ fn test_canonical_dictionary_lookup_and_svg_resolution() {
         "Busca textual por 'trifásico' deve retornar elementos"
     );
     assert!(results.iter().any(|e| e.id == "00001"));
+}
+
+#[test]
+fn test_canonical_library_ui_and_canvas_placement() {
+    let (mut app, _) = CadeSimuApp::new();
+
+    // 1. Alternância de sub-aba entre CADe nativo (0) e QET Canônica (1)
+    assert_eq!(app.library_subtab, 0);
+    let _ = app.update(Message::SelectLibrarySubtab(1));
+    assert_eq!(app.library_subtab, 1);
+
+    // 2. Filtragem de elementos
+    let _ = app.update(Message::CanonicalSearchChanged("motor".to_string()));
+    assert_eq!(app.canonical_search, "motor");
+    assert_eq!(app.canonical_page, 0);
+
+    let _ = app.update(Message::SelectCanonicalFamily(Some("electric".to_string())));
+    assert_eq!(app.canonical_family_filter.as_deref(), Some("electric"));
+
+    let _ = app.update(Message::SelectCanonicalKind(Some("motor".to_string())));
+    assert_eq!(app.canonical_kind_filter.as_deref(), Some("motor"));
+
+    // 3. Paginação
+    let _ = app.update(Message::NextCanonicalPage);
+    let _ = app.update(Message::PrevCanonicalPage);
+    assert_eq!(app.canonical_page, 0);
+
+    // 4. Seleção simples de símbolo (atualiza preview, não arma cursor)
+    let _ = app.update(Message::SelectCanonicalSymbol("00001".to_string()));
+    assert_eq!(app.selected_canonical_id.as_deref(), Some("00001"));
+    assert_eq!(app.tool, EditorTool::Select);
+
+    // 5. Botão "Inserir no Esquema" arma o cursor
+    let _ = app.update(Message::InsertSelectedCanonicalSymbol);
+    assert_eq!(
+        app.tool,
+        EditorTool::PlaceCanonicalSymbol("00001".to_string())
+    );
+
+    // 6. Cancelamento via CancelAction desfaz o cursor armado
+    let _ = app.update(Message::CancelAction);
+    assert_eq!(app.tool, EditorTool::Select);
+    assert_eq!(app.dragging_canonical_id, None);
+
+    // 7. Duplo clique no símbolo arma o cursor diretamente
+    let _ = app.update(Message::SelectCanonicalSymbol("00001".to_string()));
+    let _ = app.update(Message::SelectCanonicalSymbol("00001".to_string()));
+    assert_eq!(
+        app.tool,
+        EditorTool::PlaceCanonicalSymbol("00001".to_string())
+    );
+
+    // 8. Inserção no canvas via CanvasMessage::PlaceCanonicalComponent
+    let initial_items = app.doc.items.len();
+    let _ = app.update(Message::Canvas(
+        cade_simu_rs::canvas_view::CanvasMessage::PlaceCanonicalComponent {
+            symbol_id: "00001".to_string(),
+            x: 50,
+            y: 80,
+        },
+    ));
+
+    assert_eq!(app.doc.items.len(), initial_items + 1);
+    assert_eq!(app.tool, EditorTool::Select);
+    assert!(app.is_modified);
+
+    let placed = app.doc.items.last().expect("Item inserido");
+    assert_eq!(placed.symbol_id.as_deref(), Some("00001"));
+    assert_eq!(placed.x1, 50);
+    assert_eq!(placed.y1, 80);
+    assert!(placed.tag.starts_with("-M"));
+    assert_eq!(placed.pins[0], "U1");
+    assert_eq!(placed.pins[1], "V1");
+    assert_eq!(placed.pins[2], "W1");
+    assert_eq!(placed.pins[3], "PE");
+
+    // 9. Desfazer (Undo) remove o elemento inserido
+    let _ = app.update(Message::Undo);
+    assert_eq!(app.doc.items.len(), initial_items);
+
+    // 10. Refazer (Redo) restaura o elemento inserido
+    let _ = app.update(Message::Redo);
+    assert_eq!(app.doc.items.len(), initial_items + 1);
+
+    // 11. Renderização da UI da biblioteca não causa panic em ambos os modos
+    let _ = app.view();
+    let _ = app.update(Message::SelectLibrarySubtab(0));
+    let _ = app.view();
 }

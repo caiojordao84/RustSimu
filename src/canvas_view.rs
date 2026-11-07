@@ -10,11 +10,12 @@ use crate::symbols::{find_symbol_ref, parse_vector_cmd, VectorPrimitive};
 use crate::theme::Tokens;
 
 /// Ferramenta ativa no editor esquemático.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum EditorTool {
     Select,
     Pan,
     PlaceSymbol(i32),
+    PlaceCanonicalSymbol(String),
     DrawWire(i32), // 4000=Fase, 4001=Neutro, 4002=PE, 4003=DC+, 4004=DC-
     PlaceJunction,
     Delete,
@@ -34,6 +35,11 @@ pub enum CanvasMessage {
     },
     PlaceComponent {
         tipo: i32,
+        x: i32,
+        y: i32,
+    },
+    PlaceCanonicalComponent {
+        symbol_id: String,
         x: i32,
         y: i32,
     },
@@ -86,6 +92,7 @@ pub struct SchematicCanvas<'a> {
     pub pan: Vector,
     pub placement_orientation: i32,
     pub dragging_symbol: Option<i32>,
+    pub dragging_canonical_symbol: Option<&'a str>,
     pub is_blocked: bool,
 }
 
@@ -860,6 +867,27 @@ impl<'a> SchematicCanvas<'a> {
                 1.0,
             );
 
+            // Desenha bornes (pinos) nos terminais do símbolo SVG
+            if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
+                for shape in &parsed.shapes {
+                    if let crate::svg_symbol::SvgShape::Circle {
+                        cx,
+                        cy,
+                        is_terminal: true,
+                        ..
+                    } = shape
+                    {
+                        let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
+                        let (rx, ry) = transform_offset_f32(lx, ly, item.orientation);
+                        let pt = self.world_to_screen((item.x1 as f32) + rx, (item.y1 as f32) + ry);
+                        frame.stroke(
+                            &Path::circle(pt, (0.55 * self.zoom).clamp(1.5, 3.2)),
+                            Stroke::default().with_color(tok.danger).with_width(1.0),
+                        );
+                    }
+                }
+            }
+
             // Desenha tag do elemento
             if !item.tag.is_empty() {
                 let tpos = self.world_to_screen((item.x1 - 6) as f32, (item.y1 - 6) as f32);
@@ -1168,6 +1196,20 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         );
                     }
                 }
+                if let Some(drag_sym_id) = self.dragging_canonical_symbol {
+                    if let Some(cursor_pos) = cursor.position_in(bounds) {
+                        let (wx_f, wy_f) = self.screen_to_world(cursor_pos);
+                        let (snapped_x, snapped_y) = Self::snap_to_grid(wx_f, wy_f);
+                        return (
+                            canvas::event::Status::Captured,
+                            Some(CanvasMessage::PlaceCanonicalComponent {
+                                symbol_id: drag_sym_id.to_string(),
+                                x: snapped_x,
+                                y: snapped_y,
+                            }),
+                        );
+                    }
+                }
                 if let Some((drag_id, _, _)) = ended_drag {
                     return (
                         canvas::event::Status::Captured,
@@ -1322,6 +1364,14 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             y: snapped_y,
                         }),
                     ),
+                    EditorTool::PlaceCanonicalSymbol(ref symbol_id) => (
+                        canvas::event::Status::Captured,
+                        Some(CanvasMessage::PlaceCanonicalComponent {
+                            symbol_id: symbol_id.clone(),
+                            x: snapped_x,
+                            y: snapped_y,
+                        }),
+                    ),
                     EditorTool::PlaceJunction => (
                         canvas::event::Status::Captured,
                         Some(CanvasMessage::AddJunction {
@@ -1440,6 +1490,26 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         );
                     }
                 }
+            }
+            let active_canonical = match self.tool {
+                EditorTool::PlaceCanonicalSymbol(ref id) => Some(id.as_str()),
+                _ => self.dragging_canonical_symbol,
+            };
+            if let Some(sym_id) = active_canonical {
+                self.draw_svg_symbol(
+                    &mut frame,
+                    hx,
+                    hy,
+                    self.placement_orientation,
+                    sym_id,
+                    Color {
+                        a: 0.65,
+                        ..tok.focus
+                    },
+                    1.8,
+                    None,
+                    1.0,
+                );
             }
             match self.tool {
                 EditorTool::DrawWire(_) => {

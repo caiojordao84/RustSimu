@@ -803,19 +803,39 @@ impl CanonicalDictionary {
 
     /// Busca textual rápida por query sobre id, slug, tags e nomes pt/en.
     pub fn search(&self, query: &str) -> Vec<&CanonicalElement> {
+        self.filter_elements(query, None, None)
+    }
+
+    /// Filtra elementos por query de busca opcional, família opcional e kind opcional.
+    pub fn filter_elements(
+        &self,
+        query: &str,
+        family: Option<&str>,
+        kind: Option<&str>,
+    ) -> Vec<&CanonicalElement> {
         let q = query.trim().to_lowercase();
-        if q.is_empty() {
-            return self.catalog.elements.iter().take(100).collect();
-        }
         self.catalog
             .elements
             .iter()
             .filter(|el| {
-                el.id.contains(&q)
+                if let Some(f) = family {
+                    if !el.family.eq_ignore_ascii_case(f) {
+                        return false;
+                    }
+                }
+                if let Some(k) = kind {
+                    if !el.kind.eq_ignore_ascii_case(k) {
+                        return false;
+                    }
+                }
+                if q.is_empty() {
+                    return true;
+                }
+                el.id.to_lowercase().contains(&q)
                     || el.slug.to_lowercase().contains(&q)
                     || el.name_pt.to_lowercase().contains(&q)
                     || el.name_en.to_lowercase().contains(&q)
-                    || el.tags.iter().any(|t| t.contains(&q))
+                    || el.tags.iter().any(|t| t.to_lowercase().contains(&q))
             })
             .collect()
     }
