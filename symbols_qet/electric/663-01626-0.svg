@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="70.0" viewBox="-27.0 -24.0 50.0 70.0" data-name="Capacitor, voltage dependent and polarised">
+  <title>Capacitor, voltage dependent and polarised</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20,-12 -12,20 -25,20" stroke="black" fill="none" />
+    <line x1="-20.00" y1="10.00" x2="20.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="5.00" x2="20.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="5.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-10.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-5.00" x2="-5.00" y2="-5.00" stroke="black" fill="none" />
+    <text x="-15.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U</text>
+    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

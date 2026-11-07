@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -15.0 30.0 40.0" data-name="ventilador-centrifugo">
+  <title>ventilador-centrifugo</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-0.50" cy="0.00" rx="12.50" ry="12.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-11.00" x2="-13.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-11.00" x2="12.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-0.6,-1.24 1.2,-2.62 1.2,-6.78 -0.6,-8.86 -2.4,-6.78 -2.4,-3.32 -0.6,-1.24 2.1,-0.54 5.7,2.23 5.7,4.31 3,3.61 0.3,1.54" stroke="black" fill="none" />
+    <polyline points="-0.6,-1.24 -3.3,-0.54 -6,2.92 -6,5 -3.3,4.31 -0.6,1.54 -0.6,-0.54" stroke="black" fill="none" />
+    <line x1="-4.00" y1="8.00" x2="2.00" y2="8.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="16.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

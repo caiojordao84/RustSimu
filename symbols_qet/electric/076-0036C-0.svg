@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="100.0" viewBox="-25.0 -60.0 50.0 100.0" data-name="DHW wall boiler">
+  <title>DHW wall boiler</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 10.45 10.53 A 5.05 3.60 0 0 0 5.40 6.92" stroke="black" fill="none" />
+    <ellipse cx="5.87" cy="10.54" rx="3.21" ry="2.71" stroke="black" fill="none" />
+    <line x1="9.19" y1="27.15" x2="13.32" y2="26.70" stroke="black" fill="none" />
+    <line x1="-12.09" y1="27.15" x2="-8.00" y2="26.70" stroke="black" fill="none" />
+    <line x1="5.87" y1="10.53" x2="8.16" y2="8.73" stroke="black" fill="none" />
+    <path d="M 10.00 10.53 A 4.13 3.60 0 0 0 5.87 6.92" stroke="black" fill="none" />
+    <line x1="-10.10" y1="18.35" x2="-10.10" y2="21.95" stroke="black" fill="none" />
+    <rect x="-20.48" y="-35.67" width="38.88" height="52.79" stroke="black" fill="none" />
+    <line x1="-9.18" y1="20.60" x2="-10.10" y2="22.40" stroke="black" fill="none" />
+    <rect x="-12.09" y="23.54" width="4.59" height="5.86" stroke="black" fill="#d40000" />
+    <line x1="-11.00" y1="20.60" x2="-10.10" y2="22.40" stroke="black" fill="none" />
+    <rect x="9.19" y="23.54" width="4.59" height="5.86" stroke="black" fill="#0055d4" />
+    <line x1="-12.09" y1="28.95" x2="-8.00" y2="28.50" stroke="black" fill="none" />
+    <line x1="9.19" y1="28.95" x2="13.32" y2="28.50" stroke="black" fill="none" />
+    <line x1="-12.09" y1="28.05" x2="-8.00" y2="27.60" stroke="black" fill="none" />
+    <line x1="9.19" y1="28.05" x2="13.32" y2="27.60" stroke="black" fill="none" />
+    <ellipse cx="-7.29" cy="11.21" rx="0.92" ry="0.68" stroke="black" fill="#d40000" />
+    <rect x="-3.62" y="10.08" width="0.92" height="1.80" stroke="black" fill="none" />
+    <line x1="11.00" y1="19.35" x2="11.00" y2="22.95" stroke="black" fill="none" />
+    <rect x="-17.34" y="17.39" width="34.40" height="6.15" stroke="black" fill="none" />
+    <rect x="-6.24" y="-4.13" width="9.65" height="3.20" stroke="black" fill="none" />
+    <line x1="-10.29" y1="-35.84" x2="-5.24" y2="-41.27" stroke="black" fill="none" />
+    <rect x="-5.24" y="-46.71" width="9.19" height="5.44" stroke="black" fill="none" />
+    <line x1="3.95" y1="-41.27" x2="10.38" y2="-35.84" stroke="black" fill="none" />
+    <line x1="9.75" y1="21.30" x2="10.85" y2="19.05" stroke="black" fill="none" />
+    <line x1="12.00" y1="21.30" x2="10.85" y2="19.05" stroke="black" fill="none" />
+    <rect x="-1.00" y="24.00" width="2.00" height="6.00" stroke="black" fill="none" />
+    <text x="-4.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">gas</text>
+    <polyline points="-19,-12 -16,-16 -16,-13 -13,-16" stroke="black" fill="none" />
+    <polyline points="-14,-16 -12,-17 -13,-15" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-50.00" x2="-10.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-50.00" x2="10.00" y2="-36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

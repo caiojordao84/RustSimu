@@ -138,6 +138,8 @@ impl SymbolDef {
             trailing_str: String::new(),
             qet_type: None,
             qet_uuid: None,
+            symbol_id: None,
+            symbol_state: None,
         }
     }
 

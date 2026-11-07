@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="170.0" height="90.0" viewBox="-87.0 -44.0 170.0 90.0" data-name="puerta-doble-paso">
+  <title>puerta-doble-paso</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="40.00" y="-39.00" width="6.00" height="39.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <rect x="-41.00" y="1.00" width="6.00" height="39.00" stroke="black" fill="none" />
+    <rect x="-41.00" y="-39.00" width="6.00" height="39.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <rect x="-52.00" y="-3.00" width="10.00" height="6.00" stroke="black" fill="none" />
+    <path d="M -41.00 40.00 A 40.00 39.50 0 0 0 -41.00 -39.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <rect x="47.00" y="-3.00" width="10.00" height="6.00" stroke="black" fill="none" />
+    <rect x="40.00" y="1.00" width="6.00" height="39.00" stroke="black" fill="none" />
+    <path d="M 40.00 -39.00 A 40.00 39.50 0 0 0 40.00 40.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="90.0" viewBox="-50.0 -42.0 100.0 90.0" data-name="787-1721">
+  <title>787-1721</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-40.00" y="-40.00" width="80.00" height="80.00" stroke="black" fill="none" />
+    <text x="16.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="16.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="13.00" y="-7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+12V</text>
+    <text x="13.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+12V</text>
+    <line x1="1.00" y1="-40.00" x2="1.00" y2="40.00" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <line x1="-1.00" y1="-40.00" x2="-1.00" y2="40.00" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-40.00" cy="20.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-40.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="40.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-40.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="40.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-37.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-37.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L1</text>
+    <text x="-37.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="-6.00" y="38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 787-1721</text>
+    <circle class="qet-terminal" cx="-40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="L1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="w" />
+    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="w" />
+    <circle class="qet-terminal" cx="40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="+12V.1" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="+12V.2" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="GND.1" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="GND.2" data-orientation="e" />
+  </g>
+</svg>

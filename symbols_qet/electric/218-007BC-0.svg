@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="100.0" viewBox="-55.0 -45.0 110.0 100.0" data-name="KNX power supplies 640mA">
+  <title>KNX power supplies 640mA</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-40.00" y="-40.00" width="80.00" height="80.00" stroke="black" fill="none" />
+    <text x="-4.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">640 mA</text>
+    <text x="42.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="43.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <line x1="-17.00" y1="33.00" x2="-9.00" y2="33.00" stroke="black" fill="none" />
+    <path d="M -15.00 -30.00 A 5.00 5.00 0 0 0 -25.00 -30.00" stroke="black" fill="none" />
+    <text x="-37.00" y="22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-37.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="-4.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">30V DC</text>
+    <text x="-37.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <line x1="-40.00" y1="40.00" x2="20.00" y2="-40.00" stroke="black" fill="none" />
+    <text x="-12.00" y="-29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">230V AC</text>
+    <line x1="-29.00" y1="30.00" x2="-9.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="-29.00" y1="33.00" x2="-21.00" y2="33.00" stroke="black" fill="none" />
+    <path d="M -35.00 -30.00 A 5.00 5.00 0 0 0 -25.00 -30.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="-39.61" x2="20.00" y2="39.58" stroke="black" fill="none" />
+    <rect x="24.00" y="-36.00" width="12.00" height="72.00" stroke="black" fill="black" />
+    <text x="33.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX 30V DC</text>
+    <circle class="qet-terminal" cx="-45.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="w" />
+    <circle class="qet-terminal" cx="-45.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="w" />
+    <circle class="qet-terminal" cx="-44.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="w" />
+    <circle class="qet-terminal" cx="45.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="+" data-orientation="e" />
+    <circle class="qet-terminal" cx="45.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="-" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="+30VDC" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="-30VDC" data-orientation="s" />
+  </g>
+</svg>

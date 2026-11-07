@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-31.0 -18.0 60.0 40.0" data-name="Retention w/flanges valve">
+  <title>Retention w/flanges valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-21.20" y="-16.45" width="2.50" height="34.70" stroke="black" fill="none" />
+    <path d="M 15.61 -6.41 A 2.25 2.74 0 0 0 17.86 -9.15" stroke="black" fill="none" />
+    <path d="M -18.13 -9.15 A 2.25 2.74 0 0 0 -15.88 -6.41" stroke="black" fill="none" />
+    <path d="M 17.86 12.74 A 2.25 2.74 0 0 0 15.61 10.00" stroke="black" fill="none" />
+    <path d="M -15.88 10.00 A 2.25 2.74 0 0 0 -18.13 12.74" stroke="black" fill="none" />
+    <rect x="17.80" y="-16.45" width="2.50" height="34.70" stroke="black" fill="none" />
+    <line x1="-15.69" y1="-6.41" x2="-11.10" y2="-6.41" stroke="black" fill="none" />
+    <line x1="11.53" y1="-6.41" x2="15.67" y2="-6.41" stroke="black" fill="none" />
+    <polyline points="-11,-7 -6,-15 11,-7 11,-6 -6,-14" stroke="black" fill="none" />
+    <ellipse cx="8.50" cy="-5.50" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <line x1="8.00" y1="-3.00" x2="5.00" y2="9.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <line x1="6.00" y1="-6.00" x2="-6.00" y2="-12.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <polyline points="0,5 -10,5 -6,4 -6,6 -10,5" stroke="black" fill="none" />
+    <path d="M -15.00 10.00 A 11.00 5.00 0 0 0 7.00 10.00" stroke="black" fill="none" />
+    <line x1="7.48" y1="10.00" x2="15.52" y2="10.00" stroke="black" fill="none" />
+    <polyline points="-11,-5 -8,-2 -8,3 -11,7 -14,9" stroke="black" fill="none" />
+    <polyline points="10,-4 6,0 5,6 7,8" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

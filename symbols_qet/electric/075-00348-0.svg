@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="130.0" viewBox="-30.0 -50.0 40.0 130.0" data-name="IM switch">
+  <title>IM switch</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-7.5,-28 0.5,-14 0.5,69" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-25.00" x2="-20.00" y2="-21.00" stroke="black" fill="none" />
+    <line x1="-22.00" y1="-23.00" x2="-21.00" y2="-23.00" stroke="black" fill="none" />
+    <line x1="-23.00" y1="-27.00" x2="-23.00" y2="-19.00" stroke="black" fill="none" />
+    <line x1="-27.00" y1="-23.00" x2="-27.00" y2="-22.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="-25.00" x2="-25.00" y2="-21.00" stroke="black" fill="none" />
+    <ellipse cx="0.50" cy="-29.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="-1.50" y1="-30.00" x2="2.50" y2="-30.00" stroke="black" fill="none" />
+    <line x1="0.50" y1="57.00" x2="-4.50" y2="57.00" stroke="black" fill="none" />
+    <line x1="-4.50" y1="52.00" x2="-4.50" y2="62.00" stroke="black" fill="none" />
+    <line x1="-6.25" y1="52.00" x2="-6.25" y2="62.00" stroke="black" fill="none" />
+    <line x1="-9.50" y1="57.00" x2="-6.50" y2="57.00" stroke="black" fill="none" />
+    <path d="M -14.50 62.00 A 5.00 5.00 0 0 0 -14.50 52.00" stroke="black" fill="none" />
+    <line x1="0.50" y1="-40.00" x2="0.50" y2="-30.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="1.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="1.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="1.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

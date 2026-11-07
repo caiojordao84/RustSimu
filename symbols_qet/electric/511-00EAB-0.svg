@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="100.0" viewBox="-35.0 -50.0 70.0 100.0" data-name="2789-9015">
+  <title>2789-9015</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-30.00" y="-40.00" width="60.00" height="80.00" stroke="black" fill="none" />
+    <text x="-19.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Modbus RTU</text>
+    <text x="-14.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO</text>
+    <text x="7.11" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X6</text>
+    <text x="-12.39" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X5</text>
+    <ellipse cx="10.00" cy="40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-10.00" cy="40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <line x1="30.00" y1="2.00" x2="-30.00" y2="2.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <text x="-24.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2789-9015</text>
+    <line x1="-10.00" y1="40.00" x2="-10.00" y2="33.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="33.00" x2="10.00" y2="33.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="33.00" x2="10.00" y2="40.00" stroke="black" fill="none" />
+    <polyline points="0,-42 0,-36" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="X5" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="X6" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="Comm" data-orientation="n" />
+  </g>
+</svg>

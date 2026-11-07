@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="50.0" viewBox="-68.0 -20.0 100.0 50.0" data-name="Double gripper + rotary cylinder + magnet">
+  <title>Double gripper + rotary cylinder + magnet</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-46.00" y1="10.00" x2="-45.00" y2="10.00" stroke="black" fill="none" />
+    <polygon points="-45,8 -41,10 -45,12" stroke="black" fill="none" />
+    <line x1="-47.00" y1="0.00" x2="-45.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-45.00" y1="-5.48" x2="-45.00" y2="14.48" stroke="black" fill="none" />
+    <rect x="-35.49" y="3.00" width="12.49" height="3.00" stroke="black" fill="none" />
+    <polygon points="-45,-2 -41,0 -45,2" stroke="black" fill="none" />
+    <path d="M -44.98 14.49 A 10.00 10.00 0 0 0 -44.98 -5.49" stroke="black" fill="none" />
+    <polyline points="13,-3 18,-3 21,-5 24,-3 26,-3 28,-3 28,0 26,0 24,0 21,2 18,0 13,0" stroke="black" fill="none" />
+    <line x1="10.00" y1="13.00" x2="10.00" y2="16.00" stroke="black" fill="none" />
+    <polygon points="-34.17,-5.88 -32.12,-1.85 -30,-3.58" stroke="black" fill="black" />
+    <polyline points="13,10 18,10 21,8 24,10 26,10 28,10 28,13 26,13 24,13 21,15 18,13 13,13" stroke="black" fill="none" />
+    <polygon points="-34.23,17 -32.32,12.92 -30,14.66" stroke="black" fill="black" />
+    <rect x="-17.00" y="-3.00" width="7.00" height="16.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="13.00" x2="-20.00" y2="16.00" stroke="black" fill="none" />
+    <polygon points="-22,13 -18,13 -20,9" stroke="black" fill="none" />
+    <polygon points="8,13 10,9 12,13" stroke="black" fill="none" />
+    <polyline points="-14.52,1.06 -14.52,9.06 -14.52,1.06 -13.52,1.06 -13.52,9.06 -12.52,9.06 -12.52,7.06 -13.52,6.06 -13.52,4.06 -12.52,3.06 -12.52,1.06 -14.52,1.06 -14.52,9.06 -13.52,9.06" stroke="black" fill="none" />
+    <rect x="-23.00" y="-3.00" width="36.00" height="16.00" stroke="black" fill="none" />
+    <path d="M -31.19 13.98 A 17.50 17.50 0 0 0 -31.66 -3.77" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-50.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

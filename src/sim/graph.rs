@@ -92,7 +92,7 @@ pub fn build_network_graph(items: &[SchematicItem], topology_hash: u64) -> Netwo
                 p_nodes.push(add_unique_pt(wpos));
             }
             item_pin_nodes.insert(idx, p_nodes);
-        } else if let Some(ref qet_type) = item.qet_type {
+        } else if let Some(qet_type) = item.symbol_id_or_slug() {
             if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                 let mut p_nodes = Vec::new();
                 for shape in &parsed.shapes {

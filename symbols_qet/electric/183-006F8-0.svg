@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="200.0" viewBox="-64.0 -92.0 130.0 200.0" data-name="GCE-X400CT">
+  <title>GCE-X400CT</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-5.00" cy="7.00" rx="3.00" ry="3.00" stroke="green" fill="none" />
+    <ellipse cx="-21.00" cy="7.00" rx="3.00" ry="3.00" stroke="green" fill="none" />
+    <text x="-19.00" y="76.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RJ11</text>
+    <text x="-39.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1      2      3      4</text>
+    <polygon points="-19,78 -1,78 -1,87 -7,87 -7,91.5 -13,91.5 -13,87 -19,87" stroke="black" fill="none" />
+    <rect x="-24.00" y="68.00" width="27.00" height="29.00" stroke="black" fill="none" />
+    <ellipse cx="11.00" cy="7.00" rx="3.00" ry="3.00" stroke="green" fill="none" />
+    <ellipse cx="10.50" cy="-70.50" rx="5.50" ry="5.50" stroke="black" fill="none" />
+    <rect x="-59.00" y="-83.00" width="120.00" height="180.00" stroke="black" fill="none" />
+    <ellipse cx="31.50" cy="-70.50" rx="5.50" ry="5.50" stroke="black" fill="none" />
+    <ellipse cx="-10.50" cy="-70.50" rx="5.50" ry="5.50" stroke="black" fill="none" />
+    <text x="-42.00" y="85.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN</text>
+    <text x="-18.00" y="86.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT</text>
+    <ellipse cx="-31.50" cy="-70.50" rx="5.50" ry="5.50" stroke="black" fill="none" />
+    <text x="-34.00" y="-50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1    2     3     4</text>
+    <rect x="-42.00" y="-62.00" width="86.00" height="15.00" stroke="black" fill="none" />
+    <line x1="-42.00" y1="-15.00" x2="-32.00" y2="-15.00" stroke="black" fill="none" />
+    <ellipse cx="-37.00" cy="7.00" rx="3.00" ry="3.00" stroke="green" fill="none" />
+    <rect x="28.00" y="-15.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <text x="33.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Sel</text>
+    <text x="-10.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
+    <line x1="40.00" y1="37.00" x2="20.00" y2="37.00" stroke="green" fill="none" />
+    <polygon points="-47,78 -29,78 -29,87 -35,87 -35,91.5 -41,91.5 -41,87 -47,87" stroke="black" fill="none" />
+    <rect x="-52.00" y="68.00" width="28.00" height="29.00" stroke="black" fill="none" />
+    <text x="-46.00" y="76.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RJ11</text>
+    <text x="-39.00" y="67.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BUS V3</text>
+    <rect x="-52.00" y="58.00" width="55.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-52.00" y="-32.00" width="106.00" height="80.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-31.00" cy="-82.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="-82.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="11.00" cy="-82.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="32.00" cy="-82.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-38.00" cy="98.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="98.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="220.0" viewBox="-67.0 -110.0 130.0 220.0" data-name="852-101">
+  <title>852-101</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-60.00" y="-100.00" width="120.00" height="200.00" stroke="black" fill="none" />
+    <text x="-5.00" y="83.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ALM</text>
+    <text x="-23.00" y="-90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">−</text>
+    <ellipse cx="10.00" cy="100.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-38.00" y="61.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Industrial Switch</text>
+    <ellipse cx="-60.00" cy="-50.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="37.10" y="-90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">−</text>
+    <text x="17.60" y="-90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <ellipse cx="-10.00" cy="100.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="23.47" y="-84.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RPS</text>
+    <ellipse cx="-60.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-54.20" y="-32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-42.50" y="-90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <ellipse cx="-60.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-54.20" y="-52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-54.80" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <ellipse cx="-60.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-54.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <ellipse cx="40.00" cy="-100.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-60.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-54.80" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <ellipse cx="20.00" cy="-100.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-20.00" cy="-100.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-40.00" cy="-100.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-43.00" y="49.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5-Port 100BASE-TX</text>
+    <text x="-36.60" y="-84.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PWR</text>
+    <text x="-46.00" y="-64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 852-101</text>
+    <polyline points="-10,100 -10,90 -6,90 6,86" stroke="black" fill="none" />
+    <polyline points="10,100 10,90 6,90" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-60.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="ETH1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-60.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="EZH3" data-orientation="w" />
+    <circle class="qet-terminal" cx="-60.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="ETH5" data-orientation="w" />
+    <circle class="qet-terminal" cx="-60.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="ETH2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-60.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="ETH4" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="RPS+" data-orientation="n" />
+    <circle class="qet-terminal" cx="-40.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="PWR+" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="RPS-" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="PWR-" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="ALM.2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="ALM.1" data-orientation="s" />
+  </g>
+</svg>

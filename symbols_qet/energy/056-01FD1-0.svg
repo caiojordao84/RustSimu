@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="30.0" viewBox="-40.0 -16.0 80.0 30.0" data-name="llineas-gen-central">
+  <title>llineas-gen-central</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-26.11" y1="1.00" x2="-8.89" y2="1.00" stroke="black" fill="none" />
+    <ellipse cx="26.20" cy="0.00" rx="0.70" ry="1.00" stroke="black" fill="none" />
+    <ellipse cx="26.20" cy="-7.00" rx="0.70" ry="2.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="1.00" x2="26.00" y2="1.00" stroke="black" fill="none" />
+    <path d="M -27.00 -9.00 A 1.00 2.00 0 0 0 -27.00 -5.00" stroke="black" fill="none" />
+    <path d="M -27.00 -1.00 A 1.00 1.00 0 0 0 -27.00 1.00" stroke="black" fill="none" />
+    <polyline points="-1.43,-9 -1.43,-11 -6.28,-11 -6.28,5 -8.7,5 -8.7,-13 1,-13 1,-10" stroke="black" fill="none" />
+    <rect x="8.00" y="1.00" width="1.00" height="3.00" stroke="black" fill="none" />
+    <line x1="-27.00" y1="-9.00" x2="-9.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-9.00" x2="26.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="-27.00" y1="-5.00" x2="-9.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-5.00" x2="26.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-27.00" y1="-1.00" x2="-9.00" y2="-1.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-1.00" x2="26.00" y2="-1.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="9.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-29.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="28.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="28.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-7.00" cy="6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-29.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

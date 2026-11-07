@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-10.0 -18.0 20.0 30.0" data-name="Ground">
+  <title>Ground</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="0.00" x2="7.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="4.00" x2="-5.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="8.00" x2="3.00" y2="8.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

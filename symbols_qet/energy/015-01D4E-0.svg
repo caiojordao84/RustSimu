@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-16.0 -18.0 30.0 30.0" data-name="Gas detector">
+  <title>Gas detector</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-10.00" y="-10.00" width="21.00" height="20.00" stroke="black" fill="none" />
+    <ellipse cx="-7.50" cy="7.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-3.50" cy="7.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="0.50" cy="7.50" rx="0.50" ry="0.50" stroke="#d40000" fill="none" />
+    <line x1="7.00" y1="-6.00" x2="11.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-4.00" x2="10.00" y2="-4.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="-2.00" x2="10.00" y2="-2.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-8.00" cy="-11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="80.0" viewBox="-52.0 -40.0 60.0 80.0" data-name="Proximity switch, magnetically controlled">
+  <title>Proximity switch, magnetically controlled</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="-5.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="30.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-3.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polygon points="-30,-10 -40,0 -30,10 -20,0" stroke="black" fill="none" />
+    <line x1="-34.00" y1="-6.00" x2="-34.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="-26.00" y1="-6.00" x2="-26.00" y2="6.00" stroke="black" fill="none" />
+    <rect x="-50.00" y="-10.00" width="10.00" height="5.00" stroke="black" fill="black" />
+    <rect x="-50.00" y="-5.00" width="5.00" height="10.00" stroke="black" fill="black" />
+    <rect x="-50.00" y="5.00" width="10.00" height="5.00" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

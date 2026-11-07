@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="50.0" viewBox="-50.0 -27.0 100.0 50.0" data-name="Straight section with tap-off adjustable in steps">
+  <title>Straight section with tap-off adjustable in steps</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="40.00" y1="0.00" x2="-40.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-5.00" x2="-40.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-5.00" x2="40.00" y2="5.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <text x="-20.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 m</text>
+    <polyline points="-20,-15 0,-15 0,-25 20,-25" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

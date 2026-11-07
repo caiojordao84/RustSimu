@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-50.0 -50.0 60.0 60.0" data-name="Crossing of two independent systems">
+  <title>Crossing of two independent systems</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-20.00" x2="-40.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-25.00" x2="-40.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-25.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-15.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-25.00" x2="-20.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="-40.00" x2="-15.00" y2="-40.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

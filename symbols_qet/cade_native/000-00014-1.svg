@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="57" height="80" viewBox="-32 -10 57 80" data-generator="cade2svg">
+  <title>Disjuntor Termomagnético 1P (Ativo)</title>
+  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0" y1="0" x2="0" y2="15" />
+    <line x1="0" y1="45" x2="0" y2="60" />
+    <line x1="-5" y1="15" x2="0" y2="45" />
+    <line x1="-5" y1="15" x2="0" y2="15" />
+    <polygon points="-10,24 -2,20 2,28 -6,32" fill="#fee2e2" />
+    <line x1="-3" y1="12" x2="3" y2="18" />
+    <line x1="-3" y1="18" x2="3" y2="12" />
+    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="1" />
+    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="2" />
+  </g>
+</svg>

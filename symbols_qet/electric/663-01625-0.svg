@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="70.0" viewBox="-27.0 -26.0 50.0 70.0" data-name="Capacitor, temperature dependent and polarised">
+  <title>Capacitor, temperature dependent and polarised</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-10.04" cy="30.48" rx="2.96" ry="6.47" stroke="black" fill="none" />
+    <path d="M -10.00 30.48 A 1.50 1.76 0 0 0 -13.00 30.48" stroke="black" fill="none" />
+    <line x1="-20.00" y1="10.00" x2="20.00" y2="10.00" stroke="black" fill="none" />
+    <path d="M -10.00 30.48 A 1.50 1.76 0 0 0 -7.00 30.48" stroke="black" fill="none" />
+    <line x1="-20.00" y1="5.00" x2="20.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="5.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <polyline points="20,-12 -12,20 -24,20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

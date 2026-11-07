@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="90.0" viewBox="-57.0 -43.0 110.0 90.0" data-name="Level relay">
+  <title>Level relay</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-28.00" y1="0.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="-50.00" y="-33.50" width="100.00" height="70.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="19.00" x2="0.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="-14.00" y1="28.00" x2="-21.00" y2="28.00" stroke="black" fill="none" />
+    <line x1="-14.00" y1="-24.00" x2="-22.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-16.00" x2="0.00" y2="-32.00" stroke="black" fill="none" />
+    <path d="M -14.00 19.00 A 4.50 3.50 0 0 0 -14.00 12.00" stroke="black" fill="none" />
+    <path d="M 0.00 -9.00 A 4.50 3.50 0 0 0 -0.00 -2.00" stroke="black" fill="none" />
+    <path d="M 0.00 -2.00 A 4.50 3.50 0 0 0 -0.00 5.00" stroke="black" fill="none" />
+    <path d="M 0.00 5.00 A 4.50 3.50 0 0 0 -0.00 12.00" stroke="black" fill="none" />
+    <path d="M 0.00 12.00 A 4.50 3.50 0 0 0 -0.00 19.00" stroke="black" fill="none" />
+    <text x="42.00" y="32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">18</text>
+    <text x="22.00" y="32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">16</text>
+    <line x1="30.00" y1="-10.00" x2="30.00" y2="-32.00" stroke="black" fill="none" />
+    <text x="39.00" y="-26.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">15</text>
+    <text x="4.00" y="32.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
+    <text x="4.00" y="-26.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
+    <text x="-46.00" y="26.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B3</text>
+    <text x="-46.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B2</text>
+    <text x="-46.00" y="-27.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B1</text>
+    <line x1="-28.00" y1="20.00" x2="-48.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="-29.00" y1="-20.00" x2="-48.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="11.00" x2="26.00" y2="11.00" stroke="black" fill="none" />
+    <rect x="-28.00" y="-28.00" width="6.00" height="60.00" stroke="black" fill="none" />
+    <path d="M 0.00 -16.00 A 4.50 3.50 0 0 0 -0.00 -9.00" stroke="black" fill="none" />
+    <line x1="-14.00" y1="20.00" x2="-14.00" y2="28.00" stroke="black" fill="none" />
+    <path d="M -14.00 -9.00 A 4.50 3.50 0 0 0 -14.00 -16.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-10.25" x2="22.00" y2="12.00" stroke="black" fill="none" />
+    <path d="M -14.00 5.00 A 4.50 3.50 0 0 0 -14.00 -2.00" stroke="black" fill="none" />
+    <path d="M -14.00 12.00 A 4.50 3.50 0 0 0 -14.00 5.00" stroke="black" fill="none" />
+    <path d="M -14.00 -2.00 A 4.50 3.50 0 0 0 -14.00 -9.00" stroke="black" fill="none" />
+    <line x1="-14.00" y1="-24.00" x2="-14.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="12.00" x2="20.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="12.00" x2="40.00" y2="36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-50.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="B3" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-33.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="-33.00" r="1.8" fill="red" stroke="none" data-name="15" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="36.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="36.00" r="1.8" fill="red" stroke="none" data-name="16" data-orientation="s" />
+    <circle class="qet-terminal" cx="-50.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="B1" data-orientation="w" />
+    <circle class="qet-terminal" cx="40.00" cy="36.00" r="1.8" fill="red" stroke="none" data-name="18" data-orientation="s" />
+    <circle class="qet-terminal" cx="-50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="B2" data-orientation="w" />
+  </g>
+</svg>

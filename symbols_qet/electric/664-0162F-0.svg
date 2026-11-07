@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-42.0 -17.0 50.0 30.0" data-name="Inductor with moveable contact, variable in steps">
+  <title>Inductor with moveable contact, variable in steps</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -10.00 -10.00 A 5.00 5.00 0 0 0 -20.00 -10.00" stroke="black" fill="none" />
+    <path d="M -30.00 -10.00 A 5.00 5.00 0 0 0 -40.00 -10.00" stroke="black" fill="none" />
+    <path d="M 0.00 -10.00 A 5.00 5.00 0 0 0 -10.00 -10.00" stroke="black" fill="none" />
+    <path d="M -20.00 -10.00 A 5.00 5.00 0 0 0 -30.00 -10.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-10.00" x2="-40.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-18,-4 -22,-4 -20,-10" stroke="black" fill="black" />
+    <line x1="-20.00" y1="-4.00" x2="-20.00" y2="10.00" stroke="black" fill="none" />
+    <polyline points="-15,5 -15,0 5,0 5,-5" stroke="black" fill="none" />
+  </g>
+</svg>

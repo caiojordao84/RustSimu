@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="230.0" height="170.0" viewBox="-115.0 -57.0 230.0 170.0" data-name="Fibaro RGBW Controller FGRGBWM-441">
+  <title>Fibaro RGBW Controller FGRGBWM-441</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-34.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT1</text>
+    <text x="6.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN3</text>
+    <text x="26.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN2</text>
+    <text x="66.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-74.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT3</text>
+    <text x="86.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P</text>
+    <text x="46.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN1</text>
+    <rect x="-20.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <text x="-54.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT2</text>
+    <text x="-14.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN4</text>
+    <rect x="-40.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-60.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-80.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-100.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="20.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="40.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="60.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="80.00" y="-50.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <circle cx="-90.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="-70.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="-50.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="-30.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="-10.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="10.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="30.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="50.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="70.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <circle cx="90.00" cy="-40.00" r="5.00" stroke="black" fill="none" />
+    <path d="M -110.00 30.00 A 110.00 80.00 0 0 0 110.00 30.00" stroke="black" fill="none" />
+    <rect x="-90.00" y="40.00" width="10.00" height="10.00" stroke="black" fill="none" />
+    <text x="-88.00" y="51.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">*</text>
+    <text x="-95.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT4</text>
+    <text x="-40.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FIBARO RGBW</text>
+    <text x="-38.00" y="42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CONTROLLER</text>
+    <polyline points="110,30 110,-40 100,-50 -100,-50 -110,-40 -110,30" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-70.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="Out3" data-orientation="n" />
+    <circle class="qet-terminal" cx="90.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="P" data-orientation="n" />
+    <circle class="qet-terminal" cx="70.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="n" />
+    <circle class="qet-terminal" cx="50.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="IN1" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="IN3" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="IN2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="IN4" data-orientation="n" />
+    <circle class="qet-terminal" cx="-30.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="Out1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-50.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="Out2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-90.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="Out4" data-orientation="n" />
+  </g>
+</svg>

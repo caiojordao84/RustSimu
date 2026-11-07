@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-20.0 -11.0 60.0 40.0" data-name="Motorized valve">
+  <title>Motorized valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 2.93 7.07 A 10.00 10.00 0 0 0 17.07 7.07" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="0.00" rx="7.50" ry="7.50" stroke="black" fill="none" />
+    <text x="6.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <polygon points="16,6 18,8 20,3" stroke="black" fill="black" />
+    <polygon points="2,8 4,6 0,3" stroke="black" fill="black" />
+    <line x1="9.00" y1="19.00" x2="9.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="11.00" y1="19.00" x2="11.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="20.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="20.00" x2="30.00" y2="20.00" stroke="black" fill="none" />
+    <polygon points="20,26 10,20 20,14" stroke="black" fill="none" />
+    <polygon points="0,14 0,26 10,20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

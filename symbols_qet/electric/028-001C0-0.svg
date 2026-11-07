@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-40.0 -42.0 60.0 50.0" data-name="Rectiﬁer">
+  <title>Rectiﬁer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-30.00" y="-40.00" width="40.00" height="40.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-5.00" x2="-2.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="-5.00" x2="5.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-7.00" x2="5.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="0.00" x2="10.00" y2="-40.00" stroke="black" fill="none" />
+    <path d="M -19.49 -32.78 A 2.50 2.50 0 0 0 -14.50 -33.00" stroke="black" fill="none" />
+    <path d="M -19.51 -33.22 A 2.50 2.50 0 0 0 -24.50 -33.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

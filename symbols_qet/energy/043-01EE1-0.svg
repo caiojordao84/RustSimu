@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-10.0 -30.0 30.0 50.0" data-name="Safety valve">
+  <title>Safety valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-5.62" y="-25.78" width="12.40" height="6.75" stroke="black" fill="#d40000" />
+    <line x1="-1.62" y1="-19.00" x2="-1.62" y2="-25.33" stroke="black" fill="none" />
+    <line x1="-3.22" y1="-19.00" x2="-3.22" y2="-25.33" stroke="black" fill="none" />
+    <line x1="4.34" y1="-19.00" x2="4.34" y2="-25.33" stroke="black" fill="none" />
+    <line x1="2.78" y1="-19.00" x2="2.78" y2="-25.33" stroke="black" fill="none" />
+    <line x1="5.74" y1="-19.00" x2="5.74" y2="-25.33" stroke="black" fill="none" />
+    <line x1="0.38" y1="-19.00" x2="0.38" y2="-25.33" stroke="black" fill="none" />
+    <rect x="9.00" y="-13.44" width="4.20" height="9.00" stroke="#d40000" fill="none" stroke-dasharray="1.5,2" />
+    <rect x="-6.42" y="-0.15" width="13.60" height="11.25" stroke="black" fill="none" />
+    <rect x="-4.22" y="2.55" width="9.20" height="8.55" stroke="#d40000" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="8.89" y1="-16.34" x2="13.09" y2="-16.34" stroke="black" fill="none" />
+    <line x1="8.89" y1="-1.49" x2="13.08" y2="-1.49" stroke="black" fill="none" />
+    <line x1="13.18" y1="-16.27" x2="13.18" y2="-1.57" stroke="black" fill="none" />
+    <line x1="-4.42" y1="-19.00" x2="-4.42" y2="-25.33" stroke="black" fill="none" />
+    <line x1="8.78" y1="-16.34" x2="5.58" y2="-13.64" stroke="black" fill="none" />
+    <line x1="8.78" y1="-1.49" x2="5.58" y2="-5.09" stroke="black" fill="none" />
+    <line x1="8.78" y1="-16.55" x2="8.78" y2="-18.81" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-19.00" x2="8.73" y2="-19.00" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-0.15" x2="8.73" y2="-0.15" stroke="black" fill="none" />
+    <line x1="8.78" y1="-0.23" x2="8.78" y2="-1.38" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-19.00" x2="-8.00" y2="-0.15" stroke="black" fill="none" />
+    <text x="-2.00" y="-8.24" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">bar</text>
+    <circle class="qet-terminal" cx="0.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="13.00" cy="-8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

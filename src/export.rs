@@ -533,7 +533,7 @@ pub fn export_to_svg(
                     max_x = max_x.max(item.x1 as f32).max(item.x2 as f32);
                     min_y = min_y.min(item.y1 as f32).min(item.y2 as f32);
                     max_y = max_y.max(item.y1 as f32).max(item.y2 as f32);
-                } else if let Some(ref qet_type) = item.qet_type {
+                } else if let Some(qet_type) = item.symbol_id_or_slug() {
                     if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                         let (vx, vy, vw, vh) = parsed.view_box;
                         let (p1x, p1y) = transform_offset_f32(vx, vy, item.orientation);
@@ -838,8 +838,8 @@ pub fn export_to_svg(
             None
         };
 
-        // Elemento nativo importado de projeto QElectroTech (.qet)
-        if let Some(ref qet_type) = item.qet_type {
+        // Elemento nativo importado de projeto QElectroTech (.qet) ou símbolo canônico D2
+        if let Some(qet_type) = item.symbol_id_or_slug() {
             render_svg_symbol_to_svg(
                 &mut out,
                 item.x1,

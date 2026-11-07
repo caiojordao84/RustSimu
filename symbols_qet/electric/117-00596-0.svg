@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="180.0" height="110.0" viewBox="-83.0 -57.0 180.0 110.0" data-name="SEN5x">
+  <title>SEN5x</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="59.00" y="-19.00" width="20.00" height="48.00" stroke="black" fill="none" />
+    <line x1="44.00" y1="-15.00" x2="59.00" y2="-15.00" stroke="black" fill="none" />
+    <rect x="19.00" y="-22.00" width="25.00" height="15.00" stroke="black" fill="none" />
+    <rect x="-73.00" y="36.00" width="15.00" height="5.00" stroke="black" fill="none" />
+    <polyline points="-62,-4 -62,-8 -52,-8" stroke="black" fill="none" />
+    <ellipse cx="-73.00" cy="8.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-68.75" cy="3.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-70.00" cy="6.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-73.00" cy="4.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <polyline points="-62,-1 -62,3 -52,3" stroke="black" fill="none" />
+    <text x="-47.00" y="37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">    Fan
+Controller</text>
+    <polygon points="-62,-1 -60,-4 -64,-4" stroke="black" fill="black" />
+    <text x="-47.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">   Laser
+Controller</text>
+    <line x1="-64.00" y1="-1.00" x2="-60.00" y2="-1.00" stroke="black" fill="none" />
+    <text x="-47.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Amplifier
+ & Filter</text>
+    <rect x="-52.00" y="8.00" width="25.00" height="15.00" stroke="black" fill="none" />
+    <rect x="-52.00" y="-10.00" width="25.00" height="15.00" stroke="black" fill="none" />
+    <rect x="-52.00" y="31.00" width="25.00" height="15.00" stroke="black" fill="none" />
+    <text x="-69.00" y="40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Fan</text>
+    <text x="-71.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">  VOC
+& NOx</text>
+    <text x="-71.00" y="-37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RH & T</text>
+    <rect x="-73.00" y="-42.00" width="16.00" height="7.00" stroke="black" fill="none" />
+    <rect x="-81.00" y="-55.00" width="171.00" height="105.00" stroke="black" fill="none" />
+    <line x1="-76.00" y1="-55.00" x2="-76.00" y2="50.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-54.00" y1="-55.00" x2="-55.00" y2="50.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-58.00" y1="38.50" x2="-52.00" y2="38.50" stroke="black" fill="none" />
+    <polyline points="-62,14 -62,10 -52,10" stroke="black" fill="none" />
+    <polyline points="-62,17 -62,21 -52,21" stroke="black" fill="none" />
+    <polygon points="-62,14 -64,17 -60,17" stroke="black" fill="black" />
+    <line x1="-64.00" y1="14.00" x2="-60.00" y2="14.00" stroke="black" fill="none" />
+    <text x="-65.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Photo
+Diode</text>
+    <line x1="-69.00" y1="15.00" x2="-65.00" y2="18.00" stroke="black" fill="none" />
+    <line x1="-69.00" y1="10.00" x2="-65.00" y2="13.00" stroke="black" fill="none" />
+    <line x1="-65.00" y1="-3.00" x2="-68.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-63.00" y1="0.00" x2="-66.00" y2="3.00" stroke="black" fill="none" />
+    <ellipse cx="-72.00" cy="1.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-67.00" cy="8.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-71.00" cy="10.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-74.00" cy="-1.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-72.00" cy="-3.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-74.00" cy="11.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-70.00" cy="13.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-71.00" cy="17.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <ellipse cx="-73.00" cy="14.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
+    <text x="-64.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Laser</text>
+    <rect x="-73.00" y="-31.00" width="15.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-16.00" y="-19.00" width="20.00" height="48.00" stroke="black" fill="none" />
+    <text x="-10.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MCU</text>
+    <polyline points="-58,-26 -6,-26 -6,-19" stroke="black" fill="none" />
+    <polyline points="-57,-38.5 -6,-38.5 -6,-26" stroke="black" fill="none" />
+    <polyline points="-27,-2.5 -16,-2.5" stroke="black" fill="none" />
+    <polyline points="-27,15.5 -16,15.5" stroke="black" fill="none" />
+    <polyline points="-27,38.5 -6,38.5 -6,29" stroke="black" fill="none" />
+    <line x1="-69.00" y1="-49.00" x2="-69.00" y2="-44.00" stroke="black" fill="none" />
+    <line x1="-61.00" y1="-49.00" x2="-61.00" y2="-44.00" stroke="black" fill="none" />
+    <text x="-72.00" y="-50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AIR FLOW</text>
+    <text x="-5.00" y="-31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I2C</text>
+    <text x="25.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">POWER
+SUPPLY</text>
+    <line x1="4.00" y1="-15.00" x2="19.00" y2="-15.00" stroke="black" fill="none" />
+    <text x="9.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3V3</text>
+    <text x="61.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">     ESD
+Protection</text>
+    <text x="50.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5V</text>
+    <line x1="4.00" y1="25.00" x2="59.00" y2="25.00" stroke="black" fill="none" />
+    <line x1="4.00" y1="15.00" x2="59.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="4.00" y1="5.00" x2="59.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="79.00" y1="10.00" x2="90.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="79.00" y1="20.00" x2="90.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="79.00" y1="-10.00" x2="90.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="79.00" y1="0.00" x2="90.00" y2="0.00" stroke="black" fill="none" />
+    <text x="80.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">VDD</text>
+    <text x="80.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SDA</text>
+    <text x="80.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCL</text>
+    <text x="80.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="90.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="90.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="90.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

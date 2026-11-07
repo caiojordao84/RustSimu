@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-15.0 -34.0 30.0 60.0" data-qet-native="true">
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="0.00" cy="0.00" r="10.00" stroke="black" fill="#00aa00" />
+    <line x1="7.03" y1="-7.03" x2="-7.03" y2="7.03" stroke="black" fill="none" />
+    <line x1="-7.03" y1="-7.03" x2="7.03" y2="7.03" stroke="black" fill="none" />
+    <line x1="0.00" y1="-17.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <rect x="-1.00" y="-20.00" width="2.00" height="4.00" stroke="black" fill="black" />
+    <path d="M 2.50 -20.00 A 2.50 2.50 0 0 0 -2.50 -20.00" data-arc="-2.50,-22.50,5.00,5.00,0.00,180.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-23.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

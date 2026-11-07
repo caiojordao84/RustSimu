@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-19.0 -28.0 40.0 50.0" data-name="Solenoid 3V "health"">
+  <title>Solenoid 3V "health"</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-6.68" x2="0.00" y2="-0.35" stroke="black" fill="none" />
+    <rect x="-5.77" y="-15.00" width="11.00" height="8.00" stroke="black" fill="none" />
+    <polygon points="0,0 -4,8 4,8" stroke="black" fill="none" />
+    <polygon points="0,0 -8,-4 -8,4 0,0 8,-4 8,4" stroke="black" fill="none" />
+    <line x1="8.64" y1="0.00" x2="10.47" y2="0.00" stroke="black" fill="none" />
+    <line x1="-7.77" y1="0.00" x2="-10.13" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="8.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
+    <text x="-2.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <circle class="qet-terminal" cx="0.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-9.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

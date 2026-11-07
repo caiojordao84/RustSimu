@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-37.0 -13.0 50.0 50.0" data-name="Mixer 03 ECS">
+  <title>Mixer 03 ECS</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-29.00" y1="14.00" x2="-27.00" y2="14.00" stroke="black" fill="none" />
+    <line x1="-16.28" y1="22.94" x2="-7.79" y2="22.94" stroke="black" fill="none" />
+    <line x1="-15.88" y1="11.50" x2="-18.13" y2="11.50" stroke="black" fill="none" />
+    <line x1="3.00" y1="14.00" x2="5.00" y2="14.00" stroke="black" fill="none" />
+    <line x1="2.10" y1="7.86" x2="2.10" y2="14.82" stroke="black" fill="none" />
+    <polygon points="-15.88,10.28 -15.88,12.73 -13.63,11.5" stroke="black" fill="black" />
+    <line x1="3.00" y1="9.00" x2="5.00" y2="9.00" stroke="black" fill="none" />
+    <line x1="-26.17" y1="7.86" x2="-26.17" y2="14.82" stroke="black" fill="none" />
+    <polygon points="-12,25.26 -17.69,25.26 -17.69,22.94 -16.28,22.94 -16.28,14.82 -26.17,14.82 -26.17,16 -29,16 -29,6.7 -26.17,6.7 -26.17,7.86 2.1,7.86 2.1,6.7 4.93,6.7 4.93,16 2.1,16 2.1,14.82 -7.79,14.82 -7.79,22.94 -6.38,22.94 -6.38,25.26" stroke="black" fill="none" />
+    <line x1="-2.14" y1="-4.78" x2="-2.14" y2="0.09" stroke="black" fill="none" />
+    <line x1="-22.00" y1="-4.17" x2="-22.00" y2="0.70" stroke="black" fill="none" />
+    <path d="M -2.14 -4.78 A 9.89 2.44 0 0 0 -21.93 -4.78" stroke="black" fill="none" />
+    <rect x="-21.93" y="-3.65" width="19.79" height="8.06" stroke="black" fill="none" />
+    <line x1="-10.62" y1="20.62" x2="-13.45" y2="20.62" stroke="black" fill="none" />
+    <line x1="-20.76" y1="11.34" x2="-17.93" y2="11.34" stroke="black" fill="none" />
+    <line x1="-23.35" y1="10.18" x2="-23.35" y2="12.50" stroke="black" fill="none" />
+    <rect x="-16.63" y="4.38" width="9.75" height="2.45" stroke="black" fill="none" />
+    <line x1="-5.88" y1="10.93" x2="-8.13" y2="10.93" stroke="black" fill="none" />
+    <polygon points="-5.88,9.28 -5.88,12.58 -3.63,10.93" stroke="black" fill="black" />
+    <rect x="-1.63" y="-3.00" width="3.75" height="2.45" stroke="black" fill="none" />
+    <text x="-13.63" y="0.71" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <path d="M -16.63 7.83 A 4.88 0.61 0 0 0 -6.88 7.83" stroke="black" fill="none" />
+    <line x1="-29.00" y1="9.00" x2="-27.00" y2="9.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="23.00" x2="-15.00" y2="25.00" stroke="black" fill="none" />
+    <line x1="-9.00" y1="23.00" x2="-9.00" y2="25.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="19.00" x2="-12.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="16.00" x2="-13.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="16.00" x2="-11.00" y2="17.00" stroke="black" fill="none" />
+    <path d="M -9.00 11.00 A 3.00 3.00 0 0 0 -12.00 14.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="3.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="5.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-12.00" cy="25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-29.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

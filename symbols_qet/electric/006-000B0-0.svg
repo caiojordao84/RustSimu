@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-10.0 -26.0 30.0 50.0" data-name="Wire Connector 2-Port">
+  <title>Wire Connector 2-Port</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-7.80" y="-22.50" width="25.60" height="42.00" stroke="#888888" fill="#dcdcdc" />
+    <rect x="1.00" y="-17.00" width="8.00" height="3.00" stroke="white" fill="#dcdcdc" />
+    <rect x="-4.00" y="-10.00" width="8.00" height="30.00" stroke="white" fill="#ff6347" />
+    <rect x="6.00" y="-10.00" width="8.00" height="30.00" stroke="white" fill="#ff6347" />
+    <line x1="0.00" y1="5.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-5.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-5.00" x2="10.00" y2="5.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

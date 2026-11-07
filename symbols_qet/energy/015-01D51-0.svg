@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="50.0" viewBox="-42.0 -21.0 70.0 50.0" data-name="horno-pizza">
+  <title>horno-pizza</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-35.69" y="11.55" width="34.50" height="10.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-4.00" x2="-29.00" y2="-14.00" stroke="black" fill="none" />
+    <line x1="9.00" y1="24.00" x2="20.00" y2="14.00" stroke="black" fill="none" />
+    <ellipse cx="4.57" cy="5.33" rx="1.44" ry="1.25" stroke="black" fill="none" />
+    <polyline points="-28.5,16.53 -29.94,17.77 -9.81,17.77 -8.38,16.53" stroke="black" fill="none" />
+    <ellipse cx="4.57" cy="0.35" rx="1.44" ry="1.25" stroke="black" fill="none" />
+    <rect x="-40.00" y="-3.39" width="48.88" height="27.39" stroke="black" fill="none" />
+    <line x1="9.00" y1="-3.00" x2="20.00" y2="-13.00" stroke="black" fill="none" />
+    <rect x="-35.69" y="-0.90" width="34.50" height="10.00" stroke="black" fill="none" />
+    <polyline points="-28.5,4.08 -29.94,5.32 -9.81,5.32 -8.38,4.08" stroke="black" fill="none" />
+    <ellipse cx="4.57" cy="10.30" rx="1.44" ry="1.25" stroke="black" fill="none" />
+    <polyline points="-30,-14 20,-14 20,14" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-32.00" cy="-11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="21.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

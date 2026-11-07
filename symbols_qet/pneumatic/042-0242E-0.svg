@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="60.0" viewBox="-55.0 -28.0 120.0 60.0" data-name="Pneumatic actuator cable">
+  <title>Pneumatic actuator cable</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="10.00" y1="-22.00" x2="10.00" y2="-18.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="10.00" x2="-20.00" y2="15.00" stroke="black" fill="none" />
+    <rect x="1.00" y="-10.00" width="7.00" height="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-22.00" x2="0.00" y2="-18.00" stroke="black" fill="none" />
+    <polyline points="3,-4 3,4 4,4 4,-4 5,-4 5,4 6,4 6,2 5,1 5,-1 6,-2 6,-4 4,-4 3,-4 3,4 5,4" stroke="black" fill="none" />
+    <line x1="0.00" y1="-22.00" x2="10.00" y2="-22.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-20.00" x2="50.00" y2="-20.00" stroke="black" fill="none" />
+    <polyline points="-23,1 -23,10 1,10 1,-10 -23,-10 -23,-1" stroke="black" fill="none" />
+    <polyline points="33,1 33,10 8,10 8,-10 33,-10 33,-1" stroke="black" fill="none" />
+    <line x1="-40.00" y1="0.00" x2="50.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="-2.00" y="-4.00" width="3.00" height="8.00" stroke="black" fill="none" />
+    <ellipse cx="50.00" cy="-10.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="50.00" cy="-10.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <rect x="8.00" y="-4.00" width="3.00" height="8.00" stroke="black" fill="none" />
+    <ellipse cx="-40.00" cy="-10.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <polygon points="28,10 32,10 30,6" stroke="black" fill="none" />
+    <ellipse cx="-40.00" cy="-10.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <polygon points="-22,10 -18,10 -20,6" stroke="black" fill="none" />
+    <line x1="30.00" y1="10.00" x2="30.00" y2="15.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

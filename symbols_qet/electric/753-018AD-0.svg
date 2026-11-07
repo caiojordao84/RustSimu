@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="30.0" viewBox="-110.0 -25.0 120.0 30.0" data-name="End feeder unit with equipment box">
+  <title>End feeder unit with equipment box</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-10.00" x2="-20.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-15.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-10.00" x2="-100.00" y2="-10.00" stroke="black" fill="none" />
+    <rect x="-40.00" y="-20.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <polygon points="-33,-7 -32,-9 -33,-11 -31,-11 -30,-13 -29,-11 -27,-11 -28,-9 -27,-7 -30,-8" stroke="black" fill="black" />
+    <polygon points="-60,0 -60,-20 -80,-10" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-100.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

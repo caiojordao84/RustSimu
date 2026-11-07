@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="220.0" viewBox="-5.0 -10.0 70.0 220.0" data-name="413017 - Modular power supply 9V= 1.6A">
+  <title>413017 - Modular power supply 9V= 1.6A</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="60.00" height="200.00" stroke="black" fill="white" />
+    <rect x="0.00" y="50.00" width="60.00" height="100.00" stroke="black" fill="none" />
+    <polyline points="4,120 4,144 6,144" stroke="#d40000" fill="none" />
+    <polyline points="6,144 8,144" stroke="#d40000" fill="none" />
+    <line x1="27.00" y1="144.00" x2="59.00" y2="144.00" stroke="#d40000" fill="none" />
+    <text x="5.00" y="125.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">    9VDC
+       ↑
+100/240VAC</text>
+    <rect x="0.00" y="30.00" width="60.00" height="20.00" stroke="black" fill="none" />
+    <rect x="15.00" y="30.00" width="5.00" height="20.00" stroke="black" fill="none" />
+    <rect x="24.00" y="30.00" width="5.00" height="20.00" stroke="black" fill="none" />
+    <rect x="42.00" y="30.00" width="5.00" height="20.00" stroke="black" fill="none" />
+    <rect x="33.00" y="30.00" width="5.00" height="20.00" stroke="black" fill="none" />
+    <rect x="0.00" y="150.00" width="60.00" height="20.00" stroke="black" fill="none" />
+    <rect x="15.00" y="150.00" width="5.00" height="20.00" stroke="black" fill="none" />
+    <rect x="33.00" y="150.00" width="5.00" height="20.00" stroke="black" fill="none" />
+    <rect x="24.00" y="150.00" width="5.00" height="20.00" stroke="black" fill="none" />
+    <rect x="42.00" y="150.00" width="5.00" height="20.00" stroke="black" fill="none" />
+    <text x="40.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">- Power</text>
+    <ellipse cx="35.00" cy="57.00" rx="2.50" ry="2.50" stroke="black" fill="#00aa00" />
+    <text x="47.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="9.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <ellipse cx="20.00" cy="11.25" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="18.00" y1="9.25" x2="22.00" y2="13.25" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="11.25" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="38.00" y1="9.25" x2="42.00" y2="13.25" stroke="black" fill="none" />
+    <text x="46.00" y="191.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <ellipse cx="40.00" cy="188.80" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="38.00" y1="186.80" x2="42.00" y2="190.80" stroke="black" fill="none" />
+    <ellipse cx="20.00" cy="188.80" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="18.00" y1="186.80" x2="22.00" y2="190.80" stroke="black" fill="none" />
+    <text x="9.00" y="191.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <circle class="qet-terminal" cx="40.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

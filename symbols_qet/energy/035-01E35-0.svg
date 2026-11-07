@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="20.0" viewBox="-11.0 -10.0 30.0 20.0" data-name="Copper reducer MF">
+  <title>Copper reducer MF</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="11.00" y1="-3.00" x2="5.00" y2="-3.00" stroke="black" fill="none" />
+    <path d="M 3.50 -4.50 A 0.50 0.50 0 0 0 3.00 -5.00" stroke="black" fill="none" />
+    <path d="M 3.00 5.00 A 0.50 0.50 0 0 0 3.50 4.50" stroke="black" fill="none" />
+    <line x1="2.00" y1="-5.00" x2="-4.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-5.00" x2="-4.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="5.00" x2="2.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="3.50" y1="-5.00" x2="3.50" y2="5.00" stroke="black" fill="none" />
+    <path d="M 3.50 -3.50 A 0.50 0.50 0 0 0 4.00 -3.00" stroke="black" fill="none" />
+    <path d="M 4.00 3.00 A 0.50 0.50 0 0 0 3.50 3.50" stroke="black" fill="none" />
+    <line x1="12.00" y1="-3.00" x2="12.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="11.00" y1="3.00" x2="5.00" y2="3.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-4.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

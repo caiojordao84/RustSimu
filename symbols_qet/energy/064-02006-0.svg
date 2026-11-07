@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="40.0" viewBox="-7.0 -19.0 20.0 40.0" data-name="Safety valve">
+  <title>Safety valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="0,0 0,-3 4,-5 -4,-7 4,-10 0,-12 0,-14" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="11.00" stroke="black" fill="none" />
+    <polygon points="0,0 10,-5 10,5 0,0 5,10 -5,10" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

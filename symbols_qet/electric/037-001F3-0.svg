@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-20.0 -30.0 30.0 60.0" data-name="Foot Switch (NO)">
+  <title>Foot Switch (NO)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-12.00" y1="0.00" x2="-3.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-9.73" y1="-5.00" x2="-13.91" y2="5.00" stroke="black" fill="none" />
+    <line x1="-13.91" y1="5.00" x2="-16.42" y2="3.00" stroke="black" fill="none" />
+    <polyline points="0,20 0,10 -6,-10" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-9.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="13" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="14" data-orientation="s" />
+  </g>
+</svg>

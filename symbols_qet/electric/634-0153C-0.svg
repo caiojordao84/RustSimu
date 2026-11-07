@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="80.0" viewBox="-5.0 -7.0 130.0 80.0" data-name="Module IF DP">
+  <title>Module IF DP</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="30.00" y1="0.25" x2="30.00" y2="2.25" stroke="black" fill="none" />
+    <circle cx="30.00" cy="5.25" r="2.50" stroke="black" fill="none" />
+    <rect x="100.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="80.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="40.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="60.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="20.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <rect x="0.00" y="0.00" width="120.00" height="70.00" stroke="black" fill="none" />
+    <text x="27.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DP</text>
+    <text x="7.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DP</text>
+    <rect x="0.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="60.00" x2="120.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="0.00" x2="10.00" y2="2.00" stroke="black" fill="none" />
+    <circle cx="10.00" cy="5.00" r="2.50" stroke="black" fill="none" />
+    <text x="45.00" y="70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WILO</text>
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="DP.A" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="1.00" r="1.8" fill="red" stroke="none" data-name="DP.B" data-orientation="n" />
+  </g>
+</svg>

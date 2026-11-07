@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="-25 -10 80 80" data-generator="cade2svg">
+  <title>Sirene / Alarme Sonoro (Buzzer) (Ativo)</title>
+  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-10,20 10,20 10,40 -10,40" fill="#fee2e2" />
+    <polygon points="10,27 33,22 43,38 10,33" fill="#fee2e2" />
+    <line x1="0" y1="0" x2="0" y2="20" />
+    <line x1="0" y1="40" x2="0" y2="60" />
+    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="X1" />
+    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="X2" />
+  </g>
+</svg>

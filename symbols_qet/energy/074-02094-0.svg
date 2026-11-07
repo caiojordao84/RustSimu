@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-20.0 -12.0 50.0 30.0" data-name="Pump with Valve">
+  <title>Pump with Valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="14.00" x2="0.00" y2="11.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="0.00" x2="16.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="11,0 16,-4 16,4" stroke="black" fill="none" />
+    <line x1="11.00" y1="-7.00" x2="11.00" y2="7.00" stroke="black" fill="none" />
+    <polygon points="8,0 -4,-7 -4,7" stroke="black" fill="none" />
+    <ellipse cx="-0.01" cy="-0.01" rx="10.29" ry="10.29" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

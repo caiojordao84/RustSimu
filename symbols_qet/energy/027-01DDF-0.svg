@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="60.0" viewBox="-50.0 -24.0 100.0 60.0" data-name="Outdoor unit">
+  <title>Outdoor unit</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-35.00" y="-20.00" width="70.00" height="50.00" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="-12.00" cy="5.00" rx="15.00" ry="15.00" stroke="black" fill="white" />
+    <line x1="-19.00" y1="-8.00" x2="-5.00" y2="-8.00" stroke="black" fill="none" />
+    <line x1="-22.00" y1="-6.00" x2="-2.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-4.00" x2="-1.00" y2="-4.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="-2.00" x2="1.00" y2="-2.00" stroke="black" fill="none" />
+    <line x1="-26.00" y1="0.00" x2="2.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-27.00" y1="2.00" x2="2.00" y2="2.00" stroke="black" fill="none" />
+    <line x1="-27.00" y1="4.00" x2="2.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="-27.00" y1="6.00" x2="3.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="-27.00" y1="8.00" x2="2.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="-26.00" y1="10.00" x2="2.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="12.00" x2="1.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="14.00" x2="0.00" y2="14.00" stroke="black" fill="none" />
+    <line x1="-22.00" y1="16.00" x2="-2.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="-19.00" y1="18.00" x2="-5.00" y2="18.00" stroke="black" fill="none" />
+    <rect x="-26.00" y="31.00" width="2.00" height="1.00" stroke="black" fill="none" />
+    <rect x="24.00" y="31.00" width="2.00" height="1.00" stroke="black" fill="none" />
+    <path d="M -12.00 -10.00 A 15.00 15.00 0 0 0 -12.00 -10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

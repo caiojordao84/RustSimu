@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-19.0 -22.0 50.0 60.0" data-name="prescontrol">
+  <title>prescontrol</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-13.50" y="6.61" width="1.17" height="1.79" stroke="black" fill="none" />
+    <line x1="-4.73" y1="23.93" x2="6.39" y2="22.13" stroke="black" fill="none" />
+    <ellipse cx="0.82" cy="0.90" rx="0.88" ry="0.90" stroke="black" fill="none" />
+    <line x1="-4.73" y1="22.13" x2="6.39" y2="20.34" stroke="black" fill="none" />
+    <line x1="17.50" y1="-2.94" x2="16.92" y2="4.82" stroke="#d40000" fill="none" stroke-dasharray="1.5,2" />
+    <rect x="-4.73" y="18.55" width="11.70" height="7.76" stroke="black" fill="none" />
+    <rect x="-8.24" y="16.76" width="18.72" height="1.79" stroke="black" fill="none" />
+    <rect x="-12.33" y="-11.90" width="25.16" height="28.66" stroke="black" fill="none" />
+    <path d="M 12.83 -12.19 A 12.58 6.87 0 0 0 -12.33 -12.19" stroke="black" fill="none" />
+    <rect x="12.83" y="-6.00" width="5.85" height="12.88" stroke="black" fill="none" />
+    <ellipse cx="0.82" cy="-2.04" rx="0.88" ry="0.90" stroke="black" fill="none" />
+    <rect x="13.41" y="-2.94" width="5.27" height="7.76" stroke="#d40000" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="15.75" y1="-2.94" x2="15.16" y2="4.82" stroke="#d40000" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-4.73" y1="25.72" x2="6.39" y2="23.93" stroke="black" fill="none" />
+    <rect x="-6.80" y="-4.14" width="9.68" height="7.16" stroke="black" fill="none" />
+    <rect x="-13.50" y="3.00" width="1.17" height="1.79" stroke="black" fill="none" />
+    <rect x="-6.00" y="-3.00" width="5.00" height="5.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="29.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

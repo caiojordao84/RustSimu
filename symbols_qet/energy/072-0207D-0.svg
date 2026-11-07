@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-26.0 -17.0 50.0 40.0" data-name="Thermostatic mixing valve ECS">
+  <title>Thermostatic mixing valve ECS</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="13.00" ry="13.00" stroke="black" fill="none" />
+    <path d="M 5.20 -6.35 A 7.00 8.00 0 0 0 -5.28 -6.25" stroke="black" fill="none" />
+    <text x="-4.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">°C</text>
+    <line x1="0.00" y1="-8.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-6.00" x2="6.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-6.00" x2="-6.00" y2="-7.00" stroke="black" fill="none" />
+    <text x="12.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EF</text>
+    <text x="-17.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EC</text>
+    <rect x="13.00" y="-1.00" width="2.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-1.00" y="13.00" width="2.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-15.00" y="-1.00" width="2.00" height="2.00" stroke="black" fill="none" />
+    <polygon points="0,1 -6,10 6,10" stroke="black" fill="none" />
+    <polygon points="10,-5 10,6 1,0" stroke="black" fill="none" />
+    <polygon points="-10,-6 -10,6 -1,0" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

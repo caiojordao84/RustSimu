@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-39.0 -30.0 60.0 60.0" data-name="break isolator">
+  <title>break isolator</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-15,-10 -10,10 -10,20" stroke="black" fill="none" />
+    <polygon points="4,-6 8,-7 11,6 7,7" stroke="black" fill="none" />
+    <polyline points="5,-10 10,10 10,20" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-20.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-10.00" x2="-12.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-20.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-10.00" x2="8.00" y2="-10.00" stroke="black" fill="none" />
+    <polygon points="-16,-6 -12,-7 -9,6 -13,7" stroke="black" fill="none" />
+    <line x1="-25.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-10.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-25.00" y1="10.00" x2="-30.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-33.00" y1="-5.00" x2="-25.00" y2="-7.00" stroke="black" fill="none" />
+    <ellipse cx="-25.00" cy="10.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="10.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="110.0" viewBox="-85.0 -107.0 90.0 110.0" data-name="Synchronous rotary converter, three-phase, shunt-excited">
+  <title>Synchronous rotary converter, three-phase, shunt-excited</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-40.00" cy="-50.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
+    <text x="-44.00" y="-52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <text x="-55.00" y="-64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <path d="M -35.00 -69.00 A 5.00 2.50 0 0 0 -45.00 -69.00" stroke="black" fill="none" />
+    <path d="M -35.00 -69.00 A 5.00 2.50 0 0 0 -25.00 -69.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-40.00" x2="-30.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-35.00" x2="-42.00" y2="-35.00" stroke="black" fill="none" />
+    <line x1="-38.00" y1="-35.00" x2="-30.00" y2="-35.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="-100.00" x2="-60.00" y2="-73.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-100.00" x2="-40.00" y2="-80.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-100.00" x2="-20.00" y2="-73.00" stroke="black" fill="none" />
+    <line x1="-70.00" y1="-50.00" x2="-80.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-50.00" x2="0.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-50.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-50.00" x2="-80.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="-10.00" x2="-60.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-10.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <path d="M -50.00 -10.00 A 5.00 5.00 0 0 0 -60.00 -10.00" stroke="black" fill="none" />
+    <path d="M -40.00 -10.00 A 5.00 5.00 0 0 0 -50.00 -10.00" stroke="black" fill="none" />
+    <path d="M -30.00 -10.00 A 5.00 5.00 0 0 0 -40.00 -10.00" stroke="black" fill="none" />
+    <path d="M -20.00 -10.00 A 5.00 5.00 0 0 0 -30.00 -10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-40.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-60.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

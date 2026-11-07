@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="70.0" viewBox="-47.0 -34.0 70.0 70.0" data-name="Inductive sensor 4 terminals NO">
+  <title>Inductive sensor 4 terminals NO</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="12.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WH</text>
+    <path d="M -35.90 9.39 A 1.70 2.12 0 0 0 -39.30 9.39" stroke="black" fill="none" />
+    <line x1="10.00" y1="30.00" x2="10.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-10.00" x2="12.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-39.30" y1="9.83" x2="-39.30" y2="11.10" stroke="black" fill="none" />
+    <text x="-8.00" y="-20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BN</text>
+    <text x="-8.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BK</text>
+    <text x="12.00" y="-20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BU</text>
+    <line x1="-10.00" y1="30.00" x2="-10.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-15.00" x2="10.00" y2="-30.00" stroke="black" fill="none" />
+    <rect x="-45.00" y="-15.00" width="65.00" height="30.00" stroke="black" fill="none" />
+    <polyline points="-3,9 -8.4,12 -11,12" stroke="black" fill="none" />
+    <path d="M -32.50 9.39 A 1.70 2.12 0 0 0 -35.90 9.39" stroke="black" fill="none" />
+    <line x1="-0.40" y1="12.00" x2="-2.80" y2="12.00" stroke="black" fill="none" />
+    <polygon points="-32.5,-11 -41,-2.5 -32.5,6 -24,-2.5" stroke="black" fill="none" />
+    <path d="M -25.70 9.39 A 1.70 2.12 0 0 0 -29.10 9.39" stroke="black" fill="none" />
+    <path d="M -29.10 9.39 A 1.70 2.12 0 0 0 -32.50 9.39" stroke="black" fill="none" />
+    <line x1="-25.70" y1="9.83" x2="-25.70" y2="11.10" stroke="black" fill="none" />
+    <line x1="-29.95" y1="-8.11" x2="-29.95" y2="3.20" stroke="black" fill="none" />
+    <line x1="-35.05" y1="-7.85" x2="-35.05" y2="3.20" stroke="black" fill="none" />
+    <line x1="-18.00" y1="12.00" x2="-15.60" y2="12.00" stroke="black" fill="none" />
+    <line x1="-15.60" y1="12.00" x2="-15.60" y2="8.58" stroke="black" fill="none" />
+    <line x1="-15.60" y1="8.58" x2="-13.20" y2="8.58" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-10.00" x2="-8.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-8.00" x2="-10.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-15.00" x2="-20.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-15.00" x2="-10.00" y2="-30.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
+  </g>
+</svg>

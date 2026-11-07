@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210.0" height="50.0" viewBox="-150.0 -5.0 210.0 50.0" data-name="Straight section with several tap-offs">
+  <title>Straight section with several tap-offs</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-140.00" y1="15.00" x2="-140.00" y2="25.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="15.00" x2="50.00" y2="25.00" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="20.00" x2="-140.00" y2="20.00" stroke="black" fill="none" />
+    <ellipse cx="-30.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <ellipse cx="-70.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <ellipse cx="-110.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="30.00" x2="10.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="-70.00" y1="30.00" x2="-70.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="10.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-110.00" y1="10.00" x2="-110.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-140.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="50.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

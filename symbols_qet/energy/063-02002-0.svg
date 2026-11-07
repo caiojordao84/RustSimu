@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-20.0 -21.0 40.0 30.0" data-name="Electronic expansion valve">
+  <title>Electronic expansion valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-12.00" rx="5.83" ry="5.83" stroke="black" fill="white" />
+    <text x="-3.50" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TCE</text>
+    <polygon points="2,1 0,3 -2,1 -10,5 -10,-5 10,5 10,-5 -2,1 0,0" stroke="black" fill="white" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="0.00" x2="11.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="0.00" x2="-11.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

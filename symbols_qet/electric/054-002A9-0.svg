@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="70.0" viewBox="-30.0 -31.0 70.0 70.0" data-name="Three-phase engine">
+  <title>Three-phase engine</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="22.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <ellipse cx="0.00" cy="8.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <path d="M 9.50 22.36 A 16.00 16.00 0 0 0 16.54 3.03" stroke="black" fill="none" />
+    <text x="23.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">W1</text>
+    <text x="3.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V1</text>
+    <text x="-5.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-7.00" stroke="black" fill="none" />
+    <polyline points="-20,-20 -20,-12 -11,-3" stroke="black" fill="none" />
+    <polyline points="20,-20 20,-12 11,-3" stroke="black" fill="none" />
+    <text x="-17.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U1</text>
+    <text x="-6.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3 ~</text>
+    <polyline points="16,16 20,20 30,20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="U1" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="W1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="V1" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="e" />
+  </g>
+</svg>

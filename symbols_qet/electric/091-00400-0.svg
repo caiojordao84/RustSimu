@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="80.0" viewBox="-20.0 -40.0 40.0 80.0" data-name="Inductor">
+  <title>Inductor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="15.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
+    <path d="M -0.00 15.00 A 15.00 15.00 0 1 0 -15.00 -0.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="0.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

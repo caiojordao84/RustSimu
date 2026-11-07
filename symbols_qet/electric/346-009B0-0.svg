@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="810.0" height="290.0" viewBox="-85.0 -11.0 810.0 290.0" data-name="M221CE40T">
+  <title>M221CE40T</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="40.00" width="720.00" height="150.00" stroke="none" fill="gray" />
+    <path d="M 3.75 187.00 A 83.75 30.00 0 0 0 87.50 157.00" stroke="black" fill="none" />
+    <text x="673.10" y="180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PWR</text>
+    <text x="115.00" y="59.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AI1 AI0</text>
+    <text x="120.00" y="120.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Serial</text>
+    <text x="111.00" y="71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Analog IN</text>
+    <rect x="0.00" y="190.00" width="720.00" height="40.00" stroke="black" fill="gray" />
+    <rect x="317.00" y="42.00" width="150.00" height="145.00" stroke="black" fill="gray" />
+    <rect x="190.00" y="189.00" width="265.00" height="60.00" stroke="black" fill="gray" />
+    <text x="402.00" y="204.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">--- DC IN ---</text>
+    <rect x="470.00" y="41.00" width="250.00" height="147.00" stroke="black" fill="gray" />
+    <text x="480.00" y="107.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23</text>
+    <text x="705.00" y="180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SL</text>
+    <text x="665.00" y="180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RUN</text>
+    <text x="675.00" y="180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ERR</text>
+    <text x="655.00" y="180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PWR</text>
+    <text x="692.00" y="93.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">In <-</text>
+    <text x="695.00" y="180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BAT</text>
+    <text x="685.00" y="180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SD</text>
+    <rect x="2.00" y="232.00" width="100.00" height="40.00" stroke="black" fill="gray" />
+    <text x="690.00" y="150.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Out -></text>
+    <text x="576.00" y="135.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</text>
+    <rect x="0.00" y="0.00" width="245.00" height="40.00" stroke="black" fill="gray" />
+    <rect x="245.00" y="0.00" width="235.00" height="40.00" stroke="black" fill="gray" />
+    <rect x="455.00" y="189.00" width="265.00" height="60.00" stroke="black" fill="gray" />
+    <text x="71.50" y="251.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T</text>
+    <rect x="480.00" y="0.00" width="240.00" height="40.00" stroke="black" fill="gray" />
+    <text x="480.00" y="93.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TM221CE40T / Tr OUT Source</text>
+    <ellipse cx="83.50" cy="241.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <text x="56.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COM</text>
+    <ellipse cx="77.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <text x="613.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q14</text>
+    <text x="168.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I3</text>
+    <line x1="81.50" y1="239.00" x2="85.50" y2="243.00" stroke="black" fill="none" />
+    <text x="615.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I20</text>
+    <text x="377.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q7</text>
+    <line x1="85.50" y1="239.00" x2="81.50" y2="243.00" stroke="black" fill="none" />
+    <line x1="75.50" y1="15.00" x2="79.50" y2="19.00" stroke="black" fill="none" />
+    <text x="482.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q9</text>
+    <text x="377.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I11</text>
+    <line x1="79.50" y1="15.00" x2="75.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="83.50" y1="239.00" x2="83.50" y2="243.00" stroke="black" fill="none" />
+    <line x1="81.50" y1="241.00" x2="85.50" y2="241.00" stroke="black" fill="none" />
+    <text x="482.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I15</text>
+    <line x1="77.50" y1="15.00" x2="77.50" y2="19.00" stroke="black" fill="none" />
+    <text x="401.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V0+</text>
+    <line x1="75.50" y1="17.00" x2="79.50" y2="17.00" stroke="black" fill="none" />
+    <text x="456.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q8</text>
+    <text x="429.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V0-</text>
+    <text x="403.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I12</text>
+    <text x="456.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I14</text>
+    <text x="272.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q3</text>
+    <text x="429.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I13</text>
+    <text x="533.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q11</text>
+    <text x="274.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I7</text>
+    <text x="219.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q1</text>
+    <text x="535.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I17</text>
+    <text x="246.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q2</text>
+    <text x="221.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I5</text>
+    <text x="507.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q10</text>
+    <text x="248.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I6</text>
+    <text x="193.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q0</text>
+    <text x="509.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I16</text>
+    <text x="115.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I1</text>
+    <text x="560.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q12</text>
+    <text x="195.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I4</text>
+    <text x="666.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V1+</text>
+    <text x="325.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q5</text>
+    <text x="142.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I2</text>
+    <text x="562.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I18</text>
+    <text x="351.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q6</text>
+    <text x="668.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I22</text>
+    <text x="299.00" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q4</text>
+    <text x="327.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I9</text>
+    <text x="692.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V1-</text>
+    <text x="639.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q15</text>
+    <text x="351.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I10</text>
+    <text x="301.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I8</text>
+    <text x="586.50" y="219.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q13</text>
+    <text x="694.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I23</text>
+    <ellipse cx="579.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <text x="641.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I21</text>
+    <ellipse cx="658.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <text x="588.50" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I19</text>
+    <ellipse cx="605.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="632.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="579.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="314.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="658.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="685.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="605.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="393.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="632.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="314.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="340.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="685.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="234.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="420.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="393.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="473.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="340.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="499.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="234.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="552.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="420.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="473.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="499.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="711.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="552.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="128.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="711.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="208.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="155.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="261.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="287.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="181.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="367.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="208.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="526.00" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="261.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="446.50" cy="216.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="287.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="367.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="365.00" y1="214.00" x2="369.00" y2="218.00" stroke="black" fill="none" />
+    <ellipse cx="526.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="418.00" y1="214.00" x2="422.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="391.50" y1="214.00" x2="395.50" y2="218.00" stroke="black" fill="none" />
+    <ellipse cx="446.50" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="603.50" y1="214.00" x2="607.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="365.00" y1="15.00" x2="369.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="418.00" y1="15.00" x2="422.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="550.50" y1="214.00" x2="554.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="391.50" y1="15.00" x2="395.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="497.50" y1="214.00" x2="501.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="444.50" y1="214.00" x2="448.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="603.50" y1="15.00" x2="607.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="550.50" y1="15.00" x2="554.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="338.50" y1="214.00" x2="342.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="471.00" y1="214.00" x2="475.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="497.50" y1="15.00" x2="501.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="206.00" y1="214.00" x2="210.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="444.50" y1="15.00" x2="448.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="338.50" y1="15.00" x2="342.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="471.00" y1="15.00" x2="475.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="285.50" y1="214.00" x2="289.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="206.00" y1="15.00" x2="210.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="153.00" y1="15.00" x2="157.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="630.00" y1="214.00" x2="634.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="126.50" y1="15.00" x2="130.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="285.50" y1="15.00" x2="289.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="232.50" y1="214.00" x2="236.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="524.00" y1="214.00" x2="528.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="179.50" y1="15.00" x2="183.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="656.50" y1="214.00" x2="660.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="683.00" y1="214.00" x2="687.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="630.00" y1="15.00" x2="634.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="232.50" y1="15.00" x2="236.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="709.50" y1="214.00" x2="713.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="524.00" y1="15.00" x2="528.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="259.00" y1="214.00" x2="263.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="656.50" y1="15.00" x2="660.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="312.00" y1="214.00" x2="316.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="683.00" y1="15.00" x2="687.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="577.00" y1="214.00" x2="581.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="709.50" y1="15.00" x2="713.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="475.00" y1="214.00" x2="471.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="259.00" y1="15.00" x2="263.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="528.00" y1="214.00" x2="524.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="312.00" y1="15.00" x2="316.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="634.00" y1="214.00" x2="630.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="422.00" y1="214.00" x2="418.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="577.00" y1="15.00" x2="581.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="475.00" y1="15.00" x2="471.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="687.00" y1="214.00" x2="683.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="528.00" y1="15.00" x2="524.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="236.50" y1="214.00" x2="232.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="660.50" y1="214.00" x2="656.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="634.00" y1="15.00" x2="630.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="263.00" y1="214.00" x2="259.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="422.00" y1="15.00" x2="418.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="342.50" y1="214.00" x2="338.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="687.00" y1="15.00" x2="683.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="581.00" y1="214.00" x2="577.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="236.50" y1="15.00" x2="232.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="660.50" y1="15.00" x2="656.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="369.00" y1="214.00" x2="365.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="263.00" y1="15.00" x2="259.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="342.50" y1="15.00" x2="338.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="316.00" y1="214.00" x2="312.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="395.50" y1="214.00" x2="391.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="157.00" y1="15.00" x2="153.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="289.50" y1="214.00" x2="285.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="581.00" y1="15.00" x2="577.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="554.50" y1="214.00" x2="550.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="369.00" y1="15.00" x2="365.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="130.50" y1="15.00" x2="126.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="316.00" y1="15.00" x2="312.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="501.50" y1="214.00" x2="497.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="448.50" y1="214.00" x2="444.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="395.50" y1="15.00" x2="391.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="289.50" y1="15.00" x2="285.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="713.50" y1="214.00" x2="709.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="554.50" y1="15.00" x2="550.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="607.50" y1="214.00" x2="603.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="183.50" y1="15.00" x2="179.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="210.00" y1="214.00" x2="206.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="501.50" y1="15.00" x2="497.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="473.00" y1="214.00" x2="473.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="448.50" y1="15.00" x2="444.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="208.00" y1="214.00" x2="208.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="713.50" y1="15.00" x2="709.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="711.50" y1="214.00" x2="711.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="607.50" y1="15.00" x2="603.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="658.50" y1="214.00" x2="658.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="210.00" y1="15.00" x2="206.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="685.00" y1="214.00" x2="685.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="473.00" y1="15.00" x2="473.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="579.00" y1="214.00" x2="579.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="181.50" y1="15.00" x2="181.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="552.50" y1="214.00" x2="552.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="208.00" y1="15.00" x2="208.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="711.50" y1="15.00" x2="711.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="605.50" y1="214.00" x2="605.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="658.50" y1="15.00" x2="658.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="632.00" y1="214.00" x2="632.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="685.00" y1="15.00" x2="685.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="446.50" y1="214.00" x2="446.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="261.00" y1="214.00" x2="261.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="579.00" y1="15.00" x2="579.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="552.50" y1="15.00" x2="552.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="367.00" y1="214.00" x2="367.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="605.50" y1="15.00" x2="605.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="314.00" y1="214.00" x2="314.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="340.50" y1="214.00" x2="340.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="632.00" y1="15.00" x2="632.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="287.50" y1="214.00" x2="287.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="446.50" y1="15.00" x2="446.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="261.00" y1="15.00" x2="261.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="420.00" y1="214.00" x2="420.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="526.00" y1="214.00" x2="526.00" y2="218.00" stroke="black" fill="none" />
+    <line x1="367.00" y1="15.00" x2="367.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="314.00" y1="15.00" x2="314.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="499.50" y1="214.00" x2="499.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="393.50" y1="214.00" x2="393.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="340.50" y1="15.00" x2="340.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="234.50" y1="214.00" x2="234.50" y2="218.00" stroke="black" fill="none" />
+    <line x1="287.50" y1="15.00" x2="287.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="420.00" y1="15.00" x2="420.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="526.00" y1="15.00" x2="526.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="550.50" y1="216.00" x2="554.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="499.50" y1="15.00" x2="499.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="365.00" y1="216.00" x2="369.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="393.50" y1="15.00" x2="393.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="232.50" y1="216.00" x2="236.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="234.50" y1="15.00" x2="234.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="128.50" y1="15.00" x2="128.50" y2="19.00" stroke="black" fill="none" />
+    <line x1="656.50" y1="216.00" x2="660.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="155.00" y1="15.00" x2="155.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="338.50" y1="216.00" x2="342.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="312.00" y1="216.00" x2="316.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="550.50" y1="17.00" x2="554.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="630.00" y1="216.00" x2="634.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="365.00" y1="17.00" x2="369.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="709.50" y1="216.00" x2="713.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="232.50" y1="17.00" x2="236.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="153.00" y1="17.00" x2="157.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="683.00" y1="216.00" x2="687.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="656.50" y1="17.00" x2="660.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="418.00" y1="216.00" x2="422.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="338.50" y1="17.00" x2="342.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="603.50" y1="216.00" x2="607.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="312.00" y1="17.00" x2="316.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="444.50" y1="216.00" x2="448.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="630.00" y1="17.00" x2="634.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="524.00" y1="216.00" x2="528.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="709.50" y1="17.00" x2="713.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="683.00" y1="17.00" x2="687.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="497.50" y1="216.00" x2="501.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="418.00" y1="17.00" x2="422.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="206.00" y1="216.00" x2="210.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="391.50" y1="216.00" x2="395.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="126.50" y1="17.00" x2="130.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="285.50" y1="216.00" x2="289.50" y2="216.00" stroke="black" fill="none" />
+    <line x1="603.50" y1="17.00" x2="607.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="444.50" y1="17.00" x2="448.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="577.00" y1="216.00" x2="581.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="524.00" y1="17.00" x2="528.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="497.50" y1="17.00" x2="501.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="471.00" y1="216.00" x2="475.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="206.00" y1="17.00" x2="210.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="259.00" y1="216.00" x2="263.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="391.50" y1="17.00" x2="395.50" y2="17.00" stroke="black" fill="none" />
+    <text x="38.00" y="244.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OV</text>
+    <line x1="285.50" y1="17.00" x2="289.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="577.00" y1="17.00" x2="581.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="179.50" y1="17.00" x2="183.50" y2="17.00" stroke="black" fill="none" />
+    <line x1="471.00" y1="17.00" x2="475.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="259.00" y1="17.00" x2="263.00" y2="17.00" stroke="black" fill="none" />
+    <ellipse cx="54.00" cy="241.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="52.00" y1="239.00" x2="56.00" y2="243.00" stroke="black" fill="none" />
+    <line x1="56.00" y1="239.00" x2="52.00" y2="243.00" stroke="black" fill="none" />
+    <line x1="54.00" y1="239.00" x2="54.00" y2="243.00" stroke="black" fill="none" />
+    <ellipse cx="30.00" cy="241.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="52.00" y1="241.00" x2="56.00" y2="241.00" stroke="black" fill="none" />
+    <line x1="28.00" y1="239.00" x2="32.00" y2="243.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="239.00" x2="28.00" y2="243.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="239.00" x2="30.00" y2="243.00" stroke="black" fill="none" />
+    <line x1="28.00" y1="241.00" x2="32.00" y2="241.00" stroke="black" fill="none" />
+    <text x="11.00" y="244.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <text x="480.00" y="80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M221</text>
+    <text x="32.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">NC</text>
+    <text x="89.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I0</text>
+    <ellipse cx="102.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="100.00" y1="15.00" x2="104.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="104.00" y1="15.00" x2="100.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="102.00" y1="15.00" x2="102.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="100.00" y1="17.00" x2="104.00" y2="17.00" stroke="black" fill="none" />
+    <ellipse cx="48.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="46.00" y1="15.00" x2="50.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="15.00" x2="46.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="15.00" x2="48.00" y2="19.00" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="17.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <line x1="46.00" y1="17.00" x2="50.00" y2="17.00" stroke="black" fill="none" />
+    <line x1="22.00" y1="15.00" x2="26.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="26.00" y1="15.00" x2="22.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="15.00" x2="24.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="22.00" y1="17.00" x2="26.00" y2="17.00" stroke="black" fill="none" />
+    <text x="8.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">NC</text>
+    <text x="667.00" y="204.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">--- DC IN ---</text>
+    <rect x="160.00" y="42.00" width="150.00" height="145.00" stroke="black" fill="gray" />
+    <rect x="105.00" y="126.00" width="50.00" height="50.00" stroke="black" fill="#dcdcdc" />
+    <rect x="116.00" y="135.00" width="30.00" height="5.00" stroke="black" fill="black" />
+    <rect x="111.00" y="141.00" width="40.00" height="20.00" stroke="black" fill="black" />
+    <text x="480.00" y="170.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Schneider Electric</text>
+    <rect x="106.00" y="191.00" width="50.00" height="38.00" stroke="black" fill="#dcdcdc" />
+    <rect x="117.00" y="218.00" width="30.00" height="5.00" stroke="black" fill="black" />
+    <rect x="112.00" y="197.00" width="40.00" height="20.00" stroke="black" fill="black" />
+    <text x="103.00" y="227.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Ethernet</text>
+    <path d="M 87.49 70.52 A 83.75 30.00 0 0 0 5.21 40.00" stroke="black" fill="none" />
+    <line x1="87.50" y1="70.00" x2="87.50" y2="160.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="367.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="367.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="473.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="526.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="261.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="341.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="261.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="632.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="314.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="500.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="84.00" cy="264.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="78.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="659.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="155.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="685.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="553.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="447.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="235.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="54.00" cy="264.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="659.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="208.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="264.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="288.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="129.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="606.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="182.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="288.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="341.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="394.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="314.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="420.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="712.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="526.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="579.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="420.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="208.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="553.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="632.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="579.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="712.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="606.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="447.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="685.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="500.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="473.00" cy="239.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="235.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="394.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="102.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="110.0" viewBox="-86.0 -102.0 90.0 110.0" data-name="Current transformer, general symbol">
+  <title>Current transformer, general symbol</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-30.00" y1="-60.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
+    <text x="-74.00" y="-90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Form 2 / Forme 2</text>
+    <path d="M -30.00 -30.00 A 5.00 5.00 0 0 0 -30.00 -20.00" stroke="black" fill="none" />
+    <path d="M -30.00 -40.00 A 5.00 5.00 0 0 0 -30.00 -30.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-20.00" x2="-10.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-40.00" x2="-10.00" y2="-40.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

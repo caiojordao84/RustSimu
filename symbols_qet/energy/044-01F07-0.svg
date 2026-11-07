@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="70.0" viewBox="-20.0 -49.0 50.0 70.0" data-name="split-torre">
+  <title>split-torre</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-17.00" y1="15.00" x2="12.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="-17.00" y1="12.00" x2="12.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="-17.00" y1="3.00" x2="12.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="-17.00" y1="9.00" x2="12.00" y2="9.00" stroke="black" fill="none" />
+    <line x1="-17.00" y1="5.00" x2="12.00" y2="5.00" stroke="black" fill="none" />
+    <polyline points="-14,-32 -12,-30 9,-30 11,-30 9,-33" stroke="black" fill="none" />
+    <polyline points="-14,-35 -12,-33 9,-33 11,-33 9,-36" stroke="black" fill="none" />
+    <rect x="-17.00" y="-41.00" width="30.00" height="60.00" stroke="black" fill="none" />
+    <polyline points="-17,-41 -13,-47 17,-47 17,13 13,19" stroke="black" fill="none" />
+    <line x1="17.00" y1="-47.00" x2="13.00" y2="-41.00" stroke="black" fill="none" />
+    <polygon points="-12,-39 10,-39 11,-37 11,-31 10,-29 -12,-29 -14,-31 -14,-37" stroke="black" fill="none" />
+    <polyline points="-13,-38 -11,-36 10,-36 12,-36 10,-39" stroke="black" fill="none" />
+    <polyline points="-17,-2 13,-2 13,-3" stroke="black" fill="none" />
+    <line x1="-17.00" y1="1.00" x2="12.00" y2="1.00" stroke="black" fill="none" />
+    <ellipse cx="9.00" cy="-4.50" rx="2.00" ry="0.50" stroke="black" fill="none" />
+    <polygon points="15,0 15,5 17,3 17,-2" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="21.00" cy="6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="21.00" cy="13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="19.00" cy="-4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

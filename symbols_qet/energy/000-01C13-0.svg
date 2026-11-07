@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -21.0 40.0 40.0" data-name="Warm and cold faucet">
+  <title>Warm and cold faucet</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="10.00" y1="-7.90" x2="10.00" y2="0.46" stroke="black" fill="none" />
+    <line x1="-9.51" y1="-7.90" x2="-9.51" y2="0.46" stroke="black" fill="none" />
+    <polygon points="-10.68,1.31 1.26,1.31 1.26,12.93" stroke="black" fill="black" />
+    <polygon points="1.26,1.31 12,1.31 1.26,12.93" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-9.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

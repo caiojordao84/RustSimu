@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-25.0 -19.0 50.0 40.0" data-name="control-co2">
+  <title>control-co2</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-2.60" y1="1.86" x2="-0.20" y2="1.86" stroke="black" fill="none" />
+    <rect x="-17.00" y="7.49" width="1.80" height="1.13" stroke="black" fill="none" />
+    <line x1="-2.60" y1="3.00" x2="-0.20" y2="3.00" stroke="black" fill="none" />
+    <line x1="19.00" y1="-4.91" x2="22.00" y2="-4.91" stroke="black" fill="none" />
+    <line x1="19.00" y1="-4.34" x2="22.00" y2="-4.34" stroke="black" fill="none" />
+    <line x1="-2.60" y1="4.11" x2="-0.20" y2="4.11" stroke="black" fill="none" />
+    <rect x="-23.00" y="-1.00" width="24.60" height="11.27" stroke="black" fill="none" />
+    <polyline points="-23,-1 -17.6,-3.78 7,-3.78 7,7.49 1.6,10.31" stroke="black" fill="none" />
+    <line x1="1.60" y1="-1.00" x2="7.00" y2="-3.78" stroke="black" fill="none" />
+    <rect x="-20.60" y="0.73" width="11.40" height="2.25" stroke="black" fill="none" />
+    <rect x="-19.40" y="7.49" width="1.80" height="1.13" stroke="black" fill="black" />
+    <polygon points="-12.8,8.62 -10.4,8.62 -10.4,7.49 -11.6,6.36 -12.8,7.49" stroke="black" fill="none" />
+    <polygon points="-8.6,6.36 -5.6,6.36 -5.6,7.49 -7.4,8.62 -8.6,7.49" stroke="black" fill="none" />
+    <line x1="-2.60" y1="0.73" x2="-0.20" y2="0.73" stroke="black" fill="none" />
+    <path d="M 5.50 -1.52 A 2.70 1.98 0 0 0 8.20 -3.49" stroke="black" fill="none" />
+    <line x1="8.20" y1="-3.78" x2="8.20" y2="-12.23" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="-12.80" rx="1.80" ry="1.69" stroke="black" fill="none" />
+    <line x1="11.80" y1="-12.80" x2="11.80" y2="-6.60" stroke="black" fill="none" />
+    <path d="M 11.80 -6.32 A 2.40 1.41 0 0 0 14.20 -4.91" stroke="black" fill="none" />
+    <rect x="14.20" y="-6.00" width="7.80" height="2.25" stroke="black" fill="none" />
+    <line x1="19.00" y1="-5.68" x2="19.00" y2="-3.73" stroke="black" fill="none" />
+    <line x1="19.00" y1="-5.47" x2="22.00" y2="-5.47" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

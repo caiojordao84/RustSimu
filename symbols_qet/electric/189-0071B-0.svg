@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="20.0" viewBox="-72.0 -9.0 150.0 20.0" data-name=".022 uF Paper and Oil Capacitor">
+  <title>.022 uF Paper and Oil Capacitor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-30.00" y="-7.00" width="65.00" height="15.00" stroke="black" fill="black" />
+    <rect x="-20.00" y="-7.00" width="45.00" height="15.00" stroke="black" fill="#dcdcdc" />
+    <line x1="-30.00" y1="0.00" x2="-65.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="35.00" y1="0.00" x2="70.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-65.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="70.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

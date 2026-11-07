@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-30.0 -30.0 40.0 60.0" data-name="Emergency stop key release">
+  <title>Emergency stop key release</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-13.00" y="-3.00" width="4.00" height="6.00" stroke="black" fill="none" />
+    <polyline points="-18,-0.19 -19,3.81 -15,3.81 -16,-0.19" stroke="black" fill="none" />
+    <polyline points="3,0 -2,0 -4,3 -6,0 -9,0" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="-17.00" cy="-2.18" rx="2.25" ry="2.25" stroke="black" fill="none" />
+    <line x1="-13.00" y1="0.00" x2="-22.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-22.00" y1="-5.00" x2="-22.00" y2="5.00" stroke="black" fill="none" />
+    <polyline points="5,-10 0,10 0,20" stroke="black" fill="none" />
+    <path d="M -22.00 -5.00 A 4.00 5.00 0 0 0 -22.00 5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-9.00" x2="6.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-9.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

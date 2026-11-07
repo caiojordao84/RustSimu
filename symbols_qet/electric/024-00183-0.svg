@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-32.0 -31.0 50.0 60.0" data-name="Contact NC/NO pneumatically or hydraulically controlled, two-way">
+  <title>Contact NC/NO pneumatically or hydraulically controlled, two-way</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-10.00" y1="-9.00" x2="3.00" y2="-9.00" stroke="black" fill="none" />
+    <polyline points="10,20 10,10 0,-10" stroke="black" fill="none" />
+    <rect x="-30.00" y="-5.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-20.00" x2="-10.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-5.00" x2="-20.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-20.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
+    <polygon points="-12,-8 -16,-9 -16,-7" stroke="black" fill="black" />
+    <polygon points="-28,-8 -24,-9 -24,-7" stroke="black" fill="black" />
+    <line x1="-24.00" y1="-8.00" x2="-16.00" y2="-8.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

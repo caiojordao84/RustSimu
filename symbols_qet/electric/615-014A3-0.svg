@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="170.0" viewBox="-70.0 -92.0 140.0 170.0" data-name="289-196">
+  <title>289-196</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-12.00" y1="-7.00" x2="-7.00" y2="-12.00" stroke="black" fill="none" />
+    <rect x="-60.00" y="-90.00" width="120.00" height="160.00" stroke="black" fill="none" />
+    <ellipse cx="20.00" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
+    <ellipse cx="-40.00" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
+    <ellipse cx="-40.00" cy="0.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
+    <ellipse cx="40.00" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
+    <rect x="-45.00" y="30.00" width="10.00" height="20.00" stroke="black" fill="none" />
+    <polyline points="40,60 40,-30 50,-40" stroke="black" fill="none" />
+    <ellipse cx="20.00" cy="70.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <line x1="-60.00" y1="-40.00" x2="60.00" y2="-40.00" stroke="black" fill="none" />
+    <ellipse cx="-40.00" cy="70.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="23.00" y="69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <ellipse cx="-20.00" cy="70.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-54.81" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Data</text>
+    <ellipse cx="40.00" cy="70.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <polygon points="-16,-5 -6,0 -16,5" stroke="black" fill="none" />
+    <text x="43.00" y="69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <ellipse cx="-60.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <polyline points="-6,5 -6,-5" stroke="black" fill="none" />
+    <ellipse cx="60.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="22.81" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Data + Power</text>
+    <text x="-17.00" y="69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <polygon points="-45,20 -40,10 -35,20" stroke="black" fill="none" />
+    <polyline points="-35,10 -45,10" stroke="black" fill="none" />
+    <text x="-55.00" y="-59.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Passive PoE-Injector</text>
+    <text x="-37.00" y="69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-45.00" y="-75.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 289-196</text>
+    <polyline points="-40,70 -40,60 -20,60 -20,70" stroke="black" fill="none" />
+    <polyline points="20,70 20,60 40,60 40,70" stroke="black" fill="none" />
+    <polyline points="-40,60 -40,0 20,0 20,60" stroke="black" fill="none" />
+    <polyline points="-40,0 -40,-30 -30,-40" stroke="black" fill="none" />
+    <rect x="15.00" y="20.00" width="10.00" height="20.00" stroke="black" fill="white" />
+    <line x1="-10.00" y1="-5.00" x2="-5.00" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="GND_2" data-orientation="s" />
+    <circle class="qet-terminal" cx="60.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="K10" data-orientation="e" />
+    <circle class="qet-terminal" cx="20.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="GND_1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="Ub_2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-60.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="A9" data-orientation="w" />
+    <circle class="qet-terminal" cx="-40.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="Ub_1" data-orientation="s" />
+  </g>
+</svg>

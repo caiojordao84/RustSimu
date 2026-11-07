@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-19.0 -40.0 40.0 50.0" data-name="Thermometer">
+  <title>Thermometer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-6.54" y1="-8.26" x2="-6.54" y2="-11.36" stroke="black" fill="none" />
+    <ellipse cx="0.60" cy="-22.35" rx="12.24" ry="11.61" stroke="black" fill="none" />
+    <rect x="-5.52" y="-7.92" width="10.88" height="7.84" stroke="black" fill="none" />
+    <rect x="-3.82" y="-6.00" width="7.82" height="6.00" stroke="#d40000" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-6.54" y1="-7.92" x2="6.38" y2="-7.92" stroke="black" fill="none" />
+    <line x1="6.38" y1="-8.19" x2="6.38" y2="-10.80" stroke="black" fill="none" />
+    <ellipse cx="0.60" cy="-22.34" rx="13.60" ry="12.54" stroke="black" fill="none" />
+    <line x1="0.26" y1="-22.66" x2="-7.56" y2="-28.62" stroke="black" fill="none" />
+    <line x1="-7.56" y1="-28.93" x2="0.26" y2="-23.00" stroke="black" fill="none" />
+    <ellipse cx="0.92" cy="-22.06" rx="1.00" ry="0.94" stroke="black" fill="none" />
+    <text x="-10.45" y="-22.12" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">20</text>
+    <text x="-5.35" y="-28.54" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">30</text>
+    <text x="3.15" y="-29.35" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">40</text>
+    <text x="8.25" y="-22.12" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">50</text>
+    <text x="5.70" y="-14.89" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">60</text>
+    <text x="-1.95" y="-16.49" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ºC</text>
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

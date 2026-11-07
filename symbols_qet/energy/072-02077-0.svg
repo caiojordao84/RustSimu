@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -30.0 40.0 50.0" data-name="Mixer 03 ECS">
+  <title>Mixer 03 ECS</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-3.00" y1="10.00" x2="3.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-3.00" x2="10.00" y2="3.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-3.00" x2="-10.00" y2="3.00" stroke="black" fill="none" />
+    <polygon points="0,12 -4,12 -4,10 -3,10 -3,3 -10,3 -10,4 -12,4 -12,-4 -10,-4 -10,-3 10,-3 10,-4 12,-4 12,4 10,4 10,3 3,3 3,10 4,10 4,12" stroke="black" fill="none" />
+    <polygon points="7,0 5,-2 5,2" stroke="black" fill="none" />
+    <line x1="-1.00" y1="6.00" x2="1.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="0.00" x2="-4.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-1.00" x2="-5.00" y2="1.00" stroke="black" fill="none" />
+    <line x1="7.00" y1="-18.00" x2="7.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-18.00" x2="-7.00" y2="-12.00" stroke="black" fill="none" />
+    <path d="M 7.00 -18.00 A 7.00 1.50 0 0 0 -7.00 -18.00" stroke="black" fill="none" />
+    <rect x="-7.00" y="-11.00" width="14.00" height="8.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-16.00" x2="5.00" y2="-12.00" stroke="black" fill="none" />
+    <text x="-11.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Mitigeur</text>
+    <line x1="3.00" y1="-16.00" x2="3.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="-16.00" x2="1.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-16.00" x2="-3.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-16.00" x2="-5.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-16.00" x2="-1.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="8.00" x2="-1.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="-9.00" y1="0.00" x2="-7.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-1.00" x2="-8.00" y2="1.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

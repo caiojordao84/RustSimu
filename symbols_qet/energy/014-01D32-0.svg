@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -31.0 40.0 50.0" data-name="Gas meter">
+  <title>Gas meter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="9.40" y1="-12.76" x2="9.40" y2="-19.37" stroke="black" fill="none" />
+    <polygon points="-12.2,-12.37 -12.2,12 11.2,12 11.2,-12.37" stroke="black" fill="none" />
+    <rect x="-9.86" y="-9.93" width="18.72" height="3.66" stroke="black" fill="none" />
+    <line x1="-10.40" y1="-12.76" x2="-10.40" y2="-19.37" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

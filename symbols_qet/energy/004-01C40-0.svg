@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-25.0 -21.0 50.0 30.0" data-name="Stopcock">
+  <title>Stopcock</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-8.76" y="-1.07" width="2.42" height="2.47" stroke="black" fill="none" />
+    <line x1="8.36" y1="2.14" x2="11.45" y2="2.14" stroke="black" fill="none" />
+    <line x1="-12.21" y1="2.14" x2="-9.12" y2="2.14" stroke="black" fill="none" />
+    <ellipse cx="-0.30" cy="0.24" rx="1.07" ry="1.00" stroke="black" fill="none" />
+    <rect x="-12.54" y="-3.55" width="3.78" height="7.42" stroke="black" fill="none" />
+    <line x1="-12.21" y1="-1.81" x2="-9.12" y2="-1.81" stroke="black" fill="none" />
+    <rect x="5.76" y="-1.07" width="2.42" height="2.47" stroke="black" fill="none" />
+    <rect x="8.00" y="-3.55" width="3.78" height="7.42" stroke="black" fill="none" />
+    <line x1="8.36" y1="-1.81" x2="11.45" y2="-1.81" stroke="black" fill="none" />
+    <path d="M -2.72 -3.80 A 4.84 4.64 0 1 0 2.13 -3.80" stroke="black" fill="none" />
+    <path d="M -2.36 -4.91 A 6.05 5.68 0 1 0 1.78 -4.91" stroke="black" fill="none" />
+    <rect x="-2.00" y="-10.00" width="3.00" height="12.00" stroke="black" fill="none" />
+    <rect x="-3.00" y="-18.00" width="5.00" height="8.00" stroke="black" fill="gray" />
+    <circle class="qet-terminal" cx="-14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="13.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

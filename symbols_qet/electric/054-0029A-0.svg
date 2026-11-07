@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="100.0" viewBox="-39.0 -61.0 90.0 100.0" data-name="One-phase engine">
+  <title>One-phase engine</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="2.00" y="-45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U2</text>
+    <polyline points="20,-50 20,-23 14,-15" stroke="black" fill="none" />
+    <text x="22.00" y="-45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-5.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <ellipse cx="0.00" cy="0.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-50.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <text x="-8.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 ~</text>
+    <text x="-18.00" y="-45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U1</text>
+    <ellipse cx="-20.00" cy="-40.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="35.00" y1="-31.00" x2="45.00" y2="-31.00" stroke="black" fill="none" />
+    <line x1="35.00" y1="-29.00" x2="45.00" y2="-29.00" stroke="black" fill="none" />
+    <polyline points="-20,-50 -20,-23 -14,-15" stroke="black" fill="none" />
+    <polyline points="-20,-40 40,-40 40,-31" stroke="black" fill="none" />
+    <polyline points="40,-29 40,-22 18,-9" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

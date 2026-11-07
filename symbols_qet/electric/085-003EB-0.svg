@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="90.0" viewBox="-38.0 -50.0 60.0 90.0" data-name="Adjustable autotransformer">
+  <title>Adjustable autotransformer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <line x1="-5.05" y1="-30.05" x2="4.95" y2="-34.05" stroke="black" fill="none" />
+    <line x1="-5.00" y1="22.00" x2="5.00" y2="18.00" stroke="black" fill="none" />
+    <line x1="-5.05" y1="-28.05" x2="4.95" y2="-32.05" stroke="black" fill="none" />
+    <line x1="0.00" y1="-40.00" x2="0.00" y2="-25.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="15.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="24.00" x2="5.00" y2="20.00" stroke="black" fill="none" />
+    <path d="M 15.00 -0.48 A 25.00 27.50 0 0 0 0.17 -25.12" stroke="black" fill="none" />
+    <line x1="-15.00" y1="15.00" x2="15.00" y2="-15.00" stroke="black" fill="none" />
+    <polygon points="13,-16 16,-13 19,-19" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

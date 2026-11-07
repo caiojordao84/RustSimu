@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-28.0 -40.0 60.0 60.0" data-qet-native="true">
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-20.00" y1="-10.00" x2="-20.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="-22.00" y1="-10.00" x2="-18.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-11.00" x2="16.00" y2="-11.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-20.05" y1="-13.55" x2="-20.05" y2="-12.55" stroke="black" fill="none" />
+    <line x1="-22.05" y1="-12.05" x2="-18.05" y2="-12.05" stroke="black" fill="none" />
+    <polyline points="15,-20 20,0 20,10" stroke="black" fill="none" />
+    <line x1="20.00" y1="-30.00" x2="20.00" y2="-20.00" stroke="black" fill="none" />
+    <polygon points="-16,-11 -10,-17 -4,-11 -10,-5" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-15.00" x2="-9.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-11.00" y1="-15.00" x2="-11.00" y2="-7.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

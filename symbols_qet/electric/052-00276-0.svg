@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-33.0 -25.0 50.0 50.0" data-name="Flowmeter pulse">
+  <title>Flowmeter pulse</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <text x="2.00" y="-12.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">13</text>
+    <text x="2.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">14</text>
+    <line x1="-13.00" y1="-2.00" x2="-13.00" y2="2.00" stroke="black" fill="none" />
+    <text x="-23.00" y="2.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q</text>
+    <line x1="-13.00" y1="0.00" x2="-2.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-3.00" y1="-6.00" x2="0.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="6.00" x2="0.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-15.00" x2="0.00" y2="-6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

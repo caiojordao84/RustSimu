@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="20.0" viewBox="-15.0 -12.0 30.0 20.0" data-name="Connexion 3">
+  <title>Connexion 3</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-4.00" y1="0.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="-4.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="4.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="5.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="-5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-5.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

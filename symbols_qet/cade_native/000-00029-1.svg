@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="80" viewBox="-32 -10 64 80" data-generator="cade2svg">
+  <title>Bobina de Contator / Relé (Ativo)</title>
+  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-20,20 20,20 20,40 -20,40" fill="#fee2e2" />
+    <line x1="0" y1="0" x2="0" y2="20" />
+    <line x1="0" y1="40" x2="0" y2="60" />
+    <line x1="-20" y1="20" x2="20" y2="20" />
+    <line x1="-20" y1="40" x2="20" y2="40" />
+    <line x1="-20" y1="20" x2="-20" y2="40" />
+    <line x1="20" y1="20" x2="20" y2="40" />
+    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="A1" />
+    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="A2" />
+  </g>
+</svg>

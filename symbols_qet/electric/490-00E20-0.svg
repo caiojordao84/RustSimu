@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="740.0" height="100.0" viewBox="-370.0 -45.0 740.0 100.0" data-name="750-621">
+  <title>750-621</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-360.00" y="-40.00" width="720.00" height="90.00" stroke="black" fill="none" />
+    <text x="-355.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <line x1="-360.00" y1="30.00" x2="360.00" y2="30.00" stroke="black" fill="none" />
+    <text x="-355.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0-230V</text>
+    <text x="-355.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <line x1="-360.00" y1="10.00" x2="360.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-360.00" y1="-10.00" x2="360.00" y2="-10.00" stroke="black" fill="none" />
+    <text x="-331.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 750-621</text>
+    <text x="-139.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Distance Module</text>
+    <polyline points="-362,-10 -356,-10" stroke="black" fill="none" />
+    <path d="M 362.50 -12.50 A 2.50 2.50 0 0 0 362.50 -7.50" stroke="black" fill="none" />
+    <polyline points="-362,10 -356,10" stroke="black" fill="none" />
+    <path d="M 362.50 7.50 A 2.50 2.50 0 0 0 362.50 12.50" stroke="black" fill="none" />
+    <polyline points="-362,30 -356,30" stroke="black" fill="none" />
+    <path d="M 362.50 27.50 A 2.50 2.50 0 0 0 362.50 32.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="-360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="-360.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="Pow.FE.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="360.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="Pow.FE.Out" data-orientation="e" />
+  </g>
+</svg>

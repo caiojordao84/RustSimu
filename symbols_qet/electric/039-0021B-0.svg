@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="60.0" viewBox="-19.0 -29.0 140.0 60.0" data-name="Lever switch 4 poles 4 directions latched">
+  <title>Lever switch 4 poles 4 directions latched</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-9.50" cy="12.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <line x1="-12.00" y1="0.00" x2="57.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="91.00" y1="3.52" x2="91.00" y2="13.37" stroke="black" fill="none" />
+    <line x1="91.00" y1="-3.64" x2="91.00" y2="-13.49" stroke="black" fill="none" />
+    <line x1="94.57" y1="-0.06" x2="104.37" y2="-0.06" stroke="black" fill="none" />
+    <line x1="87.44" y1="-0.06" x2="77.64" y2="-0.06" stroke="black" fill="none" />
+    <polygon points="89.22,13.37 92.79,13.37 91,17.84" stroke="black" fill="black" />
+    <polygon points="89.22,-13.49 92.79,-13.49 91,-18" stroke="black" fill="black" />
+    <ellipse cx="91.01" cy="-21.55" rx="3.12" ry="3.13" stroke="black" fill="none" />
+    <ellipse cx="91.01" cy="21.42" rx="3.12" ry="3.13" stroke="black" fill="none" />
+    <ellipse cx="112.39" cy="-0.07" rx="3.12" ry="3.13" stroke="black" fill="none" />
+    <text x="89.00" y="-19.59" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D</text>
+    <text x="88.78" y="23.38" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <polyline points="55.2,-10 60.2,10 60.2,20" stroke="black" fill="none" />
+    <ellipse cx="69.62" cy="-0.07" rx="3.12" ry="3.13" stroke="black" fill="none" />
+    <polyline points="35.2,-10 40.2,10 40.2,20" stroke="black" fill="none" />
+    <polygon points="104.37,-1.85 104.37,1.73 108.83,-0.06" stroke="black" fill="black" />
+    <line x1="60.20" y1="-20.00" x2="60.20" y2="-10.00" stroke="black" fill="none" />
+    <polygon points="77.64,-1.85 77.64,1.73 73.18,-0.06" stroke="black" fill="black" stroke-dasharray="4,3" />
+    <line x1="40.20" y1="-20.00" x2="40.20" y2="-10.00" stroke="black" fill="none" />
+    <text x="67.73" y="1.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="88.85" y="2.34" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <text x="110.56" y="1.91" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <line x1="-15.00" y1="-10.00" x2="-10.00" y2="10.00" stroke="black" fill="none" />
+    <polyline points="15,-10 20,10 20,20" stroke="black" fill="none" />
+    <polyline points="-5,-10 0,10 0,20" stroke="black" fill="none" />
+    <line x1="20.00" y1="-20.00" x2="20.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="60.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="60.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

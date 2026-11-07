@@ -4,36 +4,7 @@ use std::fs::{self, File};
 use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 
-#[derive(Debug, serde::Serialize, serde::Deserialize)]
-pub struct SymbolMetadata {
-    pub id: String,
-    pub name_en: String,
-    pub name_pt: Option<String>,
-    pub category: String,
-    pub svg_file: String,
-    pub width: f64,
-    pub height: f64,
-    pub hotspot_x: f64,
-    pub hotspot_y: f64,
-    pub terminals: Vec<TerminalMetadata>,
-    /// Origem do SVG: `qet` (coleção QElectroTech) ou `cade_native` (gerado por `cade2svg`).
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub source: Option<String>,
-    /// Estado visual do arquivo: ausente = repouso; `active` = variante energizada.
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub state: Option<String>,
-    /// `id` do elemento-base quando este arquivo é uma variante de estado.
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub variant_of: Option<String>,
-}
-
-#[derive(Debug, serde::Serialize, serde::Deserialize)]
-pub struct TerminalMetadata {
-    pub name: String,
-    pub x: f64,
-    pub y: f64,
-    pub orientation: String,
-}
+use cade_simu_rs::canonical::*;
 
 fn parse_style(style_str: &str) -> (String, String, Option<String>) {
     let mut stroke = "black".to_string();
@@ -769,7 +740,65 @@ fn index_only_mode(output_base: &Path) -> Result<(), Box<dyn std::error::Error>>
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().skip(1).collect();
     let index_only = args.iter().any(|a| a == "--index-only");
+    let check_mode = args.iter().any(|a| a == "--check");
+    let migrate_mode = args
+        .iter()
+        .any(|a| a == "--migrate-canonical" || a == "--migrate");
     let positional: Vec<&String> = args.iter().filter(|a| !a.starts_with("--")).collect();
+
+    let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let default_output = manifest_dir.join("symbols_qet_all");
+    let canonical_dir = manifest_dir.join("symbols_qet");
+
+    if check_mode {
+        let target = if !positional.is_empty() {
+            PathBuf::from(positional[0])
+        } else {
+            canonical_dir
+        };
+        let summary = check_canonical_catalog(&target)?;
+        println!("================== VERIFICAÇÃO D2 ==================");
+        println!("Schema Version: {}", summary.schema_version);
+        println!("Categorias: {}", summary.categories_count);
+        println!("Elementos: {}", summary.elements_count);
+        println!("SVGs em disco verificados: {}", summary.svgs_checked);
+        println!("Avisos: {}", summary.warnings.len());
+        println!("Erros: {}", summary.errors.len());
+
+        if !summary.warnings.is_empty() {
+            println!("Primeiros avisos:");
+            for w in summary.warnings.iter().take(5) {
+                println!("  [WARN] {}", w);
+            }
+        }
+
+        if !summary.errors.is_empty() {
+            println!("Primeiros erros:");
+            for e in summary.errors.iter().take(10) {
+                println!("  [ERRO] {}", e);
+            }
+            return Err(
+                format!("Verificação D2 falhou com {} erros.", summary.errors.len()).into(),
+            );
+        }
+
+        println!("✅ TODAS AS INVARIANTES D2 APROVADAS COM SUCESSO!");
+        return Ok(());
+    }
+
+    if migrate_mode {
+        let src = if !positional.is_empty() {
+            PathBuf::from(positional[0])
+        } else {
+            default_output
+        };
+        let dst = if positional.len() > 1 {
+            PathBuf::from(positional[1])
+        } else {
+            canonical_dir
+        };
+        return migrate_to_canonical(&src, &dst);
+    }
 
     let output_base = if positional.len() > 1 {
         PathBuf::from(positional[1])

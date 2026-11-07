@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="50.0" viewBox="-11.0 -21.0 20.0 50.0" data-name="pin m fm">
+  <title>pin m fm</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-1.00" y1="4.00" x2="-1.00" y2="11.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="4.00" x2="1.00" y2="11.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="4.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <path d="M -0.31 0.02 A 3.00 3.00 0 0 0 -3.00 3.00" stroke="black" fill="none" />
+    <path d="M 3.00 3.05 A 3.00 3.00 0 0 0 0.37 0.02" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

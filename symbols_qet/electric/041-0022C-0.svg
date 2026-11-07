@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-33.0 -40.0 50.0 60.0" data-name="Inductif sensor  NO">
+  <title>Inductif sensor  NO</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="5,-20 10,0 10,10" stroke="black" fill="none" />
+    <line x1="-2.69" y1="-12.00" x2="9.31" y2="-12.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="-19.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">e</text>
+    <line x1="10.00" y1="-30.00" x2="10.00" y2="-20.00" stroke="black" fill="none" />
+    <text x="-21.69" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">F</text>
+    <polygon points="-18.69,-12 -12.69,-18 -6.69,-12 -12.69,-6" stroke="black" fill="none" />
+    <line x1="-11.69" y1="-16.00" x2="-11.69" y2="-8.00" stroke="black" fill="none" />
+    <line x1="-13.69" y1="-16.00" x2="-13.69" y2="-8.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

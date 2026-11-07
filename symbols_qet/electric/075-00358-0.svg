@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="130.0" viewBox="-21.0 -30.0 40.0 130.0" data-name="Switch PM">
+  <title>Switch PM</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-1,22 -1,-2 5,-2" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-1.00" y1="50.00" x2="-1.00" y2="28.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polygon points="-4,22 -4,29 2,26" stroke="black" fill="none" />
+    <rect x="5.00" y="16.00" width="9.00" height="20.00" stroke="black" fill="none" />
+    <polyline points="-11,55 -5,55 3,47" stroke="black" fill="none" />
+    <line x1="4.00" y1="52.00" x2="4.00" y2="58.00" stroke="black" fill="none" />
+    <line x1="9.00" y1="55.00" x2="5.00" y2="55.00" stroke="black" fill="none" />
+    <polyline points="1.7,-8 9.7,6 9.7,89" stroke="black" fill="none" />
+    <line x1="-10.80" y1="-5.00" x2="-10.80" y2="-1.00" stroke="black" fill="none" />
+    <line x1="-11.55" y1="50.95" x2="-11.55" y2="58.95" stroke="black" fill="none" />
+    <line x1="-12.80" y1="-3.00" x2="-11.80" y2="-3.00" stroke="black" fill="none" />
+    <line x1="-15.55" y1="54.95" x2="-15.55" y2="55.95" stroke="black" fill="none" />
+    <line x1="-13.80" y1="-7.00" x2="-13.80" y2="1.00" stroke="black" fill="none" />
+    <line x1="-13.55" y1="52.95" x2="-13.55" y2="56.95" stroke="black" fill="none" />
+    <line x1="-17.80" y1="-3.00" x2="-17.80" y2="-2.00" stroke="black" fill="none" />
+    <line x1="-15.80" y1="-5.00" x2="-15.80" y2="-1.00" stroke="black" fill="none" />
+    <ellipse cx="9.70" cy="-9.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="7.70" y1="-10.00" x2="11.70" y2="-10.00" stroke="black" fill="none" />
+    <line x1="9.70" y1="77.00" x2="4.70" y2="77.00" stroke="black" fill="none" />
+    <line x1="4.70" y1="72.00" x2="4.70" y2="82.00" stroke="black" fill="none" />
+    <line x1="2.95" y1="72.00" x2="2.95" y2="82.00" stroke="black" fill="none" />
+    <line x1="-0.30" y1="77.00" x2="2.70" y2="77.00" stroke="black" fill="none" />
+    <path d="M -5.30 82.00 A 5.00 5.00 0 0 0 -5.30 72.00" stroke="black" fill="none" />
+    <line x1="9.70" y1="-20.00" x2="9.70" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

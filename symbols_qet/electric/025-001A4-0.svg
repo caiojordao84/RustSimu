@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="60.0" viewBox="-31.0 -35.0 80.0 60.0" data-name="Three-winding transformer">
+  <title>Three-winding transformer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 40.00 10.00 A 5.00 5.00 0 0 0 30.00 10.00" stroke="black" fill="none" />
+    <path d="M -10.00 10.00 A 5.00 5.00 0 0 0 -20.00 10.00" stroke="black" fill="none" />
+    <path d="M 0.00 10.00 A 5.00 5.00 0 0 0 -10.00 10.00" stroke="black" fill="none" />
+    <path d="M 30.00 10.00 A 5.00 5.00 0 0 0 20.00 10.00" stroke="black" fill="none" />
+    <path d="M 30.00 -10.00 A 5.00 5.00 0 0 0 40.00 -10.00" stroke="black" fill="none" />
+    <path d="M -15.00 -5.00 A 5.00 5.00 0 0 0 -10.00 -10.00" stroke="black" fill="none" />
+    <path d="M -20.00 -10.00 A 5.00 5.00 0 0 0 -15.00 -5.00" stroke="black" fill="none" />
+    <path d="M -5.00 -5.00 A 5.00 5.00 0 0 0 0.00 -10.00" stroke="black" fill="none" />
+    <path d="M -10.00 -10.00 A 5.00 5.00 0 0 0 -5.00 -5.00" stroke="black" fill="none" />
+    <path d="M 5.00 -5.00 A 5.00 5.00 0 0 0 10.00 -10.00" stroke="black" fill="none" />
+    <path d="M 0.00 -10.00 A 5.00 5.00 0 0 0 5.00 -5.00" stroke="black" fill="none" />
+    <path d="M 15.00 -5.00 A 5.00 5.00 0 0 0 20.00 -10.00" stroke="black" fill="none" />
+    <path d="M 10.00 -10.00 A 5.00 5.00 0 0 0 15.00 -5.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="0.00" x2="38.00" y2="0.00" stroke="black" fill="none" />
+    <path d="M 20.00 -10.00 A 5.00 5.00 0 0 0 30.00 -10.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-10.00" x2="-20.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-10.00" x2="10.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-10.00" x2="30.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-10.00" x2="40.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="10.00" x2="40.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="10.00" x2="20.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="10.00" x2="-20.00" y2="15.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="8" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="7" data-orientation="s" />
+  </g>
+</svg>

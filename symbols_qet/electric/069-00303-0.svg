@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-30.0 -30.0 50.0 60.0" data-name="NPN transistor">
+  <title>NPN transistor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-5,0 10,-10 10,-17" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-8.00" x2="-5.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="0.00" x2="-9.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="0.00" x2="-17.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-5,0 10,10 10,17" stroke="black" fill="none" />
+    <ellipse cx="-2.00" cy="0.00" rx="9.85" ry="9.85" stroke="black" fill="none" />
+    <polygon points="0,-6.7 3,-2 5,-6.7" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

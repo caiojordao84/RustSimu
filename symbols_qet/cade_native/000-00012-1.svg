@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="107" height="80" viewBox="-22 -10 107 80" data-generator="cade2svg">
+  <title>Fusível Tripolar 3P (Ativo)</title>
+  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0" y1="0" x2="0" y2="60" />
+    <line x1="-7" y1="15" x2="7" y2="15" />
+    <line x1="-7" y1="45" x2="7" y2="45" />
+    <line x1="-7" y1="15" x2="-7" y2="45" />
+    <line x1="7" y1="15" x2="7" y2="45" />
+    <line x1="30" y1="0" x2="30" y2="60" />
+    <line x1="23" y1="15" x2="37" y2="15" />
+    <line x1="23" y1="45" x2="37" y2="45" />
+    <line x1="23" y1="15" x2="23" y2="45" />
+    <line x1="37" y1="15" x2="37" y2="45" />
+    <line x1="60" y1="0" x2="60" y2="60" />
+    <line x1="53" y1="15" x2="67" y2="15" />
+    <line x1="53" y1="45" x2="67" y2="45" />
+    <line x1="53" y1="15" x2="53" y2="45" />
+    <line x1="67" y1="15" x2="67" y2="45" />
+    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="1" />
+    <circle class="qet-terminal" cx="30" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="3" />
+    <circle class="qet-terminal" cx="60" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="5" />
+    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="2" />
+    <circle class="qet-terminal" cx="30" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="4" />
+    <circle class="qet-terminal" cx="60" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="6" />
+  </g>
+</svg>

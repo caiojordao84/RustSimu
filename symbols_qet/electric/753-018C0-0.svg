@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="90.0" viewBox="-50.0 -15.0 100.0 90.0" data-name="Straight section with fixed tap-off with equipment box">
+  <title>Straight section with fixed tap-off with equipment box</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-10.00" y="30.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="0.00" x2="-40.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-3,43 -2,41 -3,39 -1,39 0,37 1,39 3,39 2,41 3,43 0,42" stroke="black" fill="black" />
+    <line x1="-40.00" y1="-5.00" x2="-40.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-5.00" x2="40.00" y2="5.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="50.00" x2="0.00" y2="70.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="70.00" x2="5.00" y2="70.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

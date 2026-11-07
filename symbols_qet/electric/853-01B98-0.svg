@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -25.0 50.0 50.0" data-name="Arrow button">
+  <title>Arrow button</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="1.00" y1="14.00" x2="1.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="14.00" x2="-1.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="14.00" x2="0.00" y2="-14.00" stroke="black" fill="black" />
+    <ellipse cx="0.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="22.00" ry="22.00" stroke="black" fill="none" />
+  </g>
+</svg>

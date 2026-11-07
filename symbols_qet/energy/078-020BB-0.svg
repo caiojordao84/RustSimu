@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-20.0 -13.0 40.0 20.0" data-name="Balancing valve T.A">
+  <title>Balancing valve T.A</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="5.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-11.00" x2="7.00" y2="-9.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="-10.00" x2="3.00" y2="-4.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-6.00" x2="1.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="-3.00" x2="-1.00" y2="-4.00" stroke="black" fill="none" />
+    <ellipse cx="1.00" cy="-7.00" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <ellipse cx="-1.00" cy="-4.00" rx="0.50" ry="0.50" stroke="black" fill="none" />
+    <polygon points="-10,-5 -10,5 10,-5 10,5" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

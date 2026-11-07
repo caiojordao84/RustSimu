@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="150.0" viewBox="-33.0 -59.0 130.0 150.0" data-name="Inverter">
+  <title>Inverter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-20.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC Voltage</text>
+    <text x="37.00" y="-47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Inverter</text>
+    <line x1="33.65" y1="28.10" x2="36.45" y2="28.10" stroke="black" fill="none" />
+    <line x1="32.50" y1="-26.90" x2="35.30" y2="-26.90" stroke="black" fill="none" />
+    <rect x="29.55" y="-36.00" width="51.75" height="71.00" stroke="black" fill="none" />
+    <text x="-27.00" y="81.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Control Signals</text>
+    <text x="-26.00" y="49.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Actual Signals</text>
+    <line x1="70.00" y1="35.87" x2="70.00" y2="50.14" stroke="black" fill="none" />
+    <line x1="33.90" y1="-28.00" x2="33.90" y2="-25.75" stroke="black" fill="none" />
+    <line x1="40.00" y1="35.87" x2="40.00" y2="50.14" stroke="black" fill="none" />
+    <line x1="11.05" y1="24.13" x2="69.94" y2="24.13" stroke="black" fill="none" />
+    <line x1="70.95" y1="1.14" x2="70.95" y2="-24.00" stroke="black" fill="none" />
+    <line x1="70.95" y1="24.13" x2="70.95" y2="6.86" stroke="black" fill="none" />
+    <line x1="58.30" y1="23.91" x2="58.30" y2="-0.08" stroke="black" fill="none" />
+    <line x1="69.80" y1="0.57" x2="74.40" y2="4.29" stroke="black" fill="none" />
+    <line x1="58.30" y1="-6.22" x2="58.30" y2="-23.79" stroke="black" fill="none" />
+    <line x1="44.50" y1="-12.88" x2="44.50" y2="-23.91" stroke="black" fill="none" />
+    <line x1="10.85" y1="-24.00" x2="69.94" y2="-24.00" stroke="black" fill="none" />
+    <line x1="44.50" y1="24.13" x2="44.50" y2="-5.00" stroke="black" fill="none" />
+    <line x1="43.35" y1="-13.65" x2="47.95" y2="-10.20" stroke="black" fill="none" />
+    <line x1="48.00" y1="-10.20" x2="90.50" y2="-10.20" stroke="black" fill="none" />
+    <line x1="74.59" y1="4.29" x2="90.30" y2="4.29" stroke="black" fill="none" />
+    <line x1="57.15" y1="0.41" x2="62.90" y2="-3.08" stroke="black" fill="none" />
+    <line x1="62.91" y1="-3.08" x2="90.49" y2="-3.08" stroke="black" fill="none" />
+    <rect x="13.61" y="51.00" width="78.39" height="24.00" stroke="black" fill="none" />
+    <text x="16.00" y="66.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Control Electronics</text>
+    <line x1="4.30" y1="58.00" x2="13.44" y2="58.00" stroke="black" fill="none" />
+    <line x1="3.65" y1="68.00" x2="13.50" y2="68.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="89.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="89.00" cy="-3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="89.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="4.00" cy="68.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="14.00" cy="-24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="14.00" cy="24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="6.00" cy="58.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="70.0" viewBox="-53.0 -35.0 100.0 70.0" data-name="C direct exchange">
+  <title>C direct exchange</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-40.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <ellipse cx="25.00" cy="-4.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
+    <ellipse cx="25.00" cy="24.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
+    <ellipse cx="-26.00" cy="10.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
+    <polygon points="23,-4 26,-7 26,-1" stroke="black" fill="none" />
+    <polygon points="23,24 26,21 26,27" stroke="black" fill="none" />
+    <polygon points="-28,10 -25,7 -25,13" stroke="black" fill="none" />
+    <rect x="-16.00" y="-29.50" width="32.00" height="59.00" stroke="black" fill="none" />
+    <polyline points="10,4.5 43,4.5 33,9.5 43,14.5 33,19.5 43,24.5 23,24.5 10,24.5" stroke="black" fill="none" />
+    <polyline points="10,-23.5 42,-23.5 32,-18.5 42,-13.5 32,-8.5 42,-3.5 22,-3.5 10,-3.5" stroke="black" fill="none" />
+    <text x="-35.00" y="2.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">solaire</text>
+    <text x="18.00" y="16.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">chauff.</text>
+    <text x="21.00" y="-10.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ECS</text>
+    <text x="-14.00" y="-20.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ballon</text>
+    <polyline points="-10,-9.5 -43,-9.5 -33,-4.5 -43,0.5 -33,5.5 -43,10.5 -10,10.5" stroke="black" fill="none" />
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-28.0 -39.0 60.0 60.0" data-name="Caisson phase triangle">
+  <title>Caisson phase triangle</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-16,-20 -16,-30 -8,-30 -8,10 0,10 0,0" stroke="black" fill="none" />
+    <polyline points="0,-20 0,-30 8,-30 8,10 16,10 16,0" stroke="black" fill="none" />
+    <rect x="-24.00" y="-34.00" width="52.00" height="50.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-20.00" y1="-5.00" x2="-12.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-15.00" x2="-12.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-10.00" x2="-12.00" y2="-10.00" stroke="black" fill="none" />
+    <rect x="-20.00" y="-20.00" width="8.00" height="20.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-5.00" x2="20.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-5.00" x2="4.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-15.00" x2="20.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-15.00" x2="4.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-10.00" x2="20.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="-10.00" x2="4.00" y2="-10.00" stroke="black" fill="none" />
+    <rect x="12.00" y="-20.00" width="8.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-4.00" y="-20.00" width="8.00" height="20.00" stroke="black" fill="none" />
+    <polyline points="16,-20 16,-30 24,-30 24,13 -16,13 -16,0" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-16.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-16.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="16.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="16.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

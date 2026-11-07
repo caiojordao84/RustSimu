@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="125" viewBox="-30 -10 90 125" data-generator="cade2svg">
+  <title>Disjuntor Magnetotérmico 2P (Ativo)</title>
+  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0" y1="0" x2="0" y2="15" />
+    <line x1="30" y1="0" x2="30" y2="15" />
+    <line x1="-5" y1="15" x2="0" y2="45" />
+    <line x1="25" y1="15" x2="30" y2="45" />
+    <line x1="-5" y1="15" x2="0" y2="15" />
+    <line x1="25" y1="15" x2="30" y2="15" />
+    <line x1="0" y1="45" x2="0" y2="105" />
+    <line x1="30" y1="45" x2="30" y2="105" />
+    <polygon points="-15,60 45,60 45,90 -15,90" fill="#fee2e2" />
+    <line x1="-15" y1="75" x2="45" y2="75" />
+    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="1" />
+    <circle class="qet-terminal" cx="30" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="3" />
+    <circle class="qet-terminal" cx="0" cy="105" r="2.5" fill="#dc2626" stroke="none" data-label="2" />
+    <circle class="qet-terminal" cx="30" cy="105" r="2.5" fill="#dc2626" stroke="none" data-label="4" />
+  </g>
+</svg>

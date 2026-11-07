@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="30.0" viewBox="-44.0 -24.0 90.0 30.0" data-name="Multi wire cable 3-pole Mux 40px">
+  <title>Multi wire cable 3-pole Mux 40px</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="40.00" y1="-10.00" x2="40.00" y2="-19.00" stroke="#d40000" fill="none" />
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="-19.00" stroke="#d40000" fill="none" />
+    <line x1="0.00" y1="-10.00" x2="0.00" y2="0.00" stroke="#d40000" fill="none" />
+    <line x1="-40.00" y1="-10.00" x2="-40.00" y2="-19.00" stroke="#d40000" fill="none" />
+    <line x1="40.00" y1="-10.00" x2="-40.00" y2="-10.00" stroke="#d40000" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="Cable" data-orientation="s" />
+    <circle class="qet-terminal" cx="-40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
+  </g>
+</svg>

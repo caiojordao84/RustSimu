@@ -144,7 +144,7 @@ impl<'a> SchematicCanvas<'a> {
                 if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
                     return Some(item.id);
                 }
-            } else if let Some(ref qet_type) = item.qet_type {
+            } else if let Some(qet_type) = item.symbol_id_or_slug() {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     let (vx, vy, vw, vh) = parsed.view_box;
                     let min_x = item.x1 + vx.min(vx + vw).round() as i32 - 4;
@@ -799,8 +799,8 @@ impl<'a> SchematicCanvas<'a> {
             return;
         }
 
-        // Elemento nativo importado de projeto QElectroTech (.qet)
-        if let Some(ref qet_type) = item.qet_type {
+        // Elemento nativo importado de projeto QElectroTech (.qet) ou símbolo canônico D2
+        if let Some(qet_type) = item.symbol_id_or_slug() {
             let sim_st = self.doc.sim.get(item.id);
             let active_in_sim = self.sim_running && (sim_st.active || sim_st.manual_latched);
             let stroke_color = if is_selected {

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="100.0" viewBox="-40.0 -48.0 80.0 100.0" data-name="Socket Smart Plug 16A">
+  <title>Socket Smart Plug 16A</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-16.00" cy="36.50" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-5.70" rx="4.00" ry="4.00" stroke="black" fill="gray" />
+    <ellipse cx="15.00" cy="36.50" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="36.50" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="2.00" y1="-36.00" x2="2.00" y2="-32.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-36.00" x2="-2.00" y2="-32.00" stroke="black" fill="none" />
+    <ellipse cx="-17.00" cy="-5.70" rx="4.00" ry="4.00" stroke="black" fill="black" />
+    <ellipse cx="17.00" cy="-5.70" rx="4.00" ry="4.00" stroke="black" fill="black" />
+    <rect x="-35.00" y="-42.00" width="70.00" height="83.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-6.60" rx="30.00" ry="30.00" stroke="black" fill="none" />
+    <rect x="-10.00" y="26.00" width="20.00" height="5.00" stroke="black" fill="gray" />
+    <path d="M 2.00 18.00 A 2.00 2.00 0 0 0 -2.00 18.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="19.00" x2="-2.00" y2="23.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="19.00" x2="2.00" y2="23.00" stroke="black" fill="none" />
+    <polyline points="-29.5,-8 -27,-8 -27,-19.2" stroke="black" fill="none" />
+    <polyline points="-29,-5 -27,-5 -27,6" stroke="black" fill="none" />
+    <polyline points="29,-5 27,-5 27,6" stroke="black" fill="none" />
+    <polyline points="29,-8 27,-8 27,-19" stroke="black" fill="none" />
+    <path d="M -2.00 -31.00 A 2.00 2.00 0 0 0 2.00 -31.00" stroke="black" fill="none" />
+    <text x="9.00" y="-38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Smart Plug 16A</text>
+    <line x1="-17.00" y1="36.50" x2="-15.00" y2="36.50" stroke="black" fill="none" />
+    <line x1="-1.00" y1="36.50" x2="1.00" y2="36.50" stroke="black" fill="none" />
+    <line x1="14.00" y1="36.50" x2="16.00" y2="36.50" stroke="black" fill="none" />
+    <line x1="-16.00" y1="35.50" x2="-16.00" y2="37.50" stroke="black" fill="none" />
+    <line x1="0.00" y1="35.50" x2="0.00" y2="37.50" stroke="black" fill="none" />
+    <line x1="15.00" y1="35.50" x2="15.00" y2="37.50" stroke="black" fill="none" />
+    <text x="-12.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="19.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="4.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <circle class="qet-terminal" cx="-16.00" cy="41.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="15.00" cy="41.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="41.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

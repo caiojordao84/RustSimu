@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="160.0" viewBox="-31.0 -80.0 80.0 160.0" data-name="RF pulse">
+  <title>RF pulse</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 18.06 1.42 A 9.12 4.50 0 0 0 8.95 -3.08" stroke="black" fill="none" />
+    <text x="7.00" y="57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C1</text>
+    <path d="M 9.39 -3.08 A 9.12 9.00 0 0 0 0.28 5.92" stroke="black" fill="none" />
+    <path d="M 9.39 -4.00 A 9.12 9.00 0 0 0 0.28 5.00" stroke="black" fill="none" />
+    <text x="-14.00" y="57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <path d="M 18.51 0.50 A 9.12 4.50 0 0 0 9.39 -4.00" stroke="black" fill="none" />
+    <text x="27.00" y="57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C2</text>
+    <path d="M -4.28 9.51 A 4.55 4.50 0 0 0 0.28 5.01" stroke="black" fill="none" />
+    <path d="M 4.84 13.99 A 9.12 4.50 0 0 0 -4.27 9.49" stroke="black" fill="none" />
+    <line x1="17.60" y1="-0.39" x2="20.33" y2="2.31" stroke="black" fill="none" />
+    <path d="M 15.78 3.20 A 4.55 0.00 0 0 0 20.34 3.20" stroke="black" fill="none" />
+    <line x1="9.40" y1="-4.00" x2="4.84" y2="-8.47" stroke="black" fill="none" />
+    <text x="9.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Enocean</text>
+    <rect x="-20.00" y="-70.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <text x="7.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I1</text>
+    <text x="-15.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">868 Mhz</text>
+    <ellipse cx="15.00" cy="-23.00" rx="5.00" ry="5.00" stroke="#0055d4" fill="#0055d4" />
+    <text x="28.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I2</text>
+    <text x="-18.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RF PULSE</text>
+    <rect x="-20.00" y="-60.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <text x="-17.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+12V</text>
+    <rect x="20.00" y="-70.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="1.00" y="-60.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="20.00" y="-60.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <ellipse cx="15.00" cy="25.00" rx="5.00" ry="5.00" stroke="black" fill="black" />
+    <rect x="8.00" y="42.00" width="35.00" height="5.00" stroke="green" fill="#00aa00" />
+    <rect x="-20.00" y="60.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="0.00" y="60.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="20.00" y="60.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-20.00" y="50.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="0.00" y="50.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="20.00" y="50.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-25.00" y="-50.00" width="5.00" height="100.00" stroke="green" fill="#00aa00" />
+    <text x="-11.00" y="40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
+    <line x1="40.00" y1="60.00" x2="45.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-60.00" x2="0.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-60.00" x2="-25.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="-60.00" x2="-25.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="-25.00" y1="60.00" x2="-15.00" y2="60.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-70.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <line x1="35.00" y1="-60.00" x2="45.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="45.00" y1="-60.00" x2="45.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="45.00" y1="60.00" x2="40.00" y2="60.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="30.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

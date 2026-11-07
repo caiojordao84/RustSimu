@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="50.0" viewBox="-34.0 -17.0 70.0 50.0" data-name="Ultrasonic module HC-SR04">
+  <title>Ultrasonic module HC-SR04</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="18.00" cy="2.00" rx="11.00" ry="11.00" stroke="black" fill="none" />
+    <text x="11.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Gnd</text>
+    <text x="-4.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Trig</text>
+    <text x="3.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Echo</text>
+    <rect x="-30.00" y="-12.00" width="61.00" height="36.00" stroke="black" fill="none" />
+    <ellipse cx="-17.00" cy="3.00" rx="11.00" ry="11.00" stroke="black" fill="none" />
+    <text x="-11.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vcc</text>
+    <text x="-7.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">HC-SR04</text>
+    <circle class="qet-terminal" cx="6.00" cy="22.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="12.00" cy="22.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-2.00" cy="22.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-9.00" cy="22.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

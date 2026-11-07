@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="30.0" viewBox="-150.0 -22.0 160.0 30.0" data-name="Submarine line">
+  <title>Submarine line</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="-140.00" y2="0.00" stroke="black" fill="none" />
+    <path d="M -80.00 -10.00 A 5.00 2.50 0 0 0 -70.00 -10.00" stroke="black" fill="none" />
+    <path d="M -70.00 -10.00 A 5.00 2.50 0 0 0 -60.00 -10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-140.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

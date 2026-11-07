@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-17.0 -30.0 50.0 60.0" data-name="Photo-electric sensor receptor">
+  <title>Photo-electric sensor receptor</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-15.00" y="-10.00" width="30.00" height="20.00" stroke="black" fill="none" />
+    <line x1="13.00" y1="-1.00" x2="8.00" y2="2.00" stroke="black" fill="none" />
+    <line x1="13.00" y1="-4.00" x2="8.00" y2="-1.00" stroke="black" fill="none" />
+    <text x="-10.00" y="-15.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BN</text>
+    <text x="-8.00" y="18.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BU</text>
+    <line x1="30.00" y1="-4.00" x2="18.00" y2="-4.00" stroke="black" fill="black" />
+    <line x1="3.00" y1="-5.00" x2="3.00" y2="-8.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-19.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="4.00" x2="18.00" y2="4.00" stroke="black" fill="black" />
+    <line x1="3.00" y1="8.00" x2="3.00" y2="5.00" stroke="black" fill="none" />
+    <polygon points="-2,-5 8,-5 3,5" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.00" x2="0.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="5.00" x2="8.00" y2="5.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

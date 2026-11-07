@@ -94,14 +94,33 @@ pub fn is_qet_source_ground(label: &str) -> bool {
 
 /// Verifica se o item pode ser acionado/comutado manualmente pelo usuário.
 pub fn is_item_manual(item: &SchematicItem) -> bool {
-    matches!(
+    if matches!(
         item.tipo,
         2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
-    ) || item
-        .qet_type
-        .as_ref()
-        .map(|t| is_qet_switch_or_button(t))
-        .unwrap_or(false)
+    ) {
+        return true;
+    }
+    if let Some(sym_ref) = item.symbol_id_or_slug() {
+        if let Some(dict) = crate::canonical::global_dictionary() {
+            if let Some(k) = dict.kind(sym_ref) {
+                if matches!(
+                    k,
+                    "momentary_button"
+                        | "latching_switch"
+                        | "selector_switch"
+                        | "emergency_stop"
+                        | "limit_switch"
+                        | "circuit_breaker"
+                        | "disconnector"
+                        | "fuse"
+                ) {
+                    return true;
+                }
+            }
+        }
+        return is_qet_switch_or_button(sym_ref);
+    }
+    false
 }
 
 /// Verifica se o `tipo` corresponde a um botão pulsador momentâneo
@@ -115,8 +134,13 @@ pub fn is_item_momentary(item: &SchematicItem) -> bool {
     if is_momentary_button(item.tipo) {
         return true;
     }
-    if let Some(ref qet_type) = item.qet_type {
-        let l = qet_type.to_ascii_lowercase();
+    if let Some(sym_ref) = item.symbol_id_or_slug() {
+        if let Some(dict) = crate::canonical::global_dictionary() {
+            if let Some(k) = dict.kind(sym_ref) {
+                return matches!(k, "momentary_button" | "limit_switch");
+            }
+        }
+        let l = sym_ref.to_ascii_lowercase();
         if l.contains("emergency") || l.contains("latch") {
             return false;
         }
@@ -131,31 +155,39 @@ pub fn is_item_momentary(item: &SchematicItem) -> bool {
 /// Verifica se o item representa um disjuntor ou chave seccionadora de proteção
 /// que conduz quando acionado manualmente (`sim_manual_latched == true`).
 pub fn is_circuit_breaker(item: &SchematicItem) -> bool {
-    matches!(item.tipo, 5008 | 6000 | 6003 | 6004 | 6008 | 6009)
-        || item
-            .qet_type
-            .as_ref()
-            .map(|t| {
-                let l = t.to_ascii_lowercase();
-                l.contains("breaker")
-                    || l.contains("disjoncteur")
-                    || l.contains("leistungs_schalter")
-            })
-            .unwrap_or(false)
+    if matches!(item.tipo, 5008 | 6000 | 6003 | 6004 | 6008 | 6009) {
+        return true;
+    }
+    if let Some(sym_ref) = item.symbol_id_or_slug() {
+        if let Some(dict) = crate::canonical::global_dictionary() {
+            if let Some(k) = dict.kind(sym_ref) {
+                return matches!(k, "circuit_breaker" | "disconnector");
+            }
+        }
+        let l = sym_ref.to_ascii_lowercase();
+        return l.contains("breaker")
+            || l.contains("disjoncteur")
+            || l.contains("leistungs_schalter");
+    }
+    false
 }
 
 /// Verifica se o item representa um cartucho fusível permanente
 /// que conduz em repouso (`sim_manual_latched == false`) e abre ao queimar.
 pub fn is_fuse(item: &SchematicItem) -> bool {
-    matches!(item.tipo, 5000 | 5003)
-        || item
-            .qet_type
-            .as_ref()
-            .map(|t| {
-                let l = t.to_ascii_lowercase();
-                l.contains("fuse") || l.contains("sicherung")
-            })
-            .unwrap_or(false)
+    if matches!(item.tipo, 5000 | 5003) {
+        return true;
+    }
+    if let Some(sym_ref) = item.symbol_id_or_slug() {
+        if let Some(dict) = crate::canonical::global_dictionary() {
+            if let Some(k) = dict.kind(sym_ref) {
+                return k == "fuse";
+            }
+        }
+        let l = sym_ref.to_ascii_lowercase();
+        return l.contains("fuse") || l.contains("sicherung");
+    }
+    false
 }
 
 /// Retorna os pares de índices de pinos correspondentes aos polos de condução de disjuntores e fusíveis.

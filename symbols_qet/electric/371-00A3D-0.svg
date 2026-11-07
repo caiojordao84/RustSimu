@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="70.0" viewBox="-62.0 -29.0 120.0 70.0" data-name="RE17RCMU">
+  <title>RE17RCMU</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-51.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
+    <ellipse cx="0.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <text x="-11.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">15</text>
+    <text x="-21.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">16</text>
+    <text x="-1.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">18</text>
+    <text x="16.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y1</text>
+    <ellipse cx="-20.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="-50.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="-50.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <rect x="-56.00" y="2.00" width="12.00" height="6.00" stroke="black" fill="none" />
+    <ellipse cx="20.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="-50.00" y1="2.00" x2="-50.00" y2="-17.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="8.00" x2="-50.00" y2="27.00" stroke="black" fill="none" />
+    <line x1="-44.00" y1="5.00" x2="-39.00" y2="5.00" stroke="black" fill="none" />
+    <path d="M -40.00 8.00 A 1.00 3.00 0 0 0 -40.00 2.00" stroke="black" fill="none" />
+    <polyline points="-20,27 -20,15 -14,15" stroke="black" fill="none" />
+    <polyline points="-10,-17 -10,0 -16,16" stroke="black" fill="none" />
+    <polyline points="0,27 0,15 -6,15" stroke="black" fill="none" />
+    <line x1="-38.00" y1="5.00" x2="-13.00" y2="5.00" stroke="black" fill="none" stroke-dasharray="4,2,1.5,2" />
+    <text x="-51.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
+    <text x="4.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RE17RCMU</text>
+    <polyline points="-53,-20 -60,-20 -60,30 -53,30" stroke="black" fill="none" />
+    <polyline points="3,30 55,30 55,-20 23,-20" stroke="black" fill="none" />
+    <line x1="-7.00" y1="-20.00" x2="17.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-47.00" y1="-20.00" x2="-13.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-47.00" y1="30.00" x2="-23.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="-17.00" y1="30.00" x2="-3.00" y2="30.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-20.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-50.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-50.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

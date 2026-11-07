@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-29.0 -26.0 60.0 40.0" data-name="Ball valve FF">
+  <title>Ball valve FF</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-4.00" y="-14.00" width="8.00" height="2.00" stroke="black" fill="none" />
+    <path d="M 11.00 -7.00 A 2.00 2.00 0 0 0 11.00 -3.00" stroke="black" fill="none" />
+    <rect x="-18.00" y="-7.00" width="9.00" height="14.00" stroke="black" fill="white" />
+    <rect x="9.00" y="-7.00" width="9.00" height="14.00" stroke="black" fill="white" />
+    <path d="M -16.00 3.00 A 2.00 2.00 0 0 0 -16.00 7.00" stroke="black" fill="none" />
+    <path d="M -16.00 -7.00 A 2.00 2.00 0 0 0 -16.00 -3.00" stroke="black" fill="none" />
+    <path d="M -16.00 -3.00 A 2.00 3.00 0 0 0 -16.00 3.00" stroke="black" fill="none" />
+    <path d="M 16.00 7.00 A 2.00 2.00 0 0 0 16.00 3.00" stroke="black" fill="none" />
+    <path d="M 16.00 -3.00 A 2.00 2.00 0 0 0 16.00 -7.00" stroke="black" fill="none" />
+    <path d="M 11.00 3.00 A 2.00 2.00 0 0 0 11.00 7.00" stroke="black" fill="none" />
+    <path d="M -11.00 7.00 A 2.00 2.00 0 0 0 -11.00 3.00" stroke="black" fill="none" />
+    <line x1="11.00" y1="-3.00" x2="16.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="11.00" y1="3.00" x2="16.00" y2="3.00" stroke="black" fill="none" />
+    <path d="M 11.00 -3.00 A 2.00 3.00 0 0 0 11.00 3.00" stroke="black" fill="none" />
+    <rect x="-3.00" y="-12.00" width="6.00" height="3.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="-3.00" x2="-11.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="3.00" x2="-11.00" y2="3.00" stroke="black" fill="none" />
+    <path d="M -11.00 3.00 A 2.00 3.00 0 0 0 -11.00 -3.00" stroke="black" fill="none" />
+    <path d="M -11.00 -3.00 A 2.00 2.00 0 0 0 -11.00 -7.00" stroke="black" fill="none" />
+    <path d="M 16.00 3.00 A 2.00 3.00 0 0 0 16.00 -3.00" stroke="black" fill="none" />
+    <rect x="-3.00" y="-16.00" width="6.00" height="2.00" stroke="black" fill="none" />
+    <rect x="-2.00" y="-17.00" width="4.00" height="1.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-17.00" x2="-1.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="-17.00" x2="1.00" y2="-16.00" stroke="black" fill="none" />
+    <rect x="-1.00" y="-18.00" width="2.00" height="1.00" stroke="black" fill="none" />
+    <rect x="8.00" y="-21.00" width="17.00" height="2.00" stroke="black" fill="yellow" />
+    <polyline points="3,-16 8,-21 8,-19 3,-14 3,-16 5,-18" stroke="black" fill="none" />
+    <path d="M -4.00 -7.00 A 1.00 2.00 0 0 0 -3.00 -9.00" stroke="black" fill="none" />
+    <polygon points="2,-8 9,-8 9,8 2,8" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-7.00" x2="-5.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-9.00" y1="7.00" x2="2.00" y2="7.00" stroke="black" fill="none" />
+    <path d="M 9.00 -5.00 A 2.00 2.00 0 0 0 11.00 -3.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="18.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-18.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-19.0 -9.0 40.0 30.0" data-name="Disconnector">
+  <title>Disconnector</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.91" y="14.00" width="0.70" height="1.33" stroke="black" fill="none" />
+    <rect x="0.11" y="14.00" width="0.70" height="1.33" stroke="black" fill="none" />
+    <path d="M 4.67 -1.87 A 4.21 2.33 0 0 0 -3.75 -1.87" stroke="black" fill="none" />
+    <path d="M 6.90 2.68 A 1.00 0.86 0 0 0 6.90 4.40" stroke="black" fill="none" />
+    <path d="M -5.94 4.40 A 1.00 0.86 0 0 0 -5.94 2.68" stroke="black" fill="none" />
+    <rect x="5.90" y="-3.00" width="4.90" height="7.37" stroke="black" fill="none" />
+    <rect x="4.67" y="-2.16" width="1.23" height="5.49" stroke="black" fill="none" />
+    <line x1="7.06" y1="-1.25" x2="10.63" y2="-1.25" stroke="black" fill="none" />
+    <line x1="7.06" y1="2.68" x2="10.62" y2="2.68" stroke="black" fill="none" />
+    <path d="M 6.90 -1.25 A 1.00 1.97 0 0 0 6.90 2.68" stroke="black" fill="none" />
+    <path d="M 6.90 -3.00 A 1.00 0.86 0 0 0 6.90 -1.28" stroke="black" fill="none" />
+    <rect x="-9.88" y="-3.00" width="4.90" height="7.37" stroke="black" fill="none" />
+    <rect x="-5.00" y="-1.95" width="1.23" height="5.28" stroke="black" fill="none" />
+    <line x1="-9.70" y1="-1.25" x2="-6.13" y2="-1.25" stroke="black" fill="none" />
+    <line x1="-9.70" y1="2.68" x2="-6.13" y2="2.68" stroke="black" fill="none" />
+    <path d="M -5.94 2.68 A 1.00 1.97 0 0 0 -5.94 -1.25" stroke="black" fill="none" />
+    <path d="M -5.94 -1.28 A 1.00 0.86 0 0 0 -5.94 -3.00" stroke="black" fill="none" />
+    <line x1="-9.63" y1="-3.00" x2="-9.88" y2="-1.25" stroke="black" fill="none" />
+    <line x1="-9.88" y1="2.68" x2="-9.63" y2="4.40" stroke="black" fill="none" />
+    <line x1="10.55" y1="-3.00" x2="10.80" y2="-1.25" stroke="black" fill="none" />
+    <line x1="10.80" y1="2.68" x2="10.55" y2="4.40" stroke="black" fill="none" />
+    <rect x="-2.34" y="4.05" width="5.60" height="8.30" stroke="black" fill="none" />
+    <line x1="-3.74" y1="3.06" x2="-2.34" y2="4.05" stroke="black" fill="none" />
+    <line x1="4.66" y1="3.39" x2="3.26" y2="4.05" stroke="black" fill="none" />
+    <rect x="-3.00" y="12.35" width="7.00" height="1.66" stroke="black" fill="none" />
+    <rect x="-3.00" y="15.34" width="7.00" height="0.66" stroke="black" fill="none" />
+    <rect x="-2.69" y="14.00" width="0.70" height="1.33" stroke="black" fill="none" />
+    <rect x="-1.00" y="5.00" width="3.00" height="6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="11.00" cy="1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

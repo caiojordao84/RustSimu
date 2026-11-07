@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="134.0" viewBox="-72.0 -65.0 144.0 134.0" data-name="MEAN WELL ELG-240-24 DA - single row">
+  <title>MEAN WELL ELG-240-24 DA - single row</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-29.00" y="-5.00" width="97.00" height="10.00" stroke="black" fill="HTMLGreenPaleGreen" />
+    <text x="-26.00" y="3.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MEAN WELL</text>
+    <text x="31.00" y="2.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ELG-240 DA</text>
+    <text x="-59.00" y="12.60" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Art. ELG-240-24DA2</text>
+    <polygon points="-70.00,-57.00 70.00,-57.00 70.00,-6.75 68.00,-4.95 68.00,4.95 70.00,6.75 70.00,57.00 -70.00,57.00 -70.00,6.75 -68.00,4.95 -68.00,-4.95 -70.00,-6.75" stroke="black" fill="none" />
+    <line x1="-70.00" y1="-40.00" x2="70.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-70.00" y1="40.00" x2="70.00" y2="40.00" stroke="black" fill="none" />
+    <rect x="-40.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="#d40000" />
+    <text x="-33.50" y="50.70" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <line x1="-35.00" y1="58.00" x2="-35.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-30.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="#d40000" />
+    <text x="-23.50" y="51.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <line x1="-25.00" y1="58.00" x2="-25.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-10.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="orange" />
+    <text x="-3.50" y="54.40" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vo+</text>
+    <line x1="-5.00" y1="58.00" x2="-5.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="0.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="gray" />
+    <text x="6.50" y="53.70" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vo-</text>
+    <line x1="5.00" y1="58.00" x2="5.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="20.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="gray" />
+    <text x="26.50" y="54.90" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DA+</text>
+    <line x1="25.00" y1="58.00" x2="25.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="30.00" y="40.00" width="10.00" height="18.00" stroke="black" fill="gray" />
+    <text x="36.50" y="54.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DA-</text>
+    <line x1="35.00" y1="58.00" x2="35.00" y2="67.00" stroke="black" fill="none" />
+    <rect x="-40.00" y="24.00" width="20.00" height="13.00" stroke="black" fill="#dcdcdc" />
+    <text x="-33.10" y="29.90" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC</text>
+    <text x="-35.00" y="34.40" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Input</text>
+    <rect x="-10.00" y="24.00" width="20.00" height="13.00" stroke="black" fill="#dcdcdc" />
+    <text x="-7.80" y="30.10" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LED Output</text>
+    <text x="-2.70" y="33.10" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <rect x="20.00" y="24.00" width="20.00" height="13.00" stroke="black" fill="#dcdcdc" />
+    <text x="23.00" y="32.10" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DALI-2</text>
+    <circle class="qet-terminal" cx="-35.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="s" />
+    <circle class="qet-terminal" cx="-25.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="s" />
+    <circle class="qet-terminal" cx="-5.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="Vo+" data-orientation="s" />
+    <circle class="qet-terminal" cx="5.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="Vo-" data-orientation="s" />
+    <circle class="qet-terminal" cx="25.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="DA+" data-orientation="s" />
+    <circle class="qet-terminal" cx="35.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="DA-" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-19.0 -10.0 60.0 30.0" data-name="evaporador1">
+  <title>evaporador1</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="2.00" y1="-5.00" x2="2.00" y2="-8.33" stroke="black" fill="none" />
+    <line x1="7.40" y1="-5.00" x2="7.40" y2="-8.33" stroke="black" fill="none" />
+    <line x1="12.00" y1="-5.00" x2="12.00" y2="-8.33" stroke="black" fill="none" />
+    <rect x="23.00" y="-4.00" width="3.00" height="22.00" stroke="black" fill="none" />
+    <line x1="-8.00" y1="16.00" x2="22.00" y2="16.00" stroke="black" fill="none" />
+    <rect x="-11.00" y="-4.00" width="3.00" height="22.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="-4.00" width="21.00" height="2.00" stroke="black" fill="none" />
+    <polyline points="-11,-2 -15,-2 -15,16 -11,16" stroke="black" fill="none" />
+    <line x1="-8.00" y1="-2.00" x2="22.00" y2="-2.00" stroke="black" fill="none" />
+    <polyline points="27,-2 30,-2 30,16 27,16" stroke="black" fill="none" />
+    <path d="M -2.66 -0.88 A 1.00 2.00 0 1 0 -2.66 2.88" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-1.00" x2="4.00" y2="1.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="3.00" x2="4.00" y2="2.00" stroke="black" fill="none" />
+    <rect x="4.00" y="1.00" width="2.00" height="1.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="1.00" x2="12.00" y2="-1.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="2.00" x2="12.00" y2="3.00" stroke="black" fill="none" />
+    <path d="M 12.50 3.00 A 1.50 2.00 0 0 0 12.50 -1.00" stroke="black" fill="none" />
+    <line x1="-3.00" y1="-5.00" x2="-3.00" y2="-8.33" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="31.00" cy="2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="31.00" cy="13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

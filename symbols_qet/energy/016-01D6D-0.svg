@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="90.0" viewBox="-75.0 -59.0 90.0 90.0" data-name="Inclined solar capturator">
+  <title>Inclined solar capturator</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-64.00" y1="11.00" x2="-36.00" y2="27.00" stroke="black" fill="none" />
+    <line x1="-67.00" y1="8.00" x2="-39.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="-28.00" y1="-52.00" x2="0.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-28.00" y1="-52.00" x2="-67.00" y2="8.00" stroke="black" fill="none" />
+    <polygon points="0,-36 -39,24 -35,24 3,-36" stroke="black" fill="none" />
+    <polyline points="3,-36 -25,-52 -28,-52" stroke="black" fill="none" />
+    <polygon points="-65,8 -40,22 -3,-35 -28,-49" stroke="black" fill="black" />
+    <line x1="-64.00" y1="11.00" x2="-64.00" y2="10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-33.00" cy="23.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-65.00" cy="6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-29.00" cy="-51.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="4.00" cy="-35.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

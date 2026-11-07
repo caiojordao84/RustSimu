@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="510.0" height="160.0" viewBox="-205.0 -74.0 510.0 160.0" data-name="Board 8DO">
+  <title>Board 8DO</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="195.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <polyline points="-60,80 -60,70 -50,70 -42,66" stroke="black" fill="none" />
+    <text x="255.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <polyline points="180,80 180,70 190,70 198,66" stroke="black" fill="none" />
+    <polyline points="-120,80 -120,70 -110,70 -102,66" stroke="black" fill="none" />
+    <text x="135.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <polyline points="120,80 120,70 130,70 138,66" stroke="black" fill="none" />
+    <polyline points="60,80 60,70 70,70 78,66" stroke="black" fill="none" />
+    <polyline points="0,80 0,70 10,70 18,66" stroke="black" fill="none" />
+    <polyline points="240,80 240,70 250,70 258,66" stroke="black" fill="none" />
+    <polyline points="-40,70 -30,70 -30,80" stroke="black" fill="none" />
+    <polyline points="200,70 210,70 210,80" stroke="black" fill="none" />
+    <polyline points="-100,70 -90,70 -90,80" stroke="black" fill="none" />
+    <polyline points="140,70 150,70 150,80" stroke="black" fill="none" />
+    <polyline points="80,70 90,70 90,80" stroke="black" fill="none" />
+    <polyline points="20,70 30,70 30,80" stroke="black" fill="none" />
+    <polyline points="260,70 270,70 270,80" stroke="black" fill="none" />
+    <text x="70.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="-108.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="10.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-50.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <rect x="-200.00" y="-70.00" width="500.00" height="150.00" stroke="black" fill="none" />
+    <text x="180.00" y="-55.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EMPLACEMENT</text>
+    <text x="-164.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-13.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARTE  8DO</text>
+    <line x1="270.00" y1="-50.00" x2="270.00" y2="-70.00" stroke="black" fill="none" />
+    <line x1="170.00" y1="-70.00" x2="170.00" y2="-50.00" stroke="black" fill="none" />
+    <line x1="-201.00" y1="-50.00" x2="300.00" y2="-50.00" stroke="black" fill="none" />
+    <polyline points="-180,80 -180,70 -170,70 -162,66" stroke="black" fill="none" />
+    <polyline points="-160,70 -150,70 -150,80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="60.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="5A" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="4B" data-orientation="s" />
+    <circle class="qet-terminal" cx="90.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="5B" data-orientation="s" />
+    <circle class="qet-terminal" cx="-120.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="2A" data-orientation="s" />
+    <circle class="qet-terminal" cx="150.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="6B" data-orientation="s" />
+    <circle class="qet-terminal" cx="-60.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="3A" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="3B" data-orientation="s" />
+    <circle class="qet-terminal" cx="240.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="8A" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="4A" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="6A" data-orientation="s" />
+    <circle class="qet-terminal" cx="210.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="7B" data-orientation="s" />
+    <circle class="qet-terminal" cx="-150.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="1B" data-orientation="s" />
+    <circle class="qet-terminal" cx="-180.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="1A" data-orientation="s" />
+    <circle class="qet-terminal" cx="180.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="7A" data-orientation="s" />
+    <circle class="qet-terminal" cx="-90.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="2B" data-orientation="s" />
+    <circle class="qet-terminal" cx="270.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="8B" data-orientation="s" />
+  </g>
+</svg>

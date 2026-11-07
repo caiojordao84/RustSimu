@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200.0" height="140.0" viewBox="-110.0 -63.0 200.0 140.0" data-name="787-974 - Transformer power supply">
+  <title>787-974 - Transformer power supply</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="15.00" y="-20.00" width="15.00" height="60.00" stroke="black" fill="black" />
+    <text x="35.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC 12 V</text>
+    <ellipse cx="-100.00" cy="40.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <rect x="-47.00" y="6.00" width="30.00" height="8.00" stroke="black" fill="none" />
+    <text x="35.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC 24 V</text>
+    <text x="38.00" y="38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC 0 V</text>
+    <ellipse cx="-100.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="-100.00" y1="-17.00" x2="-100.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="-100.00" y1="42.50" x2="-100.00" y2="70.00" stroke="black" fill="none" />
+    <line x1="-100.00" y1="13.00" x2="-100.00" y2="37.00" stroke="black" fill="none" />
+    <text x="-95.00" y="38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="-95.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC 110 V</text>
+    <ellipse cx="80.00" cy="40.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="-100.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="80.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="80.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="-100.00" y1="70.00" x2="80.00" y2="70.00" stroke="black" fill="none" />
+    <line x1="-100.00" y1="-60.00" x2="-100.00" y2="-22.50" stroke="black" fill="none" />
+    <line x1="80.00" y1="-60.00" x2="80.00" y2="-23.00" stroke="black" fill="none" />
+    <line x1="80.00" y1="-17.00" x2="80.00" y2="7.00" stroke="black" fill="none" />
+    <line x1="80.00" y1="42.50" x2="80.00" y2="70.00" stroke="black" fill="none" />
+    <text x="-90.00" y="65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 787-974</text>
+    <line x1="80.00" y1="13.00" x2="80.00" y2="37.00" stroke="black" fill="none" />
+    <text x="-95.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC 230 V</text>
+    <text x="-87.00" y="-48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Safety Transformer 40 W</text>
+    <rect x="-47.00" y="-24.00" width="30.00" height="8.00" stroke="black" fill="none" />
+    <rect x="-10.00" y="-20.00" width="15.00" height="60.00" stroke="black" fill="black" />
+    <line x1="-10.00" y1="-20.00" x2="-97.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-97.00" y1="10.00" x2="-10.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-97.00" y1="40.00" x2="-10.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-20.00" x2="10.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-20.00" x2="77.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="10.00" x2="77.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="40.00" x2="77.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="-100.00" y1="-60.00" x2="80.00" y2="-60.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-100.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="AC230V" data-orientation="w" />
+    <circle class="qet-terminal" cx="80.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="AC24V" data-orientation="e" />
+    <circle class="qet-terminal" cx="80.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="AC12V" data-orientation="e" />
+    <circle class="qet-terminal" cx="-100.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="w" />
+    <circle class="qet-terminal" cx="80.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="AC0V" data-orientation="e" />
+    <circle class="qet-terminal" cx="-100.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="AC110V" data-orientation="w" />
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-29.0 -19.0 60.0 40.0" data-name="Backflow">
+  <title>Backflow</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="0.00" y2="11.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-17,-7 -17,7 -6,0" stroke="black" fill="none" />
+    <rect x="-25.00" y="-15.00" width="50.00" height="30.00" stroke="black" fill="none" />
+    <text x="-18.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">disconnecteur</text>
+    <ellipse cx="-22.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="0.00" x2="-21.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="18.00" y1="0.00" x2="22.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="23.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <rect x="16.00" y="-7.00" width="1.00" height="14.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="-7.00" width="1.00" height="14.00" stroke="black" fill="none" />
+    <polygon points="5,-7 5,7 16,0" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="23.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

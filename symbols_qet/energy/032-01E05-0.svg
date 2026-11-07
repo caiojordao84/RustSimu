@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-21.0 -20.0 60.0 40.0" data-name="PE PP left">
+  <title>PE PP left</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="17,-13 17,13 33,13 33,-13" stroke="black" fill="gray" />
+    <line x1="0.00" y1="-5.00" x2="16.00" y2="-5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="5.00" x2="16.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="-8.00" x2="33.00" y2="-8.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="0.00" x2="33.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="0,11 -10,8 -10,-8 0,-11" stroke="black" fill="white" />
+    <polygon points="0,12 0,-12 16,-12 16,12" stroke="black" fill="none" />
+    <path d="M 2.00 -14.00 A 1.00 2.00 0 0 0 1.00 -12.00" stroke="black" fill="none" />
+    <path d="M 1.00 12.00 A 1.00 2.00 0 0 0 2.00 14.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="14.00" x2="16.00" y2="14.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="-14.00" x2="16.00" y2="-14.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="8.00" x2="33.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="16.00" y1="-13.00" x2="16.00" y2="13.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

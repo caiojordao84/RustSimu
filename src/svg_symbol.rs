@@ -126,6 +126,12 @@ pub fn resolve_svg_path(rel_path: &str) -> PathBuf {
     if p_manifest.exists() {
         return p_manifest;
     }
+    // Se não encontrou diretamente, tenta resolver via dicionário canônico D2 (ID 5hex ou slug)
+    if let Some(dict) = crate::canonical::global_dictionary() {
+        if let Some(resolved) = dict.resolve_svg_path(rel_path, None) {
+            return resolved;
+        }
+    }
     p.to_path_buf()
 }
 
@@ -167,6 +173,35 @@ pub fn get_parsed_svg(path_str: &str) -> Option<ParsedSvgSymbol> {
 
     if let Ok(mut guard) = cache.lock() {
         guard.insert(key, parsed.clone());
+    }
+
+    Some(parsed)
+}
+
+/// Obtém um símbolo SVG compilado do cache ou disco a partir do ID canônico/slug e estado ('0', '1', etc.).
+pub fn get_parsed_canonical_svg(id_or_slug: &str, state: char) -> Option<ParsedSvgSymbol> {
+    let cache_key = format!("canonical:{}:{}", id_or_slug.trim(), state);
+    let cache = PARSED_CACHE.get_or_init(|| Mutex::new(HashMap::new()));
+    {
+        if let Ok(guard) = cache.lock() {
+            if let Some(parsed) = guard.get(&cache_key) {
+                return Some(parsed.clone());
+            }
+        }
+    }
+
+    let path = if let Some(dict) = crate::canonical::global_dictionary() {
+        dict.resolve_svg_path(id_or_slug, Some(state))
+    } else {
+        None
+    }?;
+
+    let content = std::fs::read_to_string(&path).ok()?;
+    let parsed = parse_svg_content(&content).ok()?;
+
+    if let Ok(mut guard) = cache.lock() {
+        guard.insert(cache_key, parsed.clone());
+        guard.insert(path.to_string_lossy().to_string(), parsed.clone());
     }
 
     Some(parsed)

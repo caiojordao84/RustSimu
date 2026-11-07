@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-17.0 -21.0 40.0 50.0" data-name="PV panel">
+  <title>PV panel</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="10.00" y1="-15.00" x2="10.00" y2="13.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="18.00" x2="5.00" y2="13.00" stroke="black" fill="none" />
+    <text x="7.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L -</text>
+    <line x1="10.00" y1="8.00" x2="15.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="18.00" x2="-5.00" y2="13.00" stroke="black" fill="none" />
+    <text x="-12.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
+    <text x="12.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <line x1="-10.00" y1="-15.00" x2="-10.00" y2="13.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-15.00" x2="0.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-7.00" x2="10.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-15.00" x2="10.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="13.00" x2="10.00" y2="13.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="5.00" cy="18.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="15.00" cy="8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-5.00" cy="18.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

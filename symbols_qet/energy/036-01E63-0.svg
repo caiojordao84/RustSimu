@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-31.0 -28.0 60.0 50.0" data-name="carrete-toma-bridas">
+  <title>carrete-toma-bridas</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-22.20" y="-16.45" width="3.50" height="34.70" stroke="black" fill="none" />
+    <path d="M 15.61 -6.41 A 2.25 2.74 0 0 0 17.86 -9.15" stroke="black" fill="none" />
+    <path d="M -18.13 -9.15 A 2.25 2.74 0 0 0 -15.88 -6.41" stroke="black" fill="none" />
+    <path d="M 17.86 12.74 A 2.25 2.74 0 0 0 15.61 10.00" stroke="black" fill="none" />
+    <path d="M -15.88 10.00 A 2.25 2.74 0 0 0 -18.13 12.74" stroke="black" fill="none" />
+    <rect x="17.80" y="-16.45" width="3.50" height="34.70" stroke="black" fill="none" />
+    <line x1="-15.00" y1="10.00" x2="14.67" y2="10.00" stroke="black" fill="none" />
+    <line x1="-15.00" y1="-6.50" x2="15.00" y2="-6.50" stroke="black" fill="none" />
+    <rect x="-1.00" y="-18.00" width="2.00" height="11.00" stroke="black" fill="none" />
+    <rect x="-3.00" y="-20.00" width="6.00" height="2.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

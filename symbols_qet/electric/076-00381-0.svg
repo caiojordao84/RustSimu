@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-20.0 -20.0 40.0 60.0" data-name="Fan heater hairdryer">
+  <title>Fan heater hairdryer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -5.50 12.59 A 2.00 2.00 0 0 0 -5.50 16.59" stroke="black" fill="none" />
+    <line x1="5.00" y1="12.56" x2="-5.00" y2="16.56" stroke="black" fill="none" />
+    <line x1="-5.00" y1="12.56" x2="5.00" y2="16.56" stroke="black" fill="none" />
+    <path d="M 5.56 16.59 A 2.00 2.00 0 0 0 5.56 12.59" stroke="black" fill="none" />
+    <rect x="-12.00" y="-1.00" width="6.00" height="6.00" stroke="black" fill="none" />
+    <rect x="6.00" y="-1.00" width="6.00" height="6.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-1.00" width="6.00" height="6.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="-1.00" width="6.00" height="6.00" stroke="black" fill="none" />
+    <polygon points="-12,-1 -12,23 12,23 12,-1" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-10.00" x2="-10.00" y2="-1.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="30.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-2.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

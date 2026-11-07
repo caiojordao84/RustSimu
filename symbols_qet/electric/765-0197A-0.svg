@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="340.0" height="250.0" viewBox="-174.0 -122.0 340.0 250.0" data-name="E46ADCN - Modular BUS power supply 230V~ 27V= 1.2A - 8 modules">
+  <title>E46ADCN - Modular BUS power supply 230V~ 27V= 1.2A - 8 modules</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-160.00" y="-120.00" width="320.00" height="240.00" stroke="black" fill="white" />
+    <rect x="60.50" y="70.50" width="9.00" height="9.00" stroke="black" fill="none" />
+    <text x="90.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4W20</text>
+    <rect x="57.50" y="67.50" width="15.00" height="15.00" stroke="black" fill="none" />
+    <ellipse cx="-150.00" cy="110.00" rx="2.50" ry="2.50" stroke="black" fill="#dcdcdc" />
+    <text x="-152.00" y="106.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N    L</text>
+    <ellipse cx="-140.00" cy="110.00" rx="2.50" ry="2.50" stroke="black" fill="#dcdcdc" />
+    <line x1="-152.00" y1="111.00" x2="-148.00" y2="109.00" stroke="black" fill="none" />
+    <rect x="76.00" y="-34.00" width="21.00" height="11.00" stroke="black" fill="black" />
+    <line x1="160.00" y1="100.00" x2="-160.00" y2="100.00" stroke="black" fill="none" />
+    <line x1="-142.00" y1="111.00" x2="-138.00" y2="109.00" stroke="black" fill="none" />
+    <text x="-151.00" y="98.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PRI</text>
+    <ellipse cx="126.00" cy="109.00" rx="2.50" ry="2.50" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="133.00" cy="109.00" rx="2.50" ry="2.50" stroke="black" fill="#dcdcdc" />
+    <text x="122.00" y="98.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCS</text>
+    <line x1="160.00" y1="-100.00" x2="-160.00" y2="-100.00" stroke="black" fill="none" />
+    <polyline points="110,90 -158,90 -158,55" stroke="#d40000" fill="none" />
+    <text x="68.00" y="-38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MyHOME</text>
+    <text x="76.00" y="-25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S C S</text>
+    <line x1="124.00" y1="110.00" x2="128.00" y2="108.00" stroke="black" fill="none" />
+    <line x1="131.00" y1="110.00" x2="135.00" y2="108.00" stroke="black" fill="none" />
+    <text x="-155.00" y="70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">230 ±10%V~     50-60Hz     I MAX=450mA
+uscita 27V⎓        1,2A
+T=5÷40°C</text>
+    <text x="80.00" y="80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IP30</text>
+    <circle class="qet-terminal" cx="-140.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="130.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-150.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

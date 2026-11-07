@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -14.0 40.0 40.0" data-name="Energy management">
+  <title>Energy management</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 1.80 -1.48 A 1.80 1.05 0 0 0 -1.80 -1.48" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.88" rx="3.60" ry="2.10" stroke="black" fill="black" />
+    <line x1="-1.80" y1="-1.12" x2="-1.80" y2="10.78" stroke="black" fill="none" />
+    <line x1="1.80" y1="-1.12" x2="1.80" y2="10.78" stroke="black" fill="none" />
+    <rect x="-1.80" y="5.88" width="3.60" height="5.25" stroke="black" fill="black" />
+    <text x="1.00" y="1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">°C</text>
+    <rect x="-12.00" y="-6.00" width="25.00" height="23.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.00" cy="-6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

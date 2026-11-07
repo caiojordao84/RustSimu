@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="140.0" viewBox="-30.0 -25.0 60.0 140.0" data-name="Pressostat">
+  <title>Pressostat</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-9.00" y="24.00" width="18.00" height="5.00" stroke="black" fill="none" />
+    <ellipse cx="4.00" cy="14.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="17.50" ry="17.50" stroke="black" fill="none" />
+    <line x1="-6.00" y1="23.00" x2="6.00" y2="23.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-0.20" rx="19.50" ry="19.50" stroke="black" fill="none" />
+    <line x1="-12.16" y1="-10.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.26" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <text x="-16.00" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-9.22" y="-9.51" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="5.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="13.00" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="8.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="-4.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">bar</text>
+    <text x="-11.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <line x1="6.00" y1="23.00" x2="6.00" y2="19.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="23.00" x2="-6.00" y2="19.00" stroke="black" fill="none" />
+    <rect x="-4.00" y="23.00" width="8.00" height="7.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="30.00" x2="4.00" y2="29.00" stroke="black" fill="none" />
+    <line x1="-4.00" y1="24.00" x2="-2.00" y2="23.00" stroke="black" fill="none" />
+    <ellipse cx="-4.00" cy="14.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="14.00" x2="-3.00" y2="14.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="80.00" rx="10.00" ry="10.00" stroke="black" fill="black" />
+    <text x="9.00" y="71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ON</text>
+    <text x="-22.00" y="71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OFF</text>
+    <line x1="0.00" y1="80.00" x2="6.00" y2="73.00" stroke="#888888" fill="none" />
+    <ellipse cx="0.00" cy="50.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="50.00" x2="2.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="48.00" x2="0.00" y2="52.00" stroke="black" fill="none" />
+    <path d="M -25.00 30.00 A 3.00 3.00 0 0 0 -28.00 33.00" stroke="black" fill="none" />
+    <path d="M 28.00 33.00 A 3.00 3.00 0 0 0 25.00 30.00" stroke="black" fill="none" />
+    <path d="M 25.00 105.00 A 3.00 3.00 0 0 0 28.00 102.00" stroke="black" fill="none" />
+    <path d="M -28.00 102.00 A 3.00 3.00 0 0 0 -25.00 105.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="30.00" x2="24.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="28.00" y1="34.00" x2="28.00" y2="101.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="105.00" x2="-24.00" y2="105.00" stroke="black" fill="none" />
+    <line x1="-28.00" y1="101.00" x2="-28.00" y2="34.00" stroke="black" fill="none" />
+    <line x1="4.00" y1="20.00" x2="6.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="3.00" y1="14.00" x2="5.00" y2="14.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="105.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

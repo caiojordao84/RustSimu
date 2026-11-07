@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -17.0 30.0 40.0" data-name="Clock thermometer">
+  <title>Clock thermometer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-1.13" y1="8.77" x2="2.90" y2="8.36" stroke="black" fill="none" />
+    <line x1="-1.13" y1="8.16" x2="2.90" y2="7.75" stroke="black" fill="none" />
+    <line x1="-2.60" y1="6.72" x2="-2.60" y2="4.71" stroke="black" fill="none" />
+    <ellipse cx="2.05" cy="-2.40" rx="8.05" ry="7.50" stroke="black" fill="none" />
+    <rect x="-0.90" y="6.94" width="4.34" height="3.25" stroke="black" fill="none" />
+    <line x1="-2.60" y1="6.94" x2="5.90" y2="6.94" stroke="black" fill="none" />
+    <line x1="5.90" y1="6.77" x2="5.90" y2="5.08" stroke="black" fill="none" />
+    <ellipse cx="2.10" cy="-2.39" rx="8.95" ry="8.12" stroke="black" fill="none" />
+    <line x1="1.87" y1="-2.60" x2="-3.27" y2="-6.45" stroke="black" fill="none" />
+    <line x1="-3.27" y1="-6.66" x2="1.87" y2="-2.80" stroke="black" fill="none" />
+    <ellipse cx="2.32" cy="-2.19" rx="0.67" ry="0.61" stroke="black" fill="none" />
+    <text x="-5.29" y="-2.19" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">20</text>
+    <text x="-1.93" y="-6.45" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">30</text>
+    <text x="3.89" y="-6.86" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">40</text>
+    <text x="6.85" y="-2.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">50</text>
+    <text x="5.00" y="2.93" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">60</text>
+    <line x1="-1.13" y1="9.58" x2="2.90" y2="9.25" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="1.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="100.0" viewBox="-56.0 -50.0 70.0 100.0" data-name="Magneto-thermal circuit breaker GV 2P">
+  <title>Magneto-thermal circuit breaker GV 2P</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-20,14 -20,10 -15,10 -15,4 -20,4 -20,-6 -27,-25" stroke="black" fill="none" />
+    <text x="-24.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I></text>
+    <polyline points="0,14 0,10 5,10 5,4 0,4 0,-6 -7,-25" stroke="black" fill="none" />
+    <text x="4.00" y="-37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="4.00" y="40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <rect x="-30.00" y="0.00" width="40.00" height="28.00" stroke="black" fill="none" />
+    <text x="-16.00" y="40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-4.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I></text>
+    <line x1="-18.00" y1="-34.00" x2="-22.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="-22.00" y1="-34.00" x2="-18.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="2.00" y1="-34.00" x2="-2.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-34.00" x2="2.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="14.00" x2="10.00" y2="14.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="0.00" x2="-10.00" y2="28.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="0.00" x2="10.00" y2="28.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="40.00" x2="-20.00" y2="29.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="40.00" x2="0.00" y2="29.00" stroke="black" fill="none" />
+    <text x="-16.00" y="-37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <line x1="-20.00" y1="-27.00" x2="-20.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-27.00" x2="0.00" y2="-40.00" stroke="black" fill="none" />
+    <rect x="-46.00" y="-22.00" width="12.00" height="12.00" stroke="black" fill="none" />
+    <line x1="-34.00" y1="-16.00" x2="-53.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="-53.00" y1="-20.00" x2="-53.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-10.00" x2="-40.00" y2="-22.00" stroke="black" fill="none" />
+    <line x1="-34.00" y1="-16.00" x2="-3.40" y2="-16.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="-30,21 -40,21 -40,-10" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-30.00" y1="7.00" x2="-40.00" y2="7.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-22.00" y1="-27.00" x2="-18.00" y2="-27.00" stroke="black" fill="none" />
+    <line x1="-2.00" y1="-27.00" x2="2.00" y2="-27.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
+  </g>
+</svg>

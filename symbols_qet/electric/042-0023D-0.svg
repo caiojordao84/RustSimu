@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-23.0 -40.0 50.0 60.0" data-name="Magnetic sensor NO">
+  <title>Magnetic sensor NO</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-17,-16 -17,-14 -19,-14 -19,-8 -17,-8 -17,-6" stroke="black" fill="none" />
+    <polyline points="-17,-16 -21,-16 -21,-6 -17,-6" stroke="black" fill="none" />
+    <line x1="0.00" y1="-11.00" x2="16.00" y2="-11.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="15,-20 20,0 20,10" stroke="black" fill="none" />
+    <line x1="20.00" y1="-30.00" x2="20.00" y2="-20.00" stroke="black" fill="none" />
+    <polygon points="-16,-11 -10,-17 -4,-11 -10,-5" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-15.00" x2="-9.00" y2="-7.00" stroke="black" fill="none" />
+    <line x1="-11.00" y1="-15.00" x2="-11.00" y2="-7.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

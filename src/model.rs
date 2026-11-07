@@ -340,9 +340,30 @@ pub struct SchematicItem {
     /// UUID original do elemento no arquivo .qet
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub qet_uuid: Option<String>,
+    /// Identificador Canônico D2 (5 hex maiúsculo, ex: "00020").
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub symbol_id: Option<String>,
+    /// Estado dinâmico do símbolo D2 (1 hex maiúsculo, ex: '0', '1').
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub symbol_state: Option<char>,
 }
 
 impl SchematicItem {
+    /// Retorna o identificador de símbolo canônico ou slug/tipo legado.
+    pub fn symbol_id_or_slug(&self) -> Option<&str> {
+        self.symbol_id.as_deref().or(self.qet_type.as_deref())
+    }
+
+    /// Retorna o código de estado do símbolo ('0' como padrão).
+    pub fn symbol_state_code(&self) -> char {
+        self.symbol_state.unwrap_or('0')
+    }
+
+    /// Define o símbolo canônico e seu estado inicial.
+    pub fn set_symbol(&mut self, symbol_id: &str, state: Option<char>) {
+        self.symbol_id = Some(symbol_id.trim().to_ascii_uppercase());
+        self.symbol_state = Some(state.unwrap_or('0').to_ascii_uppercase());
+    }
     /// Retorna o estado dinâmico de simulação deste item a partir de um `SimState`.
     pub fn sim(&self, sim: &SimState) -> ItemSimState {
         sim.get(self.id)
@@ -442,6 +463,8 @@ impl SchematicItem {
             trailing_str: String::new(),
             qet_type: None,
             qet_uuid: None,
+            symbol_id: None,
+            symbol_state: None,
         }
     }
 
@@ -479,6 +502,8 @@ impl SchematicItem {
             trailing_str: String::new(),
             qet_type: None,
             qet_uuid: None,
+            symbol_id: None,
+            symbol_state: None,
         }
     }
 }

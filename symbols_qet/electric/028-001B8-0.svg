@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210.0" height="140.0" viewBox="-113.0 -54.0 210.0 140.0" data-name="Frequency_converter">
+  <title>Frequency_converter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-52.1,-20.17 -56.7,-13.3 -47.49,-13.3" stroke="black" fill="none" />
+    <text x="-62.00" y="-41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Rectifier</text>
+    <text x="-9.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC Voltage
+Intermediate</text>
+    <text x="42.00" y="-41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Inverter</text>
+    <polygon points="-39.45,-20.17 -44.05,-13.3 -34.84,-13.3" stroke="black" fill="none" />
+    <polygon points="-26.8,-20.17 -31.4,-13.3 -22.19,-13.3" stroke="black" fill="none" />
+    <line x1="33.65" y1="28.10" x2="36.45" y2="28.10" stroke="black" fill="none" />
+    <line x1="32.50" y1="-26.90" x2="35.30" y2="-26.90" stroke="black" fill="none" />
+    <rect x="29.55" y="-36.00" width="51.75" height="71.00" stroke="black" fill="none" />
+    <text x="-106.00" y="75.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Control Signals</text>
+    <text x="-106.00" y="54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Actual Signals</text>
+    <line x1="-24.00" y1="35.87" x2="-24.00" y2="50.14" stroke="black" fill="none" />
+    <line x1="70.00" y1="35.87" x2="70.00" y2="50.14" stroke="black" fill="none" />
+    <line x1="15.75" y1="1.54" x2="15.75" y2="23.37" stroke="black" fill="none" />
+    <line x1="33.90" y1="-28.00" x2="33.90" y2="-25.75" stroke="black" fill="none" />
+    <line x1="40.00" y1="35.87" x2="40.00" y2="50.14" stroke="black" fill="none" />
+    <line x1="-51.33" y1="24.13" x2="69.92" y2="24.13" stroke="black" fill="none" />
+    <line x1="10.00" y1="-29.00" x2="10.00" y2="-24.00" stroke="black" fill="none" />
+    <path d="M 5.40 -29.42 A 2.30 1.50 0 0 0 0.80 -29.58" stroke="black" fill="none" />
+    <path d="M 0.80 -29.42 A 2.30 1.50 0 0 0 -3.80 -29.58" stroke="black" fill="none" />
+    <path d="M 10.00 -29.42 A 2.30 1.50 0 0 0 5.40 -29.58" stroke="black" fill="none" />
+    <line x1="12.30" y1="1.66" x2="19.20" y2="1.66" stroke="black" fill="none" />
+    <line x1="14.10" y1="28.10" x2="16.90" y2="28.10" stroke="black" fill="none" />
+    <line x1="70.95" y1="1.14" x2="70.95" y2="-24.00" stroke="black" fill="none" />
+    <line x1="4.25" y1="-33.00" x2="10.00" y2="-33.00" stroke="black" fill="none" />
+    <line x1="70.95" y1="24.13" x2="70.95" y2="6.86" stroke="black" fill="none" />
+    <line x1="58.30" y1="23.91" x2="58.30" y2="-0.08" stroke="black" fill="none" />
+    <line x1="69.80" y1="0.57" x2="74.40" y2="4.29" stroke="black" fill="none" />
+    <line x1="-56.70" y1="-19.85" x2="-47.49" y2="-19.85" stroke="black" fill="none" />
+    <polygon points="-52.1,8.83 -56.7,15.7 -47.49,15.7" stroke="black" fill="none" />
+    <rect x="-64.75" y="-36.00" width="51.75" height="71.00" stroke="black" fill="none" />
+    <line x1="58.30" y1="-6.22" x2="58.30" y2="-23.79" stroke="black" fill="none" />
+    <line x1="-39.45" y1="24.13" x2="-39.45" y2="-24.00" stroke="black" fill="none" />
+    <polygon points="-39.45,8.83 -44.05,15.7 -34.84,15.7" stroke="black" fill="none" />
+    <line x1="-26.80" y1="24.13" x2="-26.80" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-31.24" y1="9.06" x2="-22.37" y2="9.06" stroke="black" fill="none" />
+    <line x1="44.50" y1="-12.88" x2="44.50" y2="-23.91" stroke="black" fill="none" />
+    <polygon points="-26.8,8.83 -31.4,15.7 -22.19,15.7" stroke="black" fill="none" />
+    <line x1="-43.89" y1="9.06" x2="-35.00" y2="9.06" stroke="black" fill="none" />
+    <line x1="-44.05" y1="-19.85" x2="-34.84" y2="-19.85" stroke="black" fill="none" />
+    <line x1="-31.40" y1="-19.85" x2="-22.19" y2="-19.85" stroke="black" fill="none" />
+    <line x1="-52.10" y1="24.13" x2="-52.10" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-56.54" y1="8.81" x2="-47.67" y2="8.81" stroke="black" fill="none" />
+    <line x1="-52.10" y1="-24.00" x2="-9.55" y2="-24.00" stroke="black" fill="none" />
+    <path d="M -3.80 -29.42 A 2.30 1.50 0 0 0 -8.40 -29.58" stroke="black" fill="none" />
+    <line x1="-8.40" y1="-29.00" x2="-8.40" y2="-24.00" stroke="black" fill="none" />
+    <line x1="10.85" y1="-24.00" x2="69.94" y2="-24.00" stroke="black" fill="none" />
+    <line x1="15.75" y1="-23.65" x2="15.75" y2="-2.19" stroke="black" fill="none" />
+    <line x1="12.30" y1="-1.58" x2="19.20" y2="-1.58" stroke="black" fill="none" />
+    <line x1="44.50" y1="24.13" x2="44.50" y2="-5.00" stroke="black" fill="none" />
+    <line x1="43.35" y1="-13.65" x2="47.95" y2="-10.20" stroke="black" fill="none" />
+    <line x1="48.00" y1="-10.20" x2="90.50" y2="-10.20" stroke="black" fill="none" />
+    <line x1="74.59" y1="4.29" x2="90.30" y2="4.29" stroke="black" fill="none" />
+    <line x1="57.15" y1="0.41" x2="62.90" y2="-3.08" stroke="black" fill="none" />
+    <line x1="62.91" y1="-3.08" x2="90.49" y2="-3.08" stroke="black" fill="none" />
+    <line x1="-8.40" y1="-33.00" x2="-2.65" y2="-33.00" stroke="black" fill="none" />
+    <line x1="-52.10" y1="-10.00" x2="-80.85" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-39.45" y1="-4.00" x2="-80.85" y2="-4.00" stroke="black" fill="none" />
+    <line x1="-26.80" y1="2.00" x2="-80.85" y2="2.00" stroke="black" fill="none" />
+    <line x1="14.10" y1="-26.90" x2="16.90" y2="-26.90" stroke="black" fill="none" />
+    <line x1="15.50" y1="-28.00" x2="15.50" y2="-25.75" stroke="black" fill="none" />
+    <rect x="-65.00" y="51.00" width="148.00" height="24.00" stroke="black" fill="none" />
+    <text x="-48.00" y="67.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Control Electronics</text>
+    <line x1="-54.00" y1="35.87" x2="-54.00" y2="50.14" stroke="black" fill="none" />
+    <line x1="-80.93" y1="58.00" x2="-65.07" y2="58.00" stroke="black" fill="none" />
+    <line x1="-83.81" y1="68.00" x2="-65.21" y2="68.00" stroke="black" fill="none" />
+    <line x1="-84.00" y1="58.00" x2="-80.00" y2="58.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-80.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-80.00" cy="-4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-80.00" cy="2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="89.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="89.00" cy="-3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="89.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-84.00" cy="58.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-83.00" cy="68.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="40.0" viewBox="-9.0 -22.0 20.0 40.0" data-name="toma-instrumento">
+  <title>toma-instrumento</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-5.00" y1="-10.00" x2="5.00" y2="-12.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <line x1="-5.00" y1="-14.00" x2="5.00" y2="-16.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <line x1="-5.00" y1="-8.00" x2="5.00" y2="-10.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <rect x="-2.50" y="-6.00" width="5.00" height="15.00" stroke="black" fill="none" />
+    <rect x="-7.50" y="-16.00" width="15.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-5.00" y="-15.00" width="10.00" height="7.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <line x1="-5.00" y1="-12.00" x2="5.00" y2="-14.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="s" />
+  </g>
+</svg>

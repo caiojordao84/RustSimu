@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="70.0" viewBox="-35.0 -40.0 70.0 70.0" data-name="Magnet valve with connector">
+  <title>Magnet valve with connector</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="15.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <path d="M 3.00 -23.00 A 3.00 3.00 0 0 0 -3.00 -23.00" stroke="black" fill="none" />
+    <path d="M 23.00 -23.00 A 3.00 3.00 0 0 0 17.00 -23.00" stroke="black" fill="none" />
+    <rect x="19.00" y="-23.00" width="2.00" height="6.00" stroke="black" fill="black" />
+    <text x="-22.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <rect x="-1.00" y="-23.00" width="2.00" height="6.00" stroke="black" fill="black" />
+    <line x1="0.00" y1="-30.00" x2="0.00" y2="-26.00" stroke="black" fill="none" />
+    <text x="-1.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <line x1="20.00" y1="-30.00" x2="20.00" y2="-26.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="4.00" x2="10.00" y2="16.00" stroke="black" fill="none" />
+    <polyline points="10,10 20,10 20,-6" stroke="black" fill="none" stroke-dasharray="4,2,1.5,2" />
+    <path d="M -17.00 -23.00 A 3.00 3.00 0 0 0 -23.00 -23.00" stroke="black" fill="none" />
+    <rect x="-21.00" y="-23.00" width="2.00" height="6.00" stroke="black" fill="black" />
+    <rect x="-30.00" y="-20.00" width="60.00" height="45.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-30.00" x2="-20.00" y2="-26.00" stroke="black" fill="none" />
+    <polygon points="-18,12 -18,20 -2,12 -2,20" stroke="black" fill="none" />
+    <rect x="-14.00" y="-7.00" width="8.00" height="14.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-4.00" x2="-14.00" y2="4.00" stroke="black" fill="none" />
+    <polyline points="-20,-8 -20,0 -14,0" stroke="black" fill="none" />
+    <polyline points="-6,0 0,0 0,-8" stroke="black" fill="none" />
+    <line x1="-10.00" y1="7.00" x2="-10.00" y2="16.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

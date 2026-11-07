@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="140.0" viewBox="-60.0 -137.0 120.0 140.0" data-name="Neutral point of a generator (multi-line representation)">
+  <title>Neutral point of a generator (multi-line representation)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="0.00" y2="-30.00" stroke="black" fill="none" />
+    <polyline points="-20,-37 -20,0 20,0 20,-37" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-60.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-90.00" x2="0.00" y2="-120.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-110.00" x2="50.00" y2="-110.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-50.00" x2="-10.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-50.00" x2="0.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-50.00" x2="10.00" y2="-40.00" stroke="black" fill="none" />
+    <text x="-8.00" y="-65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GS</text>
+    <line x1="-50.00" y1="-120.00" x2="50.00" y2="-120.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-130.00" x2="50.00" y2="-130.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-82.00" x2="-20.00" y2="-130.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="-82.00" x2="20.00" y2="-110.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="50.00" cy="-130.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="50.00" cy="-110.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-50.00" cy="-110.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-50.00" cy="-130.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-50.00" cy="-120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="50.00" cy="-120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

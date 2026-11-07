@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="210.0" viewBox="-50.0 -101.0 100.0 210.0" data-name="Combined ball ECS">
+  <title>Combined ball ECS</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="20,-90 20,20 -30,10 30,6 -30,0 30,-4 -30,-6 30,-8 -30,-10 30,-12 -30,-14 30,-16 -30,-18 30,-20 -30,-22 30,-24 -30,-26 30,-28 -30,-30 30,-32 -30,-34 30,-36 -30,-38 30,-40 -30,-42 30,-44 -30,-46 30,-48 -30,-50 30,-52 -30,-54 30,-56 -30,-58 30,-60 -30,-62 30,-64 -30,-66 30,-68 -30,-70 30,-72 -20,-74 -20,-90" stroke="black" fill="none" />
+    <rect x="-45.00" y="-65.00" width="90.00" height="133.00" stroke="black" fill="none" />
+    <path d="M -45.00 68.50 A 45.00 16.50 0 0 0 45.00 68.50" stroke="black" fill="none" />
+    <text x="-35.00" y="95.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Ballon type SKS</text>
+    <polyline points="-40,76 -40,87 40,87 40,76" stroke="black" fill="none" />
+    <rect x="18.00" y="-92.00" width="4.00" height="4.00" stroke="black" fill="none" />
+    <rect x="-22.00" y="-92.00" width="4.00" height="4.00" stroke="black" fill="none" />
+    <ellipse cx="-40.00" cy="-60.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <polyline points="-26,-79 -26,-86 -30,-86 -30,-88 30,-88 30,-86 26,-86 26,-79" stroke="black" fill="none" />
+    <path d="M 45.00 -65.50 A 45.00 16.50 0 0 0 -45.00 -65.50" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="40.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="60.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="-50.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="-40.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="-40.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="-40.00" cy="60.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="-90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-40.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="40.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="20.00" cy="-90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

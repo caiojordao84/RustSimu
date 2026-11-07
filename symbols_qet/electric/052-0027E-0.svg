@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-30.0 -12.0 60.0 40.0" data-name="Horizontal wattmeter">
+  <title>Horizontal wattmeter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="7.5,7.5 10,15 10,20" stroke="black" fill="none" />
+    <polyline points="-7.5,7.5 -10,15 -10,20" stroke="black" fill="none" />
+    <polyline points="-5,-6 -2.5,6 0,0 2.5,6 5,-6" stroke="black" fill="none" />
+    <line x1="10.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="I_out" data-orientation="e" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="V2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="V1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="I_in" data-orientation="w" />
+  </g>
+</svg>

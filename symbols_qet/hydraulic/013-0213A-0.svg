@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="70.0" viewBox="-15.0 -40.0 80.0 70.0" data-name="Hydraulic motor 1">
+  <title>Hydraulic motor 1</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-10.00" y1="15.00" x2="29.00" y2="-24.00" stroke="black" fill="none" />
+    <polygon points="25,-23 28,-20 31,-26" stroke="black" fill="black" />
+    <polygon points="6,9 14,9 10,2" stroke="black" fill="black" />
+    <polygon points="6,-19 14,-19 10,-12" stroke="black" fill="black" />
+    <polygon points="34,6 37,3 40,9" stroke="black" fill="black" />
+    <ellipse cx="10.00" cy="-5.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <polygon points="34,-16 37,-13 40,-19" stroke="black" fill="black" />
+    <path d="M 36.39 -15.61 A 15.00 15.00 0 0 0 36.39 5.61" stroke="black" fill="none" />
+    <line x1="10.00" y1="10.00" x2="10.00" y2="20.00" stroke="black" fill="none" />
+    <line x1="25.00" y1="-4.00" x2="40.00" y2="-4.00" stroke="black" fill="none" />
+    <line x1="25.00" y1="-6.00" x2="40.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-30.00" x2="10.00" y2="-20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

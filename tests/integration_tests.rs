@@ -1,6 +1,7 @@
 use iced::Color;
 
 use cade_simu_rs::app::*;
+use cade_simu_rs::canonical::*;
 use cade_simu_rs::canvas_view::*;
 use cade_simu_rs::export::*;
 use cade_simu_rs::io::*;
@@ -4906,4 +4907,100 @@ fn test_export_real_svg_png_pdf_cad_scopes_and_cajetin_toggle() {
     assert!(pdf_bytes.starts_with(b"%PDF-1.4"));
     assert!(app.status_msg.contains("Projeto Completo"));
     let _ = std::fs::remove_file(temp_pdf);
+}
+
+#[test]
+fn test_canonical_catalog_validation_d2() {
+    let manifest_dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let symbols_dir = manifest_dir.join("symbols_qet");
+    assert!(symbols_dir.exists(), "symbols_qet deve existir");
+
+    let summary = check_canonical_catalog(&symbols_dir)
+        .expect("check_canonical_catalog deve validar todas as invariantes D2 com sucesso");
+
+    assert_eq!(summary.schema_version, 2, "Schema version deve ser 2");
+    assert_eq!(
+        summary.categories_count, 1018,
+        "Total de categorias deve ser 1018"
+    );
+    assert_eq!(
+        summary.elements_count, 9273,
+        "Total de elementos base deve ser 9273"
+    );
+    assert_eq!(
+        summary.svgs_checked, 9327,
+        "Total de SVGs no disco deve ser 9327"
+    );
+    assert!(
+        summary.warnings.is_empty(),
+        "Não deve haver avisos na verificação D2"
+    );
+    assert!(
+        summary.errors.is_empty(),
+        "Não deve haver erros na verificação D2"
+    );
+}
+
+#[test]
+fn test_canonical_dictionary_lookup_and_svg_resolution() {
+    let dict = global_dictionary().expect("Dicionário canônico global deve ser carregado");
+
+    // 1. Lookup por ID 5-hex
+    let motor = dict
+        .get_by_id("00001")
+        .expect("Elemento 00001 deve existir");
+    assert_eq!(motor.id, "00001");
+    assert_eq!(motor.kind, "motor");
+    assert_eq!(motor.family, "cade_native");
+    assert_eq!(motor.svg_base, "000-00001-0.svg");
+    assert_eq!(motor.states.len(), 2);
+    assert_eq!(motor.states[0].code, "0");
+    assert_eq!(motor.states[1].code, "1");
+
+    // 2. Lookup por slug legado
+    let by_slug = dict
+        .get_by_slug("1000_motor_assíncrono_trifásico")
+        .expect("Lookup por slug legado deve funcionar");
+    assert_eq!(by_slug.id, "00001");
+
+    // 3. Resolução de caminhos SVG para os estados
+    let path_repouso = dict
+        .resolve_svg_path("00001", Some('0'))
+        .expect("SVG de repouso deve existir");
+    assert!(path_repouso.exists());
+    assert!(path_repouso.to_string_lossy().ends_with("000-00001-0.svg"));
+
+    let path_ativo = dict
+        .resolve_svg_path("00001", Some('1'))
+        .expect("SVG de estado ativo deve existir");
+    assert!(path_ativo.exists());
+    assert!(path_ativo.to_string_lossy().ends_with("000-00001-1.svg"));
+
+    // 4. Integração com get_parsed_svg e get_parsed_canonical_svg
+    let parsed_base = cade_simu_rs::svg_symbol::get_parsed_svg("00001")
+        .expect("get_parsed_svg deve carregar elemento por ID canônico");
+    assert!(!parsed_base.shapes.is_empty());
+
+    let parsed_active = cade_simu_rs::svg_symbol::get_parsed_canonical_svg("00001", '1')
+        .expect("get_parsed_canonical_svg deve carregar variante de estado");
+    assert!(!parsed_active.shapes.is_empty());
+
+    // 5. Verificação em SchematicItem
+    let mut item = SchematicItem::new_symbol(10, 1000, 10, 20, "-M1");
+    assert_eq!(item.symbol_id, None);
+    assert_eq!(item.symbol_state_code(), '0');
+
+    item.set_symbol("00001", Some('1'));
+    assert_eq!(item.symbol_id.as_deref(), Some("00001"));
+    assert_eq!(item.symbol_state, Some('1'));
+    assert_eq!(item.symbol_id_or_slug(), Some("00001"));
+    assert_eq!(item.symbol_state_code(), '1');
+
+    // 6. Busca textual
+    let results = dict.search("trifásico");
+    assert!(
+        !results.is_empty(),
+        "Busca textual por 'trifásico' deve retornar elementos"
+    );
+    assert!(results.iter().any(|e| e.id == "00001"));
 }

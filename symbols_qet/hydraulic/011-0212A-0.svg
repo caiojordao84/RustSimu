@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-20.0 -31.0 40.0 60.0" data-name="Pressostat">
+  <title>Pressostat</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-15.00" y="-16.00" width="30.00" height="30.00" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="-8.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <polyline points="-4,-16 4,-18 -4,-20 4,-22 -4,-24 4,-26" stroke="black" fill="none" />
+    <line x1="8.00" y1="-18.00" x2="-8.00" y2="-24.00" stroke="black" fill="black" />
+    <ellipse cx="-10.00" cy="6.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <ellipse cx="9.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="0.00" x2="-10.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="14.00" x2="0.00" y2="18.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="18.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

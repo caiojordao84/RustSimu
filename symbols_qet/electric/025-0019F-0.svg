@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="60.0" viewBox="-50.0 -30.0 70.0 60.0" data-name="Three-phase Autotransformer Yd">
+  <title>Three-phase Autotransformer Yd</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -10.00 -5.00 A 2.50 2.50 0 0 0 -10.00 -10.00" stroke="black" fill="none" />
+    <text x="2.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C2</text>
+    <text x="0.17" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C1</text>
+    <text x="-19.42" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B1</text>
+    <text x="-17.59" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B2</text>
+    <path d="M -30.00 -5.00 A 2.50 2.50 0 0 0 -30.00 -10.00" stroke="black" fill="none" />
+    <polyline points="-40,20 -40,0 -30,0" stroke="black" fill="none" />
+    <text x="-38.17" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
+    <polyline points="-20,20 -20,0 -10,0" stroke="black" fill="none" />
+    <path d="M -10.00 -10.00 A 2.50 2.50 0 0 0 -10.00 -15.00" stroke="black" fill="none" />
+    <path d="M -30.00 -10.00 A 2.50 2.50 0 0 0 -30.00 -15.00" stroke="black" fill="none" />
+    <path d="M -10.00 0.00 A 2.50 2.50 0 0 0 -10.00 -5.00" stroke="black" fill="none" />
+    <path d="M -30.00 0.00 A 2.50 2.50 0 0 0 -30.00 -5.00" stroke="black" fill="none" />
+    <path d="M 10.00 -5.00 A 2.50 2.50 0 0 0 10.00 -10.00" stroke="black" fill="none" />
+    <path d="M -30.00 5.00 A 2.50 2.50 0 0 0 -30.00 0.00" stroke="black" fill="none" />
+    <path d="M -10.00 5.00 A 2.50 2.50 0 0 0 -10.00 0.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="10.00" x2="-10.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="10.00" x2="-30.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-15.00" x2="-10.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-15.00" x2="-30.00" y2="-20.00" stroke="black" fill="none" />
+    <path d="M 10.00 -10.00 A 2.50 2.50 0 0 0 10.00 -15.00" stroke="black" fill="none" />
+    <path d="M 10.00 0.00 A 2.50 2.50 0 0 0 10.00 -5.00" stroke="black" fill="none" />
+    <path d="M 10.00 5.00 A 2.50 2.50 0 0 0 10.00 0.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="10.00" x2="10.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-15.00" x2="10.00" y2="-20.00" stroke="black" fill="none" />
+    <polyline points="0,20 0,0 10,0" stroke="black" fill="none" />
+    <ellipse cx="-10.00" cy="10.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
+    <text x="-40.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
+    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="B2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="B1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-30.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="C2" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="C1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+  </g>
+</svg>

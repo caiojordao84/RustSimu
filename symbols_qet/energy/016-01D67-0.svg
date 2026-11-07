@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-26.0 -29.0 50.0 40.0" data-name="Filled deposit">
+  <title>Filled deposit</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -16.52 -19.00 A 17.85 3.94 0 0 0 19.18 -19.00" stroke="black" fill="none" />
+    <line x1="-16.52" y1="-19.90" x2="-16.52" y2="4.40" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-18.51" x2="-10.00" y2="-3.78" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <polygon points="-5.78,-20.89 -6.41,-19.57 -5.15,-19.57" stroke="black" fill="black" />
+    <path d="M 19.18 -20.13 A 17.85 3.94 0 0 0 -16.52 -20.13" stroke="black" fill="none" />
+    <path d="M -16.52 4.65 A 17.85 3.94 0 0 0 19.18 4.66" stroke="black" fill="none" />
+    <path d="M -16.52 -20.70 A 17.85 3.94 0 0 0 19.18 -20.70" stroke="black" fill="none" />
+    <line x1="-5.81" y1="-19.57" x2="-5.81" y2="-17.88" stroke="black" fill="none" />
+    <line x1="19.18" y1="-19.90" x2="19.18" y2="4.40" stroke="black" fill="none" />
+    <rect x="-10.00" y="-21.83" width="1.78" height="2.82" stroke="black" fill="none" />
+    <ellipse cx="-9.38" cy="0.14" rx="3.57" ry="3.38" stroke="#d40000" fill="none" />
+    <polygon points="-9.38,-2.87 -12.36,1.79 -6.41,1.79" stroke="#d40000" fill="#d40000" />
+    <line x1="-8.19" y1="-18.51" x2="-8.19" y2="-3.78" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <polygon points="12,-19 12,-21.26 16.2,-21.26 16.2,-20.14 13.23,-20.14 13.23,-19" stroke="black" fill="none" />
+    <ellipse cx="1.33" cy="-7.18" rx="17.85" ry="3.38" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <polygon points="12.67,-16.76 12,-17.88 13.3,-17.88" stroke="black" fill="black" />
+    <line x1="12.64" y1="-19.00" x2="12.64" y2="-17.32" stroke="black" fill="none" />
+    <line x1="-15.93" y1="0.14" x2="-12.95" y2="0.14" stroke="#d40000" fill="none" />
+    <circle class="qet-terminal" cx="-9.00" cy="-22.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="16.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

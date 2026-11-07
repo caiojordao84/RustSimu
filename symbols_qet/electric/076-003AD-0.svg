@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-13.0 -9.0 80.0 50.0" data-name="Roller shutter">
+  <title>Roller shutter</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="10.00" cy="16.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
+    <path d="M 56.95 4.83 A 6.05 5.50 0 0 0 56.95 4.83" stroke="black" fill="none" />
+    <text x="-1.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 ~</text>
+    <path d="M 32.75 -0.68 A 6.05 5.50 0 0 0 32.75 10.32" stroke="black" fill="none" />
+    <text x="6.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="32.75" y1="-0.68" x2="56.95" y2="4.83" stroke="black" fill="none" />
+    <line x1="63.00" y1="10.33" x2="63.00" y2="32.33" stroke="black" fill="none" />
+    <line x1="0.00" y1="4.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="63.00" y1="32.33" x2="38.80" y2="23.53" stroke="black" fill="none" />
+    <line x1="20.00" y1="0.00" x2="20.00" y2="4.00" stroke="black" fill="none" />
+    <line x1="38.80" y1="11.95" x2="38.80" y2="23.55" stroke="black" fill="none" />
+    <line x1="0.00" y1="27.00" x2="0.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="32.75" y1="10.33" x2="56.95" y2="15.83" stroke="black" fill="none" />
+    <path d="M 56.95 13.08 A 3.02 2.75 0 0 0 56.95 13.08" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="31.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="46.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="250.0" height="250.0" viewBox="-125.0 -122.0 250.0 250.0" data-name="Touch panel 1">
+  <title>Touch panel 1</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-100.00" y="-100.00" width="200.00" height="200.00" stroke="black" fill="none" />
+    <rect x="-120.00" y="-120.00" width="240.00" height="240.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-100.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="L+" data-orientation="s" />
+    <circle class="qet-terminal" cx="-80.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="L-" data-orientation="s" />
+    <circle class="qet-terminal" cx="-60.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="s" />
+  </g>
+</svg>

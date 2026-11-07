@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-29.0 -15.0 60.0 30.0" data-name="Manual valve">
+  <title>Manual valve</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-10.13" y1="0.00" x2="-19.50" y2="0.00" stroke="black" fill="none" />
+    <line x1="10.05" y1="0.00" x2="19.46" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-10.05,-10.05 -10.05,9.89 9.89,-10.05 9.89,9.81 -9.81,-10.05 -9.57,-9.81" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

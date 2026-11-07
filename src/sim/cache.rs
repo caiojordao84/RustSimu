@@ -27,6 +27,12 @@ impl NetworkCache {
             if let Some(ref qet) = item.qet_type {
                 qet.hash(&mut hasher);
             }
+            if let Some(ref sym_id) = item.symbol_id {
+                sym_id.hash(&mut hasher);
+            }
+            if let Some(st) = item.symbol_state {
+                st.hash(&mut hasher);
+            }
         }
         hasher.finish()
     }

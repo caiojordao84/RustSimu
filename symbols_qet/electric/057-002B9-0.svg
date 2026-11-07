@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="70.0" viewBox="-10.0 -35.0 20.0 70.0" data-name="Heating element">
+  <title>Heating element</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-25.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="15.00" x2="0.00" y2="25.00" stroke="black" fill="none" />
+    <rect x="-5.00" y="-15.00" width="10.00" height="30.00" stroke="black" fill="none" />
+    <polyline points="-5,-10 5,-10 5,-5 -5,-5 -5,0 5,0 5,5 -5,5 -5,10 5,10" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

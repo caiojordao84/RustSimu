@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="40.0" viewBox="-50.0 -27.0 100.0 40.0" data-name="Interchange">
+  <title>Interchange</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-40.00" y1="0.00" x2="40.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-40,10 -30,10 -10,-10 0,-10" stroke="black" fill="none" />
+    <line x1="20.00" y1="-10.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
+    <text x="15.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">n</text>
+    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

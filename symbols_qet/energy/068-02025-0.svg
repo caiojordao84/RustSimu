@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-23.0 -28.0 50.0 40.0" data-name="valv-exp-electr">
+  <title>valv-exp-electr</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-13.61" y1="-2.26" x2="-7.71" y2="-2.26" stroke="black" fill="none" />
+    <line x1="9.30" y1="-2.26" x2="17.88" y2="-2.26" stroke="black" fill="none" />
+    <polygon points="-7.3,-9.61 -7.3,5 8.14,-9.61 8.14,5" stroke="black" fill="none" />
+    <line x1="0.40" y1="-1.93" x2="0.40" y2="-8.49" stroke="black" fill="none" />
+    <ellipse cx="0.92" cy="-15.95" rx="6.84" ry="6.34" stroke="black" fill="none" />
+    <text x="-5.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TCE</text>
+    <polyline points="3.39,0.62 -0.17,5 -2.55,0.62" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="18.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-14.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

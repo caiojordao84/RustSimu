@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-15.0 -25.0 30.0 50.0" data-name="Socket cabinet">
+  <title>Socket cabinet</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-6.00" y1="-10.00" x2="-6.00" y2="-16.00" stroke="black" fill="none" />
+    <ellipse cx="-4.00" cy="0.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="8.00" ry="8.00" stroke="black" fill="none" />
+    <rect x="-10.00" y="-10.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="16.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="-10.00" x2="6.00" y2="-16.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-5.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
+    <ellipse cx="4.00" cy="0.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="6.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-6.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

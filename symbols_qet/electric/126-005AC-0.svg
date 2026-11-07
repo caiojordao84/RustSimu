@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="220.0" height="400.0" viewBox="-108.0 -200.0 220.0 400.0" data-name="EK1101 Coupler">
+  <title>EK1101 Coupler</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="105.00" y1="5.00" x2="26.00" y2="5.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="105.00" y1="78.00" x2="26.00" y2="78.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="76.00" cy="154.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
+    <path d="M -82.00 153.00 A 3.00 3.00 0 0 0 -82.00 147.00" stroke="green" fill="none" />
+    <line x1="76.00" y1="143.00" x2="76.00" y2="154.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="26.00" y1="143.00" x2="26.00" y2="154.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="-78.00" y="154.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EtherCAT OUT</text>
+    <path d="M 108.00 151.00 A 3.00 3.00 0 0 0 108.00 157.00" stroke="black" fill="none" />
+    <line x1="105.00" y1="154.00" x2="26.00" y2="154.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <path d="M -82.00 123.00 A 3.00 3.00 0 0 0 -82.00 117.00" stroke="green" fill="none" />
+    <rect x="-100.00" y="165.00" width="197.00" height="27.00" stroke="black" fill="gray" />
+    <ellipse cx="76.00" cy="5.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
+    <ellipse cx="76.00" cy="78.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
+    <path d="M 108.00 2.00 A 3.00 3.00 0 0 0 108.00 8.00" stroke="black" fill="none" />
+    <rect x="-89.00" y="119.00" width="8.00" height="2.00" stroke="green" fill="#00aa00" />
+    <path d="M 108.00 75.00 A 3.00 3.00 0 0 0 108.00 81.00" stroke="black" fill="none" />
+    <text x="55.00" y="-100.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="59.00" y="-17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <ellipse cx="76.00" cy="-90.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <text x="59.00" y="51.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="59.00" y="134.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-90.00" y="-160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2x RJ45 EtherCAT</text>
+    <ellipse cx="76.00" cy="60.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <text x="0.00" y="-100.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <text x="-90.00" y="-175.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Coupler</text>
+    <ellipse cx="76.00" cy="-10.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <ellipse cx="76.00" cy="140.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <text x="9.00" y="134.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <ellipse cx="26.00" cy="-90.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <text x="-95.00" y="175.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Beckhoff</text>
+    <text x="9.00" y="51.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="9.00" y="-17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <ellipse cx="26.00" cy="140.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <ellipse cx="26.00" cy="-10.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <ellipse cx="26.00" cy="60.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <text x="-95.00" y="185.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EL1101</text>
+    <rect x="-89.00" y="149.00" width="8.00" height="2.00" stroke="green" fill="#00aa00" />
+    <line x1="-100.00" y1="192.00" x2="-100.00" y2="-190.00" stroke="black" fill="none" />
+    <line x1="-100.00" y1="-190.00" x2="97.00" y2="-190.00" stroke="black" fill="none" />
+    <line x1="97.00" y1="192.00" x2="-100.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="97.00" y1="192.00" x2="97.00" y2="-190.00" stroke="black" fill="none" />
+    <line x1="26.00" y1="-6.00" x2="26.00" y2="5.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="76.00" y1="-6.00" x2="76.00" y2="5.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="76.00" y1="63.00" x2="76.00" y2="78.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="26.00" y1="63.00" x2="26.00" y2="78.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="-76.00" y="123.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EtherCAT IN</text>
+    <circle class="qet-terminal" cx="97.00" cy="-190.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-87.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="26.00" cy="58.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="26.00" cy="-92.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="76.00" cy="138.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="76.00" cy="58.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="26.00" cy="-12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="76.00" cy="-12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-87.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="76.00" cy="-88.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="26.00" cy="138.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-15.0 -20.0 30.0 50.0" data-name="antenna">
+  <title>antenna</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="6.00" ry="2.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="-10.08" x2="-6.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-10.00" rx="5.00" ry="2.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="3.00" x2="0.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="-10.16" x2="6.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="10,3 -10,3 -10,23" stroke="black" fill="none" />
+    <path d="M 5.00 -9.86 A 5.00 4.00 0 0 0 -5.00 -10.14" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

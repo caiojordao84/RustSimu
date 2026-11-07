@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="210.0" viewBox="-14.0 -203.0 100.0 210.0" data-name="SCN-SAFE.01">
+  <title>SCN-SAFE.01</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="66.00" y="-88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U2</text>
+    <rect x="0.00" y="-200.00" width="80.00" height="200.00" stroke="black" fill="white" />
+    <ellipse cx="68.00" cy="-126.00" rx="8.00" ry="8.00" stroke="HTMLBlueDarkBlue" fill="HTMLBlueDarkBlue" />
+    <text x="62.00" y="-124.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Prog.</text>
+    <text x="8.00" y="-53.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
+    <text x="54.00" y="-57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MDT</text>
+    <text x="55.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">www.MDT.de</text>
+    <rect x="18.00" y="-16.00" width="10.00" height="15.00" stroke="black" fill="black" />
+    <rect x="0.00" y="-50.00" width="80.00" height="20.00" stroke="black" fill="none" />
+    <rect x="28.00" y="-16.00" width="10.00" height="15.00" stroke="#d40000" fill="#d40000" />
+    <rect x="0.00" y="-170.00" width="80.00" height="20.00" stroke="black" fill="none" />
+    <ellipse cx="68.00" cy="-112.00" rx="2.00" ry="2.00" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="15.00" cy="-90.00" rx="2.00" ry="2.00" stroke="#d40000" fill="#d40000" />
+    <rect x="36.00" y="-14.00" width="3.00" height="6.00" stroke="#d40000" fill="#d40000" />
+    <text x="2.00" y="-143.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCN-SAFE.01</text>
+    <text x="2.00" y="-136.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Sicherheitsmodul</text>
+    <path d="M 20.00 -58.59 A 5.50 2.50 0 0 0 9.00 -58.50" stroke="HTMLBlueDarkBlue" fill="none" />
+    <text x="63.00" y="-103.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">>1s</text>
+    <ellipse cx="15.00" cy="-108.00" rx="2.00" ry="2.00" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="15.00" cy="-126.00" rx="2.00" ry="2.00" stroke="#d40000" fill="#d40000" />
+    <text x="9.00" y="-76.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Alarm</text>
+    <ellipse cx="15.00" cy="-72.00" rx="2.00" ry="2.00" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="41.00" cy="-126.00" rx="8.00" ry="8.00" stroke="HTMLBlueDarkBlue" fill="HTMLBlueDarkBlue" />
+    <text x="36.00" y="-124.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Safe</text>
+    <ellipse cx="41.00" cy="-108.00" rx="8.00" ry="8.00" stroke="HTMLBlueDarkBlue" fill="HTMLBlueDarkBlue" />
+    <text x="38.00" y="-106.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2h</text>
+    <ellipse cx="41.00" cy="-90.00" rx="8.00" ry="8.00" stroke="HTMLBlueDarkBlue" fill="HTMLBlueDarkBlue" />
+    <text x="37.00" y="-88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12h</text>
+    <ellipse cx="41.00" cy="-72.00" rx="8.00" ry="8.00" stroke="HTMLBlueDarkBlue" fill="HTMLBlueDarkBlue" />
+    <text x="35.00" y="-70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Clear</text>
+    <line x1="21.00" y1="-126.00" x2="29.00" y2="-126.00" stroke="HTMLBlueDarkBlue" fill="none" />
+    <line x1="21.00" y1="-108.00" x2="29.00" y2="-108.00" stroke="HTMLBlueDarkBlue" fill="none" />
+    <line x1="21.00" y1="-90.00" x2="29.00" y2="-90.00" stroke="HTMLBlueDarkBlue" fill="none" />
+    <line x1="21.00" y1="-72.00" x2="29.00" y2="-72.00" stroke="HTMLBlueDarkBlue" fill="none" />
+    <circle class="qet-terminal" cx="33.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="KNX_+" data-orientation="s" />
+    <circle class="qet-terminal" cx="23.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="KNX_-" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="170.0" height="60.0" viewBox="-55.0 -42.0 170.0 60.0" data-name="Clutch Electromagnetic Controller">
+  <title>Clutch Electromagnetic Controller</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="20.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <text x="-2.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 wave</text>
+    <ellipse cx="60.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="80.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <text x="43.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Off</text>
+    <text x="80.00" y="-5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Brake</text>
+    <ellipse cx="40.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <text x="63.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <ellipse cx="100.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="57.00" y1="0.00" x2="43.00" y2="0.00" stroke="black" fill="none" />
+    <text x="23.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="83.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="103.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <line x1="97.00" y1="0.00" x2="83.00" y2="0.00" stroke="black" fill="none" />
+    <text x="43.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <ellipse cx="-40.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="77.00" y1="0.00" x2="63.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <line x1="37.00" y1="0.00" x2="23.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="0.00" x2="3.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-23.00" y1="0.00" x2="-37.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="110.00" y1="0.00" x2="103.00" y2="0.00" stroke="black" fill="none" />
+    <text x="-17.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <line x1="-3.00" y1="0.00" x2="-17.00" y2="0.00" stroke="black" fill="none" />
+    <text x="3.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <line x1="110.00" y1="0.00" x2="110.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="110.00" y1="-40.00" x2="-50.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-43.00" y1="0.00" x2="-50.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-50.00" y1="-40.00" x2="-50.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="-20.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <text x="-37.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-21.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Warner CBC 140-5</text>
+    <text x="78.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Clutch/</text>
+    <text x="43.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">On/</text>
+    <text x="-2.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2 wave</text>
+    <text x="-41.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Supply</text>
+    <circle class="qet-terminal" cx="80.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="7" data-orientation="s" />
+    <circle class="qet-terminal" cx="100.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="8" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="6" data-orientation="s" />
+  </g>
+</svg>

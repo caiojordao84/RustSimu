@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="110.0" viewBox="-10.0 -10.0 90.0 110.0" data-name="Legrand transformer">
+  <title>Legrand transformer</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="36.65" cy="78.81" rx="2.14" ry="2.25" stroke="black" fill="none" />
+    <rect x="0.00" y="0.00" width="76.00" height="90.00" stroke="black" fill="white" />
+    <ellipse cx="50.14" cy="81.51" rx="2.14" ry="2.10" stroke="black" fill="none" />
+    <ellipse cx="28.28" cy="7.81" rx="2.14" ry="2.25" stroke="black" fill="none" />
+    <ellipse cx="48.20" cy="8.10" rx="2.14" ry="2.25" stroke="black" fill="none" />
+    <ellipse cx="37.83" cy="81.81" rx="2.14" ry="2.25" stroke="black" fill="none" />
+    <line x1="49.25" y1="80.67" x2="51.00" y2="82.35" stroke="black" fill="none" />
+    <line x1="27.42" y1="6.91" x2="29.13" y2="8.71" stroke="black" fill="none" />
+    <line x1="37.00" y1="80.91" x2="38.68" y2="82.71" stroke="black" fill="none" />
+    <line x1="29.13" y1="6.91" x2="27.42" y2="8.71" stroke="black" fill="none" />
+    <line x1="51.00" y1="80.67" x2="49.25" y2="82.35" stroke="black" fill="none" />
+    <line x1="28.28" y1="6.91" x2="28.28" y2="8.71" stroke="black" fill="none" />
+    <line x1="50.10" y1="80.67" x2="50.10" y2="82.35" stroke="black" fill="none" />
+    <line x1="47.34" y1="7.20" x2="49.05" y2="9.00" stroke="black" fill="none" />
+    <line x1="27.42" y1="7.81" x2="29.13" y2="7.81" stroke="black" fill="none" />
+    <line x1="49.25" y1="81.51" x2="51.00" y2="81.51" stroke="black" fill="none" />
+    <ellipse cx="25.28" cy="81.81" rx="2.14" ry="2.25" stroke="black" fill="none" />
+    <line x1="49.05" y1="7.20" x2="47.34" y2="9.00" stroke="black" fill="none" />
+    <line x1="38.68" y1="80.91" x2="37.00" y2="82.71" stroke="black" fill="none" />
+    <line x1="37.83" y1="80.91" x2="37.83" y2="82.71" stroke="black" fill="none" />
+    <line x1="37.00" y1="81.81" x2="38.68" y2="81.81" stroke="black" fill="none" />
+    <line x1="48.19" y1="7.20" x2="48.19" y2="9.00" stroke="black" fill="none" />
+    <line x1="24.42" y1="80.91" x2="26.13" y2="82.71" stroke="black" fill="none" />
+    <line x1="47.34" y1="8.09" x2="49.05" y2="8.09" stroke="black" fill="none" />
+    <line x1="26.13" y1="80.91" x2="24.42" y2="82.71" stroke="black" fill="none" />
+    <line x1="25.28" y1="80.91" x2="25.28" y2="82.71" stroke="black" fill="none" />
+    <line x1="24.42" y1="81.81" x2="26.13" y2="81.81" stroke="black" fill="none" />
+    <rect x="0.00" y="25.00" width="76.00" height="45.00" stroke="black" fill="none" />
+    <line x1="23.51" y1="65.00" x2="75.00" y2="65.00" stroke="#d40000" fill="none" />
+    <path d="M 7.35 50.45 A 0.21 0.23 0 0 0 6.92 50.45" stroke="black" fill="none" />
+    <text x="10.00" y="65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Legrand</text>
+    <line x1="5.00" y1="33.92" x2="5.00" y2="65.00" stroke="#d40000" fill="none" />
+    <text x="10.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">230V /24V</text>
+    <circle class="qet-terminal" cx="25.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="28.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="38.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="50.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

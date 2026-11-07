@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-10.0 -15.0 20.0 30.0" data-name="Jump">
+  <title>Jump</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -0.00 3.00 A 3.00 3.00 0 0 0 0.00 -3.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-7.00" x2="0.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="3.00" x2="0.00" y2="7.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="7.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
+  </g>
+</svg>

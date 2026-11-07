@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-13.0 -22.0 50.0 40.0" data-name="fan-coil-hoiz">
+  <title>fan-coil-hoiz</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-0.95" rx="4.00" ry="3.71" stroke="black" fill="none" />
+    <polyline points="0,-8.35 11.5,-8.35 11.5,-2.33 8,-2.33" stroke="black" fill="none" />
+    <path d="M 0.28 -8.35 A 8.00 7.17 0 1 0 7.92 -2.17" stroke="black" fill="none" />
+    <rect x="15.00" y="-12.00" width="11.00" height="21.00" stroke="black" fill="none" />
+    <polyline points="20,-16 20,-10 25,-9 16,-5 25,-3 15,1 26,3 16,6 21,7 21,12" stroke="black" fill="none" />
+    <rect x="-9.00" y="-12.00" width="42.00" height="21.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-2.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="21.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="190.0" viewBox="-7.0 -181.0 130.0 190.0" data-name="Lighting">
+  <title>Lighting</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="-85.00" width="120.00" height="85.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-15.00" x2="120.00" y2="-15.00" stroke="black" fill="none" />
+    <text x="58.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
+    <line x1="0.00" y1="-45.00" x2="120.00" y2="-45.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-65.00" x2="120.00" y2="-65.00" stroke="black" fill="none" />
+    <text x="66.00" y="-32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="2.00" y="-69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Éclairage</text>
+    <text x="58.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <line x1="48.00" y1="-123.00" x2="48.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="72.00" y1="-123.00" x2="72.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-100.00" x2="56.00" y2="-97.00" stroke="black" fill="none" />
+    <line x1="72.00" y1="-100.00" x2="63.00" y2="-97.00" stroke="black" fill="none" />
+    <path d="M 72.86 -124.68 A 20.00 20.00 0 1 0 47.14 -124.68" stroke="black" fill="none" />
+    <line x1="48.00" y1="-124.00" x2="72.00" y2="-124.00" stroke="black" fill="none" />
+    <path d="M 56.00 -97.00 A 4.00 2.00 0 0 0 64.00 -97.00" stroke="black" fill="none" />
+    <line x1="56.00" y1="-97.00" x2="63.00" y2="-97.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-100.00" x2="72.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-100.00" x2="72.00" y2="-104.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-104.00" x2="72.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-108.00" x2="72.00" y2="-112.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-112.00" x2="72.00" y2="-116.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-116.00" x2="72.00" y2="-120.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-120.00" x2="59.00" y2="-122.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="-170.00" x2="50.00" y2="-158.00" stroke="black" fill="none" />
+    <line x1="70.00" y1="-170.00" x2="70.00" y2="-158.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="50.00" cy="-170.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="70.00" cy="-170.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="60.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="120.0" viewBox="-25.0 -54.0 50.0 120.0" data-name="Bladder tank">
+  <title>Bladder tank</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-1.00" y="-43.00" width="2.00" height="3.00" stroke="black" fill="none" />
+    <rect x="-2.00" y="46.00" width="4.00" height="4.00" stroke="black" fill="none" />
+    <polygon points="-18,40 -20,60 -18,60 -14,42" stroke="#d40000" fill="#d40000" />
+    <polygon points="20,60 18,40 14,42 18,60" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="0.00" cy="-26.00" rx="20.00" ry="14.00" stroke="black" fill="#d40000" />
+    <ellipse cx="0.00" cy="34.00" rx="20.00" ry="12.00" stroke="black" fill="#d40000" />
+    <rect x="-20.00" y="-26.00" width="40.00" height="60.00" stroke="black" fill="#d40000" />
+    <circle class="qet-terminal" cx="0.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-43.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

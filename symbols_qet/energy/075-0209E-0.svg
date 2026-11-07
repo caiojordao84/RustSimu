@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="140.0" viewBox="-50.0 -73.0 100.0 140.0" data-name="Wood boiler">
+  <title>Wood boiler</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-35.00" y="-60.00" width="70.00" height="120.00" stroke="black" fill="none" />
+    <line x1="35.00" y1="50.00" x2="40.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="35.00" y1="-40.00" x2="40.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-40.00" y1="50.00" x2="-36.00" y2="50.00" stroke="black" fill="none" />
+    <line x1="-35.00" y1="-40.00" x2="-40.00" y2="-40.00" stroke="black" fill="none" />
+    <ellipse cx="-0.00" cy="-26.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-26.00" rx="7.28" ry="7.28" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-55.00" x2="-19.00" y2="-55.00" stroke="black" fill="none" />
+    <line x1="-22.00" y1="-55.00" x2="-21.00" y2="-55.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-57.00" x2="-20.00" y2="-56.00" stroke="black" fill="none" />
+    <ellipse cx="-20.00" cy="-55.01" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <line x1="37.00" y1="-60.00" x2="16.00" y2="47.00" stroke="black" fill="none" />
+    <line x1="13.00" y1="-66.00" x2="39.00" y2="-61.00" stroke="black" fill="none" />
+    <polyline points="24,-60 24,-62 25,-62 25,-63 24,-63 24,-64 25,-65 25,-67 20,-67 20,-65 21,-64 21,-63 20,-63 20,-62 21,-62 21,-61" stroke="black" fill="none" />
+    <ellipse cx="-25.00" cy="-24.50" rx="1.00" ry="7.50" stroke="black" fill="none" />
+    <ellipse cx="16.00" cy="48.01" rx="1.42" ry="1.42" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="45.00" rx="4.50" ry="1.50" stroke="black" fill="none" />
+    <polyline points="-15,25 -18,50 18,50 15,25 -14,25" stroke="black" fill="none" />
+    <polygon points="-27,19 -27,56 25,56 25,54 27,54 27,21 25,21 25,19 -26,19" stroke="black" fill="none" />
+    <rect x="-29.00" y="17.00" width="58.00" height="41.00" stroke="black" fill="none" />
+    <line x1="-31.00" y1="-2.00" x2="30.00" y2="-2.00" stroke="black" fill="none" />
+    <polyline points="-29,-48 -29,-4 27,-4 27,-6 29,-6 29,-46 27,-46 27,-48 -28,-48" stroke="black" fill="none" />
+    <rect x="-35.00" y="-60.00" width="70.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-35.00" y="-50.00" width="4.00" height="110.00" stroke="black" fill="none" />
+    <ellipse cx="-24.00" cy="36.50" rx="1.00" ry="7.50" stroke="black" fill="none" />
+    <line x1="-31.00" y1="15.00" x2="30.00" y2="15.00" stroke="black" fill="none" />
+    <rect x="31.00" y="-50.00" width="4.00" height="110.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

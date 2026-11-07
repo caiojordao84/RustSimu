@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-30.0 -25.0 60.0 40.0" data-name="One-phase alternating > One-phase alternating">
+  <title>One-phase alternating > One-phase alternating</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-15.00" y1="-10.00" x2="-20.00" y2="-10.00" stroke="black" fill="none" />
+    <polygon points="-15,-20 15,-20 15,10 -15,10" stroke="black" fill="none" />
+    <path d="M -7.49 -14.78 A 2.50 2.50 0 0 0 -2.50 -15.00" stroke="black" fill="none" />
+    <path d="M 7.51 5.22 A 2.50 2.50 0 0 0 12.50 5.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="0.00" x2="15.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="-10.00" x2="20.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" />
+    <path d="M -7.51 -15.22 A 2.50 2.50 0 0 0 -12.50 -15.00" stroke="black" fill="none" />
+    <path d="M 7.49 4.78 A 2.50 2.50 0 0 0 2.50 5.00" stroke="black" fill="none" />
+    <line x1="14.50" y1="-19.50" x2="-14.50" y2="9.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-21.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="21.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

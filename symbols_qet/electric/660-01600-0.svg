@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="50.0" viewBox="-40.0 -45.0 100.0 50.0" data-name="Connector assembly">
+  <title>Connector assembly</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-30.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-40.00" x2="10.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-40.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="0.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-10.00" x2="-10.00" y2="-30.00" stroke="black" fill="none" />
+    <path d="M 0.00 -40.00 A 10.00 10.00 0 0 0 -10.00 -30.00" stroke="black" fill="none" />
+    <path d="M -10.00 -10.00 A 10.00 10.00 0 0 0 -0.00 0.00" stroke="black" fill="none" />
+    <rect x="10.00" y="-40.00" width="20.00" height="40.00" stroke="black" fill="none" />
+    <rect x="15.00" y="-23.00" width="10.00" height="6.00" stroke="black" fill="black" />
+    <line x1="25.00" y1="-20.00" x2="50.00" y2="-20.00" stroke="black" fill="none" />
+    <path d="M 5.00 -25.00 A 5.00 5.00 0 0 0 5.00 -15.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-30.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="50.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  </g>
+</svg>

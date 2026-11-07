@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="110.0" viewBox="-45.0 -54.0 100.0 110.0" data-name="AIO-0210V.01 (UP)">
+  <title>AIO-0210V.01 (UP)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-39.00" y="-42.00" width="80.00" height="80.00" stroke="white" fill="white" />
+    <ellipse cx="15.00" cy="28.00" rx="1.00" ry="1.00" stroke="#888888" fill="none" />
+    <ellipse cx="31.00" cy="-20.00" rx="2.00" ry="2.00" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="-9.00" cy="28.00" rx="1.00" ry="1.00" stroke="#888888" fill="none" />
+    <ellipse cx="3.00" cy="28.00" rx="1.00" ry="1.00" stroke="#888888" fill="none" />
+    <ellipse cx="11.00" cy="28.00" rx="1.00" ry="1.00" stroke="#888888" fill="none" />
+    <ellipse cx="-1.00" cy="28.00" rx="1.00" ry="1.00" stroke="#888888" fill="none" />
+    <ellipse cx="-5.00" cy="28.00" rx="1.00" ry="1.00" stroke="#888888" fill="none" />
+    <ellipse cx="7.00" cy="28.00" rx="1.00" ry="1.00" stroke="#888888" fill="none" />
+    <polyline points="-29,-42 31,-42 41,-32 41,28 31,38 -29,38 -39,28 -39,-32 -29,-42 31,-42" stroke="black" fill="white" />
+    <text x="21.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
+    <text x="17.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MDT</text>
+    <rect x="-9.00" y="-46.00" width="10.00" height="15.00" stroke="black" fill="black" />
+    <rect x="1.00" y="-46.00" width="10.00" height="15.00" stroke="#d40000" fill="#d40000" />
+    <text x="-34.00" y="-17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AIO-0410V.01</text>
+    <text x="-34.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A = black
+GND = brown
+B = red
+GND = orange</text>
+    <rect x="-34.00" y="-15.00" width="45.00" height="15.00" stroke="HTMLBlueDarkBlue" fill="yellow" />
+    <ellipse cx="8.00" cy="-43.00" rx="1.00" ry="1.00" stroke="#888888" fill="gray" />
+    <ellipse cx="8.00" cy="-40.00" rx="1.00" ry="1.00" stroke="#888888" fill="gray" />
+    <ellipse cx="8.00" cy="-37.00" rx="1.00" ry="1.00" stroke="#888888" fill="gray" />
+    <ellipse cx="8.00" cy="-34.00" rx="1.00" ry="1.00" stroke="#888888" fill="gray" />
+    <rect x="2.00" y="-40.00" width="1.00" height="3.00" stroke="#888888" fill="gray" />
+    <ellipse cx="-2.00" cy="-43.00" rx="1.00" ry="1.00" stroke="#888888" fill="gray" />
+    <ellipse cx="-2.00" cy="-40.00" rx="1.00" ry="1.00" stroke="#888888" fill="gray" />
+    <ellipse cx="-2.00" cy="-37.00" rx="1.00" ry="1.00" stroke="#888888" fill="gray" />
+    <ellipse cx="-2.00" cy="-34.00" rx="1.00" ry="1.00" stroke="#888888" fill="gray" />
+    <rect x="-8.00" y="-40.00" width="1.00" height="3.00" stroke="#888888" fill="gray" />
+    <rect x="-16.00" y="25.00" width="34.00" height="6.00" stroke="black" fill="none" />
+    <ellipse cx="-13.00" cy="28.00" rx="1.00" ry="1.00" stroke="#888888" fill="none" />
+    <ellipse cx="26.00" cy="-32.00" rx="2.00" ry="2.00" stroke="#888888" fill="gray" />
+    <line x1="-13.00" y1="28.00" x2="-13.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="-9.00" y1="28.00" x2="-9.00" y2="48.00" stroke="brun" fill="none" />
+    <line x1="-5.00" y1="28.00" x2="-5.00" y2="48.00" stroke="#d40000" fill="none" />
+    <line x1="-1.00" y1="28.00" x2="-1.00" y2="48.00" stroke="orange" fill="none" />
+    <circle class="qet-terminal" cx="-1.00" cy="48.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-13.00" cy="48.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-5.00" cy="48.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-9.00" cy="48.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="6.00" cy="-46.00" r="1.8" fill="red" stroke="none" data-name="KNX_+" data-orientation="n" />
+    <circle class="qet-terminal" cx="-4.00" cy="-46.00" r="1.8" fill="red" stroke="none" data-name="KNX_-" data-orientation="n" />
+  </g>
+</svg>

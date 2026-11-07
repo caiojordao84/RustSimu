@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="140.0" viewBox="-27.0 -74.0 50.0 140.0" data-name="cRIO 9217 - 4 inputs PT100">
+  <title>cRIO 9217 - 4 inputs PT100</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-20.00" y="-63.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">    entrées 
+température</text>
+    <rect x="-4.00" y="-36.00" width="8.00" height="92.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-34.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="54.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="-33.00" x2="1.00" y2="-35.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-40.00" x2="20.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="-1.00" y1="55.00" x2="1.00" y2="53.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="-15.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="25.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="-25.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="5.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="-5.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-20.00" y="-50.00" width="40.00" height="110.00" stroke="black" fill="none" />
+    <text x="10.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EX0</text>
+    <text x="10.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTD0+</text>
+    <text x="10.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTD0-</text>
+    <text x="10.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COM</text>
+    <text x="10.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EX1</text>
+    <text x="10.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTD1+</text>
+    <text x="10.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTD1-</text>
+    <text x="10.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COM</text>
+    <text x="10.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EX2</text>
+    <text x="10.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTD2+</text>
+    <text x="10.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTD2-</text>
+    <text x="10.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COM</text>
+    <text x="10.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EX3</text>
+    <text x="10.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTD3+</text>
+    <text x="10.00" y="44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RTD3-</text>
+    <text x="10.00" y="49.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COM</text>
+    <text x="-13.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">NI 9217</text>
+    <rect x="-6.00" y="-20.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="35.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="15.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="0.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="20.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="-10.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="45.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="40.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="30.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="10.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <rect x="-6.00" y="-30.00" width="12.00" height="5.00" stroke="black" fill="white" />
+    <text x="3.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <text x="3.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="3.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="3.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="3.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="3.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="3.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="3.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="3.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="3.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">9</text>
+    <text x="1.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">10</text>
+    <text x="1.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">11</text>
+    <text x="1.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12</text>
+    <text x="1.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">13</text>
+    <text x="1.00" y="44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">14</text>
+    <text x="1.00" y="49.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">15</text>
+    <circle class="qet-terminal" cx="-6.00" cy="-28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="-23.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="-18.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="-13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="-8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="-3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="22.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="27.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="32.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="37.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="42.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-6.00" cy="47.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

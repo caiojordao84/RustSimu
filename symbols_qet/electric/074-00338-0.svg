@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="90.0" viewBox="-17.0 -43.0 70.0 90.0" data-name="USB connector, USB version 1 and 2">
+  <title>USB connector, USB version 1 and 2</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="50,17 40,7 40,-3 50,-13" stroke="black" fill="none" />
+    <rect x="-10.00" y="-23.00" width="60.00" height="50.00" stroke="black" fill="none" />
+    <text x="-6.00" y="25.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D-</text>
+    <line x1="0.00" y1="-32.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <text x="-8.00" y="-13.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vusb</text>
+    <text x="29.00" y="-13.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="35.00" y="25.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D+</text>
+    <line x1="40.00" y1="28.00" x2="40.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="28.00" x2="0.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-32.00" x2="40.00" y2="-24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-33.00" r="1.8" fill="red" stroke="none" data-name="Vusb" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="37.00" r="1.8" fill="red" stroke="none" data-name="D-" data-orientation="s" />
+    <circle class="qet-terminal" cx="40.00" cy="-33.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.00" cy="37.00" r="1.8" fill="red" stroke="none" data-name="D+" data-orientation="s" />
+  </g>
+</svg>

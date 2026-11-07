@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-12.0 -21.0 30.0 30.0" data-name="termostato-ntc-ptc">
+  <title>termostato-ntc-ptc</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-6.00" y="-17.28" width="12.00" height="8.43" stroke="black" fill="none" />
+    <text x="-4.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T</text>
+    <line x1="0.00" y1="-8.84" x2="0.00" y2="-0.41" stroke="black" fill="none" />
+    <line x1="15.00" y1="-6.00" x2="15.00" y2="-1.81" stroke="black" fill="none" />
+    <polyline points="6,-14.46 15,-14.46 15,-6" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="-1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

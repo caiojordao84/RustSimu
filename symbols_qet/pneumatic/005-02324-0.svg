@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="30.0" viewBox="-20.0 -15.0 90.0 30.0" data-name="Quick opening valves with mechanical feedback">
+  <title>Quick opening valves with mechanical feedback</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="15.00" y1="0.00" x2="23.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="27.00" y1="0.00" x2="35.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="30.00" y="-10.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <ellipse cx="9.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <ellipse cx="41.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
+    <line x1="27.00" y1="-2.00" x2="27.00" y2="2.00" stroke="black" fill="none" />
+    <line x1="-7.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-10.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <line x1="44.00" y1="0.00" x2="56.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="10,-5 15,0 10,5" stroke="black" fill="none" />
+    <polyline points="40,5 35,0 40,-5" stroke="black" fill="none" />
+    <line x1="23.00" y1="-2.00" x2="23.00" y2="2.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

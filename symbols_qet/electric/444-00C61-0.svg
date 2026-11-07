@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="80.0" viewBox="-45.0 -36.0 90.0 80.0" data-name="S7 300 failsafe channel 1 terminal (connections)">
+  <title>S7 300 failsafe channel 1 terminal (connections)</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-19.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FAILSAFE</text>
+    <ellipse cx="0.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <text x="-32.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SIEMENS S7 300</text>
+    <polyline points="-40,-30 -40,30 -3,30" stroke="black" fill="none" />
+    <polyline points="3,30 40,30 40,-30" stroke="black" fill="none" />
+    <line x1="-40.00" y1="-30.00" x2="40.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="40.00" y1="-14.00" x2="-40.00" y2="-14.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="33.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

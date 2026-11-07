@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="180.0" viewBox="-14.0 -171.0 140.0 180.0" data-name="Antenna">
+  <title>Antenna</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="60.00" cy="-138.50" rx="12.00" ry="21.50" stroke="black" fill="#dcdcdc" />
+    <rect x="0.00" y="-85.00" width="120.00" height="85.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-15.00" x2="120.00" y2="-15.00" stroke="black" fill="none" />
+    <text x="58.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
+    <line x1="0.00" y1="-45.00" x2="120.00" y2="-45.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-65.00" x2="120.00" y2="-65.00" stroke="black" fill="none" />
+    <text x="66.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="58.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <ellipse cx="60.00" cy="-138.00" rx="10.00" ry="20.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-118.00" x2="86.00" y2="-128.00" stroke="black" fill="none" />
+    <rect x="82.00" y="-132.00" width="4.00" height="3.00" stroke="black" fill="none" />
+    <rect x="80.00" y="-133.00" width="2.00" height="5.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-110.00" x2="60.00" y2="-116.00" stroke="black" fill="none" />
+    <line x1="50.00" y1="-160.00" x2="50.00" y2="-150.00" stroke="black" fill="none" />
+    <line x1="70.00" y1="-160.00" x2="70.00" y2="-150.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="60.00" cy="-110.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="50.00" cy="-160.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="70.00" cy="-160.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

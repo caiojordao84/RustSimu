@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="80.0" viewBox="-15.0 -70.0 30.0 80.0" data-name="Breakdown diode, bidirectional">
+  <title>Breakdown diode, bidirectional</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-60.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-30.00" x2="10.00" y2="-30.00" stroke="black" fill="none" />
+    <polygon points="-10,-50 10,-50 0,-30" stroke="black" fill="none" />
+    <polygon points="10,-10 -10,-10 0,-30" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-30.00" x2="-10.00" y2="-35.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-30.00" x2="10.00" y2="-25.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

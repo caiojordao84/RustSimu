@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-55.0 -32.0 80.0 50.0" data-name="cotrolador-camara2">
+  <title>cotrolador-camara2</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-19.63" y1="3.30" x2="-19.63" y2="9.10" stroke="black" fill="none" />
+    <line x1="4.00" y1="3.30" x2="4.00" y2="9.10" stroke="black" fill="none" />
+    <line x1="-29.75" y1="3.30" x2="-29.75" y2="9.10" stroke="black" fill="none" />
+    <line x1="13.45" y1="3.30" x2="13.45" y2="9.10" stroke="black" fill="none" />
+    <text x="-35.83" y="7.65" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">na</text>
+    <text x="-25.00" y="7.65" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">nc</text>
+    <text x="10.75" y="-1.05" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">s2</text>
+    <polygon points="-18,-16.13 -9.32,-16.13 -12.79,-6.13 -21.47,-6.13" stroke="#d40000" fill="none" />
+    <rect x="-38.84" y="-21.14" width="38.20" height="20.00" stroke="black" fill="none" />
+    <line x1="-19.74" y1="-11.13" x2="-11.05" y2="-11.13" stroke="#d40000" fill="none" />
+    <polygon points="-31.89,-16.13 -23.21,-16.13 -26.68,-6.13 -35.36,-6.13" stroke="#d40000" fill="none" />
+    <line x1="-33.63" y1="-11.13" x2="-24.95" y2="-11.13" stroke="#d40000" fill="none" />
+    <polyline points="4.57,-17.37 13.25,-17.37 13.25,-20.7 8.05,-24 2.84,-20.7 2.84,-17.37" stroke="#d40000" fill="none" />
+    <polygon points="2.84,-14 13.25,-14 13.25,-10.7 8.05,-7.36 2.84,-10.7" stroke="#0055d4" fill="none" />
+    <rect x="-44.43" y="-26.14" width="62.51" height="28.35" stroke="black" fill="none" />
+    <polyline points="-44.43,-26.14 -37.49,-29.48 21.55,-29.48 18.08,-26.14" stroke="black" fill="none" />
+    <polyline points="21.55,-29.48 21.55,-1.12 18.08,2.21" stroke="black" fill="none" />
+    <ellipse cx="-4.98" cy="-15.29" rx="0.87" ry="0.83" stroke="black" fill="none" />
+    <path d="M -4.97 -11.13 A 2.60 2.50 0 0 0 -4.98 -6.13" stroke="black" fill="none" />
+    <line x1="-43.25" y1="3.30" x2="-43.25" y2="9.10" stroke="black" fill="none" />
+    <text x="1.30" y="-1.05" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">s1</text>
+    <text x="-48.65" y="7.65" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">c</text>
+    <circle class="qet-terminal" cx="-43.00" cy="9.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-30.00" cy="9.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="4.00" cy="9.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="9.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="13.00" cy="9.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

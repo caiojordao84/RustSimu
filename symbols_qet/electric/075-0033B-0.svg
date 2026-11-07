@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="130.0" viewBox="-21.0 -30.0 40.0 130.0" data-name="Breaker DM1-D">
+  <title>Breaker DM1-D</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="7.00" y1="29.00" x2="12.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="32.00" x2="12.00" y2="29.00" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="53.00" rx="5.10" ry="5.10" stroke="black" fill="none" />
+    <polyline points="10,90 10,44 2,33" stroke="black" fill="none" />
+    <polyline points="1.7,-8 10,6 10,31" stroke="black" fill="none" />
+    <line x1="-10.80" y1="-5.00" x2="-10.80" y2="-1.00" stroke="black" fill="none" />
+    <line x1="-12.80" y1="-3.00" x2="-11.80" y2="-3.00" stroke="black" fill="none" />
+    <line x1="-13.80" y1="-7.00" x2="-13.80" y2="1.00" stroke="black" fill="none" />
+    <line x1="-17.80" y1="-3.00" x2="-17.80" y2="-2.00" stroke="black" fill="none" />
+    <line x1="-15.80" y1="-5.00" x2="-15.80" y2="-1.00" stroke="black" fill="none" />
+    <line x1="7.70" y1="-10.00" x2="11.70" y2="-10.00" stroke="black" fill="none" />
+    <line x1="9.70" y1="77.00" x2="4.70" y2="77.00" stroke="black" fill="none" />
+    <line x1="4.70" y1="72.00" x2="4.70" y2="82.00" stroke="black" fill="none" />
+    <line x1="2.95" y1="72.00" x2="2.95" y2="82.00" stroke="black" fill="none" />
+    <line x1="-0.30" y1="77.00" x2="2.70" y2="77.00" stroke="black" fill="none" />
+    <path d="M -5.30 82.00 A 5.00 5.00 0 0 0 -5.30 72.00" stroke="black" fill="none" />
+    <line x1="9.70" y1="-20.00" x2="9.70" y2="-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="10.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

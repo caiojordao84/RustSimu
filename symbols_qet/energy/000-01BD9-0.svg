@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-30.0 -29.0 50.0 50.0" data-name="Floor-standing boiler">
+  <title>Floor-standing boiler</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-14.35" y="-18.21" width="28.46" height="34.86" stroke="black" fill="none" />
+    <rect x="-18.66" y="-0.61" width="3.67" height="6.00" stroke="black" fill="none" />
+    <polyline points="-24.7,8.52 -18.95,8.52 -18.95,-2.88 -23.55,-2.88 -27,0.92 -27,8.52 -25.85,8.52 -23.55,8.52" stroke="black" fill="none" />
+    <rect x="14.40" y="-6.69" width="1.15" height="5.07" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-20.00" x2="-10.00" y2="-18.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-20.00" x2="10.00" y2="-18.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-21.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>

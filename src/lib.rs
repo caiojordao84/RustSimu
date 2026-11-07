@@ -1,4 +1,5 @@
 pub mod app;
+pub mod canonical;
 pub mod canvas_view;
 pub mod cp1252;
 pub mod export;

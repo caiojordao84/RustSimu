@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-27.0 -30.0 40.0 60.0" data-name="Symmetric protective gas discharge tube">
+  <title>Symmetric protective gas discharge tube</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-2.00" y1="0.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-8.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
+    <polygon points="0,-2 2,-8 -2,-8" stroke="black" fill="black" />
+    <ellipse cx="5.00" cy="5.00" rx="1.25" ry="1.25" stroke="black" fill="black" />
+    <polygon points="0,2 -2,8 2,8" stroke="black" fill="black" />
+    <line x1="0.00" y1="8.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

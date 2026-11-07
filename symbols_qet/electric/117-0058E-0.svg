@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="90.0" viewBox="-41.0 -45.0 90.0 90.0" data-name="LaskaKit SCD41">
+  <title>LaskaKit SCD41</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-36.00" y="-40.00" width="80.00" height="80.00" stroke="black" fill="none" />
+    <ellipse cx="-26.00" cy="-30.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="34.00" cy="30.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="34.00" cy="-30.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <ellipse cx="-26.00" cy="30.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
+    <rect x="-11.00" y="-20.00" width="30.00" height="30.00" stroke="black" fill="gray" />
+    <polygon points="-6,-15 -6,5 14,5 14,-10 9,-15" stroke="black" fill="white" />
+    <rect x="29.00" y="-15.00" width="10.00" height="20.00" stroke="black" fill="none" />
+    <rect x="-31.00" y="-15.00" width="10.00" height="20.00" stroke="black" fill="none" />
+    <text x="-11.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">l a s k a k i t</text>
+    <ellipse cx="-10.00" cy="33.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="33.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="10.00" cy="33.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <ellipse cx="20.00" cy="33.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
+    <text x="-4.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCD41</text>
+    <text x="-8.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="1.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">VDD</text>
+    <text x="11.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCL</text>
+    <text x="21.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SDA</text>
+    <circle class="qet-terminal" cx="20.00" cy="33.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="33.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="33.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="33.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

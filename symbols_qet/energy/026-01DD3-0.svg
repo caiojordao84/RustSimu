@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-27.0 -12.0 60.0 40.0" data-name="Left manifold">
+  <title>Left manifold</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-5.00" y="10.00" width="10.00" height="7.00" stroke="black" fill="none" />
+    <rect x="15.00" y="10.00" width="10.00" height="7.00" stroke="black" fill="none" />
+    <line x1="20.00" y1="17.00" x2="25.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="17.00" x2="25.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="16.00" x2="25.00" y2="14.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="15.00" x2="25.00" y2="13.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="14.00" x2="25.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="13.00" x2="25.00" y2="11.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="12.00" x2="25.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="11.00" x2="20.00" y2="10.00" stroke="black" fill="none" />
+    <rect x="-19.00" y="-7.00" width="7.00" height="14.00" stroke="black" fill="white" />
+    <path d="M 27.00 5.00 A 2.00 2.00 0 0 0 25.00 7.00" stroke="black" fill="none" />
+    <path d="M 15.00 7.00 A 2.00 2.00 0 0 0 13.00 5.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="8.00" x2="15.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="25.00" y1="8.00" x2="25.00" y2="9.00" stroke="black" fill="none" />
+    <path d="M -11.00 5.00 A 1.00 1.00 0 0 0 -12.00 6.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="-5.00" x2="30.00" y2="-5.00" stroke="black" fill="none" />
+    <path d="M -12.00 -6.00 A 1.00 1.00 0 0 0 -11.00 -5.00" stroke="black" fill="none" />
+    <line x1="-10.00" y1="5.00" x2="-7.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="17.00" x2="5.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="17.00" x2="5.00" y2="15.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="16.00" x2="5.00" y2="14.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="15.00" x2="5.00" y2="13.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="14.00" x2="5.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="13.00" x2="5.00" y2="11.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="12.00" x2="5.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="11.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
+    <path d="M 7.00 5.00 A 2.00 2.00 0 0 0 5.00 7.00" stroke="black" fill="none" />
+    <path d="M -5.00 7.00 A 2.00 2.00 0 0 0 -7.00 5.00" stroke="black" fill="none" />
+    <line x1="-5.00" y1="8.00" x2="-5.00" y2="10.00" stroke="black" fill="none" />
+    <line x1="5.00" y1="8.00" x2="5.00" y2="9.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="5.00" x2="12.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="28.00" y1="5.00" x2="30.00" y2="5.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.00" cy="17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="90.0" viewBox="-60.0 -43.0 110.0 90.0" data-name="2687-2142">
+  <title>2687-2142</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-40.00" y="-40.00" width="80.00" height="80.00" stroke="black" fill="none" />
+    <ellipse cx="40.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-2.90" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO</text>
+    <text x="10.00" y="37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2687-2142</text>
+    <ellipse cx="-40.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="40.00" cy="20.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <ellipse cx="-40.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <text x="-27.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <ellipse cx="40.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
+    <line x1="0.00" y1="-40.00" x2="0.00" y2="40.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <text x="-37.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="-37.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <path d="M -16.49 -31.19 A 2.50 1.67 0 0 0 -11.50 -31.34" stroke="black" fill="none" />
+    <line x1="20.00" y1="-32.00" x2="21.50" y2="-32.00" stroke="black" fill="none" />
+    <line x1="17.00" y1="-32.00" x2="18.50" y2="-32.00" stroke="black" fill="none" />
+    <line x1="14.00" y1="-32.00" x2="15.50" y2="-32.00" stroke="black" fill="none" />
+    <line x1="14.00" y1="-30.00" x2="21.50" y2="-30.00" stroke="black" fill="none" />
+    <path d="M -16.51 -31.08 A 2.50 1.92 0 0 0 -21.50 -30.91" stroke="black" fill="none" />
+    <text x="32.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="32.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">−</text>
+    <text x="32.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">−</text>
+    <text x="-52.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X1.1</text>
+    <text x="-52.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X1.2</text>
+    <text x="41.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X2.1</text>
+    <text x="41.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X2.2</text>
+    <text x="41.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X2.3</text>
+    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="X2.2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="X1.1" data-orientation="w" />
+    <circle class="qet-terminal" cx="40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="X2.3" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="X2.1" data-orientation="e" />
+    <circle class="qet-terminal" cx="-40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="X1.2" data-orientation="w" />
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="190.0" height="220.0" viewBox="-5.0 -10.0 190.0 220.0" data-name="413008 - Modular RJ45 DTI">
+  <title>413008 - Modular RJ45 DTI</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="180.00" height="200.00" stroke="black" fill="white" />
+    <rect x="165.25" y="118.19" width="2.00" height="13.00" stroke="black" fill="black" />
+    <ellipse cx="166.25" cy="129.19" rx="0.50" ry="0.50" stroke="black" fill="white" />
+    <rect x="0.00" y="50.00" width="180.00" height="100.00" stroke="black" fill="none" />
+    <polyline points="4,120 4,144 6,144" stroke="purple" fill="none" />
+    <polyline points="6,144 8,144" stroke="purple" fill="none" />
+    <line x1="27.00" y1="144.00" x2="179.00" y2="144.00" stroke="purple" fill="none" />
+    <rect x="0.00" y="80.00" width="180.00" height="30.00" stroke="black" fill="none" />
+    <text x="7.00" y="125.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DTI RJ45</text>
+    <text x="74.95" y="10.25" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SORTIE RJ45</text>
+    <text x="115.00" y="142.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DTI</text>
+    <text x="14.00" y="192.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TEST (entrée)</text>
+    <text x="138.73" y="98.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">  MODULE
+RC INTEGRE</text>
+    <rect x="137.00" y="92.00" width="33.00" height="15.00" stroke="black" fill="none" />
+    <rect x="85.00" y="94.00" width="10.00" height="10.00" stroke="black" fill="none" />
+    <polygon points="87,96 93,96 93,100 92,100 92,101 91,101 91,102 89,102 89,101 88,101 88,100 87,100" stroke="black" fill="none" />
+    <text x="112.00" y="85.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A
+    TEST
+B</text>
+    <text x="80.00" y="65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TEST</text>
+    <text x="78.00" y="72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A           B</text>
+    <circle class="qet-terminal" cx="30.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="90.00" cy="104.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="80.00" cy="75.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="105.00" cy="83.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="100.00" cy="75.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="105.00" cy="97.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  </g>
+</svg>

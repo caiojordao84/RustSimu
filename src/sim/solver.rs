@@ -112,7 +112,7 @@ pub fn resolve_cascade(
                     s.active = !tag.is_empty() && tof_trig.contains(&tag);
                 }
                 _ => {
-                    if let Some(ref qet_type) = item.qet_type {
+                    if let Some(qet_type) = item.symbol_id_or_slug() {
                         if is_qet_switch_or_button(qet_type) {
                             s.active = s.manual_latched;
                         } else if is_fuse(item) {
@@ -220,7 +220,7 @@ pub fn resolve_cascade(
                     connect_pair(2, 5);
                 }
                 _ => {
-                    if let Some(ref qet_type) = item.qet_type {
+                    if let Some(qet_type) = item.symbol_id_or_slug() {
                         if is_qet_switch_or_button(qet_type) {
                             if s.manual_latched {
                                 for i in 0..p.len() {
@@ -294,7 +294,7 @@ pub fn resolve_cascade(
                 3008 if !p.is_empty() => inject_source(p[0], Potential::DcPos),
                 3009 if !p.is_empty() => inject_source(p[0], Potential::DcNeg),
                 _ => {
-                    if let Some(ref qet_type) = item.qet_type {
+                    if let Some(qet_type) = item.symbol_id_or_slug() {
                         let l = qet_type.to_ascii_lowercase();
                         if is_qet_source_dc_pos(qet_type) {
                             if p.len() >= 2 {
@@ -376,7 +376,7 @@ pub fn resolve_cascade(
                     };
                 }
                 _ => {
-                    if let Some(ref qet_type) = item.qet_type {
+                    if let Some(qet_type) = item.symbol_id_or_slug() {
                         let l = qet_type.to_ascii_lowercase();
                         if is_qet_load(qet_type) {
                             let powered = if l.contains("starter") && p.len() >= 3 {
@@ -466,7 +466,7 @@ pub fn step_simulation_state(items: &[SchematicItem], sim: &mut SimState, dt_ms:
                     s.timer_elapsed_ms = 0;
                 }
                 _ => {
-                    if let Some(ref qet_type) = item.qet_type {
+                    if let Some(qet_type) = item.symbol_id_or_slug() {
                         if is_qet_switch_or_button(qet_type) {
                             s.active = s.manual_latched;
                         } else if is_fuse(item) {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-32.0 -31.0 40.0 60.0" data-name="Contact NO pneumatically or hydraulically controlled, one-way">
+  <title>Contact NO pneumatically or hydraulically controlled, one-way</title>
+  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-30.00" y="-5.00" width="20.00" height="10.00" stroke="black" fill="none" />
+    <polyline points="-5,-10 0,10 0,20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-5.00" x2="-20.00" y2="5.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="0.00" x2="-3.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polygon points="-12,-8 -16,-9 -16,-7" stroke="black" fill="black" />
+    <line x1="-28.00" y1="-8.00" x2="-16.00" y2="-8.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  </g>
+</svg>
