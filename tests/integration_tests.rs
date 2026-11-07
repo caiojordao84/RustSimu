@@ -5133,3 +5133,82 @@ fn test_canonical_library_ui_and_canvas_placement() {
     assert!(((w1_x - v1_x) - 6.0).abs() < 1e-4);
     assert!(((v1_x - u1_x) - 6.0).abs() < 1e-4);
 }
+
+#[test]
+fn test_canonical_block_classification_and_simulation_isolation() {
+    let dict = global_dictionary().expect("Dicionário canônico global deve existir");
+
+    // 1. Elementos com 0 terminais e blocos de PLC são classificados como kind: "block"
+    let plc_el = dict
+        .get_by_id("007B2")
+        .expect("Elemento PLC 007B2 deve existir");
+    assert_eq!(plc_el.kind, "block");
+    assert_eq!(plc_el.terminals.len(), 0);
+    assert!(!plc_el.is_wireable());
+    assert!(plc_el.tags.contains(&"block".to_string()));
+
+    let rail_el = dict
+        .get_by_id("00C55")
+        .expect("Trilho de montagem 00C55 deve existir");
+    assert_eq!(rail_el.kind, "block");
+    assert_eq!(rail_el.terminals.len(), 0);
+    assert!(!rail_el.is_wireable());
+
+    // 2. Elementos funcionais de esquema são wireable
+    let motor_el = dict.get_by_id("00001").expect("Motor 00001 deve existir");
+    assert_eq!(motor_el.kind, "motor");
+    assert!(!motor_el.terminals.is_empty());
+    assert!(motor_el.is_wireable());
+
+    // 3. Filtragem por escopo (Scope): All vs Wireable vs Block
+    let all_elements = dict.filter_elements("", None, None, CanonicalScope::All);
+    let wireable_elements = dict.filter_elements("", None, None, CanonicalScope::Wireable);
+    let block_elements = dict.filter_elements("", None, None, CanonicalScope::Block);
+
+    assert_eq!(all_elements.len(), 9273);
+    assert_eq!(wireable_elements.len(), 5702);
+    assert_eq!(block_elements.len(), 3571);
+    assert_eq!(
+        wireable_elements.len() + block_elements.len(),
+        all_elements.len()
+    );
+
+    assert!(wireable_elements.iter().all(|e| e.is_wireable()));
+    assert!(block_elements
+        .iter()
+        .all(|e| !e.is_wireable() && e.kind == "block"));
+
+    // 4. Inserção na folha via PlaceCanonicalComponent gera tag com prefixo "-BK" para blocos
+    let (mut app, _) = CadeSimuApp::new();
+    let initial_count = app.doc.items.len();
+    let _ = app.update(Message::Canvas(CanvasMessage::PlaceCanonicalComponent {
+        symbol_id: "007B2".to_string(),
+        x: 150,
+        y: 100,
+    }));
+    assert_eq!(app.doc.items.len(), initial_count + 1);
+    let placed_block = app.doc.items.last().unwrap();
+    assert!(
+        placed_block.tag.starts_with("-BK"),
+        "Bloco deve receber prefixo de tag -BK"
+    );
+
+    // 5. Isolamento de simulação: build_network_graph ignora itens kind: "block" (0 nós elétricos gerados)
+    let hash = 42;
+    let net = build_network_graph(&app.doc.items, hash);
+    // O bloco colocado em (150, 100) não deve registrar nenhum pino nem ponto elétrico no grafo
+    let placed_idx = app.doc.items.len() - 1;
+    assert!(
+        !net.item_pin_nodes.contains_key(&placed_idx),
+        "Bloco visual não deve gerar nós de pino no grafo"
+    );
+
+    // 6. UI: Alternar escopo na biblioteca via SelectCanonicalScope
+    let _ = app.update(Message::SelectCanonicalScope(CanonicalScope::Block));
+    assert_eq!(app.canonical_scope, CanonicalScope::Block);
+    let _ = app.view();
+
+    let _ = app.update(Message::SelectCanonicalScope(CanonicalScope::Wireable));
+    assert_eq!(app.canonical_scope, CanonicalScope::Wireable);
+    let _ = app.view();
+}

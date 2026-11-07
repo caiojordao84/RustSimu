@@ -382,6 +382,9 @@ pub fn convert_elmt_file(
                     }
                 }
                 "terminal" => {
+                    if is_plc_element(&unique_stem, category, &final_name_en) {
+                        continue;
+                    }
                     let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
                     let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
                     let name = child.attribute("name").unwrap_or("").to_string();
@@ -574,6 +577,9 @@ fn parse_svg_metadata(content: &str, stem: &str, category: &str) -> Option<Symbo
     let is_native = root.attribute("data-generator") == Some("cade2svg");
 
     let display = title.unwrap_or_else(|| humanize_stem(base_stem));
+    if is_plc_element(stem, category, &display) {
+        terminals.clear();
+    }
     // `cade_native` deriva de `symbols.rs`, cujo catálogo é em pt-BR: o título já é o nome pt.
     // Para os demais, o título/stem é em inglês e a tradução fica pendente (name_pt = None).
     let (name_en, name_pt) = if is_native {

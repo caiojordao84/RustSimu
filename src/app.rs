@@ -160,6 +160,7 @@ pub enum Message {
     StartSymbolDrag(i32),
     InsertSelectedCollectionSymbol,
     CanonicalSearchChanged(String),
+    SelectCanonicalScope(crate::canonical::CanonicalScope),
     SelectCanonicalFamily(Option<String>),
     SelectCanonicalKind(Option<String>),
     SelectCanonicalPage(usize),
@@ -286,6 +287,7 @@ pub struct CadeSimuApp {
     pub last_placed_sym: Option<i32>,
     // Biblioteca Canônica D2
     pub canonical_search: String,
+    pub canonical_scope: crate::canonical::CanonicalScope,
     pub canonical_family_filter: Option<String>,
     pub canonical_kind_filter: Option<String>,
     pub canonical_page: usize,
@@ -407,6 +409,7 @@ impl CadeSimuApp {
                 last_collection_click: None,
                 last_placed_sym: None,
                 canonical_search: String::new(),
+                canonical_scope: crate::canonical::CanonicalScope::All,
                 canonical_family_filter: None,
                 canonical_kind_filter: None,
                 canonical_page: 0,
@@ -1576,6 +1579,7 @@ impl CadeSimuApp {
                                 "source" => "-G",
                                 "terminal" | "connector" => "-X",
                                 "load" => "-R",
+                                "block" => "-BK",
                                 _ => "-E",
                             };
 
@@ -1833,6 +1837,10 @@ impl CadeSimuApp {
                 self.canonical_search = query;
                 self.canonical_page = 0;
             }
+            Message::SelectCanonicalScope(scope) => {
+                self.canonical_scope = scope;
+                self.canonical_page = 0;
+            }
             Message::SelectCanonicalFamily(fam) => {
                 self.canonical_family_filter = fam;
                 self.canonical_kind_filter = None;
@@ -1851,6 +1859,7 @@ impl CadeSimuApp {
                         &self.canonical_search,
                         self.canonical_family_filter.as_deref(),
                         self.canonical_kind_filter.as_deref(),
+                        self.canonical_scope,
                     );
                     let total_pages = if filtered.is_empty() {
                         1
@@ -4104,6 +4113,7 @@ impl CadeSimuApp {
                 ("Fontes", Some("source")),
                 ("Bornes", Some("terminal")),
                 ("Cargas", Some("load")),
+                ("Blocos / Montagem", Some("block")),
                 ("Válvulas", Some("pneu_valves")),
                 ("Atuadores", Some("pneu_actuators")),
                 ("Lógica", Some("logic_gates")),
@@ -4121,6 +4131,7 @@ impl CadeSimuApp {
                 ("Fontes", Some("source")),
                 ("Bornes", Some("terminal")),
                 ("Cargas", Some("load")),
+                ("Blocos / Montagem", Some("block")),
             ],
             Some("pneumatic") => &[
                 ("Todas", None),
@@ -4226,7 +4237,44 @@ impl CadeSimuApp {
             .padding(Padding::from([4.0, 10.0]))
         };
 
-        // 3. Chips de filtro por Família
+        // 3. Chips de Escopo: Todos / Esquema (Cabáveis) / Painel (Blocos)
+        let mut scope_chips = row![].spacing(4).align_y(Alignment::Center);
+        for (label, sc) in [
+            ("Todos", crate::canonical::CanonicalScope::All),
+            (
+                "⚡ Esquema (Cabáveis)",
+                crate::canonical::CanonicalScope::Wireable,
+            ),
+            (
+                "📦 Painel (Blocos)",
+                crate::canonical::CanonicalScope::Block,
+            ),
+        ] {
+            let is_active = self.canonical_scope == sc;
+            scope_chips = scope_chips.push(
+                button(text(label).size(10.0).font(UI))
+                    .style(if is_active {
+                        theme::tool_active
+                    } else {
+                        theme::tool
+                    })
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::SelectCanonicalScope(sc)),
+            );
+        }
+        let scope_scroll = container(
+            scrollable(scope_chips)
+                .direction(scrollable::Direction::Horizontal(
+                    scrollable::Scrollbar::new()
+                        .width(2.0)
+                        .scroller_width(2.0)
+                        .margin(0.0),
+                ))
+                .width(Length::Fill),
+        )
+        .padding(Padding::from([2.0, 10.0]));
+
+        // 4. Chips de filtro por Família
         let mut fam_chips = row![].spacing(4).align_y(Alignment::Center);
         for (label, fam_opt) in [
             ("Todas", None),
@@ -4300,6 +4348,7 @@ impl CadeSimuApp {
                     &self.canonical_search,
                     self.canonical_family_filter.as_deref(),
                     self.canonical_kind_filter.as_deref(),
+                    self.canonical_scope,
                 );
                 let total = filtered.len();
                 let total_pages = if total == 0 { 1 } else { total.div_ceil(35) };
@@ -4367,6 +4416,20 @@ impl CadeSimuApp {
             for el in page_elements {
                 let is_selected = self.selected_canonical_id.as_deref() == Some(&el.id);
                 let pin_count = el.terminals.len();
+                let is_wireable = el.is_wireable();
+
+                let badge_or_pins: Element<'_, Message> = if !is_wireable {
+                    container(text("Bloco").size(9.0).font(UI))
+                        .style(theme::tag_badge)
+                        .padding(Padding::from([1.0, 4.0]))
+                        .into()
+                } else {
+                    text(format!("{pin_count}b"))
+                        .size(10.0)
+                        .font(MONO)
+                        .color(t.text2)
+                        .into()
+                };
 
                 let item_row = container(
                     row![
@@ -4385,10 +4448,7 @@ impl CadeSimuApp {
                         ]
                         .spacing(1)
                         .width(Length::Fill),
-                        text(format!("{pin_count}b"))
-                            .size(10.0)
-                            .font(MONO)
-                            .color(t.text2),
+                        badge_or_pins,
                     ]
                     .spacing(5)
                     .align_y(Alignment::Center),
@@ -4433,7 +4493,9 @@ impl CadeSimuApp {
 
                     let term_names: Vec<&str> =
                         el.terminals.iter().map(|t| t.name.as_str()).collect();
-                    let term_str = if term_names.is_empty() {
+                    let term_str = if !el.is_wireable() {
+                        "Bloco de montagem visual (não simulável)".to_string()
+                    } else if term_names.is_empty() {
                         "Sem bornes".to_string()
                     } else {
                         format!("Bornes: {}", term_names.join(", "))
@@ -4493,6 +4555,7 @@ impl CadeSimuApp {
             shortcuts_box,
             horizontal_rule(1),
             search_box,
+            scope_scroll,
             fam_scroll,
             sub_scroll,
             horizontal_rule(1),
@@ -4619,14 +4682,23 @@ impl CadeSimuApp {
 
                 if let Some(sel_id) = self.selected_id {
                     if let Some(item) = self.doc.items.iter().find(|i| i.id == sel_id) {
-                        let title =
-                            find_symbol(item.tipo)
-                                .map(|s| s.name)
-                                .unwrap_or(if item.is_wire() {
-                                    "Cabo Condutor"
+                        let title = if let Some(sym) = find_symbol(item.tipo) {
+                            sym.name.to_string()
+                        } else if let Some(qet_id) = item.symbol_id_or_slug() {
+                            if let Some(dict) = crate::canonical::global_dictionary() {
+                                if let Some(el) = dict.get(qet_id) {
+                                    el.name_pt.clone()
                                 } else {
-                                    "Elemento"
-                                });
+                                    "Elemento QET".to_string()
+                                }
+                            } else {
+                                "Elemento QET".to_string()
+                            }
+                        } else if item.is_wire() {
+                            "Cabo Condutor".to_string()
+                        } else {
+                            "Elemento".to_string()
+                        };
 
                         body_col = body_col.push(
                             text(format!("#{sel_id} · {title}")).size(13).font(Font {
@@ -4634,6 +4706,33 @@ impl CadeSimuApp {
                                 ..UI
                             }),
                         );
+
+                        if let Some(qet_id) = item.symbol_id_or_slug() {
+                            if let Some(dict) = crate::canonical::global_dictionary() {
+                                if let Some(el) = dict.get(qet_id) {
+                                    if !el.is_wireable() {
+                                        body_col = body_col.push(
+                                            container(
+                                                row![
+                                                    crate::icons::view_icon(
+                                                        crate::icons::Icon::Info,
+                                                        12,
+                                                        t.primary
+                                                    ),
+                                                    text("Bloco de Montagem Visual (Painel/Layout). Não simulável.")
+                                                        .size(10.5)
+                                                        .color(t.primary),
+                                                ]
+                                                .spacing(4)
+                                                .align_y(Alignment::Center),
+                                            )
+                                            .style(theme::card)
+                                            .padding(Padding::from([4.0, 6.0])),
+                                        );
+                                    }
+                                }
+                            }
+                        }
 
                         if !item.is_wire() && !item.is_junction() {
                             // Tag / Etiqueta

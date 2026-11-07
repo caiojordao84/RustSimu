@@ -894,23 +894,32 @@ impl<'a> SchematicCanvas<'a> {
                 1.0,
             );
 
-            // Desenha bornes (pinos) nos terminais do símbolo SVG
-            if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
-                for shape in &parsed.shapes {
-                    if let crate::svg_symbol::SvgShape::Circle {
-                        cx,
-                        cy,
-                        is_terminal: true,
-                        ..
-                    } = shape
-                    {
-                        let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
-                        let (rx, ry) = transform_offset_f32(lx, ly, item.orientation);
-                        let pt = self.world_to_screen((item.x1 as f32) + rx, (item.y1 as f32) + ry);
-                        frame.stroke(
-                            &Path::circle(pt, (0.55 * self.zoom).clamp(1.5, 3.2)),
-                            Stroke::default().with_color(tok.danger).with_width(1.0),
-                        );
+            // Desenha bornes (pinos) nos terminais do símbolo SVG apenas se for cabável
+            let is_wireable = if let Some(dict) = crate::canonical::global_dictionary() {
+                dict.get(qet_type).is_none_or(|el| el.is_wireable())
+            } else {
+                true
+            };
+
+            if is_wireable {
+                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
+                    for shape in &parsed.shapes {
+                        if let crate::svg_symbol::SvgShape::Circle {
+                            cx,
+                            cy,
+                            is_terminal: true,
+                            ..
+                        } = shape
+                        {
+                            let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
+                            let (rx, ry) = transform_offset_f32(lx, ly, item.orientation);
+                            let pt =
+                                self.world_to_screen((item.x1 as f32) + rx, (item.y1 as f32) + ry);
+                            frame.stroke(
+                                &Path::circle(pt, (0.55 * self.zoom).clamp(1.5, 3.2)),
+                                Stroke::default().with_color(tok.danger).with_width(1.0),
+                            );
+                        }
                     }
                 }
             }

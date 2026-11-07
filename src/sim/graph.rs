@@ -93,6 +93,15 @@ pub fn build_network_graph(items: &[SchematicItem], topology_hash: u64) -> Netwo
             }
             item_pin_nodes.insert(idx, p_nodes);
         } else if let Some(qet_type) = item.symbol_id_or_slug() {
+            // Elementos de montagem visual não cabáveis (kind == "block" ou sem bornes) não participam da simulação
+            if let Some(dict) = crate::canonical::global_dictionary() {
+                if let Some(el) = dict.get(qet_type) {
+                    if !el.is_wireable() {
+                        continue;
+                    }
+                }
+            }
+
             if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                 let mut p_nodes = Vec::new();
                 for shape in &parsed.shapes {

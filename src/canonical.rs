@@ -80,6 +80,27 @@ pub struct CanonicalElement {
     pub tags: Vec<String>,
 }
 
+impl CanonicalElement {
+    /// Indica se o elemento é cabável (pode ser conectado eletricamente/ligado por fios).
+    /// Retorna `false` para blocos de montagem visual (painel, trilhos DIN, módulos CLP e acessórios de layout).
+    #[inline]
+    pub fn is_wireable(&self) -> bool {
+        self.kind != "block" && !self.terminals.is_empty()
+    }
+}
+
+/// Escopo de filtragem de elementos na biblioteca unificada.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, serde::Serialize, serde::Deserialize)]
+pub enum CanonicalScope {
+    /// Todos os elementos (cabáveis de esquema e blocos de painel/montagem).
+    #[default]
+    All,
+    /// Apenas elementos cabáveis com bornes/terminais para diagramas de comando e potência.
+    Wireable,
+    /// Apenas blocos de montagem visual (gabaritos 2D, trilhos DIN, módulos CLP e acessórios de painel).
+    Block,
+}
+
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ElementSource {
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -138,15 +159,57 @@ pub fn humanize_stem(stem: &str) -> String {
     }
 }
 
-/// Classifica o elemento em um dos 18 tipos canônicos obrigatórios da Decisão D2 (§5.2).
+/// Verifica se o elemento corresponde a um controlador/módulo CLP (PLC) ou bloco de controle lógico.
+/// Conforme diretriz do projeto, blocos de CLP são tratados como blocos de montagem visual não cabáveis (kind: "block").
+pub fn is_plc_element(slug: &str, category: &str, name_en: &str) -> bool {
+    let s = slug.to_ascii_lowercase();
+    let cat = category.to_ascii_lowercase();
+    let name = name_en.to_ascii_lowercase();
+
+    // Categorias de fabricantes e controladores
+    if cat.contains("plc_controllers")
+        || cat.contains("plc_and_controllers")
+        || cat.contains("41_plc_controllers")
+        || cat.contains("arduino")
+        || cat.contains("unitronics_plc")
+        || cat.contains("020_controller")
+        || cat.contains("safety_controllers")
+        || cat.contains("6es7")
+        || cat.contains("6es5")
+        || cat.contains("s7_300")
+        || cat.contains("s7_1500")
+    {
+        return true;
+    }
+
+    // Slugs e identificadores
+    if s.contains("plc_")
+        || s.contains("_plc")
+        || s == "plc"
+        || s.contains("automate_")
+        || s.contains("_automate")
+        || s == "automate"
+        || s.contains("automatisme")
+    {
+        return true;
+    }
+
+    // Nomes em inglês
+    name.contains("plc ")
+        || name.contains(" plc")
+        || name.starts_with("plc")
+        || name.contains("automate")
+}
+
+/// Classifica o elemento em um dos tipos canônicos da biblioteca.
 pub fn classify_element_kind(
     slug: &str,
     category: &str,
     name_en: &str,
     terminals_count: usize,
 ) -> &'static str {
-    if terminals_count == 0 {
-        return "graphic";
+    if terminals_count == 0 || is_plc_element(slug, category, name_en) {
+        return "block";
     }
     let s = slug.to_ascii_lowercase();
     let cat = category.to_ascii_lowercase();
@@ -491,7 +554,13 @@ pub fn migrate_to_canonical(
 
         let name_en = meta.name_en.clone();
         let name_pt = meta.name_pt.clone().unwrap_or_else(|| name_en.clone());
-        let kind = classify_element_kind(&meta.id, &meta.category, &name_en, meta.terminals.len());
+        let is_plc = is_plc_element(&meta.id, &meta.category, &name_en);
+        let terminals = if is_plc {
+            Vec::new()
+        } else {
+            meta.terminals.clone()
+        };
+        let kind = classify_element_kind(&meta.id, &meta.category, &name_en, terminals.len());
         let tags = extract_tags(&meta.id, &name_en, &name_pt, kind, &meta.category);
         let overlays = determine_overlays(kind);
 
@@ -551,7 +620,7 @@ pub fn migrate_to_canonical(
             },
             states,
             overlays,
-            terminals: meta.terminals.clone(),
+            terminals,
             tags,
         });
     }
@@ -810,7 +879,7 @@ impl CanonicalDictionary {
 
     /// Busca textual rápida por query sobre id, slug, tags e nomes pt/en.
     pub fn search(&self, query: &str) -> Vec<&CanonicalElement> {
-        self.filter_elements(query, None, None)
+        self.filter_elements(query, None, None, CanonicalScope::All)
     }
 
     /// Verifica se um elemento corresponde a uma subdivisão temática (kind, família ou subcategoria).
@@ -896,6 +965,7 @@ impl CanonicalDictionary {
                     || cat_path_lower.contains("resistor")
                     || cat_path_lower.contains("heater")
             }
+            "block" => el.kind == "block" || !el.is_wireable(),
 
             // Pneumática
             "pneu_valves" => {
@@ -980,18 +1050,32 @@ impl CanonicalDictionary {
         }
     }
 
-    /// Filtra elementos por query de busca opcional, família opcional e subdivisão temática opcional.
+    /// Filtra elementos por query de busca opcional, família opcional, subdivisão temática opcional e escopo.
     pub fn filter_elements(
         &self,
         query: &str,
         family: Option<&str>,
         subdivision: Option<&str>,
+        scope: CanonicalScope,
     ) -> Vec<&CanonicalElement> {
         let q = query.trim().to_lowercase();
         self.catalog
             .elements
             .iter()
             .filter(|el| {
+                match scope {
+                    CanonicalScope::All => {}
+                    CanonicalScope::Wireable => {
+                        if !el.is_wireable() {
+                            return false;
+                        }
+                    }
+                    CanonicalScope::Block => {
+                        if el.is_wireable() {
+                            return false;
+                        }
+                    }
+                }
                 if let Some(f) = family {
                     if !el.family.eq_ignore_ascii_case(f) {
                         return false;
