@@ -724,6 +724,7 @@ pub struct CanonicalDictionary {
     pub catalog: CanonicalCatalog,
     pub elements_by_id: HashMap<String, usize>,
     pub slug_to_id: HashMap<String, String>,
+    pub category_paths: HashMap<(String, String), String>,
 }
 
 impl CanonicalDictionary {
@@ -737,6 +738,11 @@ impl CanonicalDictionary {
 
         let mut elements_by_id = HashMap::with_capacity(catalog.elements.len());
         let mut slug_to_id = HashMap::with_capacity(catalog.elements.len());
+        let mut category_paths = HashMap::with_capacity(catalog.categories.len());
+
+        for cat in &catalog.categories {
+            category_paths.insert((cat.family.clone(), cat.code.clone()), cat.path.clone());
+        }
 
         for (idx, el) in catalog.elements.iter().enumerate() {
             elements_by_id.insert(el.id.clone(), idx);
@@ -748,6 +754,7 @@ impl CanonicalDictionary {
             catalog,
             elements_by_id,
             slug_to_id,
+            category_paths,
         })
     }
 
@@ -806,12 +813,179 @@ impl CanonicalDictionary {
         self.filter_elements(query, None, None)
     }
 
-    /// Filtra elementos por query de busca opcional, família opcional e kind opcional.
+    /// Verifica se um elemento corresponde a uma subdivisão temática (kind, família ou subcategoria).
+    pub fn element_matches_subdivision(&self, el: &CanonicalElement, sub: &str) -> bool {
+        let cat_path = self
+            .category_paths
+            .get(&(el.family.clone(), el.category.clone()))
+            .map(|s| s.as_str())
+            .unwrap_or("");
+        let cat_path_lower = cat_path.to_ascii_lowercase();
+
+        match sub {
+            // Elétrica / Geral
+            "motor" => {
+                el.kind == "motor"
+                    || cat_path_lower.contains("engine")
+                    || cat_path_lower.contains("motor")
+            }
+            "circuit_breaker" => {
+                el.kind == "circuit_breaker"
+                    || el.kind == "disconnector"
+                    || cat_path_lower.contains("breaker")
+                    || cat_path_lower.contains("disjoncteur")
+                    || cat_path_lower.contains("disjuntor")
+            }
+            "fuse" => {
+                el.kind == "fuse"
+                    || cat_path_lower.contains("fuse")
+                    || cat_path_lower.contains("sicherung")
+                    || cat_path_lower.contains("fusivel")
+            }
+            "relay_coil" => {
+                el.kind == "relay_coil"
+                    || cat_path_lower.contains("coil")
+                    || cat_path_lower.contains("bobina")
+                    || cat_path_lower.contains("rele")
+            }
+            "contactor_contact" => {
+                el.kind == "contactor_contact"
+                    || el.kind == "thermal_contact"
+                    || cat_path_lower.contains("contact")
+                    || cat_path_lower.contains("contato")
+            }
+            "momentary_button" => {
+                el.kind == "momentary_button"
+                    || el.kind == "emergency_stop"
+                    || cat_path_lower.contains("button")
+                    || cat_path_lower.contains("pulsador")
+                    || cat_path_lower.contains("botao")
+            }
+            "latching_switch" => {
+                el.kind == "latching_switch"
+                    || el.kind == "selector_switch"
+                    || el.kind == "limit_switch"
+                    || cat_path_lower.contains("switch")
+                    || cat_path_lower.contains("schalter")
+                    || cat_path_lower.contains("chave")
+            }
+            "lamp" => {
+                el.kind == "lamp"
+                    || cat_path_lower.contains("light")
+                    || cat_path_lower.contains("lamp")
+                    || cat_path_lower.contains("voyant")
+                    || cat_path_lower.contains("sinaleiro")
+            }
+            "source" => {
+                el.kind == "source"
+                    || cat_path_lower.contains("supplies")
+                    || cat_path_lower.contains("source")
+                    || cat_path_lower.contains("battery")
+                    || cat_path_lower.contains("alimenta")
+            }
+            "terminal" => {
+                el.kind == "terminal"
+                    || el.kind == "connector"
+                    || cat_path_lower.contains("terminal")
+                    || cat_path_lower.contains("connector")
+                    || cat_path_lower.contains("borne")
+            }
+            "load" => {
+                el.kind == "load"
+                    || cat_path_lower.contains("consumer")
+                    || cat_path_lower.contains("resistor")
+                    || cat_path_lower.contains("heater")
+            }
+
+            // Pneumática
+            "pneu_valves" => {
+                cat_path_lower.contains("velve")
+                    || cat_path_lower.contains("valve")
+                    || cat_path_lower.contains("distributor")
+                    || el.slug.contains("valve")
+            }
+            "pneu_air" => {
+                cat_path_lower.contains("compressed_air")
+                    || cat_path_lower.contains("air_generation")
+                    || cat_path_lower.contains("tank")
+                    || cat_path_lower.contains("treatment")
+                    || cat_path_lower.contains("filter")
+                    || cat_path_lower.contains("pipes")
+            }
+            "pneu_actuators" => {
+                cat_path_lower.contains("actuator")
+                    || cat_path_lower.contains("cylinder")
+                    || el.slug.contains("cylinder")
+            }
+            "pneu_sensors" => {
+                cat_path_lower.contains("sensor")
+                    || cat_path_lower.contains("indicator")
+                    || el.slug.contains("sensor")
+            }
+
+            // Hidráulica
+            "hyd_valves" => cat_path_lower.contains("valve") || el.slug.contains("valve"),
+            "hyd_pumps" => {
+                cat_path_lower.contains("pump") || el.kind == "motor" || el.slug.contains("pump")
+            }
+            "hyd_cylinders" => cat_path_lower.contains("cylinder") || el.slug.contains("cylinder"),
+            "hyd_tanks" => cat_path_lower.contains("tank") || el.slug.contains("tank"),
+            "hyd_filters" => {
+                cat_path_lower.contains("filter") || cat_path_lower.contains("exchanger")
+            }
+
+            // Lógica
+            "logic_gates" => cat_path_lower.contains("logic_gates") || el.slug.contains("gate"),
+            "logic_ladder" => cat_path_lower.contains("ladder") || el.slug.contains("ladder"),
+            "logic_flowchart" => {
+                cat_path_lower.contains("flow_chart") || cat_path_lower.contains("grafcet")
+            }
+
+            // Energia
+            "energy_water" => {
+                cat_path_lower.contains("water")
+                    || cat_path_lower.contains("calefaccion")
+                    || cat_path_lower.contains("agua")
+            }
+            "energy_refrig" => {
+                cat_path_lower.contains("refrigeration") || cat_path_lower.contains("refrig")
+            }
+            "energy_solar" => cat_path_lower.contains("solar"),
+            "energy_mfg" => cat_path_lower.contains("manufacturers"),
+
+            // CADe nativos
+            "cade_power" => el.kind == "source",
+            "cade_protection" => {
+                el.kind == "circuit_breaker" || el.kind == "fuse" || el.kind == "disconnector"
+            }
+            "cade_control" => {
+                el.kind == "contactor_contact"
+                    || el.kind == "relay_coil"
+                    || el.kind == "thermal_contact"
+            }
+            "cade_motors" => el.kind == "motor",
+            "cade_switches" => {
+                el.kind == "momentary_button"
+                    || el.kind == "latching_switch"
+                    || el.kind == "selector_switch"
+            }
+            "cade_signaling" => el.kind == "lamp",
+
+            // Fallback genérico: compara com kind ou substring no path ou slug
+            other => {
+                el.kind.eq_ignore_ascii_case(other)
+                    || cat_path_lower.contains(&other.to_ascii_lowercase())
+                    || el.slug.contains(&other.to_ascii_lowercase())
+            }
+        }
+    }
+
+    /// Filtra elementos por query de busca opcional, família opcional e subdivisão temática opcional.
     pub fn filter_elements(
         &self,
         query: &str,
         family: Option<&str>,
-        kind: Option<&str>,
+        subdivision: Option<&str>,
     ) -> Vec<&CanonicalElement> {
         let q = query.trim().to_lowercase();
         self.catalog
@@ -823,8 +997,8 @@ impl CanonicalDictionary {
                         return false;
                     }
                 }
-                if let Some(k) = kind {
-                    if !el.kind.eq_ignore_ascii_case(k) {
+                if let Some(sub) = subdivision {
+                    if !self.element_matches_subdivision(el, sub) {
                         return false;
                     }
                 }

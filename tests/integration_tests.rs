@@ -5013,18 +5013,30 @@ fn test_canonical_dictionary_lookup_and_svg_resolution() {
 fn test_canonical_library_ui_and_canvas_placement() {
     let (mut app, _) = CadeSimuApp::new();
 
-    // 1. Alternância de sub-aba entre CADe nativo (0) e QET Canônica (1)
-    assert_eq!(app.library_subtab, 0);
-    let _ = app.update(Message::SelectLibrarySubtab(1));
-    assert_eq!(app.library_subtab, 1);
+    // 1. Biblioteca unificada: seleção de família reseta a subdivisão
+    let _ = app.update(Message::SelectCanonicalFamily(Some("electric".to_string())));
+    assert_eq!(app.canonical_family_filter.as_deref(), Some("electric"));
+    let _ = app.update(Message::SelectCanonicalKind(Some("motor".to_string())));
+    assert_eq!(app.canonical_kind_filter.as_deref(), Some("motor"));
 
-    // 2. Filtragem de elementos
+    // Ao mudar para família pneumatic, a subdivisão é resetada para None
+    let _ = app.update(Message::SelectCanonicalFamily(Some(
+        "pneumatic".to_string(),
+    )));
+    assert_eq!(app.canonical_family_filter.as_deref(), Some("pneumatic"));
+    assert_eq!(app.canonical_kind_filter, None);
+
+    // Seleciona subdivisão de pneumática
+    let _ = app.update(Message::SelectCanonicalKind(Some(
+        "pneu_valves".to_string(),
+    )));
+    assert_eq!(app.canonical_kind_filter.as_deref(), Some("pneu_valves"));
+
+    // 2. Filtragem e busca de elementos
+    let _ = app.update(Message::SelectCanonicalFamily(Some("electric".to_string())));
     let _ = app.update(Message::CanonicalSearchChanged("motor".to_string()));
     assert_eq!(app.canonical_search, "motor");
     assert_eq!(app.canonical_page, 0);
-
-    let _ = app.update(Message::SelectCanonicalFamily(Some("electric".to_string())));
-    assert_eq!(app.canonical_family_filter.as_deref(), Some("electric"));
 
     let _ = app.update(Message::SelectCanonicalKind(Some("motor".to_string())));
     assert_eq!(app.canonical_kind_filter.as_deref(), Some("motor"));
@@ -5091,8 +5103,6 @@ fn test_canonical_library_ui_and_canvas_placement() {
     let _ = app.update(Message::Redo);
     assert_eq!(app.doc.items.len(), initial_items + 1);
 
-    // 11. Renderização da UI da biblioteca não causa panic em ambos os modos
-    let _ = app.view();
-    let _ = app.update(Message::SelectLibrarySubtab(0));
+    // 11. Renderização da UI da biblioteca unificada não causa panic
     let _ = app.view();
 }

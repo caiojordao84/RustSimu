@@ -154,10 +154,21 @@ impl<'a> SchematicCanvas<'a> {
             } else if let Some(qet_type) = item.symbol_id_or_slug() {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     let (vx, vy, vw, vh) = parsed.view_box;
-                    let min_x = item.x1 + vx.min(vx + vw).round() as i32 - 4;
-                    let max_x = item.x1 + vx.max(vx + vw).round() as i32 + 4;
-                    let min_y = item.y1 + vy.min(vy + vh).round() as i32 - 4;
-                    let max_y = item.y1 + vy.max(vy + vh).round() as i32 + 4;
+                    let (scale_vx, scale_vy, scale_vw, scale_vh) = if parsed.is_cade_svg {
+                        (vx / 5.0, vy / 5.0, vw / 5.0, vh / 5.0)
+                    } else {
+                        (vx, vy, vw, vh)
+                    };
+                    let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
+                    let (p2x, p2y) = transform_offset_f32(
+                        scale_vx + scale_vw,
+                        scale_vy + scale_vh,
+                        item.orientation,
+                    );
+                    let min_x = item.x1 + p1x.min(p2x).round() as i32 - 4;
+                    let max_x = item.x1 + p1x.max(p2x).round() as i32 + 4;
+                    let min_y = item.y1 + p1y.min(p2y).round() as i32 - 4;
+                    let max_y = item.y1 + p1y.max(p2y).round() as i32 + 4;
                     if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
                         return Some(item.id);
                     }
@@ -597,14 +608,15 @@ impl<'a> SchematicCanvas<'a> {
                     let (lx, ly) = parsed.map_point(*cx, *cy, target_span);
                     let (rx, ry) = transform_offset_f32(lx, ly, orientation);
                     let center = self.world_to_screen(ox + rx, oy + ry);
-                    let rad = if parsed.is_qet_native {
-                        r * self.zoom
-                    } else if parsed.is_cade_svg {
+                    let rad = if parsed.is_cade_svg {
                         (r / 5.0) * self.zoom
-                    } else {
-                        (r * (target_span
-                            / (parsed.term_bottom_y - parsed.term_top_y).abs().max(1.0)))
+                    } else if target_span > 1.0
+                        && (parsed.term_bottom_y - parsed.term_top_y).abs() > 0.1
+                    {
+                        (r * (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs()))
                             * self.zoom
+                    } else {
+                        r * self.zoom
                     };
                     let circle_path = Path::circle(center, rad.max(1.2));
                     if let Some(fill_col) = resolve_shape_fill(*fill) {
@@ -832,8 +844,17 @@ impl<'a> SchematicCanvas<'a> {
             if is_selected {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     let (vx, vy, vw, vh) = parsed.view_box;
-                    let (p1x, p1y) = transform_offset_f32(vx, vy, item.orientation);
-                    let (p2x, p2y) = transform_offset_f32(vx + vw, vy + vh, item.orientation);
+                    let (scale_vx, scale_vy, scale_vw, scale_vh) = if parsed.is_cade_svg {
+                        (vx / 5.0, vy / 5.0, vw / 5.0, vh / 5.0)
+                    } else {
+                        (vx, vy, vw, vh)
+                    };
+                    let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
+                    let (p2x, p2y) = transform_offset_f32(
+                        scale_vx + scale_vw,
+                        scale_vy + scale_vh,
+                        item.orientation,
+                    );
                     let min_x = (item.x1 as f32 + p1x.min(p2x)) - 2.0;
                     let max_x = (item.x1 as f32 + p1x.max(p2x)) + 2.0;
                     let min_y = (item.y1 as f32 + p1y.min(p2y)) - 2.0;

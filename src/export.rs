@@ -249,13 +249,14 @@ fn render_svg_symbol_to_svg(
                 let (rx, ry) = transform_offset_f32(lx, ly, orientation);
                 let center_x = (ox + rx) * scale;
                 let center_y = (oy + ry) * scale;
-                let rad = if parsed.is_qet_native {
-                    *r * scale
-                } else if parsed.is_cade_svg {
+                let rad = if parsed.is_cade_svg {
                     (*r / 5.0) * scale
+                } else if target_span > 1.0
+                    && (parsed.term_bottom_y - parsed.term_top_y).abs() > 0.1
+                {
+                    (*r * (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs())) * scale
                 } else {
-                    (*r * (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs().max(1.0)))
-                        * scale
+                    *r * scale
                 };
                 let rad = rad.max(1.2);
                 let fill_attr = match resolve_fill(*fill) {

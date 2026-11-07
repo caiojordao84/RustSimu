@@ -15,7 +15,7 @@ use crate::sim::{press_component_on_sim, release_component_on_sim, step_simulati
 use crate::symbols::{
     classify_apparatus_role, detect_contact_kind, detect_current_sequence, extract_tag_prefix,
     find_duplicate_apparatus, find_occupied_sequences_for_tag, find_parent_apparatus, find_symbol,
-    list_available_parent_tags, next_sequential_tag_for_role, symbol_catalog, SymbolCategory,
+    list_available_parent_tags, next_sequential_tag_for_role, SymbolCategory,
 };
 use crate::theme::{self, tokens, ThemeMode, MENU_H, MONO, STATUS_H, TOOL_H, UI};
 
@@ -159,7 +159,6 @@ pub enum Message {
     SelectCollectionSymbol(i32),
     StartSymbolDrag(i32),
     InsertSelectedCollectionSymbol,
-    SelectLibrarySubtab(usize),
     CanonicalSearchChanged(String),
     SelectCanonicalFamily(Option<String>),
     SelectCanonicalKind(Option<String>),
@@ -286,7 +285,6 @@ pub struct CadeSimuApp {
     pub last_collection_click: Option<(i32, std::time::Instant)>,
     pub last_placed_sym: Option<i32>,
     // Biblioteca Canônica D2
-    pub library_subtab: usize,
     pub canonical_search: String,
     pub canonical_family_filter: Option<String>,
     pub canonical_kind_filter: Option<String>,
@@ -408,7 +406,6 @@ impl CadeSimuApp {
                 dragging_symbol: None,
                 last_collection_click: None,
                 last_placed_sym: None,
-                library_subtab: 0,
                 canonical_search: String::new(),
                 canonical_family_filter: None,
                 canonical_kind_filter: None,
@@ -1832,15 +1829,13 @@ impl CadeSimuApp {
                     }
                 }
             }
-            Message::SelectLibrarySubtab(idx) => {
-                self.library_subtab = idx;
-            }
             Message::CanonicalSearchChanged(query) => {
                 self.canonical_search = query;
                 self.canonical_page = 0;
             }
             Message::SelectCanonicalFamily(fam) => {
                 self.canonical_family_filter = fam;
+                self.canonical_kind_filter = None;
                 self.canonical_page = 0;
             }
             Message::SelectCanonicalKind(kind) => {
@@ -3962,45 +3957,7 @@ impl CadeSimuApp {
         .width(Length::Fill);
 
         let content: Element<'_, Message> = match self.left_dock_tab {
-            0 => {
-                let subtab_selector = container(
-                    row![
-                        button(text("⚡ CADe Nativos (~40)").size(10.5).font(UI))
-                            .style(if self.library_subtab == 0 {
-                                theme::tool_active
-                            } else {
-                                theme::tool
-                            })
-                            .padding(Padding::from([3.0, 6.0]))
-                            .width(Length::Fill)
-                            .on_press(Message::SelectLibrarySubtab(0)),
-                        button(text("📚 QET Completa (9.3k)").size(10.5).font(UI))
-                            .style(if self.library_subtab == 1 {
-                                theme::tool_active
-                            } else {
-                                theme::tool
-                            })
-                            .padding(Padding::from([3.0, 6.0]))
-                            .width(Length::Fill)
-                            .on_press(Message::SelectLibrarySubtab(1)),
-                    ]
-                    .spacing(4)
-                    .width(Length::Fill),
-                )
-                .style(theme::bar)
-                .padding(Padding::from([3.0, 8.0]))
-                .width(Length::Fill);
-
-                let lib_content = if self.library_subtab == 0 {
-                    self.view_native_library_panel()
-                } else {
-                    self.view_canonical_library_panel()
-                };
-
-                column![subtab_selector, lib_content]
-                    .height(Length::Fill)
-                    .into()
-            }
+            0 => self.view_unified_library_panel(),
             _ => {
                 // Aba Projetos
                 let mut proj_col = column![].spacing(6).padding(Padding::from([8.0, 10.0]));
@@ -4130,43 +4087,107 @@ impl CadeSimuApp {
             .into()
     }
 
-    fn view_native_library_panel(&self) -> Element<'_, Message> {
+    fn get_subdivisions_for_family(
+        family: Option<&str>,
+    ) -> &'static [(&'static str, Option<&'static str>)] {
+        match family {
+            None => &[
+                ("Todas", None),
+                ("Motores", Some("motor")),
+                ("Disjuntores", Some("circuit_breaker")),
+                ("Fusíveis", Some("fuse")),
+                ("Bobinas", Some("relay_coil")),
+                ("Contatos", Some("contactor_contact")),
+                ("Botoeiras", Some("momentary_button")),
+                ("Chaves", Some("latching_switch")),
+                ("Sinaleiros", Some("lamp")),
+                ("Fontes", Some("source")),
+                ("Bornes", Some("terminal")),
+                ("Cargas", Some("load")),
+                ("Válvulas", Some("pneu_valves")),
+                ("Atuadores", Some("pneu_actuators")),
+                ("Lógica", Some("logic_gates")),
+            ],
+            Some("electric") => &[
+                ("Todas", None),
+                ("Motores", Some("motor")),
+                ("Disjuntores", Some("circuit_breaker")),
+                ("Fusíveis", Some("fuse")),
+                ("Bobinas", Some("relay_coil")),
+                ("Contatos", Some("contactor_contact")),
+                ("Botoeiras", Some("momentary_button")),
+                ("Chaves", Some("latching_switch")),
+                ("Sinaleiros", Some("lamp")),
+                ("Fontes", Some("source")),
+                ("Bornes", Some("terminal")),
+                ("Cargas", Some("load")),
+            ],
+            Some("pneumatic") => &[
+                ("Todas", None),
+                ("Válvulas", Some("pneu_valves")),
+                ("Ar Comprimido", Some("pneu_air")),
+                ("Atuadores / Cilindros", Some("pneu_actuators")),
+                ("Sensores", Some("pneu_sensors")),
+            ],
+            Some("hydraulic") => &[
+                ("Todas", None),
+                ("Válvulas de Controle", Some("hyd_valves")),
+                ("Bombas", Some("hyd_pumps")),
+                ("Cilindros", Some("hyd_cylinders")),
+                ("Tanques", Some("hyd_tanks")),
+                ("Filtros", Some("hyd_filters")),
+            ],
+            Some("logic") => &[
+                ("Todas", None),
+                ("Portas Lógicas", Some("logic_gates")),
+                ("Ladder", Some("logic_ladder")),
+                ("Fluxograma e Grafcet", Some("logic_flowchart")),
+            ],
+            Some("energy") => &[
+                ("Todas", None),
+                ("Água e Calefação", Some("energy_water")),
+                ("Refrigeração", Some("energy_refrig")),
+                ("Solar Térmica", Some("energy_solar")),
+                ("Fabricantes", Some("energy_mfg")),
+            ],
+            Some("cade_native") => &[
+                ("Todas", None),
+                ("Alimentações", Some("cade_power")),
+                ("Disjuntores / Fusíveis", Some("cade_protection")),
+                ("Contatores / Relés", Some("cade_control")),
+                ("Motores", Some("cade_motors")),
+                ("Botoeiras / Chaves", Some("cade_switches")),
+                ("Sinalização", Some("cade_signaling")),
+            ],
+            Some("import") => &[
+                ("Todas", None),
+                ("Automotivo / Veicular", Some("classic_car")),
+                ("Elétrica Importada", Some("10_electric")),
+                ("Outros", Some("import")),
+            ],
+            Some(_) => &[("Todas", None)],
+        }
+    }
+
+    fn view_unified_library_panel(&self) -> Element<'_, Message> {
         let t = tokens(&self.theme());
+        let is_dark = self.is_dark();
 
-        // Barra de busca
-        let search_box = container(
-            text_input(
-                "Filtrar símbolos (ex: disjuntor, motor)...",
-                &self.collection_search,
-            )
-            .on_input(Message::CollectionSearchChanged)
-            .padding(Padding::from([6.0, 8.0]))
-            .size(12)
-            .style(theme::field),
-        )
-        .padding(Padding::from([8.0, 10.0]));
-
-        // Lista de símbolos organizados por categoria
-        let query = self.collection_search.trim().to_lowercase();
-        let all_symbols = symbol_catalog();
-
-        let mut tree_col = column![].spacing(6).padding(Padding::from([0.0, 10.0]));
-
-        // Atalhos de cabeamento rápido sempre visíveis
+        // 1. Atalhos de cabeamento rápido sempre visíveis
         let wire_shortcuts = row![
-            button(text("+ Fase L").size(11))
+            button(text("+ Fase L").size(10.5))
                 .style(theme::tool)
                 .padding(Padding::from([2.0, 6.0]))
                 .on_press(Message::SelectTool(EditorTool::DrawWire(4000))),
-            button(text("+ Neutro N").size(11))
+            button(text("+ Neutro N").size(10.5))
                 .style(theme::tool)
                 .padding(Padding::from([2.0, 6.0]))
                 .on_press(Message::SelectTool(EditorTool::DrawWire(4009))),
-            button(text("+ Terra").size(11))
+            button(text("+ Terra").size(10.5))
                 .style(theme::tool)
                 .padding(Padding::from([2.0, 6.0]))
                 .on_press(Message::SelectTool(EditorTool::DrawWire(4010))),
-            button(text("+ Nó").size(11))
+            button(text("+ Nó").size(10.5))
                 .style(theme::tool)
                 .padding(Padding::from([2.0, 6.0]))
                 .on_press(Message::SelectTool(EditorTool::PlaceJunction)),
@@ -4174,141 +4195,13 @@ impl CadeSimuApp {
         .spacing(4)
         .align_y(Alignment::Center);
 
-        tree_col = tree_col.push(wire_shortcuts).push(horizontal_rule(1));
+        let shortcuts_box = container(wire_shortcuts)
+            .padding(Padding::from([4.0, 10.0]))
+            .width(Length::Fill);
 
-        for cat in SymbolCategory::ALL {
-            if cat == SymbolCategory::WiresConnections {
-                continue;
-            }
-            let cat_syms: Vec<_> = all_symbols
-                .iter()
-                .filter(|s| s.category == cat)
-                .filter(|s| {
-                    if query.is_empty() {
-                        true
-                    } else {
-                        s.name.to_lowercase().contains(&query)
-                            || s.default_tag.to_lowercase().contains(&query)
-                            || s.short_label.to_lowercase().contains(&query)
-                            || cat.title().to_lowercase().contains(&query)
-                    }
-                })
-                .collect();
-
-            if cat_syms.is_empty() {
-                continue;
-            }
-
-            let cat_header = container(
-                text(cat.title())
-                    .size(11)
-                    .font(Font {
-                        weight: iced::font::Weight::Bold,
-                        ..UI
-                    })
-                    .color(t.primary),
-            )
-            .padding(Padding::from([4.0, 2.0]));
-
-            tree_col = tree_col.push(cat_header);
-
-            for sym in cat_syms {
-                let is_selected = self.selected_collection_sym == Some(sym.tipo);
-                let pin_count = sym.pins.len();
-
-                let item_row = container(
-                    row![
-                        container(text(format!("[{}]", sym.default_tag)).size(10.5).font(MONO))
-                            .style(theme::tag_badge)
-                            .padding(Padding::from([1.0, 4.0])),
-                        text(sym.name).size(12).font(UI).width(Length::Fill),
-                        text(format!("{pin_count}b"))
-                            .size(10.5)
-                            .font(MONO)
-                            .color(t.text2),
-                    ]
-                    .spacing(6)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::catalog_item(is_selected))
-                .padding(Padding::from([4.0, 6.0]))
-                .width(Length::Fill);
-
-                let item_area = mouse_area(item_row)
-                    .interaction(iced::mouse::Interaction::Pointer)
-                    .on_press(Message::StartSymbolDrag(sym.tipo))
-                    .on_release(Message::SelectCollectionSymbol(sym.tipo));
-
-                tree_col = tree_col.push(item_area);
-            }
-        }
-
-        let tree_scroll = container(scrollable(tree_col)).height(Length::Fill);
-
-        // Preview box na parte inferior do painel esquerdo
-        let preview_content = if let Some(tipo) = self.selected_collection_sym {
-            if let Some(sym) = find_symbol(tipo) {
-                let is_dark = self.is_dark();
-                let svg_content = crate::symbols::get_themed_symbol_svg_string(&sym, is_dark);
-                let svg_preview: Element<'_, Message> = container(
-                    svg(svg::Handle::from_memory(svg_content.into_bytes()))
-                        .width(Length::Fixed(80.0))
-                        .height(Length::Fixed(60.0)),
-                )
-                .align_x(iced::alignment::Horizontal::Center)
-                .align_y(iced::alignment::Vertical::Center)
-                .into();
-
-                column![
-                    row![
-                        text(sym.name)
-                            .size(11.5)
-                            .font(Font {
-                                weight: iced::font::Weight::Semibold,
-                                ..UI
-                            })
-                            .width(Length::Fill),
-                        text(format!("{} bornes", sym.pins.len()))
-                            .size(10.5)
-                            .font(MONO)
-                            .color(t.text2),
-                    ]
-                    .align_y(Alignment::Center),
-                    svg_preview,
-                    button(text("Inserir no Esquema").size(11.5).font(UI))
-                        .style(theme::primary)
-                        .padding(Padding::from([4.0, 10.0]))
-                        .width(Length::Fill)
-                        .on_press(Message::InsertSelectedCollectionSymbol),
-                ]
-                .spacing(4)
-                .align_x(Alignment::Center)
-            } else {
-                column![text("Símbolo não encontrado").size(12)]
-            }
-        } else {
-            column![text("Selecione um símbolo acima").size(11.5).color(t.text2),]
-                .align_x(Alignment::Center)
-        };
-
-        let preview_dock = container(preview_content)
-            .style(theme::preview_box)
-            .padding(Padding::from([6.0, 10.0]))
-            .width(Length::Fill)
-            .height(130);
-
-        column![search_box, tree_scroll, preview_dock]
-            .height(Length::Fill)
-            .into()
-    }
-
-    fn view_canonical_library_panel(&self) -> Element<'_, Message> {
-        let t = tokens(&self.theme());
-        let is_dark = self.is_dark();
-
-        // 1. Barra de busca com botão de limpar
+        // 2. Barra de busca com botão de limpar
         let search_input = text_input(
-            "Filtrar 9.3k símbolos (pt/en/slug/id)...",
+            "Buscar na biblioteca unificada (9.3k)...",
             &self.canonical_search,
         )
         .on_input(Message::CanonicalSearchChanged)
@@ -4317,7 +4210,7 @@ impl CadeSimuApp {
         .style(theme::field);
 
         let search_box = if self.canonical_search.is_empty() {
-            container(search_input).padding(Padding::from([6.0, 10.0]))
+            container(search_input).padding(Padding::from([4.0, 10.0]))
         } else {
             container(
                 row![
@@ -4330,10 +4223,10 @@ impl CadeSimuApp {
                 .spacing(4)
                 .align_y(Alignment::Center),
             )
-            .padding(Padding::from([6.0, 10.0]))
+            .padding(Padding::from([4.0, 10.0]))
         };
 
-        // 2. Chips de filtro por Família
+        // 3. Chips de filtro por Família
         let mut fam_chips = row![].spacing(4).align_y(Alignment::Center);
         for (label, fam_opt) in [
             ("Todas", None),
@@ -4342,7 +4235,7 @@ impl CadeSimuApp {
             ("💨 Pneumática", Some("pneumatic")),
             ("💧 Hidráulica", Some("hydraulic")),
             ("🔣 Lógica", Some("logic")),
-            ("📦 Import", Some("import")),
+            ("📦 Importados", Some("import")),
             ("🔌 CADe", Some("cade_native")),
         ] {
             let is_active = self.canonical_family_filter.as_deref() == fam_opt;
@@ -4370,25 +4263,14 @@ impl CadeSimuApp {
         )
         .padding(Padding::from([0.0, 10.0]));
 
-        // 3. Chips de filtro por Tipo elétrico (Kind)
-        let mut kind_chips = row![].spacing(4).align_y(Alignment::Center);
-        for (label, kind_opt) in [
-            ("Todos", None),
-            ("Motores", Some("motor")),
-            ("Disjuntores", Some("circuit_breaker")),
-            ("Fusíveis", Some("fuse")),
-            ("Bobinas", Some("relay_coil")),
-            ("Contatos", Some("contactor_contact")),
-            ("Botoeiras", Some("momentary_button")),
-            ("Chaves", Some("latching_switch")),
-            ("Sinaleiros", Some("lamp")),
-            ("Fontes", Some("source")),
-            ("Bornes", Some("terminal")),
-            ("Cargas", Some("load")),
-        ] {
-            let is_active = self.canonical_kind_filter.as_deref() == kind_opt;
-            let kind_val = kind_opt.map(|s| s.to_string());
-            kind_chips = kind_chips.push(
+        // 4. Chips de filtro por Subdivisão temática dinâmica (obedecendo a família selecionada)
+        let mut sub_chips = row![].spacing(4).align_y(Alignment::Center);
+        let subdivisions =
+            Self::get_subdivisions_for_family(self.canonical_family_filter.as_deref());
+        for &(label, sub_opt) in subdivisions {
+            let is_active = self.canonical_kind_filter.as_deref() == sub_opt;
+            let sub_val = sub_opt.map(|s| s.to_string());
+            sub_chips = sub_chips.push(
                 button(text(label).size(10.0).font(UI))
                     .style(if is_active {
                         theme::tool_active
@@ -4396,11 +4278,11 @@ impl CadeSimuApp {
                         theme::tool
                     })
                     .padding(Padding::from([2.0, 6.0]))
-                    .on_press(Message::SelectCanonicalKind(kind_val)),
+                    .on_press(Message::SelectCanonicalKind(sub_val)),
             );
         }
-        let kind_scroll = container(
-            scrollable(kind_chips)
+        let sub_scroll = container(
+            scrollable(sub_chips)
                 .direction(scrollable::Direction::Horizontal(
                     scrollable::Scrollbar::new()
                         .width(2.0)
@@ -4411,7 +4293,7 @@ impl CadeSimuApp {
         )
         .padding(Padding::from([2.0, 10.0]));
 
-        // 4. Filtragem e Paginação dos Elementos
+        // 5. Filtragem e Paginação dos Elementos
         let (page_elements, current_page, total_pages, total_count) =
             if let Some(dict) = crate::canonical::global_dictionary() {
                 let filtered = dict.filter_elements(
@@ -4430,7 +4312,7 @@ impl CadeSimuApp {
                 (Vec::new(), 0, 1, 0)
             };
 
-        // 5. Barra de controle de paginação
+        // 6. Barra de controle de paginação
         let prev_btn = button(text("◀").size(10.0).font(UI))
             .style(theme::tool)
             .padding(Padding::from([2.0, 6.0]));
@@ -4470,7 +4352,7 @@ impl CadeSimuApp {
         )
         .padding(Padding::from([4.0, 10.0]));
 
-        // 6. Lista paginada de símbolos
+        // 7. Lista paginada de símbolos
         let mut list_col = column![].spacing(3).padding(Padding::from([0.0, 10.0]));
         if page_elements.is_empty() {
             list_col = list_col.push(
@@ -4525,7 +4407,7 @@ impl CadeSimuApp {
         }
         let list_scroll = container(scrollable(list_col)).height(Length::Fill);
 
-        // 7. Preview box na parte inferior do painel
+        // 8. Preview box na parte inferior do painel
         let preview_content = if let Some(ref id) = self.selected_canonical_id {
             if let Some(dict) = crate::canonical::global_dictionary() {
                 if let Some(el) = dict.get_by_id(id) {
@@ -4608,9 +4490,11 @@ impl CadeSimuApp {
             .height(145);
 
         column![
+            shortcuts_box,
+            horizontal_rule(1),
             search_box,
             fam_scroll,
-            kind_scroll,
+            sub_scroll,
             horizontal_rule(1),
             pagination_bar,
             list_scroll,

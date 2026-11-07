@@ -78,20 +78,16 @@ pub struct ParsedSvgSymbol {
 impl ParsedSvgSymbol {
     /// Mapeia uma coordenada local do SVG `(sx, sy)` para o sistema de coordenadas de grade do CADe_SIMU.
     ///
-    /// Se for um símbolo nativo QET, mantém a escala 1:1 original em pixels.
-    /// Se o SVG foi gerado a partir do CADe, a escala é exatamente 1:5 (divisão por 5.0).
-    /// Se for importado de bibliotecas externas (como QET adaptado ao CADe), utiliza o alinhamento exato de bornes/terminais.
+    /// - Se o SVG foi gerado a partir do CADe (`is_cade_svg`), a escala é exatamente 1:5 (divisão por 5.0).
+    /// - Se for um símbolo da biblioteca unificada (escala nativa, `target_span <= 1.0`), mantém a proporção 1:1 original uniforme.
+    /// - Se for um símbolo externo adaptado aos pinos do CADe (`target_span > 1.0`), interpola verticalmente entre os bornes.
     pub fn map_point(&self, sx: f32, sy: f32, target_span: f32) -> (f32, f32) {
-        if self.is_qet_native {
-            (sx, sy)
-        } else if self.is_cade_svg {
+        if self.is_cade_svg {
             (sx / 5.0, sy / 5.0)
-        } else {
-            let svg_span_y = (self.term_bottom_y - self.term_top_y).abs().max(1.0);
+        } else if target_span > 1.0 && (self.term_bottom_y - self.term_top_y).abs() > 0.1 {
+            let svg_span_y = (self.term_bottom_y - self.term_top_y).abs();
             let scale_y = target_span / svg_span_y;
             let span_x = (self.max_term_x - self.min_term_x).abs();
-            // Para elementos multipolares QET (distância entre polos consecutivos = 20.0),
-            // a escala x ideal é 6.0 / 20.0 = 0.3 para cravar em passos de 6 unidades na grade (0, 6, 12, 18).
             let local_x = if span_x >= 15.0 {
                 (sx - self.min_term_x) * 0.30
             } else {
@@ -99,6 +95,8 @@ impl ParsedSvgSymbol {
             };
             let local_y = (sy - self.term_top_y) * scale_y;
             (local_x, local_y)
+        } else {
+            (sx, sy)
         }
     }
 }
@@ -231,10 +229,7 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
         .map(|g| g == "cade2svg")
         .unwrap_or(false);
 
-    let is_qet_native = root
-        .attribute("data-qet-native")
-        .map(|g| g == "true")
-        .unwrap_or(false);
+    let is_qet_native = !is_cade_svg;
 
     let mut shapes = Vec::new();
     let mut terminal_ys = Vec::new();
