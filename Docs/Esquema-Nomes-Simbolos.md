@@ -188,8 +188,10 @@ Valores canônicos:
 ```
 momentary_button · latching_switch · selector_switch · emergency_stop · limit_switch
 circuit_breaker · fuse · disconnector · relay_coil · contactor_contact · thermal_contact
-motor · lamp · source · terminal · connector · load · passive · graphic
+motor · lamp · source · terminal · connector · load · passive · block
 ```
+
+- **`block`** (Decisão **D3**): Blocos de montagem visual não cabáveis (gabaritos 2D de painel, trilhos DIN, molduras, batentes e módulos de CLP sem terminais de circuito). Elementos com `kind == "block"` são automaticamente ignorados na geração do grafo de nós elétricos (`build_network_graph`) e marcados com `is_wireable() == false`. Podem ser linkados por tag às peças funcionais em outras folhas pela aba de Referência Cruzada.
 
 ### 5.3 Regras de `states`
 
@@ -207,7 +209,7 @@ Um `#[test]` na suíte chama o mesmo validador.
 | Invariante | Violações hoje | Gravidade |
 |---|---:|---|
 | Nomes de bornes únicos por elemento | **4.699** | 🔴 bloqueia a simulação (P3-#17) |
-| Elementos sem terminal | **2.820** | 🟠 não cabáveis (P3-#18) |
+| Elementos sem terminal e blocos CLP | **3.571** | ✅ classificados como `kind: "block"` (P3-#18 / D3) |
 | `name_pt` ≠ `name_en` | **4.345** | 🟡 metade não traduzida (P3-#19) |
 | IDs com sufixo `_2`/`_3` | **2.533** | 🟡 resolvido pelo ID numérico (D2) |
 | `name_pt` nulo/vazio | **349** | 🟡 (P3-#19) |
