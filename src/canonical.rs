@@ -60,13 +60,96 @@ pub struct CanonicalCategory {
     pub name_en: String,
 }
 
+/// Tipo canônico do elemento na biblioteca padronizada (Decisões D2 e D3).
+/// Tipado como enum com serde snake_case para verificação exaustiva no compilador.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum CanonicalKind {
+    Block,
+    CircuitBreaker,
+    Connector,
+    ContactorContact,
+    Disconnector,
+    EmergencyStop,
+    Fuse,
+    Lamp,
+    LatchingSwitch,
+    LimitSwitch,
+    Load,
+    MomentaryButton,
+    Motor,
+    Passive,
+    RelayCoil,
+    SelectorSwitch,
+    Source,
+    Terminal,
+    ThermalContact,
+}
+
+impl CanonicalKind {
+    pub const fn as_str(&self) -> &'static str {
+        match self {
+            Self::Block => "block",
+            Self::CircuitBreaker => "circuit_breaker",
+            Self::Connector => "connector",
+            Self::ContactorContact => "contactor_contact",
+            Self::Disconnector => "disconnector",
+            Self::EmergencyStop => "emergency_stop",
+            Self::Fuse => "fuse",
+            Self::Lamp => "lamp",
+            Self::LatchingSwitch => "latching_switch",
+            Self::LimitSwitch => "limit_switch",
+            Self::Load => "load",
+            Self::MomentaryButton => "momentary_button",
+            Self::Motor => "motor",
+            Self::Passive => "passive",
+            Self::RelayCoil => "relay_coil",
+            Self::SelectorSwitch => "selector_switch",
+            Self::Source => "source",
+            Self::Terminal => "terminal",
+            Self::ThermalContact => "thermal_contact",
+        }
+    }
+
+    #[inline]
+    pub const fn is_wireable(&self) -> bool {
+        !matches!(self, Self::Block)
+    }
+
+    pub const fn default_tag_prefix(&self) -> &'static str {
+        match self {
+            Self::Block => "-BK",
+            Self::CircuitBreaker => "-Q",
+            Self::Fuse => "-F",
+            Self::Disconnector => "-Q",
+            Self::RelayCoil | Self::ContactorContact => "-KM",
+            Self::ThermalContact => "-F",
+            Self::MomentaryButton | Self::EmergencyStop => "-S",
+            Self::LatchingSwitch | Self::SelectorSwitch => "-S",
+            Self::LimitSwitch => "-SQ",
+            Self::Motor => "-M",
+            Self::Lamp => "-H",
+            Self::Source => "-G",
+            Self::Terminal | Self::Connector => "-X",
+            Self::Load => "-R",
+            Self::Passive => "-E",
+        }
+    }
+}
+
+impl std::fmt::Display for CanonicalKind {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.as_str())
+    }
+}
+
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct CanonicalElement {
-    pub id: String,       // 5 hex maiúsculo ("00020")
-    pub slug: String,     // slug original ("ac_motor_3-phases")
-    pub category: String, // código de 3 dígitos ("012")
-    pub family: String,   // família primária ("electric")
-    pub kind: String,     // tipo canônico obrigatório (§5.2)
+    pub id: String,          // 5 hex maiúsculo ("00020")
+    pub slug: String,        // slug original ("ac_motor_3-phases")
+    pub category: String,    // código de 3 dígitos ("012")
+    pub family: String,      // família primária ("electric")
+    pub kind: CanonicalKind, // tipo canônico obrigatório (§5.2)
     pub name_pt: String,
     pub name_en: String,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -85,7 +168,7 @@ impl CanonicalElement {
     /// Retorna `false` para blocos de montagem visual (painel, trilhos DIN, módulos CLP e acessórios de layout).
     #[inline]
     pub fn is_wireable(&self) -> bool {
-        self.kind != "block" && !self.terminals.is_empty()
+        self.kind.is_wireable() && !self.terminals.is_empty()
     }
 }
 
@@ -207,19 +290,19 @@ pub fn classify_element_kind(
     category: &str,
     name_en: &str,
     terminals_count: usize,
-) -> &'static str {
+) -> CanonicalKind {
     if terminals_count == 0 || is_plc_element(slug, category, name_en) {
-        return "block";
+        return CanonicalKind::Block;
     }
     let s = slug.to_ascii_lowercase();
     let cat = category.to_ascii_lowercase();
     let name = name_en.to_ascii_lowercase();
 
     if s.contains("emergency") || name.contains("emergency") {
-        return "emergency_stop";
+        return CanonicalKind::EmergencyStop;
     }
     if s.contains("limitswitch") || s.contains("limit_switch") || s.contains("endschalter") {
-        return "limit_switch";
+        return CanonicalKind::LimitSwitch;
     }
     if s.contains("push_button")
         || s.contains("pushbutton")
@@ -227,35 +310,35 @@ pub fn classify_element_kind(
         || s.contains("horn_switch")
         || s.contains("pulsador")
     {
-        return "momentary_button";
+        return CanonicalKind::MomentaryButton;
     }
     if s.contains("selector")
         || (s.contains("schalter") && (s.contains("pos") || s.contains("step")))
     {
-        return "selector_switch";
+        return CanonicalKind::SelectorSwitch;
     }
     if s.contains("breaker")
         || s.contains("disjoncteur")
         || s.contains("leistungs_schalter")
         || s.contains("disjuntor")
     {
-        return "circuit_breaker";
+        return CanonicalKind::CircuitBreaker;
     }
     if s.contains("fuse")
         || s.contains("sicherung")
         || s.contains("fusivel")
         || s.contains("fusível")
     {
-        return "fuse";
+        return CanonicalKind::Fuse;
     }
     if s.contains("disconnector") || s.contains("seccionador") || s.contains("trennschalter") {
-        return "disconnector";
+        return CanonicalKind::Disconnector;
     }
     if s.contains("switch") || s.contains("interrupteur") || s.contains("chave") {
-        return "latching_switch";
+        return CanonicalKind::LatchingSwitch;
     }
     if s.contains("motor") || s.contains("moteur") || cat.contains("engines") {
-        return "motor";
+        return CanonicalKind::Motor;
     }
     if s.contains("lamp")
         || s.contains("light")
@@ -263,16 +346,16 @@ pub fn classify_element_kind(
         || s.contains("sinaleiro")
         || s.contains("led")
     {
-        return "lamp";
+        return CanonicalKind::Lamp;
     }
     if s.contains("coil") || s.contains("bobina") || s.contains("rele") || s.contains("relay") {
-        return "relay_coil";
+        return CanonicalKind::RelayCoil;
     }
     if s.contains("thermal") || s.contains("thermique") || s.contains("bimetal") {
-        return "thermal_contact";
+        return CanonicalKind::ThermalContact;
     }
     if s.contains("contact") || s.contains("contato") {
-        return "contactor_contact";
+        return CanonicalKind::ContactorContact;
     }
     if s.contains("battery")
         || s.contains("source")
@@ -282,17 +365,17 @@ pub fn classify_element_kind(
         || s.contains("alimenta")
         || cat.contains("network_supplies")
     {
-        return "source";
+        return CanonicalKind::Source;
     }
     if s.contains("terminal") || s.contains("borne") || cat.contains("terminals") {
-        return "terminal";
+        return CanonicalKind::Terminal;
     }
     if s.contains("connector")
         || s.contains("plug")
         || s.contains("stecker")
         || cat.contains("connectors")
     {
-        return "connector";
+        return CanonicalKind::Connector;
     }
     if s.contains("siren")
         || s.contains("buzzer")
@@ -301,17 +384,17 @@ pub fn classify_element_kind(
         || s.contains("resistor")
         || cat.contains("consumers")
     {
-        return "load";
+        return CanonicalKind::Load;
     }
     if s.contains("splitter")
         || s.contains("verteiler")
         || s.contains("splice")
         || s.contains("distributor")
     {
-        return "passive";
+        return CanonicalKind::Passive;
     }
 
-    "passive"
+    CanonicalKind::Passive
 }
 
 /// Extrai o nome legível em inglês e português para uma categoria a partir de seu caminho.
@@ -382,11 +465,11 @@ pub fn extract_tags(
     slug: &str,
     name_en: &str,
     name_pt: &str,
-    kind: &str,
+    kind: CanonicalKind,
     category: &str,
 ) -> Vec<String> {
     let mut tags = std::collections::BTreeSet::new();
-    tags.insert(kind.to_string());
+    tags.insert(kind.as_str().to_string());
 
     let combined = format!("{} {} {} {}", slug, name_en, name_pt, category);
     for token in combined.split(|c: char| !c.is_alphanumeric()) {
@@ -417,18 +500,23 @@ pub fn extract_tags(
 }
 
 /// Determina a lista de overlays dinâmicos de runtime conforme o kind do elemento.
-pub fn determine_overlays(kind: &str) -> Vec<String> {
+pub fn determine_overlays(kind: CanonicalKind) -> Vec<String> {
     match kind {
-        "motor" => vec![
+        CanonicalKind::Motor => vec![
             "fault".into(),
             "short_circuit".into(),
             "rotation".into(),
             "selected".into(),
         ],
-        "circuit_breaker" | "fuse" | "disconnector" | "thermal_contact" => {
+        CanonicalKind::CircuitBreaker
+        | CanonicalKind::Fuse
+        | CanonicalKind::Disconnector
+        | CanonicalKind::ThermalContact => {
             vec!["fault".into(), "short_circuit".into(), "selected".into()]
         }
-        "lamp" | "relay_coil" | "load" => vec!["fault".into(), "selected".into()],
+        CanonicalKind::Lamp | CanonicalKind::RelayCoil | CanonicalKind::Load => {
+            vec!["fault".into(), "selected".into()]
+        }
         _ => vec!["selected".into()],
     }
 }
@@ -601,7 +689,7 @@ pub fn migrate_to_canonical(
             slug: meta.id.clone(),
             category: subcat,
             family: fam.to_string(),
-            kind: kind.to_string(),
+            kind,
             name_pt,
             name_en,
             source: meta.source.as_ref().map(|s| ElementSource {
@@ -873,8 +961,8 @@ impl CanonicalDictionary {
     }
 
     /// Retorna o kind canônico de um elemento.
-    pub fn kind(&self, id_or_slug: &str) -> Option<&str> {
-        self.get(id_or_slug).map(|el| el.kind.as_str())
+    pub fn kind(&self, id_or_slug: &str) -> Option<CanonicalKind> {
+        self.get(id_or_slug).map(|el| el.kind)
     }
 
     /// Busca textual rápida por query sobre id, slug, tags e nomes pt/en.
@@ -894,78 +982,78 @@ impl CanonicalDictionary {
         match sub {
             // Elétrica / Geral
             "motor" => {
-                el.kind == "motor"
+                el.kind == CanonicalKind::Motor
                     || cat_path_lower.contains("engine")
                     || cat_path_lower.contains("motor")
             }
             "circuit_breaker" => {
-                el.kind == "circuit_breaker"
-                    || el.kind == "disconnector"
+                el.kind == CanonicalKind::CircuitBreaker
+                    || el.kind == CanonicalKind::Disconnector
                     || cat_path_lower.contains("breaker")
                     || cat_path_lower.contains("disjoncteur")
                     || cat_path_lower.contains("disjuntor")
             }
             "fuse" => {
-                el.kind == "fuse"
+                el.kind == CanonicalKind::Fuse
                     || cat_path_lower.contains("fuse")
                     || cat_path_lower.contains("sicherung")
                     || cat_path_lower.contains("fusivel")
             }
             "relay_coil" => {
-                el.kind == "relay_coil"
+                el.kind == CanonicalKind::RelayCoil
                     || cat_path_lower.contains("coil")
                     || cat_path_lower.contains("bobina")
                     || cat_path_lower.contains("rele")
             }
             "contactor_contact" => {
-                el.kind == "contactor_contact"
-                    || el.kind == "thermal_contact"
+                el.kind == CanonicalKind::ContactorContact
+                    || el.kind == CanonicalKind::ThermalContact
                     || cat_path_lower.contains("contact")
                     || cat_path_lower.contains("contato")
             }
             "momentary_button" => {
-                el.kind == "momentary_button"
-                    || el.kind == "emergency_stop"
+                el.kind == CanonicalKind::MomentaryButton
+                    || el.kind == CanonicalKind::EmergencyStop
                     || cat_path_lower.contains("button")
                     || cat_path_lower.contains("pulsador")
                     || cat_path_lower.contains("botao")
             }
             "latching_switch" => {
-                el.kind == "latching_switch"
-                    || el.kind == "selector_switch"
-                    || el.kind == "limit_switch"
+                el.kind == CanonicalKind::LatchingSwitch
+                    || el.kind == CanonicalKind::SelectorSwitch
+                    || el.kind == CanonicalKind::LimitSwitch
                     || cat_path_lower.contains("switch")
                     || cat_path_lower.contains("schalter")
                     || cat_path_lower.contains("chave")
             }
             "lamp" => {
-                el.kind == "lamp"
+                el.kind == CanonicalKind::Lamp
                     || cat_path_lower.contains("light")
                     || cat_path_lower.contains("lamp")
                     || cat_path_lower.contains("voyant")
                     || cat_path_lower.contains("sinaleiro")
             }
             "source" => {
-                el.kind == "source"
+                el.kind == CanonicalKind::Source
                     || cat_path_lower.contains("supplies")
                     || cat_path_lower.contains("source")
                     || cat_path_lower.contains("battery")
                     || cat_path_lower.contains("alimenta")
             }
             "terminal" => {
-                el.kind == "terminal"
-                    || el.kind == "connector"
+                el.kind == CanonicalKind::Terminal
+                    || el.kind == CanonicalKind::Connector
                     || cat_path_lower.contains("terminal")
                     || cat_path_lower.contains("connector")
                     || cat_path_lower.contains("borne")
             }
             "load" => {
-                el.kind == "load"
+                el.kind == CanonicalKind::Load
                     || cat_path_lower.contains("consumer")
                     || cat_path_lower.contains("resistor")
                     || cat_path_lower.contains("heater")
             }
-            "block" => el.kind == "block" || !el.is_wireable(),
+            "block" => el.kind == CanonicalKind::Block || !el.is_wireable(),
 
             // Pneumática
             "pneu_valves" => {
@@ -996,7 +1084,9 @@ impl CanonicalDictionary {
             // Hidráulica
             "hyd_valves" => cat_path_lower.contains("valve") || el.slug.contains("valve"),
             "hyd_pumps" => {
-                cat_path_lower.contains("pump") || el.kind == "motor" || el.slug.contains("pump")
+                cat_path_lower.contains("pump")
+                    || el.kind == CanonicalKind::Motor
+                    || el.slug.contains("pump")
             }
             "hyd_cylinders" => cat_path_lower.contains("cylinder") || el.slug.contains("cylinder"),
             "hyd_tanks" => cat_path_lower.contains("tank") || el.slug.contains("tank"),
@@ -1024,26 +1114,28 @@ impl CanonicalDictionary {
             "energy_mfg" => cat_path_lower.contains("manufacturers"),
 
             // CADe nativos
-            "cade_power" => el.kind == "source",
+            "cade_power" => el.kind == CanonicalKind::Source,
             "cade_protection" => {
-                el.kind == "circuit_breaker" || el.kind == "fuse" || el.kind == "disconnector"
+                el.kind == CanonicalKind::CircuitBreaker
+                    || el.kind == CanonicalKind::Fuse
+                    || el.kind == CanonicalKind::Disconnector
             }
             "cade_control" => {
-                el.kind == "contactor_contact"
-                    || el.kind == "relay_coil"
-                    || el.kind == "thermal_contact"
+                el.kind == CanonicalKind::ContactorContact
+                    || el.kind == CanonicalKind::RelayCoil
+                    || el.kind == CanonicalKind::ThermalContact
             }
-            "cade_motors" => el.kind == "motor",
+            "cade_motors" => el.kind == CanonicalKind::Motor,
             "cade_switches" => {
-                el.kind == "momentary_button"
-                    || el.kind == "latching_switch"
-                    || el.kind == "selector_switch"
+                el.kind == CanonicalKind::MomentaryButton
+                    || el.kind == CanonicalKind::LatchingSwitch
+                    || el.kind == CanonicalKind::SelectorSwitch
             }
-            "cade_signaling" => el.kind == "lamp",
+            "cade_signaling" => el.kind == CanonicalKind::Lamp,
 
             // Fallback genérico: compara com kind ou substring no path ou slug
             other => {
-                el.kind.eq_ignore_ascii_case(other)
+                el.kind.as_str().eq_ignore_ascii_case(other)
                     || cat_path_lower.contains(&other.to_ascii_lowercase())
                     || el.slug.contains(&other.to_ascii_lowercase())
             }

@@ -4954,7 +4954,7 @@ fn test_canonical_dictionary_lookup_and_svg_resolution() {
         .get_by_id("00001")
         .expect("Elemento 00001 deve existir");
     assert_eq!(motor.id, "00001");
-    assert_eq!(motor.kind, "motor");
+    assert_eq!(motor.kind, cade_simu_rs::canonical::CanonicalKind::Motor);
     assert_eq!(motor.family, "cade_native");
     assert_eq!(motor.svg_base, "000-00001-0.svg");
     assert_eq!(motor.states.len(), 2);
@@ -5138,11 +5138,13 @@ fn test_canonical_library_ui_and_canvas_placement() {
 fn test_canonical_block_classification_and_simulation_isolation() {
     let dict = global_dictionary().expect("Dicionário canônico global deve existir");
 
-    // 1. Elementos com 0 terminais e blocos de PLC são classificados como kind: "block"
+    use cade_simu_rs::canonical::CanonicalKind;
+
+    // 1. Elementos com 0 terminais e blocos de PLC são classificados como kind: Block
     let plc_el = dict
         .get_by_id("007B2")
         .expect("Elemento PLC 007B2 deve existir");
-    assert_eq!(plc_el.kind, "block");
+    assert_eq!(plc_el.kind, CanonicalKind::Block);
     assert_eq!(plc_el.terminals.len(), 0);
     assert!(!plc_el.is_wireable());
     assert!(plc_el.tags.contains(&"block".to_string()));
@@ -5150,13 +5152,13 @@ fn test_canonical_block_classification_and_simulation_isolation() {
     let rail_el = dict
         .get_by_id("00C55")
         .expect("Trilho de montagem 00C55 deve existir");
-    assert_eq!(rail_el.kind, "block");
+    assert_eq!(rail_el.kind, CanonicalKind::Block);
     assert_eq!(rail_el.terminals.len(), 0);
     assert!(!rail_el.is_wireable());
 
     // 2. Elementos funcionais de esquema são wireable
     let motor_el = dict.get_by_id("00001").expect("Motor 00001 deve existir");
-    assert_eq!(motor_el.kind, "motor");
+    assert_eq!(motor_el.kind, CanonicalKind::Motor);
     assert!(!motor_el.terminals.is_empty());
     assert!(motor_el.is_wireable());
 
@@ -5176,7 +5178,7 @@ fn test_canonical_block_classification_and_simulation_isolation() {
     assert!(wireable_elements.iter().all(|e| e.is_wireable()));
     assert!(block_elements
         .iter()
-        .all(|e| !e.is_wireable() && e.kind == "block"));
+        .all(|e| !e.is_wireable() && e.kind == CanonicalKind::Block));
 
     // 4. Inserção na folha via PlaceCanonicalComponent gera tag com prefixo "-BK" para blocos
     let (mut app, _) = CadeSimuApp::new();

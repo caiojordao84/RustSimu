@@ -1,5 +1,6 @@
 use std::collections::{HashSet, VecDeque};
 
+use crate::canonical::CanonicalKind;
 use crate::model::{MotorMode, Potential, SchematicDocument, SchematicItem, SimState};
 use crate::sim::cache::NetworkCache;
 use crate::sim::graph::NetworkGraph;
@@ -113,7 +114,25 @@ pub fn resolve_cascade(
                 }
                 _ => {
                     if let Some(qet_type) = item.symbol_id_or_slug() {
-                        if is_qet_switch_or_button(qet_type) {
+                        let kind_opt =
+                            crate::canonical::global_dictionary().and_then(|d| d.kind(qet_type));
+                        if let Some(k) = kind_opt {
+                            match k {
+                                CanonicalKind::MomentaryButton
+                                | CanonicalKind::LatchingSwitch
+                                | CanonicalKind::SelectorSwitch
+                                | CanonicalKind::EmergencyStop
+                                | CanonicalKind::LimitSwitch
+                                | CanonicalKind::CircuitBreaker
+                                | CanonicalKind::Disconnector => {
+                                    s.active = s.manual_latched;
+                                }
+                                CanonicalKind::Fuse => {
+                                    s.active = !s.manual_latched;
+                                }
+                                _ => {}
+                            }
+                        } else if is_qet_switch_or_button(qet_type) {
                             s.active = s.manual_latched;
                         } else if is_fuse(item) {
                             s.active = !s.manual_latched;
@@ -221,7 +240,49 @@ pub fn resolve_cascade(
                 }
                 _ => {
                     if let Some(qet_type) = item.symbol_id_or_slug() {
-                        if is_qet_switch_or_button(qet_type) {
+                        let kind_opt =
+                            crate::canonical::global_dictionary().and_then(|d| d.kind(qet_type));
+                        if let Some(k) = kind_opt {
+                            match k {
+                                CanonicalKind::MomentaryButton
+                                | CanonicalKind::LatchingSwitch
+                                | CanonicalKind::SelectorSwitch
+                                | CanonicalKind::EmergencyStop
+                                | CanonicalKind::LimitSwitch
+                                | CanonicalKind::CircuitBreaker
+                                | CanonicalKind::Disconnector => {
+                                    if s.manual_latched {
+                                        for i in 0..p.len() {
+                                            for j in (i + 1)..p.len() {
+                                                connect_pair(i, j);
+                                            }
+                                        }
+                                    }
+                                }
+                                CanonicalKind::Fuse => {
+                                    if !s.manual_latched {
+                                        for i in 0..p.len() {
+                                            for j in (i + 1)..p.len() {
+                                                connect_pair(i, j);
+                                            }
+                                        }
+                                    }
+                                }
+                                CanonicalKind::Passive => {
+                                    for i in 0..p.len() {
+                                        for j in (i + 1)..p.len() {
+                                            connect_pair(i, j);
+                                        }
+                                    }
+                                }
+                                CanonicalKind::Connector | CanonicalKind::Terminal
+                                    if p.len() == 2 =>
+                                {
+                                    connect_pair(0, 1);
+                                }
+                                _ => {}
+                            }
+                        } else if is_qet_switch_or_button(qet_type) {
                             if s.manual_latched {
                                 for i in 0..p.len() {
                                     for j in (i + 1)..p.len() {
@@ -295,32 +356,46 @@ pub fn resolve_cascade(
                 3009 if !p.is_empty() => inject_source(p[0], Potential::DcNeg),
                 _ => {
                     if let Some(qet_type) = item.symbol_id_or_slug() {
-                        let l = qet_type.to_ascii_lowercase();
-                        if is_qet_source_dc_pos(qet_type) {
-                            if p.len() >= 2 {
-                                inject_source(p[0], Potential::DcNeg);
-                                inject_source(p[1], Potential::DcPos);
-                            } else if !p.is_empty() {
-                                inject_source(p[0], Potential::DcPos);
+                        let kind_opt =
+                            crate::canonical::global_dictionary().and_then(|d| d.kind(qet_type));
+                        if let Some(k) = kind_opt {
+                            if k == CanonicalKind::Source {
+                                if p.len() >= 2 {
+                                    inject_source(p[0], Potential::DcNeg);
+                                    inject_source(p[1], Potential::DcPos);
+                                } else if !p.is_empty() {
+                                    inject_source(p[0], Potential::DcPos);
+                                }
                             }
-                        } else if is_qet_source_ground(qet_type) {
-                            for &pin_node in p {
-                                inject_source(pin_node, Potential::DcNeg);
-                            }
-                        } else if l.contains("coming_arrow") {
-                            let pot = if item.y1 >= 600 {
-                                Potential::DcNeg
-                            } else {
-                                Potential::DcPos
-                            };
-                            for &pin_node in p {
-                                inject_source(pin_node, pot);
-                            }
-                        } else if (l.contains("going_arrow") && item.y1 >= 600)
-                            || (l.contains("horn_switch") && sim.get(item.id).manual_latched)
-                        {
-                            for &pin_node in p {
-                                inject_source(pin_node, Potential::DcNeg);
+                        } else {
+                            // Fallback legado para símbolos antigos sem cadastro canônico
+                            let l = qet_type.to_ascii_lowercase();
+                            if is_qet_source_dc_pos(qet_type) {
+                                if p.len() >= 2 {
+                                    inject_source(p[0], Potential::DcNeg);
+                                    inject_source(p[1], Potential::DcPos);
+                                } else if !p.is_empty() {
+                                    inject_source(p[0], Potential::DcPos);
+                                }
+                            } else if is_qet_source_ground(qet_type) {
+                                for &pin_node in p {
+                                    inject_source(pin_node, Potential::DcNeg);
+                                }
+                            } else if l.contains("coming_arrow") {
+                                let pot = if item.y1 >= 600 {
+                                    Potential::DcNeg
+                                } else {
+                                    Potential::DcPos
+                                };
+                                for &pin_node in p {
+                                    inject_source(pin_node, pot);
+                                }
+                            } else if (l.contains("going_arrow") && item.y1 >= 600)
+                                || (l.contains("horn_switch") && sim.get(item.id).manual_latched)
+                            {
+                                for &pin_node in p {
+                                    inject_source(pin_node, Potential::DcNeg);
+                                }
                             }
                         }
                     }
@@ -377,8 +452,21 @@ pub fn resolve_cascade(
                 }
                 _ => {
                     if let Some(qet_type) = item.symbol_id_or_slug() {
-                        let l = qet_type.to_ascii_lowercase();
-                        if is_qet_load(qet_type) {
+                        let kind_opt =
+                            crate::canonical::global_dictionary().and_then(|d| d.kind(qet_type));
+                        let is_load = if let Some(k) = kind_opt {
+                            matches!(
+                                k,
+                                CanonicalKind::Motor
+                                    | CanonicalKind::Lamp
+                                    | CanonicalKind::Load
+                                    | CanonicalKind::RelayCoil
+                            )
+                        } else {
+                            is_qet_load(qet_type)
+                        };
+                        if is_load {
+                            let l = qet_type.to_ascii_lowercase();
                             let powered = if l.contains("starter") && p.len() >= 3 {
                                 let has_neg =
                                     p.iter().any(|&n| node_potentials[n] == Potential::DcNeg);
@@ -467,7 +555,28 @@ pub fn step_simulation_state(items: &[SchematicItem], sim: &mut SimState, dt_ms:
                 }
                 _ => {
                     if let Some(qet_type) = item.symbol_id_or_slug() {
-                        if is_qet_switch_or_button(qet_type) {
+                        let kind_opt =
+                            crate::canonical::global_dictionary().and_then(|d| d.kind(qet_type));
+                        if let Some(k) = kind_opt {
+                            match k {
+                                CanonicalKind::MomentaryButton
+                                | CanonicalKind::LatchingSwitch
+                                | CanonicalKind::SelectorSwitch
+                                | CanonicalKind::EmergencyStop
+                                | CanonicalKind::LimitSwitch
+                                | CanonicalKind::CircuitBreaker
+                                | CanonicalKind::Disconnector => {
+                                    s.active = s.manual_latched;
+                                }
+                                CanonicalKind::Fuse => {
+                                    s.active = !s.manual_latched;
+                                }
+                                _ => {
+                                    s.active = false;
+                                    s.motor_dir = 0;
+                                }
+                            }
+                        } else if is_qet_switch_or_button(qet_type) {
                             s.active = s.manual_latched;
                         } else if is_fuse(item) {
                             s.active = !s.manual_latched;

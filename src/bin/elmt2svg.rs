@@ -788,7 +788,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             );
         }
 
-        println!("✅ TODAS AS INVARIANTES D2 APROVADAS COM SUCESSO!");
+        println!("[OK] TODAS AS INVARIANTES D2 APROVADAS COM SUCESSO!");
         return Ok(());
     }
 

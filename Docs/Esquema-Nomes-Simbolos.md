@@ -208,18 +208,18 @@ Um `#[test]` na suíte chama o mesmo validador.
 
 | Invariante | Violações hoje | Gravidade |
 |---|---:|---|
-| Nomes de bornes únicos por elemento | **4.699** | 🔴 bloqueia a simulação (P3-#17) |
-| Elementos sem terminal e blocos CLP | **3.571** | ✅ classificados como `kind: "block"` (P3-#18 / D3) |
-| `name_pt` ≠ `name_en` | **4.345** | 🟡 metade não traduzida (P3-#19) |
-| IDs com sufixo `_2`/`_3` | **2.533** | 🟡 resolvido pelo ID numérico (D2) |
-| `name_pt` nulo/vazio | **349** | 🟡 (P3-#19) |
-| `id` divergente do nome do arquivo | 37 | 🟡 transitório (some com D2) |
-| IDs duplicados | **0** | ✅ (normalizado por `--index-only`) |
-| SVG ausente no disco | **0** | ✅ |
-| SVG no disco fora do catálogo | **0** | ✅ (9.327/9.327) |
-| Hotspot fora da bbox | **0** | ✅ |
-| Colisões case-insensitive | **10** | 🟠 `import/` — portabilidade Windows (P3-#20) |
-| `subcategoria` única por família | — | ✅ (855/999) |
+| Nomes de bornes únicos por elemento | **4.699** | [CRÍTICO] bloqueia a simulação (P3-#17) |
+| Elementos sem terminal e blocos CLP | **3.571** | [CONCLUÍDO] classificados como `kind: CanonicalKind::Block` (P3-#18 / D3) |
+| `name_pt` ≠ `name_en` | **4.345** | [PENDENTE] metade não traduzida (P3-#19) |
+| IDs com sufixo `_2`/`_3` | **2.533** | [RESOLVIDO] resolvido pelo ID numérico (D2) |
+| `name_pt` nulo/vazio | **349** | [PENDENTE] (P3-#19) |
+| `id` divergente do nome do arquivo | 37 | [TRANSITÓRIO] (some com D2) |
+| IDs duplicados | **0** | [OK] (normalizado por `--index-only`) |
+| SVG ausente no disco | **0** | [OK] |
+| SVG no disco fora do catálogo | **0** | [OK] (9.327/9.327) |
+| Hotspot fora da bbox | **0** | [OK] |
+| Colisões case-insensitive | **10** | [ALERTA] `import/` — portabilidade Windows (P3-#20) |
+| `subcategoria` única por família | — | [OK] (855/999) |
 
 ### 6.1 SVGs órfãos — resolvido em 06/11/2026
 

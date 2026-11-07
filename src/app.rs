@@ -1565,23 +1565,7 @@ impl CadeSimuApp {
                                 0
                             };
 
-                            let prefix = match el.kind.as_str() {
-                                "motor" => "-M",
-                                "circuit_breaker" | "disconnector" => "-Q",
-                                "fuse" => "-F",
-                                "relay_coil" => "-KM",
-                                "contactor_contact" => "-KM",
-                                "thermal_contact" => "-F",
-                                "momentary_button" | "latching_switch" | "selector_switch"
-                                | "emergency_stop" => "-S",
-                                "limit_switch" => "-SQ",
-                                "lamp" => "-H",
-                                "source" => "-G",
-                                "terminal" | "connector" => "-X",
-                                "load" => "-R",
-                                "block" => "-BK",
-                                _ => "-E",
-                            };
+                            let prefix = el.kind.default_tag_prefix();
 
                             let count = self
                                 .doc
@@ -4226,7 +4210,7 @@ impl CadeSimuApp {
             container(
                 row![
                     search_input,
-                    button(text("✖").size(10.0).font(UI))
+                    button(text("x").size(10.0).font(UI))
                         .style(theme::tool)
                         .padding(Padding::from([4.0, 6.0]))
                         .on_press(Message::CanonicalSearchChanged(String::new())),
@@ -4242,13 +4226,10 @@ impl CadeSimuApp {
         for (label, sc) in [
             ("Todos", crate::canonical::CanonicalScope::All),
             (
-                "⚡ Esquema (Cabáveis)",
+                "Esquema (Cabáveis)",
                 crate::canonical::CanonicalScope::Wireable,
             ),
-            (
-                "📦 Painel (Blocos)",
-                crate::canonical::CanonicalScope::Block,
-            ),
+            ("Painel (Blocos)", crate::canonical::CanonicalScope::Block),
         ] {
             let is_active = self.canonical_scope == sc;
             scope_chips = scope_chips.push(
@@ -4278,13 +4259,13 @@ impl CadeSimuApp {
         let mut fam_chips = row![].spacing(4).align_y(Alignment::Center);
         for (label, fam_opt) in [
             ("Todas", None),
-            ("⚡ Elétrica", Some("electric")),
-            ("🔋 Energia", Some("energy")),
-            ("💨 Pneumática", Some("pneumatic")),
-            ("💧 Hidráulica", Some("hydraulic")),
-            ("🔣 Lógica", Some("logic")),
-            ("📦 Importados", Some("import")),
-            ("🔌 CADe", Some("cade_native")),
+            ("Elétrica", Some("electric")),
+            ("Energia", Some("energy")),
+            ("Pneumática", Some("pneumatic")),
+            ("Hidráulica", Some("hydraulic")),
+            ("Lógica", Some("logic")),
+            ("Importados", Some("import")),
+            ("CADe", Some("cade_native")),
         ] {
             let is_active = self.canonical_family_filter.as_deref() == fam_opt;
             let fam_val = fam_opt.map(|s| s.to_string());
@@ -4526,7 +4507,7 @@ impl CadeSimuApp {
                         ]
                         .align_y(Alignment::Center),
                         svg_preview,
-                        button(text("➕ Inserir no Esquema").size(11.0).font(UI))
+                        button(text("Inserir no Esquema").size(11.0).font(UI))
                             .style(theme::primary)
                             .padding(Padding::from([3.0, 8.0]))
                             .width(Length::Fill)

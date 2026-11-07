@@ -1,5 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
+use crate::canonical::CanonicalKind;
 use crate::model::{Potential, SchematicDocument, SchematicItem, SimState};
 
 /// Verifica se `label` contém qualquer uma das palavras/tokens fornecidos como palavra inteira (delimitada por pontuação, barra ou underline).
@@ -103,21 +104,20 @@ pub fn is_item_manual(item: &SchematicItem) -> bool {
     if let Some(sym_ref) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {
             if let Some(k) = dict.kind(sym_ref) {
-                if matches!(
+                return matches!(
                     k,
-                    "momentary_button"
-                        | "latching_switch"
-                        | "selector_switch"
-                        | "emergency_stop"
-                        | "limit_switch"
-                        | "circuit_breaker"
-                        | "disconnector"
-                        | "fuse"
-                ) {
-                    return true;
-                }
+                    CanonicalKind::MomentaryButton
+                        | CanonicalKind::LatchingSwitch
+                        | CanonicalKind::SelectorSwitch
+                        | CanonicalKind::EmergencyStop
+                        | CanonicalKind::LimitSwitch
+                        | CanonicalKind::CircuitBreaker
+                        | CanonicalKind::Disconnector
+                        | CanonicalKind::Fuse
+                );
             }
         }
+        // Fallback para itens legados sem cadastro canônico
         return is_qet_switch_or_button(sym_ref);
     }
     false
@@ -137,9 +137,13 @@ pub fn is_item_momentary(item: &SchematicItem) -> bool {
     if let Some(sym_ref) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {
             if let Some(k) = dict.kind(sym_ref) {
-                return matches!(k, "momentary_button" | "limit_switch");
+                return matches!(
+                    k,
+                    CanonicalKind::MomentaryButton | CanonicalKind::LimitSwitch
+                );
             }
         }
+        // Fallback para itens legados sem cadastro canônico
         let l = sym_ref.to_ascii_lowercase();
         if l.contains("emergency") || l.contains("latch") {
             return false;
@@ -161,9 +165,13 @@ pub fn is_circuit_breaker(item: &SchematicItem) -> bool {
     if let Some(sym_ref) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {
             if let Some(k) = dict.kind(sym_ref) {
-                return matches!(k, "circuit_breaker" | "disconnector");
+                return matches!(
+                    k,
+                    CanonicalKind::CircuitBreaker | CanonicalKind::Disconnector
+                );
             }
         }
+        // Fallback para itens legados sem cadastro canônico
         let l = sym_ref.to_ascii_lowercase();
         return l.contains("breaker")
             || l.contains("disjoncteur")
@@ -181,9 +189,10 @@ pub fn is_fuse(item: &SchematicItem) -> bool {
     if let Some(sym_ref) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {
             if let Some(k) = dict.kind(sym_ref) {
-                return k == "fuse";
+                return k == CanonicalKind::Fuse;
             }
         }
+        // Fallback para itens legados sem cadastro canônico
         let l = sym_ref.to_ascii_lowercase();
         return l.contains("fuse") || l.contains("sicherung");
     }

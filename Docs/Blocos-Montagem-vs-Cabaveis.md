@@ -36,7 +36,7 @@ Conforme determinação de projeto, os terminais dos blocos de CLP **não são i
 - No arquivo `src/bin/elmt2svg.rs`, a rotina de conversão e indexação detecta controladores (`is_plc_element`) e ignora tags `<terminal>` durante o parsing de arquivos `.elmt`.
 
 ### 2.3 Predicado de Cababilidade `is_wireable()`
-Na estrutura [`CanonicalElement`](file:///home/caiojordao84/Downloads/CADE%20SIMU%204.0,%20PC%20SIMU%203.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/src/canonical.rs#L83):
+Na estrutura [`CanonicalElement`](../src/canonical.rs):
 
 ```rust
 impl CanonicalElement {
@@ -44,7 +44,7 @@ impl CanonicalElement {
     /// Retorna `false` para blocos de montagem visual (painel, trilhos DIN, módulos CLP e acessórios de layout).
     #[inline]
     pub fn is_wireable(&self) -> bool {
-        self.kind != "block" && !self.terminals.is_empty()
+        self.kind.is_wireable() && !self.terminals.is_empty()
     }
 }
 ```
@@ -54,31 +54,31 @@ impl CanonicalElement {
 ## 3. Isolamento do Motor de Simulação
 
 Elementos do tipo bloco **não participam do cálculo elétrico**:
-1. **Construção do Grafo Topológico ([`src/sim/graph.rs`](file:///home/caiojordao84/Downloads/CADE%20SIMU%204.0,%20PC%20SIMU%203.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/src/sim/graph.rs#L95-L105))**:
+1. **Construção do Grafo Topológico ([`src/sim/graph.rs`](../src/sim/graph.rs))**:
    Na função `build_network_graph`, ao iterar pelos elementos do esquema, itens com `symbol_id` cujo elemento canônico retorne `!el.is_wireable()` são imediatamente ignorados via `continue`.
 2. **Zero Nós Elétricos**:
    Não geram entradas em `all_points` nem em `item_pin_nodes`. Fios desenhados sobre ou perto de um bloco de montagem não são subdivididos nem conectados ao bloco.
-3. **Regras de Comutação e Dispositivos ([`src/sim/rules.rs`](file:///home/caiojordao84/Downloads/CADE%20SIMU%204.0,%20PC%20SIMU%203.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/src/sim/rules.rs))**:
-   `kind == "block"` não casa com nenhuma regra de disjuntor, botão, chave, bobina ou motor.
+3. **Regras de Comutação e Dispositivos ([`src/sim/rules.rs`](../src/sim/rules.rs))**:
+   `kind == CanonicalKind::Block` não casa com nenhuma regra de disjuntor, botão, chave, bobina ou motor.
 
 ---
 
 ## 4. Experiência do Usuário (UI/UX)
 
 ### 4.1 Seletor de Escopo na Biblioteca Unificada
-No dock esquerdo da biblioteca unificada ([`src/app.rs`](file:///home/caiojordao84/Downloads/CADE%20SIMU%204.0,%20PC%20SIMU%203.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/src/app.rs#L4240-L4275)), foi introduzido um seletor de escopo horizontal em chips:
+No dock esquerdo da biblioteca unificada ([`src/app.rs`](../src/app.rs)), foi introduzido um seletor de escopo horizontal em chips:
 
 | Chip de Escopo | Descrição | Quantidade |
 |---|---|---|
 | **`[ Todos ]`** | Exibe o catálogo completo sem restrição de tipo | 9.273 |
-| **`[ ⚡ Esquema (Cabáveis) ]`** | Filtra apenas itens com bornes funcionais para desenho de circuitos de comando e potência | 5.702 |
-| **`[ 📦 Painel (Blocos) ]`** | Filtra apenas gabaritos 2D, trilhos DIN, carcaças de CLP e acessórios mecânicos para layout físico | 3.571 |
+| **`[ Esquema (Cabáveis) ]`** | Filtra apenas itens com bornes funcionais para desenho de circuitos de comando e potência | 5.702 |
+| **`[ Painel (Blocos) ]`** | Filtra apenas gabaritos 2D, trilhos DIN, carcaças de CLP e acessórios mecânicos para layout físico | 3.571 |
 
 ### 4.2 Indicadores Visuais
 - **Listagem de Itens**: Elementos sem terminais exibem o badge estilizado `[Bloco]` em vez do antigo e ambíguo `0b`.
 - **Preview Box**: Na parte inferior do painel, exibe a mensagem de esclarecimento: *"Bloco de montagem visual (não simulável)"*.
 - **Prefixo de Tag Padrão**: Ao posicionar um bloco no canvas, o aplicativo gera automaticamente tags sequenciais com prefixo `-BK` (ex: `-BK1`, `-BK2`).
-- **Canvas View ([`src/canvas_view.rs`](file:///home/caiojordao84/Downloads/CADE%20SIMU%204.0,%20PC%20SIMU%203.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/src/canvas_view.rs#L898-L915))**: A rotina de renderização de bornes só desenha círculos vermelhos se `el.is_wireable() == true`.
+- **Canvas View ([`src/canvas_view.rs`](../src/canvas_view.rs))**: A rotina de renderização de bornes só desenha círculos vermelhos se `el.is_wireable() == true`.
 
 ---
 
@@ -92,7 +92,7 @@ Em projetos industriais reais, um projeto elétrico é tipicamente organizado em
 1. O desenhista insere o bloco visual 2D do CLP ou contator na folha de layout de painel.
 2. No painel de propriedades (dock direito), o usuário altera a tag do bloco para coincidir com a peça funcional (ex: `-PLC1` ou `-KM1`).
 3. O painel exibe um banner informativo:  
-   *`ℹ Bloco de Montagem Visual (Painel/Layout). Não simulável.`*
+   *[Nota] Bloco de Montagem Visual (Painel/Layout). Não simulável.*
 4. Na aba **Referência Cruzada**, o sistema lista automaticamente todas as ocorrências daquela tag no projeto, relacionando o bloco físico às peças funcionais distribuídas nas outras folhas.
 
 ---
@@ -103,8 +103,8 @@ A integridade da decisão D3 é permanentemente auditada pela suíte de testes:
 1. **Validador D2/D3 (`cargo run --bin elmt2svg -- --check`)**:
    Valida todas as invariantes canônicas sem erros e sem avisos (9.273 elementos, 1.018 categorias, 9.327 arquivos em disco).
 2. **Teste de Integração Dedicado**:
-   [`test_canonical_block_classification_and_simulation_isolation`](file:///home/caiojordao84/Downloads/CADE%20SIMU%204.0,%20PC%20SIMU%203.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/tests/integration_tests.rs#L5135):
-   - Valida que blocos de CLP (`007B2`) e trilhos DIN (`00C55`) possuem `kind: "block"`, `terminals.is_empty()` e `is_wireable() == false`.
+   [`test_canonical_block_classification_and_simulation_isolation`](../tests/integration_tests.rs):
+   - Valida que blocos de CLP (`007B2`) e trilhos DIN (`00C55`) possuem `kind: CanonicalKind::Block`, `terminals.is_empty()` e `is_wireable() == false`.
    - Valida a contagem exata dos filtros de escopo (`Wireable`: 5.702, `Block`: 3.571, soma: 9.273).
    - Valida que a inserção na folha gera tag `-BK`.
    - Valida que `build_network_graph` não aloca nós nem conexões no grafo de simulação para o bloco inserido.
