@@ -79,8 +79,10 @@ impl ParsedSvgSymbol {
     /// Mapeia uma coordenada local do SVG `(sx, sy)` para o sistema de coordenadas de grade do CADe_SIMU.
     ///
     /// - Se o SVG foi gerado a partir do CADe (`is_cade_svg`), a escala é exatamente 1:5 (divisão por 5.0).
-    /// - Se for um símbolo da biblioteca unificada (escala nativa, `target_span <= 1.0`), mantém a proporção 1:1 original uniforme.
     /// - Se for um símbolo externo adaptado aos pinos do CADe (`target_span > 1.0`), interpola verticalmente entre os bornes.
+    /// - Se for um diagrama QET nativo completo (`is_qet_native`), mantém a escala 1:1 em pixels do projeto QET original.
+    /// - Se for um símbolo da biblioteca unificada QET inserido no CADe (`target_span <= 1.0`), aplica a escala uniforme de 0.30
+    ///   (20 px de condutor QET -> 6.0 unidades da fiação trifásica CADe; 10 px de grade QET -> 3.0 unidades da grade CADe).
     pub fn map_point(&self, sx: f32, sy: f32, target_span: f32) -> (f32, f32) {
         if self.is_cade_svg {
             (sx / 5.0, sy / 5.0)
@@ -95,8 +97,10 @@ impl ParsedSvgSymbol {
             };
             let local_y = (sy - self.term_top_y) * scale_y;
             (local_x, local_y)
-        } else {
+        } else if self.is_qet_native {
             (sx, sy)
+        } else {
+            (sx * 0.30, sy * 0.30)
         }
     }
 }
@@ -229,7 +233,7 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
         .map(|g| g == "cade2svg")
         .unwrap_or(false);
 
-    let is_qet_native = !is_cade_svg;
+    let is_qet_native = false;
 
     let mut shapes = Vec::new();
     let mut terminal_ys = Vec::new();

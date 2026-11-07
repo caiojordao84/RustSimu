@@ -156,8 +156,10 @@ impl<'a> SchematicCanvas<'a> {
                     let (vx, vy, vw, vh) = parsed.view_box;
                     let (scale_vx, scale_vy, scale_vw, scale_vh) = if parsed.is_cade_svg {
                         (vx / 5.0, vy / 5.0, vw / 5.0, vh / 5.0)
-                    } else {
+                    } else if parsed.is_qet_native {
                         (vx, vy, vw, vh)
+                    } else {
+                        (vx * 0.30, vy * 0.30, vw * 0.30, vh * 0.30)
                     };
                     let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
                     let (p2x, p2y) = transform_offset_f32(
@@ -615,8 +617,10 @@ impl<'a> SchematicCanvas<'a> {
                     {
                         (r * (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs()))
                             * self.zoom
-                    } else {
+                    } else if parsed.is_qet_native {
                         r * self.zoom
+                    } else {
+                        (r * 0.30) * self.zoom
                     };
                     let circle_path = Path::circle(center, rad.max(1.2));
                     if let Some(fill_col) = resolve_shape_fill(*fill) {
@@ -708,8 +712,8 @@ impl<'a> SchematicCanvas<'a> {
                         let fs = (size * 0.25 * self.zoom).clamp(8.0, 16.0);
                         (fs, 0.0)
                     } else {
-                        let fs = (size * 0.3 * self.zoom).clamp(8.0, 16.0);
-                        (fs, 0.0)
+                        let fs = (size * 0.30 * self.zoom).clamp(5.0, 16.0);
+                        (fs, -fs * 0.82)
                     };
 
                     let total_rot_deg = match orientation.rem_euclid(4) {
@@ -846,8 +850,10 @@ impl<'a> SchematicCanvas<'a> {
                     let (vx, vy, vw, vh) = parsed.view_box;
                     let (scale_vx, scale_vy, scale_vw, scale_vh) = if parsed.is_cade_svg {
                         (vx / 5.0, vy / 5.0, vw / 5.0, vh / 5.0)
-                    } else {
+                    } else if parsed.is_qet_native {
                         (vx, vy, vw, vh)
+                    } else {
+                        (vx * 0.30, vy * 0.30, vw * 0.30, vh * 0.30)
                     };
                     let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
                     let (p2x, p2y) = transform_offset_f32(

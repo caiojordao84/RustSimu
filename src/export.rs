@@ -255,8 +255,10 @@ fn render_svg_symbol_to_svg(
                     && (parsed.term_bottom_y - parsed.term_top_y).abs() > 0.1
                 {
                     (*r * (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs())) * scale
-                } else {
+                } else if parsed.is_qet_native {
                     *r * scale
+                } else {
+                    (*r * 0.30) * scale
                 };
                 let rad = rad.max(1.2);
                 let fill_attr = match resolve_fill(*fill) {
@@ -354,8 +356,8 @@ fn render_svg_symbol_to_svg(
                     let fs = (size * 0.25 * scale).clamp(8.0, 16.0);
                     (fs, 0.0)
                 } else {
-                    let fs = (size * 0.3 * scale).clamp(8.0, 16.0);
-                    (fs, 0.0)
+                    let fs = (size * 0.30 * scale).clamp(5.0, 16.0);
+                    (fs, -fs * 0.82)
                 };
 
                 let total_rot_deg = match orientation.rem_euclid(4) {

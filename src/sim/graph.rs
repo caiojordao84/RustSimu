@@ -103,8 +103,8 @@ pub fn build_network_graph(items: &[SchematicItem], topology_hash: u64) -> Netwo
                         ..
                     } = shape
                     {
-                        let (rx, ry) =
-                            crate::model::transform_offset_f32(*cx, *cy, item.orientation);
+                        let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
+                        let (rx, ry) = crate::model::transform_offset_f32(lx, ly, item.orientation);
                         let wpos = (
                             (item.x1 as f32 + rx).round() as i32,
                             (item.y1 as f32 + ry).round() as i32,

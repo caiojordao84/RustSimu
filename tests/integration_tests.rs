@@ -5105,4 +5105,31 @@ fn test_canonical_library_ui_and_canvas_placement() {
 
     // 11. Renderização da UI da biblioteca unificada não causa panic
     let _ = app.view();
+
+    // 12. Verificação de escala proporcional 0.30 para elementos QET inseridos no CADe
+    let parsed_motor = cade_simu_rs::svg_symbol::get_parsed_svg(
+        "symbols_qet_all/electric/10_allpole/391_consumers_actuators/10_engines/induction_motor__three-phase_6_terminals.svg",
+    ).expect("Motor QET 6 terminais deve existir");
+    assert!(!parsed_motor.is_cade_svg);
+    assert!(!parsed_motor.is_qet_native);
+
+    // No SVG original, os bornes U1, V1, W1 estão em x = -20.0, 0.0, 20.0 (distância 20 px)
+    let (u1_x, _) = parsed_motor.map_point(-20.0, -100.0, 1.0);
+    let (v1_x, _) = parsed_motor.map_point(0.0, -100.0, 1.0);
+    let (w1_x, _) = parsed_motor.map_point(20.0, -100.0, 1.0);
+    assert!(
+        (u1_x - (-6.0)).abs() < 1e-4,
+        "Terminal U1 deve estar em x = -6.0"
+    );
+    assert!(
+        (v1_x - 0.0).abs() < 1e-4,
+        "Terminal V1 deve estar em x = 0.0"
+    );
+    assert!(
+        (w1_x - 6.0).abs() < 1e-4,
+        "Terminal W1 deve estar em x = 6.0"
+    );
+    // Passo exato de 6.0 unidades entre pólos (alinhado perfeitamente com a fiação trifásica do CADe_SIMU)
+    assert!(((w1_x - v1_x) - 6.0).abs() < 1e-4);
+    assert!(((v1_x - u1_x) - 6.0).abs() < 1e-4);
 }
