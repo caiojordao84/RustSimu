@@ -97,14 +97,14 @@ pub fn resolve_cascade(
                     s.active = s.manual_latched;
                 }
                 // Contatores de potência e contatos auxiliares instantâneos
-                2000 | 2001 | 2006 | 2008 | 7000 | 7001 | 7002 | 7003 => {
+                2000 | 2001 | 2006 | 2008 | 7000..=7002 => {
                     s.active = !tag.is_empty()
                         && (coils.contains(&tag)
                             || ton_trig.contains(&tag)
                             || breakers_active.contains(&tag));
                 }
-                // Contatos temporizados On-Delay (TON: 7004 NA, 7005 NF, 7006 Comutador, 7007 SPDT)
-                7004..=7007 => {
+                // Contatos temporizados On-Delay (TON: 7004 NA, 7005 NF, 7006 NA+NF)
+                7004..=7006 => {
                     s.active = !tag.is_empty() && ton_trig.contains(&tag);
                 }
                 // Contatos temporizados Off-Delay (TOF: 7008 NA, 7009 NF)
@@ -159,7 +159,7 @@ pub fn resolve_cascade(
                     }
                 }
                 // Botão / Contato Comutador CON 3 terminais SPDT (pino 0 comum; pino 1 NF; pino 2 NA)
-                7003 | 7007 | 8003 | 8007 | 8011 | 8015 | 8019 => {
+                8003 | 8007 | 8011 | 8015 | 8019 => {
                     if !s.active {
                         connect_pair(0, 1);
                     } else {

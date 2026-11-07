@@ -1,7 +1,6 @@
 //! RustSimu - layout responsivo com painéis laterais recolhíveis e área de trabalho expansível.
 //! Colunas: Coleções (DOCK_W ou 28px recolhido) | Folha (Fill) | Propriedades (DOCK_W ou 28px recolhido).
 
-use iced::widget::pane_grid::ResizeEvent;
 use iced::widget::{container, mouse_area, Row, Space};
 use iced::{mouse, Element, Length};
 
@@ -32,14 +31,10 @@ impl Kind {
 
 #[derive(Debug, Clone)]
 pub enum Msg {
-    Resized(ResizeEvent),
     DragStart(Side),
     DragMove(f32),
     DragEnd,
     WindowResized(f32),
-    /// Esconde/mostra os docks (maximiza a folha). Atalho: F11 ou Tab.
-    #[allow(dead_code)]
-    ToggleFocus,
 }
 
 pub struct Layout {
@@ -80,7 +75,6 @@ impl Layout {
             Msg::WindowResized(w) => {
                 self.window_w = w;
             }
-            Msg::Resized(_) | Msg::ToggleFocus => {}
         }
     }
 
@@ -159,5 +153,40 @@ impl Layout {
             .width(Length::Fill)
             .height(Length::Fill)
             .into()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_layout_drag_and_clamp() {
+        let mut layout = Layout::new(1200.0);
+        assert_eq!(layout.left_width, DOCK_W);
+        assert_eq!(layout.right_width, DOCK_W);
+
+        // Arraste do painel esquerdo
+        layout.update(Msg::DragStart(Side::Left));
+        layout.update(Msg::DragMove(100.0)); // Deve limitar no mínimo (160.0)
+        assert_eq!(layout.left_width, 160.0);
+
+        layout.update(Msg::DragMove(300.0));
+        assert_eq!(layout.left_width, 300.0);
+
+        layout.update(Msg::DragMove(600.0)); // Deve limitar no máximo (480.0)
+        assert_eq!(layout.left_width, 480.0);
+        layout.update(Msg::DragEnd);
+        assert!(layout.drag.is_none());
+
+        // Arraste do painel direito
+        layout.update(Msg::DragStart(Side::Right));
+        layout.update(Msg::DragMove(1150.0)); // 1200 - 1150 = 50 -> clamp 160.0
+        assert_eq!(layout.right_width, 160.0);
+        layout.update(Msg::DragEnd);
+
+        // Redimensionamento de janela
+        layout.update(Msg::WindowResized(1600.0));
+        assert_eq!(layout.window_w, 1600.0);
     }
 }

@@ -80,7 +80,7 @@ Aplicativo iced 0.13 no padrão Elm: `CadeSimuApp` (≈47 campos de estado) + en
 | `svg_symbol.rs` | 507 | Parser SVG → `SvgShape` com cache global `OnceLock`; 1 unwrap de produção |
 | `canvas_view.rs` | 1.516 | Canvas rico (draw primitivos, preview fantasma, sim-click); cores paralelas aos tokens de tema |
 | `theme.rs` | 649 | Design system 1:1 com o protótipo CSS; `detect_system_dark()` nativo (Windows registry, KDE `kreadconfig6`, GNOME `gsettings`, portal freedesktop, `GTK_THEME`) |
-| `layout.rs` | 155 | 3 colunas; novo resize por drag (splitters 6px, clamp 160–480px). Mensagens `Msg::Resized`/`ToggleFocus` mortas |
+| `layout.rs` | 155 | 3 colunas; novo resize por drag (splitters 6px, clamp 160–480px). Mensagens mortas eliminadas |
 | `main.rs` | 6.812 | Coordenador completo + menubar/toolbar/docks em overlays (`Stack`). Riscos: `update` ≈1.400 linhas, `view_properties_panel` ≈690, `view_collections_panel` ≈412 |
 
 ### 3.3 Pontos fortes e fracos arquiteturais
@@ -122,7 +122,7 @@ Aplicativo iced 0.13 no padrão Elm: `CadeSimuApp` (≈47 campos de estado) + en
 | Risco | Impacto | Mitigação recomendada |
 |---|---|---|
 | Rebuild da rede a cada tick | Custo O(N²) por passo e flicker crescente em esquemas grandes | Cache de rede invalidado por mutação do documento; re-resolve apenas gatilhos/timers |
-| Tipos fantasma 7003/7007 | Braços de match sem `SymbolDef` — código morto potencialmente confuso | Catalogar os SPDT temporizados ou remover os braços |
+| Tipos fantasma 7003/7007 | Braços de match sem `SymbolDef` eliminados | **Concluído** (removidos braços de tipos fantasmas inexistentes) |
 | Heurísticas QET por substring repetidas 5× | Edição única exige 5 ajustes (bug à vista) | Extrair helpers `is_qet_manual_switch` / `is_qet_load` / `is_qet_source` |
 | Constante mágica `y1 >= 600` (fonte QET por posição) | Comportamento implícito | Regra nomeada + comentário RE |
 
@@ -220,13 +220,13 @@ Um diferencial grande do projeto: as estruturas reproduzem os arrays paralelos d
 | # | Dívida | Esforço | Ganho | Status |
 |---|---|---|---|---|
 | 5 | Mover `mod tests` (≈3.750 linhas) para `tests/` | 1 d | `main.rs` de 8.926 para 9 linhas, testes em `tests/integration_tests.rs` e app em `src/app.rs` | **Concluído** |
-| 6 | Extrair `SimState` dos campos `sim_*` de `SchematicItem` | 2 d | Model puro; abre caminho para sim em threads e snapshot barato | Pendente |
+| 6 | Extrair `SimState` dos campos `sim_*` de `SchematicItem` | 2 d | Model puro; abre caminho para sim em threads e snapshot barato | **Concluído** |
 | 7 | Fragmentar `main.rs` em `src/ui/` + `src/app/` por domínio de `Message` | 3–5 d | Recupera separação de responsabilidades e reduz o contexto de agentes | Em andamento (app desacoplado de main) |
 | 8 | Modularizar `sim.rs` (graph/solver/rules/timers) com cache da rede | 3 d | Performance e legibilidade do motor | **Concluído** |
 | 9 | Export real: folha → SVG → PNG/PDF (stub hoje) | 2–4 d | Fecha promessa do README e da spec §1.1 | **Concluído** |
 | 10 | Cores do canvas via `theme::tokens` (+ base da folha) e eliminação de cores hardcoded | 0,5 d | Coerência total de tema, tokens no canvas e eliminação de `Color` em `app.rs` | **Concluído** |
 | 11 | Decoder CP-1252 (bytes 0x80–0x9F) | 0,5 d | Textos legados e exportação .cad corretos (0x80..=0x9F e roundtrip total para textos tipo 8) | **Concluído** |
-| 12 | Tipos fantasma 7003/7007 + `Msg::Resized`/`ToggleFocus` mortos | 0,5 d | Menos code-ruído | Pendente |
+| 12 | Tipos fantasma 7003/7007 + `Msg::Resized`/`ToggleFocus` mortos | 0,5 d | Menos code-ruído | **Concluído** |
 
 ### P2 — produto (roadmap)
 

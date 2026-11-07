@@ -2857,7 +2857,7 @@ pub fn detect_contact_kind(tipo: i32, default_pins: &[SymbolPin]) -> Option<Cont
         7000 | 8000 | 8004 | 8008 | 8012 | 8031 => Some(ContactKind::NO),
         7001 | 8001 | 8005 | 8009 | 8013 | 8030 | 8033 | 8034 => Some(ContactKind::NC),
         7002 | 8002 | 8006 | 8010 | 8014 | 8032 => Some(ContactKind::Double),
-        7003 | 8003 | 8007 | 8011 | 8015 => Some(ContactKind::Changeover),
+        8003 | 8007 | 8011 | 8015 => Some(ContactKind::Changeover),
         7004 | 7008 | 8016 => Some(ContactKind::TimedNO),
         7005 | 7009 | 8017 => Some(ContactKind::TimedNC),
         7006 | 8018 => Some(ContactKind::TimedDouble),
@@ -3112,8 +3112,8 @@ pub fn classify_apparatus_role(tipo: i32) -> ApparatusRole {
         8000..=8015 | 8020..=8023 | 8030..=8034 | 2004 => ApparatusRole::SwitchOrButton,
         9008 | 9013 => ApparatusRole::Signaling,
         2000 | 2001 | 2006 | 2008 => ApparatusRole::PowerContactorPoles,
-        7000..=7003 => ApparatusRole::AuxiliaryContact,
-        7004..=7009 => ApparatusRole::TimedContact,
+        7000..=7002 => ApparatusRole::AuxiliaryContact,
+        7004..=7006 | 7008..=7009 => ApparatusRole::TimedContact,
         8016..=8019 => ApparatusRole::ThermalAuxContact,
         _ => ApparatusRole::Other,
     }
@@ -3471,4 +3471,61 @@ pub fn get_themed_symbol_svg_string(sym: &SymbolDef, is_dark: bool) -> String {
         stroke_color,
         false,
     )
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_contact_kind_and_no_phantom_types() {
+        // Contatos instantâneos válidos
+        assert_eq!(detect_contact_kind(7000, &[]), Some(ContactKind::NO));
+        assert_eq!(detect_contact_kind(7001, &[]), Some(ContactKind::NC));
+        assert_eq!(detect_contact_kind(7002, &[]), Some(ContactKind::Double));
+
+        // Tipos fantasma 7003 e 7007 não devem ser classificados como contatos válidos
+        assert_eq!(detect_contact_kind(7003, &[]), None);
+        assert_eq!(detect_contact_kind(7007, &[]), None);
+
+        // Contatos temporizados válidos (On-Delay e Off-Delay)
+        assert_eq!(detect_contact_kind(7004, &[]), Some(ContactKind::TimedNO));
+        assert_eq!(detect_contact_kind(7005, &[]), Some(ContactKind::TimedNC));
+        assert_eq!(
+            detect_contact_kind(7006, &[]),
+            Some(ContactKind::TimedDouble)
+        );
+        assert_eq!(detect_contact_kind(7008, &[]), Some(ContactKind::TimedNO));
+        assert_eq!(detect_contact_kind(7009, &[]), Some(ContactKind::TimedNC));
+
+        // Comutador SPDT válido de botão
+        assert_eq!(
+            detect_contact_kind(8003, &[]),
+            Some(ContactKind::Changeover)
+        );
+    }
+
+    #[test]
+    fn test_apparatus_role_and_no_phantom_types() {
+        assert_eq!(
+            classify_apparatus_role(7000),
+            ApparatusRole::AuxiliaryContact
+        );
+        assert_eq!(
+            classify_apparatus_role(7001),
+            ApparatusRole::AuxiliaryContact
+        );
+        assert_eq!(
+            classify_apparatus_role(7002),
+            ApparatusRole::AuxiliaryContact
+        );
+        assert_eq!(classify_apparatus_role(7003), ApparatusRole::Other);
+
+        assert_eq!(classify_apparatus_role(7004), ApparatusRole::TimedContact);
+        assert_eq!(classify_apparatus_role(7005), ApparatusRole::TimedContact);
+        assert_eq!(classify_apparatus_role(7006), ApparatusRole::TimedContact);
+        assert_eq!(classify_apparatus_role(7007), ApparatusRole::Other);
+        assert_eq!(classify_apparatus_role(7008), ApparatusRole::TimedContact);
+        assert_eq!(classify_apparatus_role(7009), ApparatusRole::TimedContact);
+    }
 }
