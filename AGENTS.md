@@ -15,9 +15,13 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
   ```
 * **Suíte de testes (Obrigatório antes de qualquer commit):**
   ```bash
-  cargo test
+  cargo test --all-targets
   ```
-  * Os testes (simulação de circuitos reais, roundtrip de formatos, UI) vivem inline no `mod tests` do `main.rs`, e usam como fixtures os esquemas originais do diretório `Projetos/*.cad`. É a rede de proteção de toda simulação — qualquer mudança em `sim.rs`, `symbols.rs`, `io.rs` ou `model.rs` deve acrescentar ou atualizar pelo menos um teste nele.
+  * A suíte conta com **72 testes automatizados** (100% verde):
+    - `tests/integration_tests.rs` (46 testes de integração cobrindo simulação de circuitos reais, intertravamentos, térmicos, botoeiras, multicanais, multipágina, D1, D2 e D3).
+    - `src/lib.rs` (21 unittests cobrindo `cp1252`, `layout`, `sim::cache`, `sim::graph`, `sim::rules`, `sim::solver`, `sim::timers`, `symbols` e `export`).
+    - `src/bin/elmt2svg.rs` (5 unittests cobrindo indexação e normalização de SVGs).
+    - As fixtures de teste utilizam esquemas reais em `Projetos/` (`.cad`, `.json`, `.toml`, `.qet`). Qualquer alteração em `sim/`, `symbols.rs`, `canonical.rs`, `io.rs`, `model.rs` ou `app.rs` deve manter essa suíte verde e, quando aplicável, acrescentar novos testes de regressão.
 * **Execução do aplicativo em modo desenvolvimento ou release:**
   ```bash
   cargo run
@@ -28,33 +32,54 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
   cargo run --bin cade2svg   # Regenera SVGs nativos a partir dos assets legados
   cargo run --bin elmt2svg   # Processa a biblioteca QElectroTech e regenera catalog.json
   ```
-  * *Nota:* O `elmt2svg` depende de uma coleção **QElectroTech instalada localmente** (caminho padrão `/usr/share/qelectrotech`; aceita caminho customizado por argumento). Se o comando falhar por ausência dessa coleção, não é defeito do código nem do ambiente do agente — regere-o apenas quando a coleção estiver disponível.
+  * *Nota:* O modo `elmt2svg --check` e `elmt2svg --index-only` valida a integridade do catálogo canônico D2 (`symbols_qet/catalog.json`) sem exigir a coleção externa instalada.
 
 ---
 
 ## 2. Arquitetura de Módulos e Fluxo de Dados
 
 ```text
-       [ model.rs ] ◄─────────────► [ sim.rs ] (Motor Eletrotécnico)
-            ▲                             ▲
-            │                             │
-       [  io.rs  ] ◄──────────────► [ symbols.rs / svg_symbol.rs ]
-            ▲                             ▲
-            │                             │
+       [ model.rs ] ◄─────────────► [ sim/ (cache/graph/rules/solver/timers) ]
+            ▲                                              ▲
+            ·                                              ├──► canonical.rs (CanonicalKind O(1))
+       [  io.rs   ] ◄──────────────► [ symbols.rs / svg_symbol.rs ]
+            ▲
     [ canvas_view.rs ] ◄──────────► [ layout.rs / theme.rs ]
             ▲
-            └─────────────── [ main.rs ] (Coordenador Iced 0.13)
+    [    src/ui/     ] (CanvasArea, Library, Menu, Modals, Properties, Statusbar, Toolbar, Widgets)
+            ▲
+    [    app.rs      ] (CadeSimuApp: Coordenador Elm e Handlers de Update por Domínio)
+            ▲
+    [    main.rs     ] (Ponto de entrada enxuto de 9 linhas)
 ```
 
-* **`model.rs`**: Representação pura de dados do esquema (`SchematicDocument`, `SchematicItem`, condutores, bornes, nós de conexão, páginas e potenciais).
-* **`sim.rs`**: Motor de propagação física e lógica de potenciais (L1–L3, N, PE, CC+/CC-; curto-circuito com desarme de disjuntores e queima de fusíveis; intertravamentos e contatos auxiliares). O acoplamento entre bobinas e contatos é **exclusivamente por TAG** (não há modelo de acoplamento magnético no motor).
-* **`canvas_view.rs`**: Renderização acelerada via GPU no Iced Canvas (`iced::widget::canvas`), emissão das mensagens de auto-conexão (*smart wiring* — a lógica de fusão de condutores e junções é aplicada no `main.rs`), *hit-test* com priorização de símbolos sobre fios, e manipulação na grade (*grid snap*).
-* **`symbols.rs` / `svg_symbol.rs`**: Catálogo universal com primitivas geométricas, mapeamento de bornes e adaptação de contraste SVG por tema (`adapt_svg_colors`).
+* **`model.rs`**: Representação pura de dados do esquema (`SchematicDocument`, `SchematicItem`, condutores, bornes, nós de conexão, páginas e potenciais). Campos de runtime elétrico residem em `SimState`.
+* **`sim/`**: Motor de simulação física e lógica desacoplado em 5 submódulos:
+  - `graph.rs`: Grafo topológico (`build_network_graph`), conectando cabos e bornes por coordenadas geométricas `(x, y)` e ignorando blocos visuais (`!is_wireable()`).
+  - `cache.rs`: Hash topológico e reaproveitamento de adjacência de rede entre passos de simulação.
+  - `rules.rs`: Classificação funcional de dispositivos via enum tipado `CanonicalKind` com fallback legado; detecção de curto-circuito.
+  - `solver.rs`: Cascata de ponto fixo, injeção de fontes e propagação BFS de potenciais.
+  - `timers.rs`: Gestão determinística de temporizadores On-Delay (TON) e Off-Delay (TOF).
+  - *Nota:* O acoplamento entre bobinas e contatos auxiliares é **exclusivamente por TAG**.
+* **`canonical.rs`**: Dicionário global de símbolos D2/D3 com indexação $O(1)$, enum `CanonicalKind`, resolução de caminhos SVG e categorização dinâmica.
+* **`canvas_view.rs`**: Renderização acelerada via GPU no Iced Canvas (`iced::widget::canvas`), emissão de mensagens de auto-conexão, *hit-test* com priorização de símbolos sobre fios, visualização fantasma (escala 0.30) e manipulação na grade (*grid snap*).
+* **`symbols.rs` / `svg_symbol.rs`**: Catálogo nativo IEC 60947 com memoização global `LazyLock` e parser SVG com cache de geometrias e dimensões.
+* **`export.rs`**: Exportação gráfica real: SVG vetorial limpo com cajetín opcional, PNG via `resvg`, PDF multipágina via `printpdf` e CAD folha única.
+* **`io.rs`**: Leitura/escrita simétrica de formatos multipágina (`.json`, `.toml`, `.qet`) e escritor byte-exato do formato `.cad` legado (restrito à exportação).
+* **`cp1252.rs`**: Conversão bidirecional CP-1252 ↔ UTF-8 para compatibilidade perfeita com strings de esquemas do CADe original.
 * **`icons.rs`**: Renderização de ícones vetoriais modernos da interface em SVG.
-* **`layout.rs` / `theme.rs`**: Sistema de colunas físicas recolhíveis (288px ↔ 28px) e design system com paletas semânticas Dark, Light e System.
-* **`io.rs`**: Serialização e desserialização multiprotocolo (`.cad`, `.json`, `.toml`, `.qet`).
-* **`main.rs`**: Ponto de entrada, coordenador de estado, toolbar responsiva, menubar em overlays e loop de mensagens principal.
-* *Dependências adicionais fora do diagrama:* `sim.rs` depende de `symbols.rs` (`find_symbol`, bornes no mundo a cada passo) e de `svg_symbol.rs` (terminais de símbolos SVG QElectroTech); `io.rs` depende de `symbols.rs` (instanciação do preset de partida direta); `main.rs` orquestra todos os módulos acima.
+* **`layout.rs` / `theme.rs`**: Sistema de colunas físicas com clamps de redimensionamento e design system com paletas semânticas Dark, Light e System nativo.
+* **`src/ui/`**: Submódulo modularizado de interface gráfica:
+  - `canvas_area.rs`: Viewport do esquemático, barra de folhas/páginas e cabeçalho do documento.
+  - `library.rs`: Painel unificado da biblioteca canônica (9.3k) e coleções nativas.
+  - `menu.rs`: Barra de menubar e menus flutuantes suspensos.
+  - `modals.rs`: Modal de informações do RustSimu e modal universal de exportação (Decisão D1).
+  - `properties.rs`: Dock de propriedades, conformidade IEC 60947, referências cruzadas e cajetín.
+  - `statusbar.rs`: Rodapé de status, coordenadas, grelha, formato ativo e zoom.
+  - `toolbar.rs`: Barra de ferramentas responsiva com controles de simulação e ferramentas.
+  - `widgets.rs`: Utilitários compartilhados de interface (`app_tooltip`).
+* **`app.rs`**: Estado do aplicativo (`CadeSimuApp`), enum `Message` e ciclo de vida Elm (`update`, `view`, `subscription`) com despacho particionado em 7 manipuladores por domínio (`update_file`, `update_edit`, `update_pages`, `update_library`, `update_properties`, `update_simulation`, `update_view_layout`).
+* **`main.rs`**: Ponto de entrada minimalista de 9 linhas (`fn main() -> iced::Result { CadeSimuApp::run(...) }`).
 
 ---
 
@@ -69,7 +94,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
    * **Neutro & Terra:** `Potential::N`, `Potential::PE`
    * **Corrente Contínua:** `Potential::DcPos` (CC+), `Potential::DcNeg` (CC-)
    * **Desenergizado:** `Potential::None`
-   * **Estado de Curto-Circuito:** `Potential::ShortCircuit` (já implementado em `model.rs`, rótulo visual `"CC!"`; condutores sob curto são pintados em vermelho espesso em `canvas_view.rs`). Conexão direta entre potenciais de polaridades opostas (ex.: L1 com N, ou L1 com L2) marca este estado, dispara a falta (*trip*) e **desarma disjuntores magnéticos** associados, além de **queimar fusíveis** no circuito afetado.
+   * **Estado de Curto-Circuito:** `Potential::ShortCircuit` (rótulo visual `"CC!"`; condutores sob curto são pintados em vermelho espesso). Conexão direta entre potenciais de polaridades opostas (ex.: L1 com N, ou L1 com L2) marca este estado, dispara a falta (*trip*) e **desarma disjuntores magnéticos** associados, além de **queimar fusíveis** no circuito afetado.
 3. **Numeração de Bornes e Terminais (IEC 60947-1):**
    * **Contatos NA (Normalmente Abertos):** Terminações com dígitos `3` e `4` (ex.: `13-14`, `23-24`, `33-34`).
    * **Contatos NF (Normalmente Fechados):** Terminações com dígitos `1` e `2` (ex.: `11-12`, `21-22`, `31-32`).
@@ -89,7 +114,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
 
 1. **Prioridade Absoluta de Camadas (Overlays vs. Canvas):**
    * Menus suspensos e janelas modais residem em camadas superiores (`Stack` / `layers`).
-   * Quando um menu ou modal estiver ativo (`open_menu.is_some() || show_about_modal`), o Canvas opera em estado bloqueado (`is_blocked: true`), retornando `(event::Status::Ignored, None)`.
+   * Quando um menu ou modal estiver ativo (`open_menu.is_some() || show_about_modal || show_export_modal`), o Canvas opera em estado bloqueado (`is_blocked: true`), ignorando eventos interativos.
    * Eventos de movimento espacial (`CanvasMessage::CursorMoved`) **nunca** devem fechar menus abertos no `update`.
 2. **Hit-Testing com Prioridade para Símbolos:**
    * O clique do mouse em coordenadas onde símbolos e fios se cruzam **deve sempre selecionar o símbolo** (componente) e não o fio que passa por baixo.
@@ -97,34 +122,55 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
    * **Docks Laterais:** Largura padrão de `288px` quando expandidos (redimensionáveis entre `160px` e `480px` via separador de 6px) e `28px` quando recolhidos (com botão chevron centralizado em `align_x: Center`). O separador é desativado quando o dock correspondente está recolhido.
    * **Área Central (Canvas):** Expande dinamicamente para consumir todo o espaço liberado (`Length::Fill`).
    * **Toolbar:** As ferramentas à esquerda usam container com rolagem suave (`scrollable`), enquanto o grupo de simulação (**Play**, **Stop**, **Step**) fica fixado à direita com botões icônicos compactos (sem textos).
-   * **Efeito Play:** O botão Play exibe brilho radial (*neon glow* emitido via `Shadow`) quando ativo, com cor de texto adaptada via `tokens.on_primary`.
+   * **Efeito Play:** O botão Play exibe destaque visual quando ativo, com cor de texto adaptada via tokens do tema.
 4. **Histórico Undo / Redo:**
    * Alterações de posição por arrasto no Canvas só devem ser empilhadas no `undo_stack` quando o usuário soltar o botão do mouse (`ButtonReleased` / `EndMoveItem`), jamais em movimentações intermediárias.
 5. **Adaptação a Temas:**
    * Todas as miniaturas de símbolos e pré-visualizações na biblioteca devem se adaptar dinamicamente ao contraste do tema ativo (Dark, Light, System) via `adapt_svg_colors`.
-   * **Detecção do Sistema:** `detect_system_dark()` detecta a preferência do SO nativamente no Windows (via registro `AppsUseLightTheme`), Linux GNOME e KDE Plasma 6 (via portal freedesktop `Settings.Read`, `kreadconfig6`, `GTK_THEME` e `gsettings`). Sombras de menus e tooltips utilizam `theme.extended_palette().is_dark`.
+   * **Detecção do Sistema:** `detect_system_dark()` detecta a preferência do SO nativamente no Windows e Linux. Sombras de menus e tooltips utilizam tokens semânticos.
+6. **Zero Emojis na UI:**
+   * A interface deve utilizar exclusivamente ícones vetoriais SVG (`crate::icons`) para representar ferramentas, estados e indicadores. Caracteres emoji são terminantemente proibidos na interface para evitar caracteres não renderizados ("▯") em distribuições Linux.
 
 ---
 
-## 5. Diretrizes de Engenharia e Compatibilidade Legada
+## 5. Diretrizes de Engenharia e Decisões de Arquitetura
 
-1. **Sincronismo Rígido de Tipos:** Alterações em structs ou enums em `model.rs` exigem atualização imediata e atômica em `sim.rs`, `symbols.rs` e `io.rs`.
+1. **Sincronismo Rígido de Tipos:** Alterações em structs ou enums em `model.rs` exigem atualização imediata e atômica em `sim/`, `canonical.rs`, `symbols.rs` e `io.rs`.
 2. **Preservação de Dados de Engenharia Reversa:** **Nunca** remova nem altere comentários contendo offsets e ponteiros hexadecimais (ex.: `// RE: 0x00431xxx`), pois mapeiam o binário original do CADe_SIMU.
 3. **Windows Long Paths no Git:** Os repositórios QElectroTech possuem caminhos de arquivo extensos. No Windows ou CI, garanta `git config core.longpaths true`.
-4. **Política de Arquivos — Salvamento (Decisão D1 de 05/11/2026):** O formato legado `.cad` **NÃO** deve mais ser oferecido como opção de *Salvar / Salvar Como* — ele é single-sheet e perderia páginas multipágina silenciosamente. Restrito a **importação** e **exportação** (folha única; com seletor de página quando o projeto tiver mais de uma folha). Salvamento nativo: `.json` (padrão na primeira gravação), `.toml` e `.qet`. Ao implementar: remover `SaveFormat::Cad` de `SaveFormat::ALL`/rota de save em `main.rs` e reutilizar o escritor byte-exato de `io.rs` no fluxo de Exportação **sem alterar o formato** (roundtrip obrigatório — v. agente `compat-cad`).
-5. **Nomenclatura de Símbolos (Decisão D2 de 06/11/2026):** A biblioteca de símbolos usa nomes fixos de 15 caracteres no formato `<familia>/<subcategoria:3>-<id:5hex>-<estado:1hex>.svg` (ex.: `electric/012-00020-0.svg`). Somente as pastas primárias permanecem; a árvore interna do QET é achatada e vira metadado `path` no dicionário. Regras inegociáveis: `id` de 5 hex maiúsculos é **global, imutável e nunca reutilizado**; `subcategoria` de 3 decimais é **escopada por família** e **persistida no dicionário** (nunca recalculada por ordem alfabética); `estado` de 1 hex é **enum por `kind`**, jamais bit flags. Estados só geram arquivo SVG quando a **geometria** muda — cor, brilho, falha e curto-circuito são overlays de runtime no `canvas_view.rs`. O dicionário JSON é a **única fonte de verdade**; o campo `kind` é obrigatório e substitui as heurísticas por substring de `sim/rules.rs`. Spec completa: `Docs/Esquema-Nomes-Simbolos.md`.
+4. **Decisão D1 (Implementada e Validada): Salvamento Multipágina e Exportação:**
+   * O formato legado `.cad` foi **completamente removido da rota de salvamento** — ele é estritamente monofolha e perderia páginas adicionais.
+   * O salvamento nativo do projeto é multipágina em `.json` (padrão), `.toml` ou `.qet`.
+   * O formato `.cad` é restrito à **Importação** e **Exportação** (com seletor de folha quando o projeto possuir múltiplas páginas), implementado no modal de exportação (`src/ui/modals.rs` e `src/export.rs`) reutilizando o escritor byte-exato de `io.rs`.
+5. **Decisão D2 (Implementada e Validada): Catálogo Canônico Unificado (9.3k itens):**
+   * A biblioteca de símbolos utiliza nomes fixos de 15 caracteres no formato `<familia>/<subcategoria:3>-<id:5hex>-<estado:1hex>.svg` (ex.: `electric/012-00020-0.svg`).
+   * Catálogo em `symbols_qet/catalog.json`: 9.273 elementos base, 9.327 arquivos SVG em disco, 0 órfãos e 0 colisões case-insensitive.
+   * Busca em $O(1)$ provida por `CanonicalDictionary::global()` em `src/canonical.rs`.
+   * Campo `kind: CanonicalKind` obrigatório e tipado em todos os elementos, eliminando parsing frágil de strings.
+6. **Decisão D3 (Implementada e Validada): Isolamento de Blocos Visuais de Montagem:**
+   * Elementos gráficos de montagem visual (painéis 2D, trilhos DIN, canaletas, bornes mecânicos e módulos de CLP) são classificados como `kind: CanonicalKind::Block`.
+   * Não possuem terminais elétricos funcionais (`!is_wireable()`) e são **completamente ignorados pelo motor de simulação** em `src/sim/graph.rs`, preservando alta performance de simulação.
+7. **P2-#15 e P3-#17 (Bornes e Referência Cruzada):**
+   * A simulação elétrica gráfica conecta condutores via **coordenadas geométricas espaciais `(x, y)` e índices ordinais de pinos**, operando 100% mesmo quando os nomes dos bornes forem vazios (`""`).
+   * No entanto, para a **geração de réguas de bornes (`-X1`, `-X2`)** e **referência cruzada inter-folhas** (P2-#15), os elementos canônicos com bornes vazios requerem fallback de numeração sequencial automática (`1, 2, 3...`) ou resolução semântica de terminais (P3-#17).
 
 ---
 
 ## 6. Procedimentos de Entrega e Convivência Multi-Agente (CI/CD)
 
 1. **Regra de Validação Local (Não Suba sem Sinal Verde):**
-   * Nenhum agente deve executar `git push` ou criar tags no GitHub sem a confirmação explícita do usuário no chat. Mantenha os commits locais enquanto as validações e ajustes estiverem em andamento.
+   * **Nenhum agente deve executar `git push`** ou criar tags no GitHub sem a autorização explícita do usuário no chat. Mantenha os commits locais enquanto as validações e ajustes estiverem em andamento.
 2. **Atomicidade e Regressão Zero:**
-   * Antes de encerrar qualquer turno de trabalho, execute `cargo check` e `cargo test`. Todos os testes devem passar com 100% de sucesso.
+   * Antes de encerrar qualquer turno de trabalho, execute obrigatoriamente:
+     ```bash
+     cargo fmt --all -- --check
+     cargo clippy --all-targets -- -D warnings
+     cargo test --all-targets
+     ```
+   * Todos os 72 testes devem passar com 100% de sucesso e zero advertências do compilador.
 3. **Padrão de Commits:**
-   * Use Conventional Commits em Português do Brasil (ex.: `feat(ui): ...`, `fix(sim): ...`, `test(core): ...`).
-   * É estritamente **proibido** o uso de `git push --force` para evitar corrupção de commits feitos por outros agentes ou pelo usuário.
+   * Use Conventional Commits em Português do Brasil (ex.: `feat(ui): ...`, `fix(sim): ...`, `refactor(core): ...`, `test(integration): ...`).
+   * É estritamente **proibido** o uso de `git push --force`.
 4. **Integração Contínua (CI):**
    * O repositório conta com esteira automatizada (`.github/workflows/ci.yml`) que valida formatação (`cargo fmt`), análise estática (`cargo clippy --all-targets -- -D warnings`) e suíte de testes (`cargo test --all-targets`) em Linux e Windows a cada push ou PR para a branch `main`.
 5. **Geração de Releases:**

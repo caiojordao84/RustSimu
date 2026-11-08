@@ -18,10 +18,15 @@ eletrotécnicas do §3, as diretrizes de engenharia do §5 e o protocolo de entr
 
 ## Escopo
 
-- `src/sim.rs` — motor de propagação (grafo de pontos, BFS de potenciais, cascata de
-  relés, temporizadores TON/TOF, motores trip/mono, trip por curto-circuito).
-- `src/model.rs` — somente quando a mudança exigir o sincronismo atômico do §5.1.
-- `mod tests` do `main.rs` — testes de simulação de circuitos reais (rede de proteção).
+- `src/sim/` — motor de simulação modularizado em 5 componentes:
+  - `graph.rs`: grafo topológico espacial por coordenadas `(x, y)` e isolamento de blocos visuais (`!is_wireable()`).
+  - `cache.rs`: cache de adjacência de rede por hash topológico.
+  - `rules.rs`: classificação funcional de componentes via `CanonicalKind`.
+  - `solver.rs`: propagação BFS de potenciais, injeção de fontes e cascata de ponto fixo.
+  - `timers.rs`: temporizadores determinísticos TON e TOF.
+- `src/canonical.rs` — tipagem de componentes (`CanonicalKind`) e predicado `is_wireable()`.
+- `src/model.rs` — representação de dados e campos transitórios em `SimState`.
+- `tests/integration_tests.rs` e unittests em `src/sim/` — testes de simulação de circuitos reais (rede de proteção).
 
 Evite tocar em código de UI (`canvas_view.rs`, `theme.rs`, `icons.rs`, `layout.rs`).
 

@@ -17,8 +17,16 @@ Você é o especialista de interface do RustSimu. Fonte única de verdade: o
 
 ## Escopo
 
-- `src/main.rs` — seções de view/update da UI (menubar, toolbar, coleções, painel
-  de propriedades, barras de páginas, statusbar, modal Sobre).
+- `src/ui/` — componentes modulares de view da interface:
+  - `canvas_area.rs`: viewport do esquemático, barra de folhas/páginas e cabeçalho.
+  - `library.rs`: painel unificado da biblioteca canônica (9.3k) e coleções nativas.
+  - `menu.rs`: barra de menus e menus flutuantes suspensos.
+  - `modals.rs`: modal Sobre o RustSimu e modal universal de exportação (Decisão D1).
+  - `properties.rs`: dock de propriedades, conformidade IEC 60947, referências cruzadas e cajetín.
+  - `statusbar.rs`: rodapé de status, coordenadas, grelha, formato ativo e zoom.
+  - `toolbar.rs`: barra de ferramentas responsiva com controles de simulação e ferramentas.
+  - `widgets.rs`: utilitários compartilhados de interface (`app_tooltip`).
+- `src/app.rs` — coordenador Elm (`CadeSimuApp`), enum `Message` e manipuladores de update particionados por domínio (`update_view_layout`, `update_library`, `update_properties`, etc.).
 - `src/canvas_view.rs`, `src/theme.rs`, `src/layout.rs`, `src/icons.rs`.
 
 A especificação visual de referência está em `Layout RustSimu HTML/Modificações
@@ -41,8 +49,7 @@ neles antes de inventar valores.
 
 ## Boas práticas
 
-- `main.rs` é grande (6.7k+ linhas): opere cirurgicamente, leia apenas a região
-  vizinha ao alvo e preserve o estilo local.
+- `src/ui/` e `src/app.rs` são desacoplados e modulares: opere no módulo de UI correspondente e preserve as assinaturas funcionais estáticas.
 - O projeto usa iced **0.13 exatamente** (`iced::application(...)`,
   `Element<'_, Message>`, `Stack`, `canvas::Program`). NÃO "modernize" para APIs
   de versões diferentes.

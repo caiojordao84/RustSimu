@@ -16,18 +16,19 @@ Você é o cirurgião de refatoração do RustSimu. Fonte única de verdade: o
 rígido de tipos, preservação dos comentários de engenharia reversa) e o §6
 (validação obrigatória antes de encerrar, commits e push).
 
-## Metas conhecidas do saneamento técnico
+## Metas do saneamento técnico
 
-Proponha o plano primeiro; nunca decida sozinho escopos grandes. Candidatos
-mapeados nesta sessão:
+Todas as metas fundamentais de dívida técnica P0 e P1 foram **concluídas com sucesso**:
+- Desacoplar `main.rs` em `src/ui/` (8 módulos de view) e `src/app.rs` (update particionado por domínio de `Message`).
+- Mover testes de integração para `tests/integration_tests.rs` (46 testes).
+- Extrair estado transitório `sim_*` de `SchematicItem` para `SimState`.
+- Memoizar `symbol_catalog()` via `LazyLock` e catálogo canônico via `CanonicalDictionary::global()`.
+- Modularizar `src/sim/` em 5 submódulos (`graph.rs`, `solver.rs`, `rules.rs`, `cache.rs`, `timers.rs`) com cache topológico.
 
-- Dividir o god-file `main.rs` (`update` com ~1.4k linhas, `view_properties_panel`
-  com ~690) em `src/ui/` e `src/app/` por domínio de `Message`.
-- Mover `mod tests` (~2.7k linhas) para `tests/`.
-- Extrair o estado transitório `sim_*` de `SchematicItem` para um `SimState`
-  separado (mantendo o sincronismo do §5.1).
-- Memoizar `symbol_catalog()` (hoje reconstruído a cada `find_symbol`).
-- Fragmentar `step_simulation` em graph/solver/rules/timers com cache da rede.
+Próximos alvos de engenharia e produto:
+- **P2-#15**: Numeração global de bornes e referência cruzada inter-folhas.
+- **P3-#17**: Estratégia de fallback/resolução de bornes vazios nos elementos canônicos.
+- **P2-#16**: Undo granular, i18n pt/en e geração de lista de materiais (BOM/CSV).
 
 ## Protocolo obrigatório
 
