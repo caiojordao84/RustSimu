@@ -43,11 +43,11 @@ O **RustSimu** é uma reescrita nativa em Rust (iced 0.13) do CADe_SIMU 4.0 — 
 
 | Métrica | Valor |
 |---|---|
-| Linhas Rust (`src/*.rs` + subpastas + bins + testes) | **27.666** |
+| Linhas Rust (`src/*.rs` + subpastas + bins + testes) | **27.081** |
 | Ponto de entrada (`main.rs`) | **9 linhas** (orquestrador enxuto `fn main() -> iced::Result`) |
-| Maior arquivo de aplicação | `src/app.rs` — 5.923 linhas (coordenador Elm, views de toolbar/menubar/docks) |
+| Maior arquivo de aplicação | `src/app.rs` — 2.709 linhas (coordenador Elm, orquestrador de ciclo de vida e despacho de update desacoplado por domínio) |
 | Suíte de testes de integração | `tests/integration_tests.rs` — 5.214 linhas (**46 testes de integração**) |
-| Módulos ativos | `app`, `canonical`, `canvas_view`, `cp1252`, `export`, `icons`, `io`, `layout`, `lib`, `main`, `model`, `qet`, `sim` (`cache`, `graph`, `rules`, `solver`, `timers`), `svg_symbol`, `symbols`, `theme` (`mod`, `tokens`) + bins `cade2svg`, `elmt2svg` |
+| Módulos ativos | `app`, `canonical`, `canvas_view`, `cp1252`, `export`, `icons`, `io`, `layout`, `lib`, `main`, `model`, `qet`, `sim` (`cache`, `graph`, `rules`, `solver`, `timers`), `svg_symbol`, `symbols`, `theme` (`mod`, `tokens`), `ui` (`canvas_area`, `library`, `menu`, `modals`, `properties`, `statusbar`, `toolbar`, `widgets`) + bins `cade2svg`, `elmt2svg` |
 | Catálogo de símbolos nativos | **69 `SymbolDef`** (1000–9013) com numeração IEC e memoização global `LazyLock` |
 | Biblioteca Canônica Unificada (D2/D3) | **9.273 elementos** no catálogo (`symbols_qet/catalog.json`, 9.327 arquivos SVG em disco) com 0 órfãos e lookup $O(1)$ |
 | Divisão de escopo da biblioteca | **5.702 elementos cabáveis** (61,5%) e **3.571 blocos visuais de montagem/CLP** (38,5%) |
@@ -64,7 +64,8 @@ O **RustSimu** é uma reescrita nativa em Rust (iced 0.13) do CADe_SIMU 4.0 — 
 ### 3.1 Padrão geral
 
 Aplicativo iced 0.13 estruturado na arquitetura Elm:
-- **`src/app.rs` (`CadeSimuApp`)**: Gerencia o estado da interface, menubar, toolbar, docks retráteis/redimensionáveis, seleção de componentes e despacho de comandos.
+- **`src/app.rs` (`CadeSimuApp`)**: Gerencia o estado da interface, ciclo de vida e orquestração do loop Elm (`update`, `view`, `subscription`) com despacho desacoplado por domínio de `Message` (`update_file`, `update_edit`, `update_pages`, `update_library`, `update_properties`, `update_simulation`, `update_view_layout`).
+- **`src/ui/`**: Submódulo completo de interface e renderização gráfica desacoplado em 8 componentes focados (`canvas_area`, `library`, `menu`, `modals`, `properties`, `statusbar`, `toolbar`, `widgets`).
 - **`src/model.rs` (`SchematicDocument`, `SchematicItem`, `SimState`)**: Contrato de dados desacoplado da simulação transitória. Campos elétricos de runtime residem em `SimState`.
 - **`src/sim/`**: Motor de simulação modularizado:
   - `graph.rs`: Construção do grafo topológico (`build_network_graph`), ignorando blocos visuais (`!is_wireable()`).
@@ -84,7 +85,9 @@ Aplicativo iced 0.13 estruturado na arquitetura Elm:
               ▲
        src/canvas_view.rs ◄──── src/theme/ (Tokens Dark/Light/System)
               ▲
-       src/app.rs (Coordenador Elm, Docks, Menubar, Toolbar)
+       src/ui/ (CanvasArea, Library, Menu, Modals, Properties, Statusbar, Toolbar, Widgets)
+              ▲
+       src/app.rs (Coordenador Elm e Handlers de Update por Domínio)
               ▲
        src/main.rs (Ponto de entrada enxuto de 9 linhas)
 ```
@@ -93,7 +96,8 @@ Aplicativo iced 0.13 estruturado na arquitetura Elm:
 
 | Módulo | Linhas | Avaliação |
 |---|---|---|
-| `app.rs` | 5.923 | Coordenador Elm desacoplado; gerencia menubar, toolbar responsiva, docks com resize por drag, dock unificado de biblioteca (9.3k itens) e atalhos de teclado |
+| `app.rs` | 2.709 | Coordenador Elm desacoplado; orquestração de ciclo de vida e despacho de update particionado em 7 domínios de `Message` |
+| `ui/` | 3.438 | Submódulo visual modularizado em 8 componentes de view: `canvas_area` (377), `library` (703), `menu` (541), `modals` (389), `properties` (913), `statusbar` (83), `toolbar` (399), `widgets` (16) |
 | `canonical.rs` | 1.134 | Dicionário canônico Schema v2 (D2/D3); enum tipado `CanonicalKind` com 19 variantes; categorização dinâmica por família; predicado `is_wireable()` e buscas em $O(1)$ |
 | `sim/` | 1.627 | Motor totalmente desacoplado em 5 sub-módulos (`cache.rs`, `graph.rs`, `rules.rs`, `solver.rs`, `timers.rs`); despacho direto via `CanonicalKind` com isolamento de blocos |
 | `model.rs` | 676 | Contrato de dados serializável; documentação de offsets RE preservada; campos de simulação isolados em `SimState` |
@@ -214,7 +218,7 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
 |---|---|---|
 | 5 | Mover `mod tests` para `tests/integration_tests.rs` | [CONCLUÍDO] (`tests/integration_tests.rs`) |
 | 6 | Extrair `SimState` dos campos `sim_*` de `SchematicItem` | [CONCLUÍDO] (`src/model.rs`) |
-| 7 | Desacoplar `main.rs` em `src/app.rs` por domínio Elm | [CONCLUÍDO] (`main.rs` reduzido a 9 linhas) |
+| 7 | Desacoplar interface em `src/ui/` e handlers de `app.rs` por domínio Elm | [CONCLUÍDO] (`src/ui/` criado com 8 componentes de view; `src/app.rs` reduzido para 2.709 linhas com handlers de update desacoplados por domínio) |
 | 8 | Modularizar `src/sim/` (`graph`, `rules`, `solver`, `cache`, `timers`) com cache topológico | [CONCLUÍDO] (`src/sim/`) |
 | 9 | Exportação gráfica real: SVG vetorial, PNG e PDF multipágina | [CONCLUÍDO] (`src/export.rs`) |
 | 10 | Cores do canvas centralizadas em `src/theme/tokens.rs` | [CONCLUÍDO] |
@@ -245,7 +249,7 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
 
 ## 12. Riscos consolidados
 
-1. **Concentração de código em `app.rs`**: Embora `main.rs` tenha sido reduzido a 9 linhas, `src/app.rs` concentra a visualização dos painéis e docks. Mitigação futura: fragmentar as views de docks em submódulos específicos em `src/ui/`.
+1. **Concentração de código em `app.rs` (EXTINTO / RESOLVIDO)**: As ~3.350 linhas de visualização gráfica foram integralmente extraídas para o submódulo `src/ui/` (`canvas_area.rs`, `library.rs`, `menu.rs`, `modals.rs`, `properties.rs`, `statusbar.rs`, `toolbar.rs`, `widgets.rs`). Em `src/app.rs`, o despachante `update` foi particionado em 7 métodos dedicados por domínio de mensagem (`update_file`, `update_edit`, `update_pages`, `update_library`, `update_properties`, `update_simulation`, `update_view_layout`), reduzindo `src/app.rs` em mais de 3.200 linhas (para 2.709 linhas) e eliminando o god-file.
 2. **Knowledge lock de engenharia reversa**: Os offsets e estruturas binárias estão documentados no código em `src/model.rs` e `src/io.rs`. Mitigação: consolidar o manual de engenharia reversa em `Docs/cad-format.md`.
 3. **Risco de perda de páginas no `.cad` (EXTINTO)**: O risco foi **completamente eliminado** pela implementação da Decisão D1. O formato `.cad` deixou de ser formato de salvamento, tornando impossível a perda acidental de folhas em projetos multipágina.
 4. **Barramento de múltiplos agentes de IA (MITIGADO)**: O risco de quebras silenciosas em colaboração multi-agente está neutralizado pela suíte de 72 testes locais e pelo CI automatizado no GitHub Actions com clippy estrito.

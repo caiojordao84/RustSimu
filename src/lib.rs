@@ -12,6 +12,7 @@ pub mod sim;
 pub mod svg_symbol;
 pub mod symbols;
 pub mod theme;
+pub mod ui;
 
 pub use app::{
     ActiveMenu, CadeSimuApp, ExportFormat, ExportPageOption, ExportScope, Message,
