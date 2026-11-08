@@ -208,7 +208,7 @@ Um `#[test]` na suíte chama o mesmo validador.
 
 | Invariante | Violações hoje | Gravidade |
 |---|---:|---|
-| Nomes de bornes únicos por elemento | **4.699** | [CRÍTICO] bloqueia a simulação (P3-#17) |
+| Nomes de bornes únicos por elemento | **4.025** (3.978 vazios `""`, 47 repetidos) | [ALERTA] Co-requisito do P2-#15 (a simulação gráfica usa topologia x,y, mas bloqueia netlists e réguas de bornes) (P3-#17) |
 | Elementos sem terminal e blocos CLP | **3.571** | [CONCLUÍDO] classificados como `kind: CanonicalKind::Block` (P3-#18 / D3) |
 | `name_pt` ≠ `name_en` | **4.345** | [PENDENTE] metade não traduzida (P3-#19) |
 | IDs com sufixo `_2`/`_3` | **2.533** | [RESOLVIDO] resolvido pelo ID numérico (D2) |

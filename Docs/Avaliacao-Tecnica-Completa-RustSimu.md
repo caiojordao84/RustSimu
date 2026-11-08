@@ -231,14 +231,14 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
 |---|---|---|
 | 13 | **Implementação da Decisão D1**: salvar em JSON (padrão)/TOML/QET; `.cad` somente na exportação com seletor de página | [CONCLUÍDO] (commit `4fd0f3f`) |
 | 14 | **Implementação da Decisão D2**: biblioteca canônica unificada de 9.3k na UI, com escala proporcional 0.30 e categorização dinâmica | [CONCLUÍDO] (commits `cd8c391`, `a9b46ab`) |
-| 15 | Numeração global de bornes e referência cruzada de projeto inter-folhas | Pendente (Próximo alvo de engenharia) |
+| 15 | Numeração global de bornes e referência cruzada de projeto inter-folhas | Pendente (Próximo alvo de engenharia — requer estratégia de atribuição sequencial para bornes vazios de P3-#17) |
 | 16 | Undo granular, i18n pt/en, geração de lista de materiais (BOM/CSV), grupo Ctrl+G | Planejado |
 
 ### P3 — Qualidade de Dados do Catálogo de Símbolos
 
 | # | Item | Violações | Status |
 |---|---|---|---|
-| 17 | Bornes com nomes duplicados no mesmo elemento | 4.699 elementos | Pendente (resolução semântica para cabeamento fino) |
+| 17 | Bornes sem nome ou com nomes duplicados no catálogo | 4.025 elementos (3.978 vazios `""`, 47 repetidos) | Pendente — co-requisito de P2-#15 para netlist/réguas (a simulação gráfica opera via coordenadas x,y) |
 | 18 | **Decisão D3**: Classificação de blocos de montagem visual (`kind: CanonicalKind::Block`) e terminais de CLP desativados | 3.571 elementos | [CONCLUÍDO] (commit `b4d455e`, D3 validada) |
 | 19 | Tradução pt-BR de metadados | 4.345 itens | Em andamento na curadoria |
 | 20 | Colisões de caixa no diretório `import/` | 10 pares | Resolvido no catálogo canônico D2 |
@@ -253,6 +253,7 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
 2. **Knowledge lock de engenharia reversa**: Os offsets e estruturas binárias estão documentados no código em `src/model.rs` e `src/io.rs`. Mitigação: consolidar o manual de engenharia reversa em `Docs/cad-format.md`.
 3. **Risco de perda de páginas no `.cad` (EXTINTO)**: O risco foi **completamente eliminado** pela implementação da Decisão D1. O formato `.cad` deixou de ser formato de salvamento, tornando impossível a perda acidental de folhas em projetos multipágina.
 4. **Barramento de múltiplos agentes de IA (MITIGADO)**: O risco de quebras silenciosas em colaboração multi-agente está neutralizado pela suíte de 72 testes locais e pelo CI automatizado no GitHub Actions com clippy estrito.
+5. **Terminais vazios em símbolos canônicos para o P2-#15**: Embora o motor elétrico simule circuitos gráficos perfeitamente por coordenadas `(x, y)`, 4.025 elementos da biblioteca canônica possuem bornes com nome vazio (`""`) herdados do QET. Para o **P2-#15** (réguas de bornes e referências cruzadas), o sistema precisa adotar um fallback de numeração sequencial automática (`1, 2, 3...`) para evitar bornes em branco em relatórios e réguas de interligação.
 
 ---
 
@@ -260,7 +261,7 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
 
 O projeto RustSimu atingiu com sucesso os objetivos mais desafiadores do seu plano de modernização: superou o monólito inicial, modularizou seu núcleo elétrico com alto desempenho, blindou o formato multipágina nativo eliminando perdas legadas e unificou a imensa biblioteca de 9.327 símbolos com tipagem robusta, ergonomia visual e isolamento de componentes mecânicos.
 
-A plataforma está plenamente preparada e estável para avançar nas tarefas de produto: **P2-#15 (Numeração global de bornes e referência cruzada inter-folhas)** e curadoria fina de terminais (P3-#17).
+A plataforma está com arquitetura desacoplada e simulação gráfica interativa 100% funcional, estando preparada para avançar na modelagem de **P2-#15 (Numeração global de bornes e referência cruzada inter-folhas)** em conjunto com a estratégia de resolução de terminais de **P3-#17**.
 
 ---
 
