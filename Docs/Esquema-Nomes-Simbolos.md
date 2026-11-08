@@ -218,7 +218,7 @@ Um `#[test]` na suíte chama o mesmo validador.
 | SVG ausente no disco | **0** | [OK] |
 | SVG no disco fora do catálogo | **0** | [OK] (9.327/9.327) |
 | Hotspot fora da bbox | **0** | [OK] |
-| Colisões case-insensitive | **10** | [ALERTA] `import/` — portabilidade Windows (P3-#20) |
+| Colisões case-insensitive | **0** | [RESOLVIDO] 0 colisões em `symbols_qet/` (10 colisões legadas em `symbols_qet_all/import/` eliminadas na D2) (P3-#20) |
 | `subcategoria` única por família | — | [OK] (855/999) |
 
 ### 6.1 SVGs órfãos — resolvido em 06/11/2026
@@ -241,9 +241,11 @@ Cada variante `_active` foi indexada com `state: "active"` e `variant_of` aponta
 elemento-base — a ponte para o modelo de `states[]` da D2. Os `cade_native` recebem
 `source: "cade_native"`; o restante, `source: "qet"`.
 
-**Pendência remanescente:** 10 pares de arquivos em `import/` diferem apenas por caixa
-(`Chassis_ground_001.svg` × `chassis_ground_001.svg`). No Linux coexistem; no Windows/macOS
-apenas um é materializado. Requer decisão de remoção/renomeação (P3-#20).
+**Colisões de caixa (P3-#20) — resolvido na D2:** Os 10 pares de arquivos no diretório legado
+`symbols_qet_all/import/` que diferiam apenas por caixa (`Chassis_ground_001.svg` × `chassis_ground_001.svg`)
+foram completamente resolvidos no catálogo canônico D2 (`symbols_qet/`): cada elemento recebeu um
+ID numérico hexadecimal único e nome normalizado (`<subcat>-<id>-<state>.svg`), eliminando
+qualquer colisão case-insensitive e garantindo 100% de portabilidade em Windows, macOS e Linux (0 colisões em 9.327 SVGs).
 
 ---
 

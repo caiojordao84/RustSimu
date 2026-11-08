@@ -47,7 +47,7 @@ O **RustSimu** é uma reescrita nativa em Rust (iced 0.13) do CADe_SIMU 4.0 — 
 | Ponto de entrada (`main.rs`) | **9 linhas** (orquestrador enxuto `fn main() -> iced::Result`) |
 | Maior arquivo de aplicação | `src/app.rs` — 2.709 linhas (coordenador Elm, orquestrador de ciclo de vida e despacho de update desacoplado por domínio) |
 | Suíte de testes de integração | `tests/integration_tests.rs` — 5.214 linhas (**46 testes de integração**) |
-| Módulos ativos | `app`, `canonical`, `canvas_view`, `cp1252`, `export`, `icons`, `io`, `layout`, `lib`, `main`, `model`, `qet`, `sim` (`cache`, `graph`, `rules`, `solver`, `timers`), `svg_symbol`, `symbols`, `theme` (`mod`, `tokens`), `ui` (`canvas_area`, `library`, `menu`, `modals`, `properties`, `statusbar`, `toolbar`, `widgets`) + bins `cade2svg`, `elmt2svg` |
+| Módulos ativos | `app`, `canonical`, `canvas_view`, `cp1252`, `export`, `icons`, `io`, `layout`, `lib`, `main`, `model`, `qet`, `sim` (`cache`, `graph`, `rules`, `solver`, `timers`), `svg_symbol`, `symbols`, `theme`, `ui` (`canvas_area`, `library`, `menu`, `modals`, `properties`, `statusbar`, `toolbar`, `widgets`) + bins `cade2svg`, `elmt2svg` |
 | Catálogo de símbolos nativos | **69 `SymbolDef`** (1000–9013) com numeração IEC e memoização global `LazyLock` |
 | Biblioteca Canônica Unificada (D2/D3) | **9.273 elementos** no catálogo (`symbols_qet/catalog.json`, 9.327 arquivos SVG em disco) com 0 órfãos e lookup $O(1)$ |
 | Divisão de escopo da biblioteca | **5.702 elementos cabáveis** (61,5%) e **3.571 blocos visuais de montagem/CLP** (38,5%) |
@@ -83,7 +83,7 @@ Aplicativo iced 0.13 estruturado na arquitetura Elm:
               ·                                              ├──► canonical.rs (CanonicalKind O(1))
        src/io.rs (json/toml/qet/cad)                         └──► symbols.rs / svg_symbol.rs
               ▲
-       src/canvas_view.rs ◄──── src/theme/ (Tokens Dark/Light/System)
+       src/canvas_view.rs ◄──── src/theme.rs (Tokens Dark/Light/System)
               ▲
        src/ui/ (CanvasArea, Library, Menu, Modals, Properties, Statusbar, Toolbar, Widgets)
               ▲
@@ -221,7 +221,7 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
 | 7 | Desacoplar interface em `src/ui/` e handlers de `app.rs` por domínio Elm | [CONCLUÍDO] (`src/ui/` criado com 8 componentes de view; `src/app.rs` reduzido para 2.709 linhas com handlers de update desacoplados por domínio) |
 | 8 | Modularizar `src/sim/` (`graph`, `rules`, `solver`, `cache`, `timers`) com cache topológico | [CONCLUÍDO] (`src/sim/`) |
 | 9 | Exportação gráfica real: SVG vetorial, PNG e PDF multipágina | [CONCLUÍDO] (`src/export.rs`) |
-| 10 | Cores do canvas centralizadas em `src/theme/tokens.rs` | [CONCLUÍDO] |
+| 10 | Cores do canvas centralizadas em tokens de `src/theme.rs` | [CONCLUÍDO] |
 | 11 | Decoder CP-1252 estendido para caracteres acentuados legados | [CONCLUÍDO] (`src/cp1252.rs`) |
 | 12 | Eliminação de tipos fantasmas (7003/7007) e mensagens de UI mortas | [CONCLUÍDO] |
 
