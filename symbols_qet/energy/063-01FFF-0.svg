@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-20.0 -13.0 40.0 20.0" data-name="Ballcock">
+<svg xmlns="http://www.w3.org/2000/svg" width="87.3" height="43.6" viewBox="-43.6 -28.4 87.3 43.6" data-name="Ballcock" data-standard="48px">
   <title>Ballcock</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="7.00" cy="-9.00" rx="3.00" ry="1.50" stroke="black" fill="white" />
-    <polyline points="4,-9 0,-5 0,-1" stroke="black" fill="none" />
-    <line x1="10.00" y1="0.00" x2="11.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="-11.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="-10,-5 10,5 10,-5 -10,5 -10,-4" stroke="black" fill="white" />
-    <circle class="qet-terminal" cx="11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="15.27" cy="-19.64" rx="6.55" ry="3.27" stroke="black" fill="white" />
+    <polyline points="8.73,-19.64 0.00,-10.91 0.00,-2.18" stroke="black" fill="none" />
+    <line x1="21.82" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-21.82" y1="0.00" x2="-24.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-21.82,-10.91 21.82,10.91 21.82,-10.91 -21.82,10.91 -21.82,-8.73" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

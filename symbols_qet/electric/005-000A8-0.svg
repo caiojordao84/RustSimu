@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="520.0" viewBox="-24.0 -31.0 120.0 520.0" data-name="Terminal_4G1">
+<svg xmlns="http://www.w3.org/2000/svg" width="288.0" height="1248.0" viewBox="-57.6 -74.4 288.0 1248.0" data-name="Terminal_4G1" data-standard="48px">
   <title>Terminal_4G1</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="87.00" cy="153.50" rx="4.00" ry="2.50" stroke="black" fill="black" />
-    <rect x="16.00" y="-20.58" width="63.18" height="90.82" stroke="black" fill="none" />
-    <line x1="48.68" y1="70.75" x2="48.68" y2="181.76" stroke="black" fill="none" />
-    <line x1="57.83" y1="-20.58" x2="57.83" y2="70.25" stroke="black" fill="none" />
-    <text x="41.81" y="120.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <line x1="69.00" y1="70.75" x2="69.00" y2="181.76" stroke="black" fill="none" />
-    <text x="62.00" y="120.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <rect x="-20.00" y="-26.85" width="36.00" height="102.28" stroke="black" fill="none" />
-    <line x1="36.94" y1="-20.58" x2="36.94" y2="70.25" stroke="black" fill="none" />
-    <line x1="27.19" y1="70.75" x2="27.19" y2="181.76" stroke="black" fill="none" />
-    <text x="20.22" y="120.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <line x1="27.13" y1="181.76" x2="69.42" y2="181.76" stroke="black" fill="none" />
-    <rect x="41.17" y="322.75" width="18.77" height="85.76" stroke="black" fill="none" />
-    <line x1="48.69" y1="322.36" x2="48.69" y2="181.20" stroke="black" fill="none" />
-    <line x1="50.00" y1="408.81" x2="50.00" y2="480.80" stroke="black" fill="none" />
-    <polyline points="86.9,153 86.9,181.76 67.93,181.76" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="50.00" cy="480.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="208.80" cy="368.40" rx="9.60" ry="6.00" stroke="black" fill="black" />
+    <rect x="38.40" y="-49.39" width="151.63" height="217.97" stroke="black" fill="none" />
+    <line x1="116.83" y1="169.80" x2="116.83" y2="436.22" stroke="black" fill="none" />
+    <line x1="138.79" y1="-49.39" x2="138.79" y2="168.60" stroke="black" fill="none" />
+    <text x="100.34" y="288.48" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <line x1="165.60" y1="169.80" x2="165.60" y2="436.22" stroke="black" fill="none" />
+    <text x="148.80" y="288.48" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <rect x="-48.00" y="-64.44" width="86.40" height="245.47" stroke="black" fill="none" />
+    <line x1="88.66" y1="-49.39" x2="88.66" y2="168.60" stroke="black" fill="none" />
+    <line x1="65.26" y1="169.80" x2="65.26" y2="436.22" stroke="black" fill="none" />
+    <text x="48.53" y="288.48" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <line x1="65.11" y1="436.22" x2="166.61" y2="436.22" stroke="black" fill="none" />
+    <rect x="98.81" y="774.60" width="45.05" height="205.82" stroke="black" fill="none" />
+    <line x1="116.86" y1="773.66" x2="116.86" y2="434.88" stroke="black" fill="none" />
+    <line x1="120.00" y1="981.14" x2="120.00" y2="1153.92" stroke="black" fill="none" />
+    <polyline points="208.56,367.20 208.56,436.22 163.03,436.22" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="120.00" cy="1152.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

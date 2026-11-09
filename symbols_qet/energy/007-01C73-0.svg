@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-19.0 -9.0 40.0 30.0" data-name="Disconnector">
+<svg xmlns="http://www.w3.org/2000/svg" width="91.4" height="68.6" viewBox="-43.4 -20.6 91.4 68.6" data-name="Disconnector" data-standard="48px">
   <title>Disconnector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="2.91" y="14.00" width="0.70" height="1.33" stroke="black" fill="none" />
-    <rect x="0.11" y="14.00" width="0.70" height="1.33" stroke="black" fill="none" />
-    <path d="M 4.67 -1.87 A 4.21 2.33 0 0 0 -3.75 -1.87" stroke="black" fill="none" />
-    <path d="M 6.90 2.68 A 1.00 0.86 0 0 0 6.90 4.40" stroke="black" fill="none" />
-    <path d="M -5.94 4.40 A 1.00 0.86 0 0 0 -5.94 2.68" stroke="black" fill="none" />
-    <rect x="5.90" y="-3.00" width="4.90" height="7.37" stroke="black" fill="none" />
-    <rect x="4.67" y="-2.16" width="1.23" height="5.49" stroke="black" fill="none" />
-    <line x1="7.06" y1="-1.25" x2="10.63" y2="-1.25" stroke="black" fill="none" />
-    <line x1="7.06" y1="2.68" x2="10.62" y2="2.68" stroke="black" fill="none" />
-    <path d="M 6.90 -1.25 A 1.00 1.97 0 0 0 6.90 2.68" stroke="black" fill="none" />
-    <path d="M 6.90 -3.00 A 1.00 0.86 0 0 0 6.90 -1.28" stroke="black" fill="none" />
-    <rect x="-9.88" y="-3.00" width="4.90" height="7.37" stroke="black" fill="none" />
-    <rect x="-5.00" y="-1.95" width="1.23" height="5.28" stroke="black" fill="none" />
-    <line x1="-9.70" y1="-1.25" x2="-6.13" y2="-1.25" stroke="black" fill="none" />
-    <line x1="-9.70" y1="2.68" x2="-6.13" y2="2.68" stroke="black" fill="none" />
-    <path d="M -5.94 2.68 A 1.00 1.97 0 0 0 -5.94 -1.25" stroke="black" fill="none" />
-    <path d="M -5.94 -1.28 A 1.00 0.86 0 0 0 -5.94 -3.00" stroke="black" fill="none" />
-    <line x1="-9.63" y1="-3.00" x2="-9.88" y2="-1.25" stroke="black" fill="none" />
-    <line x1="-9.88" y1="2.68" x2="-9.63" y2="4.40" stroke="black" fill="none" />
-    <line x1="10.55" y1="-3.00" x2="10.80" y2="-1.25" stroke="black" fill="none" />
-    <line x1="10.80" y1="2.68" x2="10.55" y2="4.40" stroke="black" fill="none" />
-    <rect x="-2.34" y="4.05" width="5.60" height="8.30" stroke="black" fill="none" />
-    <line x1="-3.74" y1="3.06" x2="-2.34" y2="4.05" stroke="black" fill="none" />
-    <line x1="4.66" y1="3.39" x2="3.26" y2="4.05" stroke="black" fill="none" />
-    <rect x="-3.00" y="12.35" width="7.00" height="1.66" stroke="black" fill="none" />
-    <rect x="-3.00" y="15.34" width="7.00" height="0.66" stroke="black" fill="none" />
-    <rect x="-2.69" y="14.00" width="0.70" height="1.33" stroke="black" fill="none" />
-    <rect x="-1.00" y="5.00" width="3.00" height="6.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="11.00" cy="1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6.65" y="32.00" width="1.60" height="3.04" stroke="black" fill="none" />
+    <rect x="0.25" y="32.00" width="1.60" height="3.04" stroke="black" fill="none" />
+    <path d="M 10.67 -4.27 A 9.62 5.33 0 0 0 -8.57 -4.27" stroke="black" fill="none" />
+    <path d="M 15.77 6.13 A 2.29 1.97 0 0 0 15.77 10.06" stroke="black" fill="none" />
+    <path d="M -13.58 10.06 A 2.29 1.97 0 0 0 -13.58 6.13" stroke="black" fill="none" />
+    <rect x="13.49" y="-6.86" width="11.20" height="16.85" stroke="black" fill="none" />
+    <rect x="10.67" y="-4.94" width="2.81" height="12.55" stroke="black" fill="none" />
+    <line x1="16.14" y1="-2.86" x2="24.30" y2="-2.86" stroke="black" fill="none" />
+    <line x1="16.14" y1="6.13" x2="24.27" y2="6.13" stroke="black" fill="none" />
+    <path d="M 15.77 -2.86 A 2.29 4.50 0 0 0 15.77 6.13" stroke="black" fill="none" />
+    <path d="M 15.77 -6.86 A 2.29 1.97 0 0 0 15.77 -2.93" stroke="black" fill="none" />
+    <rect x="-22.58" y="-6.86" width="11.20" height="16.85" stroke="black" fill="none" />
+    <rect x="-11.43" y="-4.46" width="2.81" height="12.07" stroke="black" fill="none" />
+    <line x1="-22.17" y1="-2.86" x2="-14.01" y2="-2.86" stroke="black" fill="none" />
+    <line x1="-22.17" y1="6.13" x2="-14.01" y2="6.13" stroke="black" fill="none" />
+    <path d="M -13.58 6.13 A 2.29 4.50 0 0 0 -13.58 -2.86" stroke="black" fill="none" />
+    <path d="M -13.58 -2.93 A 2.29 1.97 0 0 0 -13.58 -6.86" stroke="black" fill="none" />
+    <line x1="-22.01" y1="-6.86" x2="-22.58" y2="-2.86" stroke="black" fill="none" />
+    <line x1="-22.58" y1="6.13" x2="-22.01" y2="10.06" stroke="black" fill="none" />
+    <line x1="24.11" y1="-6.86" x2="24.69" y2="-2.86" stroke="black" fill="none" />
+    <line x1="24.69" y1="6.13" x2="24.11" y2="10.06" stroke="black" fill="none" />
+    <rect x="-5.35" y="9.26" width="12.80" height="18.97" stroke="black" fill="none" />
+    <line x1="-8.55" y1="6.99" x2="-5.35" y2="9.26" stroke="black" fill="none" />
+    <line x1="10.65" y1="7.75" x2="7.45" y2="9.26" stroke="black" fill="none" />
+    <rect x="-6.86" y="28.23" width="16.00" height="3.79" stroke="black" fill="none" />
+    <rect x="-6.86" y="35.06" width="16.00" height="1.51" stroke="black" fill="none" />
+    <rect x="-6.15" y="32.00" width="1.60" height="3.04" stroke="black" fill="none" />
+    <rect x="-2.29" y="11.43" width="6.86" height="13.71" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="25.14" cy="2.29" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-22.86" cy="2.29" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

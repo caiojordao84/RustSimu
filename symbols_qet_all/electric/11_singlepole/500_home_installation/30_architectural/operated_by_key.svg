@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-15.0 -20.0 30.0 50.0" data-name="Operated by key">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="120.0" viewBox="-36.0 -48.0 72.0 120.0" data-name="Operated by key" data-standard="48px">
   <title>Operated by key</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-2,9 -6,17 6,17 2,9" stroke="black" fill="none" />
-    <rect x="-13.00" y="-10.00" width="26.00" height="35.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="4.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-4.80,21.60 -14.40,40.80 14.40,40.80 4.80,21.60" stroke="black" fill="none" />
+    <rect x="-31.20" y="-24.00" width="62.40" height="84.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="9.60" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -12.0 30.0 40.0" data-name="Manometer">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-36.0 -28.8 72.0 96.0" data-name="Manometer" data-standard="48px">
   <title>Manometer</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-2.57,-0.28 -0.19,-2.64 -4.89,-4.93 -2.6,-0.3" stroke="black" fill="black" />
-    <line x1="5.00" y1="5.00" x2="-2.00" y2="-2.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="15.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-6.17,-0.67 -0.46,-6.34 -11.74,-11.83 -6.24,-0.72" stroke="black" fill="black" />
+    <line x1="12.00" y1="12.00" x2="-4.80" y2="-4.80" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

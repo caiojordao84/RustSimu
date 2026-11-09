@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="270.0" viewBox="-35.0 -245.0 130.0 270.0" data-name="S7-1200 SM1241 RS422_485">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="648.0" viewBox="-84.0 -588.0 312.0 648.0" data-name="S7-1200 SM1241 RS422_485" data-standard="48px">
   <title>S7-1200 SM1241 RS422_485</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="10.00" y="-160.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <path d="M 60.00 -240.00 A 30.00 10.00 0 0 0 30.00 -230.00" stroke="black" fill="none" />
-    <path d="M -0.00 10.00 A 30.00 10.00 0 0 0 30.00 0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-230.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="-240.00" x2="60.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-230.00" x2="30.00" y2="-230.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="0.00" x2="60.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="0.00" y="-180.00" width="60.00" height="120.00" stroke="black" fill="none" />
-    <rect x="13.00" y="-18.00" width="34.00" height="14.00" stroke="black" fill="none" />
-    <polygon points="15,-16 20,-6 40,-6 45,-16" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="24.00" y="-384.00" width="24.00" height="24.00" stroke="black" fill="none" />
+    <path d="M 144.00 -576.00 A 72.00 24.00 0 0 0 72.00 -552.00" stroke="black" fill="none" />
+    <path d="M -0.00 24.00 A 72.00 24.00 0 0 0 72.00 0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-552.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="144.00" y1="-576.00" x2="144.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-552.00" x2="72.00" y2="-552.00" stroke="black" fill="none" />
+    <line x1="72.00" y1="0.00" x2="144.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-432.00" width="144.00" height="288.00" stroke="black" fill="none" />
+    <rect x="31.20" y="-43.20" width="81.60" height="33.60" stroke="black" fill="none" />
+    <polygon points="36.00,-38.40 48.00,-14.40 96.00,-14.40 108.00,-38.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

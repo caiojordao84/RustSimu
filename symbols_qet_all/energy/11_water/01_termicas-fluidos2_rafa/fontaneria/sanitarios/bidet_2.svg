@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-30.0 -27.0 50.0 30.0" data-name="Bidet">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="72.0" viewBox="-72.0 -64.8 120.0 72.0" data-name="Bidet" data-standard="48px">
   <title>Bidet</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="10.50" y1="-18.75" x2="-27.00" y2="-18.75" stroke="black" fill="none" />
-    <polyline points="-27,-18.75 -27,-15 -23.25,-11.25 -15.75,-7.5 -15.75,-3.75 -19.5,-3.75 -19.5,0 10.5,0 10.5,-3.75 6.75,-7.5 6.75,-15 10.5,-15 10.5,-18.75" stroke="black" fill="none" />
-    <line x1="-15.75" y1="-3.75" x2="10.50" y2="-3.75" stroke="black" fill="none" />
-    <rect x="6.75" y="-11.25" width="3.75" height="3.75" stroke="black" fill="none" />
-    <rect x="5.25" y="-22.50" width="3.00" height="3.75" stroke="black" fill="none" />
-    <polyline points="5.25,-22.5 0,-24.75 -0.75,-23.25 0,-22.5 0.75,-23.25 5.25,-21" stroke="black" fill="none" />
-    <line x1="-27.00" y1="-15.00" x2="9.75" y2="-15.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="11.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="25.20" y1="-45.00" x2="-64.80" y2="-45.00" stroke="black" fill="none" />
+    <polyline points="-64.80,-45.00 -64.80,-36.00 -55.80,-27.00 -37.80,-18.00 -37.80,-9.00 -46.80,-9.00 -46.80,0.00 25.20,0.00 25.20,-9.00 16.20,-18.00 16.20,-36.00 25.20,-36.00 25.20,-45.00" stroke="black" fill="none" />
+    <line x1="-37.80" y1="-9.00" x2="25.20" y2="-9.00" stroke="black" fill="none" />
+    <rect x="16.20" y="-27.00" width="9.00" height="9.00" stroke="black" fill="none" />
+    <rect x="12.60" y="-54.00" width="7.20" height="9.00" stroke="black" fill="none" />
+    <polyline points="12.60,-54.00 0.00,-59.40 -1.80,-55.80 0.00,-54.00 1.80,-55.80 12.60,-50.40" stroke="black" fill="none" />
+    <line x1="-64.80" y1="-36.00" x2="23.40" y2="-36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="26.40" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

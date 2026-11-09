@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="250.0" height="510.0" viewBox="-5.0 -2.0 250.0 510.0" data-name="AS00SCM-A">
+<svg xmlns="http://www.w3.org/2000/svg" width="600.0" height="1224.0" viewBox="-12.0 -4.8 600.0 1224.0" data-name="AS00SCM-A" data-standard="48px">
   <title>AS00SCM-A</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="15.00" y="370.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FORMAT 2</text>
-    <text x="190.00" y="170.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARD1</text>
-    <rect x="140.00" y="280.00" width="60.00" height="140.00" stroke="black" fill="none" />
-    <text x="15.00" y="250.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FORMAT 1</text>
-    <ellipse cx="30.00" cy="220.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <text x="22.00" y="79.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARD2</text>
-    <ellipse cx="30.00" cy="340.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <text x="120.00" y="495.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <text x="15.00" y="310.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ID 2</text>
-    <text x="100.00" y="495.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <ellipse cx="30.00" cy="280.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <text x="140.00" y="495.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
-    <line x1="240.00" y1="0.00" x2="240.00" y2="500.00" stroke="black" fill="none" />
-    <ellipse cx="14.00" cy="36.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <ellipse cx="14.00" cy="76.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <text x="22.00" y="59.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARD1</text>
-    <text x="22.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ERROR</text>
-    <ellipse cx="14.00" cy="56.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <text x="10.00" y="490.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AS00SCM-A </text>
-    <line x1="0.00" y1="500.00" x2="120.00" y2="500.00" stroke="black" fill="none" />
-    <line x1="120.00" y1="500.00" x2="240.00" y2="500.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="120.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="500.00" stroke="black" fill="none" />
-    <line x1="120.00" y1="0.00" x2="240.00" y2="0.00" stroke="black" fill="none" />
-    <text x="22.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">POWER</text>
-    <ellipse cx="14.00" cy="16.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <line x1="90.00" y1="500.00" x2="90.00" y2="470.00" stroke="black" fill="none" />
-    <line x1="90.00" y1="470.00" x2="150.00" y2="470.00" stroke="black" fill="none" />
-    <line x1="150.00" y1="470.00" x2="150.00" y2="500.00" stroke="black" fill="none" />
-    <rect x="140.00" y="80.00" width="60.00" height="140.00" stroke="black" fill="none" />
-    <text x="190.00" y="370.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARD2</text>
-    <text x="15.00" y="190.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ID 1</text>
-    <ellipse cx="30.00" cy="160.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <rect x="10.00" y="390.00" width="50.00" height="10.00" stroke="black" fill="none" />
-    <text x="11.00" y="412.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COM / RTU</text>
-    <rect x="50.00" y="390.00" width="10.00" height="10.00" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="120.00" cy="500.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="170.00" cy="220.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="100.00" cy="500.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="140.00" cy="500.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="170.00" cy="420.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="170.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="170.00" cy="280.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="36.00" y="888.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">FORMAT 2</text>
+    <text x="456.00" y="408.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CARD1</text>
+    <rect x="336.00" y="672.00" width="144.00" height="336.00" stroke="black" fill="none" />
+    <text x="36.00" y="600.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">FORMAT 1</text>
+    <ellipse cx="72.00" cy="528.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <text x="52.80" y="189.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CARD2</text>
+    <ellipse cx="72.00" cy="816.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <text x="288.00" y="1188.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="36.00" y="744.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ID 2</text>
+    <text x="240.00" y="1188.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <ellipse cx="72.00" cy="672.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <text x="336.00" y="1188.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
+    <line x1="576.00" y1="0.00" x2="576.00" y2="1200.00" stroke="black" fill="none" />
+    <ellipse cx="33.60" cy="86.40" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <ellipse cx="33.60" cy="182.40" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <text x="52.80" y="141.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CARD1</text>
+    <text x="52.80" y="93.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ERROR</text>
+    <ellipse cx="33.60" cy="134.40" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <text x="24.00" y="1176.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">AS00SCM-A </text>
+    <line x1="0.00" y1="1200.00" x2="288.00" y2="1200.00" stroke="black" fill="none" />
+    <line x1="288.00" y1="1200.00" x2="576.00" y2="1200.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="288.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="1200.00" stroke="black" fill="none" />
+    <line x1="288.00" y1="0.00" x2="576.00" y2="0.00" stroke="black" fill="none" />
+    <text x="52.80" y="45.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">POWER</text>
+    <ellipse cx="33.60" cy="38.40" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <line x1="216.00" y1="1200.00" x2="216.00" y2="1128.00" stroke="black" fill="none" />
+    <line x1="216.00" y1="1128.00" x2="360.00" y2="1128.00" stroke="black" fill="none" />
+    <line x1="360.00" y1="1128.00" x2="360.00" y2="1200.00" stroke="black" fill="none" />
+    <rect x="336.00" y="192.00" width="144.00" height="336.00" stroke="black" fill="none" />
+    <text x="456.00" y="888.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CARD2</text>
+    <text x="36.00" y="456.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ID 1</text>
+    <ellipse cx="72.00" cy="384.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <rect x="24.00" y="936.00" width="120.00" height="24.00" stroke="black" fill="none" />
+    <text x="26.40" y="988.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">COM / RTU</text>
+    <rect x="120.00" y="936.00" width="24.00" height="24.00" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="288.00" cy="1200.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="408.00" cy="528.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="240.00" cy="1200.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="336.00" cy="1200.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="408.00" cy="1008.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="408.00" cy="192.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="408.00" cy="672.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-25.0 -12.0 50.0 20.0" data-name="Detent, engaged">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="48.0" viewBox="-60.0 -28.8 120.0 48.0" data-name="Detent, engaged" data-standard="48px">
   <title>Detent, engaged</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-20.00" y1="0.00" x2="-5.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <polyline points="-5,0 0,5 5,0" stroke="black" fill="none" />
-    <line x1="5.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-3.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-48.00" y1="0.00" x2="-12.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="-12.00,0.00 0.00,12.00 12.00,0.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="0.00" x2="48.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-7.20" stroke="black" fill="none" />
   </g>
 </svg>

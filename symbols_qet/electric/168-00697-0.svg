@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="250.0" height="140.0" viewBox="-5.0 -10.0 250.0 140.0" data-name="EASY-E4-UC-12RC1">
+<svg xmlns="http://www.w3.org/2000/svg" width="600.0" height="336.0" viewBox="-12.0 -24.0 600.0 336.0" data-name="EASY-E4-UC-12RC1" data-standard="48px">
   <title>EASY-E4-UC-12RC1</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="20.00" x2="240.00" y2="20.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <polyline points="240,22 230,22 230,38 240,38" stroke="black" fill="none" />
-    <line x1="0.00" y1="40.00" x2="240.00" y2="40.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="166.00" y="112.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q3</text>
-    <text x="67.00" y="112.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q2</text>
-    <text x="226.00" y="112.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q4</text>
-    <polyline points="165,115 165,117 167,117 172,115" stroke="black" fill="none" />
-    <polyline points="66,115 66,117 68,117 73,115" stroke="black" fill="none" />
-    <polyline points="225,115 225,117 227,117 232,115" stroke="black" fill="none" />
-    <polyline points="73,117 76,117 76,115" stroke="black" fill="none" />
-    <polyline points="232,117 235,117 235,115" stroke="black" fill="none" />
-    <polyline points="172,117 175,117 175,115" stroke="black" fill="none" />
-    <text x="12.00" y="35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EASY-E4-UC-12RC1</text>
-    <text x="7.00" y="112.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q1</text>
-    <rect x="0.00" y="0.00" width="240.00" height="120.00" stroke="black" fill="none" />
-    <polyline points="6,115 6,117 8,117 13,115" stroke="black" fill="none" />
-    <polyline points="13,117 16,117 16,115" stroke="black" fill="none" />
-    <line x1="0.00" y1="100.00" x2="240.00" y2="100.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="0.00" y1="80.00" x2="240.00" y2="80.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="215.00" y1="94.00" x2="215.00" y2="93.00" stroke="black" fill="none" />
-    <line x1="216.00" y1="94.00" x2="216.00" y2="93.00" stroke="black" fill="none" />
-    <line x1="217.00" y1="94.00" x2="217.00" y2="93.00" stroke="black" fill="none" />
-    <line x1="218.00" y1="94.00" x2="218.00" y2="93.00" stroke="black" fill="none" />
-    <line x1="219.00" y1="94.00" x2="219.00" y2="93.00" stroke="black" fill="none" />
-    <line x1="220.00" y1="94.00" x2="220.00" y2="93.00" stroke="black" fill="none" />
-    <line x1="221.00" y1="94.00" x2="221.00" y2="93.00" stroke="black" fill="none" />
-    <line x1="222.00" y1="94.00" x2="222.00" y2="93.00" stroke="black" fill="none" />
-    <polygon points="214,94 223,94 223,92 225,92 225,86 212,86 212,92 214,92" stroke="black" fill="none" />
-    <polyline points="0,22 10,22 10,38 0,38" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="80.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="200.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="180.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="140.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="100.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="140.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="100.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="200.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="160.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="80.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="120.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="220.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="220.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="160.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="225.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="48.00" x2="576.00" y2="48.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="576.00,52.80 552.00,52.80 552.00,91.20 576.00,91.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="96.00" x2="576.00" y2="96.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="398.40" y="268.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Q3</text>
+    <text x="160.80" y="268.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Q2</text>
+    <text x="542.40" y="268.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Q4</text>
+    <polyline points="396.00,276.00 396.00,280.80 400.80,280.80 412.80,276.00" stroke="black" fill="none" />
+    <polyline points="158.40,276.00 158.40,280.80 163.20,280.80 175.20,276.00" stroke="black" fill="none" />
+    <polyline points="540.00,276.00 540.00,280.80 544.80,280.80 556.80,276.00" stroke="black" fill="none" />
+    <polyline points="175.20,280.80 182.40,280.80 182.40,276.00" stroke="black" fill="none" />
+    <polyline points="556.80,280.80 564.00,280.80 564.00,276.00" stroke="black" fill="none" />
+    <polyline points="412.80,280.80 420.00,280.80 420.00,276.00" stroke="black" fill="none" />
+    <text x="28.80" y="84.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EASY-E4-UC-12RC1</text>
+    <text x="16.80" y="268.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Q1</text>
+    <rect x="0.00" y="0.00" width="576.00" height="288.00" stroke="black" fill="none" />
+    <polyline points="14.40,276.00 14.40,280.80 19.20,280.80 31.20,276.00" stroke="black" fill="none" />
+    <polyline points="31.20,280.80 38.40,280.80 38.40,276.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="240.00" x2="576.00" y2="240.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="0.00" y1="192.00" x2="576.00" y2="192.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="516.00" y1="225.60" x2="516.00" y2="223.20" stroke="black" fill="none" />
+    <line x1="518.40" y1="225.60" x2="518.40" y2="223.20" stroke="black" fill="none" />
+    <line x1="520.80" y1="225.60" x2="520.80" y2="223.20" stroke="black" fill="none" />
+    <line x1="523.20" y1="225.60" x2="523.20" y2="223.20" stroke="black" fill="none" />
+    <line x1="525.60" y1="225.60" x2="525.60" y2="223.20" stroke="black" fill="none" />
+    <line x1="528.00" y1="225.60" x2="528.00" y2="223.20" stroke="black" fill="none" />
+    <line x1="530.40" y1="225.60" x2="530.40" y2="223.20" stroke="black" fill="none" />
+    <line x1="532.80" y1="225.60" x2="532.80" y2="223.20" stroke="black" fill="none" />
+    <polygon points="513.60,225.60 535.20,225.60 535.20,220.80 540.00,220.80 540.00,206.40 508.80,206.40 508.80,220.80 513.60,220.80" stroke="black" fill="none" />
+    <polyline points="0.00,52.80 24.00,52.80 24.00,91.20 0.00,91.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="192.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="480.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="432.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="336.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="240.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="336.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="240.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="480.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="144.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="384.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="192.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="288.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="528.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="528.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="384.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="540.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

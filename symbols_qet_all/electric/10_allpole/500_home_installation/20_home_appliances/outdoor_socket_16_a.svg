@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="190.0" viewBox="-14.0 -181.0 140.0 190.0" data-name="Outdoor socket 16 A">
+<svg xmlns="http://www.w3.org/2000/svg" width="336.0" height="456.0" viewBox="-33.6 -434.4 336.0 456.0" data-name="Outdoor socket 16 A" data-standard="48px">
   <title>Outdoor socket 16 A</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="-85.00" width="120.00" height="85.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-15.00" x2="120.00" y2="-15.00" stroke="black" fill="none" />
-    <text x="58.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
-    <line x1="0.00" y1="-45.00" x2="120.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-65.00" x2="120.00" y2="-65.00" stroke="black" fill="none" />
-    <text x="66.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <text x="58.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
-    <ellipse cx="60.00" cy="-130.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
-    <ellipse cx="60.00" cy="-144.00" rx="4.00" ry="4.00" stroke="black" fill="black" />
-    <ellipse cx="45.00" cy="-130.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <ellipse cx="75.00" cy="-130.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="-170.00" x2="50.00" y2="-158.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="-170.00" x2="70.00" y2="-158.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="50.00" cy="-170.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="70.00" cy="-170.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="60.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="-204.00" width="288.00" height="204.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-36.00" x2="288.00" y2="-36.00" stroke="black" fill="none" />
+    <text x="139.20" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
+    <line x1="0.00" y1="-108.00" x2="288.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-156.00" x2="288.00" y2="-156.00" stroke="black" fill="none" />
+    <text x="158.40" y="-72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="139.20" y="-4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <ellipse cx="144.00" cy="-312.00" rx="72.00" ry="72.00" stroke="black" fill="none" />
+    <ellipse cx="144.00" cy="-345.60" rx="9.60" ry="9.60" stroke="black" fill="black" />
+    <ellipse cx="108.00" cy="-312.00" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <ellipse cx="180.00" cy="-312.00" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <line x1="120.00" y1="-408.00" x2="120.00" y2="-379.20" stroke="black" fill="none" />
+    <line x1="168.00" y1="-408.00" x2="168.00" y2="-379.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="120.00" cy="-408.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="-408.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="144.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

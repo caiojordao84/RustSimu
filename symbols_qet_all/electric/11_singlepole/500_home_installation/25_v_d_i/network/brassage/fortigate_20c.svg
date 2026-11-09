@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="440.0" height="80.0" viewBox="-215.0 -35.0 440.0 80.0" data-name="Fortigate 20C">
+<svg xmlns="http://www.w3.org/2000/svg" width="704.0" height="128.0" viewBox="-344.0 -56.0 704.0 128.0" data-name="Fortigate 20C" data-standard="48px">
   <title>Fortigate 20C</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-15.00" y="-5.00" width="30.00" height="20.00" stroke="black" fill="gray" />
-    <rect x="75.00" y="-5.00" width="30.00" height="20.00" stroke="black" fill="#d40000" />
-    <rect x="45.00" y="-5.00" width="30.00" height="20.00" stroke="black" fill="gray" />
-    <rect x="15.00" y="-5.00" width="30.00" height="20.00" stroke="black" fill="gray" />
-    <polygon points="-210,-30 220,-30 220,30 200,40 -195,40 -210,20" stroke="black" fill="white" />
-    <polygon points="-5,1 -5,3 -11,3 -11,12 11,12 11,3 5,3 5,1 3,1 3,-2 -3,-2 -3,1 -4,1" stroke="black" fill="white" />
-    <polygon points="85,1 85,3 79,3 79,12 101,12 101,3 95,3 95,1 93,1 93,-2 87,-2 87,1 86,1" stroke="black" fill="white" />
-    <polygon points="25,1 25,3 19,3 19,12 41,12 41,3 35,3 35,1 33,1 33,-2 27,-2 27,1 26,1" stroke="black" fill="white" />
-    <polygon points="55,1 55,3 49,3 49,12 71,12 71,3 65,3 65,1 63,1 63,-2 57,-2 57,1 56,1" stroke="black" fill="white" />
-    <rect x="-45.00" y="-5.00" width="30.00" height="20.00" stroke="black" fill="gray" />
-    <rect x="7.00" y="-3.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="97.00" y="-3.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="67.00" y="-3.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="37.00" y="-3.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="-11.00" y="-3.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <rect x="19.00" y="-3.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <rect x="49.00" y="-3.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <rect x="79.00" y="-3.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <polygon points="-35,1 -35,3 -41,3 -41,12 -19,12 -19,3 -25,3 -25,1 -27,1 -27,-2 -33,-2 -33,1 -34,1" stroke="black" fill="white" />
-    <rect x="-23.00" y="-3.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="-41.00" y="-3.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <text x="61.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="31.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="2.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="-28.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="91.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAN</text>
-    <rect x="-124.00" y="-3.00" width="10.00" height="20.00" stroke="black" fill="white" />
-    <rect x="-122.00" y="-1.00" width="3.00" height="16.00" stroke="black" fill="white" />
-    <circle class="qet-terminal" cx="-120.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="USB" data-orientation="s" />
-    <circle class="qet-terminal" cx="60.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="P1" data-orientation="s" />
-    <circle class="qet-terminal" cx="-30.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="P4" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="P3" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="P2" data-orientation="s" />
-    <circle class="qet-terminal" cx="90.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="WAN" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-8.00" width="48.00" height="32.00" stroke="black" fill="gray" />
+    <rect x="120.00" y="-8.00" width="48.00" height="32.00" stroke="black" fill="#d40000" />
+    <rect x="72.00" y="-8.00" width="48.00" height="32.00" stroke="black" fill="gray" />
+    <rect x="24.00" y="-8.00" width="48.00" height="32.00" stroke="black" fill="gray" />
+    <polygon points="-336.00,-48.00 352.00,-48.00 352.00,48.00 320.00,64.00 -312.00,64.00 -336.00,32.00" stroke="black" fill="white" />
+    <polygon points="-8.00,1.60 -8.00,4.80 -17.60,4.80 -17.60,19.20 17.60,19.20 17.60,4.80 8.00,4.80 8.00,1.60 4.80,1.60 4.80,-3.20 -4.80,-3.20 -4.80,1.60 -6.40,1.60" stroke="black" fill="white" />
+    <polygon points="136.00,1.60 136.00,4.80 126.40,4.80 126.40,19.20 161.60,19.20 161.60,4.80 152.00,4.80 152.00,1.60 148.80,1.60 148.80,-3.20 139.20,-3.20 139.20,1.60 137.60,1.60" stroke="black" fill="white" />
+    <polygon points="40.00,1.60 40.00,4.80 30.40,4.80 30.40,19.20 65.60,19.20 65.60,4.80 56.00,4.80 56.00,1.60 52.80,1.60 52.80,-3.20 43.20,-3.20 43.20,1.60 41.60,1.60" stroke="black" fill="white" />
+    <polygon points="88.00,1.60 88.00,4.80 78.40,4.80 78.40,19.20 113.60,19.20 113.60,4.80 104.00,4.80 104.00,1.60 100.80,1.60 100.80,-3.20 91.20,-3.20 91.20,1.60 89.60,1.60" stroke="black" fill="white" />
+    <rect x="-72.00" y="-8.00" width="48.00" height="32.00" stroke="black" fill="gray" />
+    <rect x="11.20" y="-4.80" width="6.40" height="3.20" stroke="orange" fill="orange" />
+    <rect x="155.20" y="-4.80" width="6.40" height="3.20" stroke="orange" fill="orange" />
+    <rect x="107.20" y="-4.80" width="6.40" height="3.20" stroke="orange" fill="orange" />
+    <rect x="59.20" y="-4.80" width="6.40" height="3.20" stroke="orange" fill="orange" />
+    <rect x="-17.60" y="-4.80" width="6.40" height="3.20" stroke="green" fill="#00aa00" />
+    <rect x="30.40" y="-4.80" width="6.40" height="3.20" stroke="green" fill="#00aa00" />
+    <rect x="78.40" y="-4.80" width="6.40" height="3.20" stroke="green" fill="#00aa00" />
+    <rect x="126.40" y="-4.80" width="6.40" height="3.20" stroke="green" fill="#00aa00" />
+    <polygon points="-56.00,1.60 -56.00,4.80 -65.60,4.80 -65.60,19.20 -30.40,19.20 -30.40,4.80 -40.00,4.80 -40.00,1.60 -43.20,1.60 -43.20,-3.20 -52.80,-3.20 -52.80,1.60 -54.40,1.60" stroke="black" fill="white" />
+    <rect x="-36.80" y="-4.80" width="6.40" height="3.20" stroke="orange" fill="orange" />
+    <rect x="-65.60" y="-4.80" width="6.40" height="3.20" stroke="green" fill="#00aa00" />
+    <text x="97.60" y="48.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="49.60" y="48.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="3.20" y="48.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-44.80" y="48.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="145.60" y="48.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">WAN</text>
+    <rect x="-198.40" y="-4.80" width="16.00" height="32.00" stroke="black" fill="white" />
+    <rect x="-195.20" y="-1.60" width="4.80" height="25.60" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="-192.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="USB" data-orientation="s" />
+    <circle class="qet-terminal" cx="96.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="P1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="P4" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="P3" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="P2" data-orientation="s" />
+    <circle class="qet-terminal" cx="144.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="WAN" data-orientation="s" />
   </g>
 </svg>

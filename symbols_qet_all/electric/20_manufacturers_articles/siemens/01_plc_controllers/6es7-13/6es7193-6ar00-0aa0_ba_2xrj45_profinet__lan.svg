@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="350.0" viewBox="-6.0 -2.0 90.0 350.0" data-name="6ES7193-6AR00-0AA0 BA 2xRJ45 PROFINET (LAN)">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="840.0" viewBox="-14.4 -4.8 216.0 840.0" data-name="6ES7193-6AR00-0AA0 BA 2xRJ45 PROFINET (LAN)" data-standard="48px">
   <title>6ES7193-6AR00-0AA0 BA 2xRJ45 PROFINET (LAN)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="30,320 50,320 50,336 44,336 44,340 36,340 36,336 30,336" stroke="#d40000" fill="none" />
-    <rect x="0.00" y="0.00" width="80.00" height="340.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="174.58" x2="80.65" y2="174.58" stroke="black" fill="none" />
-    <text x="5.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BA</text>
-    <text x="4.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2xRJ45</text>
-    <text x="66.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">--</text>
-    <polygon points="10,40 70,40 70,50 65,55 65,125 70,130 70,140 10,140 10,130 15,125 15,55 10,50" stroke="black" fill="none" />
-    <line x1="80.00" y1="30.00" x2="10.00" y2="30.00" stroke="black" fill="none" />
-    <rect x="3.00" y="28.00" width="4.00" height="4.00" stroke="black" fill="none" />
-    <polygon points="10,320 30,320 30,336 24,336 24,340 16,340 16,336 10,336" stroke="#d40000" fill="none" />
-    <rect x="76.00" y="240.00" width="4.00" height="4.00" stroke="black" fill="none" />
-    <rect x="76.00" y="244.00" width="4.00" height="4.00" stroke="black" fill="none" />
-    <text x="13.00" y="316.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P1R</text>
-    <text x="33.00" y="316.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P2R</text>
-    <text x="10.00" y="300.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PROFINET (LAN)</text>
-    <text x="2.00" y="172.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6ES7193-6AR00-0AA0</text>
-    <circle class="qet-terminal" cx="40.00" cy="340.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="340.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="72.00,768.00 120.00,768.00 120.00,806.40 105.60,806.40 105.60,816.00 86.40,816.00 86.40,806.40 72.00,806.40" stroke="#d40000" fill="none" />
+    <rect x="0.00" y="0.00" width="192.00" height="816.00" stroke="black" fill="none" />
+    <line x1="2.40" y1="418.99" x2="193.56" y2="418.99" stroke="black" fill="none" />
+    <text x="12.00" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BA</text>
+    <text x="9.60" y="55.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2xRJ45</text>
+    <text x="158.40" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">--</text>
+    <polygon points="24.00,96.00 168.00,96.00 168.00,120.00 156.00,132.00 156.00,300.00 168.00,312.00 168.00,336.00 24.00,336.00 24.00,312.00 36.00,300.00 36.00,132.00 24.00,120.00" stroke="black" fill="none" />
+    <line x1="192.00" y1="72.00" x2="24.00" y2="72.00" stroke="black" fill="none" />
+    <rect x="7.20" y="67.20" width="9.60" height="9.60" stroke="black" fill="none" />
+    <polygon points="24.00,768.00 72.00,768.00 72.00,806.40 57.60,806.40 57.60,816.00 38.40,816.00 38.40,806.40 24.00,806.40" stroke="#d40000" fill="none" />
+    <rect x="182.40" y="576.00" width="9.60" height="9.60" stroke="black" fill="none" />
+    <rect x="182.40" y="585.60" width="9.60" height="9.60" stroke="black" fill="none" />
+    <text x="31.20" y="758.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">P1R</text>
+    <text x="79.20" y="758.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">P2R</text>
+    <text x="24.00" y="720.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PROFINET (LAN)</text>
+    <text x="4.80" y="412.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">6ES7193-6AR00-0AA0</text>
+    <circle class="qet-terminal" cx="96.00" cy="816.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="816.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

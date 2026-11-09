@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-23.0 -28.0 50.0 60.0" data-name="Magna 1">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="144.0" viewBox="-55.2 -67.2 120.0 144.0" data-name="Magna 1" data-standard="48px">
   <title>Magna 1</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="6.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <text x="-11.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 ~</text>
-    <text x="-4.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <line x1="-10.00" y1="-6.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-10.00" x2="10.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="17.00" x2="-10.00" y2="22.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="n" />
-    <circle class="qet-terminal" cx="-10.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="14.40" rx="36.00" ry="36.00" stroke="black" fill="none" />
+    <text x="-26.40" y="31.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1 ~</text>
+    <text x="-9.60" y="7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="-24.00" y1="-14.40" x2="-24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-24.00" x2="24.00" y2="-14.40" stroke="black" fill="none" />
+    <line x1="-24.00" y1="40.80" x2="-24.00" y2="52.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="N" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="50.40" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="L" data-orientation="n" />
   </g>
 </svg>

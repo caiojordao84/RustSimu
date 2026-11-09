@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="160.0" viewBox="-65.0 -80.0 130.0 160.0" data-name="MAIN UNIT CPU130002">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="384.0" viewBox="-156.0 -192.0 312.0 384.0" data-name="MAIN UNIT CPU130002" data-standard="48px">
   <title>MAIN UNIT CPU130002</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="18.00" y="56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EFI2</text>
-    <rect x="-35.00" y="62.00" width="15.00" height="10.00" stroke="black" fill="none" />
-    <text x="-56.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FLEX BUS +</text>
-    <rect x="-40.00" y="47.00" width="86.00" height="25.00" stroke="black" fill="none" />
-    <text x="11.00" y="71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <rect x="26.00" y="62.00" width="15.00" height="10.00" stroke="black" fill="none" />
-    <text x="-9.00" y="71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
-    <rect x="5.00" y="62.00" width="15.00" height="10.00" stroke="black" fill="none" />
-    <text x="31.00" y="71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
-    <rect x="-15.00" y="62.00" width="15.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-57.00" y="-59.00" width="8.00" height="122.00" stroke="black" fill="none" />
-    <text x="-43.00" y="-51.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MEMORY</text>
-    <rect x="25.00" y="-72.00" width="16.00" height="10.00" stroke="black" fill="none" />
-    <line x1="-51.94" y1="72.00" x2="52.94" y2="72.00" stroke="black" fill="none" />
-    <text x="28.00" y="-63.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
-    <rect x="49.00" y="-59.00" width="8.00" height="122.00" stroke="black" fill="none" />
-    <text x="56.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FLEX BUS +</text>
-    <line x1="-51.94" y1="-72.00" x2="52.94" y2="-72.00" stroke="black" fill="none" />
-    <line x1="53.00" y1="-72.00" x2="53.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="53.00" y1="63.00" x2="53.00" y2="72.00" stroke="black" fill="none" />
-    <text x="-2.00" y="-63.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
-    <rect x="-47.00" y="-72.00" width="90.00" height="25.00" stroke="black" fill="none" />
-    <line x1="-17.00" y1="-72.00" x2="-17.00" y2="-48.00" stroke="black" fill="none" />
-    <text x="7.00" y="-51.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SUPPLY</text>
-    <rect x="-6.00" y="-72.00" width="16.00" height="10.00" stroke="black" fill="none" />
-    <text x="-33.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FX3-CPU130002</text>
-    <line x1="-53.00" y1="-59.00" x2="-53.00" y2="-72.00" stroke="black" fill="none" />
-    <line x1="-53.00" y1="63.00" x2="-53.00" y2="72.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="47.00" x2="2.00" y2="71.00" stroke="black" fill="none" />
-    <text x="-29.00" y="71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <text x="-23.00" y="56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EFI1</text>
-    <circle class="qet-terminal" cx="-10.00" cy="72.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="72.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="33.00" cy="-72.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="3.00" cy="-72.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="72.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-30.00" cy="72.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="43.20" y="134.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EFI2</text>
+    <rect x="-84.00" y="148.80" width="36.00" height="24.00" stroke="black" fill="none" />
+    <text x="-134.40" y="-55.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">FLEX BUS +</text>
+    <rect x="-96.00" y="112.80" width="206.40" height="60.00" stroke="black" fill="none" />
+    <text x="26.40" y="170.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <rect x="62.40" y="148.80" width="36.00" height="24.00" stroke="black" fill="none" />
+    <text x="-21.60" y="170.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <rect x="12.00" y="148.80" width="36.00" height="24.00" stroke="black" fill="none" />
+    <text x="74.40" y="170.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <rect x="-36.00" y="148.80" width="36.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-136.80" y="-141.60" width="19.20" height="292.80" stroke="black" fill="none" />
+    <text x="-103.20" y="-122.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MEMORY</text>
+    <rect x="60.00" y="-172.80" width="38.40" height="24.00" stroke="black" fill="none" />
+    <line x1="-124.66" y1="172.80" x2="127.06" y2="172.80" stroke="black" fill="none" />
+    <text x="67.20" y="-151.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
+    <rect x="117.60" y="-141.60" width="19.20" height="292.80" stroke="black" fill="none" />
+    <text x="134.40" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">FLEX BUS +</text>
+    <line x1="-124.66" y1="-172.80" x2="127.06" y2="-172.80" stroke="black" fill="none" />
+    <line x1="127.20" y1="-172.80" x2="127.20" y2="-144.00" stroke="black" fill="none" />
+    <line x1="127.20" y1="151.20" x2="127.20" y2="172.80" stroke="black" fill="none" />
+    <text x="-4.80" y="-151.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
+    <rect x="-112.80" y="-172.80" width="216.00" height="60.00" stroke="black" fill="none" />
+    <line x1="-40.80" y1="-172.80" x2="-40.80" y2="-115.20" stroke="black" fill="none" />
+    <text x="16.80" y="-122.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SUPPLY</text>
+    <rect x="-14.40" y="-172.80" width="38.40" height="24.00" stroke="black" fill="none" />
+    <text x="-79.20" y="62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">FX3-CPU130002</text>
+    <line x1="-127.20" y1="-141.60" x2="-127.20" y2="-172.80" stroke="black" fill="none" />
+    <line x1="-127.20" y1="151.20" x2="-127.20" y2="172.80" stroke="black" fill="none" />
+    <line x1="4.80" y1="112.80" x2="4.80" y2="170.40" stroke="black" fill="none" />
+    <text x="-69.60" y="170.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="-55.20" y="134.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EFI1</text>
+    <circle class="qet-terminal" cx="-24.00" cy="172.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="172.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="79.20" cy="-172.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="7.20" cy="-172.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="172.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="172.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

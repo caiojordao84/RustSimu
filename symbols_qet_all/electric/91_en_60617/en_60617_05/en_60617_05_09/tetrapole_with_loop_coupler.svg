@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="90.0" viewBox="-97.0 -75.0 110.0 90.0" data-name="Tetrapole with loop coupler">
+<svg xmlns="http://www.w3.org/2000/svg" width="264.0" height="216.0" viewBox="-232.8 -180.0 264.0 216.0" data-name="Tetrapole with loop coupler" data-standard="48px">
   <title>Tetrapole with loop coupler</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -17.07 -2.93 A 10.00 10.00 0 0 0 -2.93 -17.07" stroke="black" fill="none" />
-    <path d="M -2.93 -42.93 A 10.00 10.00 0 0 0 -17.07 -57.07" stroke="black" fill="none" />
-    <path d="M -57.07 -17.07 A 10.00 10.00 0 0 0 -42.93 -2.93" stroke="black" fill="none" />
-    <path d="M -42.93 -57.07 A 10.00 10.00 0 0 0 -57.07 -42.93" stroke="black" fill="none" />
-    <path d="M -42.98 -57.00 A 14.00 8.00 0 0 0 -17.21 -56.75" stroke="black" fill="none" />
-    <path d="M -3.00 -42.98 A 8.00 14.00 0 0 0 -3.25 -17.21" stroke="black" fill="none" />
-    <path d="M -17.21 -3.25 A 14.00 8.00 0 0 0 -42.98 -3.00" stroke="black" fill="none" />
-    <path d="M -57.26 -16.84 A 8.00 14.00 0 0 0 -56.49 -42.58" stroke="black" fill="none" />
-    <path d="M -65.00 -30.00 A 5.00 5.00 0 0 0 -65.00 -40.00" stroke="black" fill="none" />
-    <line x1="-65.00" y1="-30.00" x2="-95.00" y2="-30.00" stroke="black" fill="none" />
-    <ellipse cx="-65.00" cy="-40.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -40.97 -7.03 A 24.00 24.00 0 0 0 -7.03 -40.97" stroke="black" fill="none" />
+    <path d="M -7.03 -103.03 A 24.00 24.00 0 0 0 -40.97 -136.97" stroke="black" fill="none" />
+    <path d="M -136.97 -40.97 A 24.00 24.00 0 0 0 -103.03 -7.03" stroke="black" fill="none" />
+    <path d="M -103.03 -136.97 A 24.00 24.00 0 0 0 -136.97 -103.03" stroke="black" fill="none" />
+    <path d="M -103.15 -136.80 A 33.60 19.20 0 0 0 -41.30 -136.20" stroke="black" fill="none" />
+    <path d="M -7.20 -103.15 A 19.20 33.60 0 0 0 -7.80 -41.30" stroke="black" fill="none" />
+    <path d="M -41.30 -7.80 A 33.60 19.20 0 0 0 -103.15 -7.20" stroke="black" fill="none" />
+    <path d="M -137.42 -40.42 A 19.20 33.60 0 0 0 -135.58 -102.19" stroke="black" fill="none" />
+    <path d="M -156.00 -72.00 A 12.00 12.00 0 0 0 -156.00 -96.00" stroke="black" fill="none" />
+    <line x1="-156.00" y1="-72.00" x2="-228.00" y2="-72.00" stroke="black" fill="none" />
+    <ellipse cx="-156.00" cy="-96.00" rx="4.80" ry="4.80" stroke="black" fill="black" />
   </g>
 </svg>

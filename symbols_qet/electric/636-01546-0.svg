@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="80.0" viewBox="-6.0 -24.0 130.0 80.0" data-name="Yucel_7Ah">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="192.0" viewBox="-14.4 -57.6 312.0 192.0" data-name="Yucel_7Ah" data-standard="48px">
   <title>Yucel_7Ah</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="100.00" height="50.00" stroke="black" fill="gray" />
-    <line x1="20.00" y1="43.00" x2="75.00" y2="43.00" stroke="black" fill="none" />
-    <polygon points="0,0 20,-20 120,-20 100,0" stroke="black" fill="black" />
-    <rect x="22.00" y="-17.00" width="6.00" height="2.00" stroke="#d40000" fill="#d40000" />
-    <rect x="0.00" y="0.00" width="100.00" height="10.00" stroke="black" fill="black" />
-    <polygon points="100,10 120,-10 120,-20 100,0" stroke="black" fill="black" />
-    <polygon points="100,50 120,30 120,-10 100,10" stroke="black" fill="gray" />
-    <text x="5.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y</text>
-    <text x="10.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">UCEL</text>
-    <text x="5.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y7-12       12V,7.0AH C20</text>
-    <text x="20.00" y="47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">www.yuasaeurope.com</text>
-    <rect x="13.00" y="-4.00" width="6.00" height="2.00" stroke="#0055d4" fill="#0055d4" />
-    <line x1="20.00" y1="48.00" x2="75.00" y2="48.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="18.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="-" data-orientation="e" />
-    <circle class="qet-terminal" cx="27.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="+" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="240.00" height="120.00" stroke="black" fill="gray" />
+    <line x1="48.00" y1="103.20" x2="180.00" y2="103.20" stroke="black" fill="none" />
+    <polygon points="0.00,0.00 48.00,-48.00 288.00,-48.00 240.00,0.00" stroke="black" fill="black" />
+    <rect x="52.80" y="-40.80" width="14.40" height="4.80" stroke="#d40000" fill="#d40000" />
+    <rect x="0.00" y="0.00" width="240.00" height="24.00" stroke="black" fill="black" />
+    <polygon points="240.00,24.00 288.00,-24.00 288.00,-48.00 240.00,0.00" stroke="black" fill="black" />
+    <polygon points="240.00,120.00 288.00,72.00 288.00,-24.00 240.00,24.00" stroke="black" fill="gray" />
+    <text x="12.00" y="48.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Y</text>
+    <text x="24.00" y="48.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">UCEL</text>
+    <text x="12.00" y="72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Y7-12       12V,7.0AH C20</text>
+    <text x="48.00" y="112.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">www.yuasaeurope.com</text>
+    <rect x="31.20" y="-9.60" width="14.40" height="4.80" stroke="#0055d4" fill="#0055d4" />
+    <line x1="48.00" y1="115.20" x2="180.00" y2="115.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="43.20" cy="-4.80" r="4.0" fill="red" stroke="none" data-name="-" data-orientation="e" />
+    <circle class="qet-terminal" cx="64.80" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="+" data-orientation="e" />
   </g>
 </svg>

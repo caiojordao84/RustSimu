@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="40.0" viewBox="-40.0 -24.0 70.0 40.0" data-name="valv-bola3 4m-m">
+<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="40.0" viewBox="-40.0 -24.0 70.0 40.0" data-name="valv-bola3 4m-m" data-standard="48px">
   <title>valv-bola3 4m-m</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <line x1="17.10" y1="5.49" x2="15.49" y2="-5.52" stroke="black" fill="none" />
     <line x1="-18.16" y1="5.20" x2="-19.79" y2="-6.00" stroke="black" fill="none" />
     <path d="M 1.52 -6.93 A 6.87 5.47 0 0 0 -12.21 -6.93" stroke="black" fill="none" />
@@ -27,7 +27,7 @@
     <rect x="-14.36" y="-6.63" width="2.15" height="10.95" stroke="black" fill="none" />
     <line x1="-6.64" y1="-15.28" x2="-6.64" y2="-13.00" stroke="black" fill="none" />
     <line x1="-3.63" y1="-15.28" x2="-3.63" y2="-13.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-29.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="19.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-29.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

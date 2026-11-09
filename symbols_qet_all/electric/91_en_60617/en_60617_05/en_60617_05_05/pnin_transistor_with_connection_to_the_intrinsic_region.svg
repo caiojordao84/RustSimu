@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="70.0" viewBox="-35.0 -65.0 50.0 70.0" data-name="PNIN transistor with connection to the intrinsic region">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="168.0" viewBox="-84.0 -156.0 120.0 168.0" data-name="PNIN transistor with connection to the intrinsic region" data-standard="48px">
   <title>PNIN transistor with connection to the intrinsic region</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-10.00" y1="-50.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-15.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-20.00" x2="-30.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-60.00" x2="-10.00" y2="-45.00" stroke="black" fill="none" />
-    <polyline points="-5,-51 -7,-47 -3,-48" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-40.00" x2="-10.00" y2="-40.00" stroke="black" fill="none" />
-    <polyline points="-10,-25 0,-20 0,-8" stroke="black" fill="none" />
-    <line x1="-4.00" y1="-17.00" x2="4.00" y2="-11.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-24.00" y1="-120.00" x2="-24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-36.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-48.00" x2="-72.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-144.00" x2="-24.00" y2="-108.00" stroke="black" fill="none" />
+    <polyline points="-12.00,-122.40 -16.80,-112.80 -7.20,-115.20" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-96.00" x2="-24.00" y2="-96.00" stroke="black" fill="none" />
+    <polyline points="-24.00,-60.00 0.00,-48.00 0.00,-19.20" stroke="black" fill="none" />
+    <line x1="-9.60" y1="-40.80" x2="9.60" y2="-26.40" stroke="black" fill="none" />
   </g>
 </svg>

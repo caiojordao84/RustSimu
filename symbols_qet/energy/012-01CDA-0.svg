@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -20.0 40.0 40.0" data-name="Elbow">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-48.0 -48.0 96.0 96.0" data-name="Elbow" data-standard="48px">
   <title>Elbow</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 14.10 -1.00 A 1.10 1.00 0 0 0 15.20 -2.00" stroke="black" fill="none" />
-    <path d="M -1.80 5.00 A 1.10 1.00 0 0 0 -2.90 4.00" stroke="black" fill="none" />
-    <path d="M -1.25 4.75 A 5.25 5.38 0 0 0 4.00 -0.62" stroke="black" fill="none" />
-    <path d="M -2.90 15.00 A 1.10 1.00 0 0 0 -1.80 14.00" stroke="black" fill="none" />
-    <path d="M -1.50 14.02 A 14.50 14.65 0 0 0 13.00 -0.63" stroke="black" fill="none" />
-    <path d="M 2.00 -2.00 A 1.10 1.00 0 0 0 3.10 -1.00" stroke="black" fill="none" />
-    <polyline points="2,-2 2,-8 15.2,-8 15.2,-2" stroke="black" fill="none" />
-    <line x1="3.10" y1="-1.00" x2="13.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="-1.72" y1="5.90" x2="-1.72" y2="14.11" stroke="black" fill="none" />
-    <polyline points="-3.2,4 -8.2,4 -8.2,15 -3.2,15" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 33.84 -2.40 A 2.64 2.40 0 0 0 36.48 -4.80" stroke="black" fill="none" />
+    <path d="M -4.32 12.00 A 2.64 2.40 0 0 0 -6.96 9.60" stroke="black" fill="none" />
+    <path d="M -3.00 11.40 A 12.60 12.91 0 0 0 9.60 -1.49" stroke="black" fill="none" />
+    <path d="M -6.96 36.00 A 2.64 2.40 0 0 0 -4.32 33.60" stroke="black" fill="none" />
+    <path d="M -3.60 33.65 A 34.80 35.16 0 0 0 31.20 -1.51" stroke="black" fill="none" />
+    <path d="M 4.80 -4.80 A 2.64 2.40 0 0 0 7.44 -2.40" stroke="black" fill="none" />
+    <polyline points="4.80,-4.80 4.80,-19.20 36.48,-19.20 36.48,-4.80" stroke="black" fill="none" />
+    <line x1="7.44" y1="-2.40" x2="31.20" y2="-2.40" stroke="black" fill="none" />
+    <line x1="-4.13" y1="14.16" x2="-4.13" y2="33.86" stroke="black" fill="none" />
+    <polyline points="-7.68,9.60 -19.68,9.60 -19.68,36.00 -7.68,36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

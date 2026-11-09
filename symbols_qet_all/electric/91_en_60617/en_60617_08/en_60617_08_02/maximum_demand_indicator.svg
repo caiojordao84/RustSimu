@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="50.0" viewBox="-45.0 -45.0 70.0 50.0" data-name="Maximum demand indicator">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="120.0" viewBox="-108.0 -108.0 168.0 120.0" data-name="Maximum demand indicator" data-standard="48px">
   <title>Maximum demand indicator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-20.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <text x="-5.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">W</text>
-    <text x="-17.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P max</text>
-    <line x1="-40.00" y1="-20.00" x2="-20.00" y2="-20.00" stroke="black" fill="none" />
-    <polyline points="-32,-24 -28,-20 -32,-16" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-48.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <text x="-12.00" y="-62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">W</text>
+    <text x="-40.80" y="-28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">P max</text>
+    <line x1="-96.00" y1="-48.00" x2="-48.00" y2="-48.00" stroke="black" fill="none" />
+    <polyline points="-76.80,-57.60 -67.20,-48.00 -76.80,-38.40" stroke="black" fill="none" />
   </g>
 </svg>

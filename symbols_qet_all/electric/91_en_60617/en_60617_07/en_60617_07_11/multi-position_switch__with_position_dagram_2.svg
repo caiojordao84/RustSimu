@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-71.0 -34.0 80.0 50.0" data-name="Multi-position switch, with position dagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="120.0" viewBox="-170.4 -81.6 192.0 120.0" data-name="Multi-position switch, with position dagram" data-standard="48px">
   <title>Multi-position switch, with position dagram</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-29.25" y1="0.80" x2="-39.25" y2="-19.20" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-29.25" y1="0.80" x2="-19.25" y2="-19.20" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-29.25" y1="0.80" x2="0.75" y2="-19.20" stroke="black" fill="none" />
-    <line x1="-29.25" y1="0.80" x2="-59.25" y2="-19.20" stroke="black" fill="none" />
-    <text x="-61.25" y="-23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-41.25" y="-23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-21.25" y="-23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="-2.25" y="-23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <path d="M -13.42 -10.15 A 20.00 11.00 0 0 0 -45.97 -10.62" stroke="black" fill="none" />
-    <polygon points="-42,-11 -44,-14 -46,-11" stroke="black" fill="black" />
-    <polygon points="-17,-11 -15,-13 -13,-10" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-70.20" y1="1.92" x2="-94.20" y2="-46.08" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-70.20" y1="1.92" x2="-46.20" y2="-46.08" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-70.20" y1="1.92" x2="1.80" y2="-46.08" stroke="black" fill="none" />
+    <line x1="-70.20" y1="1.92" x2="-142.20" y2="-46.08" stroke="black" fill="none" />
+    <text x="-147.00" y="-55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-99.00" y="-55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-51.00" y="-55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-5.40" y="-55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <path d="M -32.21 -24.36 A 48.00 26.40 0 0 0 -110.33 -25.49" stroke="black" fill="none" />
+    <polygon points="-100.80,-26.40 -105.60,-33.60 -110.40,-26.40" stroke="black" fill="black" />
+    <polygon points="-40.80,-26.40 -36.00,-31.20 -31.20,-24.00" stroke="black" fill="black" />
   </g>
 </svg>

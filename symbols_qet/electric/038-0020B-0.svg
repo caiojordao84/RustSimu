@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="60.0" viewBox="-10.0 -30.0 20.0 60.0" data-name="Switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="24.0" height="72.0" viewBox="-12.0 -36.0 24.0 72.0" data-name="Switch" data-standard="48px">
   <title>Switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="10.00" rx="1.75" ry="1.75" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-12.50" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-10.00" rx="1.75" ry="1.75" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-10.00" x2="-0.70" y2="8.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="12.00" x2="0.00" y2="17.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="12.00" rx="2.10" ry="2.10" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-12.00" rx="2.10" ry="2.10" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-12.00" x2="-0.84" y2="9.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="14.40" x2="0.00" y2="20.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="25.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-25.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

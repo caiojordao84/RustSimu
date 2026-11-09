@@ -77,6 +77,79 @@ pub enum VectorPrimitive {
     },
 }
 
+/// Geometria calculada de um arco vetorial do CADe_SIMU (`ARCO,x1,y1,x2,y2,x3,y3,x4,y4`).
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct ArcGeometry {
+    pub cx: f32,
+    pub cy: f32,
+    pub rx: f32,
+    pub ry: f32,
+    pub start_x: f32,
+    pub start_y: f32,
+    pub end_x: f32,
+    pub end_y: f32,
+    pub start_angle: f32,
+    pub sweep_angle: f32,
+    pub large_arc: bool,
+}
+
+impl VectorPrimitive {
+    /// Calcula a geometria exata do arco Windows GDI (CADe_SIMU `ARCO,x1,y1,x2,y2,x3,y3,x4,y4`)
+    /// em coordenadas `.cad` (escala 1/5).
+    #[allow(clippy::too_many_arguments)]
+    pub fn arc_geometry(
+        x1: i32,
+        y1: i32,
+        x2: i32,
+        y2: i32,
+        x3: i32,
+        y3: i32,
+        x4: i32,
+        y4: i32,
+    ) -> ArcGeometry {
+        let cx = (x1 + x2) as f32 / 10.0;
+        let cy = (y1 + y2) as f32 / 10.0;
+        let rx = ((x2 - x1).abs() as f32 / 10.0).max(0.05);
+        let ry = ((y2 - y1).abs() as f32 / 10.0).max(0.05);
+
+        let dx_s = (x3 as f32 / 5.0) - cx;
+        let dy_s = (y3 as f32 / 5.0) - cy;
+        let start_angle = (dy_s / ry).atan2(dx_s / rx);
+
+        let dx_e = (x4 as f32 / 5.0) - cx;
+        let dy_e = (y4 as f32 / 5.0) - cy;
+        let end_angle = (dy_e / ry).atan2(dx_e / rx);
+
+        let start_x = cx + rx * start_angle.cos();
+        let start_y = cy + ry * start_angle.sin();
+        let end_x = cx + rx * end_angle.cos();
+        let end_y = cy + ry * end_angle.sin();
+
+        let mut sweep_angle = start_angle - end_angle;
+        while sweep_angle <= 0.0 {
+            sweep_angle += 2.0 * std::f32::consts::PI;
+        }
+        while sweep_angle > 2.0 * std::f32::consts::PI {
+            sweep_angle -= 2.0 * std::f32::consts::PI;
+        }
+        let large_arc = sweep_angle > std::f32::consts::PI;
+
+        ArcGeometry {
+            cx,
+            cy,
+            rx,
+            ry,
+            start_x,
+            start_y,
+            end_x,
+            end_y,
+            start_angle,
+            sweep_angle,
+            large_arc,
+        }
+    }
+}
+
 /// Terminal de conexão elétrica de um símbolo, com coordenada local exata e coordenada do texto.
 #[derive(Debug, Clone)]
 pub struct SymbolPin {
@@ -3361,20 +3434,24 @@ pub fn generate_svg_from_cmds(
     stroke_color: &str,
     is_active: bool,
 ) -> String {
-    let margin = 10;
-    let min_x = bounds.0 - margin;
-    let min_y = bounds.1 - margin;
-    let width = ((bounds.2 - bounds.0).abs() + margin * 2).max(10);
-    let height = ((bounds.3 - bounds.1).abs() + margin * 2).max(10);
+    // Escala padronizada de 300 DPI: 1 módulo do grid = 48 px (4.0 mm)
+    // No CADe original, 1 módulo (6 unidades CADe) correspondia a 30 unidades vetoriais.
+    // Fator de escala vetorial = 48.0 / 30.0 = 1.6
+    let s = 1.6f32;
+    let margin = 16.0f32;
+    let min_x = (bounds.0 as f32 * s) - margin;
+    let min_y = (bounds.1 as f32 * s) - margin;
+    let width = (((bounds.2 - bounds.0).abs() as f32 * s) + margin * 2.0).max(16.0);
+    let height = (((bounds.3 - bounds.1).abs() as f32 * s) + margin * 2.0).max(16.0);
 
     let mut svg = String::new();
     svg.push_str("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
     svg.push_str(&format!(
-        "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{width}\" height=\"{height}\" viewBox=\"{min_x} {min_y} {width} {height}\" data-generator=\"cade2svg\">\n"
+        "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{width:.1}\" height=\"{height:.1}\" viewBox=\"{min_x:.1} {min_y:.1} {width:.1} {height:.1}\" data-generator=\"cade2svg\">\n"
     ));
     svg.push_str(&format!("  <title>{title}</title>\n"));
     svg.push_str(&format!(
-        "  <g stroke=\"{stroke_color}\" stroke-width=\"1.8\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n"
+        "  <g stroke=\"{stroke_color}\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n"
     ));
 
     for &cmd in cmds {
@@ -3382,23 +3459,27 @@ pub fn generate_svg_from_cmds(
             match prim {
                 VectorPrimitive::Line { x1, y1, x2, y2 } => {
                     svg.push_str(&format!(
-                        "    <line x1=\"{x1}\" y1=\"{y1}\" x2=\"{x2}\" y2=\"{y2}\" />\n"
+                        "    <line x1=\"{:.1}\" y1=\"{:.1}\" x2=\"{:.1}\" y2=\"{:.1}\" />\n",
+                        x1 as f32 * s,
+                        y1 as f32 * s,
+                        x2 as f32 * s,
+                        y2 as f32 * s
                     ));
                 }
                 VectorPrimitive::Ellipse { x1, y1, x2, y2 } => {
-                    let cx = (x1 + x2) as f32 * 0.5;
-                    let cy = (y1 + y2) as f32 * 0.5;
-                    let rx = (x2 - x1).abs() as f32 * 0.5;
-                    let ry = (y2 - y1).abs() as f32 * 0.5;
+                    let cx = (x1 + x2) as f32 * 0.5 * s;
+                    let cy = (y1 + y2) as f32 * 0.5 * s;
+                    let rx = (x2 - x1).abs() as f32 * 0.5 * s;
+                    let ry = (y2 - y1).abs() as f32 * 0.5 * s;
                     let fill = if is_active { "#fee2e2" } else { "none" };
                     svg.push_str(&format!(
-                        "    <ellipse cx=\"{cx}\" cy=\"{cy}\" rx=\"{rx}\" ry=\"{ry}\" fill=\"{fill}\" />\n"
+                        "    <ellipse cx=\"{cx:.1}\" cy=\"{cy:.1}\" rx=\"{rx:.1}\" ry=\"{ry:.1}\" fill=\"{fill}\" />\n"
                     ));
                 }
                 VectorPrimitive::Polygon { pts } => {
                     let pts_str = pts
                         .iter()
-                        .map(|(x, y)| format!("{x},{y}"))
+                        .map(|(x, y)| format!("{:.1},{:.1}", *x as f32 * s, *y as f32 * s))
                         .collect::<Vec<_>>()
                         .join(" ");
                     let fill = if is_active { "#fee2e2" } else { "none" };
@@ -3406,28 +3487,47 @@ pub fn generate_svg_from_cmds(
                         "    <polygon points=\"{pts_str}\" fill=\"{fill}\" />\n"
                     ));
                 }
-                VectorPrimitive::Arc { x1, y1, x2, y2, .. } => {
-                    let cx = (x1 + x2) as f32 * 0.5;
-                    let cy = (y1 + y2) as f32 * 0.5;
-                    let r = ((x2 - x1).abs().min((y2 - y1).abs()) as f32) * 0.45;
+                VectorPrimitive::Arc {
+                    x1,
+                    y1,
+                    x2,
+                    y2,
+                    x3,
+                    y3,
+                    x4,
+                    y4,
+                } => {
+                    let geom = VectorPrimitive::arc_geometry(x1, y1, x2, y2, x3, y3, x4, y4);
+                    let large_arc_flag = if geom.large_arc { 1 } else { 0 };
                     svg.push_str(&format!(
-                        "    <circle cx=\"{cx}\" cy=\"{cy}\" r=\"{r}\" />\n"
+                        "    <path d=\"M {:.2} {:.2} A {:.2} {:.2} 0 {} 0 {:.2} {:.2}\" />\n",
+                        geom.start_x * s,
+                        geom.start_y * s,
+                        geom.rx * s,
+                        geom.ry * s,
+                        large_arc_flag,
+                        geom.end_x * s,
+                        geom.end_y * s
                     ));
                 }
                 VectorPrimitive::Text { x, y, text } => {
                     svg.push_str(&format!(
-                        "    <text x=\"{x}\" y=\"{y}\" font-size=\"10\" fill=\"{stroke_color}\" stroke=\"none\">{text}</text>\n"
+                        "    <text x=\"{:.1}\" y=\"{:.1}\" font-size=\"14\" fill=\"{stroke_color}\" stroke=\"none\">{text}</text>\n",
+                        x as f32 * s,
+                        y as f32 * s
                     ));
                 }
             }
         }
     }
 
-    // Desenha os bornes / terminais
+    // Desenha os bornes / terminais padronizados:
+    // Distância entre bornes = 48 px (4.0 mm a 300 DPI = 6.0 unidades CADe)
+    // Diâmetro = 8 px (raio = 4.0 px / 0.67 mm)
     for pin in pins {
-        let (px, py) = (pin.conn_pos.0 * 5, pin.conn_pos.1 * 5);
+        let (px, py) = (pin.conn_pos.0 as f32 * 8.0, pin.conn_pos.1 as f32 * 8.0);
         svg.push_str(&format!(
-            "    <circle class=\"qet-terminal\" cx=\"{px}\" cy=\"{py}\" r=\"2.5\" fill=\"#dc2626\" stroke=\"none\" data-label=\"{}\" />\n",
+            "    <circle class=\"qet-terminal\" cx=\"{px:.1}\" cy=\"{py:.1}\" r=\"4.0\" fill=\"#dc2626\" stroke=\"none\" data-label=\"{}\" />\n",
             pin.default_label
         ));
     }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-14.0 -22.0 40.0 30.0" data-name="termostato-bulbo">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="72.0" viewBox="-33.6 -52.8 96.0 72.0" data-name="termostato-bulbo" data-standard="48px">
   <title>termostato-bulbo</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-5.08" y="-19.09" width="10.06" height="9.31" stroke="black" fill="none" />
-    <text x="-3.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T</text>
-    <line x1="-0.05" y1="-9.77" x2="-0.05" y2="-0.46" stroke="black" fill="none" />
-    <line x1="15.90" y1="-2.00" x2="19.13" y2="-2.00" stroke="black" fill="none" />
-    <ellipse cx="10.94" cy="-13.67" rx="2.00" ry="2.33" stroke="black" fill="none" />
-    <line x1="5.10" y1="-16.00" x2="11.45" y2="-16.00" stroke="black" fill="none" />
-    <line x1="12.91" y1="-14.00" x2="12.91" y2="-2.47" stroke="black" fill="none" />
-    <line x1="12.91" y1="-2.00" x2="15.55" y2="-2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-12.19" y="-45.82" width="24.14" height="22.34" stroke="black" fill="none" />
+    <text x="-7.20" y="-31.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">T</text>
+    <line x1="-0.12" y1="-23.45" x2="-0.12" y2="-1.10" stroke="black" fill="none" />
+    <line x1="38.16" y1="-4.80" x2="45.91" y2="-4.80" stroke="black" fill="none" />
+    <ellipse cx="26.26" cy="-32.81" rx="4.80" ry="5.59" stroke="black" fill="none" />
+    <line x1="12.24" y1="-38.40" x2="27.48" y2="-38.40" stroke="black" fill="none" />
+    <line x1="30.98" y1="-33.60" x2="30.98" y2="-5.93" stroke="black" fill="none" />
+    <line x1="30.98" y1="-4.80" x2="37.32" y2="-4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

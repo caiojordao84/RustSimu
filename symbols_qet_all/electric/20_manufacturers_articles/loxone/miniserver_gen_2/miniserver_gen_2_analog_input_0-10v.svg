@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="70.0" viewBox="-45.0 -38.0 90.0 70.0" data-name="Miniserver Gen.2 analog input 0-10V">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="168.0" viewBox="-108.0 -91.2 216.0 168.0" data-name="Miniserver Gen.2 analog input 0-10V" data-standard="48px">
   <title>Miniserver Gen.2 analog input 0-10V</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-30.00" rx="2.50" ry="2.50" stroke="orange" fill="none" />
-    <polyline points="-40,-30 -40,-30 -3,-30" stroke="black" fill="none" />
-    <polyline points="3,-30 3,-30 40,-30" stroke="black" fill="none" />
-    <polyline points="-40,-30 -40,30 -3,30" stroke="black" fill="none" />
-    <polyline points="-5,30 40,30 40,-30" stroke="black" fill="none" />
-    <text x="-12.30" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
-    <text x="-28.60" y="7.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Miniserver Gen.2</text>
-    <text x="-21.10" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Analog Input</text>
-    <text x="-10.00" y="22.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0-10V</text>
-    <circle class="qet-terminal" cx="0.00" cy="-31.00" r="1.8" fill="red" stroke="none" data-name="AI1" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-72.00" rx="6.00" ry="6.00" stroke="orange" fill="none" />
+    <polyline points="-96.00,-72.00 -96.00,-72.00 -7.20,-72.00" stroke="black" fill="none" />
+    <polyline points="7.20,-72.00 7.20,-72.00 96.00,-72.00" stroke="black" fill="none" />
+    <polyline points="-96.00,-72.00 -96.00,72.00 -7.20,72.00" stroke="black" fill="none" />
+    <polyline points="-12.00,72.00 96.00,72.00 96.00,-72.00" stroke="black" fill="none" />
+    <text x="-29.52" y="0.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
+    <text x="-68.64" y="18.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Miniserver Gen.2</text>
+    <text x="-50.64" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Analog Input</text>
+    <text x="-24.00" y="54.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0-10V</text>
+    <circle class="qet-terminal" cx="0.00" cy="-74.40" r="4.0" fill="red" stroke="none" data-name="AI1" data-orientation="n" />
   </g>
 </svg>

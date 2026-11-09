@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="20.0" viewBox="-17.0 -9.0 30.0 20.0" data-name="ECS draw-off valve">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="48.0" viewBox="-40.8 -21.6 72.0 48.0" data-name="ECS draw-off valve" data-standard="48px">
   <title>ECS draw-off valve</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 5.00 2.00 A 6.00 2.00 0 0 0 -1.00 0.00" stroke="black" fill="none" />
-    <path d="M 6.00 2.00 A 6.00 2.50 0 0 0 0.00 -0.50" stroke="black" fill="none" />
-    <line x1="4.00" y1="3.00" x2="3.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="-3.00" x2="2.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-1.00" x2="0.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-0.50" x2="-8.00" y2="-0.50" stroke="black" fill="none" />
-    <line x1="-1.00" y1="0.00" x2="-8.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="7.00" y1="3.00" x2="8.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="3.00" x2="6.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="3.00" x2="5.00" y2="7.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-8.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 12.00 4.80 A 14.40 4.80 0 0 0 -2.40 0.00" stroke="black" fill="none" />
+    <path d="M 14.40 4.80 A 14.40 6.00 0 0 0 0.00 -1.20" stroke="black" fill="none" />
+    <line x1="9.60" y1="7.20" x2="7.20" y2="16.80" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-7.20" x2="4.80" y2="-7.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-2.40" x2="0.00" y2="-7.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-1.20" x2="-19.20" y2="-1.20" stroke="black" fill="none" />
+    <line x1="-2.40" y1="0.00" x2="-19.20" y2="0.00" stroke="black" fill="none" />
+    <line x1="16.80" y1="7.20" x2="19.20" y2="16.80" stroke="black" fill="none" />
+    <line x1="14.40" y1="7.20" x2="14.40" y2="16.80" stroke="black" fill="none" />
+    <line x1="12.00" y1="7.20" x2="12.00" y2="16.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-19.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

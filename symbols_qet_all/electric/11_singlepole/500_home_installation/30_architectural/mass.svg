@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-11.0 -20.0 20.0 30.0" data-name="Mass">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-26.4 -48.0 48.0 72.0" data-name="Mass" data-standard="48px">
   <title>Mass</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="4.00" y1="0.00" x2="1.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="-3.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="0.00" x2="-7.00" y2="4.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="9.60" y1="0.00" x2="2.40" y2="9.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="-7.20" y2="9.60" stroke="black" fill="none" />
+    <line x1="-12.00" y1="0.00" x2="12.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-9.60" y1="0.00" x2="-16.80" y2="9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

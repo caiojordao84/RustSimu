@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-25.0 -22.0 50.0 60.0" data-name="Capacitor, polarized">
+<svg xmlns="http://www.w3.org/2000/svg" width="53.3" height="64.0" viewBox="-26.7 -23.5 53.3 64.0" data-name="Capacitor, polarized" data-standard="48px">
   <title>Capacitor, polarized</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-20.00" y1="10.00" x2="20.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="5.00" x2="20.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="5.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-10.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-5.00" x2="-5.00" y2="-5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-21.33" y1="10.67" x2="21.33" y2="10.67" stroke="black" fill="none" />
+    <line x1="-21.33" y1="5.33" x2="21.33" y2="5.33" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.67" x2="0.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="5.33" x2="0.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="-10.67" y1="-10.67" x2="-10.67" y2="0.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="-5.33" x2="-5.33" y2="-5.33" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

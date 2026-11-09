@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -15.0 60.0 30.0" data-name="Galvanometer h">
+<svg xmlns="http://www.w3.org/2000/svg" width="68.6" height="34.3" viewBox="-34.3 -17.1 68.6 34.3" data-name="Galvanometer h" data-standard="48px">
   <title>Galvanometer h</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="7.00" x2="0.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="0.00" x2="21.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-21.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="11.43" ry="11.43" stroke="black" fill="none" />
+    <line x1="0.00" y1="8.00" x2="0.00" y2="-9.14" stroke="black" fill="none" />
+    <line x1="11.43" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="-11.43" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

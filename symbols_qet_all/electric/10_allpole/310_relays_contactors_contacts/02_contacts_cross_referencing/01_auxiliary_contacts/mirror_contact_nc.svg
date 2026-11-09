@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-20.0 -31.0 30.0 60.0" data-name="Mirror contact NC">
+<svg xmlns="http://www.w3.org/2000/svg" width="36.0" height="72.0" viewBox="-24.0 -37.2 36.0 72.0" data-name="Mirror contact NC" data-standard="48px">
   <title>Mirror contact NC</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="0,20 0,10 6,-10" stroke="black" fill="none" />
-    <line x1="0.00" y1="-9.00" x2="7.00" y2="-9.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-9.00" stroke="black" fill="none" />
-    <ellipse cx="6.00" cy="-11.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="0.00,24.00 0.00,12.00 7.20,-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.80" x2="8.40" y2="-10.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-10.80" stroke="black" fill="none" />
+    <ellipse cx="7.20" cy="-13.20" rx="1.20" ry="1.20" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

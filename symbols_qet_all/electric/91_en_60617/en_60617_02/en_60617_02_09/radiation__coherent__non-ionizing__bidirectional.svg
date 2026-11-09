@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-25.0 -20.0 50.0 30.0" data-name="Radiation, coherent, non-ionizing, bidirectional">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="72.0" viewBox="-60.0 -48.0 120.0 72.0" data-name="Radiation, coherent, non-ionizing, bidirectional" data-standard="48px">
   <title>Radiation, coherent, non-ionizing, bidirectional</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-19.00" y1="-10.00" x2="19.00" y2="-10.00" stroke="black" fill="black" />
-    <line x1="-19.00" y1="0.00" x2="19.00" y2="0.00" stroke="black" fill="black" />
-    <polygon points="-15,-8 -20,-10 -15,-12" stroke="black" fill="black" />
-    <polygon points="-15,-2 -20,0 -15,2" stroke="black" fill="black" />
-    <polygon points="15,-8 15,-12 20,-10" stroke="black" fill="black" />
-    <polygon points="15,-2 20,0 15,2" stroke="black" fill="black" />
-    <line x1="0.00" y1="-15.00" x2="0.00" y2="5.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-45.60" y1="-24.00" x2="45.60" y2="-24.00" stroke="black" fill="black" />
+    <line x1="-45.60" y1="0.00" x2="45.60" y2="0.00" stroke="black" fill="black" />
+    <polygon points="-36.00,-19.20 -48.00,-24.00 -36.00,-28.80" stroke="black" fill="black" />
+    <polygon points="-36.00,-4.80 -48.00,0.00 -36.00,4.80" stroke="black" fill="black" />
+    <polygon points="36.00,-19.20 36.00,-28.80 48.00,-24.00" stroke="black" fill="black" />
+    <polygon points="36.00,-4.80 48.00,0.00 36.00,4.80" stroke="black" fill="black" />
+    <line x1="0.00" y1="-36.00" x2="0.00" y2="12.00" stroke="black" fill="none" />
   </g>
 </svg>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-23.0 -19.0 50.0 30.0" data-name="valv-control-presion">
+<svg xmlns="http://www.w3.org/2000/svg" width="88.9" height="53.3" viewBox="-40.9 -33.8 88.9 53.3" data-name="valv-control-presion" data-standard="48px">
   <title>valv-control-presion</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-12.00" y1="0.00" x2="-6.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="0.00" x2="15.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="-6,-5 -6,5 6,-5 6,5" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.26" x2="0.00" y2="-4.24" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-9.00" rx="4.50" ry="4.50" stroke="black" fill="none" />
-    <text x="-2.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P</text>
-    <line x1="4.50" y1="-10.00" x2="12.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="12.00" y1="-10.00" x2="12.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="12.00" y1="-1.00" x2="15.00" y2="-1.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="15.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-21.33" y1="0.00" x2="-10.67" y2="0.00" stroke="black" fill="none" />
+    <line x1="10.67" y1="0.00" x2="26.67" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-10.67,-8.89 -10.67,8.89 10.67,-8.89 10.67,8.89" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.46" x2="0.00" y2="-7.54" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-16.00" rx="8.00" ry="8.00" stroke="black" fill="none" />
+    <text x="-3.56" y="-14.22" font-size="16.0" font-family="sans-serif" fill="black" stroke="none">P</text>
+    <line x1="8.00" y1="-17.78" x2="21.33" y2="-17.78" stroke="black" fill="none" />
+    <line x1="21.33" y1="-17.78" x2="21.33" y2="-1.78" stroke="black" fill="none" />
+    <line x1="21.33" y1="-1.78" x2="26.67" y2="-1.78" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="26.67" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-21.33" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

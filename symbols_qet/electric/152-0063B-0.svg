@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="80.0" viewBox="-84.0 -41.0 130.0 80.0" data-name="Display EKA 163A">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="192.0" viewBox="-201.6 -98.4 312.0 192.0" data-name="Display EKA 163A" data-standard="48px">
   <title>Display EKA 163A</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-72.00" y="-36.00" width="102.00" height="70.00" stroke="black" fill="none" />
-    <line x1="11.00" y1="-10.00" x2="11.00" y2="-17.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <ellipse cx="7.00" cy="-10.00" rx="4.00" ry="2.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="40.00" y1="-20.00" x2="24.00" y2="-20.00" stroke="black" fill="none" />
-    <ellipse cx="18.00" cy="-21.00" rx="4.47" ry="4.47" stroke="black" fill="none" />
-    <line x1="40.00" y1="20.00" x2="24.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="10.00" x2="24.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="-10.00" x2="24.00" y2="-10.00" stroke="black" fill="none" />
-    <ellipse cx="18.00" cy="20.00" rx="4.47" ry="4.47" stroke="black" fill="none" />
-    <ellipse cx="18.00" cy="9.00" rx="4.47" ry="4.47" stroke="black" fill="none" />
-    <ellipse cx="18.00" cy="-10.00" rx="4.47" ry="4.47" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="35.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="35.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="35.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="35.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-172.80" y="-86.40" width="244.80" height="168.00" stroke="black" fill="none" />
+    <line x1="26.40" y1="-24.00" x2="26.40" y2="-40.80" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <ellipse cx="16.80" cy="-24.00" rx="9.60" ry="4.80" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="96.00" y1="-48.00" x2="57.60" y2="-48.00" stroke="black" fill="none" />
+    <ellipse cx="43.20" cy="-50.40" rx="10.73" ry="10.73" stroke="black" fill="none" />
+    <line x1="96.00" y1="48.00" x2="57.60" y2="48.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="24.00" x2="57.60" y2="24.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="-24.00" x2="57.60" y2="-24.00" stroke="black" fill="none" />
+    <ellipse cx="43.20" cy="48.00" rx="10.73" ry="10.73" stroke="black" fill="none" />
+    <ellipse cx="43.20" cy="21.60" rx="10.73" ry="10.73" stroke="black" fill="none" />
+    <ellipse cx="43.20" cy="-24.00" rx="10.73" ry="10.73" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="84.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="84.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="84.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="84.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

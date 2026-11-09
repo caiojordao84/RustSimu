@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-42.0 -35.0 50.0 50.0" data-name="Socket outlet (power) with interlocked switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-100.8 -84.0 120.0 120.0" data-name="Socket outlet (power) with interlocked switch" data-standard="48px">
   <title>Socket outlet (power) with interlocked switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 0.00 0.00 A 10.00 10.00 0 0 0 -20.00 -0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-30.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-30.00" x2="-10.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-10.00" x2="0.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-25.00" x2="5.00" y2="-20.00" stroke="black" fill="none" />
-    <polygon points="-10,-20 -4,-20 -10,-11 -9,-19" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 0.00 0.00 A 24.00 24.00 0 0 0 -48.00 -0.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-72.00" x2="-24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-72.00" x2="-24.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-24.00" x2="0.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-60.00" x2="12.00" y2="-48.00" stroke="black" fill="none" />
+    <polygon points="-24.00,-48.00 -9.60,-48.00 -24.00,-26.40 -21.60,-45.60" stroke="black" fill="black" />
   </g>
 </svg>

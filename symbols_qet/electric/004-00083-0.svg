@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="80.0" viewBox="-10.0 -40.0 20.0 80.0" data-name="Bar interconnection TN">
+<svg xmlns="http://www.w3.org/2000/svg" width="15.0" height="60.0" viewBox="-7.5 -30.0 15.0 60.0" data-name="Bar interconnection TN" data-standard="48px">
   <title>Bar interconnection TN</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-14.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="14.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <path d="M -8.00 20.00 A 8.00 8.00 0 0 0 8.00 20.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="-20.00" x2="-8.00" y2="20.00" stroke="black" fill="none" />
-    <path d="M 8.00 -20.00 A 8.00 8.00 0 0 0 -8.00 -20.00" stroke="black" fill="none" />
-    <line x1="8.00" y1="-20.00" x2="8.00" y2="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="32.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-32.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-10.50" rx="3.75" ry="3.75" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="10.50" rx="3.75" ry="3.75" stroke="black" fill="none" />
+    <path d="M -6.00 15.00 A 6.00 6.00 0 0 0 6.00 15.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-15.00" x2="-6.00" y2="15.00" stroke="black" fill="none" />
+    <path d="M 6.00 -15.00 A 6.00 6.00 0 0 0 -6.00 -15.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="-15.00" x2="6.00" y2="15.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -154,13 +154,8 @@ impl<'a> SchematicCanvas<'a> {
             } else if let Some(qet_type) = item.symbol_id_or_slug() {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     let (vx, vy, vw, vh) = parsed.view_box;
-                    let (scale_vx, scale_vy, scale_vw, scale_vh) = if parsed.is_cade_svg {
-                        (vx / 5.0, vy / 5.0, vw / 5.0, vh / 5.0)
-                    } else if parsed.is_qet_native {
-                        (vx, vy, vw, vh)
-                    } else {
-                        (vx * 0.30, vy * 0.30, vw * 0.30, vh * 0.30)
-                    };
+                    let s = parsed.scale_factor();
+                    let (scale_vx, scale_vy, scale_vw, scale_vh) = (vx * s, vy * s, vw * s, vh * s);
                     let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
                     let (p2x, p2y) = transform_offset_f32(
                         scale_vx + scale_vw,
@@ -239,22 +234,37 @@ impl<'a> SchematicCanvas<'a> {
         );
         frame.fill_rectangle(p0, size, paper_color);
 
-        // Grade de linhas suaves conforme densidade selecionada
+        // Grade de linhas suaves conforme densidade selecionada (Módulo 4 mm / Meio Módulo 2 mm)
         if self.show_grid {
             let step = self.grid_density.step();
             let grid_stroke = Stroke::default().with_color(grid_color).with_width(1.0);
+            let sub_color = Color {
+                a: grid_color.a * 0.45,
+                ..grid_color
+            };
+            let sub_stroke = Stroke::default().with_color(sub_color).with_width(0.7);
             let mut gx = step;
             while (gx as f32) < sheet_w - 6.0 {
                 let a = self.world_to_screen(gx as f32, 6.0);
                 let b = self.world_to_screen(gx as f32, sheet_h - 6.0);
-                frame.stroke(&Path::line(a, b), grid_stroke);
+                let stroke = if gx % (crate::model::GRID_MODULE_UNITS as i32) == 0 {
+                    grid_stroke
+                } else {
+                    sub_stroke
+                };
+                frame.stroke(&Path::line(a, b), stroke);
                 gx += step;
             }
             let mut gy = step;
             while (gy as f32) < sheet_h - 6.0 {
                 let a = self.world_to_screen(6.0, gy as f32);
                 let b = self.world_to_screen(sheet_w - 6.0, gy as f32);
-                frame.stroke(&Path::line(a, b), grid_stroke);
+                let stroke = if gy % (crate::model::GRID_MODULE_UNITS as i32) == 0 {
+                    grid_stroke
+                } else {
+                    sub_stroke
+                };
+                frame.stroke(&Path::line(a, b), stroke);
                 gy += step;
             }
         }
@@ -407,39 +417,59 @@ impl<'a> SchematicCanvas<'a> {
                     frame.stroke(&Path::line(a, b), stroke);
                 }
                 VectorPrimitive::Ellipse { x1, y1, x2, y2 } => {
-                    let (rx1, ry1) =
-                        transform_offset_f32(x1 as f32 / 5.0, y1 as f32 / 5.0, orientation);
-                    let (rx2, ry2) =
-                        transform_offset_f32(x2 as f32 / 5.0, y2 as f32 / 5.0, orientation);
-                    let cx = ox + (rx1 + rx2) * 0.5;
-                    let cy = oy + (ry1 + ry2) * 0.5;
-                    let rad = (((rx2 - rx1).abs().max((ry2 - ry1).abs())) * 0.5) * self.zoom;
-                    let center = self.world_to_screen(cx, cy);
-                    let circle = Path::circle(center, rad);
+                    let cx = (x1 + x2) as f32 / 10.0;
+                    let cy = (y1 + y2) as f32 / 10.0;
+                    let rx = ((x2 - x1).abs() as f32 / 10.0).max(0.05);
+                    let ry = ((y2 - y1).abs() as f32 / 10.0).max(0.05);
+                    let steps = 48;
+                    let path = Path::new(|builder| {
+                        for i in 0..steps {
+                            let ang = (i as f32 / steps as f32) * 2.0 * std::f32::consts::PI;
+                            let px = cx + rx * ang.cos();
+                            let py = cy + ry * ang.sin();
+                            let (rot_x, rot_y) = transform_offset_f32(px, py, orientation);
+                            let pt = self.world_to_screen(ox + rot_x, oy + rot_y);
+                            if i == 0 {
+                                builder.move_to(pt);
+                            } else {
+                                builder.line_to(pt);
+                            }
+                        }
+                        builder.close();
+                    });
                     if let Some(fill) = fill_active {
-                        frame.fill(&circle, fill);
+                        frame.fill(&path, fill);
                     }
-                    frame.stroke(&circle, stroke);
+                    frame.stroke(&path, stroke);
                 }
                 VectorPrimitive::Arc {
                     x1,
                     y1,
                     x2,
                     y2,
-                    x3: _,
-                    y3: _,
-                    x4: _,
-                    y4: _,
+                    x3,
+                    y3,
+                    x4,
+                    y4,
                 } => {
-                    let (rx1, ry1) =
-                        transform_offset_f32(x1 as f32 / 5.0, y1 as f32 / 5.0, orientation);
-                    let (rx2, ry2) =
-                        transform_offset_f32(x2 as f32 / 5.0, y2 as f32 / 5.0, orientation);
-                    let cx = ox + (rx1 + rx2) * 0.5;
-                    let cy = oy + (ry1 + ry2) * 0.5;
-                    let rad = (((rx2 - rx1).abs().min((ry2 - ry1).abs())) * 0.45) * self.zoom;
-                    let center = self.world_to_screen(cx, cy);
-                    frame.stroke(&Path::circle(center, rad), stroke);
+                    let geom = VectorPrimitive::arc_geometry(x1, y1, x2, y2, x3, y3, x4, y4);
+                    let steps = 24;
+                    let path = Path::new(|builder| {
+                        for i in 0..=steps {
+                            let t = i as f32 / steps as f32;
+                            let ang = geom.start_angle - t * geom.sweep_angle;
+                            let px = geom.cx + geom.rx * ang.cos();
+                            let py = geom.cy + geom.ry * ang.sin();
+                            let (rot_x, rot_y) = transform_offset_f32(px, py, orientation);
+                            let pt = self.world_to_screen(ox + rot_x, oy + rot_y);
+                            if i == 0 {
+                                builder.move_to(pt);
+                            } else {
+                                builder.line_to(pt);
+                            }
+                        }
+                    });
+                    frame.stroke(&path, stroke);
                 }
                 VectorPrimitive::Polygon { pts } => {
                     let path = Path::new(|builder| {
@@ -620,7 +650,7 @@ impl<'a> SchematicCanvas<'a> {
                     } else if parsed.is_qet_native {
                         r * self.zoom
                     } else {
-                        (r * 0.30) * self.zoom
+                        (r * parsed.scale_factor()) * self.zoom
                     };
                     let circle_path = Path::circle(center, rad.max(1.2));
                     if let Some(fill_col) = resolve_shape_fill(*fill) {
@@ -635,7 +665,7 @@ impl<'a> SchematicCanvas<'a> {
                     ry,
                     fill,
                 } => {
-                    let steps = 28;
+                    let steps = 64;
                     let ellipse_path = Path::new(|builder| {
                         for i in 0..steps {
                             let ang = (i as f32 / steps as f32) * 2.0 * std::f32::consts::PI;
@@ -712,7 +742,7 @@ impl<'a> SchematicCanvas<'a> {
                         let fs = (size * 0.25 * self.zoom).clamp(8.0, 16.0);
                         (fs, 0.0)
                     } else {
-                        let fs = (size * 0.30 * self.zoom).clamp(5.0, 16.0);
+                        let fs = (size * parsed.scale_factor() * self.zoom).clamp(5.0, 16.0);
                         (fs, -fs * 0.82)
                     };
 
@@ -848,13 +878,8 @@ impl<'a> SchematicCanvas<'a> {
             if is_selected {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     let (vx, vy, vw, vh) = parsed.view_box;
-                    let (scale_vx, scale_vy, scale_vw, scale_vh) = if parsed.is_cade_svg {
-                        (vx / 5.0, vy / 5.0, vw / 5.0, vh / 5.0)
-                    } else if parsed.is_qet_native {
-                        (vx, vy, vw, vh)
-                    } else {
-                        (vx * 0.30, vy * 0.30, vw * 0.30, vh * 0.30)
-                    };
+                    let s = parsed.scale_factor();
+                    let (scale_vx, scale_vy, scale_vw, scale_vh) = (vx * s, vy * s, vw * s, vh * s);
                     let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
                     let (p2x, p2y) = transform_offset_f32(
                         scale_vx + scale_vw,
@@ -915,8 +940,10 @@ impl<'a> SchematicCanvas<'a> {
                             let (rx, ry) = transform_offset_f32(lx, ly, item.orientation);
                             let pt =
                                 self.world_to_screen((item.x1 as f32) + rx, (item.y1 as f32) + ry);
+                            let pin_rad =
+                                (crate::model::TERMINAL_RADIUS_UNITS * self.zoom).clamp(1.2, 4.0);
                             frame.stroke(
-                                &Path::circle(pt, (0.55 * self.zoom).clamp(1.5, 3.2)),
+                                &Path::circle(pt, pin_rad),
                                 Stroke::default().with_color(tok.danger).with_width(1.0),
                             );
                         }
@@ -1094,8 +1121,9 @@ impl<'a> SchematicCanvas<'a> {
         // Desenha bornes (pinos) e seus números/nomes
         for (idx, pin_label, (wx, wy)) in sym.world_pins(item) {
             let pt = self.world_to_screen(wx as f32, wy as f32);
+            let pin_rad = (crate::model::TERMINAL_RADIUS_UNITS * self.zoom).clamp(1.2, 4.0);
             frame.stroke(
-                &Path::circle(pt, (0.55 * self.zoom).clamp(1.5, 3.2)),
+                &Path::circle(pt, pin_rad),
                 Stroke::default().with_color(tok.danger).with_width(1.0),
             );
             if self.show_texts

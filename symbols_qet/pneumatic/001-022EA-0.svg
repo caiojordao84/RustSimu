@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="30.0" viewBox="-50.0 -15.0 90.0 30.0" data-name="compressed air storage">
+<svg xmlns="http://www.w3.org/2000/svg" width="61.7" height="20.6" viewBox="-34.3 -10.3 61.7 20.6" data-name="compressed air storage" data-standard="48px">
   <title>compressed air storage</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="20.00" y1="0.00" x2="30.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="0.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-10.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
-    <path d="M 10.00 10.00 A 10.00 10.00 0 0 0 10.00 -10.00" stroke="black" fill="none" />
-    <path d="M -20.00 -10.00 A 10.00 10.00 0 0 0 -20.00 10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="13.71" y1="0.00" x2="20.57" y2="0.00" stroke="black" fill="none" />
+    <line x1="-27.43" y1="0.00" x2="-20.57" y2="0.00" stroke="black" fill="none" />
+    <line x1="-13.71" y1="6.86" x2="6.86" y2="6.86" stroke="black" fill="none" />
+    <line x1="-13.71" y1="-6.86" x2="6.86" y2="-6.86" stroke="black" fill="none" />
+    <path d="M 6.86 6.86 A 6.86 6.86 0 0 0 6.86 -6.86" stroke="black" fill="none" />
+    <path d="M -13.71 -6.86 A 6.86 6.86 0 0 0 -13.71 6.86" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-27.43" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.57" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

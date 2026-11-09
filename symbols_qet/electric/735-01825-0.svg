@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="70.0" viewBox="-35.0 -55.0 70.0 70.0" data-name="Gyro">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="168.0" viewBox="-84.0 -132.0 168.0 168.0" data-name="Gyro" data-standard="48px">
   <title>Gyro</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-20.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-50.00" width="60.00" height="60.00" stroke="black" fill="none" />
-    <path d="M 0.00 -36.00 A 16.00 16.00 0 0 0 -0.00 -4.00" stroke="black" fill="none" />
-    <polygon points="-3,-34 -4,-37 1,-36" stroke="black" fill="black" />
-    <rect x="-30.00" y="-30.00" width="60.00" height="20.00" stroke="black" fill="white" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-48.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <rect x="-72.00" y="-120.00" width="144.00" height="144.00" stroke="black" fill="none" />
+    <path d="M 0.00 -86.40 A 38.40 38.40 0 0 0 -0.00 -9.60" stroke="black" fill="none" />
+    <polygon points="-7.20,-81.60 -9.60,-88.80 2.40,-86.40" stroke="black" fill="black" />
+    <rect x="-72.00" y="-72.00" width="144.00" height="48.00" stroke="black" fill="white" />
   </g>
 </svg>

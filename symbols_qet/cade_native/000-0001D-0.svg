@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="74" height="80" viewBox="-42 -10 74 80" data-generator="cade2svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="118.4" height="128.0" viewBox="-67.2 -16.0 118.4 128.0" data-generator="cade2svg">
   <title>Contato Temporizado NF (On-Delay)</title>
-  <g stroke="#111827" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0" y1="0" x2="0" y2="15" />
-    <line x1="0" y1="45" x2="0" y2="60" />
-    <line x1="15" y1="15" x2="0" y2="45" />
-    <line x1="0" y1="18" x2="18" y2="18" />
-    <line x1="-20" y1="28" x2="8" y2="28" />
-    <line x1="-20" y1="32" x2="6" y2="32" />
-    <circle cx="-22" cy="30" r="9" />
-    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="55" />
-    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="56" />
+  <g stroke="#111827" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.0" y1="0.0" x2="0.0" y2="24.0" />
+    <line x1="0.0" y1="72.0" x2="0.0" y2="96.0" />
+    <line x1="24.0" y1="24.0" x2="0.0" y2="72.0" />
+    <line x1="0.0" y1="28.8" x2="28.8" y2="28.8" />
+    <line x1="-32.0" y1="44.8" x2="12.8" y2="44.8" />
+    <line x1="-32.0" y1="51.2" x2="9.6" y2="51.2" />
+    <path d="M -6.41 6.46 A 3.20 3.20 0 1 0 -6.41 12.74" />
+    <circle class="qet-terminal" cx="0.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="55" />
+    <circle class="qet-terminal" cx="0.0" cy="96.0" r="4.0" fill="#dc2626" stroke="none" data-label="56" />
   </g>
 </svg>

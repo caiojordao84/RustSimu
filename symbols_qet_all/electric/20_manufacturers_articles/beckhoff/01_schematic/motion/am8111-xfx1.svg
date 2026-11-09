@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="230.0" height="110.0" viewBox="-25.0 -7.0 230.0 110.0" data-name="AM8111-xFx1">
+<svg xmlns="http://www.w3.org/2000/svg" width="552.0" height="264.0" viewBox="-60.0 -16.8 552.0 264.0" data-name="AM8111-xFx1" data-standard="48px">
   <title>AM8111-xFx1</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="0.00" width="220.00" height="100.00" stroke="black" fill="none" />
-    <text x="172.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vdc</text>
-    <text x="172.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Arms</text>
-    <text x="172.00" y="66.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">kW</text>
-    <text x="172.00" y="42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">rpm</text>
-    <circle cx="70.00" cy="40.00" r="1.00" stroke="black" fill="black" />
-    <text x="137.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">UN</text>
-    <text x="124.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="137.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ThCI</text>
-    <text x="137.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I0</text>
-    <circle cx="40.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <text x="137.00" y="66.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PN</text>
-    <circle cx="60.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <text x="137.00" y="42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">nN</text>
-    <text x="137.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M0</text>
-    <text x="76.00" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Brake-</text>
-    <text x="77.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Feedback</text>
-    <circle cx="80.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="0.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <text x="64.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="144.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="84.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="116.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OCT-</text>
-    <text x="136.00" y="18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">n.c.</text>
-    <text x="4.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <text x="44.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
-    <polyline points="80,0 80,30 70,40" stroke="black" fill="none" />
-    <circle cx="160.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <path d="M 0.83 45.22 A 22.50 22.50 0 0 0 0.84 68.80" stroke="black" fill="none" />
-    <circle cx="20.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="100.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="93.00" cy="57.00" r="17.50" stroke="black" fill="none" />
-    <circle cx="120.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <text x="24.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
-    <text x="-10.50" y="92.55" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BECKHOFF</text>
-    <text x="56.00" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Brake+</text>
-    <text x="104.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <polyline points="60,0 60,30 70,40" stroke="black" fill="none" />
-    <circle cx="140.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <text x="96.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OCT+</text>
-    <text x="164.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <polyline points="120,0 120,30 106,44" stroke="black" fill="none" />
-    <text x="156.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <polyline points="100,0 100,30 90.34,39.48" stroke="black" fill="none" />
-    <circle cx="20.00" cy="57.00" r="17.50" stroke="black" fill="none" />
-    <path d="M 39.02 69.03 A 22.50 22.50 0 0 0 39.16 45.20" stroke="black" fill="none" />
-    <text x="36.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">W</text>
-    <text x="16.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V</text>
-    <text x="14.56" y="56.01" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <line x1="20.00" y1="0.00" x2="20.00" y2="39.00" stroke="black" fill="none" />
-    <polyline points="0,3 0,30 11.5,41.5" stroke="black" fill="none" />
-    <polyline points="40,0 40,30 28.5,41.5" stroke="black" fill="none" />
-    <text x="-4.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U</text>
-    <text x="15.00" y="70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3 ~</text>
-    <line x1="38.00" y1="55.00" x2="75.00" y2="55.00" stroke="black" fill="none" />
-    <line x1="38.00" y1="59.00" x2="75.00" y2="59.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="40.00" x2="43.00" y2="52.00" stroke="black" fill="none" />
-    <text x="172.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Nm</text>
-    <rect x="134.00" y="25.00" width="57.00" height="52.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="120.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="A" data-orientation="n" />
-    <circle class="qet-terminal" cx="140.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="B" data-orientation="n" />
-    <circle class="qet-terminal" cx="160.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="n" />
-    <circle class="qet-terminal" cx="100.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="C" data-orientation="n" />
-    <circle class="qet-terminal" cx="80.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="n" />
-    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-48.00" y="0.00" width="528.00" height="240.00" stroke="black" fill="none" />
+    <text x="412.80" y="139.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Vdc</text>
+    <text x="412.80" y="120.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Arms</text>
+    <text x="412.80" y="158.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">kW</text>
+    <text x="412.80" y="100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">rpm</text>
+    <circle cx="168.00" cy="96.00" r="2.40" stroke="black" fill="black" />
+    <text x="328.80" y="139.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">UN</text>
+    <text x="297.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="328.80" y="177.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ThCI</text>
+    <text x="328.80" y="120.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">I0</text>
+    <circle cx="96.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <text x="328.80" y="158.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PN</text>
+    <circle cx="144.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <text x="328.80" y="100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">nN</text>
+    <text x="328.80" y="81.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M0</text>
+    <text x="182.40" y="74.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Brake-</text>
+    <text x="184.80" y="144.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Feedback</text>
+    <circle cx="192.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <circle cx="0.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <text x="153.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="345.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="201.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="278.40" y="62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OCT-</text>
+    <text x="326.40" y="43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">n.c.</text>
+    <text x="9.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="105.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <polyline points="192.00,0.00 192.00,72.00 168.00,96.00" stroke="black" fill="none" />
+    <circle cx="384.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <path d="M 1.99 108.53 A 54.00 54.00 0 0 0 2.02 165.12" stroke="black" fill="none" />
+    <circle cx="48.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <circle cx="240.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <circle cx="223.20" cy="136.80" r="42.00" stroke="black" fill="none" />
+    <circle cx="288.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <text x="57.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <text x="-25.20" y="222.12" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BECKHOFF</text>
+    <text x="134.40" y="74.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Brake+</text>
+    <text x="249.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <polyline points="144.00,0.00 144.00,72.00 168.00,96.00" stroke="black" fill="none" />
+    <circle cx="336.00" cy="0.00" r="6.00" stroke="black" fill="white" />
+    <text x="230.40" y="67.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OCT+</text>
+    <text x="393.60" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <polyline points="288.00,0.00 288.00,72.00 254.40,105.60" stroke="black" fill="none" />
+    <text x="374.40" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <polyline points="240.00,0.00 240.00,72.00 216.82,94.75" stroke="black" fill="none" />
+    <circle cx="48.00" cy="136.80" r="42.00" stroke="black" fill="none" />
+    <path d="M 93.65 165.67 A 54.00 54.00 0 0 0 93.98 108.48" stroke="black" fill="none" />
+    <text x="86.40" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">W</text>
+    <text x="38.40" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">V</text>
+    <text x="34.94" y="134.42" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="48.00" y1="0.00" x2="48.00" y2="93.60" stroke="black" fill="none" />
+    <polyline points="0.00,7.20 0.00,72.00 27.60,99.60" stroke="black" fill="none" />
+    <polyline points="96.00,0.00 96.00,72.00 68.40,99.60" stroke="black" fill="none" />
+    <text x="-9.60" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">U</text>
+    <text x="36.00" y="168.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3 ~</text>
+    <line x1="91.20" y1="132.00" x2="180.00" y2="132.00" stroke="black" fill="none" />
+    <line x1="91.20" y1="141.60" x2="180.00" y2="141.60" stroke="black" fill="none" />
+    <line x1="168.00" y1="96.00" x2="103.20" y2="124.80" stroke="black" fill="none" />
+    <text x="412.80" y="81.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Nm</text>
+    <rect x="321.60" y="60.00" width="136.80" height="124.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="288.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="A" data-orientation="n" />
+    <circle class="qet-terminal" cx="336.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="B" data-orientation="n" />
+    <circle class="qet-terminal" cx="384.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="n" />
+    <circle class="qet-terminal" cx="240.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="C" data-orientation="n" />
+    <circle class="qet-terminal" cx="192.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="144.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

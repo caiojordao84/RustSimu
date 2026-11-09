@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-20.0 -11.0 40.0 20.0" data-name="Stop valve, isolation">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="48.0" viewBox="-48.0 -26.4 96.0 48.0" data-name="Stop valve, isolation" data-standard="48px">
   <title>Stop valve, isolation</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-3.00" y1="-7.00" x2="3.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="-7.00" stroke="black" fill="none" />
-    <polygon points="-10,-5 -10,5 10,-5 10,5" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-7.20" y1="-16.80" x2="7.20" y2="-16.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="-16.80" stroke="black" fill="none" />
+    <polygon points="-24.00,-12.00 -24.00,12.00 24.00,-12.00 24.00,12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

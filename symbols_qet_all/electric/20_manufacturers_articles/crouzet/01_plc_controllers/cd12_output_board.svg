@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="310.0" height="50.0" viewBox="-155.0 -22.0 310.0 50.0" data-name="CD12 output board">
+<svg xmlns="http://www.w3.org/2000/svg" width="496.0" height="80.0" viewBox="-248.0 -35.2 496.0 80.0" data-name="CD12 output board" data-standard="48px">
   <title>CD12 output board</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-149.00" y="-19.00" width="298.00" height="38.00" stroke="black" fill="none" />
-    <text x="-103.00" y="4.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O1</text>
-    <line x1="-100.00" y1="13.00" x2="-91.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-110.00" y1="10.00" x2="-110.00" y2="20.00" stroke="black" fill="none" />
-    <text x="76.00" y="4.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O 4</text>
-    <text x="17.00" y="4.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O 3</text>
-    <text x="-44.00" y="4.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O 2</text>
-    <line x1="-40.00" y1="13.00" x2="-31.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="10.00" x2="-80.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="13.00" x2="29.00" y2="10.00" stroke="black" fill="none" />
-    <text x="-71.00" y="-8.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CROUZET CD12 Carte sorties</text>
-    <line x1="-110.00" y1="10.00" x2="-100.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-90.00" y1="10.00" x2="-80.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="80.00" y1="13.00" x2="89.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-50.00" y1="10.00" x2="-50.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="10.00" x2="70.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="10.00" x2="10.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="10.00" x2="40.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="10.00" x2="-20.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="100.00" y1="10.00" x2="100.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="10.00" x2="80.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="10.00" x2="20.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-50.00" y1="10.00" x2="-40.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="10.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="10.00" x2="-20.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="90.00" y1="10.00" x2="100.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-50.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-110.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="100.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="70.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-80.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-238.40" y="-30.40" width="476.80" height="60.80" stroke="black" fill="none" />
+    <text x="-164.80" y="7.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">O1</text>
+    <line x1="-160.00" y1="20.80" x2="-145.60" y2="16.00" stroke="black" fill="none" />
+    <line x1="-176.00" y1="16.00" x2="-176.00" y2="32.00" stroke="black" fill="none" />
+    <text x="121.60" y="7.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">O 4</text>
+    <text x="27.20" y="7.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">O 3</text>
+    <text x="-70.40" y="7.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">O 2</text>
+    <line x1="-64.00" y1="20.80" x2="-49.60" y2="16.00" stroke="black" fill="none" />
+    <line x1="-128.00" y1="16.00" x2="-128.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="20.80" x2="46.40" y2="16.00" stroke="black" fill="none" />
+    <text x="-113.60" y="-13.33" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">CROUZET CD12 Carte sorties</text>
+    <line x1="-176.00" y1="16.00" x2="-160.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="-144.00" y1="16.00" x2="-128.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="128.00" y1="20.80" x2="142.40" y2="16.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="16.00" x2="-80.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="112.00" y1="16.00" x2="112.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="16.00" y1="16.00" x2="16.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="64.00" y1="16.00" x2="64.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="-32.00" y1="16.00" x2="-32.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="160.00" y1="16.00" x2="160.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="112.00" y1="16.00" x2="128.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="16.00" y1="16.00" x2="32.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="-80.00" y1="16.00" x2="-64.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="16.00" x2="64.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="16.00" x2="-32.00" y2="16.00" stroke="black" fill="none" />
+    <line x1="144.00" y1="16.00" x2="160.00" y2="16.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-80.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-32.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="16.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-176.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="160.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="112.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="64.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-128.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

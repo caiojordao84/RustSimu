@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -45.0 50.0 50.0" data-name="Phase meter">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -108.0 120.0 120.0" data-name="Phase meter" data-standard="48px">
   <title>Phase meter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-20.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <path d="M -1.74 -24.80 A 4.95 3.30 0 1 0 1.56 -24.82" stroke="black" fill="none" />
-    <line x1="1.60" y1="-25.00" x2="1.60" y2="-15.10" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-48.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <path d="M -4.18 -59.52 A 11.88 7.92 0 1 0 3.74 -59.57" stroke="black" fill="none" />
+    <line x1="3.84" y1="-60.00" x2="3.84" y2="-36.24" stroke="black" fill="none" />
   </g>
 </svg>

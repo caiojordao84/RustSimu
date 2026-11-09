@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="70.0" viewBox="-50.0 -35.0 100.0 70.0" data-name="Water oil exchanger">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="42.0" viewBox="-30.0 -21.0 60.0 42.0" data-name="Water oil exchanger" data-standard="48px">
   <title>Water oil exchanger</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.87" y1="30.07" x2="25.62" y2="30.07" stroke="black" fill="none" />
-    <line x1="-0.52" y1="-30.00" x2="-25.13" y2="-30.00" stroke="black" fill="none" />
-    <polyline points="-0.42,-30 -6.7,-30.91 -6.7,-29.07 -0.42,-29.9 -1.9,-29.9" stroke="black" fill="none" />
-    <polyline points="0.42,30.08 6.59,29.13 6.59,30.91 0.47,30.2" stroke="black" fill="none" />
-    <line x1="39.94" y1="0.00" x2="29.67" y2="0.00" stroke="black" fill="none" />
-    <line x1="-40.08" y1="0.00" x2="-30.66" y2="0.00" stroke="black" fill="none" />
-    <polygon points="0.1,-30 -30,0.05 0,30 29.91,0.05 0.1,-29.9" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.52" y1="18.04" x2="15.37" y2="18.04" stroke="black" fill="none" />
+    <line x1="-0.31" y1="-18.00" x2="-15.08" y2="-18.00" stroke="black" fill="none" />
+    <polyline points="-0.25,-18.00 -4.02,-18.55 -4.02,-17.44 -0.25,-17.94 -1.14,-17.94" stroke="black" fill="none" />
+    <polyline points="0.25,18.05 3.95,17.48 3.95,18.55 0.28,18.12" stroke="black" fill="none" />
+    <line x1="23.96" y1="0.00" x2="17.80" y2="0.00" stroke="black" fill="none" />
+    <line x1="-24.05" y1="0.00" x2="-18.40" y2="0.00" stroke="black" fill="none" />
+    <polygon points="0.06,-18.00 -18.00,0.03 0.00,18.00 17.95,0.03 0.06,-17.94" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

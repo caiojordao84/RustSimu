@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="40.0" viewBox="-10.0 -30.0 20.0 40.0" data-name="3501/ON - Configurator ON">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="96.0" viewBox="-24.0 -72.0 48.0 96.0" data-name="3501/ON - Configurator ON" data-standard="48px">
   <title>3501/ON - Configurator ON</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-2.50" y="-19.00" width="5.00" height="18.00" stroke="#0055d4" fill="#0055d4" />
-    <path d="M -2.50 -0.00 A 2.50 2.50 0 0 0 2.50 0.00" stroke="#0055d4" fill="none" />
-    <path d="M 2.50 -20.00 A 2.50 2.50 0 0 0 -2.50 -20.00" stroke="#0055d4" fill="none" />
-    <text x="-2.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-6.00" y="-45.60" width="12.00" height="43.20" stroke="#0055d4" fill="#0055d4" />
+    <path d="M -6.00 -0.00 A 6.00 6.00 0 0 0 6.00 0.00" stroke="#0055d4" fill="none" />
+    <path d="M 6.00 -48.00 A 6.00 6.00 0 0 0 -6.00 -48.00" stroke="#0055d4" fill="none" />
+    <text x="-4.80" y="-28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">O
 N</text>
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

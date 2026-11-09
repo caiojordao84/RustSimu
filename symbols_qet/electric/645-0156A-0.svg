@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="10.0" viewBox="-6.0 -5.0 20.0 10.0" data-name="Energy flow towards the busbars">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="24.0" viewBox="-14.4 -12.0 48.0 24.0" data-name="Energy flow towards the busbars" data-standard="48px">
   <title>Energy flow towards the busbars</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-3.00" y1="0.00" x2="3.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-2.00" x2="-3.00" y2="2.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-7.20" y1="0.00" x2="7.20" y2="0.00" stroke="black" fill="none" />
+    <line x1="7.20" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-4.80" x2="-7.20" y2="4.80" stroke="black" fill="none" />
   </g>
 </svg>

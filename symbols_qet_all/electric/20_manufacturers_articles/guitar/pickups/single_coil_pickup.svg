@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="80.0" viewBox="-71.0 -43.0 160.0 80.0" data-name="Single Coil Pickup">
+<svg xmlns="http://www.w3.org/2000/svg" width="256.0" height="128.0" viewBox="-113.6 -68.8 256.0 128.0" data-name="Single Coil Pickup" data-standard="48px">
   <title>Single Coil Pickup</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="30.97" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="-10.34" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="51.63" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <line x1="-51.00" y1="-14.00" x2="44.00" y2="-14.00" stroke="black" fill="none" />
-    <ellipse cx="10.32" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <line x1="-51.00" y1="16.00" x2="44.00" y2="16.00" stroke="black" fill="none" />
-    <ellipse cx="-31.00" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="-51.00" cy="0.00" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <path d="M 61.00 1.00 A 16.00 15.00 0 0 0 45.00 -14.00" stroke="black" fill="none" />
-    <path d="M 45.00 16.00 A 16.00 15.50 0 0 0 61.00 0.50" stroke="black" fill="none" />
-    <path d="M -51.60 -14.00 A 16.33 15.00 0 0 0 -67.93 1.00" stroke="black" fill="none" />
-    <path d="M -67.93 1.00 A 16.33 15.00 0 0 0 -51.60 16.00" stroke="black" fill="none" />
-    <line x1="65.00" y1="-5.00" x2="80.00" y2="-10.00" stroke="#d40000" fill="none" />
-    <line x1="65.00" y1="10.00" x2="80.00" y2="15.00" stroke="green" fill="none" />
-    <text x="68.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="70.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="-11.00" y="-34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2 Wire</text>
-    <circle class="qet-terminal" cx="80.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="80.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="49.55" cy="0.00" rx="4.53" ry="4.53" stroke="black" fill="none" />
+    <ellipse cx="-16.54" cy="0.00" rx="4.53" ry="4.53" stroke="black" fill="none" />
+    <ellipse cx="82.61" cy="0.00" rx="4.53" ry="4.53" stroke="black" fill="none" />
+    <line x1="-81.60" y1="-22.40" x2="70.40" y2="-22.40" stroke="black" fill="none" />
+    <ellipse cx="16.51" cy="0.00" rx="4.53" ry="4.53" stroke="black" fill="none" />
+    <line x1="-81.60" y1="25.60" x2="70.40" y2="25.60" stroke="black" fill="none" />
+    <ellipse cx="-49.60" cy="0.00" rx="4.53" ry="4.53" stroke="black" fill="none" />
+    <ellipse cx="-81.60" cy="0.00" rx="4.53" ry="4.53" stroke="black" fill="none" />
+    <path d="M 97.60 1.60 A 25.60 24.00 0 0 0 72.00 -22.40" stroke="black" fill="none" />
+    <path d="M 72.00 25.60 A 25.60 24.80 0 0 0 97.60 0.80" stroke="black" fill="none" />
+    <path d="M -82.56 -22.40 A 26.13 24.00 0 0 0 -108.69 1.60" stroke="black" fill="none" />
+    <path d="M -108.69 1.60 A 26.13 24.00 0 0 0 -82.56 25.60" stroke="black" fill="none" />
+    <line x1="104.00" y1="-8.00" x2="128.00" y2="-16.00" stroke="#d40000" fill="none" />
+    <line x1="104.00" y1="16.00" x2="128.00" y2="24.00" stroke="green" fill="none" />
+    <text x="108.80" y="-19.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="112.00" y="36.80" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="-17.60" y="-54.40" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">2 Wire</text>
+    <circle class="qet-terminal" cx="128.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="128.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

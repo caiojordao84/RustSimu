@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-13.0 -88.0 100.0 100.0" data-name="Energy classification">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="240.0" viewBox="-31.2 -211.2 240.0 240.0" data-name="Energy classification" data-standard="48px">
   <title>Energy classification</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-5.5,-5 -5.5,5 71,5 76.5,0 71,-5" stroke="black" fill="black" />
-    <polygon points="-5.5,-19 -5.5,-9 58,-9 61.44,-14 56.82,-19" stroke="#d40000" fill="black" />
-    <polygon points="-5.5,-31 -5.5,-21 39.45,-21 44.31,-26 38.23,-31" stroke="#d40000" fill="#d40000" />
-    <polygon points="-5.5,-44 -5.5,-34 27.3,-34 33.37,-39 27.3,-44" stroke="#d40000" fill="#d40000" />
-    <polygon points="-5.5,-56 -5.5,-46 15.88,-46 22.56,-51 17.22,-56" stroke="#d40000" fill="#00aa00" />
-    <polygon points="-5.5,-68 -5.5,-58 9,-58 16.18,-63 9,-68" stroke="green" fill="#00aa00" />
-    <text x="-0.64" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">F</text>
-    <text x="-0.64" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">G</text>
-    <text x="-0.64" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">E</text>
-    <polygon points="-5.5,-80 -5.5,-70 1.73,-70 9,-75 1.73,-80" stroke="green" fill="#00aa00" />
-    <text x="-0.64" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D</text>
-    <text x="-0.64" y="-48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
-    <text x="-0.64" y="-60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
-    <text x="-0.31" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <rect x="-11.00" y="-86.00" width="95.00" height="96.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-13.20,-12.00 -13.20,12.00 170.40,12.00 183.60,0.00 170.40,-12.00" stroke="black" fill="black" />
+    <polygon points="-13.20,-45.60 -13.20,-21.60 139.20,-21.60 147.46,-33.60 136.37,-45.60" stroke="#d40000" fill="black" />
+    <polygon points="-13.20,-74.40 -13.20,-50.40 94.68,-50.40 106.34,-62.40 91.75,-74.40" stroke="#d40000" fill="#d40000" />
+    <polygon points="-13.20,-105.60 -13.20,-81.60 65.52,-81.60 80.09,-93.60 65.52,-105.60" stroke="#d40000" fill="#d40000" />
+    <polygon points="-13.20,-134.40 -13.20,-110.40 38.11,-110.40 54.14,-122.40 41.33,-134.40" stroke="#d40000" fill="#00aa00" />
+    <polygon points="-13.20,-163.20 -13.20,-139.20 21.60,-139.20 38.83,-151.20 21.60,-163.20" stroke="green" fill="#00aa00" />
+    <text x="-1.54" y="-24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">F</text>
+    <text x="-1.54" y="7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">G</text>
+    <text x="-1.54" y="-55.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">E</text>
+    <polygon points="-13.20,-192.00 -13.20,-168.00 4.15,-168.00 21.60,-180.00 4.15,-192.00" stroke="green" fill="#00aa00" />
+    <text x="-1.54" y="-86.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">D</text>
+    <text x="-1.54" y="-115.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <text x="-1.54" y="-144.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <text x="-0.74" y="-172.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <rect x="-26.40" y="-206.40" width="228.00" height="230.40" stroke="black" fill="none" />
   </g>
 </svg>

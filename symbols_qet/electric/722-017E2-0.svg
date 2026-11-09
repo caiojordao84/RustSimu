@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-95.0 -110.0 120.0 120.0" data-name="Three-pole switch with striker fuses">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="144.0" viewBox="-114.0 -132.0 144.0 144.0" data-name="Three-pole switch with striker fuses" data-standard="48px">
   <title>Three-pole switch with striker fuses</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-40.00" y1="-100.00" x2="-40.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-100.00" x2="-80.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-100.00" x2="0.00" y2="-40.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="-85.00" width="10.00" height="30.00" stroke="black" fill="none" />
-    <rect x="-85.00" y="-85.00" width="10.00" height="30.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="-85.00" width="10.00" height="30.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-20.00" x2="-80.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-20.00" x2="-90.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="-50.00" y1="-40.00" x2="-40.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-20.00" x2="-40.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-40.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-85.00" y1="-30.00" x2="20.00" y2="-30.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="20.00" y1="-30.00" x2="20.00" y2="-70.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="20.00" y1="-70.00" x2="5.00" y2="-70.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-75.00" y1="-70.00" x2="-60.00" y2="-70.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-35.00" y1="-70.00" x2="-20.00" y2="-70.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-20.00" y1="-70.00" x2="-20.00" y2="-45.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-60.00" y1="-70.00" x2="-60.00" y2="-45.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-60.00" y1="-45.00" x2="20.00" y2="-45.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-80.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-80.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-48.00" y1="-120.00" x2="-48.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-120.00" x2="-96.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-120.00" x2="0.00" y2="-48.00" stroke="black" fill="none" />
+    <rect x="-54.00" y="-102.00" width="12.00" height="36.00" stroke="black" fill="none" />
+    <rect x="-102.00" y="-102.00" width="12.00" height="36.00" stroke="black" fill="none" />
+    <rect x="-6.00" y="-102.00" width="12.00" height="36.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-24.00" x2="-96.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-24.00" x2="-108.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="-48.00" x2="-48.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-24.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-48.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-102.00" y1="-36.00" x2="24.00" y2="-36.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="24.00" y1="-36.00" x2="24.00" y2="-84.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="24.00" y1="-84.00" x2="6.00" y2="-84.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-90.00" y1="-84.00" x2="-72.00" y2="-84.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-42.00" y1="-84.00" x2="-24.00" y2="-84.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-24.00" y1="-84.00" x2="-24.00" y2="-54.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-72.00" y1="-84.00" x2="-72.00" y2="-54.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-72.00" y1="-54.00" x2="24.00" y2="-54.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

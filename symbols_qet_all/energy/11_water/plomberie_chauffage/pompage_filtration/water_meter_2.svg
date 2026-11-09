@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -5.0 60.0 30.0" data-name="Water meter">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="36.0" viewBox="-36.0 -6.0 72.0 36.0" data-name="Water meter" data-standard="48px">
   <title>Water meter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="0,20 -1,19 -2,19 -2,18 -3,17 -2,16 -2,15 -1,15 0,14 1,15 2,15 2,16 3,17 2,18 2,19 1,19" stroke="black" fill="black" />
-    <text x="-10.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0000.000 m³</text>
-    <rect x="-20.00" y="8.00" width="4.00" height="4.00" stroke="black" fill="none" />
-    <rect x="16.00" y="8.00" width="4.00" height="4.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="10.00" rx="12.50" ry="13.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="10.00" rx="11.00" ry="11.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="17.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
-    <rect x="-10.00" y="8.00" width="2.00" height="4.00" stroke="black" fill="none" />
-    <rect x="-8.00" y="8.00" width="2.00" height="4.00" stroke="black" fill="none" />
-    <rect x="-6.00" y="8.00" width="2.00" height="4.00" stroke="black" fill="none" />
-    <rect x="-4.00" y="8.00" width="3.00" height="4.00" stroke="black" fill="none" />
-    <rect x="-1.00" y="8.00" width="2.00" height="4.00" stroke="black" fill="none" />
-    <rect x="1.00" y="8.00" width="2.00" height="4.00" stroke="black" fill="none" />
-    <rect x="3.00" y="8.00" width="2.00" height="4.00" stroke="black" fill="none" />
-    <path d="M -16.00 8.00 A 4.00 2.00 0 0 0 -12.00 6.00" stroke="black" fill="none" />
-    <path d="M -12.00 14.00 A 4.00 2.00 0 0 0 -16.00 12.00" stroke="black" fill="none" />
-    <path d="M 12.00 6.00 A 4.00 2.00 0 0 0 16.00 8.00" stroke="black" fill="none" />
-    <path d="M 16.00 12.00 A 4.00 2.00 0 0 0 12.00 14.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0.00,24.00 -1.20,22.80 -2.40,22.80 -2.40,21.60 -3.60,20.40 -2.40,19.20 -2.40,18.00 -1.20,18.00 0.00,16.80 1.20,18.00 2.40,18.00 2.40,19.20 3.60,20.40 2.40,21.60 2.40,22.80 1.20,22.80" stroke="black" fill="black" />
+    <text x="-12.00" y="13.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">0000.000 m³</text>
+    <rect x="-24.00" y="9.60" width="4.80" height="4.80" stroke="black" fill="none" />
+    <rect x="19.20" y="9.60" width="4.80" height="4.80" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.00" rx="15.00" ry="15.60" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.00" rx="13.20" ry="13.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="20.40" rx="1.80" ry="1.80" stroke="black" fill="white" />
+    <rect x="-12.00" y="9.60" width="2.40" height="4.80" stroke="black" fill="none" />
+    <rect x="-9.60" y="9.60" width="2.40" height="4.80" stroke="black" fill="none" />
+    <rect x="-7.20" y="9.60" width="2.40" height="4.80" stroke="black" fill="none" />
+    <rect x="-4.80" y="9.60" width="3.60" height="4.80" stroke="black" fill="none" />
+    <rect x="-1.20" y="9.60" width="2.40" height="4.80" stroke="black" fill="none" />
+    <rect x="1.20" y="9.60" width="2.40" height="4.80" stroke="black" fill="none" />
+    <rect x="3.60" y="9.60" width="2.40" height="4.80" stroke="black" fill="none" />
+    <path d="M -19.20 9.60 A 4.80 2.40 0 0 0 -14.40 7.20" stroke="black" fill="none" />
+    <path d="M -14.40 16.80 A 4.80 2.40 0 0 0 -19.20 14.40" stroke="black" fill="none" />
+    <path d="M 14.40 7.20 A 4.80 2.40 0 0 0 19.20 9.60" stroke="black" fill="none" />
+    <path d="M 19.20 14.40 A 4.80 2.40 0 0 0 14.40 16.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

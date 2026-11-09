@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="730.0" height="110.0" viewBox="-362.0 -50.0 730.0 110.0" data-name="750-625/000-001">
+<svg xmlns="http://www.w3.org/2000/svg" width="219.0" height="33.0" viewBox="-108.6 -15.0 219.0 33.0" data-name="750-625/000-001" data-standard="48px">
   <title>750-625/000-001</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-360.00" y="-40.00" width="720.00" height="90.00" stroke="black" fill="none" />
-    <text x="343.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <text x="337.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
-    <line x1="40.00" y1="10.00" x2="360.00" y2="10.00" stroke="black" fill="none" />
-    <ellipse cx="-120.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <line x1="-120.00" y1="-10.00" x2="-120.00" y2="-40.00" stroke="black" fill="black" />
-    <line x1="40.00" y1="10.00" x2="40.00" y2="-40.00" stroke="black" fill="black" />
-    <line x1="-120.00" y1="-10.00" x2="360.00" y2="-10.00" stroke="black" fill="none" />
-    <text x="-119.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
-    <text x="-130.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Supply-Module DC 24 V</text>
-    <text x="-330.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 750-625/000-001</text>
-    <text x="42.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <path d="M 362.50 -12.50 A 2.50 2.50 0 0 0 362.50 -7.50" stroke="black" fill="none" />
-    <path d="M 362.50 7.50 A 2.50 2.50 0 0 0 362.50 12.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-120.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="24V" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="0V" data-orientation="n" />
-    <circle class="qet-terminal" cx="360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-108.00" y="-12.00" width="216.00" height="27.00" stroke="black" fill="none" />
+    <text x="102.90" y="2.40" font-size="2.7" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="101.10" y="-3.90" font-size="2.7" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <line x1="12.00" y1="3.00" x2="108.00" y2="3.00" stroke="black" fill="none" />
+    <ellipse cx="-36.00" cy="-12.00" rx="0.75" ry="0.75" stroke="black" fill="white" />
+    <ellipse cx="12.00" cy="-12.00" rx="0.75" ry="0.75" stroke="black" fill="white" />
+    <line x1="-36.00" y1="-3.00" x2="-36.00" y2="-12.00" stroke="black" fill="black" />
+    <line x1="12.00" y1="3.00" x2="12.00" y2="-12.00" stroke="black" fill="black" />
+    <line x1="-36.00" y1="-3.00" x2="108.00" y2="-3.00" stroke="black" fill="none" />
+    <text x="-35.70" y="-7.20" font-size="2.7" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <text x="-39.00" y="13.50" font-size="2.7" font-family="sans-serif" fill="black" stroke="none">Supply-Module DC 24 V</text>
+    <text x="-99.00" y="13.50" font-size="2.7" font-family="sans-serif" fill="black" stroke="none">WAGO 750-625/000-001</text>
+    <text x="12.60" y="-7.20" font-size="2.7" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <path d="M 108.75 -3.75 A 0.75 0.75 0 0 0 108.75 -2.25" stroke="black" fill="none" />
+    <path d="M 108.75 2.25 A 0.75 0.75 0 0 0 108.75 3.75" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-36.00" cy="-12.00" r="4.0" fill="red" stroke="none" data-name="24V" data-orientation="n" />
+    <circle class="qet-terminal" cx="12.00" cy="-12.00" r="4.0" fill="red" stroke="none" data-name="0V" data-orientation="n" />
+    <circle class="qet-terminal" cx="108.00" cy="3.00" r="4.0" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="108.00" cy="-3.00" r="4.0" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
   </g>
 </svg>

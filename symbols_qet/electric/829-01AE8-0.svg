@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="230.0" viewBox="-6.0 -7.0 50.0 230.0" data-name="412015 - Netatmo Energy meter">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="552.0" viewBox="-14.4 -16.8 120.0 552.0" data-name="412015 - Netatmo Energy meter" data-standard="48px">
   <title>412015 - Netatmo Energy meter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="40.00" height="200.00" stroke="black" fill="white" />
-    <line x1="0.00" y1="150.00" x2="40.00" y2="150.00" stroke="black" fill="none" />
-    <rect x="0.00" y="50.00" width="40.00" height="30.00" stroke="black" fill="cyan" />
-    <rect x="10.00" y="125.00" width="17.00" height="10.00" stroke="black" fill="#00aa00" />
-    <polyline points="4,121 4,146 9,146" stroke="#d40000" fill="none" />
-    <line x1="26.00" y1="146.00" x2="31.00" y2="146.00" stroke="#d40000" fill="none" />
-    <rect x="32.00" y="122.00" width="2.00" height="12.00" stroke="black" fill="black" />
-    <ellipse cx="33.00" cy="132.00" rx="0.50" ry="0.50" stroke="black" fill="white" />
-    <ellipse cx="12.00" cy="115.00" rx="2.00" ry="2.00" stroke="black" fill="white" />
-    <rect x="13.00" y="127.00" width="11.00" height="6.00" stroke="black" fill="gray" />
-    <text x="3.00" y="213.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <text x="32.00" y="213.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <rect x="0.00" y="200.00" width="38.00" height="15.00" stroke="black" fill="none" />
-    <text x="15.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COIL</text>
-    <circle class="qet-terminal" cx="30.00" cy="215.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="215.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="96.00" height="480.00" stroke="black" fill="white" />
+    <line x1="0.00" y1="360.00" x2="96.00" y2="360.00" stroke="black" fill="none" />
+    <rect x="0.00" y="120.00" width="96.00" height="72.00" stroke="black" fill="cyan" />
+    <rect x="24.00" y="300.00" width="40.80" height="24.00" stroke="black" fill="#00aa00" />
+    <polyline points="9.60,290.40 9.60,350.40 21.60,350.40" stroke="#d40000" fill="none" />
+    <line x1="62.40" y1="350.40" x2="74.40" y2="350.40" stroke="#d40000" fill="none" />
+    <rect x="76.80" y="292.80" width="4.80" height="28.80" stroke="black" fill="black" />
+    <ellipse cx="79.20" cy="316.80" rx="1.20" ry="1.20" stroke="black" fill="white" />
+    <ellipse cx="28.80" cy="276.00" rx="4.80" ry="4.80" stroke="black" fill="white" />
+    <rect x="31.20" y="304.80" width="26.40" height="14.40" stroke="black" fill="gray" />
+    <text x="7.20" y="511.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="76.80" y="511.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <rect x="0.00" y="480.00" width="91.20" height="36.00" stroke="black" fill="none" />
+    <text x="36.00" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">COIL</text>
+    <circle class="qet-terminal" cx="72.00" cy="516.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="516.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

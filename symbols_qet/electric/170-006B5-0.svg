@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="100.0" viewBox="-20.0 -40.0 80.0 100.0" data-name="Pressure Sensor Cerabar M">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="240.0" viewBox="-48.0 -96.0 192.0 240.0" data-name="Pressure Sensor Cerabar M" data-standard="48px">
   <title>Pressure Sensor Cerabar M</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="20.00" cy="0.00" rx="35.00" ry="35.00" stroke="black" fill="none" />
-    <text x="-4.00" y="-17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CERABAR M</text>
-    <text x="-9.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="31.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="11.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="17.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="-4.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <line x1="40.00" y1="24.00" x2="40.00" y2="50.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="24.00" x2="20.00" y2="50.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="24.00" x2="0.00" y2="50.00" stroke="black" fill="none" />
-    <ellipse cx="-0.00" cy="20.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <line x1="41.00" y1="8.00" x2="39.00" y2="8.00" stroke="black" fill="none" />
-    <ellipse cx="39.99" cy="20.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <ellipse cx="20.00" cy="20.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <line x1="37.00" y1="6.00" x2="43.00" y2="6.00" stroke="black" fill="none" />
-    <line x1="36.00" y1="4.00" x2="44.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="0.00" x2="40.00" y2="4.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="48.00" cy="0.00" rx="84.00" ry="84.00" stroke="black" fill="none" />
+    <text x="-9.60" y="-40.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CERABAR M</text>
+    <text x="-21.60" y="40.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="74.40" y="40.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="26.40" y="40.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="40.80" y="16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="-9.60" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <line x1="96.00" y1="57.60" x2="96.00" y2="120.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="57.60" x2="48.00" y2="120.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="57.60" x2="0.00" y2="120.00" stroke="black" fill="none" />
+    <ellipse cx="-0.00" cy="48.00" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <line x1="98.40" y1="19.20" x2="93.60" y2="19.20" stroke="black" fill="none" />
+    <ellipse cx="95.98" cy="48.00" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <ellipse cx="48.00" cy="48.00" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <line x1="88.80" y1="14.40" x2="103.20" y2="14.40" stroke="black" fill="none" />
+    <line x1="86.40" y1="9.60" x2="105.60" y2="9.60" stroke="black" fill="none" />
+    <line x1="96.00" y1="0.00" x2="96.00" y2="9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="48.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="96.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

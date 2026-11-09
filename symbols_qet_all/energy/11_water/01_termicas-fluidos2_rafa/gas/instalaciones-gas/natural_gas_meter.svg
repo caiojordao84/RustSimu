@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -17.0 40.0 40.0" data-name="Natural gas meter">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-48.0 -40.8 96.0 96.0" data-name="Natural gas meter" data-standard="48px">
   <title>Natural gas meter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="7.48" y="-6.28" width="2.63" height="1.80" stroke="black" fill="none" />
-    <line x1="5.16" y1="0.31" x2="5.16" y2="2.11" stroke="black" fill="none" />
-    <line x1="4.38" y1="0.31" x2="4.38" y2="2.11" stroke="black" fill="none" />
-    <line x1="2.80" y1="0.31" x2="2.80" y2="2.11" stroke="black" fill="none" />
-    <rect x="-14.00" y="6.91" width="28.35" height="1.20" stroke="black" fill="none" />
-    <rect x="6.43" y="-8.68" width="4.73" height="2.40" stroke="black" fill="none" />
-    <polygon points="-12.95,6.91 -12.95,-2.68 -11.38,-4.48 11.73,-4.48 13.3,-2.68 13.3,6.91" stroke="black" fill="none" />
-    <polygon points="-12.95,8.11 -12.95,18.3 -11.9,19.5 12.25,19.5 13.3,17.7 13.3,8.11" stroke="black" fill="none" />
-    <rect x="-9.75" y="-6.28" width="2.63" height="1.80" stroke="black" fill="none" />
-    <rect x="-10.80" y="-8.68" width="4.73" height="2.40" stroke="black" fill="none" />
-    <rect x="-1.93" y="-0.88" width="8.93" height="6.00" stroke="black" fill="none" />
-    <rect x="-0.35" y="0.31" width="5.78" height="1.80" stroke="black" fill="none" />
-    <line x1="1.23" y1="0.31" x2="1.23" y2="2.11" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="17.95" y="-15.07" width="6.31" height="4.32" stroke="black" fill="none" />
+    <line x1="12.38" y1="0.74" x2="12.38" y2="5.06" stroke="black" fill="none" />
+    <line x1="10.51" y1="0.74" x2="10.51" y2="5.06" stroke="black" fill="none" />
+    <line x1="6.72" y1="0.74" x2="6.72" y2="5.06" stroke="black" fill="none" />
+    <rect x="-33.60" y="16.58" width="68.04" height="2.88" stroke="black" fill="none" />
+    <rect x="15.43" y="-20.83" width="11.35" height="5.76" stroke="black" fill="none" />
+    <polygon points="-31.08,16.58 -31.08,-6.43 -27.31,-10.75 28.15,-10.75 31.92,-6.43 31.92,16.58" stroke="black" fill="none" />
+    <polygon points="-31.08,19.46 -31.08,43.92 -28.56,46.80 29.40,46.80 31.92,42.48 31.92,19.46" stroke="black" fill="none" />
+    <rect x="-23.40" y="-15.07" width="6.31" height="4.32" stroke="black" fill="none" />
+    <rect x="-25.92" y="-20.83" width="11.35" height="5.76" stroke="black" fill="none" />
+    <rect x="-4.63" y="-2.11" width="21.43" height="14.40" stroke="black" fill="none" />
+    <rect x="-0.84" y="0.74" width="13.87" height="4.32" stroke="black" fill="none" />
+    <line x1="2.95" y1="0.74" x2="2.95" y2="5.06" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -73,25 +73,41 @@ pub struct ParsedSvgSymbol {
     pub max_term_x: f32,
     pub is_cade_svg: bool,
     pub is_qet_native: bool,
+    pub normalized_scale: f32,
 }
 
 impl ParsedSvgSymbol {
+    /// Fator de escala isotrópico para renderização e posicionamento na grade rígida.
+    ///
+    /// - Se for um diagrama QET nativo completo (`is_qet_native`), mantém escala 1:1.
+    /// - Para símbolos (CADe ou externos), utiliza a escala normalizada calculada com base na regra de bornes de 4 mm (6.0 unidades).
+    #[inline]
+    pub fn scale_factor(&self) -> f32 {
+        if self.is_qet_native {
+            1.0
+        } else {
+            self.normalized_scale
+        }
+    }
+
     /// Mapeia uma coordenada local do SVG `(sx, sy)` para o sistema de coordenadas de grade do CADe_SIMU.
     ///
     /// - Se o SVG foi gerado a partir do CADe (`is_cade_svg`), a escala é exatamente 1:5 (divisão por 5.0).
     /// - Se for um símbolo externo adaptado aos pinos do CADe (`target_span > 1.0`), interpola verticalmente entre os bornes.
     /// - Se for um diagrama QET nativo completo (`is_qet_native`), mantém a escala 1:1 em pixels do projeto QET original.
-    /// - Se for um símbolo da biblioteca unificada QET inserido no CADe (`target_span <= 1.0`), aplica a escala uniforme de 0.30
-    ///   (20 px de condutor QET -> 6.0 unidades da fiação trifásica CADe; 10 px de grade QET -> 3.0 unidades da grade CADe).
+    /// - Se for um símbolo da biblioteca externa (QET, Multisim, EPLAN), aplica a escala normalizada isotrópica
+    ///   para garantir espaçamento rígido de 6.0 unidades CADe (4 mm / 48 px a 300 DPI) entre bornes de fase.
     pub fn map_point(&self, sx: f32, sy: f32, target_span: f32) -> (f32, f32) {
         if self.is_cade_svg {
-            (sx / 5.0, sy / 5.0)
+            let s = self.scale_factor();
+            (sx * s, sy * s)
         } else if target_span > 1.0 && (self.term_bottom_y - self.term_top_y).abs() > 0.1 {
             let svg_span_y = (self.term_bottom_y - self.term_top_y).abs();
             let scale_y = target_span / svg_span_y;
             let span_x = (self.max_term_x - self.min_term_x).abs();
+            let scale_x = self.scale_factor();
             let local_x = if span_x >= 15.0 {
-                (sx - self.min_term_x) * 0.30
+                (sx - self.min_term_x) * scale_x
             } else {
                 (sx - self.min_term_x) * scale_y
             };
@@ -100,7 +116,8 @@ impl ParsedSvgSymbol {
         } else if self.is_qet_native {
             (sx, sy)
         } else {
-            (sx * 0.30, sy * 0.30)
+            let s = self.scale_factor();
+            (sx * s, sy * s)
         }
     }
 }
@@ -238,6 +255,7 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
     let mut shapes = Vec::new();
     let mut terminal_ys = Vec::new();
     let mut terminal_xs = Vec::new();
+    let mut terminal_points: Vec<(f32, f32)> = Vec::new();
 
     // Itera pelos nós do SVG
     for node in root.descendants() {
@@ -332,6 +350,7 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
                 if is_terminal {
                     terminal_ys.push(cy);
                     terminal_xs.push(cx);
+                    terminal_points.push((cx, cy));
                 }
                 shapes.push(SvgShape::Circle {
                     cx,
@@ -494,6 +513,8 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
         _ => 3,
     });
 
+    let normalized_scale = calculate_normalized_scale(&terminal_points, is_cade_svg);
+
     Ok(ParsedSvgSymbol {
         view_box,
         shapes,
@@ -503,7 +524,93 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
         max_term_x,
         is_cade_svg,
         is_qet_native,
+        normalized_scale,
     })
+}
+
+/// Calcula a escala normalizada isotrópica para que a distância entre bornes adjacentes
+/// obedeça à regra rígida de 6.0 unidades CADe (4 mm / 48 px a 300 DPI / 1 módulo do grid).
+pub fn calculate_normalized_scale(term_points: &[(f32, f32)], is_cade_svg: bool) -> f32 {
+    if is_cade_svg {
+        // Se já está padronizado para 48 px entre bornes (300 DPI), a escala é 1:8 (0.125 = 6.0 / 48.0).
+        // Se for arquivo legado com 30 px, a escala é 1:5 (0.20 = 6.0 / 30.0).
+        for i in 0..term_points.len() {
+            for j in (i + 1)..term_points.len() {
+                let dx = (term_points[i].0 - term_points[j].0).abs();
+                let dy = (term_points[i].1 - term_points[j].1).abs();
+                if dy <= 2.5 && dx >= 20.0 {
+                    if (dx - 48.0).abs() < 5.0 {
+                        return 0.125;
+                    } else if (dx - 30.0).abs() < 5.0 {
+                        return 0.20;
+                    }
+                }
+            }
+        }
+        return 0.125; // Padrão padronizado 48 px (1 CADe unit = 8.0 px)
+    }
+
+    // Deduplica terminais sobrepostos (< 0.5 px)
+    let mut unique_terms: Vec<(f32, f32)> = Vec::new();
+    for &pt in term_points {
+        if !unique_terms
+            .iter()
+            .any(|u| (u.0 - pt.0).abs() < 0.5 && (u.1 - pt.1).abs() < 0.5)
+        {
+            unique_terms.push(pt);
+        }
+    }
+
+    if unique_terms.len() < 2 {
+        return 0.30; // Padrão base QET (20 px -> 6.0 unidades) ou blocos sem bornes
+    }
+
+    // 1. Procura pares horizontais de bornes (mesmo nível Y, fases adjacentes L1/L2/L3 ou 1/3/5)
+    let mut min_dx = f32::MAX;
+    for i in 0..unique_terms.len() {
+        for j in (i + 1)..unique_terms.len() {
+            let dx = (unique_terms[i].0 - unique_terms[j].0).abs();
+            let dy = (unique_terms[i].1 - unique_terms[j].1).abs();
+            if dy <= 2.5 && dx >= 5.0 && dx < min_dx {
+                min_dx = dx;
+            }
+        }
+    }
+
+    if min_dx < 1e7 {
+        if min_dx >= 15.0 {
+            return crate::model::GRID_MODULE_UNITS / min_dx;
+        } else {
+            // Passo de sub-grid (ex: 24 px -> 3.0 unidades CADe)
+            return crate::model::SUB_GRID_UNITS / min_dx.max(1.0);
+        }
+    }
+
+    // 2. Procura pares verticais de bornes (mesma coluna X, ex: bobinas A1-A2, contatos simples)
+    let mut min_dy = f32::MAX;
+    for i in 0..unique_terms.len() {
+        for j in (i + 1)..unique_terms.len() {
+            let dx = (unique_terms[i].0 - unique_terms[j].0).abs();
+            let dy = (unique_terms[i].1 - unique_terms[j].1).abs();
+            if dx <= 2.5 && dy >= 8.0 && dy < min_dy {
+                min_dy = dy;
+            }
+        }
+    }
+
+    if min_dy < 1e7 {
+        if (min_dy - 48.0).abs() <= 5.0 {
+            return crate::model::GRID_MODULE_UNITS / 48.0;
+        } else if (min_dy - 96.0).abs() <= 5.0 {
+            return (crate::model::GRID_MODULE_UNITS * 2.0) / 96.0;
+        } else if min_dy >= 35.0 {
+            return (crate::model::GRID_MODULE_UNITS * 2.0) / min_dy;
+        } else if min_dy >= 15.0 {
+            return crate::model::GRID_MODULE_UNITS / min_dy;
+        }
+    }
+
+    0.125
 }
 
 pub fn parse_svg_fill_attr(fill_opt: Option<&str>) -> SvgFill {

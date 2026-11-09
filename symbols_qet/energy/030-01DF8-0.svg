@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-28.0 -18.0 50.0 30.0" data-name="PEX pipe">
+<svg xmlns="http://www.w3.org/2000/svg" width="77.4" height="46.5" viewBox="-43.4 -27.9 77.4 46.5" data-name="PEX pipe" data-standard="48px">
   <title>PEX pipe</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-18,-5 12,-5 12,5 -20,5" stroke="#d40000" fill="#d40000" />
-    <text x="-15.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PER</text>
-    <circle class="qet-terminal" cx="12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-27.87,-7.74 18.58,-7.74 18.58,7.74 -30.97,7.74" stroke="#d40000" fill="#d40000" />
+    <text x="-23.23" y="4.65" font-size="13.9" font-family="sans-serif" fill="black" stroke="none">PER</text>
+    <circle class="qet-terminal" cx="18.58" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-29.42" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

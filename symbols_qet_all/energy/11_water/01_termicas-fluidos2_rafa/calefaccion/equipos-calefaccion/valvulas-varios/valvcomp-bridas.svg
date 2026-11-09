@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -28.0 40.0 40.0" data-name="valvcomp-bridas">
+<svg xmlns="http://www.w3.org/2000/svg" width="106.7" height="106.7" viewBox="-53.3 -74.7 106.7 106.7" data-name="valvcomp-bridas" data-standard="48px">
   <title>valvcomp-bridas</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="5.12" y1="-3.54" x2="5.12" y2="-8.29" stroke="black" fill="none" />
-    <rect x="-8.54" y="-5.77" width="0.55" height="11.80" stroke="black" fill="none" />
-    <path d="M 5.27 -10.30 A 5.08 3.76 0 0 0 -4.90 -10.30" stroke="black" fill="none" />
-    <rect x="5.26" y="-3.74" width="2.36" height="7.77" stroke="black" fill="none" />
-    <path d="M -4.90 4.64 A 5.08 3.76 0 0 0 5.27 4.64" stroke="black" fill="none" />
-    <rect x="-2.45" y="-19.58" width="4.90" height="1.88" stroke="black" fill="none" />
-    <rect x="-8.45" y="-24.64" width="17.16" height="1.13" stroke="black" fill="none" />
-    <rect x="-0.69" y="-23.51" width="1.40" height="3.93" stroke="black" fill="none" />
-    <rect x="-7.82" y="-3.41" width="2.92" height="7.44" stroke="black" fill="none" />
-    <line x1="-1.00" y1="-19.58" x2="-1.00" y2="-18.07" stroke="black" fill="none" />
-    <line x1="1.41" y1="-19.58" x2="1.41" y2="-18.07" stroke="black" fill="none" />
-    <rect x="-2.38" y="-17.52" width="4.94" height="3.64" stroke="black" fill="none" />
-    <line x1="-4.82" y1="-3.54" x2="-4.82" y2="-8.29" stroke="black" fill="none" />
-    <rect x="-6.66" y="-10.06" width="13.15" height="1.27" stroke="black" fill="none" />
-    <rect x="7.51" y="-5.77" width="0.55" height="11.80" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-9.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="9.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="13.65" y1="-9.44" x2="13.65" y2="-22.11" stroke="black" fill="none" />
+    <rect x="-22.77" y="-15.39" width="1.47" height="31.47" stroke="black" fill="none" />
+    <path d="M 14.05 -27.47 A 13.55 10.03 0 0 0 -13.07 -27.47" stroke="black" fill="none" />
+    <rect x="14.03" y="-9.97" width="6.29" height="20.72" stroke="black" fill="none" />
+    <path d="M -13.07 12.37 A 13.55 10.03 0 0 0 14.05 12.37" stroke="black" fill="none" />
+    <rect x="-6.53" y="-52.21" width="13.07" height="5.01" stroke="black" fill="none" />
+    <rect x="-22.53" y="-65.71" width="45.76" height="3.01" stroke="black" fill="none" />
+    <rect x="-1.84" y="-62.69" width="3.73" height="10.48" stroke="black" fill="none" />
+    <rect x="-20.85" y="-9.09" width="7.79" height="19.84" stroke="black" fill="none" />
+    <line x1="-2.67" y1="-52.21" x2="-2.67" y2="-48.19" stroke="black" fill="none" />
+    <line x1="3.76" y1="-52.21" x2="3.76" y2="-48.19" stroke="black" fill="none" />
+    <rect x="-6.35" y="-46.72" width="13.17" height="9.71" stroke="black" fill="none" />
+    <line x1="-12.85" y1="-9.44" x2="-12.85" y2="-22.11" stroke="black" fill="none" />
+    <rect x="-17.76" y="-26.83" width="35.07" height="3.39" stroke="black" fill="none" />
+    <rect x="20.03" y="-15.39" width="1.47" height="31.47" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

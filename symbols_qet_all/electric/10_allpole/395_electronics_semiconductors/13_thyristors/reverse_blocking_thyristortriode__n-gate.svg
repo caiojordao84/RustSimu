@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-7.0 -30.0 40.0 50.0" data-name="Reverse blocking Thyristortriode, N-Gate">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="120.0" viewBox="-16.8 -72.0 96.0 120.0" data-name="Reverse blocking Thyristortriode, N-Gate" data-standard="48px">
   <title>Reverse blocking Thyristortriode, N-Gate</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="0,-20 10,-20 16,-10" stroke="black" fill="none" />
-    <polygon points="25,-10 20,0 30,0" stroke="black" fill="none" />
-    <polygon points="10,-10 20,-10 15,0" stroke="black" fill="none" />
-    <polyline points="20,-20 20,-10 30,-10" stroke="black" fill="none" />
-    <polyline points="10,0 20,0 20,10" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="0.00,-48.00 24.00,-48.00 38.40,-24.00" stroke="black" fill="none" />
+    <polygon points="60.00,-24.00 48.00,0.00 72.00,0.00" stroke="black" fill="none" />
+    <polygon points="24.00,-24.00 48.00,-24.00 36.00,0.00" stroke="black" fill="none" />
+    <polyline points="48.00,-48.00 48.00,-24.00 72.00,-24.00" stroke="black" fill="none" />
+    <polyline points="24.00,0.00 48.00,0.00 48.00,24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="20.0" viewBox="-9.0 -9.0 20.0 20.0" data-name="Cap 15">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="48.0" viewBox="-21.6 -21.6 48.0 48.0" data-name="Cap 15" data-standard="48px">
   <title>Cap 15</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 6.95 -3.86 A 1.10 1.00 0 0 0 5.85 -4.86" stroke="black" fill="none" />
-    <path d="M 5.85 6.14 A 1.10 1.00 0 0 0 6.95 5.14" stroke="black" fill="none" />
-    <line x1="7.00" y1="-3.00" x2="7.00" y2="5.26" stroke="black" fill="none" />
-    <polyline points="5.55,-4.86 0.55,-4.86 0.55,6.14 5.55,6.14" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 16.68 -9.26 A 2.64 2.40 0 0 0 14.04 -11.66" stroke="black" fill="none" />
+    <path d="M 14.04 14.74 A 2.64 2.40 0 0 0 16.68 12.34" stroke="black" fill="none" />
+    <line x1="16.80" y1="-7.20" x2="16.80" y2="12.62" stroke="black" fill="none" />
+    <polyline points="13.32,-11.66 1.32,-11.66 1.32,14.74 13.32,14.74" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

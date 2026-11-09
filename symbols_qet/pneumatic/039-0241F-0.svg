@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-21.0 -20.0 50.0 30.0" data-name="swivel cylinder">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="72.0" viewBox="-50.4 -48.0 120.0 72.0" data-name="swivel cylinder" data-standard="48px">
   <title>swivel cylinder</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 15.48 -0.20 A 10.00 10.00 0 0 0 15.83 -10.19" stroke="black" fill="none" />
-    <line x1="10.00" y1="-4.00" x2="22.00" y2="-4.00" stroke="black" fill="none" />
-    <polygon points="0,-2 4,0 0,2" stroke="black" fill="none" />
-    <line x1="0.00" y1="-15.00" x2="0.00" y2="4.00" stroke="black" fill="none" />
-    <polygon points="0,-12 4,-10 0,-8" stroke="black" fill="none" />
-    <path d="M -0.00 4.50 A 10.00 10.00 0 0 0 0.00 -15.50" stroke="black" fill="none" />
-    <polygon points="12.78,-13.33 14.83,-9.3 17,-11" stroke="black" fill="black" />
-    <polygon points="12.65,2.94 14.56,-1.16 16.91,0.58" stroke="black" fill="black" />
-    <line x1="0.00" y1="-10.00" x2="-5.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="0.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-6.00" x2="22.00" y2="-6.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 37.15 -0.48 A 24.00 24.00 0 0 0 37.99 -24.46" stroke="black" fill="none" />
+    <line x1="24.00" y1="-9.60" x2="52.80" y2="-9.60" stroke="black" fill="none" />
+    <polygon points="0.00,-4.80 9.60,0.00 0.00,4.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="-36.00" x2="0.00" y2="9.60" stroke="black" fill="none" />
+    <polygon points="0.00,-28.80 9.60,-24.00 0.00,-19.20" stroke="black" fill="none" />
+    <path d="M -0.00 10.80 A 24.00 24.00 0 0 0 0.00 -37.20" stroke="black" fill="none" />
+    <polygon points="30.67,-31.99 35.59,-22.32 40.80,-26.40" stroke="black" fill="black" />
+    <polygon points="30.36,7.06 34.94,-2.78 40.58,1.39" stroke="black" fill="black" />
+    <line x1="0.00" y1="-24.00" x2="-12.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="0.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-14.40" x2="52.80" y2="-14.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

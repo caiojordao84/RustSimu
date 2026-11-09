@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-20.0 -25.0 50.0 40.0" data-name="bote-sigonico">
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="80.0" viewBox="-40.0 -50.0 100.0 80.0" data-name="bote-sigonico" data-standard="48px">
   <title>bote-sigonico</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="1.50" cy="-11.00" rx="3.50" ry="3.00" stroke="black" fill="none" />
-    <rect x="10.00" y="-13.00" width="9.00" height="5.00" stroke="black" fill="none" />
-    <rect x="10.00" y="-3.00" width="3.00" height="6.00" stroke="black" fill="none" />
-    <rect x="-9.00" y="-18.00" width="22.00" height="2.00" stroke="black" fill="none" />
-    <rect x="-6.00" y="-16.00" width="16.00" height="23.00" stroke="black" fill="none" />
-    <rect x="-9.00" y="-3.00" width="3.00" height="6.00" stroke="black" fill="none" />
-    <ellipse cx="1.50" cy="0.00" rx="3.50" ry="3.00" stroke="black" fill="none" />
-    <rect x="-9.00" y="-13.00" width="3.00" height="5.00" stroke="black" fill="none" />
-    <polyline points="11,-10 17,-10 14,-11 14,-9 17,-10" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="1.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="1.00" cy="-14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="3.00" cy="-22.00" rx="7.00" ry="6.00" stroke="black" fill="none" />
+    <rect x="20.00" y="-26.00" width="18.00" height="10.00" stroke="black" fill="none" />
+    <rect x="20.00" y="-6.00" width="6.00" height="12.00" stroke="black" fill="none" />
+    <rect x="-18.00" y="-36.00" width="44.00" height="4.00" stroke="black" fill="none" />
+    <rect x="-12.00" y="-32.00" width="32.00" height="46.00" stroke="black" fill="none" />
+    <rect x="-18.00" y="-6.00" width="6.00" height="12.00" stroke="black" fill="none" />
+    <ellipse cx="3.00" cy="0.00" rx="7.00" ry="6.00" stroke="black" fill="none" />
+    <rect x="-18.00" y="-26.00" width="6.00" height="10.00" stroke="black" fill="none" />
+    <polyline points="22.00,-20.00 34.00,-20.00 28.00,-22.00 28.00,-18.00 34.00,-20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="28.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="2.00" cy="8.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="40.00" cy="-20.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="2.00" cy="-28.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

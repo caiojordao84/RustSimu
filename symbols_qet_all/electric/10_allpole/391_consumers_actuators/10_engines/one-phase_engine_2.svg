@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="70.0" viewBox="-31.0 -29.0 50.0 70.0" data-name="One-phase engine">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="168.0" viewBox="-74.4 -69.6 120.0 168.0" data-name="One-phase engine" data-standard="48px">
   <title>One-phase engine</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-10.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <ellipse cx="0.00" cy="10.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-19.00" x2="5.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-4.75" y1="-19.00" x2="-4.75" y2="-5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="5.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-5.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-24.00" y="45.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <ellipse cx="0.00" cy="24.00" rx="36.00" ry="36.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-45.60" x2="12.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-11.40" y1="-45.60" x2="-11.40" y2="-12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-12.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

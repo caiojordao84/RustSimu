@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -20.0 60.0 30.0" data-name="llave-corte-aut">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="36.0" viewBox="-36.0 -24.0 72.0 36.0" data-name="llave-corte-aut" data-standard="48px">
   <title>llave-corte-aut</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="10.00" y1="0.00" x2="19.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="-10,-5 10,5 10,-5 -10,5" stroke="black" fill="none" />
-    <rect x="-4.00" y="-15.00" width="8.00" height="7.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-8.00" x2="0.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-11.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12.00" y1="0.00" x2="22.80" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-12.00,-6.00 12.00,6.00 12.00,-6.00 -12.00,6.00" stroke="black" fill="none" />
+    <rect x="-4.80" y="-18.00" width="9.60" height="8.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="-9.60" x2="0.00" y2="-1.20" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="-13.20" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="70.0" viewBox="-47.0 -40.0 70.0 70.0" data-name="Pool solar capturator">
+<svg xmlns="http://www.w3.org/2000/svg" width="61.1" height="61.1" viewBox="-41.0 -34.9 61.1 61.1" data-name="Pool solar capturator" data-standard="48px">
   <title>Pool solar capturator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-35.58" y="-27.95" width="46.90" height="46.33" stroke="black" fill="black" />
-    <rect x="-39.50" y="18.92" width="2.52" height="2.39" stroke="black" fill="none" />
-    <rect x="12.67" y="18.92" width="2.65" height="2.39" stroke="black" fill="none" />
-    <line x1="-17.73" y1="-27.22" x2="-17.73" y2="16.93" stroke="white" fill="white" />
-    <line x1="-12.48" y1="-27.22" x2="-12.48" y2="16.93" stroke="white" fill="white" />
-    <text x="-26.48" y="17.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Captador 2,5x1</text>
-    <line x1="-23.00" y1="-27.22" x2="-23.00" y2="16.93" stroke="white" fill="white" />
-    <rect x="-36.28" y="18.37" width="48.51" height="3.63" stroke="black" fill="none" />
-    <line x1="-7.23" y1="-27.22" x2="-7.23" y2="16.93" stroke="white" fill="white" />
-    <line x1="3.27" y1="-27.22" x2="3.27" y2="16.93" stroke="white" fill="white" />
-    <line x1="8.52" y1="-27.22" x2="8.52" y2="16.93" stroke="white" fill="white" />
-    <line x1="-2.00" y1="-27.22" x2="-2.00" y2="16.93" stroke="white" fill="white" />
-    <line x1="-28.23" y1="-27.22" x2="-28.23" y2="16.93" stroke="white" fill="white" />
-    <line x1="13.77" y1="-27.22" x2="13.77" y2="16.93" stroke="white" fill="white" />
-    <rect x="-40.20" y="-31.00" width="2.52" height="2.39" stroke="black" fill="none" />
-    <rect x="12.00" y="-31.00" width="2.65" height="2.39" stroke="black" fill="none" />
-    <rect x="-37.00" y="-31.58" width="48.51" height="3.63" stroke="black" fill="none" />
-    <line x1="-33.48" y1="-27.22" x2="-33.48" y2="16.93" stroke="white" fill="white" />
-    <circle class="qet-terminal" cx="-40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="15.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="15.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-31.05" y="-24.39" width="40.93" height="40.43" stroke="black" fill="black" />
+    <rect x="-34.47" y="16.51" width="2.20" height="2.09" stroke="black" fill="none" />
+    <rect x="11.06" y="16.51" width="2.31" height="2.09" stroke="black" fill="none" />
+    <line x1="-15.47" y1="-23.76" x2="-15.47" y2="14.78" stroke="white" fill="white" />
+    <line x1="-10.89" y1="-23.76" x2="-10.89" y2="14.78" stroke="white" fill="white" />
+    <text x="-23.11" y="15.12" font-size="7.9" font-family="sans-serif" fill="black" stroke="none">Captador 2,5x1</text>
+    <line x1="-20.07" y1="-23.76" x2="-20.07" y2="14.78" stroke="white" fill="white" />
+    <rect x="-31.66" y="16.03" width="42.34" height="3.17" stroke="black" fill="none" />
+    <line x1="-6.31" y1="-23.76" x2="-6.31" y2="14.78" stroke="white" fill="white" />
+    <line x1="2.85" y1="-23.76" x2="2.85" y2="14.78" stroke="white" fill="white" />
+    <line x1="7.44" y1="-23.76" x2="7.44" y2="14.78" stroke="white" fill="white" />
+    <line x1="-1.75" y1="-23.76" x2="-1.75" y2="14.78" stroke="white" fill="white" />
+    <line x1="-24.64" y1="-23.76" x2="-24.64" y2="14.78" stroke="white" fill="white" />
+    <line x1="12.02" y1="-23.76" x2="12.02" y2="14.78" stroke="white" fill="white" />
+    <rect x="-35.08" y="-27.05" width="2.20" height="2.09" stroke="black" fill="none" />
+    <rect x="10.47" y="-27.05" width="2.31" height="2.09" stroke="black" fill="none" />
+    <rect x="-32.29" y="-27.56" width="42.34" height="3.17" stroke="black" fill="none" />
+    <line x1="-29.22" y1="-23.76" x2="-29.22" y2="14.78" stroke="white" fill="white" />
+    <circle class="qet-terminal" cx="-34.91" cy="-26.18" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="13.09" cy="-26.18" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-34.91" cy="17.45" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="13.09" cy="17.45" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

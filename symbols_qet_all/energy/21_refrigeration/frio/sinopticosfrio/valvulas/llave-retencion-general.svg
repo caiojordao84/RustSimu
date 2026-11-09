@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-20.0 -10.0 40.0 20.0" data-name="llave-retencion-general">
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="40.0" viewBox="-40.0 -20.0 80.0 40.0" data-name="llave-retencion-general" data-standard="48px">
   <title>llave-retencion-general</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-11.31" y1="0.00" x2="-6.35" y2="0.00" stroke="black" fill="none" />
-    <line x1="7.30" y1="0.00" x2="11.93" y2="0.00" stroke="black" fill="none" />
-    <ellipse cx="-5.50" cy="-4.50" rx="1.50" ry="1.50" stroke="black" fill="black" />
-    <polyline points="-6,5 -6,-5 7,5 7,-5" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-22.62" y1="0.00" x2="-12.70" y2="0.00" stroke="black" fill="none" />
+    <line x1="14.60" y1="0.00" x2="23.86" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="-11.00" cy="-9.00" rx="3.00" ry="3.00" stroke="black" fill="black" />
+    <polyline points="-12.00,10.00 -12.00,-10.00 14.00,10.00 14.00,-10.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

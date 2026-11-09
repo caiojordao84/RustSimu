@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="140.0" viewBox="-56.0 -61.0 120.0 140.0" data-name="Current transformer with two secondary windings on one core">
+<svg xmlns="http://www.w3.org/2000/svg" width="51.9" height="60.5" viewBox="-24.2 -26.4 51.9 60.5" data-name="Current transformer with two secondary windings on one core" data-standard="48px">
   <title>Current transformer with two secondary windings on one core</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="1.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="70.00" stroke="black" fill="none" />
-    <text x="-44.00" y="-50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
-    <ellipse cx="0.00" cy="30.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="0.00" x2="60.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="30.00" x2="60.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="10.00" x2="45.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="10.00" x2="50.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="40.00" x2="45.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="40.00" x2="50.00" y2="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="71.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.43" rx="8.65" ry="8.65" stroke="black" fill="none" />
+    <line x1="0.00" y1="-17.30" x2="0.00" y2="30.27" stroke="black" fill="none" />
+    <text x="-19.03" y="-21.62" font-size="3.9" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
+    <ellipse cx="0.00" cy="12.97" rx="8.65" ry="8.65" stroke="black" fill="none" />
+    <line x1="8.65" y1="0.00" x2="25.95" y2="0.00" stroke="black" fill="none" />
+    <line x1="8.65" y1="12.97" x2="25.95" y2="12.97" stroke="black" fill="none" />
+    <line x1="15.14" y1="4.32" x2="19.46" y2="-4.32" stroke="black" fill="none" />
+    <line x1="17.30" y1="4.32" x2="21.62" y2="-4.32" stroke="black" fill="none" />
+    <line x1="15.14" y1="17.30" x2="19.46" y2="8.65" stroke="black" fill="none" />
+    <line x1="17.30" y1="17.30" x2="21.62" y2="8.65" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="30.70" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-17.30" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

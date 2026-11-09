@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="-25 -10 80 80" data-generator="cade2svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="128.0" height="128.0" viewBox="-40.0 -16.0 128.0 128.0" data-generator="cade2svg">
   <title>Sirene / Alarme Sonoro (Buzzer) (Ativo)</title>
-  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-10,20 10,20 10,40 -10,40" fill="#fee2e2" />
-    <polygon points="10,27 33,22 43,38 10,33" fill="#fee2e2" />
-    <line x1="0" y1="0" x2="0" y2="20" />
-    <line x1="0" y1="40" x2="0" y2="60" />
-    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="X1" />
-    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="X2" />
+  <g stroke="#dc2626" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-16.0,32.0 16.0,32.0 16.0,64.0 -16.0,64.0" fill="#fee2e2" />
+    <polygon points="16.0,43.2 52.8,35.2 68.8,60.8 16.0,52.8" fill="#fee2e2" />
+    <line x1="0.0" y1="0.0" x2="0.0" y2="32.0" />
+    <line x1="0.0" y1="64.0" x2="0.0" y2="96.0" />
+    <circle class="qet-terminal" cx="0.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="X1" />
+    <circle class="qet-terminal" cx="0.0" cy="96.0" r="4.0" fill="#dc2626" stroke="none" data-label="X2" />
   </g>
 </svg>

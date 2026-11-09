@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="80.0" viewBox="-9.0 -40.0 30.0 80.0" data-name="Air_Circuit_Breaker">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="192.0" viewBox="-21.6 -96.0 72.0 192.0" data-name="Air_Circuit_Breaker" data-standard="48px">
   <title>Air_Circuit_Breaker</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="7.00" y1="1.50" x2="15.00" y2="-2.50" stroke="black" fill="none" />
-    <line x1="7.00" y1="4.50" x2="16.00" y2="0.50" stroke="black" fill="none" />
-    <line x1="0.00" y1="31.60" x2="0.00" y2="26.37" stroke="black" fill="none" />
-    <path d="M 5.00 11.50 A 8.00 11.50 0 0 0 5.00 -11.50" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.35" x2="0.00" y2="23.70" stroke="black" fill="none" />
-    <line x1="0.00" y1="-23.65" x2="0.00" y2="-10.30" stroke="black" fill="none" />
-    <polyline points="-3,-23 0,-26 3,-23" stroke="black" fill="none" />
-    <polyline points="-3,23 0,26 3,23" stroke="black" fill="none" />
-    <line x1="0.00" y1="-26.40" x2="0.00" y2="-31.63" stroke="black" fill="none" />
-    <path d="M 3.50 11.50 A 6.50 11.50 0 0 0 3.50 -11.50" stroke="black" fill="none" />
-    <line x1="7.00" y1="-1.50" x2="15.00" y2="-5.50" stroke="black" fill="none" />
-    <text x="8.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ACB</text>
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="16.80" y1="3.60" x2="36.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="16.80" y1="10.80" x2="38.40" y2="1.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="75.84" x2="0.00" y2="63.29" stroke="black" fill="none" />
+    <path d="M 12.00 27.60 A 19.20 27.60 0 0 0 12.00 -27.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.84" x2="0.00" y2="56.88" stroke="black" fill="none" />
+    <line x1="0.00" y1="-56.76" x2="0.00" y2="-24.72" stroke="black" fill="none" />
+    <polyline points="-7.20,-55.20 0.00,-62.40 7.20,-55.20" stroke="black" fill="none" />
+    <polyline points="-7.20,55.20 0.00,62.40 7.20,55.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-63.36" x2="0.00" y2="-75.91" stroke="black" fill="none" />
+    <path d="M 8.40 27.60 A 15.60 27.60 0 0 0 8.40 -27.60" stroke="black" fill="none" />
+    <line x1="16.80" y1="-3.60" x2="36.00" y2="-13.20" stroke="black" fill="none" />
+    <text x="19.20" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ACB</text>
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

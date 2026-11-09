@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="60.0" viewBox="-12.0 -33.0 20.0 60.0" data-name="Fuse holder">
+<svg xmlns="http://www.w3.org/2000/svg" width="32.0" height="96.0" viewBox="-19.2 -52.8 32.0 96.0" data-name="Fuse holder" data-standard="48px">
   <title>Fuse holder</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="2.83,8.87 -2.92,10.88 -8.77,-6.82 -3.14,-8.81" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-10.00" x2="3.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
-    <polyline points="-5.9,-7.8 0,10 0,15" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="4.53,14.19 -4.67,17.41 -14.03,-10.91 -5.02,-14.10" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-16.00" x2="4.80" y2="-16.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-16.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <polyline points="-9.44,-12.48 0.00,16.00 0.00,24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

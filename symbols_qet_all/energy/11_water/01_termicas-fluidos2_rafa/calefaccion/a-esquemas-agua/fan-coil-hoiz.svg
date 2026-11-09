@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-13.0 -22.0 50.0 40.0" data-name="fan-coil-hoiz">
+<svg xmlns="http://www.w3.org/2000/svg" width="92.3" height="73.8" viewBox="-24.0 -40.6 92.3 73.8" data-name="fan-coil-hoiz" data-standard="48px">
   <title>fan-coil-hoiz</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-0.95" rx="4.00" ry="3.71" stroke="black" fill="none" />
-    <polyline points="0,-8.35 11.5,-8.35 11.5,-2.33 8,-2.33" stroke="black" fill="none" />
-    <path d="M 0.28 -8.35 A 8.00 7.17 0 1 0 7.92 -2.17" stroke="black" fill="none" />
-    <rect x="15.00" y="-12.00" width="11.00" height="21.00" stroke="black" fill="none" />
-    <polyline points="20,-16 20,-10 25,-9 16,-5 25,-3 15,1 26,3 16,6 21,7 21,12" stroke="black" fill="none" />
-    <rect x="-9.00" y="-12.00" width="42.00" height="21.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-2.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="21.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-1.75" rx="7.38" ry="6.85" stroke="black" fill="none" />
+    <polyline points="0.00,-15.42 21.23,-15.42 21.23,-4.30 14.77,-4.30" stroke="black" fill="none" />
+    <path d="M 0.52 -15.42 A 14.77 13.24 0 1 0 14.62 -4.01" stroke="black" fill="none" />
+    <rect x="27.69" y="-22.15" width="20.31" height="38.77" stroke="black" fill="none" />
+    <polyline points="36.92,-29.54 36.92,-18.46 46.15,-16.62 29.54,-9.23 46.15,-5.54 27.69,1.85 48.00,5.54 29.54,11.08 38.77,12.92 38.77,22.15" stroke="black" fill="none" />
+    <rect x="-16.62" y="-22.15" width="77.54" height="38.77" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-3.69" cy="-18.46" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="36.92" cy="-27.69" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="38.77" cy="20.31" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

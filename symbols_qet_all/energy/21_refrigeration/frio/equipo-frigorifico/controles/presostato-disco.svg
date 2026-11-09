@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-21.0 -29.0 50.0 60.0" data-name="presostato-disco">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="144.0" viewBox="-50.4 -69.6 120.0 144.0" data-name="presostato-disco" data-standard="48px">
   <title>presostato-disco</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-3.00" y1="19.00" x2="8.00" y2="18.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="17.00" x2="8.00" y2="16.00" stroke="black" fill="none" />
-    <rect x="-3.00" y="12.00" width="11.00" height="9.00" stroke="black" fill="none" />
-    <rect x="-16.00" y="-2.00" width="37.00" height="14.00" stroke="black" fill="white" />
-    <rect x="-16.00" y="-10.00" width="37.00" height="8.00" stroke="black" fill="none" />
-    <rect x="-8.00" y="-24.00" width="24.00" height="14.00" stroke="black" fill="none" />
-    <rect x="17.00" y="-21.00" width="2.00" height="6.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="15.00" x2="8.00" y2="14.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="19.00" cy="-18.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="2.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-7.20" y1="45.60" x2="19.20" y2="43.20" stroke="black" fill="none" />
+    <line x1="-7.20" y1="40.80" x2="19.20" y2="38.40" stroke="black" fill="none" />
+    <rect x="-7.20" y="28.80" width="26.40" height="21.60" stroke="black" fill="none" />
+    <rect x="-38.40" y="-4.80" width="88.80" height="33.60" stroke="black" fill="white" />
+    <rect x="-38.40" y="-24.00" width="88.80" height="19.20" stroke="black" fill="none" />
+    <rect x="-19.20" y="-57.60" width="57.60" height="33.60" stroke="black" fill="none" />
+    <rect x="40.80" y="-50.40" width="4.80" height="14.40" stroke="black" fill="none" />
+    <line x1="-7.20" y1="36.00" x2="19.20" y2="33.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="45.60" cy="-43.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="4.80" cy="50.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

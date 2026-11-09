@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="80.0" viewBox="-25.0 -50.0 50.0 80.0" data-name="Gas discharge tube with thermal element">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="192.0" viewBox="-60.0 -120.0 120.0 192.0" data-name="Gas discharge tube with thermal element" data-standard="48px">
   <title>Gas discharge tube with thermal element</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-10.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="0.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
-    <polyline points="-8,-23 -6,-17 -11,-15 -9,-10 -4,-12 0,0" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="-96.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-24.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="0.00" rx="4.80" ry="4.80" stroke="black" fill="black" />
+    <polyline points="-19.20,-55.20 -14.40,-40.80 -26.40,-36.00 -21.60,-24.00 -9.60,-28.80 0.00,0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

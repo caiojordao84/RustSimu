@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-26.0 -31.0 40.0 60.0" data-name="Contact NC-controlled clock">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-31.2 -37.2 48.0 72.0" data-name="Contact NC-controlled clock" data-standard="48px">
   <title>Contact NC-controlled clock</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-15.00" cy="0.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="3.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <polyline points="0,20 0,10 6,-10" stroke="black" fill="none" />
-    <line x1="0.00" y1="-9.00" x2="7.00" y2="-9.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-9.00" stroke="black" fill="none" />
-    <polyline points="-19,0 -15,0 -15,-4" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-18.00" cy="0.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="0.00" x2="3.60" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="0.00,24.00 0.00,12.00 7.20,-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.80" x2="8.40" y2="-10.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-10.80" stroke="black" fill="none" />
+    <polyline points="-22.80,0.00 -18.00,0.00 -18.00,-4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

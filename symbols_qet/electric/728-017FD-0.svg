@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -45.0 50.0 50.0" data-name="Synchronoscope">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -108.0 120.0 120.0" data-name="Synchronoscope" data-standard="48px">
   <title>Synchronoscope</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-20.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-5.00" x2="0.00" y2="-35.00" stroke="black" fill="none" />
-    <path d="M 12.37 -30.37 A 17.50 17.50 0 0 0 -12.37 -30.37" stroke="black" fill="none" />
-    <polygon points="-13,-30 -11,-33 -10,-31" stroke="black" fill="none" />
-    <polygon points="11,-33 13,-30 10,-31" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-48.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-12.00" x2="0.00" y2="-84.00" stroke="black" fill="none" />
+    <path d="M 29.69 -72.89 A 42.00 42.00 0 0 0 -29.69 -72.89" stroke="black" fill="none" />
+    <polygon points="-31.20,-72.00 -26.40,-79.20 -24.00,-74.40" stroke="black" fill="none" />
+    <polygon points="26.40,-79.20 31.20,-72.00 24.00,-74.40" stroke="black" fill="none" />
   </g>
 </svg>

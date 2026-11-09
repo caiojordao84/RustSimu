@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="810.0" height="60.0" viewBox="-5.0 -11.0 810.0 60.0" data-name="CD20 zoom input board">
+<svg xmlns="http://www.w3.org/2000/svg" width="972.0" height="72.0" viewBox="-6.0 -13.2 972.0 72.0" data-name="CD20 zoom input board" data-standard="48px">
   <title>CD20 zoom input board</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="690.00" y1="10.00" x2="690.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="360.00" y1="10.00" x2="360.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="740.00" y1="10.00" x2="740.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="540.00" y1="10.00" x2="540.00" y2="0.00" stroke="black" fill="none" />
-    <text x="384.00" y="34.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CROUZET CD20 Carte entrées</text>
-    <line x1="410.00" y1="10.00" x2="410.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="590.00" y1="10.00" x2="590.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="490.00" y1="10.00" x2="490.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="640.00" y1="10.00" x2="640.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="10.00" x2="70.00" y2="0.00" stroke="black" fill="none" />
-    <text x="156.00" y="24.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I1              I2              I3              I4              I5              I6</text>
-    <rect x="0.00" y="0.00" width="800.00" height="40.00" stroke="black" fill="none" />
-    <text x="68.00" y="16.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="28.00" y="34.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24 VDC</text>
-    <text x="483.00" y="24.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> IB             IC              ID              IE             IF             IG</text>
-    <line x1="30.00" y1="10.00" x2="30.00" y2="0.00" stroke="black" fill="none" />
-    <text x="27.00" y="17.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <line x1="210.00" y1="10.00" x2="210.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="260.00" y1="10.00" x2="260.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="160.00" y1="10.00" x2="160.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="310.00" y1="10.00" x2="310.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="640.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="690.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="160.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="410.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="740.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="70.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="360.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="310.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="260.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="490.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="210.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="590.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="540.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="828.00" y1="12.00" x2="828.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="432.00" y1="12.00" x2="432.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="888.00" y1="12.00" x2="888.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="648.00" y1="12.00" x2="648.00" y2="0.00" stroke="black" fill="none" />
+    <text x="460.80" y="41.60" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">CROUZET CD20 Carte entrées</text>
+    <line x1="492.00" y1="12.00" x2="492.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="708.00" y1="12.00" x2="708.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="588.00" y1="12.00" x2="588.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="768.00" y1="12.00" x2="768.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="84.00" y1="12.00" x2="84.00" y2="0.00" stroke="black" fill="none" />
+    <text x="187.20" y="29.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">I1              I2              I3              I4              I5              I6</text>
+    <rect x="0.00" y="0.00" width="960.00" height="48.00" stroke="black" fill="none" />
+    <text x="81.60" y="20.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="33.60" y="41.60" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">24 VDC</text>
+    <text x="579.60" y="29.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none"> IB             IC              ID              IE             IF             IG</text>
+    <line x1="36.00" y1="12.00" x2="36.00" y2="0.00" stroke="black" fill="none" />
+    <text x="32.40" y="21.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <line x1="252.00" y1="12.00" x2="252.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="312.00" y1="12.00" x2="312.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="192.00" y1="12.00" x2="192.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="372.00" y1="12.00" x2="372.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="768.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="828.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="192.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="492.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="888.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="84.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="36.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="432.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="372.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="312.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="588.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="252.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="708.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="648.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -12.0 40.0 40.0" data-name="78xx">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-48.0 -28.8 96.0 96.0" data-name="78xx" data-standard="48px">
   <title>78xx</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-15.00" y="-10.00" width="30.00" height="20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="10.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="10.00" x2="10.00" y2="20.00" stroke="black" fill="none" />
-    <text x="-10.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">78xx</text>
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="V_in" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="V_out" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-36.00" y="-24.00" width="72.00" height="48.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="24.00" x2="-24.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="24.00" x2="24.00" y2="48.00" stroke="black" fill="none" />
+    <text x="-24.00" y="16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">78xx</text>
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="GND" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="V_in" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="V_out" data-orientation="s" />
   </g>
 </svg>

@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-30.0 -21.0 60.0 50.0" data-name="recuperador">
+<svg xmlns="http://www.w3.org/2000/svg" width="130.9" height="109.1" viewBox="-65.5 -45.8 130.9 109.1" data-name="recuperador" data-standard="48px">
   <title>recuperador</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-14.00" y="-16.00" width="28.00" height="16.00" stroke="black" fill="#0055d4" />
-    <line x1="5.44" y1="-6.00" x2="8.61" y2="-6.00" stroke="black" fill="none" />
-    <text x="20.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT</text>
-    <path d="M 5.00 -6.00 A 2.00 1.50 0 0 0 5.00 -3.00" stroke="black" fill="none" />
-    <path d="M 11.00 -1.50 A 2.00 1.50 0 0 0 9.00 -3.00" stroke="black" fill="none" />
-    <line x1="11.00" y1="19.00" x2="11.00" y2="9.00" stroke="black" fill="none" />
-    <line x1="27.00" y1="17.00" x2="27.00" y2="2.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-11.00" x2="10.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="-11.00" x2="6.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="8.00" y1="-11.00" x2="8.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="5.44" y1="-3.00" x2="8.61" y2="-3.00" stroke="black" fill="none" />
-    <line x1="-11.00" y1="19.00" x2="-11.00" y2="9.00" stroke="black" fill="none" />
-    <polygon points="7,3 15,3 7,9 15,9" stroke="black" fill="none" />
-    <polygon points="-15,3 -7,3 -15,9 -7,9" stroke="black" fill="none" />
-    <line x1="18.00" y1="6.00" x2="12.00" y2="6.00" stroke="black" fill="none" />
-    <line x1="-12.00" y1="6.00" x2="-18.00" y2="6.00" stroke="black" fill="none" />
-    <line x1="18.00" y1="3.00" x2="18.00" y2="9.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="3.00" x2="-19.00" y2="9.00" stroke="black" fill="none" />
-    <line x1="-11.00" y1="2.17" x2="-11.00" y2="-8.23" stroke="black" fill="none" />
-    <line x1="-11.00" y1="-9.00" x2="-7.00" y2="-9.00" stroke="black" fill="none" />
-    <ellipse cx="-2.00" cy="-9.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="-6.00" x2="2.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="-12.00" x2="1.00" y2="-11.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="-9.00" x2="8.00" y2="-9.00" stroke="black" fill="none" />
-    <path d="M 9.00 -6.00 A 2.00 1.50 0 0 0 9.00 -9.00" stroke="black" fill="none" />
-    <line x1="-24.00" y1="16.00" x2="-24.00" y2="1.00" stroke="black" fill="none" />
-    <line x1="11.00" y1="-1.00" x2="11.00" y2="2.00" stroke="black" fill="none" />
-    <line x1="4.00" y1="-11.00" x2="4.00" y2="-1.00" stroke="black" fill="none" />
-    <text x="-24.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN</text>
-    <circle class="qet-terminal" cx="-11.00" cy="19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="11.00" cy="19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-30.55" y="-34.91" width="61.09" height="34.91" stroke="black" fill="#0055d4" />
+    <line x1="11.87" y1="-13.09" x2="18.79" y2="-13.09" stroke="black" fill="none" />
+    <text x="43.64" y="-6.55" font-size="19.6" font-family="sans-serif" fill="black" stroke="none">OUT</text>
+    <path d="M 10.91 -13.09 A 4.36 3.27 0 0 0 10.91 -6.55" stroke="black" fill="none" />
+    <path d="M 24.00 -3.27 A 4.36 3.27 0 0 0 19.64 -6.55" stroke="black" fill="none" />
+    <line x1="24.00" y1="41.45" x2="24.00" y2="19.64" stroke="black" fill="none" />
+    <line x1="58.91" y1="37.09" x2="58.91" y2="4.36" stroke="black" fill="none" />
+    <line x1="21.82" y1="-24.00" x2="21.82" y2="-2.18" stroke="black" fill="none" />
+    <line x1="13.09" y1="-24.00" x2="13.09" y2="-2.18" stroke="black" fill="none" />
+    <line x1="17.45" y1="-24.00" x2="17.45" y2="-2.18" stroke="black" fill="none" />
+    <line x1="11.87" y1="-6.55" x2="18.79" y2="-6.55" stroke="black" fill="none" />
+    <line x1="-24.00" y1="41.45" x2="-24.00" y2="19.64" stroke="black" fill="none" />
+    <polygon points="15.27,6.55 32.73,6.55 15.27,19.64 32.73,19.64" stroke="black" fill="none" />
+    <polygon points="-32.73,6.55 -15.27,6.55 -32.73,19.64 -15.27,19.64" stroke="black" fill="none" />
+    <line x1="39.27" y1="13.09" x2="26.18" y2="13.09" stroke="black" fill="none" />
+    <line x1="-26.18" y1="13.09" x2="-39.27" y2="13.09" stroke="black" fill="none" />
+    <line x1="39.27" y1="6.55" x2="39.27" y2="19.64" stroke="black" fill="none" />
+    <line x1="-41.45" y1="6.55" x2="-41.45" y2="19.64" stroke="black" fill="none" />
+    <line x1="-24.00" y1="4.73" x2="-24.00" y2="-17.96" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-19.64" x2="-15.27" y2="-19.64" stroke="black" fill="none" />
+    <ellipse cx="-4.36" cy="-19.64" rx="8.73" ry="8.73" stroke="black" fill="none" />
+    <line x1="-8.73" y1="-13.09" x2="4.36" y2="-17.45" stroke="black" fill="none" />
+    <line x1="-8.73" y1="-26.18" x2="2.18" y2="-24.00" stroke="black" fill="none" />
+    <line x1="4.36" y1="-19.64" x2="17.45" y2="-19.64" stroke="black" fill="none" />
+    <path d="M 19.64 -13.09 A 4.36 3.27 0 0 0 19.64 -19.64" stroke="black" fill="none" />
+    <line x1="-52.36" y1="34.91" x2="-52.36" y2="2.18" stroke="black" fill="none" />
+    <line x1="24.00" y1="-2.18" x2="24.00" y2="4.36" stroke="black" fill="none" />
+    <line x1="8.73" y1="-24.00" x2="8.73" y2="-2.18" stroke="black" fill="none" />
+    <text x="-52.36" y="-6.55" font-size="19.6" font-family="sans-serif" fill="black" stroke="none">IN</text>
+    <circle class="qet-terminal" cx="-24.00" cy="41.45" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="41.45" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

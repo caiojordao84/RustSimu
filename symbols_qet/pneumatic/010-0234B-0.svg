@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="50.0" viewBox="-50.0 -32.0 100.0 50.0" data-name="2/2p_no [pneu]-[pneu]">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -19.2 60.0 30.0" data-name="2/2p_no [pneu]-[pneu]" data-standard="48px">
   <title>2/2p_no [pneu]-[pneu]</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="10.05,-14.95 8.05,-9.95 12.05,-9.95" stroke="black" fill="black" />
-    <line x1="-12.00" y1="0.00" x2="-8.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="0.00" x2="32.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-12.00" y1="-10.00" x2="-8.00" y2="-10.00" stroke="black" fill="none" />
-    <rect x="-20.00" y="-15.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="5.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-15.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
-    <polygon points="32,3 32,-3 25,0" stroke="black" fill="none" />
-    <line x1="10.00" y1="4.00" x2="10.00" y2="-12.00" stroke="black" fill="black" />
-    <rect x="0.00" y="-15.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <line x1="-33.00" y1="0.00" x2="-35.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-25.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="-32,3 -32,-3 -25,0" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="6.03,-8.97 4.83,-5.97 7.23,-5.97" stroke="black" fill="black" />
+    <line x1="-7.20" y1="0.00" x2="-4.80" y2="0.00" stroke="black" fill="none" />
+    <line x1="21.00" y1="0.00" x2="19.20" y2="0.00" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-6.00" x2="-4.80" y2="-6.00" stroke="black" fill="none" />
+    <rect x="-12.00" y="-9.00" width="12.00" height="12.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="3.00" x2="-6.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="15.00" y1="0.00" x2="12.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-9.00" x2="-6.00" y2="-6.00" stroke="black" fill="none" />
+    <polygon points="19.20,1.80 19.20,-1.80 15.00,0.00" stroke="black" fill="none" />
+    <line x1="6.00" y1="2.40" x2="6.00" y2="-7.20" stroke="black" fill="black" />
+    <rect x="0.00" y="-9.00" width="12.00" height="12.00" stroke="black" fill="none" />
+    <line x1="-19.80" y1="0.00" x2="-21.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-19.20,1.80 -19.20,-1.80 -15.00,0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="6.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="6.00" cy="-12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

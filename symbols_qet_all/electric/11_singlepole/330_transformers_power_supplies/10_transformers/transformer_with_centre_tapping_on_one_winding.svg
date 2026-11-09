@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="100.0" viewBox="-20.0 -50.0 60.0 100.0" data-name="Transformer with centre tapping on one winding">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="120.0" viewBox="-24.0 -60.0 72.0 120.0" data-name="Transformer with centre tapping on one winding" data-standard="48px">
   <title>Transformer with centre tapping on one winding</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-10.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="10.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="25.00" x2="0.00" y2="40.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-10.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-12.00" rx="18.00" ry="18.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.00" rx="18.00" ry="18.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="-30.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="30.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-12.00" x2="0.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="36.00" y1="-12.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="36.00" cy="-12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

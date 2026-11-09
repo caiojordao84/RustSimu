@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="200.0" viewBox="-62.0 -92.0 130.0 200.0" data-name="STR 100">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="480.0" viewBox="-148.8 -220.8 312.0 480.0" data-name="STR 100" data-standard="48px">
   <title>STR 100</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-24.00" y="-71.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">STR 100</text>
-    <line x1="-56.45" y1="80.00" x2="60.00" y2="80.00" stroke="black" fill="none" />
-    <line x1="-56.45" y1="-88.87" x2="59.00" y2="-88.87" stroke="black" fill="none" />
-    <line x1="-56.45" y1="100.00" x2="-56.45" y2="-88.87" stroke="black" fill="none" />
-    <line x1="60.00" y1="-61.00" x2="60.00" y2="-88.87" stroke="black" fill="none" />
-    <line x1="60.00" y1="100.00" x2="60.00" y2="51.00" stroke="black" fill="none" />
-    <line x1="-56.45" y1="100.00" x2="60.00" y2="100.00" stroke="black" fill="none" />
-    <rect x="-50.00" y="-60.00" width="112.00" height="110.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="95.00" x2="10.00" y2="100.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="95.00" x2="0.00" y2="100.00" stroke="black" fill="none" />
-    <rect x="5.00" y="85.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="85.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="10.00" y="96.00" width="0.00" height="3.00" stroke="black" fill="none" />
-    <rect x="0.00" y="96.00" width="0.00" height="3.00" stroke="black" fill="none" />
-    <text x="6.00" y="93.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12</text>
-    <text x="-4.00" y="93.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">11</text>
-    <circle class="qet-terminal" cx="0.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-57.60" y="-170.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">STR 100</text>
+    <line x1="-135.48" y1="192.00" x2="144.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="-135.48" y1="-213.29" x2="141.60" y2="-213.29" stroke="black" fill="none" />
+    <line x1="-135.48" y1="240.00" x2="-135.48" y2="-213.29" stroke="black" fill="none" />
+    <line x1="144.00" y1="-146.40" x2="144.00" y2="-213.29" stroke="black" fill="none" />
+    <line x1="144.00" y1="240.00" x2="144.00" y2="122.40" stroke="black" fill="none" />
+    <line x1="-135.48" y1="240.00" x2="144.00" y2="240.00" stroke="black" fill="none" />
+    <rect x="-120.00" y="-144.00" width="268.80" height="264.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="228.00" x2="24.00" y2="240.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="228.00" x2="0.00" y2="240.00" stroke="black" fill="none" />
+    <rect x="12.00" y="204.00" width="24.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-12.00" y="204.00" width="24.00" height="24.00" stroke="black" fill="none" />
+    <rect x="24.00" y="230.40" width="0.00" height="7.20" stroke="black" fill="none" />
+    <rect x="0.00" y="230.40" width="0.00" height="7.20" stroke="black" fill="none" />
+    <text x="14.40" y="223.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">12</text>
+    <text x="-9.60" y="223.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">11</text>
+    <circle class="qet-terminal" cx="0.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

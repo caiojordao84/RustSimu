@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -25.0 50.0 50.0" data-name="Device for auto-reclosing; Auto-reclose relay">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -60.0 120.0 120.0" data-name="Device for auto-reclosing; Auto-reclose relay" data-standard="48px">
   <title>Device for auto-reclosing; Auto-reclose relay</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-20.00" width="40.00" height="40.00" stroke="black" fill="none" />
-    <ellipse cx="-13.00" cy="-10.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="-15.00" x2="15.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="5.00" x2="-15.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="5.00" x2="15.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="10.00" x2="15.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-10.00" x2="8.00" y2="-10.00" stroke="black" fill="none" />
-    <polygon points="4,-8 4,-12 10,-10" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-48.00" y="-48.00" width="96.00" height="96.00" stroke="black" fill="none" />
+    <ellipse cx="-31.20" cy="-24.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <line x1="36.00" y1="-36.00" x2="36.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="12.00" x2="-36.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="36.00" y1="12.00" x2="36.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="24.00" x2="36.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-24.00" x2="19.20" y2="-24.00" stroke="black" fill="none" />
+    <polygon points="9.60,-19.20 9.60,-28.80 24.00,-24.00" stroke="black" fill="black" />
   </g>
 </svg>

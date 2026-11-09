@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="90.0" viewBox="-40.0 -50.0 60.0 90.0" data-name="Three-phase autotransformer Y">
+<svg xmlns="http://www.w3.org/2000/svg" width="41.1" height="61.7" viewBox="-27.4 -34.3 41.1 61.7" data-name="Three-phase autotransformer Y" data-standard="48px">
   <title>Three-phase autotransformer Y</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 15.00 -0.48 A 25.00 27.50 0 0 0 0.17 -25.12" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-27.00" x2="5.00" y2="-31.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-31.00" x2="5.00" y2="-35.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="21.00" x2="5.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="23.00" x2="5.00" y2="19.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-29.00" x2="5.00" y2="-33.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="25.00" x2="5.00" y2="21.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="15.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <polyline points="-4,-3 0,0 4,-3" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="4.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 10.29 -0.33 A 17.14 18.86 0 0 0 0.12 -17.23" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="10.29" ry="10.29" stroke="black" fill="none" />
+    <line x1="-3.43" y1="-18.51" x2="3.43" y2="-21.26" stroke="black" fill="none" />
+    <line x1="-3.43" y1="-21.26" x2="3.43" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-3.43" y1="14.40" x2="3.43" y2="11.66" stroke="black" fill="none" />
+    <line x1="-3.43" y1="15.77" x2="3.43" y2="13.03" stroke="black" fill="none" />
+    <line x1="-3.43" y1="-19.89" x2="3.43" y2="-22.63" stroke="black" fill="none" />
+    <line x1="0.00" y1="-27.43" x2="0.00" y2="-17.14" stroke="black" fill="none" />
+    <line x1="-3.43" y1="17.14" x2="3.43" y2="14.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.29" x2="0.00" y2="20.57" stroke="black" fill="none" />
+    <polyline points="-2.74,-2.06 0.00,0.00 2.74,-2.06" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="2.74" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-27.43" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.57" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

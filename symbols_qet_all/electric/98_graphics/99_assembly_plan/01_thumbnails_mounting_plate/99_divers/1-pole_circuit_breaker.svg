@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="170.0" viewBox="-26.0 -82.0 50.0 170.0" data-name="1-pole circuit breaker">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="408.0" viewBox="-62.4 -196.8 120.0 408.0" data-name="1-pole circuit breaker" data-standard="48px">
   <title>1-pole circuit breaker</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-18.00" y="-80.00" width="36.00" height="162.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-80.48" x2="-6.00" y2="-76.48" stroke="black" fill="none" />
-    <line x1="-6.00" y1="78.00" x2="-6.00" y2="83.00" stroke="black" fill="none" />
-    <rect x="-18.00" y="-44.00" width="36.00" height="90.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="-80.48" x2="6.00" y2="-76.48" stroke="black" fill="none" />
-    <rect x="-10.00" y="6.00" width="20.00" height="24.00" stroke="black" fill="black" />
-    <line x1="6.00" y1="78.00" x2="6.00" y2="83.00" stroke="black" fill="none" />
-    <path d="M -5.50 -77.53 A 11.00 11.00 0 1 0 5.50 -77.53" stroke="black" fill="none" />
-    <path d="M 5.50 79.53 A 11.00 11.00 0 1 0 -5.50 79.53" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="70.00" rx="7.00" ry="7.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-68.00" rx="7.00" ry="7.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="70.00" x2="6.00" y2="70.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="65.91" x2="0.00" y2="73.93" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-68.00" x2="6.00" y2="-68.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-72.00" x2="0.00" y2="-64.00" stroke="black" fill="none" />
-    <rect x="-14.00" y="2.00" width="28.00" height="6.00" stroke="white" fill="black" />
-    <line x1="-16.00" y1="36.00" x2="16.00" y2="36.00" stroke="black" fill="none" />
-    <line x1="-16.12" y1="40.00" x2="16.13" y2="40.00" stroke="black" fill="none" />
-    <polyline points="-6,84 -6,86 6,86 6,82 6,86" stroke="black" fill="none" />
-    <line x1="-14.00" y1="4.00" x2="14.00" y2="4.00" stroke="white" fill="none" />
-    <line x1="-8.00" y1="22.00" x2="-8.00" y2="26.00" stroke="white" fill="none" />
-    <line x1="-4.23" y1="24.00" x2="-3.58" y2="24.00" stroke="white" fill="none" />
-    <ellipse cx="2.00" cy="24.00" rx="2.00" ry="2.00" stroke="white" fill="none" />
-    <polyline points="8,22 8,26 5.32,22 5.32,26" stroke="white" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-43.20" y="-192.00" width="86.40" height="388.80" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-193.15" x2="-14.40" y2="-183.55" stroke="black" fill="none" />
+    <line x1="-14.40" y1="187.20" x2="-14.40" y2="199.20" stroke="black" fill="none" />
+    <rect x="-43.20" y="-105.60" width="86.40" height="216.00" stroke="black" fill="none" />
+    <line x1="14.40" y1="-193.15" x2="14.40" y2="-183.55" stroke="black" fill="none" />
+    <rect x="-24.00" y="14.40" width="48.00" height="57.60" stroke="black" fill="black" />
+    <line x1="14.40" y1="187.20" x2="14.40" y2="199.20" stroke="black" fill="none" />
+    <path d="M -13.20 -186.07 A 26.40 26.40 0 1 0 13.20 -186.07" stroke="black" fill="none" />
+    <path d="M 13.20 190.87 A 26.40 26.40 0 1 0 -13.20 190.87" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="168.00" rx="16.80" ry="16.80" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-163.20" rx="16.80" ry="16.80" stroke="black" fill="none" />
+    <line x1="-14.40" y1="168.00" x2="14.40" y2="168.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="158.18" x2="0.00" y2="177.43" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-163.20" x2="14.40" y2="-163.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-172.80" x2="0.00" y2="-153.60" stroke="black" fill="none" />
+    <rect x="-33.60" y="4.80" width="67.20" height="14.40" stroke="white" fill="black" />
+    <line x1="-38.40" y1="86.40" x2="38.40" y2="86.40" stroke="black" fill="none" />
+    <line x1="-38.69" y1="96.00" x2="38.71" y2="96.00" stroke="black" fill="none" />
+    <polyline points="-14.40,201.60 -14.40,206.40 14.40,206.40 14.40,196.80 14.40,206.40" stroke="black" fill="none" />
+    <line x1="-33.60" y1="9.60" x2="33.60" y2="9.60" stroke="white" fill="none" />
+    <line x1="-19.20" y1="52.80" x2="-19.20" y2="62.40" stroke="white" fill="none" />
+    <line x1="-10.15" y1="57.60" x2="-8.59" y2="57.60" stroke="white" fill="none" />
+    <ellipse cx="4.80" cy="57.60" rx="4.80" ry="4.80" stroke="white" fill="none" />
+    <polyline points="19.20,52.80 19.20,62.40 12.77,52.80 12.77,62.40" stroke="white" fill="none" />
   </g>
 </svg>

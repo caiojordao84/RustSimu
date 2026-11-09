@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="50.0" viewBox="-45.0 -45.0 70.0 50.0" data-name="Cross-connection point">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="120.0" viewBox="-108.0 -108.0 168.0 120.0" data-name="Cross-connection point" data-standard="48px">
   <title>Cross-connection point</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-20.00" cy="-20.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <ellipse cx="-20.00" cy="-20.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-10.00" x2="-2.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-30.00" x2="-2.00" y2="-30.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-48.00" cy="-48.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <ellipse cx="-48.00" cy="-48.00" rx="36.00" ry="36.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-48.00" x2="0.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-24.00" x2="-4.80" y2="-24.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-72.00" x2="-4.80" y2="-72.00" stroke="black" fill="none" />
   </g>
 </svg>

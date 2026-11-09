@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="50.0" viewBox="-110.0 -45.0 120.0 50.0" data-name="Combined protective and neutral conductor">
+<svg xmlns="http://www.w3.org/2000/svg" width="57.6" height="24.0" viewBox="-52.8 -21.6 57.6 24.0" data-name="Combined protective and neutral conductor" data-standard="48px">
   <title>Combined protective and neutral conductor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-100.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-55.00" y1="0.00" x2="-45.00" y2="-40.00" stroke="black" fill="none" />
-    <ellipse cx="-47.50" cy="-30.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
-    <line x1="-48.00" y1="-40.00" x2="-42.00" y2="-40.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-100.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-48.00" y1="-9.60" x2="0.00" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-26.40" y1="0.00" x2="-21.60" y2="-19.20" stroke="black" fill="none" />
+    <ellipse cx="-22.80" cy="-14.40" rx="0.72" ry="0.72" stroke="black" fill="black" />
+    <line x1="-23.04" y1="-19.20" x2="-20.16" y2="-19.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-48.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

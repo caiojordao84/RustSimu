@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-12.0 -2.0 40.0 60.0" data-name="Watt hour meter">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="144.0" viewBox="-28.8 -4.8 96.0 144.0" data-name="Watt hour meter" data-standard="48px">
   <title>Watt hour meter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-6.00" y="0.00" width="32.00" height="50.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="14.00" x2="26.00" y2="14.00" stroke="black" fill="none" />
-    <text x="0.00" y="35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Wh</text>
-    <circle class="qet-terminal" cx="20.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-14.40" y="0.00" width="76.80" height="120.00" stroke="black" fill="none" />
+    <line x1="-14.40" y1="33.60" x2="62.40" y2="33.60" stroke="black" fill="none" />
+    <text x="0.00" y="84.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Wh</text>
+    <circle class="qet-terminal" cx="48.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

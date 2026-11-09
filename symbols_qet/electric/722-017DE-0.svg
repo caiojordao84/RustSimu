@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="80.0" viewBox="-7.0 -40.0 40.0 80.0" data-name="Fuse; Striker fuse">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="192.0" viewBox="-16.8 -96.0 96.0 192.0" data-name="Fuse; Striker fuse" data-standard="48px">
   <title>Fuse; Striker fuse</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-30.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="-15.00" width="10.00" height="30.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="0.00" x2="30.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-72.00" x2="0.00" y2="72.00" stroke="black" fill="none" />
+    <rect x="-12.00" y="-36.00" width="24.00" height="72.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="0.00" x2="72.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

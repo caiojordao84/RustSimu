@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-23.0 -22.0 60.0 60.0" data-name="2-pin DIN socket with center pin flat">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="144.0" viewBox="-55.2 -52.8 144.0 144.0" data-name="2-pin DIN socket with center pin flat" data-standard="48px">
   <title>2-pin DIN socket with center pin flat</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="10.00" y1="0.00" x2="27.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M -2.09 -19.89 A 20.00 20.00 0 1 0 2.09 -19.89" stroke="black" fill="none" />
-    <rect x="-10.00" y="-1.50" width="20.00" height="3.00" stroke="black" fill="black" />
-    <text x="1.00" y="29.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="23.00" y="-1.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <line x1="0.00" y1="30.00" x2="0.00" y2="18.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="15.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <polyline points="-2,-20 -2,-16 2,-16 2,-20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="28.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="0.00" cy="31.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="24.00" y1="0.00" x2="64.80" y2="0.00" stroke="black" fill="none" />
+    <path d="M -5.02 -47.74 A 48.00 48.00 0 1 0 5.02 -47.74" stroke="black" fill="none" />
+    <rect x="-24.00" y="-3.60" width="48.00" height="7.20" stroke="black" fill="black" />
+    <text x="2.40" y="70.39" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="55.20" y="-4.01" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <line x1="0.00" y1="72.00" x2="0.00" y2="43.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="36.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <polyline points="-4.80,-48.00 -4.80,-38.40 4.80,-38.40 4.80,-48.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="67.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

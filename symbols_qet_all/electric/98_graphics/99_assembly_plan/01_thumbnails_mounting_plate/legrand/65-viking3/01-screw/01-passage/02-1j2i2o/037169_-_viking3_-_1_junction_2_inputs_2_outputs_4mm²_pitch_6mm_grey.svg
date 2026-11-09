@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="150.0" viewBox="-3.0 -11.0 20.0 150.0" data-name="037169 - Viking3 - 1 junction 2 inputs 2 outputs 4mm² pitch 6mm Grey">
+<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="300.0" viewBox="-6.0 -22.0 40.0 300.0" data-name="037169 - Viking3 - 1 junction 2 inputs 2 outputs 4mm² pitch 6mm Grey" data-standard="48px">
   <title>037169 - Viking3 - 1 junction 2 inputs 2 outputs 4mm² pitch 6mm Grey</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="13.00" height="128.00" stroke="black" fill="#dcdcdc" />
-    <rect x="0.00" y="7.00" width="13.00" height="113.00" stroke="black" fill="#dcdcdc" />
-    <rect x="0.00" y="57.00" width="13.00" height="13.00" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="6.50" cy="61.00" rx="2.00" ry="2.00" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="6.50" cy="66.00" rx="2.00" ry="2.00" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="6.50" cy="75.00" rx="3.00" ry="3.00" stroke="black" fill="gray" />
-    <polygon points="4.3,76.8 8.3,72.8 8.8,73.3 4.8,77.3" stroke="black" fill="gray" />
-    <ellipse cx="6.50" cy="52.00" rx="3.00" ry="3.00" stroke="black" fill="gray" />
-    <polygon points="4.3,53.8 8.3,49.8 8.8,50.3 4.8,54.3" stroke="black" fill="gray" />
-    <ellipse cx="6.50" cy="95.00" rx="3.00" ry="3.00" stroke="black" fill="gray" />
-    <polygon points="4.3,96.8 8.3,92.8 8.8,93.3 4.8,97.3" stroke="black" fill="gray" />
-    <ellipse cx="6.50" cy="32.00" rx="3.00" ry="3.00" stroke="black" fill="gray" />
-    <polygon points="4.3,33.8 8.3,29.8 8.8,30.3 4.8,34.3" stroke="black" fill="gray" />
-    <circle class="qet-terminal" cx="7.00" cy="103.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="7.00" cy="24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="7.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="7.00" cy="128.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="26.00" height="256.00" stroke="black" fill="#dcdcdc" />
+    <rect x="0.00" y="14.00" width="26.00" height="226.00" stroke="black" fill="#dcdcdc" />
+    <rect x="0.00" y="114.00" width="26.00" height="26.00" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="13.00" cy="122.00" rx="4.00" ry="4.00" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="13.00" cy="132.00" rx="4.00" ry="4.00" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="13.00" cy="150.00" rx="6.00" ry="6.00" stroke="black" fill="gray" />
+    <polygon points="8.60,153.60 16.60,145.60 17.60,146.60 9.60,154.60" stroke="black" fill="gray" />
+    <ellipse cx="13.00" cy="104.00" rx="6.00" ry="6.00" stroke="black" fill="gray" />
+    <polygon points="8.60,107.60 16.60,99.60 17.60,100.60 9.60,108.60" stroke="black" fill="gray" />
+    <ellipse cx="13.00" cy="190.00" rx="6.00" ry="6.00" stroke="black" fill="gray" />
+    <polygon points="8.60,193.60 16.60,185.60 17.60,186.60 9.60,194.60" stroke="black" fill="gray" />
+    <ellipse cx="13.00" cy="64.00" rx="6.00" ry="6.00" stroke="black" fill="gray" />
+    <polygon points="8.60,67.60 16.60,59.60 17.60,60.60 9.60,68.60" stroke="black" fill="gray" />
+    <circle class="qet-terminal" cx="14.00" cy="206.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="14.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="14.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="14.00" cy="256.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

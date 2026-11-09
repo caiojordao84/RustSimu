@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-29.0 -40.0 50.0 60.0" data-name="Ultrasonic sensor  NO">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="72.0" viewBox="-34.8 -48.0 60.0 72.0" data-name="Ultrasonic sensor  NO" data-standard="48px">
   <title>Ultrasonic sensor  NO</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-22.00" y1="-16.00" x2="-22.00" y2="-18.00" stroke="black" fill="none" />
-    <polyline points="5,-20 10,0 10,10" stroke="black" fill="none" />
-    <rect x="-23.00" y="-14.00" width="2.00" height="4.00" stroke="black" fill="black" />
-    <line x1="-4.69" y1="-12.00" x2="7.31" y2="-12.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-23.00" y1="-16.00" x2="-21.00" y2="-16.00" stroke="black" fill="none" />
-    <line x1="-22.00" y1="-6.00" x2="-22.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-23.05" y1="-8.05" x2="-21.05" y2="-8.05" stroke="black" fill="none" />
-    <line x1="10.00" y1="-30.00" x2="10.00" y2="-20.00" stroke="black" fill="none" />
-    <polygon points="-18.69,-12 -12.69,-18 -6.69,-12 -12.69,-6" stroke="black" fill="none" />
-    <line x1="-11.69" y1="-16.00" x2="-11.69" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-13.69" y1="-16.00" x2="-13.69" y2="-8.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-26.40" y1="-19.20" x2="-26.40" y2="-21.60" stroke="black" fill="none" />
+    <polyline points="6.00,-24.00 12.00,0.00 12.00,12.00" stroke="black" fill="none" />
+    <rect x="-27.60" y="-16.80" width="2.40" height="4.80" stroke="black" fill="black" />
+    <line x1="-5.63" y1="-14.40" x2="8.77" y2="-14.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-27.60" y1="-19.20" x2="-25.20" y2="-19.20" stroke="black" fill="none" />
+    <line x1="-26.40" y1="-7.20" x2="-26.40" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-27.66" y1="-9.66" x2="-25.26" y2="-9.66" stroke="black" fill="none" />
+    <line x1="12.00" y1="-36.00" x2="12.00" y2="-24.00" stroke="black" fill="none" />
+    <polygon points="-22.43,-14.40 -15.23,-21.60 -8.03,-14.40 -15.23,-7.20" stroke="black" fill="none" />
+    <line x1="-14.03" y1="-19.20" x2="-14.03" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-16.43" y1="-19.20" x2="-16.43" y2="-9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="12.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

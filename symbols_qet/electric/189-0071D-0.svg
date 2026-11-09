@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="30.0" viewBox="-67.0 -15.0 140.0 30.0" data-name="470k Resistor">
+<svg xmlns="http://www.w3.org/2000/svg" width="53.8" height="11.5" viewBox="-25.7 -5.8 53.8 11.5" data-name="470k Resistor" data-standard="48px">
   <title>470k Resistor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-25.00" y="-10.00" width="10.00" height="20.00" stroke="black" fill="brun" />
-    <rect x="-15.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="yellow" />
-    <rect x="-10.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="brun" />
-    <rect x="-5.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="#d40000" />
-    <rect x="0.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="brun" />
-    <rect x="5.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="gray" />
-    <rect x="10.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="brun" />
-    <rect x="15.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="gray" />
-    <rect x="20.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="brun" />
-    <line x1="-55.00" y1="0.00" x2="-25.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="0.00" x2="60.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="65.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-9.60" y="-3.84" width="3.84" height="7.68" stroke="black" fill="brun" />
+    <rect x="-5.76" y="-3.84" width="1.92" height="7.68" stroke="black" fill="yellow" />
+    <rect x="-3.84" y="-3.84" width="1.92" height="7.68" stroke="black" fill="brun" />
+    <rect x="-1.92" y="-3.84" width="1.92" height="7.68" stroke="black" fill="#d40000" />
+    <rect x="0.00" y="-3.84" width="1.92" height="7.68" stroke="black" fill="brun" />
+    <rect x="1.92" y="-3.84" width="1.92" height="7.68" stroke="black" fill="gray" />
+    <rect x="3.84" y="-3.84" width="1.92" height="7.68" stroke="black" fill="brun" />
+    <rect x="5.76" y="-3.84" width="1.92" height="7.68" stroke="black" fill="gray" />
+    <rect x="7.68" y="-3.84" width="1.92" height="7.68" stroke="black" fill="brun" />
+    <line x1="-21.12" y1="0.00" x2="-9.60" y2="0.00" stroke="black" fill="none" />
+    <line x1="9.60" y1="0.00" x2="23.04" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-23.04" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.96" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

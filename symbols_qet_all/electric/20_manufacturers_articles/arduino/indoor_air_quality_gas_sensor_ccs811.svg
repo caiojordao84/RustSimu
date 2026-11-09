@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="70.0" viewBox="-81.0 -32.0 150.0 70.0" data-name="Indoor Air Quality Gas Sensor CCS811">
+<svg xmlns="http://www.w3.org/2000/svg" width="360.0" height="168.0" viewBox="-194.4 -76.8 360.0 168.0" data-name="Indoor Air Quality Gas Sensor CCS811" data-standard="48px">
   <title>Indoor Air Quality Gas Sensor CCS811</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-46.50" y1="-23.50" x2="-46.50" y2="-15.00" stroke="black" fill="none" />
-    <ellipse cx="14.00" cy="28.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <rect x="-56.00" y="-15.00" width="52.00" height="30.00" stroke="black" fill="none" />
-    <ellipse cx="-38.50" cy="-25.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="-22.50" cy="-25.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="-14.50" cy="-25.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="-30.50" cy="-25.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="4.00" cy="28.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="-45.50" cy="28.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="-70.00" cy="8.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="-70.00" cy="-7.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="-15.50" cy="28.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <line x1="-45.50" y1="15.00" x2="-45.50" y2="23.50" stroke="black" fill="none" />
-    <line x1="-38.50" y1="-23.50" x2="-38.50" y2="-15.00" stroke="black" fill="none" />
-    <line x1="-14.50" y1="-23.50" x2="-14.50" y2="-15.00" stroke="black" fill="none" />
-    <line x1="-22.50" y1="-23.50" x2="-22.50" y2="-15.00" stroke="black" fill="none" />
-    <line x1="-30.50" y1="-23.50" x2="-30.50" y2="-15.00" stroke="black" fill="none" />
-    <line x1="-15.50" y1="15.00" x2="-15.50" y2="26.50" stroke="black" fill="none" />
-    <text x="-37.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MCU</text>
-    <ellipse cx="-46.50" cy="-25.00" rx="1.50" ry="1.50" stroke="black" fill="none" />
-    <line x1="-68.50" y1="-7.00" x2="-56.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="-68.50" y1="8.00" x2="-56.00" y2="8.00" stroke="black" fill="none" />
-    <rect x="30.00" y="-5.00" width="30.50" height="21.00" stroke="black" fill="none" />
-    <ellipse cx="-15.50" cy="21.00" rx="-0.50" ry="0.50" stroke="black" fill="none" />
-    <line x1="-45.00" y1="-25.00" x2="-40.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-37.00" y1="-25.00" x2="-32.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-29.00" y1="-25.00" x2="-24.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-21.00" y1="-25.00" x2="-16.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-44.00" y1="28.00" x2="-17.00" y2="28.00" stroke="black" fill="none" />
-    <line x1="-14.00" y1="28.00" x2="2.50" y2="28.00" stroke="black" fill="none" />
-    <text x="-74.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="-74.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-64.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">nINT</text>
-    <text x="-68.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">nRESET</text>
-    <text x="-47.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">nWAKE</text>
-    <text x="-40.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ADDR</text>
-    <text x="-32.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SDA</text>
-    <text x="-24.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCL</text>
-    <text x="-16.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">VDD</text>
-    <text x="-44.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <text x="-36.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-28.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">9</text>
-    <text x="-21.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">10</text>
-    <text x="-13.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <text x="-46.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">with integrated ADC</text>
-    <line x1="-70.00" y1="-5.00" x2="-70.00" y2="6.00" stroke="black" fill="none" />
-    <polyline points="-70,10 -70,28 -47.5,28" stroke="black" fill="none" />
-    <polyline points="-70,-9 -70,-25 -48,-25" stroke="black" fill="none" />
-    <text x="-17.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <polyline points="4,26 4,10 -4,10" stroke="black" fill="none" />
-    <line x1="6.00" y1="28.00" x2="12.00" y2="28.00" stroke="black" fill="none" />
-    <polyline points="14,26 14,5 -4,5" stroke="black" fill="none" />
-    <line x1="-4.00" y1="0.00" x2="30.00" y2="0.00" stroke="black" fill="none" />
-    <text x="-13.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EP</text>
-    <text x="-43.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <text x="6.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="17.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="7.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PWM</text>
-    <polyline points="-15,21 47,21 47,16" stroke="black" fill="none" />
-    <text x="17.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Sense</text>
-    <ellipse cx="14.00" cy="5.00" rx="0.50" ry="0.50" stroke="black" fill="none" />
-    <line x1="30.00" y1="5.00" x2="14.00" y2="5.00" stroke="black" fill="none" />
-    <text x="25.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">H-</text>
-    <text x="25.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S+</text>
-    <text x="48.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S-</text>
-    <ellipse cx="-14.50" cy="-18.00" rx="0.50" ry="0.50" stroke="black" fill="black" />
-    <polyline points="-14,-18 46,-18 46,-5" stroke="black" fill="none" />
-    <text x="47.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">H+</text>
-    <polyline points="16,28 64,28 64,-25 -12.5,-25" stroke="black" fill="none" />
-    <text x="38.00" y="5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MOX</text>
-    <text x="36.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Gas Sensor</text>
-    <circle class="qet-terminal" cx="-15.00" cy="-25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-70.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-70.00" cy="8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="4.00" cy="28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-31.00" cy="-25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="14.00" cy="28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-23.00" cy="-25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-16.00" cy="28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-47.00" cy="-25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-46.00" cy="28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-39.00" cy="-25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-111.60" y1="-56.40" x2="-111.60" y2="-36.00" stroke="black" fill="none" />
+    <ellipse cx="33.60" cy="67.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <rect x="-134.40" y="-36.00" width="124.80" height="72.00" stroke="black" fill="none" />
+    <ellipse cx="-92.40" cy="-60.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="-54.00" cy="-60.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="-34.80" cy="-60.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="-73.20" cy="-60.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="9.60" cy="67.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="-109.20" cy="67.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="-168.00" cy="19.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="-168.00" cy="-16.80" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="-37.20" cy="67.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <line x1="-109.20" y1="36.00" x2="-109.20" y2="56.40" stroke="black" fill="none" />
+    <line x1="-92.40" y1="-56.40" x2="-92.40" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-34.80" y1="-56.40" x2="-34.80" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-54.00" y1="-56.40" x2="-54.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-73.20" y1="-56.40" x2="-73.20" y2="-36.00" stroke="black" fill="none" />
+    <line x1="-37.20" y1="36.00" x2="-37.20" y2="63.60" stroke="black" fill="none" />
+    <text x="-88.80" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MCU</text>
+    <ellipse cx="-111.60" cy="-60.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <line x1="-164.40" y1="-16.80" x2="-134.40" y2="-16.80" stroke="black" fill="none" />
+    <line x1="-164.40" y1="19.20" x2="-134.40" y2="19.20" stroke="black" fill="none" />
+    <rect x="72.00" y="-12.00" width="73.20" height="50.40" stroke="black" fill="none" />
+    <ellipse cx="-37.20" cy="50.40" rx="-1.20" ry="1.20" stroke="black" fill="none" />
+    <line x1="-108.00" y1="-60.00" x2="-96.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-88.80" y1="-60.00" x2="-76.80" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-69.60" y1="-60.00" x2="-57.60" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-50.40" y1="-60.00" x2="-38.40" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-105.60" y1="67.20" x2="-40.80" y2="67.20" stroke="black" fill="none" />
+    <line x1="-33.60" y1="67.20" x2="6.00" y2="67.20" stroke="black" fill="none" />
+    <text x="-177.60" y="-21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-177.60" y="14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-153.60" y="-19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">nINT</text>
+    <text x="-163.20" y="14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">nRESET</text>
+    <text x="-112.80" y="62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">nWAKE</text>
+    <text x="-96.00" y="-38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ADDR</text>
+    <text x="-76.80" y="-38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SDA</text>
+    <text x="-57.60" y="-38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SCL</text>
+    <text x="-38.40" y="-38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">VDD</text>
+    <text x="-105.60" y="-64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="-86.40" y="-64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-67.20" y="-64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">9</text>
+    <text x="-50.40" y="-64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">10</text>
+    <text x="-31.20" y="-64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="-110.40" y="16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">with integrated ADC</text>
+    <line x1="-168.00" y1="-12.00" x2="-168.00" y2="14.40" stroke="black" fill="none" />
+    <polyline points="-168.00,24.00 -168.00,67.20 -114.00,67.20" stroke="black" fill="none" />
+    <polyline points="-168.00,-21.60 -168.00,-60.00 -115.20,-60.00" stroke="black" fill="none" />
+    <text x="-40.80" y="62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <polyline points="9.60,62.40 9.60,24.00 -9.60,24.00" stroke="black" fill="none" />
+    <line x1="14.40" y1="67.20" x2="28.80" y2="67.20" stroke="black" fill="none" />
+    <polyline points="33.60,62.40 33.60,12.00 -9.60,12.00" stroke="black" fill="none" />
+    <line x1="-9.60" y1="0.00" x2="72.00" y2="0.00" stroke="black" fill="none" />
+    <text x="-31.20" y="79.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EP</text>
+    <text x="-103.20" y="79.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="14.40" y="79.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="40.80" y="79.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="16.80" y="48.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PWM</text>
+    <polyline points="-36.00,50.40 112.80,50.40 112.80,38.40" stroke="black" fill="none" />
+    <text x="40.80" y="48.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Sense</text>
+    <ellipse cx="33.60" cy="12.00" rx="1.20" ry="1.20" stroke="black" fill="none" />
+    <line x1="72.00" y1="12.00" x2="33.60" y2="12.00" stroke="black" fill="none" />
+    <text x="60.00" y="9.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">H-</text>
+    <text x="60.00" y="-2.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">S+</text>
+    <text x="115.20" y="45.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">S-</text>
+    <ellipse cx="-34.80" cy="-43.20" rx="1.20" ry="1.20" stroke="black" fill="black" />
+    <polyline points="-33.60,-43.20 110.40,-43.20 110.40,-12.00" stroke="black" fill="none" />
+    <text x="112.80" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">H+</text>
+    <polyline points="38.40,67.20 153.60,67.20 153.60,-60.00 -30.00,-60.00" stroke="black" fill="none" />
+    <text x="91.20" y="12.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MOX</text>
+    <text x="86.40" y="26.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Gas Sensor</text>
+    <circle class="qet-terminal" cx="-36.00" cy="-60.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-168.00" cy="-16.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-168.00" cy="19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="9.60" cy="67.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-74.40" cy="-60.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="33.60" cy="67.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-55.20" cy="-60.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-38.40" cy="67.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-112.80" cy="-60.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-110.40" cy="67.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-93.60" cy="-60.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

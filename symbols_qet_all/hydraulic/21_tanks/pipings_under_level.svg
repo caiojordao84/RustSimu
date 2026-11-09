@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -21.0 40.0 40.0" data-name="Pipings under level">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-48.0 -50.4 96.0 96.0" data-name="Pipings under level" data-standard="48px">
   <title>Pipings under level</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="10.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="13.92" y1="13.37" x2="13.92" y2="0.08" stroke="black" fill="none" />
-    <line x1="-13.76" y1="13.45" x2="13.92" y2="13.37" stroke="black" fill="none" />
-    <line x1="-13.76" y1="0.08" x2="-13.76" y2="13.45" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="24.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="33.41" y1="32.09" x2="33.41" y2="0.19" stroke="black" fill="none" />
+    <line x1="-33.02" y1="32.28" x2="33.41" y2="32.09" stroke="black" fill="none" />
+    <line x1="-33.02" y1="0.19" x2="-33.02" y2="32.28" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

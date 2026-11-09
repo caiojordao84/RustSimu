@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="80.0" viewBox="-75.0 -47.0 130.0 80.0" data-name="Junction box (multi-line representation)">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="192.0" viewBox="-180.0 -112.8 312.0 192.0" data-name="Junction box (multi-line representation)" data-standard="48px">
   <title>Junction box (multi-line representation)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-70.00" y1="-10.00" x2="50.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-70.00" y1="-20.00" x2="50.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-70.00" y1="-30.00" x2="50.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-10.00" x2="-20.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-20.00" x2="-10.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-30.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <polygon points="-30,5 -40,-5 -40,-35 -30,-45 10,-45 20,-35 20,-5 10,5" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-168.00" y1="-24.00" x2="120.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-168.00" y1="-48.00" x2="120.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="-168.00" y1="-72.00" x2="120.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-24.00" x2="-48.00" y2="72.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-48.00" x2="-24.00" y2="72.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-72.00" x2="0.00" y2="72.00" stroke="black" fill="none" />
+    <polygon points="-72.00,12.00 -96.00,-12.00 -96.00,-84.00 -72.00,-108.00 24.00,-108.00 48.00,-84.00 48.00,-12.00 24.00,12.00" stroke="black" fill="none" />
   </g>
 </svg>

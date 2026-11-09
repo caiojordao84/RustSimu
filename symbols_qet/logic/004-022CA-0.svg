@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="40.0" viewBox="-45.0 -27.0 90.0 40.0" data-name="End">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="96.0" viewBox="-108.0 -64.8 216.0 96.0" data-name="End" data-standard="48px">
   <title>End</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-29.00" y1="-10.00" x2="29.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="0.00" x2="38.00" y2="0.00" stroke="white" fill="none" />
-    <line x1="-38.00" y1="0.00" x2="-30.00" y2="0.00" stroke="white" fill="none" />
-    <path d="M -30.00 -10.00 A 10.00 10.00 0 0 0 -30.00 10.00" stroke="black" fill="none" />
-    <line x1="-29.00" y1="10.00" x2="29.00" y2="10.00" stroke="black" fill="none" />
-    <path d="M 30.00 10.00 A 10.00 10.00 0 0 0 30.00 -10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-69.60" y1="-24.00" x2="69.60" y2="-24.00" stroke="black" fill="none" />
+    <line x1="72.00" y1="0.00" x2="91.20" y2="0.00" stroke="white" fill="none" />
+    <line x1="-91.20" y1="0.00" x2="-72.00" y2="0.00" stroke="white" fill="none" />
+    <path d="M -72.00 -24.00 A 24.00 24.00 0 0 0 -72.00 24.00" stroke="black" fill="none" />
+    <line x1="-69.60" y1="24.00" x2="69.60" y2="24.00" stroke="black" fill="none" />
+    <path d="M 72.00 24.00 A 24.00 24.00 0 0 0 72.00 -24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

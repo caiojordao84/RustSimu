@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="60.0" viewBox="-12.0 -30.0 20.0 60.0" data-name="Limitswitch (NO)">
+<svg xmlns="http://www.w3.org/2000/svg" width="24.0" height="72.0" viewBox="-14.4 -36.0 24.0 72.0" data-name="Limitswitch (NO)" data-standard="48px">
   <title>Limitswitch (NO)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-5,-10 0,10 0,20" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <polyline points="-4,-6 -9,-4 -1,6.5" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-6.00,-12.00 0.00,12.00 0.00,24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <polyline points="-4.80,-7.20 -10.80,-4.80 -1.20,7.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-25.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="25.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

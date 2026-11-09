@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -20.0 40.0 40.0" data-name="Steel radiator">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-48.0 -48.0 96.0 96.0" data-name="Steel radiator" data-standard="48px">
   <title>Steel radiator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-13.50" y="7.23" width="3.50" height="2.71" stroke="black" fill="none" />
-    <rect x="9.50" y="-10.19" width="2.50" height="2.00" stroke="black" fill="none" />
-    <rect x="9.50" y="7.23" width="2.50" height="2.71" stroke="black" fill="none" />
-    <rect x="5.50" y="-8.93" width="1.25" height="17.94" stroke="black" fill="none" />
-    <rect x="0.00" y="-8.93" width="1.25" height="17.94" stroke="black" fill="none" />
-    <rect x="-9.00" y="-10.92" width="18.25" height="21.92" stroke="black" fill="none" />
-    <rect x="-7.50" y="-8.93" width="1.25" height="17.94" stroke="black" fill="none" />
-    <rect x="-2.50" y="-8.93" width="1.25" height="17.94" stroke="black" fill="none" />
-    <rect x="3.00" y="-8.93" width="1.25" height="17.94" stroke="black" fill="none" />
-    <rect x="-5.00" y="-8.93" width="1.25" height="17.94" stroke="black" fill="none" />
-    <rect x="-12.50" y="-10.19" width="2.50" height="2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-32.40" y="17.35" width="8.40" height="6.50" stroke="black" fill="none" />
+    <rect x="22.80" y="-24.46" width="6.00" height="4.80" stroke="black" fill="none" />
+    <rect x="22.80" y="17.35" width="6.00" height="6.50" stroke="black" fill="none" />
+    <rect x="13.20" y="-21.43" width="3.00" height="43.06" stroke="black" fill="none" />
+    <rect x="0.00" y="-21.43" width="3.00" height="43.06" stroke="black" fill="none" />
+    <rect x="-21.60" y="-26.21" width="43.80" height="52.61" stroke="black" fill="none" />
+    <rect x="-18.00" y="-21.43" width="3.00" height="43.06" stroke="black" fill="none" />
+    <rect x="-6.00" y="-21.43" width="3.00" height="43.06" stroke="black" fill="none" />
+    <rect x="7.20" y="-21.43" width="3.00" height="43.06" stroke="black" fill="none" />
+    <rect x="-12.00" y="-21.43" width="3.00" height="43.06" stroke="black" fill="none" />
+    <rect x="-30.00" y="-24.46" width="6.00" height="4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

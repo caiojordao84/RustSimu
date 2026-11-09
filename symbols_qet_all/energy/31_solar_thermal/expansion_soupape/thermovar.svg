@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-25.0 -16.0 50.0 40.0" data-name="Thermovar">
+<svg xmlns="http://www.w3.org/2000/svg" width="85.7" height="68.6" viewBox="-42.9 -27.4 85.7 68.6" data-name="Thermovar" data-standard="48px">
   <title>Thermovar</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-10.00" y="-10.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <rect x="-11.00" y="-11.00" width="22.00" height="22.00" stroke="black" fill="none" />
-    <text x="-11.00" y="-5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Termovar</text>
-    <path d="M 0.50 1.00 A 2.50 2.50 0 0 0 -2.00 3.50" stroke="black" fill="none" />
-    <line x1="4.00" y1="0.00" x2="-5.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="8,0 5,-3 5,3" stroke="black" fill="none" />
-    <rect x="-6.00" y="-1.00" width="10.00" height="2.00" stroke="black" fill="none" />
-    <rect x="-7.00" y="11.00" width="14.00" height="3.00" stroke="black" fill="none" />
-    <rect x="-14.00" y="-9.00" width="3.00" height="18.00" stroke="black" fill="none" />
-    <rect x="11.00" y="-9.00" width="3.00" height="18.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="0.00" cy="14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-17.14" y="-17.14" width="34.29" height="34.29" stroke="black" fill="none" />
+    <rect x="-18.86" y="-18.86" width="37.71" height="37.71" stroke="black" fill="none" />
+    <text x="-18.86" y="-8.57" font-size="15.4" font-family="sans-serif" fill="black" stroke="none">Termovar</text>
+    <path d="M 0.86 1.71 A 4.29 4.29 0 0 0 -3.43 6.00" stroke="black" fill="none" />
+    <line x1="6.86" y1="0.00" x2="-8.57" y2="0.00" stroke="black" fill="none" />
+    <polygon points="13.71,0.00 8.57,-5.14 8.57,5.14" stroke="black" fill="none" />
+    <rect x="-10.29" y="-1.71" width="17.14" height="3.43" stroke="black" fill="none" />
+    <rect x="-12.00" y="18.86" width="24.00" height="5.14" stroke="black" fill="none" />
+    <rect x="-24.00" y="-15.43" width="5.14" height="30.86" stroke="black" fill="none" />
+    <rect x="18.86" y="-15.43" width="5.14" height="30.86" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

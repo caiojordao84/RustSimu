@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="20.0" viewBox="-15.0 -10.0 30.0 20.0" data-name="Check valve ball">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="48.0" viewBox="-36.0 -24.0 72.0 48.0" data-name="Check valve ball" data-standard="48px">
   <title>Check valve ball</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="-6.00" x2="-6.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="4.00" y1="0.00" x2="7.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="0.00" x2="-4.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="-4.00" x2="3.00" y2="4.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="7.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-7.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <line x1="14.40" y1="-14.40" x2="-14.40" y2="-14.40" stroke="black" fill="none" />
+    <line x1="9.60" y1="0.00" x2="16.80" y2="0.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="0.00" x2="-9.60" y2="0.00" stroke="black" fill="none" />
+    <line x1="7.20" y1="-9.60" x2="7.20" y2="9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="16.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-16.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

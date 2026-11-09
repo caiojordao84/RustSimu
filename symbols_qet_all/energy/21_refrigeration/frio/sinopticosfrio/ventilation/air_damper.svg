@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-20.0 -25.0 40.0 30.0" data-name="Air damper">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="72.0" viewBox="-48.0 -60.0 96.0 72.0" data-name="Air damper" data-standard="48px">
   <title>Air damper</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-4.05" y1="-6.05" x2="3.95" y2="-14.05" stroke="black" fill="none" />
-    <rect x="-10.00" y="-20.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <ellipse cx="-0.05" cy="-10.05" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-9.72" y1="-14.52" x2="9.48" y2="-33.72" stroke="black" fill="none" />
+    <rect x="-24.00" y="-48.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <ellipse cx="-0.12" cy="-24.12" rx="2.40" ry="2.40" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

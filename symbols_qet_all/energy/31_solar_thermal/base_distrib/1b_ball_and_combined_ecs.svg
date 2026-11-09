@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="70.0" viewBox="-54.0 -37.0 100.0 70.0" data-name="1B ball and combined ECS">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="168.0" viewBox="-129.6 -88.8 240.0 168.0" data-name="1B ball and combined ECS" data-standard="48px">
   <title>1B ball and combined ECS</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-11.00" rx="11.00" ry="15.00" stroke="black" fill="none" />
-    <text x="-43.00" y="-18.70" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1B</text>
-    <line x1="29.00" y1="-5.70" x2="6.00" y2="-5.70" stroke="black" fill="none" />
-    <line x1="29.00" y1="-21.70" x2="6.00" y2="-21.70" stroke="black" fill="none" />
-    <polygon points="24,26.3 27,23.3 27,29.3" stroke="black" fill="none" />
-    <polygon points="-29,26 -26,23 -26,29" stroke="black" fill="none" />
-    <ellipse cx="26.00" cy="26.30" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <ellipse cx="-27.00" cy="26.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <rect x="-16.00" y="-27.70" width="32.00" height="59.00" stroke="black" fill="none" />
-    <polyline points="23,6.3 43,6.3 33,11.3 43,16.3 33,21.3 43,26.3 23,26.3" stroke="black" fill="none" />
-    <text x="-36.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">solaire</text>
-    <text x="18.00" y="18.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">chauff.</text>
-    <text x="25.00" y="-11.70" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ECS</text>
-    <text x="-13.00" y="-31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ballon</text>
-    <polyline points="-23,6 -43,6 -33,11 -43,16 -33,21 -43,26 -23,26" stroke="black" fill="none" />
-    <polyline points="-23,6 -3,6 -13,11 -3,16 -13,21 -3,26 -23,26" stroke="black" fill="none" />
-    <polyline points="23,6.3 3,6.3 13,11.3 3,16.3 13,21.3 3,26.3 23,26.3" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-26.40" rx="26.40" ry="36.00" stroke="black" fill="none" />
+    <text x="-103.20" y="-44.88" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1B</text>
+    <line x1="69.60" y1="-13.68" x2="14.40" y2="-13.68" stroke="black" fill="none" />
+    <line x1="69.60" y1="-52.08" x2="14.40" y2="-52.08" stroke="black" fill="none" />
+    <polygon points="57.60,63.12 64.80,55.92 64.80,70.32" stroke="black" fill="none" />
+    <polygon points="-69.60,62.40 -62.40,55.20 -62.40,69.60" stroke="black" fill="none" />
+    <ellipse cx="62.40" cy="63.12" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <ellipse cx="-64.80" cy="62.40" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <rect x="-38.40" y="-66.48" width="76.80" height="141.60" stroke="black" fill="none" />
+    <polyline points="55.20,15.12 103.20,15.12 79.20,27.12 103.20,39.12 79.20,51.12 103.20,63.12 55.20,63.12" stroke="black" fill="none" />
+    <text x="-86.40" y="40.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">solaire</text>
+    <text x="43.20" y="43.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">chauff.</text>
+    <text x="60.00" y="-28.08" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ECS</text>
+    <text x="-31.20" y="-74.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ballon</text>
+    <polyline points="-55.20,14.40 -103.20,14.40 -79.20,26.40 -103.20,38.40 -79.20,50.40 -103.20,62.40 -55.20,62.40" stroke="black" fill="none" />
+    <polyline points="-55.20,14.40 -7.20,14.40 -31.20,26.40 -7.20,38.40 -31.20,50.40 -7.20,62.40 -55.20,62.40" stroke="black" fill="none" />
+    <polyline points="55.20,15.12 7.20,15.12 31.20,27.12 7.20,39.12 31.20,51.12 7.20,63.12 55.20,63.12" stroke="black" fill="none" />
   </g>
 </svg>

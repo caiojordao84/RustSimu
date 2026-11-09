@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="150.0" viewBox="-90.0 -55.0 160.0 150.0" data-name="TV-Sat coupler">
+<svg xmlns="http://www.w3.org/2000/svg" width="384.0" height="360.0" viewBox="-216.0 -132.0 384.0 360.0" data-name="TV-Sat coupler" data-standard="48px">
   <title>TV-Sat coupler</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-75.00" y="62.00" width="22.00" height="20.00" stroke="black" fill="none" />
-    <polygon points="-55,-50 -85,-50 -85,60 -73,60 -55,60 -55,30 -50,30 -50,0 -55,0" stroke="black" fill="none" />
-    <rect x="-5.00" y="50.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-25.00" y="50.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="52.00" x2="-5.00" y2="54.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="54.00" x2="-5.00" y2="56.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="56.00" x2="-5.00" y2="58.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="58.00" x2="-4.00" y2="60.00" stroke="black" fill="none" />
-    <rect x="-4.00" y="60.00" width="8.00" height="1.00" stroke="black" fill="none" />
-    <rect x="-35.00" y="-30.00" width="90.00" height="80.00" stroke="black" fill="none" />
-    <rect x="35.00" y="50.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <line x1="45.00" y1="52.00" x2="35.00" y2="54.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="52.00" x2="-25.00" y2="54.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="54.00" x2="-25.00" y2="56.00" stroke="black" fill="none" />
-    <line x1="45.00" y1="54.00" x2="35.00" y2="56.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="56.00" x2="-25.00" y2="58.00" stroke="black" fill="none" />
-    <line x1="45.00" y1="56.00" x2="35.00" y2="58.00" stroke="black" fill="none" />
-    <line x1="45.00" y1="58.00" x2="36.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="58.00" x2="-24.00" y2="60.00" stroke="black" fill="none" />
-    <rect x="-24.00" y="60.00" width="8.00" height="1.00" stroke="black" fill="none" />
-    <rect x="36.00" y="60.00" width="8.00" height="1.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="40.00" x2="-20.00" y2="0.00" stroke="#d40000" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-5.00" y2="0.00" stroke="#d40000" fill="none" />
-    <line x1="5.00" y1="0.00" x2="40.00" y2="0.00" stroke="#d40000" fill="none" />
-    <line x1="40.00" y1="0.00" x2="40.00" y2="40.00" stroke="#d40000" fill="none" />
-    <line x1="-55.00" y1="-50.00" x2="-45.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="-53.00" y1="82.00" x2="-47.00" y2="88.00" stroke="black" fill="none" />
-    <line x1="-75.00" y1="82.00" x2="-69.00" y2="88.00" stroke="black" fill="none" />
-    <line x1="-69.00" y1="88.00" x2="-47.00" y2="88.00" stroke="black" fill="none" />
-    <line x1="-85.00" y1="60.00" x2="-75.00" y2="70.00" stroke="black" fill="none" />
-    <line x1="-45.00" y1="-40.00" x2="-55.00" y2="-40.00" stroke="black" fill="none" />
-    <polyline points="-35,70 -45,70 -45,-40 65,-40 65,70 55,70 55,90 -35,90 -35,70 -35,80" stroke="black" fill="none" />
-    <line x1="0.00" y1="40.00" x2="0.00" y2="5.00" stroke="#d40000" fill="none" />
-    <rect x="-5.00" y="-5.00" width="10.00" height="10.00" stroke="#d40000" fill="none" />
-    <line x1="5.00" y1="-5.00" x2="-5.00" y2="5.00" stroke="#d40000" fill="none" />
-    <text x="-24.00" y="48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TV</text>
-    <text x="-5.00" y="48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Sat</text>
-    <text x="33.00" y="48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT</text>
-    <line x1="-47.00" y1="68.00" x2="-53.00" y2="68.00" stroke="black" fill="none" />
-    <line x1="-55.00" y1="60.00" x2="-53.00" y2="62.00" stroke="black" fill="none" />
-    <line x1="-45.00" y1="70.00" x2="-47.00" y2="68.00" stroke="black" fill="none" />
-    <line x1="-47.00" y1="68.00" x2="-47.00" y2="88.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="40.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-20.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-180.00" y="148.80" width="52.80" height="48.00" stroke="black" fill="none" />
+    <polygon points="-132.00,-120.00 -204.00,-120.00 -204.00,144.00 -175.20,144.00 -132.00,144.00 -132.00,72.00 -120.00,72.00 -120.00,0.00 -132.00,0.00" stroke="black" fill="none" />
+    <rect x="-12.00" y="120.00" width="24.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-60.00" y="120.00" width="24.00" height="24.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="124.80" x2="-12.00" y2="129.60" stroke="black" fill="none" />
+    <line x1="12.00" y1="129.60" x2="-12.00" y2="134.40" stroke="black" fill="none" />
+    <line x1="12.00" y1="134.40" x2="-12.00" y2="139.20" stroke="black" fill="none" />
+    <line x1="12.00" y1="139.20" x2="-9.60" y2="144.00" stroke="black" fill="none" />
+    <rect x="-9.60" y="144.00" width="19.20" height="2.40" stroke="black" fill="none" />
+    <rect x="-84.00" y="-72.00" width="216.00" height="192.00" stroke="black" fill="none" />
+    <rect x="84.00" y="120.00" width="24.00" height="24.00" stroke="black" fill="none" />
+    <line x1="108.00" y1="124.80" x2="84.00" y2="129.60" stroke="black" fill="none" />
+    <line x1="-36.00" y1="124.80" x2="-60.00" y2="129.60" stroke="black" fill="none" />
+    <line x1="-36.00" y1="129.60" x2="-60.00" y2="134.40" stroke="black" fill="none" />
+    <line x1="108.00" y1="129.60" x2="84.00" y2="134.40" stroke="black" fill="none" />
+    <line x1="-36.00" y1="134.40" x2="-60.00" y2="139.20" stroke="black" fill="none" />
+    <line x1="108.00" y1="134.40" x2="84.00" y2="139.20" stroke="black" fill="none" />
+    <line x1="108.00" y1="139.20" x2="86.40" y2="144.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="139.20" x2="-57.60" y2="144.00" stroke="black" fill="none" />
+    <rect x="-57.60" y="144.00" width="19.20" height="2.40" stroke="black" fill="none" />
+    <rect x="86.40" y="144.00" width="19.20" height="2.40" stroke="black" fill="none" />
+    <line x1="-48.00" y1="96.00" x2="-48.00" y2="0.00" stroke="#d40000" fill="none" />
+    <line x1="-48.00" y1="0.00" x2="-12.00" y2="0.00" stroke="#d40000" fill="none" />
+    <line x1="12.00" y1="0.00" x2="96.00" y2="0.00" stroke="#d40000" fill="none" />
+    <line x1="96.00" y1="0.00" x2="96.00" y2="96.00" stroke="#d40000" fill="none" />
+    <line x1="-132.00" y1="-120.00" x2="-108.00" y2="-96.00" stroke="black" fill="none" />
+    <line x1="-127.20" y1="196.80" x2="-112.80" y2="211.20" stroke="black" fill="none" />
+    <line x1="-180.00" y1="196.80" x2="-165.60" y2="211.20" stroke="black" fill="none" />
+    <line x1="-165.60" y1="211.20" x2="-112.80" y2="211.20" stroke="black" fill="none" />
+    <line x1="-204.00" y1="144.00" x2="-180.00" y2="168.00" stroke="black" fill="none" />
+    <line x1="-108.00" y1="-96.00" x2="-132.00" y2="-96.00" stroke="black" fill="none" />
+    <polyline points="-84.00,168.00 -108.00,168.00 -108.00,-96.00 156.00,-96.00 156.00,168.00 132.00,168.00 132.00,216.00 -84.00,216.00 -84.00,168.00 -84.00,192.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="96.00" x2="0.00" y2="12.00" stroke="#d40000" fill="none" />
+    <rect x="-12.00" y="-12.00" width="24.00" height="24.00" stroke="#d40000" fill="none" />
+    <line x1="12.00" y1="-12.00" x2="-12.00" y2="12.00" stroke="#d40000" fill="none" />
+    <text x="-57.60" y="115.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">TV</text>
+    <text x="-12.00" y="115.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Sat</text>
+    <text x="79.20" y="115.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OUT</text>
+    <line x1="-112.80" y1="163.20" x2="-127.20" y2="163.20" stroke="black" fill="none" />
+    <line x1="-132.00" y1="144.00" x2="-127.20" y2="148.80" stroke="black" fill="none" />
+    <line x1="-108.00" y1="168.00" x2="-112.80" y2="163.20" stroke="black" fill="none" />
+    <line x1="-112.80" y1="163.20" x2="-112.80" y2="211.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="96.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-48.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

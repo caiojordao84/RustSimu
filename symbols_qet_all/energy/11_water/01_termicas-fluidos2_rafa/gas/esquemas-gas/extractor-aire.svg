@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-10.0 -9.0 20.0 30.0" data-name="extractor-aire">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-24.0 -21.6 48.0 72.0" data-name="extractor-aire" data-standard="48px">
   <title>extractor-aire</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-5.48" y1="3.23" x2="-1.72" y2="3.23" stroke="black" fill="none" />
-    <line x1="0.00" y1="5.00" x2="0.00" y2="8.42" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="3.23" rx="6.00" ry="5.76" stroke="black" fill="none" />
-    <line x1="0.00" y1="-1.95" x2="0.00" y2="1.50" stroke="black" fill="none" />
-    <line x1="1.72" y1="3.23" x2="5.48" y2="3.23" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-13.15" y1="7.75" x2="-4.13" y2="7.75" stroke="black" fill="none" />
+    <line x1="0.00" y1="12.00" x2="0.00" y2="20.21" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="7.75" rx="14.40" ry="13.82" stroke="black" fill="none" />
+    <line x1="0.00" y1="-4.68" x2="0.00" y2="3.60" stroke="black" fill="none" />
+    <line x1="4.13" y1="7.75" x2="13.15" y2="7.75" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

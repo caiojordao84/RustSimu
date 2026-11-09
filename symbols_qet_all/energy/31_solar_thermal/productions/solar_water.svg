@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="100.0" viewBox="-60.0 -40.0 160.0 100.0" data-name="Solar water">
+<svg xmlns="http://www.w3.org/2000/svg" width="384.0" height="240.0" viewBox="-144.0 -96.0 384.0 240.0" data-name="Solar water" data-standard="48px">
   <title>Solar water</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="50.00" y1="50.00" x2="-50.00" y2="50.00" stroke="black" fill="none" />
-    <line x1="-9.00" y1="-30.00" x2="90.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="94.00" y1="-32.00" x2="48.00" y2="-28.00" stroke="black" fill="none" />
-    <line x1="44.00" y1="-32.00" x2="-2.00" y2="-28.00" stroke="black" fill="none" />
-    <polygon points="0,50 0,-26 44,-30 44,46" stroke="black" fill="none" />
-    <line x1="48.00" y1="53.00" x2="48.00" y2="-28.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="50.00" x2="0.00" y2="-31.00" stroke="black" fill="none" />
-    <polygon points="-50,50 -50,-26 -6,-30 -6,46" stroke="black" fill="none" />
-    <line x1="-52.00" y1="52.00" x2="-52.00" y2="-29.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-32.00" x2="-52.00" y2="-28.00" stroke="black" fill="none" />
-    <line x1="-13.00" y1="-24.00" x2="-13.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="-20.50" y1="-24.00" x2="-20.50" y2="41.00" stroke="black" fill="none" />
-    <line x1="-28.00" y1="-24.00" x2="-28.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="-35.50" y1="-24.00" x2="-35.50" y2="41.00" stroke="black" fill="none" />
-    <line x1="-43.00" y1="-24.00" x2="-43.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="-24.00" x2="40.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="32.50" y1="-24.00" x2="32.50" y2="41.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="-24.00" x2="25.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="17.00" y1="-24.00" x2="17.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-24.00" x2="10.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="90.00" y1="-24.00" x2="90.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="82.50" y1="-24.00" x2="82.50" y2="41.00" stroke="black" fill="none" />
-    <line x1="75.00" y1="-24.00" x2="75.00" y2="41.00" stroke="black" fill="none" />
-    <line x1="67.50" y1="-24.00" x2="67.50" y2="41.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="-24.00" x2="60.00" y2="41.00" stroke="black" fill="none" />
-    <ellipse cx="-50.00" cy="50.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="50.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="50.00" cy="50.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="-9.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="40.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="90.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <polygon points="50,50 50,-26 94,-30 94,46" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="90.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-50.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="120.00" y1="120.00" x2="-120.00" y2="120.00" stroke="black" fill="none" />
+    <line x1="-21.60" y1="-72.00" x2="216.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="225.60" y1="-76.80" x2="115.20" y2="-67.20" stroke="black" fill="none" />
+    <line x1="105.60" y1="-76.80" x2="-4.80" y2="-67.20" stroke="black" fill="none" />
+    <polygon points="0.00,120.00 0.00,-62.40 105.60,-72.00 105.60,110.40" stroke="black" fill="none" />
+    <line x1="115.20" y1="127.20" x2="115.20" y2="-67.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="120.00" x2="0.00" y2="-74.40" stroke="black" fill="none" />
+    <polygon points="-120.00,120.00 -120.00,-62.40 -14.40,-72.00 -14.40,110.40" stroke="black" fill="none" />
+    <line x1="-124.80" y1="124.80" x2="-124.80" y2="-69.60" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-76.80" x2="-124.80" y2="-67.20" stroke="black" fill="none" />
+    <line x1="-31.20" y1="-57.60" x2="-31.20" y2="98.40" stroke="black" fill="none" />
+    <line x1="-49.20" y1="-57.60" x2="-49.20" y2="98.40" stroke="black" fill="none" />
+    <line x1="-67.20" y1="-57.60" x2="-67.20" y2="98.40" stroke="black" fill="none" />
+    <line x1="-85.20" y1="-57.60" x2="-85.20" y2="98.40" stroke="black" fill="none" />
+    <line x1="-103.20" y1="-57.60" x2="-103.20" y2="98.40" stroke="black" fill="none" />
+    <line x1="96.00" y1="-57.60" x2="96.00" y2="98.40" stroke="black" fill="none" />
+    <line x1="78.00" y1="-57.60" x2="78.00" y2="98.40" stroke="black" fill="none" />
+    <line x1="60.00" y1="-57.60" x2="60.00" y2="98.40" stroke="black" fill="none" />
+    <line x1="40.80" y1="-57.60" x2="40.80" y2="98.40" stroke="black" fill="none" />
+    <line x1="24.00" y1="-57.60" x2="24.00" y2="98.40" stroke="black" fill="none" />
+    <line x1="216.00" y1="-57.60" x2="216.00" y2="98.40" stroke="black" fill="none" />
+    <line x1="198.00" y1="-57.60" x2="198.00" y2="98.40" stroke="black" fill="none" />
+    <line x1="180.00" y1="-57.60" x2="180.00" y2="98.40" stroke="black" fill="none" />
+    <line x1="162.00" y1="-57.60" x2="162.00" y2="98.40" stroke="black" fill="none" />
+    <line x1="144.00" y1="-57.60" x2="144.00" y2="98.40" stroke="black" fill="none" />
+    <ellipse cx="-120.00" cy="120.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="120.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <ellipse cx="120.00" cy="120.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <ellipse cx="-21.60" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <ellipse cx="96.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <ellipse cx="216.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <polygon points="120.00,120.00 120.00,-62.40 225.60,-72.00 225.60,110.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="216.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-120.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

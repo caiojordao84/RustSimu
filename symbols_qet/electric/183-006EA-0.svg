@@ -1,100 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="220.0" height="160.0" viewBox="-50.0 -10.0 220.0 160.0" data-name="Alimentation 12V">
+<svg xmlns="http://www.w3.org/2000/svg" width="528.0" height="384.0" viewBox="-120.0 -24.0 528.0 384.0" data-name="Alimentation 12V" data-standard="48px">
   <title>Alimentation 12V</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="15.00" y1="25.00" x2="25.00" y2="30.00" stroke="black" fill="none" />
-    <text x="25.00" y="103.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BAT. CHARGE : +13.8V----  2.5A</text>
-    <text x="145.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-V</text>
-    <text x="106.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+V</text>
-    <text x="86.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+V</text>
-    <text x="126.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-V</text>
-    <text x="-8.00" y="72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="-28.00" y="84.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+V ADJ</text>
-    <text x="-28.00" y="57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC OK</text>
-    <line x1="10.00" y1="20.00" x2="10.00" y2="25.00" stroke="black" fill="none" />
-    <text x="28.00" y="127.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Terre</text>
-    <line x1="10.00" y1="25.00" x2="15.00" y2="25.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="25.00" x2="30.00" y2="25.00" stroke="black" fill="none" />
-    <text x="53.00" y="127.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <line x1="30.00" y1="25.00" x2="30.00" y2="20.00" stroke="black" fill="none" />
-    <text x="73.00" y="127.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="25.00" y="70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">INPUT:      100-240VAC      2.0A</text>
-    <text x="72.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="43.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="11.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC OK</text>
-    <ellipse cx="-20.00" cy="70.00" rx="5.00" ry="5.00" stroke="black" fill="black" />
-    <text x="125.00" y="80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">50/60Hz</text>
-    <text x="-30.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Bat. Low</text>
-    <text x="56.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Bat.</text>
-    <text x="60.00" y="55.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DRC-100A</text>
-    <line x1="-20.00" y1="0.00" x2="-20.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="0.00" x2="20.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="0.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
-    <rect x="60.00" y="0.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="80.00" y="10.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="100.00" y="0.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="100.00" y="10.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <ellipse cx="-20.00" cy="45.00" rx="5.00" ry="5.00" stroke="green" fill="#00aa00" />
-    <rect x="25.00" y="130.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="45.00" y="130.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="65.00" y="130.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="25.00" y="120.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="45.00" y="120.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="65.00" y="120.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="25.00" y="90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC OUTPUT : +13.8V----    4.5A</text>
-    <line x1="165.00" y1="130.00" x2="165.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="10.00" x2="60.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="10.00" x2="-45.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-45.00" y1="10.00" x2="-45.00" y2="130.00" stroke="black" fill="none" />
-    <rect x="-40.00" y="0.00" width="80.00" height="10.00" stroke="black" fill="none" />
-    <rect x="40.00" y="0.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="95.00" y1="10.00" x2="100.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="85.00" y1="20.00" x2="90.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="10.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="10.00" x2="80.00" y2="10.00" stroke="black" fill="none" />
-    <rect x="-40.00" y="10.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <line x1="-25.00" y1="25.00" x2="-15.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="20.00" x2="-30.00" y2="25.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="25.00" x2="-25.00" y2="25.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="25.00" x2="-10.00" y2="25.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="25.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
-    <rect x="0.00" y="10.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <rect x="40.00" y="10.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <rect x="80.00" y="0.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="120.00" y="0.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="140.00" y="0.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="120.00" y="10.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="140.00" y="10.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="-45.00" y1="130.00" x2="25.00" y2="130.00" stroke="black" fill="none" />
-    <line x1="165.00" y1="130.00" x2="85.00" y2="130.00" stroke="black" fill="none" />
-    <line x1="165.00" y1="10.00" x2="160.00" y2="10.00" stroke="black" fill="none" />
-    <path d="M -10.00 70.00 A 10.00 10.00 0 0 0 -30.00 69.83" stroke="black" fill="none" />
-    <line x1="-10.00" y1="70.00" x2="-10.00" y2="65.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="70.00" x2="-12.00" y2="66.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="90.00" width="35.00" height="25.00" stroke="#d40000" fill="#d40000" />
-    <line x1="-17.00" y1="67.00" x2="-23.00" y2="73.00" stroke="white" fill="white" />
-    <rect x="-15.00" y="100.00" width="0.00" height="5.00" stroke="black" fill="none" />
-    <text x="-25.00" y="92.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MW</text>
-    <rect x="-28.00" y="107.00" width="31.00" height="7.00" stroke="white" fill="white" />
-    <text x="-26.00" y="112.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MEAN WELL</text>
-    <line x1="34.00" y1="118.00" x2="35.00" y2="118.00" stroke="black" fill="none" />
-    <line x1="32.00" y1="116.00" x2="37.00" y2="116.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="114.00" x2="39.00" y2="114.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="114.00" x2="35.00" y2="108.00" stroke="black" fill="none" />
-    <line x1="150.00" y1="60.00" x2="20.00" y2="60.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="130.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="70.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="150.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="55.00" cy="140.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="110.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="75.00" cy="140.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="35.00" cy="140.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="36.00" y1="60.00" x2="60.00" y2="72.00" stroke="black" fill="none" />
+    <text x="60.00" y="247.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BAT. CHARGE : +13.8V----  2.5A</text>
+    <text x="348.00" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-V</text>
+    <text x="254.40" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+V</text>
+    <text x="206.40" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+V</text>
+    <text x="302.40" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-V</text>
+    <text x="-19.20" y="172.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="-67.20" y="201.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+V ADJ</text>
+    <text x="-67.20" y="136.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DC OK</text>
+    <line x1="24.00" y1="48.00" x2="24.00" y2="60.00" stroke="black" fill="none" />
+    <text x="67.20" y="304.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Terre</text>
+    <line x1="24.00" y1="60.00" x2="36.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="60.00" x2="72.00" y2="60.00" stroke="black" fill="none" />
+    <text x="127.20" y="304.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <line x1="72.00" y1="60.00" x2="72.00" y2="48.00" stroke="black" fill="none" />
+    <text x="175.20" y="304.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="60.00" y="168.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">INPUT:      100-240VAC      2.0A</text>
+    <text x="172.80" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="103.20" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="26.40" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">AC OK</text>
+    <ellipse cx="-48.00" cy="168.00" rx="12.00" ry="12.00" stroke="black" fill="black" />
+    <text x="300.00" y="192.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">50/60Hz</text>
+    <text x="-72.00" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Bat. Low</text>
+    <text x="134.40" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Bat.</text>
+    <text x="144.00" y="132.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DRC-100A</text>
+    <line x1="-48.00" y1="0.00" x2="-48.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="0.00" x2="48.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="0.00" x2="96.00" y2="24.00" stroke="black" fill="none" />
+    <rect x="144.00" y="0.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="192.00" y="24.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="240.00" y="0.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="240.00" y="24.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <ellipse cx="-48.00" cy="108.00" rx="12.00" ry="12.00" stroke="green" fill="#00aa00" />
+    <rect x="60.00" y="312.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="108.00" y="312.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="156.00" y="312.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="60.00" y="288.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="108.00" y="288.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="156.00" y="288.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="60.00" y="216.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DC OUTPUT : +13.8V----    4.5A</text>
+    <line x1="396.00" y1="312.00" x2="396.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="24.00" x2="144.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="24.00" x2="-108.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="-108.00" y1="24.00" x2="-108.00" y2="312.00" stroke="black" fill="none" />
+    <rect x="-96.00" y="0.00" width="192.00" height="24.00" stroke="black" fill="none" />
+    <rect x="96.00" y="0.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="228.00" y1="24.00" x2="240.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="204.00" y1="48.00" x2="216.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="120.00" y1="24.00" x2="96.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="24.00" x2="192.00" y2="24.00" stroke="black" fill="none" />
+    <rect x="-96.00" y="24.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="60.00" x2="-36.00" y2="72.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="48.00" x2="-72.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="60.00" x2="-60.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="60.00" x2="-24.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="60.00" x2="-24.00" y2="48.00" stroke="black" fill="none" />
+    <rect x="0.00" y="24.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <rect x="96.00" y="24.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <rect x="192.00" y="0.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="288.00" y="0.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="336.00" y="0.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="288.00" y="24.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="336.00" y="24.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="-108.00" y1="312.00" x2="60.00" y2="312.00" stroke="black" fill="none" />
+    <line x1="396.00" y1="312.00" x2="204.00" y2="312.00" stroke="black" fill="none" />
+    <line x1="396.00" y1="24.00" x2="384.00" y2="24.00" stroke="black" fill="none" />
+    <path d="M -24.00 168.00 A 24.00 24.00 0 0 0 -72.00 167.59" stroke="black" fill="none" />
+    <line x1="-24.00" y1="168.00" x2="-24.00" y2="156.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="168.00" x2="-28.80" y2="158.40" stroke="black" fill="none" />
+    <rect x="-72.00" y="216.00" width="84.00" height="60.00" stroke="#d40000" fill="#d40000" />
+    <line x1="-40.80" y1="160.80" x2="-55.20" y2="175.20" stroke="white" fill="white" />
+    <rect x="-36.00" y="240.00" width="0.00" height="12.00" stroke="black" fill="none" />
+    <text x="-60.00" y="220.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MW</text>
+    <rect x="-67.20" y="256.80" width="74.40" height="16.80" stroke="white" fill="white" />
+    <text x="-62.40" y="268.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MEAN WELL</text>
+    <line x1="81.60" y1="283.20" x2="84.00" y2="283.20" stroke="black" fill="none" />
+    <line x1="76.80" y1="278.40" x2="88.80" y2="278.40" stroke="black" fill="none" />
+    <line x1="72.00" y1="273.60" x2="93.60" y2="273.60" stroke="black" fill="none" />
+    <line x1="84.00" y1="273.60" x2="84.00" y2="259.20" stroke="black" fill="none" />
+    <line x1="360.00" y1="144.00" x2="48.00" y2="144.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="312.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="360.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="132.00" cy="336.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="264.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="120.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="180.00" cy="336.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="84.00" cy="336.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

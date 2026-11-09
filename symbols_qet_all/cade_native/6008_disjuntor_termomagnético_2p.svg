@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="136.0" height="128.0" viewBox="-48.0 -16.0 136.0 128.0" data-generator="cade2svg">
+  <title>Disjuntor Termomagnético 2P</title>
+  <g stroke="#111827" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.0" y1="0.0" x2="0.0" y2="24.0" />
+    <line x1="48.0" y1="0.0" x2="48.0" y2="24.0" />
+    <line x1="-24.0" y1="24.0" x2="0.0" y2="72.0" />
+    <line x1="24.0" y1="24.0" x2="48.0" y2="72.0" />
+    <line x1="0.0" y1="72.0" x2="0.0" y2="96.0" />
+    <line x1="48.0" y1="72.0" x2="48.0" y2="96.0" />
+    <polygon points="-32.0,38.4 -19.2,32.0 -12.8,44.8 -25.6,51.2" fill="none" />
+    <polygon points="16.0,38.4 28.8,32.0 35.2,44.8 22.4,51.2" fill="none" />
+    <line x1="-11.2" y1="48.0" x2="4.8" y2="48.0" />
+    <line x1="28.8" y1="48.0" x2="44.8" y2="48.0" />
+    <circle class="qet-terminal" cx="0.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="1" />
+    <circle class="qet-terminal" cx="48.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="3" />
+    <circle class="qet-terminal" cx="0.0" cy="168.0" r="4.0" fill="#dc2626" stroke="none" data-label="2" />
+    <circle class="qet-terminal" cx="48.0" cy="168.0" r="4.0" fill="#dc2626" stroke="none" data-label="4" />
+  </g>
+</svg>

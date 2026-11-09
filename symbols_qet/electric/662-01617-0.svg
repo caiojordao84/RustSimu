@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="40.0" viewBox="-30.0 -27.0 70.0 40.0" data-name="Potentiometer with movable contact and pre-set adjustment">
+<svg xmlns="http://www.w3.org/2000/svg" width="67.2" height="38.4" viewBox="-28.8 -25.9 67.2 38.4" data-name="Potentiometer with movable contact and pre-set adjustment" data-standard="48px">
   <title>Potentiometer with movable contact and pre-set adjustment</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-20.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-5.00" width="30.00" height="10.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-20.00" x2="5.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-20.00" x2="5.00" y2="-5.00" stroke="black" fill="none" />
-    <polygon points="3,-9 7,-9 5,-5" stroke="black" fill="black" />
-    <line x1="30.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="10.00" x2="15.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="14.00" y1="-12.00" x2="17.00" y2="-9.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-19.20" y1="0.00" x2="-9.60" y2="0.00" stroke="black" fill="none" />
+    <rect x="-9.60" y="-4.80" width="28.80" height="9.60" stroke="black" fill="none" />
+    <line x1="19.20" y1="-19.20" x2="4.80" y2="-19.20" stroke="black" fill="none" />
+    <line x1="4.80" y1="-19.20" x2="4.80" y2="-4.80" stroke="black" fill="none" />
+    <polygon points="2.88,-8.64 6.72,-8.64 4.80,-4.80" stroke="black" fill="black" />
+    <line x1="28.80" y1="0.00" x2="19.20" y2="0.00" stroke="black" fill="none" />
+    <line x1="-4.80" y1="9.60" x2="14.40" y2="-9.60" stroke="black" fill="none" />
+    <line x1="13.44" y1="-11.52" x2="16.32" y2="-8.64" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="19.20" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-19.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="28.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

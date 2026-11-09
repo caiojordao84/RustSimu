@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-22.0 -6.0 40.0 20.0" data-name="Arrow 3 way 03">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="48.0" viewBox="-52.8 -14.4 96.0 48.0" data-name="Arrow 3 way 03" data-standard="48px">
   <title>Arrow 3 way 03</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-7,0 -4,-3 -4,3" stroke="black" fill="none" />
-    <line x1="5.00" y1="8.00" x2="5.00" y2="7.00" stroke="black" fill="none" />
-    <polygon points="5,8 3,10 7,10" stroke="black" fill="none" />
-    <polygon points="11,0 13,-2 13,2" stroke="black" fill="none" />
-    <line x1="-4.00" y1="0.00" x2="11.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M 5.00 6.00 A 9.00 6.00 0 0 0 -4.00 0.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-16.80,0.00 -9.60,-7.20 -9.60,7.20" stroke="black" fill="none" />
+    <line x1="12.00" y1="19.20" x2="12.00" y2="16.80" stroke="black" fill="none" />
+    <polygon points="12.00,19.20 7.20,24.00 16.80,24.00" stroke="black" fill="none" />
+    <polygon points="26.40,0.00 31.20,-4.80 31.20,4.80" stroke="black" fill="none" />
+    <line x1="-9.60" y1="0.00" x2="26.40" y2="0.00" stroke="black" fill="none" />
+    <path d="M 12.00 14.40 A 21.60 14.40 0 0 0 -9.60 0.00" stroke="black" fill="none" />
   </g>
 </svg>

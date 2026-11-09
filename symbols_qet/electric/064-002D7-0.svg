@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-19.0 -30.0 30.0 60.0" data-name="Potentiometer trimmer">
+<svg xmlns="http://www.w3.org/2000/svg" width="36.0" height="72.0" viewBox="-22.8 -36.0 36.0 72.0" data-name="Potentiometer trimmer" data-standard="48px">
   <title>Potentiometer trimmer</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
-    <rect x="-4.00" y="-10.00" width="8.00" height="20.00" stroke="black" fill="white" />
-    <polyline points="-10,0 -4,0 4,4 6,4" stroke="black" fill="none" />
-    <line x1="6.00" y1="6.00" x2="6.00" y2="2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="S" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="24.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <rect x="-4.80" y="-12.00" width="9.60" height="24.00" stroke="black" fill="white" />
+    <polyline points="-12.00,0.00 -4.80,0.00 4.80,4.80 7.20,4.80" stroke="black" fill="none" />
+    <line x1="7.20" y1="7.20" x2="7.20" y2="2.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-12.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="S" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="n" />
   </g>
 </svg>

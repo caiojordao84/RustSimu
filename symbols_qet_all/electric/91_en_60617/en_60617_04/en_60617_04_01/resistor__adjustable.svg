@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="30.0" viewBox="-30.0 -16.0 70.0 30.0" data-name="Resistor, adjustable">
+<svg xmlns="http://www.w3.org/2000/svg" width="67.2" height="28.8" viewBox="-28.8 -15.4 67.2 28.8" data-name="Resistor, adjustable" data-standard="48px">
   <title>Resistor, adjustable</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-20.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-5.00" width="30.00" height="10.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="0.00" x2="30.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="10.00" x2="15.00" y2="-10.00" stroke="black" fill="none" />
-    <polygon points="16,-9 14,-11 18,-13" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-19.20" y1="0.00" x2="-9.60" y2="0.00" stroke="black" fill="none" />
+    <rect x="-9.60" y="-4.80" width="28.80" height="9.60" stroke="black" fill="none" />
+    <line x1="19.20" y1="0.00" x2="28.80" y2="0.00" stroke="black" fill="none" />
+    <line x1="-4.80" y1="9.60" x2="14.40" y2="-9.60" stroke="black" fill="none" />
+    <polygon points="15.36,-8.64 13.44,-10.56 17.28,-12.48" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-19.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="28.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

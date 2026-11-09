@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-10.0 -17.0 20.0 30.0" data-name="Push-button with indicator lamp">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-24.0 -40.8 48.0 72.0" data-name="Push-button with indicator lamp" data-standard="48px">
   <title>Push-button with indicator lamp</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-3.00" y1="3.00" x2="3.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-3.00" x2="3.00" y2="3.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="7.50" ry="7.50" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="4.25" ry="4.25" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-7.20" y1="7.20" x2="7.20" y2="-7.20" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-7.20" x2="7.20" y2="7.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="18.00" ry="18.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="10.20" ry="10.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

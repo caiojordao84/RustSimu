@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="370.0" viewBox="-5.0 -5.0 90.0 370.0" data-name="001301 - Enclosure with terminal cover - 1 module">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="888.0" viewBox="-12.0 -12.0 216.0 888.0" data-name="001301 - Enclosure with terminal cover - 1 module" data-standard="48px">
   <title>001301 - Enclosure with terminal cover - 1 module</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="80.00" height="360.00" stroke="black" fill="white" />
-    <rect x="20.00" y="90.00" width="40.00" height="200.00" stroke="black" fill="white" />
-    <path d="M 70.00 59.83 A 30.00 10.00 0 0 0 10.00 60.17" stroke="black" fill="none" />
-    <path d="M 10.00 290.00 A 30.00 10.00 0 0 0 70.00 290.00" stroke="black" fill="none" />
-    <rect x="20.00" y="151.00" width="40.00" height="78.00" stroke="black" fill="gray" />
-    <ellipse cx="20.00" cy="340.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <ellipse cx="60.00" cy="340.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <ellipse cx="20.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <ellipse cx="60.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="60.00" x2="10.00" y2="290.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="60.00" x2="70.00" y2="290.00" stroke="black" fill="none" />
-    <path d="M 10.00 290.00 A 30.00 20.00 0 0 0 70.00 290.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="192.00" height="864.00" stroke="black" fill="white" />
+    <rect x="48.00" y="216.00" width="96.00" height="480.00" stroke="black" fill="white" />
+    <path d="M 168.00 143.59 A 72.00 24.00 0 0 0 24.00 144.41" stroke="black" fill="none" />
+    <path d="M 24.00 696.00 A 72.00 24.00 0 0 0 168.00 696.00" stroke="black" fill="none" />
+    <rect x="48.00" y="362.40" width="96.00" height="187.20" stroke="black" fill="gray" />
+    <ellipse cx="48.00" cy="816.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <ellipse cx="144.00" cy="816.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <ellipse cx="48.00" cy="48.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <ellipse cx="144.00" cy="48.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="144.00" x2="24.00" y2="696.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="144.00" x2="168.00" y2="696.00" stroke="black" fill="none" />
+    <path d="M 24.00 696.00 A 72.00 48.00 0 0 0 168.00 696.00" stroke="black" fill="none" />
   </g>
 </svg>

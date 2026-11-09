@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-25.0 -17.0 50.0 30.0" data-name="llave-corte">
+<svg xmlns="http://www.w3.org/2000/svg" width="88.9" height="53.3" viewBox="-44.4 -30.2 88.9 53.3" data-name="llave-corte" data-standard="48px">
   <title>llave-corte</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-8.76" y="-1.07" width="2.42" height="2.47" stroke="black" fill="none" />
-    <line x1="8.36" y1="2.64" x2="11.45" y2="2.64" stroke="black" fill="none" />
-    <line x1="-12.21" y1="2.64" x2="-9.12" y2="2.64" stroke="black" fill="none" />
-    <ellipse cx="-0.29" cy="0.24" rx="2.08" ry="2.00" stroke="black" fill="none" />
-    <rect x="-12.54" y="-3.55" width="3.78" height="7.42" stroke="black" fill="none" />
-    <line x1="-12.21" y1="-2.31" x2="-9.12" y2="-2.31" stroke="black" fill="none" />
-    <rect x="5.76" y="-1.07" width="2.42" height="2.47" stroke="black" fill="none" />
-    <rect x="8.00" y="-3.55" width="3.78" height="7.42" stroke="black" fill="none" />
-    <line x1="8.36" y1="-2.31" x2="11.45" y2="-2.31" stroke="black" fill="none" />
-    <path d="M -3.41 -3.33 A 4.84 4.64 0 1 0 2.82 -3.33" stroke="black" fill="none" />
-    <polyline points="-2.71,-3.78 -1.5,-11.2 -0.29,-11.2 0.92,-11.2 2.13,-3.78" stroke="black" fill="none" />
-    <path d="M -3.31 -5.42 A 6.05 6.18 0 1 0 2.73 -5.42" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="13.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-15.57" y="-1.90" width="4.30" height="4.39" stroke="black" fill="none" />
+    <line x1="14.86" y1="4.69" x2="20.36" y2="4.69" stroke="black" fill="none" />
+    <line x1="-21.71" y1="4.69" x2="-16.21" y2="4.69" stroke="black" fill="none" />
+    <ellipse cx="-0.52" cy="0.43" rx="3.70" ry="3.56" stroke="black" fill="none" />
+    <rect x="-22.29" y="-6.31" width="6.72" height="13.19" stroke="black" fill="none" />
+    <line x1="-21.71" y1="-4.11" x2="-16.21" y2="-4.11" stroke="black" fill="none" />
+    <rect x="10.24" y="-1.90" width="4.30" height="4.39" stroke="black" fill="none" />
+    <rect x="14.22" y="-6.31" width="6.72" height="13.19" stroke="black" fill="none" />
+    <line x1="14.86" y1="-4.11" x2="20.36" y2="-4.11" stroke="black" fill="none" />
+    <path d="M -6.06 -5.92 A 8.60 8.25 0 1 0 5.01 -5.92" stroke="black" fill="none" />
+    <polyline points="-4.82,-6.72 -2.67,-19.91 -0.52,-19.91 1.64,-19.91 3.79,-6.72" stroke="black" fill="none" />
+    <path d="M -5.88 -9.64 A 10.76 10.99 0 1 0 4.85 -9.64" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.89" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="23.11" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

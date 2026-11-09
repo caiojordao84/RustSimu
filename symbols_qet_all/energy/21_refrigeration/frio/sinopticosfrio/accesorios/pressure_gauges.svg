@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-25.0 -23.0 50.0 40.0" data-name="Pressure gauges">
+<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="128.0" viewBox="-80.0 -73.6 160.0 128.0" data-name="Pressure gauges" data-standard="48px">
   <title>Pressure gauges</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="16.00" y1="-9.00" x2="16.00" y2="8.00" stroke="black" fill="none" />
-    <ellipse cx="16.00" cy="-14.50" rx="6.00" ry="5.50" stroke="black" fill="none" />
-    <ellipse cx="-15.00" cy="-14.50" rx="6.00" ry="5.50" stroke="black" fill="none" />
-    <polygon points="4.7,-3 4.7,4 12.7,-3 12.7,4" stroke="black" fill="none" />
-    <line x1="8.70" y1="0.00" x2="8.70" y2="-5.00" stroke="black" fill="none" />
-    <text x="14.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <text x="-17.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B</text>
-    <line x1="4.70" y1="-6.00" x2="12.70" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-9.00" x2="-15.00" y2="8.00" stroke="black" fill="none" />
-    <line x1="13.00" y1="0.00" x2="15.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="-13,-3 -13,4 -5,-3 -5,4" stroke="black" fill="none" />
-    <line x1="-9.00" y1="0.00" x2="-9.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-13.00" y1="-6.00" x2="-5.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="0.00" x2="-13.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="0.00" x2="4.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="8.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-15.00" cy="8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="16.00" cy="8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="51.20" y1="-28.80" x2="51.20" y2="25.60" stroke="black" fill="none" />
+    <ellipse cx="51.20" cy="-46.40" rx="19.20" ry="17.60" stroke="black" fill="none" />
+    <ellipse cx="-48.00" cy="-46.40" rx="19.20" ry="17.60" stroke="black" fill="none" />
+    <polygon points="15.04,-9.60 15.04,12.80 40.64,-9.60 40.64,12.80" stroke="black" fill="none" />
+    <line x1="27.84" y1="0.00" x2="27.84" y2="-16.00" stroke="black" fill="none" />
+    <text x="44.80" y="-38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="-54.40" y="-38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">B</text>
+    <line x1="15.04" y1="-19.20" x2="40.64" y2="-19.20" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-28.80" x2="-48.00" y2="25.60" stroke="black" fill="none" />
+    <line x1="41.60" y1="0.00" x2="48.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-41.60,-9.60 -41.60,12.80 -16.00,-9.60 -16.00,12.80" stroke="black" fill="none" />
+    <line x1="-28.80" y1="0.00" x2="-28.80" y2="-16.00" stroke="black" fill="none" />
+    <line x1="-41.60" y1="-19.20" x2="-16.00" y2="-19.20" stroke="black" fill="none" />
+    <line x1="-48.00" y1="0.00" x2="-41.60" y2="0.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="0.00" x2="12.80" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="25.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-48.00" cy="25.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="25.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="51.20" cy="25.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

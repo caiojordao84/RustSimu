@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -15.0 30.0 40.0" data-name="Intermediate switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-36.0 -36.0 72.0 96.0" data-name="Intermediate switch" data-standard="48px">
   <title>Intermediate switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-2,10 -9,20 -12,18" stroke="black" fill="none" />
-    <polyline points="2,10 9,20 12,18" stroke="black" fill="none" />
-    <polyline points="-2,0 -9,-11 -12,-9" stroke="black" fill="none" />
-    <polyline points="2,0 9,-11 12,-9" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="5.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-4.80,24.00 -21.60,48.00 -28.80,43.20" stroke="black" fill="none" />
+    <polyline points="4.80,24.00 21.60,48.00 28.80,43.20" stroke="black" fill="none" />
+    <polyline points="-4.80,0.00 -21.60,-26.40 -28.80,-21.60" stroke="black" fill="none" />
+    <polyline points="4.80,0.00 21.60,-26.40 28.80,-21.60" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

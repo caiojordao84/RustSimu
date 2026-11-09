@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-38.0 -46.0 60.0 60.0" data-name="Elbow 180 flange">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-60.8 -73.6 96.0 96.0" data-name="Elbow 180 flange" data-standard="48px">
   <title>Elbow 180 flange</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-7.08" y1="-36.15" x2="-7.08" y2="-23.61" stroke="black" fill="none" />
-    <rect x="-9.00" y="-12.00" width="2.00" height="20.00" stroke="black" fill="none" />
-    <path d="M -6.82 -8.98 A 8.73 7.25 0 0 0 -6.81 -23.49" stroke="black" fill="none" />
-    <path d="M -6.73 4.33 A 24.71 20.57 0 0 0 -6.73 -36.81" stroke="black" fill="none" />
-    <rect x="-9.00" y="-40.00" width="2.00" height="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-11.33" y1="-57.84" x2="-11.33" y2="-37.78" stroke="black" fill="none" />
+    <rect x="-14.40" y="-19.20" width="3.20" height="32.00" stroke="black" fill="none" />
+    <path d="M -10.91 -14.37 A 13.97 11.60 0 0 0 -10.90 -37.58" stroke="black" fill="none" />
+    <path d="M -10.77 6.93 A 39.54 32.91 0 0 0 -10.77 -58.90" stroke="black" fill="none" />
+    <rect x="-14.40" y="-64.00" width="3.20" height="32.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-16.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-16.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

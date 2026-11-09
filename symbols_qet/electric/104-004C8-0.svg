@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="20.0" viewBox="-10.0 -10.0 20.0 20.0" data-name="Emmergency Lighting luminaire on special circuit">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="48.0" viewBox="-24.0 -24.0 48.0 48.0" data-name="Emmergency Lighting luminaire on special circuit" data-standard="48px">
   <title>Emmergency Lighting luminaire on special circuit</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-8.00" y1="8.00" x2="8.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="-8.00" x2="8.00" y2="8.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-19.20" y1="19.20" x2="19.20" y2="-19.20" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-19.20" x2="19.20" y2="19.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="3.60" ry="3.60" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

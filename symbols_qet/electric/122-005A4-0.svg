@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="140.0" viewBox="-13.0 -7.0 90.0 140.0" data-name="Bamo probe resistive ste">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="336.0" viewBox="-31.2 -16.8 216.0 336.0" data-name="Bamo probe resistive ste" data-standard="48px">
   <title>Bamo probe resistive ste</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="57.00" y1="123.00" x2="63.00" y2="123.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="-5.00" width="80.00" height="130.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="55.00" y1="121.00" x2="65.00" y2="121.00" stroke="black" fill="none" />
-    <text x="-4.00" y="124.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BAC</text>
-    <line x1="53.00" y1="119.00" x2="67.00" y2="119.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="12.00" x2="10.00" y2="112.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="109.00" x2="60.00" y2="119.00" stroke="black" fill="none" />
-    <line x1="11.00" y1="112.00" x2="60.00" y2="112.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="112.00" x2="60.00" y2="12.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="22.00" x2="20.00" y2="32.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="32.00" x2="34.00" y2="22.00" stroke="black" fill="none" />
-    <line x1="34.00" y1="22.00" x2="43.00" y2="34.00" stroke="black" fill="none" />
-    <line x1="43.00" y1="34.00" x2="60.00" y2="21.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="5.00" x2="20.00" y2="100.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="34.00" y1="4.00" x2="34.00" y2="26.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="50.00" y1="5.00" x2="50.00" y2="60.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <circle class="qet-terminal" cx="60.00" cy="108.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="34.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="136.80" y1="295.20" x2="151.20" y2="295.20" stroke="black" fill="none" />
+    <rect x="-12.00" y="-12.00" width="192.00" height="312.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="132.00" y1="290.40" x2="156.00" y2="290.40" stroke="black" fill="none" />
+    <text x="-9.60" y="297.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BAC</text>
+    <line x1="127.20" y1="285.60" x2="160.80" y2="285.60" stroke="black" fill="none" />
+    <line x1="24.00" y1="28.80" x2="24.00" y2="268.80" stroke="black" fill="none" />
+    <line x1="144.00" y1="261.60" x2="144.00" y2="285.60" stroke="black" fill="none" />
+    <line x1="26.40" y1="268.80" x2="144.00" y2="268.80" stroke="black" fill="none" />
+    <line x1="144.00" y1="268.80" x2="144.00" y2="28.80" stroke="black" fill="none" />
+    <line x1="24.00" y1="52.80" x2="48.00" y2="76.80" stroke="black" fill="none" />
+    <line x1="48.00" y1="76.80" x2="81.60" y2="52.80" stroke="black" fill="none" />
+    <line x1="81.60" y1="52.80" x2="103.20" y2="81.60" stroke="black" fill="none" />
+    <line x1="103.20" y1="81.60" x2="144.00" y2="50.40" stroke="black" fill="none" />
+    <line x1="48.00" y1="12.00" x2="48.00" y2="240.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="81.60" y1="9.60" x2="81.60" y2="62.40" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="120.00" y1="12.00" x2="120.00" y2="144.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <circle class="qet-terminal" cx="144.00" cy="259.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="120.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="81.60" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

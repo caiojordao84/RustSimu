@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-25.0 -27.0 50.0 40.0" data-name="air diffuser">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="96.0" viewBox="-60.0 -64.8 120.0 96.0" data-name="air diffuser" data-standard="48px">
   <title>air diffuser</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-0.50" cy="0.50" rx="11.50" ry="3.50" stroke="black" fill="none" />
-    <ellipse cx="-0.50" cy="0.50" rx="14.50" ry="5.50" stroke="black" fill="none" />
-    <path d="M 11.35 -9.00 A 10.62 3.00 0 0 0 -9.90 -9.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.50" rx="17.00" ry="7.50" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.50" rx="20.00" ry="9.50" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.50" rx="6.00" ry="1.50" stroke="black" fill="none" />
-    <polyline points="-15,-6 -9.9,-10 -9.9,-15" stroke="black" fill="none" />
-    <polyline points="14.75,-6 11.23,-10 11.23,-15" stroke="black" fill="none" />
-    <path d="M 11.35 -16.00 A 10.62 3.00 0 0 0 -9.90 -16.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-1.20" cy="1.20" rx="27.60" ry="8.40" stroke="black" fill="none" />
+    <ellipse cx="-1.20" cy="1.20" rx="34.80" ry="13.20" stroke="black" fill="none" />
+    <path d="M 27.24 -21.60 A 25.49 7.20 0 0 0 -23.76 -21.60" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="1.20" rx="40.80" ry="18.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="1.20" rx="48.00" ry="22.80" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="1.20" rx="14.40" ry="3.60" stroke="black" fill="none" />
+    <polyline points="-36.00,-14.40 -23.76,-24.00 -23.76,-36.00" stroke="black" fill="none" />
+    <polyline points="35.40,-14.40 26.95,-24.00 26.95,-36.00" stroke="black" fill="none" />
+    <path d="M 27.24 -38.40 A 25.49 7.20 0 0 0 -23.76 -38.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

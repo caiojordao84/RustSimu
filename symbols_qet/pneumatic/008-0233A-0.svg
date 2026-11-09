@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-15.0 -32.0 30.0 60.0" data-name="Liquid Level Indicator">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="144.0" viewBox="-36.0 -76.8 72.0 144.0" data-name="Liquid Level Indicator" data-standard="48px">
   <title>Liquid Level Indicator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <path d="M -7.07 -5.93 A 10.00 10.00 0 0 0 7.07 -5.93" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="16.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <path d="M -16.97 -14.23 A 24.00 24.00 0 0 0 16.97 -14.23" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="38.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

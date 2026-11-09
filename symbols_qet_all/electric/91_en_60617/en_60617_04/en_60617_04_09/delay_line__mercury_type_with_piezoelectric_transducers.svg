@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-40.0 -45.0 80.0 50.0" data-name="Delay line, mercury type with piezoelectric transducers">
+<svg xmlns="http://www.w3.org/2000/svg" width="64.0" height="40.0" viewBox="-32.0 -36.0 64.0 40.0" data-name="Delay line, mercury type with piezoelectric transducers" data-standard="48px">
   <title>Delay line, mercury type with piezoelectric transducers</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-40.00" width="40.00" height="40.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-30.00" x2="15.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="-35.00" x2="15.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-35.00" x2="-15.00" y2="-25.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-15.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-20.00" x2="30.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-20.00" x2="-20.00" y2="-20.00" stroke="black" fill="none" />
-    <text x="-5.00" y="-20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Hg</text>
-    <line x1="-6.00" y1="-2.00" x2="6.00" y2="-2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="30.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-30.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-16.00" y="-32.00" width="32.00" height="32.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-24.00" x2="12.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-28.00" x2="12.00" y2="-20.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-28.00" x2="-12.00" y2="-20.00" stroke="black" fill="none" />
+    <rect x="-8.00" y="-12.00" width="16.00" height="8.00" stroke="black" fill="none" />
+    <line x1="16.00" y1="-16.00" x2="24.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-16.00" x2="-16.00" y2="-16.00" stroke="black" fill="none" />
+    <text x="-4.00" y="-16.00" font-size="7.2" font-family="sans-serif" fill="black" stroke="none">Hg</text>
+    <line x1="-4.80" y1="-1.60" x2="4.80" y2="-1.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

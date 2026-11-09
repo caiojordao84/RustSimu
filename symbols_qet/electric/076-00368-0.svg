@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="170.0" viewBox="-14.0 -161.0 140.0 170.0" data-name="Buzzer">
+<svg xmlns="http://www.w3.org/2000/svg" width="336.0" height="408.0" viewBox="-33.6 -386.4 336.0 408.0" data-name="Buzzer" data-standard="48px">
   <title>Buzzer</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="-85.00" width="120.00" height="85.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-15.00" x2="120.00" y2="-15.00" stroke="black" fill="none" />
-    <text x="58.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
-    <line x1="0.00" y1="-45.00" x2="120.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-65.00" x2="120.00" y2="-65.00" stroke="black" fill="none" />
-    <text x="66.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <text x="58.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
-    <line x1="31.00" y1="-130.00" x2="32.00" y2="-130.00" stroke="black" fill="none" />
-    <path d="M 30.00 -130.00 A 30.00 30.00 0 0 0 90.00 -130.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-130.00" x2="90.00" y2="-130.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="-150.00" x2="50.00" y2="-130.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="-150.00" x2="70.00" y2="-130.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="50.00" cy="-150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="60.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="70.00" cy="-150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="-204.00" width="288.00" height="204.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-36.00" x2="288.00" y2="-36.00" stroke="black" fill="none" />
+    <text x="139.20" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
+    <line x1="0.00" y1="-108.00" x2="288.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-156.00" x2="288.00" y2="-156.00" stroke="black" fill="none" />
+    <text x="158.40" y="-72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <text x="139.20" y="-4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <line x1="74.40" y1="-312.00" x2="76.80" y2="-312.00" stroke="black" fill="none" />
+    <path d="M 72.00 -312.00 A 72.00 72.00 0 0 0 216.00 -312.00" stroke="black" fill="none" />
+    <line x1="72.00" y1="-312.00" x2="216.00" y2="-312.00" stroke="black" fill="none" />
+    <line x1="120.00" y1="-360.00" x2="120.00" y2="-312.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="-360.00" x2="168.00" y2="-312.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="120.00" cy="-360.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="144.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="168.00" cy="-360.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

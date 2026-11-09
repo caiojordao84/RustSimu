@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="30.0" viewBox="-38.0 -18.0 70.0 30.0" data-name="Wall-mounted split-D">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="72.0" viewBox="-91.2 -43.2 168.0 72.0" data-name="Wall-mounted split-D" data-standard="48px">
   <title>Wall-mounted split-D</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-25.12" y1="-9.32" x2="23.00" y2="-9.32" stroke="black" fill="none" />
-    <rect x="-28.00" y="-11.71" width="53.90" height="13.87" stroke="black" fill="none" />
-    <line x1="-25.12" y1="-7.32" x2="23.00" y2="-7.32" stroke="black" fill="none" />
-    <rect x="-25.20" y="0.08" width="44.10" height="2.08" stroke="black" fill="none" />
-    <rect x="21.70" y="-0.61" width="2.10" height="1.39" stroke="black" fill="none" />
-    <line x1="-25.12" y1="-10.32" x2="23.00" y2="-10.32" stroke="black" fill="none" />
-    <ellipse cx="-1.40" cy="-4.43" rx="2.80" ry="1.04" stroke="black" fill="none" />
-    <line x1="-28.00" y1="-2.00" x2="25.90" y2="-2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-17.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="23.00" cy="-4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-60.29" y1="-22.37" x2="55.20" y2="-22.37" stroke="black" fill="none" />
+    <rect x="-67.20" y="-28.10" width="129.36" height="33.29" stroke="black" fill="none" />
+    <line x1="-60.29" y1="-17.57" x2="55.20" y2="-17.57" stroke="black" fill="none" />
+    <rect x="-60.48" y="0.19" width="105.84" height="4.99" stroke="black" fill="none" />
+    <rect x="52.08" y="-1.46" width="5.04" height="3.34" stroke="black" fill="none" />
+    <line x1="-60.29" y1="-24.77" x2="55.20" y2="-24.77" stroke="black" fill="none" />
+    <ellipse cx="-3.36" cy="-10.63" rx="6.72" ry="2.50" stroke="black" fill="none" />
+    <line x1="-67.20" y1="-4.80" x2="62.16" y2="-4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-40.80" cy="9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="55.20" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

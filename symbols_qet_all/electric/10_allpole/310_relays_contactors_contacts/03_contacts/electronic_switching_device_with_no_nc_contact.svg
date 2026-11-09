@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-42.0 -41.0 50.0 60.0" data-name="Electronic switching device with NO/NC contact">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="144.0" viewBox="-100.8 -98.4 120.0 144.0" data-name="Electronic switching device with NO/NC contact" data-standard="48px">
   <title>Electronic switching device with NO/NC contact</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-40.00" y="-15.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-10.00" x2="-5.00" y2="-10.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <polyline points="-26,-13 -30,-11 -30,-9 -26,-7" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-19.00" x2="-7.00" y2="-19.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-13.00" x2="-30.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="-34.00" y1="-10.00" x2="-30.00" y2="-10.00" stroke="black" fill="none" />
-    <polyline points="0,10 0,0 -10,-20" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-30.00" x2="-20.00" y2="-19.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-30.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-96.00" y="-36.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-24.00" x2="-12.00" y2="-24.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="-62.40,-31.20 -72.00,-26.40 -72.00,-21.60 -62.40,-16.80" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-45.60" x2="-16.80" y2="-45.60" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-31.20" x2="-72.00" y2="-16.80" stroke="black" fill="none" />
+    <line x1="-81.60" y1="-24.00" x2="-72.00" y2="-24.00" stroke="black" fill="none" />
+    <polyline points="0.00,24.00 0.00,0.00 -24.00,-48.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-72.00" x2="-48.00" y2="-45.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="-72.00" x2="0.00" y2="-48.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

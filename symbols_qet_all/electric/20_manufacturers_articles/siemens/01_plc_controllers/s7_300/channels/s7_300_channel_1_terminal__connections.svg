@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="80.0" viewBox="-45.0 -36.0 90.0 80.0" data-name="S7 300 channel 1 terminal (connections)">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="192.0" viewBox="-108.0 -86.4 216.0 192.0" data-name="S7 300 channel 1 terminal (connections)" data-standard="48px">
   <title>S7 300 channel 1 terminal (connections)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <text x="-32.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SIEMENS S7 300</text>
-    <polyline points="-40,-30 -40,30 -3,30" stroke="black" fill="none" />
-    <polyline points="3,30 40,30 40,-30" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-30.00" x2="40.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="-20.00" x2="-40.00" y2="-20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="33.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="72.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <text x="-76.80" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SIEMENS S7 300</text>
+    <polyline points="-96.00,-72.00 -96.00,72.00 -7.20,72.00" stroke="black" fill="none" />
+    <polyline points="7.20,72.00 96.00,72.00 96.00,-72.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-72.00" x2="96.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="-48.00" x2="-96.00" y2="-48.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="79.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

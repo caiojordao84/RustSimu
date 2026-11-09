@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="220.0" viewBox="-5.0 -10.0 50.0 220.0" data-name="413004 - Modular RJ45 6A STP socket">
+<svg xmlns="http://www.w3.org/2000/svg" width="12.0" height="52.8" viewBox="-1.2 -2.4 12.0 52.8" data-name="413004 - Modular RJ45 6A STP socket" data-standard="48px">
   <title>413004 - Modular RJ45 6A STP socket</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="40.00" height="200.00" stroke="black" fill="white" />
-    <rect x="31.25" y="119.19" width="2.00" height="12.00" stroke="black" fill="black" />
-    <ellipse cx="32.25" cy="129.19" rx="0.50" ry="0.50" stroke="black" fill="white" />
-    <text x="14.00" y="190.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">  Câble
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="9.60" height="48.00" stroke="black" fill="white" />
+    <rect x="7.50" y="28.61" width="0.48" height="2.88" stroke="black" fill="black" />
+    <ellipse cx="7.74" cy="31.01" rx="0.12" ry="0.12" stroke="black" fill="white" />
+    <text x="3.36" y="45.60" font-size="2.2" font-family="sans-serif" fill="black" stroke="none">  Câble
 Ethernet</text>
-    <rect x="0.00" y="50.00" width="40.00" height="100.00" stroke="black" fill="none" />
-    <rect x="10.00" y="90.00" width="20.00" height="20.00" stroke="#888888" fill="white" stroke-dasharray="1.5,2" />
-    <line x1="38.00" y1="74.00" x2="38.00" y2="75.00" stroke="black" fill="none" />
-    <polyline points="4,120 4,144 6,144" stroke="#d40000" fill="none" />
-    <polyline points="6,144 8,144" stroke="#d40000" fill="none" />
-    <line x1="27.00" y1="144.00" x2="39.00" y2="144.00" stroke="#d40000" fill="none" />
-    <rect x="0.00" y="50.00" width="40.00" height="30.00" stroke="black" fill="cyan" />
-    <rect x="10.00" y="120.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <polygon points="12,122 18,122 18,126 17,126 17,127 16,127 16,128 14,128 14,127 13,127 13,126 12,126" stroke="black" fill="none" />
-    <text x="13.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> Ethernet
+    <rect x="0.00" y="12.00" width="9.60" height="24.00" stroke="black" fill="none" />
+    <rect x="2.40" y="21.60" width="4.80" height="4.80" stroke="#888888" fill="white" stroke-dasharray="1.5,2" />
+    <line x1="9.12" y1="17.76" x2="9.12" y2="18.00" stroke="black" fill="none" />
+    <polyline points="0.96,28.80 0.96,34.56 1.44,34.56" stroke="#d40000" fill="none" />
+    <polyline points="1.44,34.56 1.92,34.56" stroke="#d40000" fill="none" />
+    <line x1="6.48" y1="34.56" x2="9.36" y2="34.56" stroke="#d40000" fill="none" />
+    <rect x="0.00" y="12.00" width="9.60" height="7.20" stroke="black" fill="cyan" />
+    <rect x="2.40" y="28.80" width="2.40" height="2.40" stroke="black" fill="none" />
+    <polygon points="2.88,29.28 4.32,29.28 4.32,30.24 4.08,30.24 4.08,30.48 3.84,30.48 3.84,30.72 3.36,30.72 3.36,30.48 3.12,30.48 3.12,30.24 2.88,30.24" stroke="black" fill="none" />
+    <text x="3.12" y="1.92" font-size="2.2" font-family="sans-serif" fill="black" stroke="none"> Ethernet
 Prise RJ45</text>
-    <circle class="qet-terminal" cx="20.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="4.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

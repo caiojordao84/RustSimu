@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="250.0" viewBox="-15.0 -14.0 30.0 250.0" data-name="Cable">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="600.0" viewBox="-36.0 -33.6 72.0 600.0" data-name="Cable" data-standard="48px">
   <title>Cable</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-10.00" y="0.00" width="20.00" height="230.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-4.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="0.00" width="48.00" height="552.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-9.60" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

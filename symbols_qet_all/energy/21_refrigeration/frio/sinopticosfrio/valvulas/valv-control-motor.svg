@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-20.0 -20.0 40.0 30.0" data-name="valv-control-motor">
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="60.0" viewBox="-40.0 -40.0 80.0 60.0" data-name="valv-control-motor" data-standard="48px">
   <title>valv-control-motor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-11.30" y1="0.00" x2="-6.35" y2="0.00" stroke="black" fill="none" />
-    <line x1="7.30" y1="0.00" x2="11.90" y2="0.00" stroke="black" fill="none" />
-    <polygon points="-6,-5 -6,5 7,-5 7,5" stroke="black" fill="none" />
-    <line x1="0.50" y1="0.00" x2="0.50" y2="-8.00" stroke="black" fill="none" />
-    <ellipse cx="0.50" cy="-12.00" rx="4.50" ry="4.00" stroke="black" fill="none" />
-    <text x="-2.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <circle class="qet-terminal" cx="12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-22.60" y1="0.00" x2="-12.70" y2="0.00" stroke="black" fill="none" />
+    <line x1="14.60" y1="0.00" x2="23.80" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-12.00,-10.00 -12.00,10.00 14.00,-10.00 14.00,10.00" stroke="black" fill="none" />
+    <line x1="1.00" y1="0.00" x2="1.00" y2="-16.00" stroke="black" fill="none" />
+    <ellipse cx="1.00" cy="-24.00" rx="9.00" ry="8.00" stroke="black" fill="none" />
+    <text x="-4.00" y="-20.00" font-size="18.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

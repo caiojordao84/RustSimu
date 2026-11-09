@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-29.0 -10.0 40.0 20.0" data-name="Wicu copper pipe">
+<svg xmlns="http://www.w3.org/2000/svg" width="76.8" height="38.4" viewBox="-55.7 -19.2 76.8 38.4" data-name="Wicu copper pipe" data-standard="48px">
   <title>Wicu copper pipe</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-17.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Wicu</text>
-    <line x1="3.00" y1="-4.00" x2="3.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="-5.00" x2="3.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-26.00" y1="5.00" x2="3.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="-5.00" x2="-26.00" y2="5.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <rect x="-19.00" y="-8.00" width="16.00" height="2.00" stroke="#888888" fill="gray" />
-    <rect x="-26.00" y="6.00" width="23.00" height="2.00" stroke="#888888" fill="gray" />
-    <circle class="qet-terminal" cx="3.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-32.64" y="3.84" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">Wicu</text>
+    <line x1="5.76" y1="-7.68" x2="5.76" y2="7.68" stroke="black" fill="none" />
+    <line x1="-36.48" y1="-9.60" x2="5.76" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-49.92" y1="9.60" x2="5.76" y2="9.60" stroke="black" fill="none" />
+    <line x1="-36.48" y1="-9.60" x2="-49.92" y2="9.60" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <rect x="-36.48" y="-15.36" width="30.72" height="3.84" stroke="#888888" fill="gray" />
+    <rect x="-49.92" y="11.52" width="44.16" height="3.84" stroke="#888888" fill="gray" />
+    <circle class="qet-terminal" cx="5.76" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-42.24" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

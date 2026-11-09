@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-15.0 -21.0 30.0 30.0" data-name="presostato-baja">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="72.0" viewBox="-36.0 -50.4 72.0 72.0" data-name="presostato-baja" data-standard="48px">
   <title>presostato-baja</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-9.00" y="-17.49" width="18.85" height="9.24" stroke="black" fill="none" />
-    <text x="-6.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PB</text>
-    <line x1="-0.30" y1="-8.24" x2="-0.30" y2="-0.32" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-21.60" y="-41.98" width="45.24" height="22.18" stroke="black" fill="none" />
+    <text x="-14.40" y="-28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PB</text>
+    <line x1="-0.72" y1="-19.78" x2="-0.72" y2="-0.77" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

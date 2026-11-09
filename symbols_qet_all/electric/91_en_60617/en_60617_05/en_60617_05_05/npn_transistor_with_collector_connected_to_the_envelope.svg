@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-35.0 -45.0 50.0 50.0" data-name="NPN transistor with collector connected to the envelope">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-84.0 -108.0 120.0 120.0" data-name="NPN transistor with collector connected to the envelope" data-standard="48px">
   <title>NPN transistor with collector connected to the envelope</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-10.00" y1="-30.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-15.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-20.00" x2="-30.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-40.00" x2="-10.00" y2="-25.00" stroke="black" fill="none" />
-    <polyline points="-5,-31 -7,-27 -3,-28" stroke="black" fill="none" />
-    <ellipse cx="-10.00" cy="-20.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <ellipse cx="3.00" cy="-5.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-24.00" y1="-72.00" x2="-24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-36.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-48.00" x2="-72.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-96.00" x2="-24.00" y2="-60.00" stroke="black" fill="none" />
+    <polyline points="-12.00,-74.40 -16.80,-64.80 -7.20,-67.20" stroke="black" fill="none" />
+    <ellipse cx="-24.00" cy="-48.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <ellipse cx="7.20" cy="-12.00" rx="4.80" ry="4.80" stroke="black" fill="black" />
   </g>
 </svg>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-17.0 -23.0 30.0 30.0" data-name="control-vrv">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="72.0" viewBox="-40.8 -55.2 72.0 72.0" data-name="control-vrv" data-standard="48px">
   <title>control-vrv</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-9,-3 -9,-1 -7,-2 -7,-4" stroke="black" fill="none" />
-    <polygon points="-10,-10 10,-20 10,-5 -10,5" stroke="black" fill="none" />
-    <polygon points="-9,1 -9,3 -7,2 -7,0" stroke="black" fill="none" />
-    <polyline points="10,-20 7,-20 -13,-10 -13,5 -10,5" stroke="black" fill="none" />
-    <line x1="-13.00" y1="-10.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
-    <polygon points="-6,-10 -6,1 8,-6 8,-17" stroke="black" fill="gray" />
-    <line x1="-2.00" y1="-4.00" x2="3.00" y2="-12.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="-6.00" x2="6.00" y2="-12.00" stroke="black" fill="none" />
-    <polygon points="-9,-7 -9,-5 -7,-6 -7,-8" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-9.00" cy="-16.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-21.60,-7.20 -21.60,-2.40 -16.80,-4.80 -16.80,-9.60" stroke="black" fill="none" />
+    <polygon points="-24.00,-24.00 24.00,-48.00 24.00,-12.00 -24.00,12.00" stroke="black" fill="none" />
+    <polygon points="-21.60,2.40 -21.60,7.20 -16.80,4.80 -16.80,0.00" stroke="black" fill="none" />
+    <polyline points="24.00,-48.00 16.80,-48.00 -31.20,-24.00 -31.20,12.00 -24.00,12.00" stroke="black" fill="none" />
+    <line x1="-31.20" y1="-24.00" x2="-24.00" y2="-24.00" stroke="black" fill="none" />
+    <polygon points="-14.40,-24.00 -14.40,2.40 19.20,-14.40 19.20,-40.80" stroke="black" fill="gray" />
+    <line x1="-4.80" y1="-9.60" x2="7.20" y2="-28.80" stroke="black" fill="none" />
+    <line x1="4.80" y1="-14.40" x2="14.40" y2="-28.80" stroke="black" fill="none" />
+    <polygon points="-21.60,-16.80 -21.60,-12.00 -16.80,-14.40 -16.80,-19.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-21.60" cy="-38.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

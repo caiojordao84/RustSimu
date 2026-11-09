@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="40.0" viewBox="-38.0 -10.0 70.0 40.0" data-name="single acting">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="96.0" viewBox="-91.2 -24.0 168.0 96.0" data-name="single acting" data-standard="48px">
   <title>single acting</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-27.00" y="-5.00" width="3.00" height="20.00" stroke="black" fill="none" />
-    <polyline points="28,3 -24,3 -24,7 28,7" stroke="black" fill="none" />
-    <polyline points="23,7 23,15 -33,15 -33,-5 23,-5 23,3" stroke="black" fill="none" />
-    <polygon points="-32,15 -28,15 -30,11" stroke="black" fill="none" />
-    <polygon points="22,15 20,19 18,15" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-64.80" y="-12.00" width="7.20" height="48.00" stroke="black" fill="none" />
+    <polyline points="67.20,7.20 -57.60,7.20 -57.60,16.80 67.20,16.80" stroke="black" fill="none" />
+    <polyline points="55.20,16.80 55.20,36.00 -79.20,36.00 -79.20,-12.00 55.20,-12.00 55.20,7.20" stroke="black" fill="none" />
+    <polygon points="-76.80,36.00 -67.20,36.00 -72.00,26.40" stroke="black" fill="none" />
+    <polygon points="52.80,36.00 48.00,45.60 43.20,36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-72.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

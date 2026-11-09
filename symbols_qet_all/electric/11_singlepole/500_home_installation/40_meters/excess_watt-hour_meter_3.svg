@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-22.0 -35.0 40.0 60.0" data-name="Excess watt-hour meter">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-26.4 -42.0 48.0 72.0" data-name="Excess watt-hour meter" data-standard="48px">
   <title>Excess watt-hour meter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-10.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P ></text>
-    <text x="-10.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Wh</text>
-    <rect x="-15.00" y="-12.00" width="30.00" height="22.00" stroke="black" fill="none" />
-    <rect x="-15.00" y="-20.00" width="30.00" height="8.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-12.00" y="8.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">P &gt;</text>
+    <text x="-12.00" y="-3.60" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Wh</text>
+    <rect x="-18.00" y="-14.40" width="36.00" height="26.40" stroke="black" fill="none" />
+    <rect x="-18.00" y="-24.00" width="36.00" height="9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="16.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-28.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

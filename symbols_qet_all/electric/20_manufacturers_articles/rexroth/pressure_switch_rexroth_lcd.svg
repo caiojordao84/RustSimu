@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="100.0" viewBox="-76.0 -43.0 160.0 100.0" data-name="pressure_switch_rexroth_lcd">
+<svg xmlns="http://www.w3.org/2000/svg" width="384.0" height="240.0" viewBox="-182.4 -103.2 384.0 240.0" data-name="pressure_switch_rexroth_lcd" data-standard="48px">
   <title>pressure_switch_rexroth_lcd</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="8.00" y="37.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-42.00" y="37.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="48.00" y="37.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="-41.00" y="23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L-</text>
-    <line x1="68.00" y1="28.00" x2="68.00" y2="33.00" stroke="black" fill="none" />
-    <line x1="74.00" y1="43.20" x2="80.00" y2="43.20" stroke="black" fill="none" />
-    <line x1="-36.50" y1="43.20" x2="-24.50" y2="43.20" stroke="black" fill="none" />
-    <line x1="13.50" y1="43.20" x2="25.50" y2="43.20" stroke="black" fill="none" />
-    <line x1="34.50" y1="43.20" x2="46.50" y2="43.20" stroke="black" fill="none" />
-    <line x1="54.00" y1="43.20" x2="66.00" y2="43.20" stroke="black" fill="none" />
-    <ellipse cx="-60.01" cy="43.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <ellipse cx="49.99" cy="43.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <ellipse cx="9.99" cy="43.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <ellipse cx="-40.01" cy="43.20" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <line x1="-70.00" y1="43.20" x2="-64.00" y2="43.20" stroke="black" fill="none" />
-    <line x1="-56.00" y1="43.20" x2="-44.00" y2="43.20" stroke="black" fill="none" />
-    <line x1="-16.00" y1="43.20" x2="6.00" y2="43.20" stroke="black" fill="none" />
-    <text x="-65.00" y="23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
-    <text x="-62.00" y="37.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-60.00" y="-25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">REXROTH 0821 100 103</text>
-    <line x1="-3.00" y1="28.00" x2="68.00" y2="28.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="28.00" x2="-3.00" y2="33.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-11.80" width="85.00" height="35.00" stroke="black" fill="gray" />
-    <text x="8.00" y="7.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LCD display</text>
-    <rect x="-70.00" y="-36.80" width="150.00" height="80.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="50.00" cy="46.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-40.00" cy="46.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="46.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-60.00" cy="46.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="19.20" y="89.28" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-100.80" y="89.28" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="115.20" y="89.28" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-98.40" y="55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L-</text>
+    <line x1="163.20" y1="67.20" x2="163.20" y2="79.20" stroke="black" fill="none" />
+    <line x1="177.60" y1="103.68" x2="192.00" y2="103.68" stroke="black" fill="none" />
+    <line x1="-87.60" y1="103.68" x2="-58.80" y2="103.68" stroke="black" fill="none" />
+    <line x1="32.40" y1="103.68" x2="61.20" y2="103.68" stroke="black" fill="none" />
+    <line x1="82.80" y1="103.68" x2="111.60" y2="103.68" stroke="black" fill="none" />
+    <line x1="129.60" y1="103.68" x2="158.40" y2="103.68" stroke="black" fill="none" />
+    <ellipse cx="-144.02" cy="103.68" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <ellipse cx="119.98" cy="103.68" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <ellipse cx="23.98" cy="103.68" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <ellipse cx="-96.02" cy="103.68" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <line x1="-168.00" y1="103.68" x2="-153.60" y2="103.68" stroke="black" fill="none" />
+    <line x1="-134.40" y1="103.68" x2="-105.60" y2="103.68" stroke="black" fill="none" />
+    <line x1="-38.40" y1="103.68" x2="14.40" y2="103.68" stroke="black" fill="none" />
+    <text x="-156.00" y="55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
+    <text x="-148.80" y="89.28" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-144.00" y="-60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">REXROTH 0821 100 103</text>
+    <line x1="-7.20" y1="67.20" x2="163.20" y2="67.20" stroke="black" fill="none" />
+    <line x1="-7.20" y1="67.20" x2="-7.20" y2="79.20" stroke="black" fill="none" />
+    <rect x="-24.00" y="-28.32" width="204.00" height="84.00" stroke="black" fill="gray" />
+    <text x="19.20" y="17.28" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LCD display</text>
+    <rect x="-168.00" y="-88.32" width="360.00" height="192.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="120.00" cy="110.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="110.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="110.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-144.00" cy="110.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

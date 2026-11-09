@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="210.0" height="50.0" viewBox="-150.0 -5.0 210.0 50.0" data-name="Straight section with several tap-offs">
+<svg xmlns="http://www.w3.org/2000/svg" width="53.1" height="12.6" viewBox="-37.9 -1.3 53.1 12.6" data-name="Straight section with several tap-offs" data-standard="48px">
   <title>Straight section with several tap-offs</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-140.00" y1="15.00" x2="-140.00" y2="25.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="15.00" x2="50.00" y2="25.00" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="20.00" x2="-140.00" y2="20.00" stroke="black" fill="none" />
-    <ellipse cx="-30.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <ellipse cx="-70.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <ellipse cx="-110.00" cy="20.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="30.00" x2="10.00" y2="40.00" stroke="black" fill="none" />
-    <line x1="-70.00" y1="30.00" x2="-70.00" y2="40.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="10.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-110.00" y1="10.00" x2="-110.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-140.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="50.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-35.37" y1="3.79" x2="-35.37" y2="6.32" stroke="black" fill="none" />
+    <line x1="12.63" y1="3.79" x2="12.63" y2="6.32" stroke="black" fill="none" />
+    <ellipse cx="2.53" cy="5.05" rx="2.53" ry="2.53" stroke="black" fill="none" />
+    <line x1="12.63" y1="5.05" x2="-35.37" y2="5.05" stroke="black" fill="none" />
+    <ellipse cx="-7.58" cy="5.05" rx="2.53" ry="2.53" stroke="black" fill="none" />
+    <ellipse cx="-17.68" cy="5.05" rx="2.53" ry="2.53" stroke="black" fill="none" />
+    <ellipse cx="-27.79" cy="5.05" rx="2.53" ry="2.53" stroke="black" fill="none" />
+    <line x1="2.53" y1="7.58" x2="2.53" y2="10.11" stroke="black" fill="none" />
+    <line x1="-17.68" y1="7.58" x2="-17.68" y2="10.11" stroke="black" fill="none" />
+    <line x1="-7.58" y1="2.53" x2="-7.58" y2="0.00" stroke="black" fill="none" />
+    <line x1="-27.79" y1="2.53" x2="-27.79" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-35.37" cy="5.05" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="12.63" cy="5.05" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

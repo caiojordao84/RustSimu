@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="730.0" height="110.0" viewBox="-364.0 -54.0 730.0 110.0" data-name="EL2564-0010">
+<svg xmlns="http://www.w3.org/2000/svg" width="438.0" height="66.0" viewBox="-218.4 -32.4 438.0 66.0" data-name="EL2564-0010" data-standard="48px">
   <title>EL2564-0010</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-260.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EL2564-0010</text>
-    <rect x="-360.00" y="-50.00" width="720.00" height="100.00" stroke="black" fill="none" />
-    <line x1="280.00" y1="10.00" x2="280.00" y2="50.00" stroke="black" fill="white" />
-    <line x1="200.00" y1="10.00" x2="200.00" y2="50.00" stroke="black" fill="white" />
-    <text x="-38.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O4</text>
-    <circle cx="200.00" cy="10.00" r="1.00" stroke="black" fill="black" />
-    <text x="42.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LED supply 8..48 V</text>
-    <text x="-355.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power contact +24V</text>
-    <text x="122.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LED supply 8..48V</text>
-    <text x="-355.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power contact 0V</text>
-    <text x="-118.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O3</text>
-    <circle cx="-40.00" cy="50.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="-120.00" cy="50.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="-200.00" cy="50.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="-280.00" cy="50.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="280.00" cy="50.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="200.00" cy="50.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="120.00" cy="50.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="40.00" cy="50.00" r="2.50" stroke="black" fill="white" />
-    <line x1="-360.00" y1="10.00" x2="360.00" y2="10.00" stroke="black" fill="white" />
-    <line x1="-360.00" y1="-10.00" x2="360.00" y2="-10.00" stroke="black" fill="white" />
-    <text x="-350.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BECKHOFF</text>
-    <text x="282.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LED supply 0 V</text>
-    <text x="202.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LED supply 0 V</text>
-    <text x="-198.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O2</text>
-    <text x="-278.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O1</text>
-    <text x="-278.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-197.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="-117.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-37.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <text x="43.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="123.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <text x="203.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="283.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <text x="-160.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4-channel LED output, 8…48 V DC, 3 A, RGBW, common cathode</text>
-    <polyline points="-362,-10 -356,-10" stroke="black" fill="white" />
-    <path d="M 362.50 -12.50 A 2.50 2.50 0 0 0 362.50 -7.50" stroke="black" fill="none" />
-    <polyline points="-362,10 -356,10" stroke="black" fill="white" />
-    <path d="M 362.50 7.50 A 2.50 2.50 0 0 0 362.50 12.50" stroke="black" fill="none" />
-    <circle cx="280.00" cy="10.00" r="1.00" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="280.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="8" data-orientation="s" />
-    <circle class="qet-terminal" cx="120.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="7" data-orientation="s" />
-    <circle class="qet-terminal" cx="40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="s" />
-    <circle class="qet-terminal" cx="-120.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
-    <circle class="qet-terminal" cx="360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="-280.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="s" />
-    <circle class="qet-terminal" cx="-360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.In" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="6" data-orientation="s" />
-    <circle class="qet-terminal" cx="200.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="s" />
-    <circle class="qet-terminal" cx="-360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.In" data-orientation="w" />
-    <circle class="qet-terminal" cx="-200.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-156.00" y="-19.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">EL2564-0010</text>
+    <rect x="-216.00" y="-30.00" width="432.00" height="60.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="6.00" x2="168.00" y2="30.00" stroke="black" fill="white" />
+    <line x1="120.00" y1="6.00" x2="120.00" y2="30.00" stroke="black" fill="white" />
+    <text x="-22.80" y="27.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">O4</text>
+    <circle cx="120.00" cy="6.00" r="0.60" stroke="black" fill="black" />
+    <text x="25.20" y="27.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">LED supply 8..48 V</text>
+    <text x="-213.00" y="-6.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Power contact +24V</text>
+    <text x="73.20" y="27.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">LED supply 8..48V</text>
+    <text x="-213.00" y="5.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Power contact 0V</text>
+    <text x="-70.80" y="27.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">O3</text>
+    <circle cx="-24.00" cy="30.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="-72.00" cy="30.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="-120.00" cy="30.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="-168.00" cy="30.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="168.00" cy="30.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="120.00" cy="30.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="72.00" cy="30.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="24.00" cy="30.00" r="1.50" stroke="black" fill="white" />
+    <line x1="-216.00" y1="6.00" x2="216.00" y2="6.00" stroke="black" fill="white" />
+    <line x1="-216.00" y1="-6.00" x2="216.00" y2="-6.00" stroke="black" fill="white" />
+    <text x="-210.00" y="-19.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">BECKHOFF</text>
+    <text x="169.20" y="27.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">LED supply 0 V</text>
+    <text x="121.20" y="27.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">LED supply 0 V</text>
+    <text x="-118.80" y="27.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">O2</text>
+    <text x="-166.80" y="27.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">O1</text>
+    <text x="-166.80" y="34.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-118.20" y="34.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="-70.20" y="34.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-22.20" y="34.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="25.80" y="34.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="73.80" y="34.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="121.80" y="34.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="169.80" y="34.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="-96.00" y="-19.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">4-channel LED output, 8…48 V DC, 3 A, RGBW, common cathode</text>
+    <polyline points="-217.20,-6.00 -213.60,-6.00" stroke="black" fill="white" />
+    <path d="M 217.50 -7.50 A 1.50 1.50 0 0 0 217.50 -4.50" stroke="black" fill="none" />
+    <polyline points="-217.20,6.00 -213.60,6.00" stroke="black" fill="white" />
+    <path d="M 217.50 4.50 A 1.50 1.50 0 0 0 217.50 7.50" stroke="black" fill="none" />
+    <circle cx="168.00" cy="6.00" r="0.60" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="216.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="168.00" cy="30.00" r="4.0" fill="red" stroke="none" data-name="8" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="30.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="30.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="30.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="216.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="-168.00" cy="30.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-216.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="Pow.N.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="30.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="30.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-216.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="Pow.L.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="-120.00" cy="30.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
   </g>
 </svg>

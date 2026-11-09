@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="110.0" viewBox="-55.0 -105.0 70.0 110.0" data-name="Thermoelectric generator, with combustion heat source">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="264.0" viewBox="-132.0 -252.0 168.0 264.0" data-name="Thermoelectric generator, with combustion heat source" data-standard="48px">
   <title>Thermoelectric generator, with combustion heat source</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-30.00" y1="-5.00" x2="-10.00" y2="-5.00" stroke="black" fill="none" />
-    <rect x="-40.00" y="-40.00" width="40.00" height="40.00" stroke="black" fill="none" />
-    <polygon points="-25,-5 -20,-35 -15,-5" stroke="black" fill="none" />
-    <rect x="-45.00" y="-40.00" width="5.00" height="40.00" stroke="black" fill="none" />
-    <rect x="-50.00" y="-40.00" width="5.00" height="40.00" stroke="black" fill="none" />
-    <rect x="0.00" y="-40.00" width="5.00" height="40.00" stroke="black" fill="none" />
-    <rect x="5.00" y="-40.00" width="5.00" height="40.00" stroke="black" fill="none" />
-    <rect x="-50.00" y="-100.00" width="60.00" height="60.00" stroke="black" fill="none" />
-    <polyline points="0,-50 -30,-50 -40,-60 -30,-70 0,-70" stroke="black" fill="none" />
-    <text x="-25.00" y="-80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">G</text>
-    <ellipse cx="-40.00" cy="-60.00" rx="2.50" ry="2.50" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-72.00" y1="-12.00" x2="-24.00" y2="-12.00" stroke="black" fill="none" />
+    <rect x="-96.00" y="-96.00" width="96.00" height="96.00" stroke="black" fill="none" />
+    <polygon points="-60.00,-12.00 -48.00,-84.00 -36.00,-12.00" stroke="black" fill="none" />
+    <rect x="-108.00" y="-96.00" width="12.00" height="96.00" stroke="black" fill="none" />
+    <rect x="-120.00" y="-96.00" width="12.00" height="96.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-96.00" width="12.00" height="96.00" stroke="black" fill="none" />
+    <rect x="12.00" y="-96.00" width="12.00" height="96.00" stroke="black" fill="none" />
+    <rect x="-120.00" y="-240.00" width="144.00" height="144.00" stroke="black" fill="none" />
+    <polyline points="0.00,-120.00 -72.00,-120.00 -96.00,-144.00 -72.00,-168.00 0.00,-168.00" stroke="black" fill="none" />
+    <text x="-60.00" y="-192.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">G</text>
+    <ellipse cx="-96.00" cy="-144.00" rx="6.00" ry="6.00" stroke="black" fill="black" />
   </g>
 </svg>

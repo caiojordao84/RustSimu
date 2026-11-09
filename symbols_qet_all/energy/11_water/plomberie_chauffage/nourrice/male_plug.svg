@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="10.0" height="20.0" viewBox="-6.0 -10.0 10.0 20.0" data-name="Male plug">
+<svg xmlns="http://www.w3.org/2000/svg" width="24.0" height="48.0" viewBox="-14.4 -24.0 24.0 48.0" data-name="Male plug" data-standard="48px">
   <title>Male plug</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-4.00" y="-5.00" width="3.00" height="10.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="-3.00" x2="-3.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="3.00" x2="-3.00" y2="3.00" stroke="black" fill="none" />
-    <path d="M -4.00 -4.00 A 1.00 1.00 0 0 0 -3.00 -3.00" stroke="black" fill="none" />
-    <path d="M -3.00 -3.00 A 1.00 3.00 0 0 0 -3.00 3.00" stroke="black" fill="none" />
-    <path d="M -3.00 3.00 A 1.00 2.00 0 0 0 -4.00 5.00" stroke="black" fill="none" />
-    <rect x="-1.00" y="-7.00" width="2.00" height="14.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-9.60" y="-12.00" width="7.20" height="24.00" stroke="black" fill="none" />
+    <line x1="-2.40" y1="-7.20" x2="-7.20" y2="-7.20" stroke="black" fill="none" />
+    <line x1="-2.40" y1="7.20" x2="-7.20" y2="7.20" stroke="black" fill="none" />
+    <path d="M -9.60 -9.60 A 2.40 2.40 0 0 0 -7.20 -7.20" stroke="black" fill="none" />
+    <path d="M -7.20 -7.20 A 2.40 7.20 0 0 0 -7.20 7.20" stroke="black" fill="none" />
+    <path d="M -7.20 7.20 A 2.40 4.80 0 0 0 -9.60 12.00" stroke="black" fill="none" />
+    <rect x="-2.40" y="-16.80" width="4.80" height="33.60" stroke="black" fill="none" />
   </g>
 </svg>

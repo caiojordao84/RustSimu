@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="210.0" viewBox="-7.0 -55.0 100.0 210.0" data-name="msr41 micro 400 controller">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="504.0" viewBox="-16.8 -132.0 240.0 504.0" data-name="msr41 micro 400 controller" data-standard="48px">
   <title>msr41 micro 400 controller</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="2,-22 2,-50 90,-50 90,150 2,150 2,123" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="47.00" y="135.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Micro 400</text>
-    <text x="48.00" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Emitter</text>
-    <text x="10.00" y="62.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">In2</text>
-    <text x="10.00" y="22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">info 2</text>
-    <text x="10.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OSSD 1</text>
-    <text x="10.00" y="102.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <text x="10.00" y="42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">info 1</text>
-    <polygon points="45,130 45,146 35,146 35,144 33,144 33,142 30,142 30,134 33,134 33,132 35,132 35,130" stroke="black" fill="none" />
-    <ellipse cx="2.00" cy="60.00" rx="2.25" ry="2.25" stroke="black" fill="none" />
-    <ellipse cx="2.00" cy="40.00" rx="2.25" ry="2.25" stroke="black" fill="none" />
-    <ellipse cx="2.00" cy="20.00" rx="2.25" ry="2.25" stroke="black" fill="none" />
-    <ellipse cx="2.00" cy="0.00" rx="2.25" ry="2.25" stroke="black" fill="none" />
-    <text x="10.00" y="82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">In1</text>
-    <text x="10.00" y="122.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
-    <ellipse cx="2.00" cy="100.00" rx="2.25" ry="2.25" stroke="black" fill="none" />
-    <ellipse cx="2.00" cy="80.00" rx="2.25" ry="2.25" stroke="black" fill="none" />
-    <ellipse cx="2.00" cy="120.00" rx="2.25" ry="2.25" stroke="black" fill="none" />
-    <text x="10.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OSSD 2</text>
-    <ellipse cx="2.00" cy="-20.00" rx="2.25" ry="2.25" stroke="black" fill="none" />
-    <polygon points="45,-46 45,-30 35,-30 35,-32 33,-32 33,-34 30,-34 30,-42 33,-42 33,-44 35,-44 35,-46" stroke="black" fill="none" />
-    <line x1="2.00" y1="117.00" x2="2.00" y2="102.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="2.00" y1="77.00" x2="2.00" y2="63.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="2.00" y1="97.00" x2="2.00" y2="83.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="2.00" y1="57.00" x2="2.00" y2="43.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="2.00" y1="37.00" x2="2.00" y2="23.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="2.00" y1="17.00" x2="2.00" y2="3.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="2.00" y1="-3.00" x2="2.00" y2="-17.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="48.00" y="-37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Micro 400</text>
-    <text x="49.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Receiver</text>
-    <circle class="qet-terminal" cx="40.00" cy="140.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="4.80,-52.80 4.80,-120.00 216.00,-120.00 216.00,360.00 4.80,360.00 4.80,295.20" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="112.80" y="324.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Micro 400</text>
+    <text x="115.20" y="345.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Emitter</text>
+    <text x="24.00" y="148.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">In2</text>
+    <text x="24.00" y="52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">info 2</text>
+    <text x="24.00" y="4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OSSD 1</text>
+    <text x="24.00" y="244.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="24.00" y="100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">info 1</text>
+    <polygon points="108.00,312.00 108.00,350.40 84.00,350.40 84.00,345.60 79.20,345.60 79.20,340.80 72.00,340.80 72.00,321.60 79.20,321.60 79.20,316.80 84.00,316.80 84.00,312.00" stroke="black" fill="none" />
+    <ellipse cx="4.80" cy="144.00" rx="5.40" ry="5.40" stroke="black" fill="none" />
+    <ellipse cx="4.80" cy="96.00" rx="5.40" ry="5.40" stroke="black" fill="none" />
+    <ellipse cx="4.80" cy="48.00" rx="5.40" ry="5.40" stroke="black" fill="none" />
+    <ellipse cx="4.80" cy="0.00" rx="5.40" ry="5.40" stroke="black" fill="none" />
+    <text x="24.00" y="196.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">In1</text>
+    <text x="24.00" y="292.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <ellipse cx="4.80" cy="240.00" rx="5.40" ry="5.40" stroke="black" fill="none" />
+    <ellipse cx="4.80" cy="192.00" rx="5.40" ry="5.40" stroke="black" fill="none" />
+    <ellipse cx="4.80" cy="288.00" rx="5.40" ry="5.40" stroke="black" fill="none" />
+    <text x="24.00" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OSSD 2</text>
+    <ellipse cx="4.80" cy="-48.00" rx="5.40" ry="5.40" stroke="black" fill="none" />
+    <polygon points="108.00,-110.40 108.00,-72.00 84.00,-72.00 84.00,-76.80 79.20,-76.80 79.20,-81.60 72.00,-81.60 72.00,-100.80 79.20,-100.80 79.20,-105.60 84.00,-105.60 84.00,-110.40" stroke="black" fill="none" />
+    <line x1="4.80" y1="280.80" x2="4.80" y2="244.80" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="4.80" y1="184.80" x2="4.80" y2="151.20" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="4.80" y1="232.80" x2="4.80" y2="199.20" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="4.80" y1="136.80" x2="4.80" y2="103.20" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="4.80" y1="88.80" x2="4.80" y2="55.20" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="4.80" y1="40.80" x2="4.80" y2="7.20" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="4.80" y1="-7.20" x2="4.80" y2="-40.80" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="115.20" y="-88.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Micro 400</text>
+    <text x="117.60" y="-67.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Receiver</text>
+    <circle class="qet-terminal" cx="96.00" cy="336.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="192.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

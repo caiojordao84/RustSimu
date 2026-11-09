@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="80.0" viewBox="-23.0 -41.0 80.0 80.0" data-name="banco-frio-pescado">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="192.0" viewBox="-55.2 -98.4 192.0 192.0" data-name="banco-frio-pescado" data-standard="48px">
   <title>banco-frio-pescado</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="13,-7.5 14.1,-9.6 22.9,-10.8 16.85,-12 17.95,-9 15.2,-7.5 13,-6.6 13,-7.5 15.2,-7.5" stroke="black" fill="none" />
-    <polyline points="23.9,-10.5 25,-12.6 33.8,-13.8 27.75,-15 28.85,-12 26.1,-10.5 23.9,-9.6 23.9,-10.5 26.1,-10.5" stroke="black" fill="none" />
-    <polygon points="-18,35 2,35 2,5 8,5 17,8 21,6 21,2 19,3 -20,-9 -20,-3 -3,2 -2,4 -2,32 -18,32" stroke="black" fill="none" />
-    <polyline points="-20,-9 13,-31 52,-19 54,-20 54,-16 21,6" stroke="black" fill="none" />
-    <polyline points="35,-3 35,13 2,34" stroke="black" fill="none" />
-    <line x1="21.00" y1="2.00" x2="54.00" y2="-20.00" stroke="black" fill="none" />
-    <polyline points="6,-10.5 7.1,-12.6 15.9,-13.8 9.85,-15 10.95,-12 8.2,-10.5 6,-9.6 6,-10.5 8.2,-10.5" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="-33.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="28.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="31.20,-18.00 33.84,-23.04 54.96,-25.92 40.44,-28.80 43.08,-21.60 36.48,-18.00 31.20,-15.84 31.20,-18.00 36.48,-18.00" stroke="black" fill="none" />
+    <polyline points="57.36,-25.20 60.00,-30.24 81.12,-33.12 66.60,-36.00 69.24,-28.80 62.64,-25.20 57.36,-23.04 57.36,-25.20 62.64,-25.20" stroke="black" fill="none" />
+    <polygon points="-43.20,84.00 4.80,84.00 4.80,12.00 19.20,12.00 40.80,19.20 50.40,14.40 50.40,4.80 45.60,7.20 -48.00,-21.60 -48.00,-7.20 -7.20,4.80 -4.80,9.60 -4.80,76.80 -43.20,76.80" stroke="black" fill="none" />
+    <polyline points="-48.00,-21.60 31.20,-74.40 124.80,-45.60 129.60,-48.00 129.60,-38.40 50.40,14.40" stroke="black" fill="none" />
+    <polyline points="84.00,-7.20 84.00,31.20 4.80,81.60" stroke="black" fill="none" />
+    <line x1="50.40" y1="4.80" x2="129.60" y2="-48.00" stroke="black" fill="none" />
+    <polyline points="14.40,-25.20 17.04,-30.24 38.16,-33.12 23.64,-36.00 26.28,-28.80 19.68,-25.20 14.40,-23.04 14.40,-25.20 19.68,-25.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="48.00" cy="-79.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="67.20" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="90.0" viewBox="-70.0 -70.0 80.0 90.0" data-name="2 relays module">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="216.0" viewBox="-168.0 -168.0 192.0 216.0" data-name="2 relays module" data-standard="48px">
   <title>2 relays module</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-29.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">JD-Vcc</text>
-    <text x="-19.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vcc</text>
-    <circle cx="-16.00" cy="-48.00" r="1.00" stroke="black" fill="black" />
-    <circle cx="-46.00" cy="-48.00" r="1.00" stroke="black" fill="black" />
-    <line x1="-30.00" y1="-58.55" x2="-30.00" y2="-48.57" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-58.55" x2="-60.00" y2="-48.57" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-48.00" x2="-55.00" y2="-48.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-48.00" x2="-25.00" y2="-48.00" stroke="black" fill="none" />
-    <line x1="-45.00" y1="-48.00" x2="-40.00" y2="-48.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-48.00" x2="-10.00" y2="-48.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-48.52" x2="-10.00" y2="-57.60" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-48.52" x2="-40.00" y2="-57.60" stroke="black" fill="none" />
-    <circle cx="-24.00" cy="-48.00" r="1.00" stroke="black" fill="black" />
-    <circle cx="-54.00" cy="-48.00" r="1.00" stroke="black" fill="black" />
-    <line x1="-50.00" y1="-52.00" x2="-53.00" y2="-47.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-52.00" x2="-23.00" y2="-47.00" stroke="black" fill="none" />
-    <line x1="-50.00" y1="-60.00" x2="-50.00" y2="-52.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-60.00" x2="-20.00" y2="-52.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-45.00" width="20.00" height="16.00" stroke="black" fill="none" />
-    <text x="-26.00" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">R2</text>
-    <text x="-32.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vcc</text>
-    <text x="-53.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">In1</text>
-    <text x="-43.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">In2</text>
-    <rect x="-60.00" y="-45.00" width="20.00" height="16.00" stroke="black" fill="none" />
-    <text x="1.00" y="-25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2 Relays</text>
-    <text x="-63.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="-56.00" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">R1</text>
-    <rect x="-65.00" y="-65.00" width="70.00" height="80.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="10.00" x2="-30.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="10.00" x2="0.00" y2="10.00" stroke="HTMLGrayDarkGray" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="-8.50" stroke="HTMLGrayDarkGray" fill="none" />
-    <circle cx="0.00" cy="-20.00" r="1.50" stroke="black" fill="none" />
-    <circle cx="0.00" cy="-10.00" r="1.50" stroke="black" fill="none" />
-    <text x="-22.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PCB  link</text>
-    <circle class="qet-terminal" cx="-60.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="R1_NC" data-orientation="n" />
-    <circle class="qet-terminal" cx="-50.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="In1" data-orientation="s" />
-    <circle class="qet-terminal" cx="-30.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Vcc_CTRL" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="JD-Vcc" data-orientation="e" />
-    <circle class="qet-terminal" cx="-30.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="R2_NC" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Vcc_JUMPER" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="R2_NO" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="R2_COM" data-orientation="n" />
-    <circle class="qet-terminal" cx="-50.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="R1_COM" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="In2" data-orientation="s" />
-    <circle class="qet-terminal" cx="-60.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="s" />
-    <circle class="qet-terminal" cx="-40.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="R1_NO" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-69.60" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">JD-Vcc</text>
+    <text x="-45.60" y="-19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Vcc</text>
+    <circle cx="-38.40" cy="-115.20" r="2.40" stroke="black" fill="black" />
+    <circle cx="-110.40" cy="-115.20" r="2.40" stroke="black" fill="black" />
+    <line x1="-72.00" y1="-140.52" x2="-72.00" y2="-116.57" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-140.52" x2="-144.00" y2="-116.57" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-115.20" x2="-132.00" y2="-115.20" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-115.20" x2="-60.00" y2="-115.20" stroke="black" fill="none" />
+    <line x1="-108.00" y1="-115.20" x2="-96.00" y2="-115.20" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-115.20" x2="-24.00" y2="-115.20" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-116.45" x2="-24.00" y2="-138.24" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-116.45" x2="-96.00" y2="-138.24" stroke="black" fill="none" />
+    <circle cx="-57.60" cy="-115.20" r="2.40" stroke="black" fill="black" />
+    <circle cx="-129.60" cy="-115.20" r="2.40" stroke="black" fill="black" />
+    <line x1="-120.00" y1="-124.80" x2="-127.20" y2="-112.80" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-124.80" x2="-55.20" y2="-112.80" stroke="black" fill="none" />
+    <line x1="-120.00" y1="-144.00" x2="-120.00" y2="-124.80" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-144.00" x2="-48.00" y2="-124.80" stroke="black" fill="none" />
+    <rect x="-72.00" y="-108.00" width="48.00" height="38.40" stroke="black" fill="none" />
+    <text x="-62.40" y="-86.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">R2</text>
+    <text x="-76.80" y="-21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Vcc</text>
+    <text x="-127.20" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">In1</text>
+    <text x="-103.20" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">In2</text>
+    <rect x="-144.00" y="-108.00" width="48.00" height="38.40" stroke="black" fill="none" />
+    <text x="2.40" y="-60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2 Relays</text>
+    <text x="-151.20" y="-26.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-134.40" y="-86.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">R1</text>
+    <rect x="-156.00" y="-156.00" width="168.00" height="192.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="24.00" x2="-72.00" y2="16.80" stroke="black" fill="none" />
+    <line x1="-72.00" y1="24.00" x2="0.00" y2="24.00" stroke="HTMLGrayDarkGray" fill="none" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="-20.40" stroke="HTMLGrayDarkGray" fill="none" />
+    <circle cx="0.00" cy="-48.00" r="3.60" stroke="black" fill="none" />
+    <circle cx="0.00" cy="-24.00" r="3.60" stroke="black" fill="none" />
+    <text x="-52.80" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PCB  link</text>
+    <circle class="qet-terminal" cx="-144.00" cy="-144.00" r="4.0" fill="red" stroke="none" data-name="R1_NC" data-orientation="n" />
+    <circle class="qet-terminal" cx="-120.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="In1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="Vcc_CTRL" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="JD-Vcc" data-orientation="e" />
+    <circle class="qet-terminal" cx="-72.00" cy="-144.00" r="4.0" fill="red" stroke="none" data-name="R2_NC" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="Vcc_JUMPER" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-144.00" r="4.0" fill="red" stroke="none" data-name="R2_NO" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-144.00" r="4.0" fill="red" stroke="none" data-name="R2_COM" data-orientation="n" />
+    <circle class="qet-terminal" cx="-120.00" cy="-144.00" r="4.0" fill="red" stroke="none" data-name="R1_COM" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="In2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-144.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="GND" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="-144.00" r="4.0" fill="red" stroke="none" data-name="R1_NO" data-orientation="n" />
   </g>
 </svg>

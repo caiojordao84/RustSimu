@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="90.0" viewBox="-35.0 -44.0 60.0 90.0" data-qet-native="true">
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="10.00" y1="-13.00" x2="10.00" y2="-30.00" stroke="black" fill="none" />
-    <path d="M 7.50 33.00 A 2.50 2.50 0 0 0 12.50 33.00" data-arc="7.50,30.50,5.00,5.00,180.00,180.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="10.00" x2="10.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="10.00" x2="2.00" y2="-13.00" stroke="black" fill="none" />
-    <rect x="9.00" y="28.00" width="2.00" height="5.00" stroke="black" fill="black" />
-    <line x1="10.00" y1="36.00" x2="10.00" y2="40.00" stroke="black" fill="none" />
-    <polyline points="6,0 -13,0 -16,5 -19,0 -25,0" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="-25.00" y1="-4.00" x2="-25.00" y2="4.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-30.00" width="50.00" height="60.00" stroke="black" fill="none" stroke-dasharray="1.5,2" stroke-width="0.8" />
-    <path d="M 12.50 -33.00 A 2.50 2.50 0 0 0 7.50 -33.00" data-arc="7.50,-35.50,5.00,5.00,0.00,180.00" stroke="black" fill="none" />
-    <rect x="9.00" y="-33.00" width="2.00" height="5.00" stroke="black" fill="black" />
-    <line x1="10.00" y1="-40.00" x2="10.00" y2="-36.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="108.0" viewBox="-42.0 -52.8 72.0 108.0" data-qet-native="true" data-standard="48px">
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12.00" y1="-15.60" x2="12.00" y2="-36.00" stroke="black" fill="none" />
+    <path d="M 9.00 39.60 A 3.00 3.00 0 0 0 15.00 39.60" data-arc="9.00,36.60,6.00,6.00,180.00,180.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="12.00" x2="12.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="12.00" x2="2.40" y2="-15.60" stroke="black" fill="none" />
+    <rect x="10.80" y="33.60" width="2.40" height="6.00" stroke="black" fill="black" />
+    <line x1="12.00" y1="43.20" x2="12.00" y2="48.00" stroke="black" fill="none" />
+    <polyline points="7.20,0.00 -15.60,0.00 -19.20,6.00 -22.80,0.00 -30.00,0.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="-30.00" y1="-4.80" x2="-30.00" y2="4.80" stroke="black" fill="none" />
+    <rect x="-36.00" y="-36.00" width="60.00" height="72.00" stroke="black" fill="none" stroke-dasharray="1.5,2" stroke-width="1.2" />
+    <path d="M 15.00 -39.60 A 3.00 3.00 0 0 0 9.00 -39.60" data-arc="9.00,-42.60,6.00,6.00,0.00,180.00" stroke="black" fill="none" />
+    <rect x="10.80" y="-39.60" width="2.40" height="6.00" stroke="black" fill="black" />
+    <line x1="12.00" y1="-48.00" x2="12.00" y2="-43.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="12.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

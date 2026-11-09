@@ -311,6 +311,40 @@ pub fn view_export_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         modal_content = modal_content.push(cajetin_box);
     }
 
+    // Opções visuais para formatos gráficos (SVG, PNG, PDF)
+    if !is_cad {
+        let visual_options = column![
+            column![
+                checkbox(
+                    "Mostrar Bornes de Conexão (Pontos Vermelhos)",
+                    app.export_show_terminals,
+                )
+                .size(15)
+                .text_size(12.0)
+                .on_toggle(Message::ToggleExportShowTerminals),
+                text("Por padrão desativado para saída limpa de impressão. Ative se desejar exibir os pontos de terminal.")
+                    .size(10.5)
+                    .color(t.text2),
+            ]
+            .spacing(3),
+            column![
+                checkbox(
+                    "Modo Monocromático / Alto Contraste (Impressão P&B)",
+                    app.export_monochrome,
+                )
+                .size(15)
+                .text_size(12.0)
+                .on_toggle(Message::ToggleExportMonochrome),
+                text("Converte traços e anotações para preto e tons de cinza para melhor legibilidade em impressões.")
+                    .size(10.5)
+                    .color(t.text2),
+            ]
+            .spacing(3),
+        ]
+        .spacing(8);
+        modal_content = modal_content.push(visual_options);
+    }
+
     if is_cad {
         let cad_notice = container(
             row![

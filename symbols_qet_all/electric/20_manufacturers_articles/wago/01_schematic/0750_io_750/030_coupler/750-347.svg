@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="730.0" height="110.0" viewBox="-367.0 -50.0 730.0 110.0" data-name="750-347">
+<svg xmlns="http://www.w3.org/2000/svg" width="438.0" height="66.0" viewBox="-220.2 -30.0 438.0 66.0" data-name="750-347" data-standard="48px">
   <title>750-347</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-360.00" y="-40.00" width="720.00" height="90.00" stroke="black" fill="white" />
-    <text x="-224.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Baudrate:</text>
-    <text x="-39.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <text x="-119.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <ellipse cx="-360.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-40.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-120.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-280.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-330.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 750-347</text>
-    <text x="-318.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Node ID:</text>
-    <text x="-199.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
-    <text x="-279.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
-    <text x="-355.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CAN</text>
-    <text x="-138.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CANopen ECO Coupler MCS</text>
-    <circle class="qet-terminal" cx="-40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="0V.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-360.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="CAN" data-orientation="w" />
-    <circle class="qet-terminal" cx="-200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="24V.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-120.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="0V.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="-280.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="24V.1" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-216.00" y="-24.00" width="432.00" height="54.00" stroke="black" fill="white" />
+    <text x="-134.40" y="2.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Baudrate:</text>
+    <text x="-23.40" y="-13.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="-71.40" y="-13.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <ellipse cx="-216.00" cy="0.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-72.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-120.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-168.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <text x="-198.00" y="27.00" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">WAGO 750-347</text>
+    <text x="-190.80" y="2.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Node ID:</text>
+    <text x="-119.40" y="-13.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <text x="-167.40" y="-13.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <text x="-213.00" y="2.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">CAN</text>
+    <text x="-82.80" y="27.00" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">CANopen ECO Coupler MCS</text>
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="0V.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-216.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="CAN" data-orientation="w" />
+    <circle class="qet-terminal" cx="-120.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="24V.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="0V.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-168.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="24V.1" data-orientation="n" />
   </g>
 </svg>

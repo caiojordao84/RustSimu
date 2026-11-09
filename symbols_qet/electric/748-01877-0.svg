@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="30.0" viewBox="-91.0 -27.0 100.0 30.0" data-name="Wiring going downwards">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="72.0" viewBox="-218.4 -64.8 240.0 72.0" data-name="Wiring going downwards" data-standard="48px">
   <title>Wiring going downwards</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-80.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-20.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
-    <polygon points="-19,-3 -17,-1 -21,1" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-80.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-192.00" y1="-48.00" x2="0.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-48.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-48.00" rx="4.80" ry="4.80" stroke="black" fill="black" />
+    <polygon points="-45.60,-7.20 -40.80,-2.40 -50.40,2.40" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-192.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

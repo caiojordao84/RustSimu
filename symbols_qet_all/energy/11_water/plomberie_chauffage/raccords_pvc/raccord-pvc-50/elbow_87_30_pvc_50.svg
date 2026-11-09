@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-27.0 -27.0 50.0 50.0" data-name="Elbow 87°30 PVC 50">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-64.8 -64.8 120.0 120.0" data-name="Elbow 87°30 PVC 50" data-standard="48px">
   <title>Elbow 87°30 PVC 50</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-6.50" y="2.00" width="7.00" height="16.00" stroke="black" fill="none" />
-    <rect x="2.00" y="-6.50" width="16.00" height="7.00" stroke="black" fill="none" />
-    <path d="M -0.00 17.50 A 17.50 17.50 0 0 0 17.50 0.00" stroke="black" fill="none" />
-    <path d="M -0.00 3.00 A 3.00 3.00 0 0 0 3.00 0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-7.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-15.60" y="4.80" width="16.80" height="38.40" stroke="black" fill="none" />
+    <rect x="4.80" y="-15.60" width="38.40" height="16.80" stroke="black" fill="none" />
+    <path d="M -0.00 42.00 A 42.00 42.00 0 0 0 42.00 0.00" stroke="black" fill="none" />
+    <path d="M -0.00 7.20 A 7.20 7.20 0 0 0 7.20 0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-16.80" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-16.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

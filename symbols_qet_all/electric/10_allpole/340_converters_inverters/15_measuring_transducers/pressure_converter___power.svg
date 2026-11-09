@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-30.0 -23.0 60.0 40.0" data-name="Pressure converter / power">
+<svg xmlns="http://www.w3.org/2000/svg" width="68.6" height="45.7" viewBox="-34.3 -26.3 68.6 45.7" data-name="Pressure converter / power" data-standard="48px">
   <title>Pressure converter / power</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="5.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">a</text>
-    <text x="2.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P</text>
-    <line x1="-11.00" y1="-7.00" x2="-4.00" y2="-18.00" stroke="black" fill="none" />
-    <polygon points="-15,-20 15,-20 15,10 -15,10" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-10.00" x2="-20.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="0.00" x2="15.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="-10.00" x2="20.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="12.50" y1="-19.50" x2="-15.00" y2="8.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="21.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-21.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="5.71" y="9.14" font-size="10.3" font-family="sans-serif" fill="black" stroke="none">a</text>
+    <text x="2.29" y="3.43" font-size="10.3" font-family="sans-serif" fill="black" stroke="none">P</text>
+    <line x1="-12.57" y1="-8.00" x2="-4.57" y2="-20.57" stroke="black" fill="none" />
+    <polygon points="-17.14,-22.86 17.14,-22.86 17.14,11.43 -17.14,11.43" stroke="black" fill="none" />
+    <line x1="-17.14" y1="-11.43" x2="-22.86" y2="-11.43" stroke="black" fill="none" />
+    <line x1="22.86" y1="0.00" x2="17.14" y2="0.00" stroke="black" fill="none" />
+    <line x1="17.14" y1="-11.43" x2="22.86" y2="-11.43" stroke="black" fill="none" />
+    <line x1="-22.86" y1="0.00" x2="-17.14" y2="0.00" stroke="black" fill="none" />
+    <line x1="14.29" y1="-22.29" x2="-17.14" y2="9.14" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="-11.43" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="-11.43" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

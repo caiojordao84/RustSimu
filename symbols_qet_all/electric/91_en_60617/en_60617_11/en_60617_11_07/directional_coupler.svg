@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="80.0" viewBox="-105.0 -75.0 110.0 80.0" data-name="Directional coupler">
+<svg xmlns="http://www.w3.org/2000/svg" width="264.0" height="192.0" viewBox="-252.0 -180.0 264.0 192.0" data-name="Directional coupler" data-standard="48px">
   <title>Directional coupler</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-50.00" y1="-35.00" x2="-50.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-100.00" y1="-50.00" x2="0.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-50.00" y1="-35.00" x2="-70.00" y2="-50.00" stroke="black" fill="none" />
-    <ellipse cx="-50.00" cy="-50.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-120.00" y1="-84.00" x2="-120.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-240.00" y1="-120.00" x2="0.00" y2="-120.00" stroke="black" fill="none" />
+    <line x1="-120.00" y1="-84.00" x2="-168.00" y2="-120.00" stroke="black" fill="none" />
+    <ellipse cx="-120.00" cy="-120.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
   </g>
 </svg>

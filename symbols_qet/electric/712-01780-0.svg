@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="70.0" viewBox="-125.0 -65.0 130.0 70.0" data-name="Multi-position switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="168.0" viewBox="-300.0 -156.0 312.0 168.0" data-name="Multi-position switch" data-standard="48px">
   <title>Multi-position switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-40.00" x2="-20.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-40.00" x2="-40.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-40.00" x2="-60.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-40.00" x2="-80.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-100.00" y1="-40.00" x2="-100.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-100.00" y1="-30.00" x2="-100.00" y2="-10.00" stroke="black" fill="none" />
-    <polyline points="-120,0 -120,-20 0,-20" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-96.00" x2="0.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-96.00" x2="-48.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-96.00" x2="-96.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-96.00" x2="-144.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-192.00" y1="-96.00" x2="-192.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-240.00" y1="-96.00" x2="-240.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-240.00" y1="-72.00" x2="-240.00" y2="-24.00" stroke="black" fill="none" />
+    <polyline points="-288.00,0.00 -288.00,-48.00 0.00,-48.00" stroke="black" fill="none" />
   </g>
 </svg>

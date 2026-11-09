@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="110.0" viewBox="-10.0 -54.0 40.0 110.0" data-name="EL-309 - 47 Ohmis – 1,2kW ">
+<svg xmlns="http://www.w3.org/2000/svg" width="19.2" height="52.8" viewBox="-4.8 -25.9 19.2 52.8" data-name="EL-309 - 47 Ohmis – 1,2kW " data-standard="48px">
   <title>EL-309 - 47 Ohmis – 1,2kW </title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="0,-35 20,-30 0,-25 20,-20 0,-15 20,-10 0,-5 20,0 0,5 20,10 0,15" stroke="black" fill="none" />
-    <polyline points="0,15 20,20 0,25 20,30 0,35 20,40 10,45 10,50 10,50" stroke="black" fill="none" />
-    <polyline points="0,-35 20,-40 10,-45 10,-50 10,-50" stroke="black" fill="none" />
-    <rect x="-5.00" y="-45.00" width="30.00" height="90.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="10.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="0.00,-16.80 9.60,-14.40 0.00,-12.00 9.60,-9.60 0.00,-7.20 9.60,-4.80 0.00,-2.40 9.60,0.00 0.00,2.40 9.60,4.80 0.00,7.20" stroke="black" fill="none" />
+    <polyline points="0.00,7.20 9.60,9.60 0.00,12.00 9.60,14.40 0.00,16.80 9.60,19.20 4.80,21.60 4.80,24.00 4.80,24.00" stroke="black" fill="none" />
+    <polyline points="0.00,-16.80 9.60,-19.20 4.80,-21.60 4.80,-24.00 4.80,-24.00" stroke="black" fill="none" />
+    <rect x="-2.40" y="-21.60" width="14.40" height="43.20" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="4.80" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="4.80" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

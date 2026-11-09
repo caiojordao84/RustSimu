@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="110.0" viewBox="-6.0 -10.0 150.0 110.0" data-name="BIO-01">
+<svg xmlns="http://www.w3.org/2000/svg" width="360.0" height="264.0" viewBox="-14.4 -24.0 360.0 264.0" data-name="BIO-01" data-standard="48px">
   <title>BIO-01</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="0.00" x2="0.00" y2="90.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="102.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO1
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="0.00" y2="216.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="244.80" y="120.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO1
 DI3</text>
-    <text x="74.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> AO
+    <text x="177.60" y="120.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> AO
 DO1</text>
-    <line x1="140.00" y1="0.00" x2="140.00" y2="90.00" stroke="black" fill="none" />
-    <rect x="95.00" y="40.00" width="5.00" height="20.00" stroke="black" fill="none" />
-    <rect x="95.00" y="40.00" width="5.00" height="5.00" stroke="black" fill="black" />
-    <line x1="0.00" y1="0.00" x2="140.00" y2="0.00" stroke="black" fill="none" />
-    <text x="95.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S2</text>
-    <line x1="0.00" y1="90.00" x2="140.00" y2="90.00" stroke="black" fill="none" />
-    <rect x="85.00" y="40.00" width="5.00" height="20.00" stroke="black" fill="none" />
-    <rect x="85.00" y="40.00" width="5.00" height="5.00" stroke="black" fill="black" />
-    <text x="85.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S1</text>
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="110.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="90.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="130.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="50.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="110.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="70.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="70.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <line x1="336.00" y1="0.00" x2="336.00" y2="216.00" stroke="black" fill="none" />
+    <rect x="228.00" y="96.00" width="12.00" height="48.00" stroke="black" fill="none" />
+    <rect x="228.00" y="96.00" width="12.00" height="12.00" stroke="black" fill="black" />
+    <line x1="0.00" y1="0.00" x2="336.00" y2="0.00" stroke="black" fill="none" />
+    <text x="228.00" y="93.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">S2</text>
+    <line x1="0.00" y1="216.00" x2="336.00" y2="216.00" stroke="black" fill="none" />
+    <rect x="204.00" y="96.00" width="12.00" height="48.00" stroke="black" fill="none" />
+    <rect x="204.00" y="96.00" width="12.00" height="12.00" stroke="black" fill="black" />
+    <text x="204.00" y="93.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">S1</text>
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="264.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="120.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="312.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="264.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

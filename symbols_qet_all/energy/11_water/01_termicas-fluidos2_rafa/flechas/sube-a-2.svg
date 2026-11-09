@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-17.0 -17.0 40.0 30.0" data-name="sube-a-2">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="72.0" viewBox="-40.8 -40.8 96.0 72.0" data-name="sube-a-2" data-standard="48px">
   <title>sube-a-2</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -2.00 -5.00 A 6.00 5.00 0 0 0 4.00 0.00" stroke="black" fill="none" />
-    <polygon points="-2,-13 -4,-5 0,-5" stroke="black" fill="none" />
-    <ellipse cx="7.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
-    <text x="-7.00" y="5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Sube</text>
-    <circle class="qet-terminal" cx="11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -4.80 -12.00 A 14.40 12.00 0 0 0 9.60 0.00" stroke="black" fill="none" />
+    <polygon points="-4.80,-31.20 -9.60,-12.00 0.00,-12.00" stroke="black" fill="none" />
+    <ellipse cx="16.80" cy="0.00" rx="7.20" ry="7.20" stroke="black" fill="none" />
+    <text x="-16.80" y="12.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Sube</text>
+    <circle class="qet-terminal" cx="26.40" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

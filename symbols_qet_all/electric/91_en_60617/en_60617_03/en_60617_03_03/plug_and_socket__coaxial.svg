@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="30.0" viewBox="-60.0 -15.0 150.0 30.0" data-name="Plug and socket, coaxial">
+<svg xmlns="http://www.w3.org/2000/svg" width="55.4" height="11.1" viewBox="-22.2 -5.5 55.4 11.1" data-name="Plug and socket, coaxial" data-standard="48px">
   <title>Plug and socket, coaxial</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="17.00" y="-5.00" width="20.00" height="10.00" stroke="black" fill="black" />
-    <line x1="37.00" y1="0.00" x2="80.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="-50.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M 0.00 -10.00 A 10.00 10.00 0 0 0 -0.00 10.00" stroke="black" fill="none" />
-    <ellipse cx="60.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="10.00" x2="60.00" y2="10.00" stroke="black" fill="none" />
-    <ellipse cx="-30.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="10.00" x2="-20.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="80.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="6.28" y="-1.85" width="7.38" height="3.69" stroke="black" fill="black" />
+    <line x1="13.66" y1="0.00" x2="29.54" y2="0.00" stroke="black" fill="none" />
+    <line x1="-3.69" y1="0.00" x2="-18.46" y2="0.00" stroke="black" fill="none" />
+    <path d="M 0.00 -3.69 A 3.69 3.69 0 0 0 -0.00 3.69" stroke="black" fill="none" />
+    <ellipse cx="22.15" cy="0.00" rx="3.69" ry="3.69" stroke="black" fill="none" />
+    <line x1="18.46" y1="3.69" x2="22.15" y2="3.69" stroke="black" fill="none" />
+    <ellipse cx="-11.08" cy="0.00" rx="3.69" ry="3.69" stroke="black" fill="none" />
+    <line x1="-11.08" y1="3.69" x2="-7.38" y2="3.69" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="29.54" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-18.46" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

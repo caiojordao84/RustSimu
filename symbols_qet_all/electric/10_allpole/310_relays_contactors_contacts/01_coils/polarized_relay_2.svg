@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="60.0" viewBox="-47.0 -31.0 90.0 60.0" data-name="Polarized relay">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="144.0" viewBox="-112.8 -74.4 216.0 144.0" data-name="Polarized relay" data-standard="48px">
   <title>Polarized relay</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="36.00" cy="-15.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
-    <text x="-30.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
-    <line x1="-5.00" y1="0.00" x2="16.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <ellipse cx="-12.00" cy="15.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
-    <polyline points="20,20 20,10 12,-10" stroke="black" fill="none" />
-    <line x1="-20.00" y1="20.00" x2="-20.00" y2="-20.00" stroke="black" fill="none" />
-    <rect x="-42.00" y="-10.00" width="7.00" height="20.00" stroke="black" fill="black" />
-    <rect x="-35.00" y="-10.00" width="30.00" height="20.00" stroke="black" fill="white" />
-    <line x1="30.00" y1="-20.00" x2="30.00" y2="-10.00" stroke="black" fill="none" />
-    <rect x="-42.00" y="-7.00" width="4.00" height="14.00" stroke="black" fill="white" />
-    <polyline points="10,-20 10,-9 15,-9" stroke="black" fill="none" />
-    <text x="-30.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
-    <circle class="qet-terminal" cx="30.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="86.40" cy="-36.00" rx="3.60" ry="3.60" stroke="black" fill="black" />
+    <text x="-72.00" y="45.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A2</text>
+    <line x1="-12.00" y1="0.00" x2="38.40" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="-28.80" cy="36.00" rx="3.60" ry="3.60" stroke="black" fill="black" />
+    <polyline points="48.00,48.00 48.00,24.00 28.80,-24.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="48.00" x2="-48.00" y2="-48.00" stroke="black" fill="none" />
+    <rect x="-100.80" y="-24.00" width="16.80" height="48.00" stroke="black" fill="black" />
+    <rect x="-84.00" y="-24.00" width="72.00" height="48.00" stroke="black" fill="white" />
+    <line x1="72.00" y1="-48.00" x2="72.00" y2="-24.00" stroke="black" fill="none" />
+    <rect x="-100.80" y="-16.80" width="9.60" height="33.60" stroke="black" fill="white" />
+    <polyline points="24.00,-48.00 24.00,-21.60 36.00,-21.60" stroke="black" fill="none" />
+    <text x="-72.00" y="-36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A1</text>
+    <circle class="qet-terminal" cx="72.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-48.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

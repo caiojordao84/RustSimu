@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -15.0 60.0 30.0" data-name="filtro-cartucho">
+<svg xmlns="http://www.w3.org/2000/svg" width="73.8" height="36.9" viewBox="-36.9 -18.5 73.8 36.9" data-name="filtro-cartucho" data-standard="48px">
   <title>filtro-cartucho</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="14.00" y1="0.00" x2="19.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-10.00" x2="5.00" y2="10.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <rect x="-15.00" y="-10.00" width="29.00" height="20.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" />
-    <polyline points="-11,-10 -11,-5 0,-5 0,5 -11,5 -11,9" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="17.23" y1="0.00" x2="23.38" y2="0.00" stroke="black" fill="none" />
+    <line x1="6.15" y1="-12.31" x2="6.15" y2="12.31" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <rect x="-18.46" y="-12.31" width="35.69" height="24.62" stroke="black" fill="none" />
+    <line x1="-24.62" y1="0.00" x2="-18.46" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-13.54,-12.31 -13.54,-6.15 0.00,-6.15 0.00,6.15 -13.54,6.15 -13.54,11.08" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-24.62" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="23.38" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

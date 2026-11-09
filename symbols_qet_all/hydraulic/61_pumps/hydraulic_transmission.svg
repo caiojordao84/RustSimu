@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="50.0" viewBox="-15.0 -30.0 120.0 50.0" data-name="Hydraulic transmission">
+<svg xmlns="http://www.w3.org/2000/svg" width="288.0" height="120.0" viewBox="-36.0 -72.0 288.0 120.0" data-name="Hydraulic transmission" data-standard="48px">
   <title>Hydraulic transmission</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-4,-16 -1,-13 2,-19" stroke="black" fill="black" />
-    <ellipse cx="20.00" cy="-5.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <path d="M -1.61 -15.61 A 15.00 15.00 0 0 0 -1.61 5.61" stroke="black" fill="none" />
-    <line x1="65.00" y1="-6.00" x2="80.00" y2="-6.00" stroke="black" fill="none" />
-    <ellipse cx="50.00" cy="-5.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <polygon points="35,-23 38,-20 41,-26" stroke="black" fill="black" />
-    <line x1="0.00" y1="15.00" x2="40.00" y2="-25.00" stroke="black" fill="none" />
-    <polygon points="16,-13 24,-13 20,-20" stroke="black" fill="black" />
-    <polygon points="46,3 54,3 50,10" stroke="black" fill="black" />
-    <polygon points="74,6 77,3 80,9" stroke="black" fill="black" />
-    <polygon points="74,-16 77,-13 80,-19" stroke="black" fill="black" />
-    <path d="M 76.39 -15.61 A 15.00 15.00 0 0 0 76.39 5.61" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-4.00" x2="5.00" y2="-4.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-6.00" x2="5.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="65.00" y1="-4.00" x2="80.00" y2="-4.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-9.60,-38.40 -2.40,-31.20 4.80,-45.60" stroke="black" fill="black" />
+    <ellipse cx="48.00" cy="-12.00" rx="36.00" ry="36.00" stroke="black" fill="none" />
+    <path d="M -3.86 -37.46 A 36.00 36.00 0 0 0 -3.86 13.46" stroke="black" fill="none" />
+    <line x1="156.00" y1="-14.40" x2="192.00" y2="-14.40" stroke="black" fill="none" />
+    <ellipse cx="120.00" cy="-12.00" rx="36.00" ry="36.00" stroke="black" fill="none" />
+    <polygon points="84.00,-55.20 91.20,-48.00 98.40,-62.40" stroke="black" fill="black" />
+    <line x1="0.00" y1="36.00" x2="96.00" y2="-60.00" stroke="black" fill="none" />
+    <polygon points="38.40,-31.20 57.60,-31.20 48.00,-48.00" stroke="black" fill="black" />
+    <polygon points="110.40,7.20 129.60,7.20 120.00,24.00" stroke="black" fill="black" />
+    <polygon points="177.60,14.40 184.80,7.20 192.00,21.60" stroke="black" fill="black" />
+    <polygon points="177.60,-38.40 184.80,-31.20 192.00,-45.60" stroke="black" fill="black" />
+    <path d="M 183.34 -37.46 A 36.00 36.00 0 0 0 183.34 13.46" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-9.60" x2="12.00" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-14.40" x2="12.00" y2="-14.40" stroke="black" fill="none" />
+    <line x1="156.00" y1="-9.60" x2="192.00" y2="-9.60" stroke="black" fill="none" />
   </g>
 </svg>

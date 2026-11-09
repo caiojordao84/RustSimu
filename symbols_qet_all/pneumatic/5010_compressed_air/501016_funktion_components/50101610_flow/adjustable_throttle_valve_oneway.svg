@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-20.0 -25.0 80.0 50.0" data-name="Adjustable throttle valve oneway">
+<svg xmlns="http://www.w3.org/2000/svg" width="64.0" height="40.0" viewBox="-16.0 -20.0 64.0 40.0" data-name="Adjustable throttle valve oneway" data-standard="48px">
   <title>Adjustable throttle valve oneway</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="24,-6 26,-4 28,-8" stroke="black" fill="black" />
-    <path d="M 30.00 3.34 A 20.00 10.00 0 0 0 10.00 3.34" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="50.00" y2="0.00" stroke="black" fill="none" />
-    <polyline points="21,9 25,13 21,17" stroke="black" fill="none" />
-    <ellipse cx="21.00" cy="13.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <line x1="12.00" y1="8.00" x2="25.00" y2="-5.00" stroke="black" fill="none" />
-    <path d="M 10.00 -3.34 A 20.00 10.00 0 0 0 30.00 -3.34" stroke="black" fill="none" />
-    <rect x="-5.00" y="-10.00" width="50.00" height="30.00" stroke="black" fill="none" />
-    <polyline points="25,13 39,13 39,1" stroke="black" fill="none" />
-    <polyline points="19,13 1,13 1,0" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="19.20,-4.80 20.80,-3.20 22.40,-6.40" stroke="black" fill="black" />
+    <path d="M 24.00 2.67 A 16.00 8.00 0 0 0 8.00 2.67" stroke="black" fill="none" />
+    <line x1="-8.00" y1="0.00" x2="40.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="16.80,7.20 20.00,10.40 16.80,13.60" stroke="black" fill="none" />
+    <ellipse cx="16.80" cy="10.40" rx="1.60" ry="1.60" stroke="black" fill="none" />
+    <line x1="9.60" y1="6.40" x2="20.00" y2="-4.00" stroke="black" fill="none" />
+    <path d="M 8.00 -2.67 A 16.00 8.00 0 0 0 24.00 -2.67" stroke="black" fill="none" />
+    <rect x="-4.00" y="-8.00" width="40.00" height="24.00" stroke="black" fill="none" />
+    <polyline points="20.00,10.40 31.20,10.40 31.20,0.80" stroke="black" fill="none" />
+    <polyline points="15.20,10.40 0.80,10.40 0.80,0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="40.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-8.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

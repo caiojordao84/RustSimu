@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="20.0" viewBox="-65.0 -9.0 130.0 20.0" data-name="Black Beauty">
+<svg xmlns="http://www.w3.org/2000/svg" width="56.7" height="8.7" viewBox="-28.4 -3.9 56.7 8.7" data-name="Black Beauty" data-standard="48px">
   <title>Black Beauty</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-28.00" y="-7.00" width="10.00" height="15.00" stroke="black" fill="black" />
-    <rect x="-18.00" y="-7.00" width="5.00" height="15.00" stroke="black" fill="yellow" />
-    <rect x="-13.00" y="-7.00" width="10.00" height="15.00" stroke="black" fill="black" />
-    <rect x="-3.00" y="-7.00" width="5.00" height="15.00" stroke="black" fill="yellow" />
-    <rect x="2.00" y="-7.00" width="5.00" height="15.00" stroke="black" fill="brun" />
-    <rect x="7.00" y="-7.00" width="5.00" height="15.00" stroke="black" fill="black" />
-    <rect x="12.00" y="-7.00" width="5.00" height="15.00" stroke="black" fill="brun" />
-    <rect x="17.00" y="-7.00" width="10.00" height="15.00" stroke="black" fill="black" />
-    <line x1="-55.00" y1="0.00" x2="-28.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="27.00" y1="0.00" x2="55.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="55.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-55.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-12.22" y="-3.05" width="4.36" height="6.55" stroke="black" fill="black" />
+    <rect x="-7.85" y="-3.05" width="2.18" height="6.55" stroke="black" fill="yellow" />
+    <rect x="-5.67" y="-3.05" width="4.36" height="6.55" stroke="black" fill="black" />
+    <rect x="-1.31" y="-3.05" width="2.18" height="6.55" stroke="black" fill="yellow" />
+    <rect x="0.87" y="-3.05" width="2.18" height="6.55" stroke="black" fill="brun" />
+    <rect x="3.05" y="-3.05" width="2.18" height="6.55" stroke="black" fill="black" />
+    <rect x="5.24" y="-3.05" width="2.18" height="6.55" stroke="black" fill="brun" />
+    <rect x="7.42" y="-3.05" width="4.36" height="6.55" stroke="black" fill="black" />
+    <line x1="-24.00" y1="0.00" x2="-12.22" y2="0.00" stroke="black" fill="none" />
+    <line x1="11.78" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

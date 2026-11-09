@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="110.0" viewBox="-55.0 -57.0 120.0 110.0" data-name="Shelly Dimmer 2">
+<svg xmlns="http://www.w3.org/2000/svg" width="288.0" height="264.0" viewBox="-132.0 -136.8 288.0 264.0" data-name="Shelly Dimmer 2" data-standard="48px">
   <title>Shelly Dimmer 2</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-50,45 -50,-30 -30,-49 30,-49 50,-30 50,45" stroke="black" fill="HTMLGreenGreen" />
-    <text x="21.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">www.shelly.cloud</text>
-    <text x="36.00" y="-5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Switch inputs up to 230 VAC</text>
-    <text x="40.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0.1-1.1A. ~110-240V, 50/60 Hz</text>
-    <text x="15.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="-12.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="34.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SW1</text>
-    <text x="-39.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O</text>
-    <text x="-52.60" y="17.85" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">_</text>
-    <text x="48.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SW2</text>
-    <text x="2.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="-25.00" y="21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <line x1="48.00" y1="18.00" x2="-47.00" y2="18.00" stroke="black" fill="none" />
-    <text x="25.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> (c) Shelly Dimmer 2</text>
-    <rect x="-47.68" y="29.00" width="95.58" height="13.63" stroke="black" fill="HTMLBlueDodgerBlue" />
-    <ellipse cx="41.07" cy="35.84" rx="5.31" ry="5.30" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="27.42" cy="35.84" rx="5.31" ry="5.30" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="-40.85" cy="35.84" rx="5.31" ry="5.30" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="-27.20" cy="35.84" rx="5.31" ry="5.30" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="0.11" cy="35.84" rx="5.31" ry="5.30" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="13.76" cy="35.84" rx="5.31" ry="5.30" stroke="black" fill="#dcdcdc" />
-    <line x1="-44.00" y1="32.64" x2="-37.52" y2="38.83" stroke="black" fill="none" />
-    <line x1="37.91" y1="32.64" x2="44.40" y2="38.83" stroke="black" fill="none" />
-    <line x1="24.25" y1="32.64" x2="30.75" y2="38.83" stroke="black" fill="none" />
-    <line x1="-3.06" y1="32.64" x2="3.44" y2="38.83" stroke="black" fill="none" />
-    <line x1="-30.36" y1="32.64" x2="-23.87" y2="38.83" stroke="black" fill="none" />
-    <line x1="10.60" y1="32.64" x2="17.09" y2="38.83" stroke="black" fill="none" />
-    <line x1="-34.00" y1="29.00" x2="-34.00" y2="42.65" stroke="black" fill="none" />
-    <line x1="-20.37" y1="29.00" x2="-20.37" y2="42.65" stroke="black" fill="none" />
-    <line x1="-6.72" y1="29.00" x2="-6.72" y2="42.65" stroke="black" fill="none" />
-    <line x1="6.94" y1="29.00" x2="6.94" y2="42.65" stroke="black" fill="none" />
-    <line x1="34.25" y1="29.00" x2="34.25" y2="42.65" stroke="black" fill="none" />
-    <line x1="20.59" y1="29.00" x2="20.59" y2="42.65" stroke="black" fill="none" />
-    <ellipse cx="-13.54" cy="35.84" rx="5.31" ry="5.30" stroke="black" fill="#dcdcdc" />
-    <line x1="-16.71" y1="32.64" x2="-10.22" y2="38.83" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="14.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="s" />
-    <circle class="qet-terminal" cx="-41.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="O" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="s" />
-    <circle class="qet-terminal" cx="-14.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="s" />
-    <circle class="qet-terminal" cx="-27.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="s" />
-    <circle class="qet-terminal" cx="27.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="SW1" data-orientation="s" />
-    <circle class="qet-terminal" cx="41.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="SW2" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-120.00,108.00 -120.00,-72.00 -72.00,-117.60 72.00,-117.60 120.00,-72.00 120.00,108.00" stroke="black" fill="HTMLGreenGreen" />
+    <text x="50.40" y="-26.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">www.shelly.cloud</text>
+    <text x="86.40" y="-12.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Switch inputs up to 230 VAC</text>
+    <text x="96.00" y="4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0.1-1.1A. ~110-240V, 50/60 Hz</text>
+    <text x="36.00" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="-28.80" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="81.60" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SW1</text>
+    <text x="-93.60" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">O</text>
+    <text x="-126.24" y="42.84" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">_</text>
+    <text x="115.20" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SW2</text>
+    <text x="4.80" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="-60.00" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <line x1="115.20" y1="43.20" x2="-112.80" y2="43.20" stroke="black" fill="none" />
+    <text x="60.00" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> (c) Shelly Dimmer 2</text>
+    <rect x="-114.43" y="69.60" width="229.39" height="32.71" stroke="black" fill="HTMLBlueDodgerBlue" />
+    <ellipse cx="98.57" cy="86.02" rx="12.74" ry="12.72" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="65.81" cy="86.02" rx="12.74" ry="12.72" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="-98.04" cy="86.02" rx="12.74" ry="12.72" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="-65.28" cy="86.02" rx="12.74" ry="12.72" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="0.26" cy="86.02" rx="12.74" ry="12.72" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="33.02" cy="86.02" rx="12.74" ry="12.72" stroke="black" fill="#dcdcdc" />
+    <line x1="-105.60" y1="78.34" x2="-90.05" y2="93.19" stroke="black" fill="none" />
+    <line x1="90.98" y1="78.34" x2="106.56" y2="93.19" stroke="black" fill="none" />
+    <line x1="58.20" y1="78.34" x2="73.80" y2="93.19" stroke="black" fill="none" />
+    <line x1="-7.34" y1="78.34" x2="8.26" y2="93.19" stroke="black" fill="none" />
+    <line x1="-72.86" y1="78.34" x2="-57.29" y2="93.19" stroke="black" fill="none" />
+    <line x1="25.44" y1="78.34" x2="41.02" y2="93.19" stroke="black" fill="none" />
+    <line x1="-81.60" y1="69.60" x2="-81.60" y2="102.36" stroke="black" fill="none" />
+    <line x1="-48.89" y1="69.60" x2="-48.89" y2="102.36" stroke="black" fill="none" />
+    <line x1="-16.13" y1="69.60" x2="-16.13" y2="102.36" stroke="black" fill="none" />
+    <line x1="16.66" y1="69.60" x2="16.66" y2="102.36" stroke="black" fill="none" />
+    <line x1="82.20" y1="69.60" x2="82.20" y2="102.36" stroke="black" fill="none" />
+    <line x1="49.42" y1="69.60" x2="49.42" y2="102.36" stroke="black" fill="none" />
+    <ellipse cx="-32.50" cy="86.02" rx="12.74" ry="12.72" stroke="black" fill="#dcdcdc" />
+    <line x1="-40.10" y1="78.34" x2="-24.53" y2="93.19" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="33.60" cy="108.00" r="4.0" fill="red" stroke="none" data-name="L" data-orientation="s" />
+    <circle class="qet-terminal" cx="-98.40" cy="108.00" r="4.0" fill="red" stroke="none" data-name="O" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="108.00" r="4.0" fill="red" stroke="none" data-name="L" data-orientation="s" />
+    <circle class="qet-terminal" cx="-33.60" cy="108.00" r="4.0" fill="red" stroke="none" data-name="L" data-orientation="s" />
+    <circle class="qet-terminal" cx="-64.80" cy="108.00" r="4.0" fill="red" stroke="none" data-name="N" data-orientation="s" />
+    <circle class="qet-terminal" cx="64.80" cy="108.00" r="4.0" fill="red" stroke="none" data-name="SW1" data-orientation="s" />
+    <circle class="qet-terminal" cx="98.40" cy="108.00" r="4.0" fill="red" stroke="none" data-name="SW2" data-orientation="s" />
   </g>
 </svg>

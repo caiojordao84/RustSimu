@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-45.0 -82.0 100.0 100.0" data-name="GCE-X-THL">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="240.0" viewBox="-108.0 -196.8 240.0 240.0" data-name="GCE-X-THL" data-standard="48px">
   <title>GCE-X-THL</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="20.00" y="-57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="20.00" y="-37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="19.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="20.00" y="-43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <rect x="7.00" y="-61.00" width="10.00" height="20.00" stroke="black" fill="none" />
-    <rect x="7.00" y="-41.00" width="10.00" height="20.00" stroke="black" fill="none" />
-    <text x="25.00" y="-47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12 V</text>
-    <text x="24.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Bus</text>
-    <polygon points="-20,-70 30,-70 30,2.2 -20,2.2" stroke="black" fill="none" />
-    <polygon points="-25,-75 -25,-67.4 -35,-67.4 -35,8.6 35,8.6 35,1 45,1 45,-75" stroke="black" fill="none" />
-    <rect x="-40.00" y="-80.00" width="90.00" height="95.00" stroke="black" fill="none" />
-    <rect x="-35.00" y="-75.00" width="5.00" height="5.00" stroke="black" fill="none" />
-    <rect x="40.00" y="5.00" width="5.00" height="5.00" stroke="black" fill="none" />
-    <text x="29.00" y="1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
-    <circle class="qet-terminal" cx="17.00" cy="-56.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="17.00" cy="-47.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="17.00" cy="-36.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="17.00" cy="-26.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="48.00" y="-136.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="48.00" y="-88.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="45.60" y="-55.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="48.00" y="-103.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <rect x="16.80" y="-146.40" width="24.00" height="48.00" stroke="black" fill="none" />
+    <rect x="16.80" y="-98.40" width="24.00" height="48.00" stroke="black" fill="none" />
+    <text x="60.00" y="-112.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">12 V</text>
+    <text x="57.60" y="-67.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Bus</text>
+    <polygon points="-48.00,-168.00 72.00,-168.00 72.00,5.28 -48.00,5.28" stroke="black" fill="none" />
+    <polygon points="-60.00,-180.00 -60.00,-161.76 -84.00,-161.76 -84.00,20.64 84.00,20.64 84.00,2.40 108.00,2.40 108.00,-180.00" stroke="black" fill="none" />
+    <rect x="-96.00" y="-192.00" width="216.00" height="228.00" stroke="black" fill="none" />
+    <rect x="-84.00" y="-180.00" width="12.00" height="12.00" stroke="black" fill="none" />
+    <rect x="96.00" y="12.00" width="12.00" height="12.00" stroke="black" fill="none" />
+    <text x="69.60" y="2.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
+    <circle class="qet-terminal" cx="40.80" cy="-134.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.80" cy="-112.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.80" cy="-86.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.80" cy="-62.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

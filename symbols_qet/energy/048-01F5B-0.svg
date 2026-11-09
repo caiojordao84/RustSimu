@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-9.0 -27.0 30.0 50.0" data-name="Refrigerant bottle">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="120.0" viewBox="-21.6 -64.8 72.0 120.0" data-name="Refrigerant bottle" data-standard="48px">
   <title>Refrigerant bottle</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -4.00 -10.00 A 9.50 3.00 0 0 0 15.00 -10.00" stroke="black" fill="none" />
-    <polyline points="11,15 12,16 15,15 14,14" stroke="black" fill="none" />
-    <path d="M -7.00 16.50 A 12.50 4.50 0 0 0 18.00 16.50" stroke="black" fill="none" />
-    <path d="M 16.00 -12.50 A 10.50 3.50 0 0 0 -5.00 -12.50" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-12.00" x2="-5.00" y2="11.00" stroke="black" fill="none" />
-    <path d="M -5.00 11.50 A 10.50 3.50 0 0 0 16.00 11.50" stroke="black" fill="none" />
-    <line x1="16.00" y1="-12.00" x2="16.00" y2="11.00" stroke="black" fill="none" />
-    <polyline points="-5,12 -7,14 -7,16" stroke="black" fill="none" />
-    <polyline points="16,12 18,13 18,16" stroke="black" fill="none" />
-    <polyline points="-3,14 -4,15 -1,16 0,15" stroke="black" fill="none" />
-    <polyline points="4,15 4,17 8,17 8,15" stroke="black" fill="none" />
-    <polyline points="10,-13 9,-17 12,-18 13,-14" stroke="black" fill="none" />
-    <polyline points="-3,-14 -2,-18 2,-19 2,-16" stroke="black" fill="none" />
-    <polygon points="3,-21 3,-14 4,-13 5,-13 6,-13 7,-14 7,-21" stroke="black" fill="white" />
-    <ellipse cx="5.00" cy="-21.50" rx="2.00" ry="0.50" stroke="black" fill="none" />
-    <polyline points="6,-20 10,-20 10,-19 6,-19" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -9.60 -24.00 A 22.80 7.20 0 0 0 36.00 -24.00" stroke="black" fill="none" />
+    <polyline points="26.40,36.00 28.80,38.40 36.00,36.00 33.60,33.60" stroke="black" fill="none" />
+    <path d="M -16.80 39.60 A 30.00 10.80 0 0 0 43.20 39.60" stroke="black" fill="none" />
+    <path d="M 38.40 -30.00 A 25.20 8.40 0 0 0 -12.00 -30.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-28.80" x2="-12.00" y2="26.40" stroke="black" fill="none" />
+    <path d="M -12.00 27.60 A 25.20 8.40 0 0 0 38.40 27.60" stroke="black" fill="none" />
+    <line x1="38.40" y1="-28.80" x2="38.40" y2="26.40" stroke="black" fill="none" />
+    <polyline points="-12.00,28.80 -16.80,33.60 -16.80,38.40" stroke="black" fill="none" />
+    <polyline points="38.40,28.80 43.20,31.20 43.20,38.40" stroke="black" fill="none" />
+    <polyline points="-7.20,33.60 -9.60,36.00 -2.40,38.40 0.00,36.00" stroke="black" fill="none" />
+    <polyline points="9.60,36.00 9.60,40.80 19.20,40.80 19.20,36.00" stroke="black" fill="none" />
+    <polyline points="24.00,-31.20 21.60,-40.80 28.80,-43.20 31.20,-33.60" stroke="black" fill="none" />
+    <polyline points="-7.20,-33.60 -4.80,-43.20 4.80,-45.60 4.80,-38.40" stroke="black" fill="none" />
+    <polygon points="7.20,-50.40 7.20,-33.60 9.60,-31.20 12.00,-31.20 14.40,-31.20 16.80,-33.60 16.80,-50.40" stroke="black" fill="white" />
+    <ellipse cx="12.00" cy="-51.60" rx="4.80" ry="1.20" stroke="black" fill="none" />
+    <polyline points="14.40,-48.00 24.00,-48.00 24.00,-45.60 14.40,-45.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

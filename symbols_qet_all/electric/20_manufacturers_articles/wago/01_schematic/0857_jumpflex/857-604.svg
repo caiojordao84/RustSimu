@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="570.0" height="110.0" viewBox="-286.0 -51.0 570.0 110.0" data-name="857-604">
+<svg xmlns="http://www.w3.org/2000/svg" width="342.0" height="66.0" viewBox="-171.6 -30.6 342.0 66.0" data-name="857-604" data-standard="48px">
   <title>857-604</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-280.00" y="-40.00" width="560.00" height="90.00" stroke="black" fill="none" />
-    <text x="41.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">14</text>
-    <text x="-198.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A1+</text>
-    <text x="-118.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A2-</text>
-    <ellipse cx="120.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-120.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="206.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="125.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="-105.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Multifunctional Time Relay</text>
-    <text x="-196.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="201.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12</text>
-    <text x="-115.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-274.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 857-604</text>
-    <text x="121.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">11</text>
-    <text x="45.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <polyline points="120,-40 120,-20 130,0" stroke="black" fill="none" />
-    <polyline points="200,-40 200,-2 125,-2" stroke="black" fill="none" />
-    <polyline points="40,-40 40,-2 112,-2" stroke="black" fill="none" />
-    <rect x="-80.00" y="-30.00" width="50.00" height="40.00" stroke="black" fill="none" />
-    <polyline points="-120,-40 -120,-20 -80,-20" stroke="black" fill="none" />
-    <polyline points="-200,-40 -200,0 -80,0" stroke="black" fill="none" />
-    <polyline points="21,-10 125,-10" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <polyline points="-30,-20 10,-20 10,0 -30,0" stroke="black" fill="none" />
-    <rect x="0.00" y="-15.00" width="20.00" height="10.00" stroke="black" fill="white" />
-    <text x="-62.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">µC</text>
-    <circle class="qet-terminal" cx="-200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
-    <circle class="qet-terminal" cx="-120.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
-    <circle class="qet-terminal" cx="120.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="n" />
-    <circle class="qet-terminal" cx="200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-168.00" y="-24.00" width="336.00" height="54.00" stroke="black" fill="none" />
+    <text x="24.60" y="-15.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">14</text>
+    <text x="-118.80" y="-15.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">A1+</text>
+    <text x="-70.80" y="-15.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">A2-</text>
+    <ellipse cx="72.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-72.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="120.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-120.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="-24.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <text x="123.60" y="-25.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="75.00" y="-25.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-63.00" y="27.00" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Multifunctional Time Relay</text>
+    <text x="-117.60" y="-25.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="120.60" y="-16.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">12</text>
+    <text x="-69.00" y="-25.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-164.40" y="27.00" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">WAGO 857-604</text>
+    <text x="72.60" y="-16.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">11</text>
+    <text x="27.00" y="-25.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <polyline points="72.00,-24.00 72.00,-12.00 78.00,0.00" stroke="black" fill="none" />
+    <polyline points="120.00,-24.00 120.00,-1.20 75.00,-1.20" stroke="black" fill="none" />
+    <polyline points="24.00,-24.00 24.00,-1.20 67.20,-1.20" stroke="black" fill="none" />
+    <rect x="-48.00" y="-18.00" width="30.00" height="24.00" stroke="black" fill="none" />
+    <polyline points="-72.00,-24.00 -72.00,-12.00 -48.00,-12.00" stroke="black" fill="none" />
+    <polyline points="-120.00,-24.00 -120.00,0.00 -48.00,0.00" stroke="black" fill="none" />
+    <polyline points="12.60,-6.00 75.00,-6.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <polyline points="-18.00,-12.00 6.00,-12.00 6.00,0.00 -18.00,0.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-9.00" width="12.00" height="6.00" stroke="black" fill="white" />
+    <text x="-37.20" y="-3.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">µC</text>
+    <circle class="qet-terminal" cx="-120.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="120.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="n" />
   </g>
 </svg>

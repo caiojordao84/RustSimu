@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="80.0" viewBox="-25.0 -40.0 50.0 80.0" data-name="Piezoelectric crystal with two pairs of electrodes">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="192.0" viewBox="-60.0 -96.0 120.0 192.0" data-name="Piezoelectric crystal with two pairs of electrodes" data-standard="48px">
   <title>Piezoelectric crystal with two pairs of electrodes</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-5.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-30.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-10.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-48.00" y="-12.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-72.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="72.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-24.00" x2="24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="24.00" x2="24.00" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

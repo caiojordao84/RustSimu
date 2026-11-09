@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-14.0 -14.0 40.0 30.0" data-name="Ultrasonic detector">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="72.0" viewBox="-33.6 -33.6 96.0 72.0" data-name="Ultrasonic detector" data-standard="48px">
   <title>Ultrasonic detector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 18.50 0.50 A 2.00 10.00 0 0 0 16.50 -9.50" stroke="black" fill="none" />
-    <path d="M 16.50 10.50 A 2.00 10.00 0 0 0 18.50 0.50" stroke="black" fill="none" />
-    <path d="M 22.50 0.50 A 2.00 12.00 0 0 0 20.50 -11.50" stroke="black" fill="none" />
-    <path d="M 20.50 14.50 A 2.00 14.00 0 0 0 22.50 0.50" stroke="black" fill="none" />
-    <polygon points="13,-9 -7,1 13,11" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-6.00" cy="1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 44.40 1.20 A 4.80 24.00 0 0 0 39.60 -22.80" stroke="black" fill="none" />
+    <path d="M 39.60 25.20 A 4.80 24.00 0 0 0 44.40 1.20" stroke="black" fill="none" />
+    <path d="M 54.00 1.20 A 4.80 28.80 0 0 0 49.20 -27.60" stroke="black" fill="none" />
+    <path d="M 49.20 34.80 A 4.80 33.60 0 0 0 54.00 1.20" stroke="black" fill="none" />
+    <polygon points="31.20,-21.60 -16.80,2.40 31.20,26.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-14.40" cy="2.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

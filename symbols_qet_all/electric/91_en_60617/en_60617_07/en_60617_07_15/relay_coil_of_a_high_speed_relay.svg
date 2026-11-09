@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-35.0 -30.0 60.0 60.0" data-name="Relay coil of a high speed relay">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="72.0" viewBox="-42.0 -36.0 72.0 72.0" data-name="Relay coil of a high speed relay" data-standard="48px">
   <title>Relay coil of a high speed relay</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-10.00" width="40.00" height="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-10.00" width="10.00" height="20.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-12.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="12.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <rect x="-36.00" y="-12.00" width="12.00" height="24.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="-36.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

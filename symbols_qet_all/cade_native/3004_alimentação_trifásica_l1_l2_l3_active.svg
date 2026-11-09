@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="105" height="60" viewBox="-20 -45 105 60" data-generator="cade2svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="96.0" viewBox="-32.0 -72.0 168.0 96.0" data-generator="cade2svg">
   <title>Alimentação Trifásica (L1+L2+L3) (Ativo)</title>
-  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0" cy="-15" rx="5" ry="5" fill="#fee2e2" />
-    <line x1="0" y1="-10" x2="0" y2="0" />
-    <ellipse cx="30" cy="-15" rx="5" ry="5" fill="#fee2e2" />
-    <line x1="30" y1="-10" x2="30" y2="0" />
-    <ellipse cx="60" cy="-15" rx="5" ry="5" fill="#fee2e2" />
-    <line x1="60" y1="-10" x2="60" y2="0" />
-    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="L1" />
-    <circle class="qet-terminal" cx="30" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="L2" />
-    <circle class="qet-terminal" cx="60" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="L3" />
+  <g stroke="#dc2626" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.0" cy="-24.0" rx="8.0" ry="8.0" fill="#fee2e2" />
+    <line x1="0.0" y1="-16.0" x2="0.0" y2="0.0" />
+    <ellipse cx="48.0" cy="-24.0" rx="8.0" ry="8.0" fill="#fee2e2" />
+    <line x1="48.0" y1="-16.0" x2="48.0" y2="0.0" />
+    <ellipse cx="96.0" cy="-24.0" rx="8.0" ry="8.0" fill="#fee2e2" />
+    <line x1="96.0" y1="-16.0" x2="96.0" y2="0.0" />
+    <circle class="qet-terminal" cx="0.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="L1" />
+    <circle class="qet-terminal" cx="48.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="L2" />
+    <circle class="qet-terminal" cx="96.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="L3" />
   </g>
 </svg>

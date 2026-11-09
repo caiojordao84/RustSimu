@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="20.0" viewBox="-30.0 -7.0 60.0 20.0" data-name="signal impuls falling">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="24.0" viewBox="-36.0 -8.4 72.0 24.0" data-name="signal impuls falling" data-standard="48px">
   <title>signal impuls falling</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-3.31" y="5.48" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <line x1="10.00" y1="5.00" x2="10.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-5.00" x2="-10.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="0.00" x2="19.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-3.97" y="6.58" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <line x1="12.00" y1="6.00" x2="12.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-6.00" x2="-12.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="0.00" x2="22.80" y2="0.00" stroke="black" fill="none" />
+    <line x1="-22.80" y1="0.00" x2="-12.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

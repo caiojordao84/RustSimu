@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-23.0 -19.0 40.0 40.0" data-name="Single-pole source +PEN">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-55.2 -45.6 96.0 96.0" data-name="Single-pole source +PEN" data-standard="48px">
   <title>Single-pole source +PEN</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-10.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <text x="-16.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PEN</text>
-    <text x="-15.00" y="-7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="e" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="PEN" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-24.00" x2="24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.00" x2="24.00" y2="24.00" stroke="black" fill="none" />
+    <text x="-38.40" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PEN</text>
+    <text x="-36.00" y="-16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="L" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="PEN" data-orientation="e" />
   </g>
 </svg>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="135" height="60" viewBox="-20 -45 135 60" data-generator="cade2svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="96.0" viewBox="-32.0 -72.0 216.0 96.0" data-generator="cade2svg">
   <title>Alimentação Trifásica + PE (L1+L2+L3+PE) (Ativo)</title>
-  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0" cy="-15" rx="5" ry="5" fill="#fee2e2" />
-    <line x1="0" y1="-10" x2="0" y2="0" />
-    <ellipse cx="30" cy="-15" rx="5" ry="5" fill="#fee2e2" />
-    <line x1="30" y1="-10" x2="30" y2="0" />
-    <ellipse cx="60" cy="-15" rx="5" ry="5" fill="#fee2e2" />
-    <line x1="60" y1="-10" x2="60" y2="0" />
-    <line x1="80" y1="-20" x2="100" y2="-20" />
-    <line x1="83" y1="-17" x2="97" y2="-17" />
-    <line x1="86" y1="-14" x2="94" y2="-14" />
-    <line x1="90" y1="-20" x2="90" y2="0" />
-    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="L1" />
-    <circle class="qet-terminal" cx="30" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="L2" />
-    <circle class="qet-terminal" cx="60" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="L3" />
-    <circle class="qet-terminal" cx="90" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="PE" />
+  <g stroke="#dc2626" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.0" cy="-24.0" rx="8.0" ry="8.0" fill="#fee2e2" />
+    <line x1="0.0" y1="-16.0" x2="0.0" y2="0.0" />
+    <ellipse cx="48.0" cy="-24.0" rx="8.0" ry="8.0" fill="#fee2e2" />
+    <line x1="48.0" y1="-16.0" x2="48.0" y2="0.0" />
+    <ellipse cx="96.0" cy="-24.0" rx="8.0" ry="8.0" fill="#fee2e2" />
+    <line x1="96.0" y1="-16.0" x2="96.0" y2="0.0" />
+    <line x1="128.0" y1="-32.0" x2="160.0" y2="-32.0" />
+    <line x1="132.8" y1="-27.2" x2="155.2" y2="-27.2" />
+    <line x1="137.6" y1="-22.4" x2="150.4" y2="-22.4" />
+    <line x1="144.0" y1="-32.0" x2="144.0" y2="0.0" />
+    <circle class="qet-terminal" cx="0.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="L1" />
+    <circle class="qet-terminal" cx="48.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="L2" />
+    <circle class="qet-terminal" cx="96.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="L3" />
+    <circle class="qet-terminal" cx="144.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="PE" />
   </g>
 </svg>

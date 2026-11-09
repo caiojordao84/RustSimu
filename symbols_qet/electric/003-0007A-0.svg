@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -4.0 30.0 40.0" data-name="Multi wire cable designation">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="64.0" viewBox="-24.0 -6.4 48.0 64.0" data-name="Multi wire cable designation" data-standard="48px">
   <title>Multi wire cable designation</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="30.00" x2="0.00" y2="0.00" stroke="#d40000" fill="none" />
-    <line x1="-10.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="Cable_B" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="Cable_A" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="48.00" x2="0.00" y2="0.00" stroke="#d40000" fill="none" />
+    <line x1="-16.00" y1="16.00" x2="16.00" y2="16.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="Cable_B" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="Cable_A" data-orientation="n" />
   </g>
 </svg>

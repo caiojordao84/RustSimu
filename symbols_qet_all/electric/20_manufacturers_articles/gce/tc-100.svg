@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="110.0" viewBox="-28.0 -54.0 70.0 110.0" data-name="TC-100">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="264.0" viewBox="-67.2 -129.6 168.0 264.0" data-name="TC-100" data-standard="48px">
   <title>TC-100</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-10.00" y="0.00" width="20.00" height="35.00" stroke="black" fill="black" />
-    <text x="-15.00" y="-41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Gnd</text>
-    <text x="5.00" y="-41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vout</text>
-    <ellipse cx="0.00" cy="34.00" rx="10.00" ry="18.00" stroke="black" fill="black" />
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <polyline points="-20,-40 -20,-20 -10,0" stroke="black" fill="none" />
-    <polyline points="20,-40 20,-20 10,0" stroke="black" fill="none" />
-    <text x="30.00" y="-40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+3,3V</text>
-    <circle class="qet-terminal" cx="20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="0.00" width="48.00" height="84.00" stroke="black" fill="black" />
+    <text x="-36.00" y="-98.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Gnd</text>
+    <text x="12.00" y="-98.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Vout</text>
+    <ellipse cx="0.00" cy="81.60" rx="24.00" ry="43.20" stroke="black" fill="black" />
+    <line x1="0.00" y1="-96.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-48.00,-96.00 -48.00,-48.00 -24.00,0.00" stroke="black" fill="none" />
+    <polyline points="48.00,-96.00 48.00,-48.00 24.00,0.00" stroke="black" fill="none" />
+    <text x="72.00" y="-96.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+3,3V</text>
+    <circle class="qet-terminal" cx="48.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

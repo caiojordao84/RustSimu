@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="30.0" viewBox="-150.0 -22.0 160.0 30.0" data-name="Line with buried joint">
+<svg xmlns="http://www.w3.org/2000/svg" width="54.9" height="10.3" viewBox="-51.4 -7.5 54.9 10.3" data-name="Line with buried joint" data-standard="48px">
   <title>Line with buried joint</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="0.00" x2="-140.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-75.00" y1="-10.00" x2="-65.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-15.00" x2="-60.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="-85.00" y1="-20.00" x2="-55.00" y2="-20.00" stroke="black" fill="none" />
-    <ellipse cx="-70.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-140.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-25.71" y1="-3.43" x2="-22.29" y2="-3.43" stroke="black" fill="none" />
+    <line x1="-27.43" y1="-5.14" x2="-20.57" y2="-5.14" stroke="black" fill="none" />
+    <line x1="-29.14" y1="-6.86" x2="-18.86" y2="-6.86" stroke="black" fill="none" />
+    <ellipse cx="-24.00" cy="0.00" rx="0.86" ry="0.86" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

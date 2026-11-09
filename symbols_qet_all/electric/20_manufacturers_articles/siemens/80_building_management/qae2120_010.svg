@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-20.0 -5.0 50.0 30.0" data-name="QAE2120.010">
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="48.0" viewBox="-32.0 -8.0 80.0 48.0" data-name="QAE2120.010" data-standard="48px">
   <title>QAE2120.010</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-10.00" y1="10.00" x2="-6.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="10.00" x2="16.00" y2="10.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="5.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <polyline points="-5,20 0,20 10,0 15,0" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-16.00" y1="16.00" x2="-9.60" y2="16.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="16.00" x2="25.60" y2="16.00" stroke="black" fill="none" />
+    <rect x="-8.00" y="8.00" width="32.00" height="16.00" stroke="black" fill="none" />
+    <polyline points="-8.00,32.00 0.00,32.00 16.00,0.00 24.00,0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-16.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="32.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

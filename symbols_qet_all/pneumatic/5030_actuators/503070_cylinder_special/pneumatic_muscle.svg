@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="40.0" viewBox="-20.0 -29.0 120.0 40.0" data-name="pneumatic muscle">
+<svg xmlns="http://www.w3.org/2000/svg" width="57.6" height="19.2" viewBox="-9.6 -13.9 57.6 19.2" data-name="pneumatic muscle" data-standard="48px">
   <title>pneumatic muscle</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="0,-12 0,-8 4,-10" stroke="black" fill="none" />
-    <line x1="80.00" y1="-10.00" x2="90.00" y2="-10.00" stroke="black" fill="none" />
-    <polygon points="80,-8 80,-12 76,-10" stroke="black" fill="none" />
-    <line x1="0.00" y1="-24.00" x2="0.00" y2="6.00" stroke="black" fill="none" />
-    <line x1="11.00" y1="-20.00" x2="69.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-10.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="80.00" y1="-25.00" x2="80.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="10.45" y1="-0.05" x2="69.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M 70.00 0.00 A 10.00 10.00 0 0 0 70.00 -20.00" stroke="black" fill="none" />
-    <path d="M 10.00 -20.00 A 10.00 10.00 0 0 0 10.00 0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="90.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0.00,-5.76 0.00,-3.84 1.92,-4.80" stroke="black" fill="none" />
+    <line x1="38.40" y1="-4.80" x2="43.20" y2="-4.80" stroke="black" fill="none" />
+    <polygon points="38.40,-3.84 38.40,-5.76 36.48,-4.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="-11.52" x2="0.00" y2="2.88" stroke="black" fill="none" />
+    <line x1="5.28" y1="-9.60" x2="33.12" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-4.80" x2="0.00" y2="-4.80" stroke="black" fill="none" />
+    <line x1="38.40" y1="-12.00" x2="38.40" y2="2.40" stroke="black" fill="none" />
+    <line x1="5.02" y1="-0.02" x2="33.12" y2="0.00" stroke="black" fill="none" />
+    <path d="M 33.60 0.00 A 4.80 4.80 0 0 0 33.60 -9.60" stroke="black" fill="none" />
+    <path d="M 4.80 -9.60 A 4.80 4.80 0 0 0 4.80 0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="43.20" cy="-4.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-4.80" cy="-4.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

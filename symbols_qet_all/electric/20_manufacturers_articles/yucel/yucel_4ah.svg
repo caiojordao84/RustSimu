@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="80.0" viewBox="-6.0 -25.0 80.0 80.0" data-name="Yucel_4Ah">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-7.2 -30.0 96.0 96.0" data-name="Yucel_4Ah" data-standard="48px">
   <title>Yucel_4Ah</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="0,0 20,-20 70,-20 50,0" stroke="black" fill="black" />
-    <rect x="0.00" y="0.00" width="50.00" height="50.00" stroke="black" fill="gray" />
-    <rect x="10.00" y="-5.00" width="6.00" height="2.00" stroke="#d40000" fill="#d40000" />
-    <rect x="0.00" y="0.00" width="50.00" height="10.00" stroke="black" fill="black" />
-    <polygon points="50,10 70,-10 70,-20 50,0" stroke="black" fill="black" />
-    <polygon points="50,50 70,30 70,-10 50,10" stroke="black" fill="gray" />
-    <text x="5.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y</text>
-    <text x="10.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">UCEL</text>
-    <text x="4.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y4-12       12V,4.0AH C20</text>
-    <text x="4.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">www.yuasaeurope.com</text>
-    <rect x="45.00" y="-5.00" width="6.00" height="2.00" stroke="#0055d4" fill="#0055d4" />
-    <line x1="4.00" y1="22.00" x2="44.00" y2="22.00" stroke="black" fill="none" />
-    <line x1="44.00" y1="28.00" x2="4.00" y2="28.00" stroke="black" fill="none" />
-    <text x="4.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Valve regulated</text>
-    <text x="4.00" y="38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Lead acid type</text>
-    <text x="42.00" y="40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Pb</text>
-    <line x1="4.00" y1="48.00" x2="44.00" y2="48.00" stroke="black" fill="none" />
-    <line x1="44.00" y1="42.00" x2="4.00" y2="42.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-5.00" r="1.8" fill="red" stroke="none" data-name="+" data-orientation="n" />
-    <circle class="qet-terminal" cx="50.00" cy="-5.00" r="1.8" fill="red" stroke="none" data-name="-" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0.00,0.00 24.00,-24.00 84.00,-24.00 60.00,0.00" stroke="black" fill="black" />
+    <rect x="0.00" y="0.00" width="60.00" height="60.00" stroke="black" fill="gray" />
+    <rect x="12.00" y="-6.00" width="7.20" height="2.40" stroke="#d40000" fill="#d40000" />
+    <rect x="0.00" y="0.00" width="60.00" height="12.00" stroke="black" fill="black" />
+    <polygon points="60.00,12.00 84.00,-12.00 84.00,-24.00 60.00,0.00" stroke="black" fill="black" />
+    <polygon points="60.00,60.00 84.00,36.00 84.00,-12.00 60.00,12.00" stroke="black" fill="gray" />
+    <text x="6.00" y="24.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Y</text>
+    <text x="12.00" y="24.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">UCEL</text>
+    <text x="4.80" y="31.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Y4-12       12V,4.0AH C20</text>
+    <text x="4.80" y="55.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">www.yuasaeurope.com</text>
+    <rect x="54.00" y="-6.00" width="7.20" height="2.40" stroke="#0055d4" fill="#0055d4" />
+    <line x1="4.80" y1="26.40" x2="52.80" y2="26.40" stroke="black" fill="none" />
+    <line x1="52.80" y1="33.60" x2="4.80" y2="33.60" stroke="black" fill="none" />
+    <text x="4.80" y="40.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Valve regulated</text>
+    <text x="4.80" y="45.60" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Lead acid type</text>
+    <text x="50.40" y="48.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Pb</text>
+    <line x1="4.80" y1="57.60" x2="52.80" y2="57.60" stroke="black" fill="none" />
+    <line x1="52.80" y1="50.40" x2="4.80" y2="50.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="+" data-orientation="n" />
+    <circle class="qet-terminal" cx="60.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="-" data-orientation="n" />
   </g>
 </svg>

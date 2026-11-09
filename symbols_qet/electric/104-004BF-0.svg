@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-20.0 -10.0 50.0 20.0" data-name="Connector">
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="32.0" viewBox="-32.0 -16.0 80.0 32.0" data-name="Connector" data-standard="48px">
   <title>Connector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="10.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="0,0 10,-5 10,5" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="16.00" y1="0.00" x2="32.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="0.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="0.00,0.00 16.00,-8.00 16.00,8.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-16.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="32.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

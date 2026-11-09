@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="50.0" viewBox="-9.0 -10.0 20.0 50.0" data-name="Plug and multipolar representation
-unifilar">
+<svg xmlns="http://www.w3.org/2000/svg" width="32.0" height="80.0" viewBox="-14.4 -16.0 32.0 80.0" data-name="Plug and multipolar representation unifilar" data-standard="48px">
   <title>Plug and multipolar representation
 unifilar</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-5.00" y1="13.00" x2="4.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="12.00" x2="-1.00" y2="19.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="12.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="9.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="12.00" x2="1.00" y2="19.00" stroke="black" fill="none" />
-    <path d="M 3.00 13.00 A 3.00 3.00 0 0 0 -3.00 13.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-8.00" y1="20.80" x2="6.40" y2="32.00" stroke="black" fill="none" />
+    <line x1="-1.60" y1="19.20" x2="-1.60" y2="30.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="19.20" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="14.40" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="1.60" y1="19.20" x2="1.60" y2="30.40" stroke="black" fill="none" />
+    <path d="M 4.80 20.80 A 4.80 4.80 0 0 0 -4.80 20.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

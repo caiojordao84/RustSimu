@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="100.0" viewBox="-35.0 -50.0 70.0 100.0" data-name="2789-9080">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="240.0" viewBox="-84.0 -120.0 168.0 240.0" data-name="2789-9080" data-standard="48px">
   <title>2789-9080</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-30.00" y="-40.00" width="60.00" height="80.00" stroke="black" fill="none" />
-    <text x="-11.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IO-Link</text>
-    <text x="-22.50" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
-    <ellipse cx="-20.00" cy="40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-15.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO</text>
-    <text x="17.11" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L-</text>
-    <text x="-4.39" y="31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C/Q</text>
-    <ellipse cx="20.00" cy="40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="0.00" cy="40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <line x1="30.00" y1="2.00" x2="-30.00" y2="2.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <text x="-24.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2789-9080</text>
-    <polyline points="0,-42 0,-36" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="X5.2" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="X5.3" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="Comm" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="X5.1" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-72.00" y="-96.00" width="144.00" height="192.00" stroke="black" fill="none" />
+    <text x="-26.40" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">IO-Link</text>
+    <text x="-54.00" y="74.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
+    <ellipse cx="-48.00" cy="96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <text x="-36.00" y="-26.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">WAGO</text>
+    <text x="41.06" y="74.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L-</text>
+    <text x="-10.54" y="74.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">C/Q</text>
+    <ellipse cx="48.00" cy="96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="0.00" cy="96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <line x1="72.00" y1="4.80" x2="-72.00" y2="4.80" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <text x="-57.60" y="-2.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2789-9080</text>
+    <polyline points="0.00,-100.80 0.00,-86.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="X5.2" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="X5.3" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="Comm" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="X5.1" data-orientation="s" />
   </g>
 </svg>

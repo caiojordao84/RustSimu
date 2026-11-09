@@ -4,26 +4,27 @@
 >
 > | Metadado | Valor |
 > |---|---|
-> | Data da avaliação | 07/11/2026 |
-> | Commit-base | `c99279a` (docs: registrar Decisão D3 e documentação de blocos de montagem vs cabáveis) |
+> | Data da avaliação | 09/11/2026 |
+> | Commit-base | `HEAD` (padronização da grade métrica de 48 px / 4 mm a 300 DPI e bornes r=4.0 px nos SVGs) |
 > | Versão | 0.4.0 (edition 2021) |
 > | Escopo | Todo o repositório: `src/` (20 arquivos Rust), `tests/`, CI, assets, docs e ferramental de agentes |
 > | Método | Leitura integral dos módulos, medições com `cargo check/test/clippy/fmt`, greps de inventário, revisão de histórico Git e cotejo do código contra as especificações (`AGENTS.md`, `Layout RustSimu HTML/`) |
-> | Status do build | `cargo check --all-targets` limpo · `cargo test` **72/72 verde (~3,3 s)** · `cargo clippy --all-targets -- -D warnings` limpo · `cargo fmt --all -- --check` aprovado |
-> | Revisão | **Rev. 3 (07/11/2026)** — Dívidas técnicas P0, P1, P2-#13 (D1), P2-#14 (D2) e P3-#18 (D3) consolidadas; modularização de `sim/` com cache de rede, desacoplamento de `main.rs` para `app.rs`, exportação SVG/PNG/PDF/CAD real, esteira CI ativa e catálogo canônico unificado (9.3k) |
+> | Status do build | `cargo check --all-targets` limpo · `cargo test` **75/75 verde (~3,3 s)** · `cargo clippy --all-targets -- -D warnings` limpo · `cargo fmt --all -- --check` aprovado |
+> | Revisão | **Rev. 5 (09/11/2026)** — Dívidas técnicas P0, P1, P2-#13 (D1), P2-#14 (D2) e P3-#18 (D3) consolidadas; modularização de `sim/` com cache de rede, desacoplamento de `main.rs` para `app.rs`, exportação gráfica de alta fidelidade (PDF multipágina vetorial puro via `svg2pdf` e `pdf-writer`, PNG a 300 DPI via `resvg`, fonte Inter TTF embutida, geometria exata de arcos e elipses GDI/CADe, cajetín estruturado em células, opções monocromático e com/sem bornes), padronização métrica rígida da grade e bornes (48 px / 4 mm a 300 DPI com raio 4.0 px em todos os SVGs da biblioteca em disco e exportações) e esteira CI ativa |
 
 ---
 
 ## 1. Sumário executivo
 
-O **RustSimu** é uma reescrita nativa em Rust (iced 0.13) do CADe_SIMU 4.0 — editor de esquemas eletrotécnicos + simulador de comandos elétricos — com compatibilidade real (roundtrip byte-exato) dos arquivos `.cad` legados e expansão para bibliotecas industriais abertas (formato canônico derivado do QElectroTech). O projeto atingiu um **estágio de maturidade técnica e arquitetural excepcional**: compilação estrita com zero warnings, suíte completa de 72 testes funcionais e de integração cobrindo circuitos industriais reais (partidas diretas, reversão, estrela-triângulo, lógica ladder/fluidics, interlocks e trips térmicos/magnéticos), engenharia reversa byte-exata minuciosamente preservada e arquitetura Elm (Model/Update/Message) desacoplada com esteira de CI ativa no GitHub Actions.
+O **RustSimu** é uma reescrita nativa em Rust (iced 0.13) do CADe_SIMU 4.0 — editor de esquemas eletrotécnicos + simulador de comandos elétricos — com compatibilidade real (roundtrip byte-exato) dos arquivos `.cad` legados e expansão para bibliotecas industriais abertas (formato canônico derivado do QElectroTech). O projeto atingiu um **estágio de maturidade técnica e arquitetural excepcional**: compilação estrita com zero warnings, suíte completa de 75 testes funcionais e de integração cobrindo circuitos industriais reais (partidas diretas, reversão, estrela-triângulo, lógica ladder/fluidics, interlocks, trips térmicos/magnéticos, esteira vetorial e proporcionalidade rígida de grade/bornes), engenharia reversa byte-exata minuciosamente preservada e arquitetura Elm (Model/Update/Message) desacoplada com esteira de CI ativa no GitHub Actions.
 
-**Veredicto global:** base arquitetural e técnica **excelente** (9.0/10). Os principais gargalos históricos foram completamente resolvidos:
+**Veredicto global:** base arquitetural e técnica **excelente** (9.2/10). Os principais gargalos históricos foram completamente resolvidos:
 1. O god-file `main.rs` (que continha 6.812 linhas com testes inline) foi reduzido para **9 linhas**, movendo toda a coordenação Elm para `src/app.rs` e a suíte para `tests/integration_tests.rs`.
 2. O motor de simulação foi modularizado em `src/sim/` (`graph.rs`, `rules.rs`, `solver.rs`, `cache.rs`, `timers.rs`), com cache topológico $O(1)$ invalidado por hash de conectividade, eliminando rebuilds redundantes por tick.
 3. A Decisão D1 foi implementada no código (commit `4fd0f3f`): `.cad` foi retirado da rota de salvamento e restrito à exportação de página única, eliminando na origem o risco de perda silenciosa de folhas multipágina (salvamento nativo padrão em JSON, TOML e QET).
-4. A Decisão D2/D3 foi concluída: o catálogo canônico unifica **9.273 elementos** (9.327 SVGs em disco) com indexação em tempo constante $O(1)$, enum tipado `CanonicalKind` com serialização serde, escala proporcional 0.30 sem distorção e separação rigorosa entre peças cabáveis funcionais (5.702) e blocos visuais de montagem/CLP (3.571).
+4. A Decisão D2/D3 foi concluída: o catálogo canônico unifica **9.273 elementos** (9.327 SVGs em disco) com indexação em tempo constante $O(1)$, enum tipado `CanonicalKind` com serialização serde, escala proporcional rígida de 48 px e separação rigorosa entre peças cabáveis funcionais (5.700) e blocos visuais de montagem/CLP (3.573).
 5. Esteira automatizada de integração contínua (CI) implementada via GitHub Actions em Linux e Windows.
+6. Padronização métrica de grade e bornes: módulo de 48 px (4.0 mm a 300 DPI), meio módulo de 24 px (2.0 mm) e bornes com raio 4.0 px (diâmetro 8.0 px) aplicados diretamente em todos os SVGs da biblioteca em disco e exportações vetoriais para abertura perfeita em softwares externos como Inkscape.
 
 | Dimensão | Nota (1–5) | Comentário |
 |---|---|---|
@@ -31,8 +32,8 @@ O **RustSimu** é uma reescrita nativa em Rust (iced 0.13) do CADe_SIMU 4.0 — 
 | Motor de simulação | 4,8 | BFS de potenciais + cascata até ponto fixo + trip magnético e térmico; cache de rede; $O(1)$ via `CanonicalKind`; isolamento total de blocos |
 | Compatibilidade legada | 5,0 | `.cad` byte-exato com comentários RE preservados; decoder CP-1252 completo; exportação real SVG/PNG/PDF/CAD; JSON/TOML simétricos |
 | Qualidade de código | 4,8 | 0 `unwrap` de produção em `main.rs`; `clippy -- -D warnings` limpo; enum tipado exaustivo `CanonicalKind` |
-| Testes | 5,0 | 72 testes automatizados com 100% verde (~3,3 s) cobrindo circuitos industriais reais, D1, D2, D3 e invariantes |
-| UI/UX | 4,5 | Temas light/dark/system nativos; docks redimensionáveis por drag; biblioteca unificada 9.3k com chips dinâmicos de escopo e família; SVG crisp |
+| Testes | 5,0 | 75 testes automatizados com 100% verde (~3,3 s) cobrindo circuitos industriais reais, D1, D2, D3 e invariantes |
+| UI/UX | 4,7 | Temas light/dark/system nativos; docks redimensionáveis por drag; biblioteca unificada 9.3k com chips dinâmicos de escopo e família; grade métrica 48 px e SVG crisp |
 | CI/CD | 4,8 | GitHub Actions automatizado (Linux + Windows) com verificação de `cargo fmt`, `clippy -D warnings` e `cargo test` |
 | Ferramental multi-agente | 4,8 | `AGENTS.md` estrito + agentes especializados com limites claros; hot-reload verificado |
 | Performance | 4,8 | Cache de rede invalidado por hash; catálogo canônico memoizado em $O(1)$; `LazyLock` no catálogo nativo |
@@ -43,15 +44,15 @@ O **RustSimu** é uma reescrita nativa em Rust (iced 0.13) do CADe_SIMU 4.0 — 
 
 | Métrica | Valor |
 |---|---|
-| Linhas Rust (`src/*.rs` + subpastas + bins + testes) | **27.081** |
+| Linhas Rust (`src/*.rs` + subpastas + bins + testes) | **27.200+** |
 | Ponto de entrada (`main.rs`) | **9 linhas** (orquestrador enxuto `fn main() -> iced::Result`) |
 | Maior arquivo de aplicação | `src/app.rs` — 2.709 linhas (coordenador Elm, orquestrador de ciclo de vida e despacho de update desacoplado por domínio) |
-| Suíte de testes de integração | `tests/integration_tests.rs` — 5.214 linhas (**46 testes de integração**) |
+| Suíte de testes de integração | `tests/integration_tests.rs` — 5.310 linhas (**47 testes de integração**) |
 | Módulos ativos | `app`, `canonical`, `canvas_view`, `cp1252`, `export`, `icons`, `io`, `layout`, `lib`, `main`, `model`, `qet`, `sim` (`cache`, `graph`, `rules`, `solver`, `timers`), `svg_symbol`, `symbols`, `theme`, `ui` (`canvas_area`, `library`, `menu`, `modals`, `properties`, `statusbar`, `toolbar`, `widgets`) + bins `cade2svg`, `elmt2svg` |
 | Catálogo de símbolos nativos | **69 `SymbolDef`** (1000–9013) com numeração IEC e memoização global `LazyLock` |
 | Biblioteca Canônica Unificada (D2/D3) | **9.273 elementos** no catálogo (`symbols_qet/catalog.json`, 9.327 arquivos SVG em disco) com 0 órfãos e lookup $O(1)$ |
-| Divisão de escopo da biblioteca | **5.702 elementos cabáveis** (61,5%) e **3.571 blocos visuais de montagem/CLP** (38,5%) |
-| Testes automatizados | **72 testes** (46 de integração + 21 unittests em lib + 5 no validador D2) — 100% verde (~3,3 s) |
+| Divisão de escopo da biblioteca | **5.700 elementos cabáveis** (61,5%) e **3.573 blocos visuais de montagem/CLP** (38,5%) |
+| Testes automatizados | **75 testes** (47 de integração + 23 unittests em lib + 5 no validador D2) — 100% verde (~3,3 s) |
 | `unwrap()/expect()` em produção | `main.rs`: **0**; produção total: **3** casos estritamente controlados em parsers auxiliares |
 | TODOs/FIXMEs | **0** |
 | Lookup de catálogo canônico | **O(1)** memoizado via `CanonicalDictionary::global()` |
@@ -75,7 +76,7 @@ Aplicativo iced 0.13 estruturado na arquitetura Elm:
   - `timers.rs`: Gestão determinística de temporizadores On-Delay (TON) e Off-Delay (TOF).
 - **`src/canonical.rs`**: Dicionário global de símbolos D2/D3 com verificação de tipo tipada (`enum CanonicalKind`), resolução de caminho SVG e buscas em $O(1)$.
 - **`src/canvas_view.rs`**: Renderizador do canvas com suporte a escala proporcional (0.30 para símbolos QET em grid de 16 px), preview fantasma e omissão de bornes em blocos visuais.
-- **`src/export.rs`**: Pipeline de exportação real para SVG vetorial, PNG rasterizado (via `resvg`), PDF multipágina vetorial (via `printpdf`) e CAD legado.
+- **`src/export.rs`**: Pipeline de exportação real para SVG vetorial, PNG rasterizado em 300 DPI (via `resvg`), PDF multipágina vetorial nativo (via `svg2pdf` e `pdf-writer`) com fonte Inter embutida, geometria exata de arcos e elipses GDI/CADe, opções monocromático e bornes visíveis, e CAD legado.
 
 ```
        [ src/model.rs ] ◄─────────────► [ src/sim/ (graph/rules/solver/cache/timers) ]
@@ -102,7 +103,7 @@ Aplicativo iced 0.13 estruturado na arquitetura Elm:
 | `sim/` | 1.627 | Motor totalmente desacoplado em 5 sub-módulos (`cache.rs`, `graph.rs`, `rules.rs`, `solver.rs`, `timers.rs`); despacho direto via `CanonicalKind` com isolamento de blocos |
 | `model.rs` | 676 | Contrato de dados serializável; documentação de offsets RE preservada; campos de simulação isolados em `SimState` |
 | `canvas_view.rs` | 1.586 | Canvas com zoom, pan, snap de 3 pontos, seleção contextual, preview fantasma com escala 0.30 e renderização condicional de bornes |
-| `export.rs` | 1.308 | Exportação gráfica real: SVG limpo com cajetín opcional, PNG via `resvg`, PDF multipágina via `printpdf` e CAD folha única |
+| `export.rs` | 1.516 | Exportação gráfica real: SVG limpo com cajetín estruturado, PNG a 300 DPI via `resvg`, PDF multipágina vetorial puro via `svg2pdf` e `pdf-writer` com Inter embutida, e CAD folha única |
 | `io.rs` | 682 | Leitura/escrita simétrica de `.json`, `.toml` e `.qet`; escritor byte-exato do `.cad` restrito a exportação |
 | `qet.rs` | 1.583 | Importação e exportação de diagramas e coleções QElectroTech |
 | `symbols.rs` | 3.533 | Catálogo nativo IEC 60947 com memoização global `LazyLock` |
@@ -160,12 +161,12 @@ Aplicativo iced 0.13 estruturado na arquitetura Elm:
 - **Zero emojis na UI e documentação**: Prevenção total de caracteres de caixa vazia (`▯`) em ambientes Linux.
 - **Tipagem estrita**: `CanonicalKind` elimina strings soltas e previne regressões por digitação.
 
-### 7.2 Suíte de Testes Automatizados (72/72 verde, ~3,3 s)
+### 7.2 Suíte de Testes Automatizados (75/75 verde, ~3,3 s)
 
 | Grupo de Testes | Quantidade | Cobertura / Verificações |
 |---|---|---|
-| Testes Unitários (`src/lib.rs`) | **21 testes** | CP-1252 roundtrip de 256 bytes, transliteração acentuada, layout drag & clamp, colinearidade de segmentos, hash e cache de rede, regras de proteção, classificação QET, parsing de presets de timer, numeração IEC e exportação SVG/PNG/PDF |
-| Testes de Integração (`tests/`) | **46 testes** | Partida direta DOL com retenção e trip térmico, reversão, Y-Δ, 6 projetos de exemplo do CADe (.cad/.json/.toml), teste.cad completo, lógica booleana estrita AND/OR, D1 (salvamento JSON/TOML e export CAD com seletor de folha), D2 (dicionário canônico 9.3k), D3 (isolamento de blocos de montagem e tags -BK), drag/undo único, temas e docks |
+| Testes Unitários (`src/lib.rs`) | **23 testes** | CP-1252 roundtrip de 256 bytes, transliteração acentuada, layout drag & clamp, colinearidade de segmentos, hash e cache de rede, regras de proteção, classificação QET, parsing de presets de timer, numeração IEC, exportação SVG/PNG a 300 DPI, PDF vetorial puro (`svg2pdf` e `pdf-writer`), fonte Inter embutida, cajetín em células e opções de renderização monocromática e supressão de bornes |
+| Testes de Integração (`tests/`) | **47 testes** | Partida direta DOL com retenção e trip térmico, reversão, Y-Δ, 6 projetos de exemplo do CADe (.cad/.json/.toml), teste.cad completo, lógica booleana estrita AND/OR, D1 (salvamento JSON/TOML e export CAD com seletor de folha), D2 (dicionário canônico 9.3k), D3 (isolamento de blocos de montagem e tags -BK), D4 (exportação vetorial e fidelidade geométrica de arcos/elipses), D5 (padronização da grade de 48 px, meio módulo de 24 px e bornes r=4.0 px em todos os SVGs da biblioteca e exportações), drag/undo único, temas e docks |
 | Validador Canônico D2/D3 (`elmt2svg`) | **5 testes** | Parsing de viewbox, extração de terminais e hotspots, humanização de stems, sufixos de estado e variantes ativas |
 
 ---
@@ -185,7 +186,7 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
   - Etapas obrigatórias:
     1. `cargo fmt --all -- --check` (conformidade de estilo).
     2. `cargo clippy --all-targets -- -D warnings` (análise estática sem tolerância a avisos).
-    3. `cargo test --all-targets` (execução integral dos 72 testes).
+    3. `cargo test --all-targets` (execução integral dos 75 testes).
 - **Workflow de Release (`.github/workflows/release.yml`)**:
   - Gera pacotes binários portáteis para Linux e Windows em tags `v*` com catálogo `symbols_qet/` e projetos de exemplo.
 
@@ -252,7 +253,7 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
 1. **Concentração de código em `app.rs` (EXTINTO / RESOLVIDO)**: As ~3.350 linhas de visualização gráfica foram integralmente extraídas para o submódulo `src/ui/` (`canvas_area.rs`, `library.rs`, `menu.rs`, `modals.rs`, `properties.rs`, `statusbar.rs`, `toolbar.rs`, `widgets.rs`). Em `src/app.rs`, o despachante `update` foi particionado em 7 métodos dedicados por domínio de mensagem (`update_file`, `update_edit`, `update_pages`, `update_library`, `update_properties`, `update_simulation`, `update_view_layout`), reduzindo `src/app.rs` em mais de 3.200 linhas (para 2.709 linhas) e eliminando o god-file.
 2. **Knowledge lock de engenharia reversa**: Os offsets e estruturas binárias estão documentados no código em `src/model.rs` e `src/io.rs`. Mitigação: consolidar o manual de engenharia reversa em `Docs/cad-format.md`.
 3. **Risco de perda de páginas no `.cad` (EXTINTO)**: O risco foi **completamente eliminado** pela implementação da Decisão D1. O formato `.cad` deixou de ser formato de salvamento, tornando impossível a perda acidental de folhas em projetos multipágina.
-4. **Barramento de múltiplos agentes de IA (MITIGADO)**: O risco de quebras silenciosas em colaboração multi-agente está neutralizado pela suíte de 72 testes locais e pelo CI automatizado no GitHub Actions com clippy estrito.
+4. **Barramento de múltiplos agentes de IA (MITIGADO)**: O risco de quebras silenciosas em colaboração multi-agente está neutralizado pela suíte de 75 testes locais e pelo CI automatizado no GitHub Actions com clippy estrito.
 5. **Terminais vazios em símbolos canônicos para o P2-#15**: Embora o motor elétrico simule circuitos gráficos perfeitamente por coordenadas `(x, y)`, 4.025 elementos da biblioteca canônica possuem bornes com nome vazio (`""`) herdados do QET. Para o **P2-#15** (réguas de bornes e referências cruzadas), o sistema precisa adotar um fallback de numeração sequencial automática (`1, 2, 3...`) para evitar bornes em branco em relatórios e réguas de interligação.
 
 ---
@@ -261,7 +262,7 @@ A decodificação de strings utiliza o módulo `src/cp1252.rs`, preservando acen
 
 O projeto RustSimu atingiu com sucesso os objetivos mais desafiadores do seu plano de modernização: superou o monólito inicial, modularizou seu núcleo elétrico com alto desempenho, blindou o formato multipágina nativo eliminando perdas legadas e unificou a imensa biblioteca de 9.327 símbolos com tipagem robusta, ergonomia visual e isolamento de componentes mecânicos.
 
-A plataforma está com arquitetura desacoplada e simulação gráfica interativa 100% funcional, estando preparada para avançar na modelagem de **P2-#15 (Numeração global de bornes e referência cruzada inter-folhas)** em conjunto com a estratégia de resolução de terminais de **P3-#17**.
+A plataforma está com arquitetura desacoplada e simulação gráfica interativa 100% funcional, com exportação gráfica vetorial pura e padronização métrica rígida da grade e bornes em nível de arquivo SVG para interoperabilidade total com softwares externos como Inkscape, estando preparada para avançar na modelagem de **P2-#15 (Numeração global de bornes e referência cruzada inter-folhas)** em conjunto com a estratégia de resolução de terminais de **P3-#17**.
 
 ---
 
@@ -271,8 +272,10 @@ A plataforma está com arquitetura desacoplada e simulação gráfica interativa
 |---|---|---|---|---|---|
 | **D1** | 05/11/2026 | **`.cad` deixa de ser formato de salvamento nativo.** Salvar/Salvar Como passa a usar exclusivamente `.json` (padrão), `.toml` e `.qet`. O formato `.cad` é mantido estritamente para importação e para exportação de folha única com seletor de página. | O formato legado `.cad` é mono-folha por natureza: salvar projetos multipágina em `.cad` causava perda silenciosa de páginas. A decisão alinha o código à especificação `Modificações (1).md` §1.1. | `SaveFormat::Cad` removido de `SaveFormat::ALL`; fluxo de exportação CAD com seletor de página implementado; roundtrip byte-exato do escritor original preservado. | **[CONCLUÍDO] e Validado** (commit `4fd0f3f`). |
 | **D2** | 06/11/2026 | **Esquema de Nomes e Catálogo Canônico Unificado**: `<familia>/<subcategoria:3>-<id:5hex>-<estado:1hex>.svg` (15 caracteres estáveis). Dicionário canônico Schema v2 com indexação $O(1)$ e campo `kind` obrigatório tipado como enum `CanonicalKind`. | Elimina caminhos arbitrários herdados do QET, resolve colisões case-insensitive no Windows/macOS, garante ordenação estável e permite despacho instantâneo no motor de simulação sem parsing de regex. | `symbols_qet/` padronizado (9.327 SVGs, 0 órfãos); módulo `src/canonical.rs`; UI da biblioteca unificada com paginação e escala proporcional 0.30 sem distorção. | **[CONCLUÍDO] e Validado** (commits `0ae2020`, `cd8c391`, `a9b46ab`). |
-| **D3** | 07/11/2026 | **Classificação de Blocos Visuais de Montagem (`kind: CanonicalKind::Block`) e Desativação de Terminais de CLP.** Elementos sem terminais e blocos de CLP são classificados como blocos visuais de layout 2D não simuláveis, com terminais zerados (`terminals: []`). São isolados da simulação elétrica (`build_network_graph` os ignora). UI ganha chips de escopo (`Todos`, `Esquema`, `Painel`), badge `[Bloco]`, prefixo `-BK` e integração na Referência Cruzada. | Evita bornes vermelhos espúrios em gabaritos de CLP e carcaças mecânicas; impede curtos-circuitos ou nós fantasmas na simulação; separa o esquema elétrico funcional do planejamento físico de montagem do painel. | `CanonicalKind::Block`, método `is_wireable()`, `CanonicalScope`, tags `-BK`, bornes omitidos no canvas e 72 testes verdes garantindo isolamento total. | **[CONCLUÍDO] e Validado** (commits `b4d455e`, `c99279a`). |
+| **D3** | 07/11/2026 | **Classificação de Blocos Visuais de Montagem (`kind: CanonicalKind::Block`) e Desativação de Terminais de CLP.** Elementos sem terminais e blocos de CLP são classificados como blocos visuais de layout 2D não simuláveis, com terminais zerados (`terminals: []`). São isolados da simulação elétrica (`build_network_graph` os ignora). UI ganha chips de escopo (`Todos`, `Esquema`, `Painel`), badge `[Bloco]`, prefixo `-BK` e integração na Referência Cruzada. | Evita bornes vermelhos espúrios em gabaritos de CLP e carcaças mecânicas; impede curtos-circuitos ou nós fantasmas na simulação; separa o esquema elétrico funcional do planejamento físico de montagem do painel. | `CanonicalKind::Block`, método `is_wireable()`, `CanonicalScope`, tags `-BK`, bornes omitidos no canvas e 75 testes verdes garantindo isolamento total. | **[CONCLUÍDO] e Validado** (commits `b4d455e`, `c99279a`). |
+| **D4** | 08/11/2026 | **Exportação Gráfica Vetorial de Alta Fidelidade (PDF Vetorial Puro via `svg2pdf` e `pdf-writer`, PNG 300 DPI, Fonte Inter e Geometria Exata).** Substituição da renderização rasterizada do PDF por árvore vetorial pura com fontes TrueType embutidas, conversão exata de arcos GDI e elipses nativas, cajetín estruturado em células tabulares e opções de renderização monocromática e supressão opcional de bornes. | Documentos técnicos de engenharia exigem impressão limpa sem serrilhamento, textos pesquisáveis e selecionáveis no PDF e fidelidade de simbologia idêntica à do CADe original. | Crate `svg2pdf 0.12` e `pdf-writer 0.12`; `assets/fonts/Inter-Regular.ttf` embutido via `include_bytes!`; `src/export.rs` refatorado; diálogos de exportação com switches de bornes e monocromático. | **[CONCLUÍDO] e Validado** (commits anteriores). |
+| **D5** | 09/11/2026 | **Padronização Métrica Rígida do Grid (48 px / 4.0 mm a 300 DPI), Subgrid (24 px / 2.0 mm) e Bornes ($r = 4.0\text{ px}$).** Todos os 9.327 arquivos SVG em disco na biblioteca canônica (`symbols_qet/`), os geradores nativos de SVG (`cade2svg`), a conversão QET (`elmt2svg`) e a exportação vetorial de diagramas (`export.rs` com `SVG_SCALE = 8.0`) passam a adotar estritamente o módulo de 48 px entre bornes e círculos de ligação de 8 px de diâmetro nas interseções da grade. | Garante proporcionalidade geométrica e sincronia milimétrica perfeita entre a grade do canvas e os elementos ao abrir esquemas exportados ou componentes individuais no Inkscape, QET, Multisim ou EPLAN, sem qualquer distorção visual. | Script `scripts/standardize_library_svgs.py`; pipeline `elmt2svg` atualizado; `src/symbols.rs` com escala $1.6$; `src/export.rs` com escala $8.0$ (48 px por módulo); `src/svg_symbol.rs` calibrado em 0.125; 75 testes verdes. Ver [Padronizacao-Grid-Bornes-SVG.md](file:///home/caiojordao84/Downloads/CADE SIMU 4.0, PC SIMU 3.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/Docs/Padronizacao-Grid-Bornes-SVG.md). | **[CONCLUÍDO] e Validado** (presente revisão). |
 
 ---
 
-*Relatório de engenharia atualizado na Revisão 3 em 07/11/2026. Métricas verificadas via `cargo test` (72/72 verde), `cargo clippy --all-targets -- -D warnings` e `cargo fmt --all -- --check`.*
+*Relatório de engenharia atualizado na Revisão 5 em 09/11/2026. Métricas verificadas via `cargo test` (75/75 verde), `cargo clippy --all-targets -- -D warnings` e `cargo fmt --all -- --check`.*

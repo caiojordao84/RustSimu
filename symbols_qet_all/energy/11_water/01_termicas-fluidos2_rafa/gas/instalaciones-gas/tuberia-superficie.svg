@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="20.0" viewBox="-30.0 -8.0 60.0 20.0" data-name="tuberia-superficie">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="24.0" viewBox="-36.0 -9.6 72.0 24.0" data-name="tuberia-superficie" data-standard="48px">
   <title>tuberia-superficie</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 8.00 5.00 A 2.00 4.00 0 0 0 8.00 -3.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="4.00" x2="6.00" y2="4.00" stroke="black" fill="none" />
-    <path d="M -5.00 5.00 A 2.00 4.00 0 0 0 -5.00 -3.00" stroke="black" fill="none" />
-    <line x1="-16.00" y1="4.00" x2="-7.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="9.54" y1="4.00" x2="16.38" y2="4.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="-2.50" x2="5.00" y2="-2.50" stroke="black" fill="none" />
-    <line x1="9.54" y1="-2.50" x2="16.38" y2="-2.50" stroke="black" fill="none" />
-    <ellipse cx="-16.93" cy="0.80" rx="1.65" ry="3.19" stroke="black" fill="none" />
-    <path d="M 4.00 4.46 A 2.00 4.00 0 1 0 4.32 -2.76" stroke="black" fill="none" />
-    <path d="M 16.43 4.00 A 2.15 3.19 0 0 0 16.43 -2.39" stroke="black" fill="none" />
-    <line x1="5.00" y1="-3.00" x2="8.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="5.00" x2="8.00" y2="5.00" stroke="black" fill="none" />
-    <path d="M -9.00 4.46 A 2.00 4.00 0 1 0 -8.68 -2.76" stroke="black" fill="none" />
-    <line x1="-8.00" y1="-3.00" x2="-5.00" y2="-3.00" stroke="black" fill="none" />
-    <rect x="6.00" y="5.00" width="2.00" height="4.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="5.00" x2="-5.00" y2="5.00" stroke="black" fill="none" />
-    <rect x="-7.00" y="5.00" width="2.00" height="4.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="9.00" x2="19.00" y2="9.00" stroke="black" fill="none" />
-    <line x1="-17.00" y1="-2.50" x2="-8.00" y2="-2.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 9.60 6.00 A 2.40 4.80 0 0 0 9.60 -3.60" stroke="black" fill="none" />
+    <line x1="-3.60" y1="4.80" x2="7.20" y2="4.80" stroke="black" fill="none" />
+    <path d="M -6.00 6.00 A 2.40 4.80 0 0 0 -6.00 -3.60" stroke="black" fill="none" />
+    <line x1="-19.20" y1="4.80" x2="-8.40" y2="4.80" stroke="black" fill="none" />
+    <line x1="11.45" y1="4.80" x2="19.66" y2="4.80" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-3.00" x2="6.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="11.45" y1="-3.00" x2="19.66" y2="-3.00" stroke="black" fill="none" />
+    <ellipse cx="-20.32" cy="0.96" rx="1.98" ry="3.83" stroke="black" fill="none" />
+    <path d="M 4.80 5.35 A 2.40 4.80 0 1 0 5.18 -3.31" stroke="black" fill="none" />
+    <path d="M 19.72 4.80 A 2.58 3.83 0 0 0 19.72 -2.87" stroke="black" fill="none" />
+    <line x1="6.00" y1="-3.60" x2="9.60" y2="-3.60" stroke="black" fill="none" />
+    <line x1="6.00" y1="6.00" x2="9.60" y2="6.00" stroke="black" fill="none" />
+    <path d="M -10.80 5.35 A 2.40 4.80 0 1 0 -10.42 -3.31" stroke="black" fill="none" />
+    <line x1="-9.60" y1="-3.60" x2="-6.00" y2="-3.60" stroke="black" fill="none" />
+    <rect x="7.20" y="6.00" width="2.40" height="4.80" stroke="black" fill="none" />
+    <line x1="-9.60" y1="6.00" x2="-6.00" y2="6.00" stroke="black" fill="none" />
+    <rect x="-8.40" y="6.00" width="2.40" height="4.80" stroke="black" fill="none" />
+    <line x1="-18.00" y1="10.80" x2="22.80" y2="10.80" stroke="black" fill="none" />
+    <line x1="-20.40" y1="-3.00" x2="-9.60" y2="-3.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

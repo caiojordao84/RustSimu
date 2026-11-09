@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-14.0 -27.0 30.0 60.0" data-name="vertido">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="144.0" viewBox="-33.6 -64.8 72.0 144.0" data-name="vertido" data-standard="48px">
   <title>vertido</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="0,5.25 -1,7.5 -0.48,7.95 0.52,7.95 1,7.5 1,6.6" stroke="black" fill="none" />
-    <ellipse cx="0.42" cy="14.88" rx="9.59" ry="1.55" stroke="black" fill="none" />
-    <path d="M -7.64 28.46 A 8.05 1.94 0 0 0 8.46 28.46" stroke="black" fill="none" />
-    <line x1="8.47" y1="28.85" x2="10.00" y2="14.88" stroke="black" fill="none" />
-    <line x1="-9.17" y1="14.88" x2="-7.64" y2="28.07" stroke="black" fill="none" />
-    <polygon points="0,9.25 -1,11.5 -0.48,11.95 0.52,11.95 1,11.5 1,10.6" stroke="black" fill="none" />
-    <ellipse cx="0.41" cy="-16.50" rx="2.69" ry="2.50" stroke="black" fill="none" />
-    <line x1="-2.28" y1="-16.00" x2="-2.28" y2="1.00" stroke="black" fill="none" />
-    <line x1="3.10" y1="-15.94" x2="3.10" y2="0.93" stroke="black" fill="none" />
-    <path d="M -2.28 1.50 A 2.69 2.50 0 0 0 3.10 1.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0.00,12.60 -2.40,18.00 -1.15,19.08 1.25,19.08 2.40,18.00 2.40,15.84" stroke="black" fill="none" />
+    <ellipse cx="1.01" cy="35.71" rx="23.02" ry="3.72" stroke="black" fill="none" />
+    <path d="M -18.34 68.30 A 19.32 4.66 0 0 0 20.30 68.30" stroke="black" fill="none" />
+    <line x1="20.33" y1="69.24" x2="24.00" y2="35.71" stroke="black" fill="none" />
+    <line x1="-22.01" y1="35.71" x2="-18.34" y2="67.37" stroke="black" fill="none" />
+    <polygon points="0.00,22.20 -2.40,27.60 -1.15,28.68 1.25,28.68 2.40,27.60 2.40,25.44" stroke="black" fill="none" />
+    <ellipse cx="0.98" cy="-39.60" rx="6.46" ry="6.00" stroke="black" fill="none" />
+    <line x1="-5.47" y1="-38.40" x2="-5.47" y2="2.40" stroke="black" fill="none" />
+    <line x1="7.44" y1="-38.26" x2="7.44" y2="2.23" stroke="black" fill="none" />
+    <path d="M -5.47 3.60 A 6.46 6.00 0 0 0 7.44 3.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

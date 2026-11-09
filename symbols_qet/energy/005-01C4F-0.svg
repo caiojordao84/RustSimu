@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="50.0" viewBox="-10.0 -19.0 20.0 50.0" data-name="Pressure sensor">
+<svg xmlns="http://www.w3.org/2000/svg" width="31.0" height="77.4" viewBox="-15.5 -29.4 31.0 77.4" data-name="Pressure sensor" data-standard="48px">
   <title>Pressure sensor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-1.50" y1="15.92" x2="2.50" y2="14.22" stroke="black" fill="none" />
-    <rect x="-2.00" y="12.53" width="5.00" height="8.47" stroke="black" fill="none" />
-    <line x1="-1.50" y1="19.31" x2="2.50" y2="17.61" stroke="black" fill="none" />
-    <rect x="-4.00" y="-2.72" width="8.50" height="15.25" stroke="black" fill="none" />
-    <rect x="-2.50" y="-9.50" width="5.50" height="6.78" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-2.32" y1="24.65" x2="3.87" y2="22.02" stroke="black" fill="none" />
+    <rect x="-3.10" y="19.40" width="7.74" height="13.11" stroke="black" fill="none" />
+    <line x1="-2.32" y1="29.90" x2="3.87" y2="27.27" stroke="black" fill="none" />
+    <rect x="-6.19" y="-4.21" width="13.16" height="23.61" stroke="black" fill="none" />
+    <rect x="-3.87" y="-14.71" width="8.52" height="10.50" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="-15.48" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="32.52" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

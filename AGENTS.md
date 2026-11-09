@@ -17,9 +17,9 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
   ```bash
   cargo test --all-targets
   ```
-  * A suíte conta com **72 testes automatizados** (100% verde):
-    - `tests/integration_tests.rs` (46 testes de integração cobrindo simulação de circuitos reais, intertravamentos, térmicos, botoeiras, multicanais, multipágina, D1, D2 e D3).
-    - `src/lib.rs` (21 unittests cobrindo `cp1252`, `layout`, `sim::cache`, `sim::graph`, `sim::rules`, `sim::solver`, `sim::timers`, `symbols` e `export`).
+  * A suíte conta com **75 testes automatizados** (100% verde):
+    - `tests/integration_tests.rs` (47 testes de integração cobrindo simulação de circuitos reais, intertravamentos, térmicos, botoeiras, multicanais, multipágina, D1, D2, D3, esteira de exportação real e padrão rígido de grade/bornes).
+    - `src/lib.rs` (23 unittests cobrindo `cp1252`, `layout`, `sim::cache`, `sim::graph`, `sim::rules`, `sim::solver`, `sim::timers`, `symbols` e `export` incluindo geometria exata de arcos/elipses e pipeline vetorial).
     - `src/bin/elmt2svg.rs` (5 unittests cobrindo indexação e normalização de SVGs).
     - As fixtures de teste utilizam esquemas reais em `Projetos/` (`.cad`, `.json`, `.toml`, `.qet`). Qualquer alteração em `sim/`, `symbols.rs`, `canonical.rs`, `io.rs`, `model.rs` ou `app.rs` deve manter essa suíte verde e, quando aplicável, acrescentar novos testes de regressão.
 * **Execução do aplicativo em modo desenvolvimento ou release:**
@@ -53,7 +53,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
     [    main.rs     ] (Ponto de entrada enxuto de 9 linhas)
 ```
 
-* **`model.rs`**: Representação pura de dados do esquema (`SchematicDocument`, `SchematicItem`, condutores, bornes, nós de conexão, páginas e potenciais). Campos de runtime elétrico residem em `SimState`.
+* **`model.rs`**: Representação pura de dados do esquema (`SchematicDocument`, `SchematicItem`, condutores, bornes, nós de conexão, páginas e potenciais), além das constantes rígidas do grid métrico e bornes a 300 DPI (`GRID_MODULE_MM`, `GRID_MODULE_PX_300DPI`, `SUB_GRID_PX_300DPI`, `TERMINAL_DIAMETER_PX_300DPI`). Campos de runtime elétrico residem em `SimState`.
 * **`sim/`**: Motor de simulação física e lógica desacoplado em 5 submódulos:
   - `graph.rs`: Grafo topológico (`build_network_graph`), conectando cabos e bornes por coordenadas geométricas `(x, y)` e ignorando blocos visuais (`!is_wireable()`).
   - `cache.rs`: Hash topológico e reaproveitamento de adjacência de rede entre passos de simulação.
@@ -63,8 +63,8 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
   - *Nota:* O acoplamento entre bobinas e contatos auxiliares é **exclusivamente por TAG**.
 * **`canonical.rs`**: Dicionário global de símbolos D2/D3 com indexação $O(1)$, enum `CanonicalKind`, resolução de caminhos SVG e categorização dinâmica.
 * **`canvas_view.rs`**: Renderização acelerada via GPU no Iced Canvas (`iced::widget::canvas`), emissão de mensagens de auto-conexão, *hit-test* com priorização de símbolos sobre fios, visualização fantasma (escala 0.30) e manipulação na grade (*grid snap*).
-* **`symbols.rs` / `svg_symbol.rs`**: Catálogo nativo IEC 60947 com memoização global `LazyLock` e parser SVG com cache de geometrias e dimensões.
-* **`export.rs`**: Exportação gráfica real: SVG vetorial limpo com cajetín opcional, PNG via `resvg`, PDF multipágina via `printpdf` e CAD folha única.
+* **`symbols.rs` / `svg_symbol.rs`**: Catálogo nativo IEC 60947 com memoização global `LazyLock`, gerador e parser SVG padronizados na grade rígida de 48 px e bornes $r=4.0$ px, com escala isotrópica 0.125 (1:8) e normalização de bibliotecas externas.
+* **`export.rs`**: Exportação gráfica real: SVG vetorial limpo padronizado a 8.0 px/unidade (48 px de pitch entre fases e $r=4.0$ nos bornes) com cajetín estruturado em células, PNG rasterizado a 300 DPI (via `resvg`), PDF multipágina vetorial nativo (via `svg2pdf` e `pdf-writer`) com fonte Inter embutida, geometria exata de arcos e elipses GDI/CADe, modos monocromático e com/sem bornes, e CAD folha única.
 * **`io.rs`**: Leitura/escrita simétrica de formatos multipágina (`.json`, `.toml`, `.qet`) e escritor byte-exato do formato `.cad` legado (restrito à exportação).
 * **`cp1252.rs`**: Conversão bidirecional CP-1252 ↔ UTF-8 para compatibilidade perfeita com strings de esquemas do CADe original.
 * **`icons.rs`**: Renderização de ícones vetoriais modernos da interface em SVG.
@@ -167,7 +167,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
      cargo clippy --all-targets -- -D warnings
      cargo test --all-targets
      ```
-   * Todos os 72 testes devem passar com 100% de sucesso e zero advertências do compilador.
+   * Todos os 75 testes devem passar com 100% de sucesso e zero advertências do compilador.
 3. **Padrão de Commits:**
    * Use Conventional Commits em Português do Brasil (ex.: `feat(ui): ...`, `fix(sim): ...`, `refactor(core): ...`, `test(integration): ...`).
    * É estritamente **proibido** o uso de `git push --force`.

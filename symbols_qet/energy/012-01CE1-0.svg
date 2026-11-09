@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-23.0 -22.0 50.0 30.0" data-name="red-evacuacion">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="72.0" viewBox="-55.2 -52.8 120.0 72.0" data-name="red-evacuacion" data-standard="48px">
   <title>red-evacuacion</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-9.00" y1="-20.00" x2="21.00" y2="0.00" stroke="black" fill="none" />
-    <ellipse cx="20.50" cy="3.00" rx="1.50" ry="3.00" stroke="black" fill="none" />
-    <path d="M -9.50 -20.00 A 1.50 3.00 0 0 0 -9.50 -14.00" stroke="black" fill="none" />
-    <polyline points="-12,-10.1 -7,-10.1 4,-8.76 5,-7.42 5,-6.08 4,-4.74 -7,-6.08 -12,-6.08" stroke="black" fill="none" />
-    <ellipse cx="-12.00" cy="-8.00" rx="1.00" ry="2.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-14.00" x2="-4.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="4.00" y1="-5.00" x2="20.00" y2="6.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-14.00" cy="-8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-21.60" y1="-48.00" x2="50.40" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="49.20" cy="7.20" rx="3.60" ry="7.20" stroke="black" fill="none" />
+    <path d="M -22.80 -48.00 A 3.60 7.20 0 0 0 -22.80 -33.60" stroke="black" fill="none" />
+    <polyline points="-28.80,-24.24 -16.80,-24.24 9.60,-21.02 12.00,-17.81 12.00,-14.59 9.60,-11.38 -16.80,-14.59 -28.80,-14.59" stroke="black" fill="none" />
+    <ellipse cx="-28.80" cy="-19.20" rx="2.40" ry="4.80" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-33.60" x2="-9.60" y2="-24.00" stroke="black" fill="none" />
+    <line x1="9.60" y1="-12.00" x2="48.00" y2="14.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-33.60" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

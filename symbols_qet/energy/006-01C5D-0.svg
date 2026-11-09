@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="20.0" viewBox="-3.0 -12.0 20.0 20.0" data-name="Radiator bleed valve">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="48.0" viewBox="-7.2 -28.8 48.0 48.0" data-name="Radiator bleed valve" data-standard="48px">
   <title>Radiator bleed valve</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="-10.00" width="11.00" height="10.00" stroke="black" fill="none" />
-    <ellipse cx="5.50" cy="-5.00" rx="3.50" ry="3.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="-7.00" x2="7.00" y2="-3.00" stroke="black" fill="none" />
-    <rect x="11.00" y="-7.00" width="2.00" height="2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="5.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="-24.00" width="26.40" height="24.00" stroke="black" fill="none" />
+    <ellipse cx="13.20" cy="-12.00" rx="8.40" ry="7.20" stroke="black" fill="none" />
+    <line x1="7.20" y1="-16.80" x2="16.80" y2="-7.20" stroke="black" fill="none" />
+    <rect x="26.40" y="-16.80" width="4.80" height="4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

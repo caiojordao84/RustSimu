@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-28.0 -31.0 60.0 60.0" data-name="compresor-hermetico2">
+<svg xmlns="http://www.w3.org/2000/svg" width="77.8" height="77.8" viewBox="-36.3 -40.2 77.8 77.8" data-name="compresor-hermetico2" data-standard="48px">
   <title>compresor-hermetico2</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 15.50 11.00 A 6.50 5.50 0 0 0 22.00 5.50" stroke="black" fill="none" />
-    <line x1="22.00" y1="5.00" x2="22.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="18.00" y1="7.86" x2="18.00" y2="-18.94" stroke="black" fill="none" />
-    <line x1="-15.00" y1="5.00" x2="-15.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="18.00" y1="16.00" x2="18.00" y2="11.08" stroke="black" fill="none" />
-    <path d="M -22.00 15.50 A 20.00 5.50 0 0 0 18.00 15.50" stroke="black" fill="none" />
-    <line x1="-23.08" y1="-11.00" x2="19.08" y2="-11.00" stroke="black" fill="none" />
-    <path d="M -16.00 4.50 A 5.50 5.50 0 0 0 -10.50 10.00" stroke="black" fill="none" />
-    <path d="M 18.00 -19.50 A 20.00 5.50 0 0 0 -22.00 -19.50" stroke="black" fill="none" />
-    <path d="M -15.00 5.00 A 4.50 4.00 0 0 0 -10.50 9.00" stroke="black" fill="none" />
-    <line x1="-22.00" y1="14.37" x2="-22.00" y2="-8.41" stroke="black" fill="none" />
-    <line x1="-22.00" y1="-9.39" x2="-22.00" y2="-18.56" stroke="black" fill="none" />
-    <line x1="-16.00" y1="5.00" x2="-16.00" y2="-1.00" stroke="black" fill="none" />
-    <path d="M 15.50 9.00 A 4.50 4.00 0 0 0 20.00 5.00" stroke="black" fill="none" />
-    <line x1="-16.34" y1="-1.00" x2="-15.63" y2="-1.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="5.00" x2="20.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-1.00" x2="21.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="24.00" y1="4.00" x2="24.00" y2="9.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="2.00" x2="-19.00" y2="8.00" stroke="black" fill="none" />
-    <polyline points="-16,20 -18,22 -20,22 -21,22" stroke="black" fill="none" />
-    <polyline points="11,20 14,22 17,22" stroke="black" fill="none" />
-    <path d="M 16.00 9.00 A 2.00 1.00 0 0 0 16.00 11.00" stroke="black" fill="none" />
-    <rect x="-1.00" y="-1.00" width="6.00" height="10.00" stroke="black" fill="none" />
-    <ellipse cx="1.00" cy="1.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="21.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-16.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="2.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 20.11 14.27 A 8.43 7.14 0 0 0 28.54 7.14" stroke="black" fill="none" />
+    <line x1="28.54" y1="6.49" x2="28.54" y2="-1.30" stroke="black" fill="none" />
+    <line x1="23.35" y1="10.20" x2="23.35" y2="-24.57" stroke="black" fill="none" />
+    <line x1="-19.46" y1="6.49" x2="-19.46" y2="-1.30" stroke="black" fill="none" />
+    <line x1="23.35" y1="20.76" x2="23.35" y2="14.37" stroke="black" fill="none" />
+    <path d="M -28.54 20.11 A 25.95 7.14 0 0 0 23.35 20.11" stroke="black" fill="none" />
+    <line x1="-29.94" y1="-14.27" x2="24.75" y2="-14.27" stroke="black" fill="none" />
+    <path d="M -20.76 5.84 A 7.14 7.14 0 0 0 -13.62 12.97" stroke="black" fill="none" />
+    <path d="M 23.35 -25.30 A 25.95 7.14 0 0 0 -28.54 -25.30" stroke="black" fill="none" />
+    <path d="M -19.46 6.49 A 5.84 5.19 0 0 0 -13.62 11.68" stroke="black" fill="none" />
+    <line x1="-28.54" y1="18.64" x2="-28.54" y2="-10.91" stroke="black" fill="none" />
+    <line x1="-28.54" y1="-12.18" x2="-28.54" y2="-24.08" stroke="black" fill="none" />
+    <line x1="-20.76" y1="6.49" x2="-20.76" y2="-1.30" stroke="black" fill="none" />
+    <path d="M 20.11 11.68 A 5.84 5.19 0 0 0 25.95 6.49" stroke="black" fill="none" />
+    <line x1="-21.20" y1="-1.30" x2="-20.28" y2="-1.30" stroke="black" fill="none" />
+    <line x1="25.95" y1="6.49" x2="25.95" y2="-1.30" stroke="black" fill="none" />
+    <line x1="25.95" y1="-1.30" x2="27.24" y2="-1.30" stroke="black" fill="none" />
+    <line x1="31.14" y1="5.19" x2="31.14" y2="11.68" stroke="black" fill="none" />
+    <line x1="-24.65" y1="2.59" x2="-24.65" y2="10.38" stroke="black" fill="none" />
+    <polyline points="-20.76,25.95 -23.35,28.54 -25.95,28.54 -27.24,28.54" stroke="black" fill="none" />
+    <polyline points="14.27,25.95 18.16,28.54 22.05,28.54" stroke="black" fill="none" />
+    <path d="M 20.76 11.68 A 2.59 1.30 0 0 0 20.76 14.27" stroke="black" fill="none" />
+    <rect x="-1.30" y="-1.30" width="7.78" height="12.97" stroke="black" fill="none" />
+    <ellipse cx="1.30" cy="1.30" rx="1.30" ry="1.30" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="27.24" cy="-2.59" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-20.76" cy="-2.59" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="2.59" cy="12.97" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

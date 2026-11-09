@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -18.0 40.0 40.0" data-name="separator">
+<svg xmlns="http://www.w3.org/2000/svg" width="106.7" height="106.7" viewBox="-53.3 -48.0 106.7 106.7" data-name="separator" data-standard="48px">
   <title>separator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-2.00" stroke="black" fill="none" />
-    <polygon points="-8,-13 8,-13 8,5 0,13 -8,5" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-9.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="9.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-26.67" x2="0.00" y2="-5.33" stroke="black" fill="none" />
+    <polygon points="-21.33,-34.67 21.33,-34.67 21.33,13.33 0.00,34.67 -21.33,13.33" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="37.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="-26.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-26.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

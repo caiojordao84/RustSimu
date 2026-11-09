@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="20.0" viewBox="-60.0 -10.0 110.0 20.0" data-name="Butt-connector">
+<svg xmlns="http://www.w3.org/2000/svg" width="58.7" height="10.7" viewBox="-32.0 -5.3 58.7 10.7" data-name="Butt-connector" data-standard="48px">
   <title>Butt-connector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="-3.00" width="20.00" height="6.00" stroke="black" fill="black" />
-    <line x1="20.00" y1="0.00" x2="40.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="0.00" x2="-50.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-3.00" width="20.00" height="6.00" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="-1.60" width="10.67" height="3.20" stroke="black" fill="black" />
+    <line x1="10.67" y1="0.00" x2="21.33" y2="0.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="0.00" x2="-26.67" y2="0.00" stroke="black" fill="none" />
+    <rect x="-16.00" y="-1.60" width="10.67" height="3.20" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="21.33" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-26.67" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

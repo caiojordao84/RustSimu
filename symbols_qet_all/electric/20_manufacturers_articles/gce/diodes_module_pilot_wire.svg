@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-35.0 -33.0 60.0 60.0" data-name="Diodes Module Pilot Wire">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="144.0" viewBox="-84.0 -79.2 144.0 144.0" data-name="Diodes Module Pilot Wire" data-standard="48px">
   <title>Diodes Module Pilot Wire</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="6.00" y1="6.00" x2="14.00" y2="6.00" stroke="black" fill="none" />
-    <rect x="-20.00" y="-20.00" width="40.00" height="40.00" stroke="black" fill="none" />
-    <line x1="-14.00" y1="0.00" x2="-6.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="-10,0 -14,6 -6,6" stroke="black" fill="none" />
-    <polygon points="10,6 6,0 14,0" stroke="black" fill="none" />
-    <line x1="-10.00" y1="14.00" x2="-10.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="15.00" x2="10.00" y2="6.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="-10.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="0.00" x2="10.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-6.00" x2="-9.00" y2="-6.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="-19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="14.40" y1="14.40" x2="33.60" y2="14.40" stroke="black" fill="none" />
+    <rect x="-48.00" y="-48.00" width="96.00" height="96.00" stroke="black" fill="none" />
+    <line x1="-33.60" y1="0.00" x2="-14.40" y2="0.00" stroke="black" fill="none" />
+    <polygon points="-24.00,0.00 -33.60,14.40 -14.40,14.40" stroke="black" fill="none" />
+    <polygon points="24.00,14.40 14.40,0.00 33.60,0.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="33.60" x2="-24.00" y2="16.80" stroke="black" fill="none" />
+    <line x1="24.00" y1="36.00" x2="24.00" y2="14.40" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="-24.00" y2="-36.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="0.00" x2="24.00" y2="-14.40" stroke="black" fill="none" />
+    <line x1="24.00" y1="-14.40" x2="-21.60" y2="-14.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="45.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="45.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="-45.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

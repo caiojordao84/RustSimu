@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="260.0" height="210.0" viewBox="-14.0 -203.0 260.0 210.0" data-name="SCN-RTC20.01">
+<svg xmlns="http://www.w3.org/2000/svg" width="624.0" height="504.0" viewBox="-33.6 -487.2 624.0 504.0" data-name="SCN-RTC20.01" data-standard="48px">
   <title>SCN-RTC20.01</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="-200.00" width="240.00" height="200.00" stroke="black" fill="white" />
-    <text x="219.00" y="-83.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CE</text>
-    <text x="217.00" y="-70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
-    <text x="214.00" y="-58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MDT</text>
-    <text x="215.00" y="-55.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">www.MDT.de</text>
-    <rect x="0.00" y="-50.00" width="240.00" height="20.00" stroke="black" fill="none" />
-    <rect x="0.00" y="-170.00" width="240.00" height="20.00" stroke="black" fill="none" />
-    <rect x="109.00" y="-71.00" width="45.00" height="15.00" stroke="HTMLBlueDarkBlue" fill="yellow" />
-    <text x="192.00" y="-135.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCN-RTC20.01</text>
-    <text x="192.00" y="-128.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Zeitschaltuhr</text>
-    <path d="M 229.00 -75.59 A 5.50 2.50 0 0 0 218.00 -75.50" stroke="HTMLBlueDarkBlue" fill="none" />
-    <rect x="7.00" y="-16.00" width="10.00" height="15.00" stroke="black" fill="black" />
-    <rect x="17.00" y="-16.00" width="10.00" height="15.00" stroke="#d40000" fill="#d40000" />
-    <rect x="25.00" y="-14.00" width="3.00" height="6.00" stroke="#d40000" fill="#d40000" />
-    <ellipse cx="181.00" cy="-59.00" rx="2.00" ry="2.00" stroke="#d40000" fill="#d40000" />
-    <ellipse cx="181.00" cy="-72.00" rx="4.00" ry="4.00" stroke="#888888" fill="gray" />
-    <text x="165.00" y="-63.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Prog.</text>
-    <rect x="20.00" y="-138.00" width="140.00" height="60.00" stroke="HTMLBlueMidnightBlue" fill="HTMLBlueMidnightBlue" />
-    <text x="32.00" y="-113.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12:40</text>
-    <ellipse cx="132.00" cy="-119.00" rx="13.00" ry="13.00" stroke="white" fill="none" />
-    <line x1="145.00" y1="-119.00" x2="143.70" y2="-119.00" stroke="white" fill="none" />
-    <line x1="132.00" y1="-106.00" x2="132.00" y2="-107.30" stroke="white" fill="none" />
-    <line x1="119.00" y1="-119.00" x2="120.30" y2="-119.00" stroke="white" fill="none" />
-    <line x1="132.00" y1="-132.00" x2="132.00" y2="-130.70" stroke="white" fill="none" />
-    <line x1="141.10" y1="-109.90" x2="140.45" y2="-110.55" stroke="white" fill="none" />
-    <line x1="122.90" y1="-109.90" x2="123.55" y2="-110.55" stroke="white" fill="none" />
-    <line x1="122.90" y1="-128.10" x2="123.55" y2="-127.45" stroke="white" fill="none" />
-    <line x1="141.75" y1="-127.45" x2="141.10" y2="-126.80" stroke="white" fill="none" />
-    <line x1="132.00" y1="-119.00" x2="132.00" y2="-128.00" stroke="white" fill="none" />
-    <line x1="132.00" y1="-119.00" x2="139.00" y2="-119.00" stroke="white" fill="none" />
-    <path d="M 55.74 -90.25 A 8.75 7.04 0 0 0 38.25 -90.00" stroke="white" fill="none" />
-    <line x1="37.00" y1="-90.00" x2="57.00" y2="-90.00" stroke="white" fill="none" />
-    <line x1="47.00" y1="-97.00" x2="47.00" y2="-99.00" stroke="white" fill="none" />
-    <line x1="54.00" y1="-95.00" x2="55.00" y2="-96.00" stroke="white" fill="none" />
-    <line x1="40.00" y1="-95.00" x2="39.00" y2="-96.00" stroke="white" fill="none" />
-    <line x1="59.00" y1="-90.00" x2="59.00" y2="-99.00" stroke="white" fill="none" />
-    <text x="34.00" y="-80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">05:59</text>
-    <path d="M 140.74 -90.25 A 8.75 7.04 0 0 0 123.25 -90.00" stroke="white" fill="none" />
-    <line x1="122.00" y1="-90.00" x2="142.00" y2="-90.00" stroke="white" fill="none" />
-    <line x1="132.00" y1="-97.00" x2="132.00" y2="-99.00" stroke="white" fill="none" />
-    <line x1="139.00" y1="-95.00" x2="140.00" y2="-96.00" stroke="white" fill="none" />
-    <line x1="125.00" y1="-95.00" x2="124.00" y2="-96.00" stroke="white" fill="none" />
-    <line x1="144.00" y1="-90.00" x2="144.00" y2="-99.00" stroke="white" fill="none" />
-    <text x="119.00" y="-80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">21:17</text>
-    <ellipse cx="181.00" cy="-128.00" rx="4.00" ry="4.00" stroke="black" fill="black" />
-    <ellipse cx="181.00" cy="-100.00" rx="4.00" ry="4.00" stroke="black" fill="black" />
-    <ellipse cx="181.00" cy="-86.00" rx="4.00" ry="4.00" stroke="black" fill="black" />
-    <ellipse cx="181.00" cy="-114.00" rx="4.00" ry="4.00" stroke="black" fill="black" />
-    <line x1="120.00" y1="-200.00" x2="120.00" y2="-170.00" stroke="black" fill="none" />
-    <line x1="120.00" y1="-30.00" x2="120.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="12.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="KNX_NL -" data-orientation="s" />
-    <circle class="qet-terminal" cx="22.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="KNX_NL +" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="-480.00" width="576.00" height="480.00" stroke="black" fill="white" />
+    <text x="525.60" y="-199.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CE</text>
+    <text x="520.80" y="-168.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
+    <text x="513.60" y="-139.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MDT</text>
+    <text x="516.00" y="-132.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">www.MDT.de</text>
+    <rect x="0.00" y="-120.00" width="576.00" height="48.00" stroke="black" fill="none" />
+    <rect x="0.00" y="-408.00" width="576.00" height="48.00" stroke="black" fill="none" />
+    <rect x="261.60" y="-170.40" width="108.00" height="36.00" stroke="HTMLBlueDarkBlue" fill="yellow" />
+    <text x="460.80" y="-324.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SCN-RTC20.01</text>
+    <text x="460.80" y="-307.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Zeitschaltuhr</text>
+    <path d="M 549.60 -181.42 A 13.20 6.00 0 0 0 523.20 -181.20" stroke="HTMLBlueDarkBlue" fill="none" />
+    <rect x="16.80" y="-38.40" width="24.00" height="36.00" stroke="black" fill="black" />
+    <rect x="40.80" y="-38.40" width="24.00" height="36.00" stroke="#d40000" fill="#d40000" />
+    <rect x="60.00" y="-33.60" width="7.20" height="14.40" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="434.40" cy="-141.60" rx="4.80" ry="4.80" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="434.40" cy="-172.80" rx="9.60" ry="9.60" stroke="#888888" fill="gray" />
+    <text x="396.00" y="-151.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Prog.</text>
+    <rect x="48.00" y="-331.20" width="336.00" height="144.00" stroke="HTMLBlueMidnightBlue" fill="HTMLBlueMidnightBlue" />
+    <text x="76.80" y="-271.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">12:40</text>
+    <ellipse cx="316.80" cy="-285.60" rx="31.20" ry="31.20" stroke="white" fill="none" />
+    <line x1="348.00" y1="-285.60" x2="344.88" y2="-285.60" stroke="white" fill="none" />
+    <line x1="316.80" y1="-254.40" x2="316.80" y2="-257.52" stroke="white" fill="none" />
+    <line x1="285.60" y1="-285.60" x2="288.72" y2="-285.60" stroke="white" fill="none" />
+    <line x1="316.80" y1="-316.80" x2="316.80" y2="-313.68" stroke="white" fill="none" />
+    <line x1="338.64" y1="-263.76" x2="337.08" y2="-265.32" stroke="white" fill="none" />
+    <line x1="294.96" y1="-263.76" x2="296.52" y2="-265.32" stroke="white" fill="none" />
+    <line x1="294.96" y1="-307.44" x2="296.52" y2="-305.88" stroke="white" fill="none" />
+    <line x1="340.20" y1="-305.88" x2="338.64" y2="-304.32" stroke="white" fill="none" />
+    <line x1="316.80" y1="-285.60" x2="316.80" y2="-307.20" stroke="white" fill="none" />
+    <line x1="316.80" y1="-285.60" x2="333.60" y2="-285.60" stroke="white" fill="none" />
+    <path d="M 133.78 -216.60 A 21.00 16.90 0 0 0 91.80 -216.00" stroke="white" fill="none" />
+    <line x1="88.80" y1="-216.00" x2="136.80" y2="-216.00" stroke="white" fill="none" />
+    <line x1="112.80" y1="-232.80" x2="112.80" y2="-237.60" stroke="white" fill="none" />
+    <line x1="129.60" y1="-228.00" x2="132.00" y2="-230.40" stroke="white" fill="none" />
+    <line x1="96.00" y1="-228.00" x2="93.60" y2="-230.40" stroke="white" fill="none" />
+    <line x1="141.60" y1="-216.00" x2="141.60" y2="-237.60" stroke="white" fill="none" />
+    <text x="81.60" y="-192.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">05:59</text>
+    <path d="M 337.78 -216.60 A 21.00 16.90 0 0 0 295.80 -216.00" stroke="white" fill="none" />
+    <line x1="292.80" y1="-216.00" x2="340.80" y2="-216.00" stroke="white" fill="none" />
+    <line x1="316.80" y1="-232.80" x2="316.80" y2="-237.60" stroke="white" fill="none" />
+    <line x1="333.60" y1="-228.00" x2="336.00" y2="-230.40" stroke="white" fill="none" />
+    <line x1="300.00" y1="-228.00" x2="297.60" y2="-230.40" stroke="white" fill="none" />
+    <line x1="345.60" y1="-216.00" x2="345.60" y2="-237.60" stroke="white" fill="none" />
+    <text x="285.60" y="-192.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">21:17</text>
+    <ellipse cx="434.40" cy="-307.20" rx="9.60" ry="9.60" stroke="black" fill="black" />
+    <ellipse cx="434.40" cy="-240.00" rx="9.60" ry="9.60" stroke="black" fill="black" />
+    <ellipse cx="434.40" cy="-206.40" rx="9.60" ry="9.60" stroke="black" fill="black" />
+    <ellipse cx="434.40" cy="-273.60" rx="9.60" ry="9.60" stroke="black" fill="black" />
+    <line x1="288.00" y1="-480.00" x2="288.00" y2="-408.00" stroke="black" fill="none" />
+    <line x1="288.00" y1="-72.00" x2="288.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="28.80" cy="-4.80" r="4.0" fill="red" stroke="none" data-name="KNX_NL -" data-orientation="s" />
+    <circle class="qet-terminal" cx="52.80" cy="-4.80" r="4.0" fill="red" stroke="none" data-name="KNX_NL +" data-orientation="s" />
   </g>
 </svg>

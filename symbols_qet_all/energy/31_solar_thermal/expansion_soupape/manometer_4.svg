@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -17.0 30.0 40.0" data-name="Manometer">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-36.0 -40.8 72.0 96.0" data-name="Manometer" data-standard="48px">
   <title>Manometer</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-1,7.75 -1,10.75 1,10.75 1,7.75" stroke="black" fill="none" />
-    <text x="-4.00" y="3.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">bar</text>
-    <line x1="0.00" y1="10.75" x2="0.00" y2="11.75" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-5.25" x2="0.00" y2="-4.25" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-5.25" x2="-2.00" y2="-2.25" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-5.25" x2="2.00" y2="-0.25" stroke="black" fill="none" />
-    <line x1="6.00" y1="3.75" x2="5.00" y2="2.75" stroke="black" fill="none" />
-    <line x1="-6.00" y1="3.75" x2="-5.00" y2="2.75" stroke="black" fill="none" />
-    <line x1="6.00" y1="-8.25" x2="5.00" y2="-7.25" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-8.25" x2="-5.00" y2="-7.25" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.25" x2="0.00" y2="-9.25" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-2.25" rx="8.60" ry="8.60" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-2.25" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="7.00" y1="-2.25" x2="8.00" y2="-2.25" stroke="black" fill="none" />
-    <line x1="-8.00" y1="-2.25" x2="-7.00" y2="-2.25" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-2.40,18.60 -2.40,25.80 2.40,25.80 2.40,18.60" stroke="black" fill="none" />
+    <text x="-9.60" y="9.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">bar</text>
+    <line x1="0.00" y1="25.80" x2="0.00" y2="28.20" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-12.60" x2="0.00" y2="-10.20" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-12.60" x2="-4.80" y2="-5.40" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-12.60" x2="4.80" y2="-0.60" stroke="black" fill="none" />
+    <line x1="14.40" y1="9.00" x2="12.00" y2="6.60" stroke="black" fill="none" />
+    <line x1="-14.40" y1="9.00" x2="-12.00" y2="6.60" stroke="black" fill="none" />
+    <line x1="14.40" y1="-19.80" x2="12.00" y2="-17.40" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-19.80" x2="-12.00" y2="-17.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.60" x2="0.00" y2="-22.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-5.40" rx="20.64" ry="20.64" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-5.40" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <line x1="16.80" y1="-5.40" x2="19.20" y2="-5.40" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-5.40" x2="-16.80" y2="-5.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="28.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

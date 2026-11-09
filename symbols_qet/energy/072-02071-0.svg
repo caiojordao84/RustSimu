@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="80.0" viewBox="-34.0 -41.0 70.0 80.0" data-name="ECS heater">
+<svg xmlns="http://www.w3.org/2000/svg" width="84.0" height="96.0" viewBox="-40.8 -49.2 84.0 96.0" data-name="ECS heater" data-standard="48px">
   <title>ECS heater</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="2.00" y="-25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ECS</text>
-    <text x="26.00" y="28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EF</text>
-    <line x1="-26.55" y1="20.00" x2="-19.55" y2="20.00" stroke="black" fill="none" />
-    <line x1="-27.55" y1="-20.00" x2="-20.55" y2="-20.00" stroke="black" fill="none" />
-    <text x="17.00" y="19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">réchauffeur ecs</text>
-    <line x1="-20.00" y1="-26.00" x2="-20.00" y2="25.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-26.00" x2="20.00" y2="25.00" stroke="black" fill="none" />
-    <ellipse cx="-20.00" cy="-20.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <polyline points="-20,-20 10,-20 -10,-15 10,-10 -10,-6 10,0 -10,5 10,10 -10,15 10,20 -20,20" stroke="black" fill="none" />
-    <path d="M 20.00 -26.50 A 20.00 4.00 0 0 0 -20.00 -26.50" stroke="black" fill="none" />
-    <ellipse cx="20.00" cy="20.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-30.50" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="-20.00" cy="20.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <path d="M -20.00 25.50 A 20.00 4.00 0 0 0 20.00 25.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="2.40" y="-30.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">ECS</text>
+    <text x="31.20" y="33.60" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">EF</text>
+    <line x1="-31.86" y1="24.00" x2="-23.46" y2="24.00" stroke="black" fill="none" />
+    <line x1="-33.06" y1="-24.00" x2="-24.66" y2="-24.00" stroke="black" fill="none" />
+    <text x="20.40" y="22.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">réchauffeur ecs</text>
+    <line x1="-24.00" y1="-31.20" x2="-24.00" y2="30.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-31.20" x2="24.00" y2="30.00" stroke="black" fill="none" />
+    <ellipse cx="-24.00" cy="-24.00" rx="1.20" ry="1.20" stroke="black" fill="none" />
+    <polyline points="-24.00,-24.00 12.00,-24.00 -12.00,-18.00 12.00,-12.00 -12.00,-7.20 12.00,0.00 -12.00,6.00 12.00,12.00 -12.00,18.00 12.00,24.00 -24.00,24.00" stroke="black" fill="none" />
+    <path d="M 24.00 -31.80 A 24.00 4.80 0 0 0 -24.00 -31.80" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="24.00" rx="1.20" ry="1.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-36.60" rx="1.20" ry="1.20" stroke="black" fill="none" />
+    <ellipse cx="-24.00" cy="24.00" rx="1.20" ry="1.20" stroke="black" fill="none" />
+    <path d="M -24.00 30.60 A 24.00 4.80 0 0 0 24.00 30.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

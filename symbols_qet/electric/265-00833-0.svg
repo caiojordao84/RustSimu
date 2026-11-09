@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="210.0" viewBox="-14.0 -203.0 100.0 210.0" data-name="SCN-LOG1.02">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="504.0" viewBox="-33.6 -487.2 240.0 504.0" data-name="SCN-LOG1.02" data-standard="48px">
   <title>SCN-LOG1.02</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="66.00" y="-90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U2</text>
-    <rect x="0.00" y="-200.00" width="80.00" height="200.00" stroke="black" fill="white" />
-    <ellipse cx="68.00" cy="-126.00" rx="8.00" ry="8.00" stroke="HTMLBlueDarkBlue" fill="HTMLBlueDarkBlue" />
-    <text x="62.00" y="-124.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Prog.</text>
-    <text x="8.00" y="-53.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
-    <text x="54.00" y="-57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MDT</text>
-    <text x="55.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">www.MDT.de</text>
-    <rect x="18.00" y="-16.00" width="10.00" height="15.00" stroke="black" fill="black" />
-    <rect x="0.00" y="-50.00" width="80.00" height="20.00" stroke="black" fill="none" />
-    <rect x="28.00" y="-16.00" width="10.00" height="15.00" stroke="#d40000" fill="#d40000" />
-    <rect x="0.00" y="-170.00" width="80.00" height="20.00" stroke="black" fill="none" />
-    <text x="19.00" y="-88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <ellipse cx="68.00" cy="-112.00" rx="2.00" ry="2.00" stroke="#d40000" fill="#d40000" />
-    <ellipse cx="15.00" cy="-90.00" rx="2.00" ry="2.00" stroke="green" fill="#00aa00" />
-    <rect x="36.00" y="-14.00" width="3.00" height="6.00" stroke="#d40000" fill="#d40000" />
-    <text x="2.00" y="-142.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SCN-LOG1.02</text>
-    <text x="2.00" y="-135.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Logikmodul</text>
-    <path d="M 20.00 -58.59 A 5.50 2.50 0 0 0 9.00 -58.50" stroke="HTMLBlueDarkBlue" fill="none" />
-    <text x="63.00" y="-103.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">>1s</text>
-    <text x="19.00" y="-106.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <ellipse cx="15.00" cy="-108.00" rx="2.00" ry="2.00" stroke="green" fill="#00aa00" />
-    <text x="19.00" y="-124.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <ellipse cx="15.00" cy="-126.00" rx="2.00" ry="2.00" stroke="green" fill="#00aa00" />
-    <text x="19.00" y="-70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <ellipse cx="15.00" cy="-72.00" rx="2.00" ry="2.00" stroke="green" fill="#00aa00" />
-    <circle class="qet-terminal" cx="23.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="KNX_-" data-orientation="s" />
-    <circle class="qet-terminal" cx="33.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="KNX_+" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="158.40" y="-216.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">U2</text>
+    <rect x="0.00" y="-480.00" width="192.00" height="480.00" stroke="black" fill="white" />
+    <ellipse cx="163.20" cy="-302.40" rx="19.20" ry="19.20" stroke="HTMLBlueDarkBlue" fill="HTMLBlueDarkBlue" />
+    <text x="148.80" y="-297.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Prog.</text>
+    <text x="19.20" y="-127.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">KNX</text>
+    <text x="129.60" y="-136.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MDT</text>
+    <text x="132.00" y="-129.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">www.MDT.de</text>
+    <rect x="43.20" y="-38.40" width="24.00" height="36.00" stroke="black" fill="black" />
+    <rect x="0.00" y="-120.00" width="192.00" height="48.00" stroke="black" fill="none" />
+    <rect x="67.20" y="-38.40" width="24.00" height="36.00" stroke="#d40000" fill="#d40000" />
+    <rect x="0.00" y="-408.00" width="192.00" height="48.00" stroke="black" fill="none" />
+    <text x="45.60" y="-211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <ellipse cx="163.20" cy="-268.80" rx="4.80" ry="4.80" stroke="#d40000" fill="#d40000" />
+    <ellipse cx="36.00" cy="-216.00" rx="4.80" ry="4.80" stroke="green" fill="#00aa00" />
+    <rect x="86.40" y="-33.60" width="7.20" height="14.40" stroke="#d40000" fill="#d40000" />
+    <text x="4.80" y="-340.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SCN-LOG1.02</text>
+    <text x="4.80" y="-324.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Logikmodul</text>
+    <path d="M 48.00 -140.62 A 13.20 6.00 0 0 0 21.60 -140.40" stroke="HTMLBlueDarkBlue" fill="none" />
+    <text x="151.20" y="-247.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">&gt;1s</text>
+    <text x="45.60" y="-254.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <ellipse cx="36.00" cy="-259.20" rx="4.80" ry="4.80" stroke="green" fill="#00aa00" />
+    <text x="45.60" y="-297.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <ellipse cx="36.00" cy="-302.40" rx="4.80" ry="4.80" stroke="green" fill="#00aa00" />
+    <text x="45.60" y="-168.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <ellipse cx="36.00" cy="-172.80" rx="4.80" ry="4.80" stroke="green" fill="#00aa00" />
+    <circle class="qet-terminal" cx="55.20" cy="-4.80" r="4.0" fill="red" stroke="none" data-name="KNX_-" data-orientation="s" />
+    <circle class="qet-terminal" cx="79.20" cy="-4.80" r="4.0" fill="red" stroke="none" data-name="KNX_+" data-orientation="s" />
   </g>
 </svg>

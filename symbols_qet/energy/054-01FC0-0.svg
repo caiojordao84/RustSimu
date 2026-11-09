@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="20.0" viewBox="-32.0 -11.0 60.0 20.0" data-name="Expansion capillary">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="24.0" viewBox="-38.4 -13.2 72.0 24.0" data-name="Expansion capillary" data-standard="48px">
   <title>Expansion capillary</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -8.00 -2.30 A 3.00 2.90 0 0 0 -14.00 -2.30" stroke="black" fill="none" />
-    <path d="M 10.00 -2.00 A 1.00 1.00 0 0 0 11.00 -1.00" stroke="black" fill="none" />
-    <line x1="11.75" y1="-1.00" x2="17.27" y2="-1.00" stroke="black" fill="none" />
-    <path d="M 10.00 -2.30 A 3.00 2.90 0 0 0 4.00 -2.30" stroke="black" fill="none" />
-    <path d="M -1.00 -1.40 A 1.50 3.60 0 0 0 2.00 -1.40" stroke="black" fill="none" />
-    <path d="M -6.00 -1.40 A 1.50 3.60 0 0 0 -3.00 -1.40" stroke="black" fill="none" />
-    <line x1="-21.25" y1="-1.00" x2="-15.73" y2="-1.00" stroke="black" fill="none" />
-    <path d="M 2.00 -2.30 A 4.00 2.90 0 0 0 -6.00 -2.30" stroke="black" fill="none" />
-    <path d="M -11.00 -1.40 A 1.50 3.60 0 0 0 -8.00 -1.40" stroke="black" fill="none" />
-    <path d="M -3.00 -2.30 A 4.00 2.90 0 0 0 -11.00 -2.30" stroke="black" fill="none" />
-    <path d="M 4.00 -1.40 A 1.50 3.60 0 0 0 7.00 -1.40" stroke="black" fill="none" />
-    <path d="M 7.00 -2.30 A 4.00 2.90 0 0 0 -1.00 -2.30" stroke="black" fill="none" />
-    <path d="M -15.00 -1.00 A 1.00 1.00 0 0 0 -14.00 -2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-22.00" cy="-1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="18.00" cy="-1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -9.60 -2.76 A 3.60 3.48 0 0 0 -16.80 -2.76" stroke="black" fill="none" />
+    <path d="M 12.00 -2.40 A 1.20 1.20 0 0 0 13.20 -1.20" stroke="black" fill="none" />
+    <line x1="14.10" y1="-1.20" x2="20.72" y2="-1.20" stroke="black" fill="none" />
+    <path d="M 12.00 -2.76 A 3.60 3.48 0 0 0 4.80 -2.76" stroke="black" fill="none" />
+    <path d="M -1.20 -1.68 A 1.80 4.32 0 0 0 2.40 -1.68" stroke="black" fill="none" />
+    <path d="M -7.20 -1.68 A 1.80 4.32 0 0 0 -3.60 -1.68" stroke="black" fill="none" />
+    <line x1="-25.50" y1="-1.20" x2="-18.88" y2="-1.20" stroke="black" fill="none" />
+    <path d="M 2.40 -2.76 A 4.80 3.48 0 0 0 -7.20 -2.76" stroke="black" fill="none" />
+    <path d="M -13.20 -1.68 A 1.80 4.32 0 0 0 -9.60 -1.68" stroke="black" fill="none" />
+    <path d="M -3.60 -2.76 A 4.80 3.48 0 0 0 -13.20 -2.76" stroke="black" fill="none" />
+    <path d="M 4.80 -1.68 A 1.80 4.32 0 0 0 8.40 -1.68" stroke="black" fill="none" />
+    <path d="M 8.40 -2.76 A 4.80 3.48 0 0 0 -1.20 -2.76" stroke="black" fill="none" />
+    <path d="M -18.00 -1.20 A 1.20 1.20 0 0 0 -16.80 -2.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-26.40" cy="-1.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="21.60" cy="-1.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

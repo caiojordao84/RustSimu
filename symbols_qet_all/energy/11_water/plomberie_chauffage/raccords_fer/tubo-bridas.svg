@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="30.0" viewBox="-40.0 -15.0 80.0 30.0" data-name="tubo-bridas">
+<svg xmlns="http://www.w3.org/2000/svg" width="54.9" height="20.6" viewBox="-27.4 -10.3 54.9 20.6" data-name="tubo-bridas" data-standard="48px">
   <title>tubo-bridas</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="32.00" y="-11.00" width="2.00" height="22.00" stroke="black" fill="none" />
-    <rect x="-32.00" y="-4.00" width="64.00" height="8.00" stroke="black" fill="none" />
-    <rect x="-34.00" y="-11.00" width="2.00" height="22.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="35.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="e" />
-    <circle class="qet-terminal" cx="-35.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="21.94" y="-7.54" width="1.37" height="15.09" stroke="black" fill="none" />
+    <rect x="-21.94" y="-2.74" width="43.89" height="5.49" stroke="black" fill="none" />
+    <rect x="-23.31" y="-7.54" width="1.37" height="15.09" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

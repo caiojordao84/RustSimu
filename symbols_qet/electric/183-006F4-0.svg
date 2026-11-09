@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="120.0" viewBox="-10.0 -39.0 40.0 120.0" data-name="Energy meter with pulse output">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="288.0" viewBox="-24.0 -93.6 96.0 288.0" data-name="Energy meter with pulse output" data-standard="48px">
   <title>Energy meter with pulse output</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-6.00" y="-30.00" width="32.00" height="101.00" stroke="black" fill="white" />
-    <rect x="-6.00" y="-14.00" width="32.00" height="68.00" stroke="black" fill="none" />
-    <text x="15.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">kWh</text>
-    <rect x="2.00" y="-5.00" width="16.00" height="48.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-29.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="53.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="53.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="-29.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-14.40" y="-72.00" width="76.80" height="242.40" stroke="black" fill="white" />
+    <rect x="-14.40" y="-33.60" width="76.80" height="163.20" stroke="black" fill="none" />
+    <text x="36.00" y="79.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">kWh</text>
+    <rect x="4.80" y="-12.00" width="38.40" height="115.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-69.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="127.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="127.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="-69.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

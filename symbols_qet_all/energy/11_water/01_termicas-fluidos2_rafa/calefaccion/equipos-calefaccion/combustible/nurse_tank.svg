@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-39.0 -28.0 80.0 50.0" data-name="Nurse tank">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="120.0" viewBox="-93.6 -67.2 192.0 120.0" data-name="Nurse tank" data-standard="48px">
   <title>Nurse tank</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.89" y="-18.66" width="1.00" height="2.35" stroke="black" fill="none" />
-    <line x1="14.00" y1="3.00" x2="14.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="31.11" y1="-16.35" x2="31.11" y2="8.42" stroke="black" fill="none" />
-    <line x1="-29.39" y1="-16.58" x2="31.11" y2="-16.58" stroke="black" fill="none" />
-    <rect x="9.11" y="7.34" width="1.00" height="1.35" stroke="black" fill="none" />
-    <path d="M -29.45 -16.32 A 4.33 12.41 0 0 0 -29.45 8.51" stroke="black" fill="none" />
-    <path d="M 31.09 8.51 A 4.33 12.41 0 0 0 31.09 -16.32" stroke="black" fill="none" />
-    <polyline points="-26.75,8.51 -26.75,19.38 -24.13,19.38 -21.51,8.51" stroke="black" fill="none" />
-    <polyline points="25.67,8.51 25.67,18.82 23.05,18.82 20.42,8.51" stroke="black" fill="none" />
-    <line x1="-28.39" y1="8.42" x2="32.11" y2="8.42" stroke="black" fill="none" />
-    <line x1="-29.39" y1="-16.35" x2="-29.39" y2="8.42" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-22.00" x2="-15.00" y2="-18.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-50.14" y="-44.78" width="2.40" height="5.64" stroke="black" fill="none" />
+    <line x1="33.60" y1="7.20" x2="33.60" y2="16.80" stroke="black" fill="none" />
+    <line x1="74.66" y1="-39.24" x2="74.66" y2="20.21" stroke="black" fill="none" />
+    <line x1="-70.54" y1="-39.79" x2="74.66" y2="-39.79" stroke="black" fill="none" />
+    <rect x="21.86" y="17.62" width="2.40" height="3.24" stroke="black" fill="none" />
+    <path d="M -70.68 -39.17 A 10.39 29.78 0 0 0 -70.68 20.42" stroke="black" fill="none" />
+    <path d="M 74.62 20.42 A 10.39 29.78 0 0 0 74.62 -39.17" stroke="black" fill="none" />
+    <polyline points="-64.20,20.42 -64.20,46.51 -57.91,46.51 -51.62,20.42" stroke="black" fill="none" />
+    <polyline points="61.61,20.42 61.61,45.17 55.32,45.17 49.01,20.42" stroke="black" fill="none" />
+    <line x1="-68.14" y1="20.21" x2="77.06" y2="20.21" stroke="black" fill="none" />
+    <line x1="-70.54" y1="-39.24" x2="-70.54" y2="20.21" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-52.80" x2="-36.00" y2="-43.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-48.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

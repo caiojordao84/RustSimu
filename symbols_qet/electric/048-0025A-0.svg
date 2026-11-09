@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-30.0 -14.0 60.0 40.0" data-name="Temperature sensor">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="48.0" viewBox="-36.0 -16.8 72.0 48.0" data-name="Temperature sensor" data-standard="48px">
   <title>Temperature sensor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-20.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-5.00" width="20.00" height="10.00" stroke="black" fill="white" />
-    <polyline points="-10,10 -5,10 5,-10 10,-10" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-24.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="-12.00" y="-6.00" width="24.00" height="12.00" stroke="black" fill="white" />
+    <polyline points="-12.00,12.00 -6.00,12.00 6.00,-12.00 12.00,-12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

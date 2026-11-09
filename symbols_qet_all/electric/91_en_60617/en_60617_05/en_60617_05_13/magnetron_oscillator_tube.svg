@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="210.0" height="240.0" viewBox="-115.0 -145.0 210.0 240.0" data-name="Magnetron oscillator tube">
+<svg xmlns="http://www.w3.org/2000/svg" width="504.0" height="576.0" viewBox="-276.0 -348.0 504.0 576.0" data-name="Magnetron oscillator tube" data-standard="48px">
   <title>Magnetron oscillator tube</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-30.00" cy="-30.00" rx="80.00" ry="80.00" stroke="black" fill="none" />
-    <ellipse cx="-30.00" cy="-30.00" rx="50.00" ry="50.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-80.00" x2="-30.00" y2="-70.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="20.00" x2="-30.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="14.00" y1="-54.00" x2="5.00" y2="-49.00" stroke="black" fill="none" />
-    <line x1="9.00" y1="1.00" x2="2.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-74.00" y1="-6.00" x2="-66.00" y2="-11.00" stroke="black" fill="none" />
-    <line x1="-69.00" y1="-61.00" x2="-62.00" y2="-55.00" stroke="black" fill="none" />
-    <polygon points="-25,-120 -35,-120 -35,-140 -25,-140 -25,-135 -30,-135 -30,-125 -25,-125" stroke="black" fill="black" />
-    <ellipse cx="30.00" cy="-30.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <rect x="70.00" y="-40.00" width="10.00" height="20.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="-30.00" x2="90.00" y2="-30.00" stroke="black" fill="none" />
-    <path d="M -10.00 20.00 A 20.00 20.00 0 0 0 -50.00 20.00" stroke="black" fill="none" />
-    <path d="M -1.72 -8.28 A 40.00 40.00 0 0 0 -70.00 20.00" stroke="black" fill="none" />
-    <line x1="-50.00" y1="20.00" x2="-50.00" y2="90.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="20.00" x2="-10.00" y2="90.00" stroke="black" fill="none" />
-    <line x1="-70.00" y1="20.00" x2="-70.00" y2="90.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-72.00" cy="-72.00" rx="192.00" ry="192.00" stroke="black" fill="none" />
+    <ellipse cx="-72.00" cy="-72.00" rx="120.00" ry="120.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-192.00" x2="-72.00" y2="-168.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="48.00" x2="-72.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="33.60" y1="-129.60" x2="12.00" y2="-117.60" stroke="black" fill="none" />
+    <line x1="21.60" y1="2.40" x2="4.80" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-177.60" y1="-14.40" x2="-158.40" y2="-26.40" stroke="black" fill="none" />
+    <line x1="-165.60" y1="-146.40" x2="-148.80" y2="-132.00" stroke="black" fill="none" />
+    <polygon points="-60.00,-288.00 -84.00,-288.00 -84.00,-336.00 -60.00,-336.00 -60.00,-324.00 -72.00,-324.00 -72.00,-300.00 -60.00,-300.00" stroke="black" fill="black" />
+    <ellipse cx="72.00" cy="-72.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <rect x="168.00" y="-96.00" width="24.00" height="48.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="-72.00" x2="216.00" y2="-72.00" stroke="black" fill="none" />
+    <path d="M -24.00 48.00 A 48.00 48.00 0 0 0 -120.00 48.00" stroke="black" fill="none" />
+    <path d="M -4.13 -19.87 A 96.00 96.00 0 0 0 -168.00 48.00" stroke="black" fill="none" />
+    <line x1="-120.00" y1="48.00" x2="-120.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="48.00" x2="-24.00" y2="216.00" stroke="black" fill="none" />
+    <line x1="-168.00" y1="48.00" x2="-168.00" y2="216.00" stroke="black" fill="none" />
   </g>
 </svg>

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-38.0 -30.0 60.0 60.0" data-name="Photo-electric sensor -transmitter">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="72.0" viewBox="-45.6 -36.0 72.0 72.0" data-name="Photo-electric sensor -transmitter" data-standard="48px">
   <title>Photo-electric sensor -transmitter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-8.00" y="-15.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BN</text>
-    <text x="-8.00" y="18.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BU</text>
-    <line x1="-20.00" y1="-4.00" x2="-32.00" y2="-4.00" stroke="black" fill="black" />
-    <rect x="-15.00" y="-10.00" width="30.00" height="20.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="-1.00" x2="-13.00" y2="-4.00" stroke="black" fill="black" />
-    <line x1="-2.00" y1="-5.00" x2="-2.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-19.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="4.00" x2="-32.00" y2="4.00" stroke="black" fill="black" />
-    <line x1="-8.00" y1="2.00" x2="-13.00" y2="-1.00" stroke="black" fill="black" />
-    <line x1="-2.00" y1="8.00" x2="-2.00" y2="5.00" stroke="black" fill="none" />
-    <polygon points="-7,-5 3,-5 -2,5" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="19.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="5.00" x2="3.00" y2="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-9.60" y="-18.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">BN</text>
+    <text x="-9.60" y="22.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">BU</text>
+    <line x1="-24.00" y1="-4.80" x2="-38.40" y2="-4.80" stroke="black" fill="black" />
+    <rect x="-18.00" y="-12.00" width="36.00" height="24.00" stroke="black" fill="none" />
+    <line x1="-9.60" y1="-1.20" x2="-15.60" y2="-4.80" stroke="black" fill="black" />
+    <line x1="-2.40" y1="-6.00" x2="-2.40" y2="-9.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="-22.80" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="4.80" x2="-38.40" y2="4.80" stroke="black" fill="black" />
+    <line x1="-9.60" y1="2.40" x2="-15.60" y2="-1.20" stroke="black" fill="black" />
+    <line x1="-2.40" y1="9.60" x2="-2.40" y2="6.00" stroke="black" fill="none" />
+    <polygon points="-8.40,-6.00 3.60,-6.00 -2.40,6.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="12.00" x2="0.00" y2="22.80" stroke="black" fill="none" />
+    <line x1="-8.40" y1="6.00" x2="3.60" y2="6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

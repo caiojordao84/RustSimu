@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -17.0 30.0 40.0" data-name="Clock thermometer">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-36.0 -40.8 72.0 96.0" data-name="Clock thermometer" data-standard="48px">
   <title>Clock thermometer</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-1.13" y1="8.77" x2="2.90" y2="8.36" stroke="black" fill="none" />
-    <line x1="-1.13" y1="8.16" x2="2.90" y2="7.75" stroke="black" fill="none" />
-    <line x1="-2.60" y1="6.72" x2="-2.60" y2="4.71" stroke="black" fill="none" />
-    <ellipse cx="2.05" cy="-2.40" rx="8.05" ry="7.50" stroke="black" fill="none" />
-    <rect x="-0.90" y="6.94" width="4.34" height="3.25" stroke="black" fill="none" />
-    <line x1="-2.60" y1="6.94" x2="5.90" y2="6.94" stroke="black" fill="none" />
-    <line x1="5.90" y1="6.77" x2="5.90" y2="5.08" stroke="black" fill="none" />
-    <ellipse cx="2.10" cy="-2.39" rx="8.95" ry="8.12" stroke="black" fill="none" />
-    <line x1="1.87" y1="-2.60" x2="-3.27" y2="-6.45" stroke="black" fill="none" />
-    <line x1="-3.27" y1="-6.66" x2="1.87" y2="-2.80" stroke="black" fill="none" />
-    <ellipse cx="2.32" cy="-2.19" rx="0.67" ry="0.61" stroke="black" fill="none" />
-    <text x="-5.29" y="-2.19" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">20</text>
-    <text x="-1.93" y="-6.45" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">30</text>
-    <text x="3.89" y="-6.86" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">40</text>
-    <text x="6.85" y="-2.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">50</text>
-    <text x="5.00" y="2.93" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">60</text>
-    <line x1="-1.13" y1="9.58" x2="2.90" y2="9.25" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="1.00" cy="11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-2.71" y1="21.05" x2="6.96" y2="20.06" stroke="black" fill="none" />
+    <line x1="-2.71" y1="19.58" x2="6.96" y2="18.60" stroke="black" fill="none" />
+    <line x1="-6.24" y1="16.13" x2="-6.24" y2="11.30" stroke="black" fill="none" />
+    <ellipse cx="4.92" cy="-5.76" rx="19.32" ry="18.00" stroke="black" fill="none" />
+    <rect x="-2.16" y="16.66" width="10.42" height="7.80" stroke="black" fill="none" />
+    <line x1="-6.24" y1="16.66" x2="14.16" y2="16.66" stroke="black" fill="none" />
+    <line x1="14.16" y1="16.25" x2="14.16" y2="12.19" stroke="black" fill="none" />
+    <ellipse cx="5.04" cy="-5.74" rx="21.48" ry="19.49" stroke="black" fill="none" />
+    <line x1="4.49" y1="-6.24" x2="-7.85" y2="-15.48" stroke="black" fill="none" />
+    <line x1="-7.85" y1="-15.98" x2="4.49" y2="-6.72" stroke="black" fill="none" />
+    <ellipse cx="5.57" cy="-5.26" rx="1.61" ry="1.46" stroke="black" fill="none" />
+    <text x="-12.70" y="-5.26" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">20</text>
+    <text x="-4.63" y="-15.48" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">30</text>
+    <text x="9.34" y="-16.46" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">40</text>
+    <text x="16.44" y="-5.52" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">50</text>
+    <text x="12.00" y="7.03" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">60</text>
+    <line x1="-2.71" y1="22.99" x2="6.96" y2="22.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="2.40" cy="26.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="40.0" viewBox="-8.0 -23.0 20.0 40.0" data-name="valv-alivio">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="96.0" viewBox="-19.2 -55.2 48.0 96.0" data-name="valv-alivio" data-standard="48px">
   <title>valv-alivio</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="0,-10 10,-16 10,-6" stroke="black" fill="none" />
-    <polygon points="0,-10 -6,0 6,0" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-21.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0.00,-24.00 24.00,-38.40 24.00,-14.40" stroke="black" fill="none" />
+    <polygon points="0.00,-24.00 -14.40,0.00 14.40,0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-50.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

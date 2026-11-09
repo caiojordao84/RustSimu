@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="80.0" viewBox="-45.0 -40.0 90.0 80.0" data-name="relay ausgang">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="192.0" viewBox="-108.0 -96.0 216.0 192.0" data-name="relay ausgang" data-standard="48px">
   <title>relay ausgang</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <polyline points="-40,-30 -40,-30 -3,-30" stroke="black" fill="none" />
-    <polyline points="3,-30 3,-30 40,-30" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <polyline points="-40,-30 -40,30 -3,30" stroke="black" fill="none" />
-    <polyline points="3,30 40,30 40,-30" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-13.00" x2="-5.00" y2="-13.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-13.00" x2="5.00" y2="-18.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-13.00" x2="15.00" y2="-13.00" stroke="black" fill="none" />
-    <text x="0.00" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Loxone
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-72.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <polyline points="-96.00,-72.00 -96.00,-72.00 -7.20,-72.00" stroke="black" fill="none" />
+    <polyline points="7.20,-72.00 7.20,-72.00 96.00,-72.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="72.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <polyline points="-96.00,-72.00 -96.00,72.00 -7.20,72.00" stroke="black" fill="none" />
+    <polyline points="7.20,72.00 96.00,72.00 96.00,-72.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-31.20" x2="-12.00" y2="-31.20" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-31.20" x2="12.00" y2="-43.20" stroke="black" fill="none" />
+    <line x1="12.00" y1="-31.20" x2="36.00" y2="-31.20" stroke="black" fill="none" />
+    <text x="0.00" y="0.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Loxone
 Relay</text>
-    <circle class="qet-terminal" cx="0.00" cy="-31.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="31.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

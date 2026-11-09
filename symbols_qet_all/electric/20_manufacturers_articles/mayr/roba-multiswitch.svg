@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="200.0" height="120.0" viewBox="-25.0 -111.0 200.0 120.0" data-name="ROBA-multiswitch">
+<svg xmlns="http://www.w3.org/2000/svg" width="320.0" height="192.0" viewBox="-40.0 -177.6 320.0 192.0" data-name="ROBA-multiswitch" data-standard="48px">
   <title>ROBA-multiswitch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="72.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC</text>
-    <text x="65.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">S</text>
-    <text x="125.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT</text>
-    <rect x="-20.00" y="-105.00" width="190.00" height="104.90" stroke="black" fill="none" />
-    <line x1="150.00" y1="-10.00" x2="150.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-4.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <text x="9.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN</text>
-    <line x1="148.00" y1="-35.00" x2="156.00" y2="-35.00" stroke="black" fill="none" />
-    <text x="121.00" y="-52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
-    <text x="156.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">s</text>
-    <text x="118.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">t</text>
-    <circle cx="150.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="120.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <text x="93.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="123.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="3.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="63.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <circle cx="0.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="90.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="60.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <text x="33.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="117.00" y="-81.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">mayr</text>
-    <text x="153.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <circle cx="30.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <line x1="-20.00" y1="-70.00" x2="170.00" y2="-70.00" stroke="black" fill="none" />
-    <line x1="110.00" y1="-105.00" x2="110.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="170.00" y1="-45.00" x2="-20.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-4.00" x2="30.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="-4.00" x2="60.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="120.00" y1="-5.00" x2="120.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="150.00" y1="-5.00" x2="150.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="120.00" y1="-10.00" x2="120.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="120.00" y1="-30.00" x2="150.00" y2="-30.00" stroke="black" fill="none" />
-    <rect x="125.00" y="-34.00" width="20.00" height="8.00" stroke="black" fill="black" />
-    <line x1="125.00" y1="-36.00" x2="145.00" y2="-36.00" stroke="black" fill="none" />
-    <line x1="114.00" y1="-35.00" x2="122.00" y2="-35.00" stroke="black" fill="none" />
-    <line x1="152.00" y1="-39.00" x2="152.00" y2="-31.00" stroke="black" fill="none" />
-    <line x1="90.00" y1="-4.00" x2="90.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="-10.00" x2="60.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="-25.00" x2="90.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="90.00" y1="-10.00" x2="90.00" y2="-25.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="s" />
-    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="s" />
-    <circle class="qet-terminal" cx="150.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="6" data-orientation="s" />
-    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
-    <circle class="qet-terminal" cx="120.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="115.20" y="-16.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">DC</text>
+    <text x="104.00" y="-24.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">S</text>
+    <text x="200.00" y="-24.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">OUT</text>
+    <rect x="-32.00" y="-168.00" width="304.00" height="167.84" stroke="black" fill="none" />
+    <line x1="240.00" y1="-16.00" x2="240.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-6.40" x2="0.00" y2="-16.00" stroke="black" fill="none" />
+    <text x="14.40" y="-24.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">IN</text>
+    <line x1="236.80" y1="-56.00" x2="249.60" y2="-56.00" stroke="black" fill="none" />
+    <text x="193.60" y="-83.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <text x="249.60" y="-86.40" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">s</text>
+    <text x="188.80" y="-86.40" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">t</text>
+    <circle cx="240.00" cy="0.00" r="4.00" stroke="black" fill="white" />
+    <circle cx="192.00" cy="0.00" r="4.00" stroke="black" fill="white" />
+    <text x="148.80" y="11.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="196.80" y="11.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="4.80" y="11.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="100.80" y="11.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <circle cx="0.00" cy="0.00" r="4.00" stroke="black" fill="white" />
+    <circle cx="144.00" cy="0.00" r="4.00" stroke="black" fill="white" />
+    <circle cx="96.00" cy="0.00" r="4.00" stroke="black" fill="white" />
+    <text x="52.80" y="11.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="187.20" y="-129.60" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">mayr</text>
+    <text x="244.80" y="11.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <circle cx="48.00" cy="0.00" r="4.00" stroke="black" fill="white" />
+    <line x1="-32.00" y1="-112.00" x2="272.00" y2="-112.00" stroke="black" fill="none" />
+    <line x1="176.00" y1="-168.00" x2="176.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="272.00" y1="-72.00" x2="-32.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-6.40" x2="48.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="-6.40" x2="96.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="192.00" y1="-8.00" x2="192.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="240.00" y1="-8.00" x2="240.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="192.00" y1="-16.00" x2="192.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="192.00" y1="-48.00" x2="240.00" y2="-48.00" stroke="black" fill="none" />
+    <rect x="200.00" y="-54.40" width="32.00" height="12.80" stroke="black" fill="black" />
+    <line x1="200.00" y1="-57.60" x2="232.00" y2="-57.60" stroke="black" fill="none" />
+    <line x1="182.40" y1="-56.00" x2="195.20" y2="-56.00" stroke="black" fill="none" />
+    <line x1="243.20" y1="-62.40" x2="243.20" y2="-49.60" stroke="black" fill="none" />
+    <line x1="144.00" y1="-6.40" x2="144.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="-16.00" x2="96.00" y2="-40.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="-40.00" x2="144.00" y2="-64.00" stroke="black" fill="none" />
+    <line x1="144.00" y1="-16.00" x2="144.00" y2="-40.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="96.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="240.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="144.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="192.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
   </g>
 </svg>

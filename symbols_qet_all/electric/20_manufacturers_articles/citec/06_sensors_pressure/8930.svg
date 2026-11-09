@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="150.0" viewBox="-65.0 -76.0 160.0 150.0" data-name="8930">
+<svg xmlns="http://www.w3.org/2000/svg" width="384.0" height="360.0" viewBox="-156.0 -182.4 384.0 360.0" data-name="8930" data-standard="48px">
   <title>8930</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 90.00 0.00 A 75.00 70.00 0 0 0 -60.00 -0.00" stroke="black" fill="none" />
-    <text x="4.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
-    <text x="8.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="28.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="68.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="48.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="40.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT</text>
-    <line x1="73.84" y1="0.00" x2="90.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="13.50" y1="0.00" x2="25.50" y2="0.00" stroke="black" fill="none" />
-    <line x1="34.50" y1="0.00" x2="46.50" y2="0.00" stroke="black" fill="none" />
-    <line x1="54.00" y1="0.00" x2="66.00" y2="0.00" stroke="black" fill="none" />
-    <ellipse cx="70.00" cy="-0.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <ellipse cx="49.99" cy="-0.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <ellipse cx="30.00" cy="-0.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <ellipse cx="9.99" cy="-0.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
-    <line x1="-59.71" y1="0.00" x2="5.52" y2="0.00" stroke="black" fill="none" />
-    <line x1="71.00" y1="-14.00" x2="71.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="62.00" y1="-21.00" x2="80.00" y2="-21.00" stroke="black" fill="none" />
-    <line x1="65.00" y1="-24.00" x2="77.00" y2="-24.00" stroke="black" fill="none" />
-    <line x1="68.00" y1="-28.00" x2="73.00" y2="-28.00" stroke="black" fill="none" />
-    <text x="-22.00" y="-49.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CITEC 8930</text>
-    <text x="30.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4 20mA</text>
-    <circle class="qet-terminal" cx="10.00" cy="3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="50.00" cy="3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="70.00" cy="3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 216.00 0.00 A 180.00 168.00 0 0 0 -144.00 -0.00" stroke="black" fill="none" />
+    <text x="9.60" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
+    <text x="19.20" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="67.20" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="163.20" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="115.20" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="96.00" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OUT</text>
+    <line x1="177.22" y1="0.00" x2="216.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="32.40" y1="0.00" x2="61.20" y2="0.00" stroke="black" fill="none" />
+    <line x1="82.80" y1="0.00" x2="111.60" y2="0.00" stroke="black" fill="none" />
+    <line x1="129.60" y1="0.00" x2="158.40" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="168.00" cy="-0.00" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <ellipse cx="119.98" cy="-0.00" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <ellipse cx="72.00" cy="-0.00" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <ellipse cx="23.98" cy="-0.00" rx="8.64" ry="8.64" stroke="black" fill="none" />
+    <line x1="-143.30" y1="0.00" x2="13.25" y2="0.00" stroke="black" fill="none" />
+    <line x1="170.40" y1="-33.60" x2="170.40" y2="-48.00" stroke="black" fill="none" />
+    <line x1="148.80" y1="-50.40" x2="192.00" y2="-50.40" stroke="black" fill="none" />
+    <line x1="156.00" y1="-57.60" x2="184.80" y2="-57.60" stroke="black" fill="none" />
+    <line x1="163.20" y1="-67.20" x2="175.20" y2="-67.20" stroke="black" fill="none" />
+    <text x="-52.80" y="-117.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CITEC 8930</text>
+    <text x="72.00" y="-31.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4 20mA</text>
+    <circle class="qet-terminal" cx="24.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="168.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="70.0" viewBox="-70.0 -32.0 140.0 70.0" data-name="289-176">
+<svg xmlns="http://www.w3.org/2000/svg" width="56.0" height="28.0" viewBox="-28.0 -12.8 56.0 28.0" data-name="289-176" data-standard="48px">
   <title>289-176</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-60.00" y="-30.00" width="120.00" height="60.00" stroke="black" fill="none" />
-    <text x="50.63" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <ellipse cx="60.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-60.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <line x1="-60.00" y1="0.00" x2="60.00" y2="0.00" stroke="black" fill="black" />
-    <text x="-32.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RJ45 - RJ45</text>
-    <text x="-55.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-45.00" y="-17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 289-176</text>
-    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="X1.2" data-orientation="e" />
-    <circle class="qet-terminal" cx="-60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="X1.1" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-12.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="20.25" y="-1.60" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <ellipse cx="24.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="white" />
+    <line x1="-24.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="black" />
+    <text x="-12.80" y="10.40" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">RJ45 - RJ45</text>
+    <text x="-22.00" y="-1.60" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-18.00" y="-6.80" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">WAGO 289-176</text>
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="X1.2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="X1.1" data-orientation="w" />
   </g>
 </svg>

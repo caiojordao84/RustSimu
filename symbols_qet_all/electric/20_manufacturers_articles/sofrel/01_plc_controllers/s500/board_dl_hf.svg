@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="760.0" height="180.0" viewBox="-5.0 -3.0 760.0 180.0" data-name="Board DL/HF">
+<svg xmlns="http://www.w3.org/2000/svg" width="1216.0" height="288.0" viewBox="-8.0 -4.8 1216.0 288.0" data-name="Board DL/HF" data-standard="48px">
   <title>Board DL/HF</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="750.00" height="150.00" stroke="black" fill="none" />
-    <text x="610.00" y="142.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CD-</text>
-    <text x="578.00" y="142.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CD+</text>
-    <text x="457.00" y="142.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BF-</text>
-    <text x="422.00" y="142.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BF+</text>
-    <text x="284.00" y="142.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AL-</text>
-    <text x="253.00" y="142.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AL+</text>
-    <text x="126.00" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L2</text>
-    <text x="96.00" y="143.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L1</text>
-    <line x1="90.00" y1="130.00" x2="90.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="111.00" y1="130.00" x2="111.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="121.00" y1="129.00" x2="121.00" y2="149.00" stroke="black" fill="none" />
-    <line x1="144.00" y1="129.00" x2="144.00" y2="149.00" stroke="black" fill="none" />
-    <line x1="577.00" y1="130.00" x2="577.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="600.00" y1="130.00" x2="600.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="608.00" y1="130.00" x2="608.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="630.00" y1="130.00" x2="630.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="281.00" y1="130.00" x2="281.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="420.00" y1="130.00" x2="420.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="475.00" y1="130.00" x2="475.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="443.00" y1="130.00" x2="443.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="453.00" y1="130.00" x2="453.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="271.00" y1="130.00" x2="271.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="301.00" y1="130.00" x2="301.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="251.00" y1="130.00" x2="251.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="692.00" y1="130.00" x2="692.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="712.00" y1="130.00" x2="712.00" y2="150.00" stroke="black" fill="none" />
-    <line x1="702.00" y1="149.67" x2="702.00" y2="167.67" stroke="black" fill="none" />
-    <line x1="701.00" y1="172.67" x2="703.00" y2="172.67" stroke="black" fill="none" />
-    <text x="698.00" y="142.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T</text>
-    <line x1="697.00" y1="168.67" x2="707.00" y2="168.67" stroke="black" fill="none" />
-    <line x1="699.00" y1="170.67" x2="705.00" y2="170.67" stroke="black" fill="none" />
-    <text x="637.00" y="13.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EMPLACEMENT</text>
-    <text x="265.00" y="83.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARTE DL/HF</text>
-    <line x1="632.00" y1="20.00" x2="632.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="732.00" y1="0.00" x2="732.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="130.00" x2="750.00" y2="130.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="20.00" x2="750.00" y2="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="100.00" cy="151.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="130.00" cy="151.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="260.00" cy="151.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="290.00" cy="151.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="430.00" cy="151.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="460.00" cy="151.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="590.00" cy="151.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="620.00" cy="151.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="1200.00" height="240.00" stroke="black" fill="none" />
+    <text x="976.00" y="227.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">CD-</text>
+    <text x="924.80" y="227.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">CD+</text>
+    <text x="731.20" y="227.73" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">BF-</text>
+    <text x="675.20" y="227.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">BF+</text>
+    <text x="454.40" y="227.73" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">AL-</text>
+    <text x="404.80" y="228.27" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">AL+</text>
+    <text x="201.60" y="230.40" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">L2</text>
+    <text x="153.60" y="228.80" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">L1</text>
+    <line x1="144.00" y1="208.00" x2="144.00" y2="240.00" stroke="black" fill="none" />
+    <line x1="177.60" y1="208.00" x2="177.60" y2="240.00" stroke="black" fill="none" />
+    <line x1="193.60" y1="206.40" x2="193.60" y2="238.40" stroke="black" fill="none" />
+    <line x1="230.40" y1="206.40" x2="230.40" y2="238.40" stroke="black" fill="none" />
+    <line x1="923.20" y1="208.00" x2="923.20" y2="240.00" stroke="black" fill="none" />
+    <line x1="960.00" y1="208.00" x2="960.00" y2="240.00" stroke="black" fill="none" />
+    <line x1="972.80" y1="208.00" x2="972.80" y2="240.00" stroke="black" fill="none" />
+    <line x1="1008.00" y1="208.00" x2="1008.00" y2="240.00" stroke="black" fill="none" />
+    <line x1="449.60" y1="208.00" x2="449.60" y2="240.00" stroke="black" fill="none" />
+    <line x1="672.00" y1="208.00" x2="672.00" y2="240.00" stroke="black" fill="none" />
+    <line x1="760.00" y1="208.00" x2="760.00" y2="240.00" stroke="black" fill="none" />
+    <line x1="708.80" y1="208.00" x2="708.80" y2="240.00" stroke="black" fill="none" />
+    <line x1="724.80" y1="208.00" x2="724.80" y2="240.00" stroke="black" fill="none" />
+    <line x1="433.60" y1="208.00" x2="433.60" y2="240.00" stroke="black" fill="none" />
+    <line x1="481.60" y1="208.00" x2="481.60" y2="240.00" stroke="black" fill="none" />
+    <line x1="401.60" y1="208.00" x2="401.60" y2="240.00" stroke="black" fill="none" />
+    <line x1="1107.20" y1="208.00" x2="1107.20" y2="240.00" stroke="black" fill="none" />
+    <line x1="1139.20" y1="208.00" x2="1139.20" y2="240.00" stroke="black" fill="none" />
+    <line x1="1123.20" y1="239.47" x2="1123.20" y2="268.27" stroke="black" fill="none" />
+    <line x1="1121.60" y1="276.27" x2="1124.80" y2="276.27" stroke="black" fill="none" />
+    <text x="1116.80" y="228.27" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">T</text>
+    <line x1="1115.20" y1="269.87" x2="1131.20" y2="269.87" stroke="black" fill="none" />
+    <line x1="1118.40" y1="273.07" x2="1128.00" y2="273.07" stroke="black" fill="none" />
+    <text x="1019.20" y="21.87" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">EMPLACEMENT</text>
+    <text x="424.00" y="133.87" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">CARTE DL/HF</text>
+    <line x1="1011.20" y1="32.00" x2="1011.20" y2="0.00" stroke="black" fill="none" />
+    <line x1="1171.20" y1="0.00" x2="1171.20" y2="32.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="208.00" x2="1200.00" y2="208.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="32.00" x2="1200.00" y2="32.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="160.00" cy="241.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="208.00" cy="241.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="416.00" cy="241.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="464.00" cy="241.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="688.00" cy="241.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="736.00" cy="241.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="944.00" cy="241.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="992.00" cy="241.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

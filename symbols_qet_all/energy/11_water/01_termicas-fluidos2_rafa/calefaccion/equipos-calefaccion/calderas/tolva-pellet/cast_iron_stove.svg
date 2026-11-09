@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-29.0 -28.0 60.0 60.0" data-name="Cast iron stove">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="144.0" viewBox="-69.6 -67.2 144.0 144.0" data-name="Cast iron stove" data-standard="48px">
   <title>Cast iron stove</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-6.00" y1="1.00" x2="2.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="1.00" x2="5.00" y2="-7.00" stroke="black" fill="none" />
-    <rect x="-20.00" y="-13.00" width="41.00" height="23.00" stroke="black" fill="none" />
-    <rect x="-14.00" y="12.00" width="28.00" height="5.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="15.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <polyline points="-20.51,10 -21.63,18 -23.88,18 -25,28 -16,20 21,20 26.6,28 25.48,18 23.23,18 21,10" stroke="black" fill="none" />
-    <polyline points="-16,7 16,7 17,5 17,-8 16,-10 -15,-10 -16,-9 -16,6" stroke="black" fill="none" />
-    <rect x="-16.00" y="-5.00" width="0.00" height="9.00" stroke="black" fill="none" />
-    <ellipse cx="14.50" cy="-2.50" rx="0.50" ry="0.50" stroke="black" fill="none" />
-    <polyline points="14,-2 12,-1 12,4" stroke="black" fill="none" />
-    <line x1="-10.00" y1="1.00" x2="-2.00" y2="-7.00" stroke="black" fill="none" />
-    <rect x="-22.00" y="-15.00" width="45.00" height="2.00" stroke="black" fill="none" />
-    <polyline points="-6,-15 -4,-20 3,-20 5,-15" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-14.40" y1="2.40" x2="4.80" y2="-16.80" stroke="black" fill="none" />
+    <line x1="-7.20" y1="2.40" x2="12.00" y2="-16.80" stroke="black" fill="none" />
+    <rect x="-48.00" y="-31.20" width="98.40" height="55.20" stroke="black" fill="none" />
+    <rect x="-33.60" y="28.80" width="67.20" height="12.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="36.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <polyline points="-49.22,24.00 -51.91,43.20 -57.31,43.20 -60.00,67.20 -38.40,48.00 50.40,48.00 63.84,67.20 61.15,43.20 55.75,43.20 50.40,24.00" stroke="black" fill="none" />
+    <polyline points="-38.40,16.80 38.40,16.80 40.80,12.00 40.80,-19.20 38.40,-24.00 -36.00,-24.00 -38.40,-21.60 -38.40,14.40" stroke="black" fill="none" />
+    <rect x="-38.40" y="-12.00" width="0.00" height="21.60" stroke="black" fill="none" />
+    <ellipse cx="34.80" cy="-6.00" rx="1.20" ry="1.20" stroke="black" fill="none" />
+    <polyline points="33.60,-4.80 28.80,-2.40 28.80,9.60" stroke="black" fill="none" />
+    <line x1="-24.00" y1="2.40" x2="-4.80" y2="-16.80" stroke="black" fill="none" />
+    <rect x="-52.80" y="-36.00" width="108.00" height="4.80" stroke="black" fill="none" />
+    <polyline points="-14.40,-36.00 -9.60,-48.00 7.20,-48.00 12.00,-36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-25.0 -10.0 50.0 20.0" data-name="muelle-carga">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="48.0" viewBox="-60.0 -24.0 120.0 48.0" data-name="muelle-carga" data-standard="48px">
   <title>muelle-carga</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 16.00 3.15 A 2.00 1.05 0 1 0 18.00 2.10" stroke="black" fill="none" />
-    <path d="M -20.00 3.15 A 2.00 1.05 0 1 0 -18.00 2.10" stroke="black" fill="none" />
-    <rect x="-15.00" y="-2.00" width="30.00" height="2.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <path d="M 20.00 1.05 A 2.00 1.05 0 0 0 16.00 1.05" stroke="black" fill="none" />
-    <polyline points="19,-4 16,-4 16,0 19,0" stroke="black" fill="none" />
-    <path d="M 16.00 1.05 A 2.00 1.05 0 0 0 18.00 2.10" stroke="black" fill="none" />
-    <polyline points="-19,-4 -16,-4 -16,0 -19,0" stroke="black" fill="none" />
-    <path d="M -16.00 1.05 A 2.00 1.05 0 0 0 -20.00 1.05" stroke="black" fill="none" />
-    <path d="M -20.00 1.05 A 2.00 1.05 0 0 0 -18.00 2.10" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 38.40 7.56 A 4.80 2.52 0 1 0 43.20 5.04" stroke="black" fill="none" />
+    <path d="M -48.00 7.56 A 4.80 2.52 0 1 0 -43.20 5.04" stroke="black" fill="none" />
+    <rect x="-36.00" y="-4.80" width="72.00" height="4.80" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <path d="M 48.00 2.52 A 4.80 2.52 0 0 0 38.40 2.52" stroke="black" fill="none" />
+    <polyline points="45.60,-9.60 38.40,-9.60 38.40,0.00 45.60,0.00" stroke="black" fill="none" />
+    <path d="M 38.40 2.52 A 4.80 2.52 0 0 0 43.20 5.04" stroke="black" fill="none" />
+    <polyline points="-45.60,-9.60 -38.40,-9.60 -38.40,0.00 -45.60,0.00" stroke="black" fill="none" />
+    <path d="M -38.40 2.52 A 4.80 2.52 0 0 0 -48.00 2.52" stroke="black" fill="none" />
+    <path d="M -48.00 2.52 A 4.80 2.52 0 0 0 -43.20 5.04" stroke="black" fill="none" />
   </g>
 </svg>

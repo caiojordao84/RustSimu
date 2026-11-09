@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-10.0 -20.0 30.0 40.0" data-name="Capacitive voltage attendance indicator">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-24.0 -48.0 72.0 96.0" data-name="Capacitive voltage attendance indicator" data-standard="48px">
   <title>Capacitive voltage attendance indicator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="10.00" y1="-10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-5.00" x2="5.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="3.25" y1="-5.00" x2="3.25" y2="5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="3.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M -5.00 5.00 A 5.00 5.00 0 0 0 -5.00 -5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="24.00" y1="-24.00" x2="24.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="0.00" x2="12.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-12.00" x2="12.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="7.80" y1="-12.00" x2="7.80" y2="12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="7.20" y2="0.00" stroke="black" fill="none" />
+    <path d="M -12.00 12.00 A 12.00 12.00 0 0 0 -12.00 -12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

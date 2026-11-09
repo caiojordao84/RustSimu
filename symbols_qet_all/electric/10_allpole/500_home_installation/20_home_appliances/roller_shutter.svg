@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-13.0 -9.0 80.0 50.0" data-name="Roller shutter">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="120.0" viewBox="-31.2 -21.6 192.0 120.0" data-name="Roller shutter" data-standard="48px">
   <title>Roller shutter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="10.00" cy="16.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <path d="M 56.95 4.83 A 6.05 5.50 0 0 0 56.95 4.83" stroke="black" fill="none" />
-    <text x="-1.00" y="23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 ~</text>
-    <path d="M 32.75 -0.68 A 6.05 5.50 0 0 0 32.75 10.32" stroke="black" fill="none" />
-    <text x="6.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <line x1="32.75" y1="-0.68" x2="56.95" y2="4.83" stroke="black" fill="none" />
-    <line x1="63.00" y1="10.33" x2="63.00" y2="32.33" stroke="black" fill="none" />
-    <line x1="0.00" y1="4.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="63.00" y1="32.33" x2="38.80" y2="23.53" stroke="black" fill="none" />
-    <line x1="20.00" y1="0.00" x2="20.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="38.80" y1="11.95" x2="38.80" y2="23.55" stroke="black" fill="none" />
-    <line x1="0.00" y1="27.00" x2="0.00" y2="32.00" stroke="black" fill="none" />
-    <line x1="32.75" y1="10.33" x2="56.95" y2="15.83" stroke="black" fill="none" />
-    <path d="M 56.95 13.08 A 3.02 2.75 0 0 0 56.95 13.08" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="31.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="46.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="24.00" cy="38.40" rx="36.00" ry="36.00" stroke="black" fill="none" />
+    <path d="M 136.68 11.59 A 14.52 13.20 0 0 0 136.68 11.59" stroke="black" fill="none" />
+    <text x="-2.40" y="55.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1 ~</text>
+    <path d="M 78.60 -1.63 A 14.52 13.20 0 0 0 78.60 24.77" stroke="black" fill="none" />
+    <text x="14.40" y="31.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="78.60" y1="-1.63" x2="136.68" y2="11.59" stroke="black" fill="none" />
+    <line x1="151.20" y1="24.79" x2="151.20" y2="77.59" stroke="black" fill="none" />
+    <line x1="0.00" y1="9.60" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="151.20" y1="77.59" x2="93.12" y2="56.47" stroke="black" fill="none" />
+    <line x1="48.00" y1="0.00" x2="48.00" y2="9.60" stroke="black" fill="none" />
+    <line x1="93.12" y1="28.68" x2="93.12" y2="56.52" stroke="black" fill="none" />
+    <line x1="0.00" y1="64.80" x2="0.00" y2="76.80" stroke="black" fill="none" />
+    <line x1="78.60" y1="24.79" x2="136.68" y2="37.99" stroke="black" fill="none" />
+    <path d="M 136.68 31.39 A 7.25 6.60 0 0 0 136.68 31.39" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="110.40" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

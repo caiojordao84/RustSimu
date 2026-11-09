@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-9.0 -16.0 30.0 40.0" data-name="valv-seg-escuadra">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-21.6 -38.4 72.0 96.0" data-name="valv-seg-escuadra" data-standard="48px">
   <title>valv-seg-escuadra</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="7.30" y1="0.00" x2="11.93" y2="0.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-5.00" x2="5.00" y2="5.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <polyline points="0,-1 0,-5 3,-6 -3,-7 3,-8 -3,-9 1,-10 1,-11" stroke="black" fill="none" />
-    <polygon points="7,-5 0,0 7,5" stroke="black" fill="none" />
-    <polygon points="0,0 -5,9 5,9" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="0.00" cy="13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="17.52" y1="0.00" x2="28.63" y2="0.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-12.00" x2="12.00" y2="12.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <polyline points="0.00,-2.40 0.00,-12.00 7.20,-14.40 -7.20,-16.80 7.20,-19.20 -7.20,-21.60 2.40,-24.00 2.40,-26.40" stroke="black" fill="none" />
+    <polygon points="16.80,-12.00 0.00,0.00 16.80,12.00" stroke="black" fill="none" />
+    <polygon points="0.00,0.00 -12.00,21.60 12.00,21.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="28.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="31.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

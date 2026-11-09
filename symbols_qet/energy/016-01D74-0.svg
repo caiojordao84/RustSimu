@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-15.0 -37.0 30.0 50.0" data-name="Purger">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="120.0" viewBox="-36.0 -88.8 72.0 120.0" data-name="Purger" data-standard="48px">
   <title>Purger</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-3.60" y1="-2.00" x2="3.60" y2="-3.08" stroke="black" fill="none" />
-    <line x1="5.40" y1="-29.76" x2="5.40" y2="-32.92" stroke="black" fill="none" />
-    <line x1="6.90" y1="-29.76" x2="6.90" y2="-32.92" stroke="black" fill="none" />
-    <line x1="7.80" y1="-29.76" x2="7.80" y2="-32.92" stroke="black" fill="none" />
-    <line x1="3.90" y1="-29.76" x2="3.90" y2="-32.92" stroke="black" fill="none" />
-    <rect x="-3.90" y="-3.78" width="7.80" height="7.72" stroke="black" fill="none" />
-    <line x1="-3.60" y1="-0.62" x2="3.60" y2="-1.67" stroke="black" fill="none" />
-    <line x1="-3.60" y1="2.54" x2="3.60" y2="1.49" stroke="black" fill="none" />
-    <line x1="-3.60" y1="1.14" x2="3.60" y2="0.08" stroke="black" fill="none" />
-    <line x1="-3.60" y1="3.95" x2="3.60" y2="2.89" stroke="black" fill="none" />
-    <rect x="-5.40" y="-8.34" width="10.80" height="4.56" stroke="black" fill="none" />
-    <rect x="-9.00" y="-27.30" width="18.00" height="19.00" stroke="black" fill="none" />
-    <rect x="3.30" y="-29.06" width="3.90" height="1.76" stroke="black" fill="none" />
-    <rect x="2.10" y="-34.00" width="6.30" height="4.92" stroke="black" fill="none" />
-    <line x1="3.00" y1="-29.76" x2="3.00" y2="-32.92" stroke="black" fill="none" />
-    <line x1="-9.00" y1="-23.79" x2="8.70" y2="-23.79" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-8.64" y1="-4.80" x2="8.64" y2="-7.39" stroke="black" fill="none" />
+    <line x1="12.96" y1="-71.42" x2="12.96" y2="-79.01" stroke="black" fill="none" />
+    <line x1="16.56" y1="-71.42" x2="16.56" y2="-79.01" stroke="black" fill="none" />
+    <line x1="18.72" y1="-71.42" x2="18.72" y2="-79.01" stroke="black" fill="none" />
+    <line x1="9.36" y1="-71.42" x2="9.36" y2="-79.01" stroke="black" fill="none" />
+    <rect x="-9.36" y="-9.07" width="18.72" height="18.53" stroke="black" fill="none" />
+    <line x1="-8.64" y1="-1.49" x2="8.64" y2="-4.01" stroke="black" fill="none" />
+    <line x1="-8.64" y1="6.10" x2="8.64" y2="3.58" stroke="black" fill="none" />
+    <line x1="-8.64" y1="2.74" x2="8.64" y2="0.19" stroke="black" fill="none" />
+    <line x1="-8.64" y1="9.48" x2="8.64" y2="6.94" stroke="black" fill="none" />
+    <rect x="-12.96" y="-20.02" width="25.92" height="10.94" stroke="black" fill="none" />
+    <rect x="-21.60" y="-65.52" width="43.20" height="45.60" stroke="black" fill="none" />
+    <rect x="7.92" y="-69.74" width="9.36" height="4.22" stroke="black" fill="none" />
+    <rect x="5.04" y="-81.60" width="15.12" height="11.81" stroke="black" fill="none" />
+    <line x1="7.20" y1="-71.42" x2="7.20" y2="-79.01" stroke="black" fill="none" />
+    <line x1="-21.60" y1="-57.10" x2="20.88" y2="-57.10" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

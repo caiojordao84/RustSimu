@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="80.0" viewBox="-39.0 -59.0 80.0 80.0" data-name="Elbow Alpex 20">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="192.0" viewBox="-93.6 -141.6 192.0 192.0" data-name="Elbow Alpex 20" data-standard="48px">
   <title>Elbow Alpex 20</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-2.00" y="-10.00" width="5.00" height="20.00" stroke="black" fill="none" />
-    <rect x="8.00" y="-47.00" width="24.00" height="22.00" stroke="black" fill="none" />
-    <path d="M 4.00 10.00 A 26.00 26.00 0 0 0 30.00 -16.00" stroke="black" fill="none" />
-    <rect x="10.00" y="-22.00" width="20.00" height="5.00" stroke="black" fill="none" />
-    <rect x="-27.00" y="-12.00" width="22.00" height="24.00" stroke="black" fill="none" />
-    <path d="M 4.00 -10.00 A 6.00 6.00 0 0 0 10.00 -16.00" stroke="black" fill="none" />
-    <rect x="4.00" y="-24.00" width="32.00" height="2.00" stroke="black" fill="black" />
-    <rect x="-4.00" y="-16.00" width="2.00" height="32.00" stroke="black" fill="black" />
-    <polygon points="-27,-8 -27,8 -29,8 -29,-8" stroke="black" fill="none" />
-    <polygon points="12,-47 28,-47 28,-49 12,-49" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-29.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="-49.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-4.80" y="-24.00" width="12.00" height="48.00" stroke="black" fill="none" />
+    <rect x="19.20" y="-112.80" width="57.60" height="52.80" stroke="black" fill="none" />
+    <path d="M 9.60 24.00 A 62.40 62.40 0 0 0 72.00 -38.40" stroke="black" fill="none" />
+    <rect x="24.00" y="-52.80" width="48.00" height="12.00" stroke="black" fill="none" />
+    <rect x="-64.80" y="-28.80" width="52.80" height="57.60" stroke="black" fill="none" />
+    <path d="M 9.60 -24.00 A 14.40 14.40 0 0 0 24.00 -38.40" stroke="black" fill="none" />
+    <rect x="9.60" y="-57.60" width="76.80" height="4.80" stroke="black" fill="black" />
+    <rect x="-9.60" y="-38.40" width="4.80" height="76.80" stroke="black" fill="black" />
+    <polygon points="-64.80,-19.20 -64.80,19.20 -69.60,19.20 -69.60,-19.20" stroke="black" fill="none" />
+    <polygon points="28.80,-112.80 67.20,-112.80 67.20,-117.60 28.80,-117.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-69.60" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="48.00" cy="-117.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

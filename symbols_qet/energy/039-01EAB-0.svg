@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="70.0" viewBox="-26.0 -53.0 70.0 70.0" data-name="Elbow 67°30 PVC 100">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="168.0" viewBox="-62.4 -127.2 168.0 168.0" data-name="Elbow 67°30 PVC 100" data-standard="48px">
   <title>Elbow 67°30 PVC 100</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="1.00" y="-13.00" width="9.00" height="26.00" stroke="black" fill="none" />
-    <path d="M 10.00 12.00 A 28.00 28.00 0 0 0 35.77 -5.06" stroke="black" fill="none" />
-    <path d="M 10.00 -12.00 A 3.00 3.00 0 0 0 12.76 -13.83" stroke="black" fill="none" />
-    <line x1="19.00" y1="-28.00" x2="13.00" y2="-14.00" stroke="black" fill="none" />
-    <line x1="41.00" y1="-19.00" x2="36.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="19.00" y1="-28.00" x2="41.00" y2="-19.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="1.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="-24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.40" y="-31.20" width="21.60" height="62.40" stroke="black" fill="none" />
+    <path d="M 24.00 28.80 A 67.20 67.20 0 0 0 85.85 -12.14" stroke="black" fill="none" />
+    <path d="M 24.00 -28.80 A 7.20 7.20 0 0 0 30.62 -33.19" stroke="black" fill="none" />
+    <line x1="45.60" y1="-67.20" x2="31.20" y2="-33.60" stroke="black" fill="none" />
+    <line x1="98.40" y1="-45.60" x2="86.40" y2="-12.00" stroke="black" fill="none" />
+    <line x1="45.60" y1="-67.20" x2="98.40" y2="-45.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="2.40" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="72.00" cy="-57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

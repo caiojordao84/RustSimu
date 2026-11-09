@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="125" viewBox="-30 -10 120 125" data-generator="cade2svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="200.0" viewBox="-48.0 -16.0 192.0 200.0" data-generator="cade2svg">
   <title>Disjuntor-Motor Guardamotor 3P (Ativo)</title>
-  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0" y1="0" x2="0" y2="15" />
-    <line x1="30" y1="0" x2="30" y2="15" />
-    <line x1="60" y1="0" x2="60" y2="15" />
-    <line x1="-5" y1="15" x2="0" y2="45" />
-    <line x1="25" y1="15" x2="30" y2="45" />
-    <line x1="55" y1="15" x2="60" y2="45" />
-    <line x1="-5" y1="15" x2="0" y2="15" />
-    <line x1="25" y1="15" x2="30" y2="15" />
-    <line x1="55" y1="15" x2="60" y2="15" />
-    <line x1="0" y1="45" x2="0" y2="105" />
-    <line x1="30" y1="45" x2="30" y2="105" />
-    <line x1="60" y1="45" x2="60" y2="105" />
-    <polygon points="-15,45 75,45 75,90 -15,90" fill="#fee2e2" />
-    <line x1="-15" y1="65" x2="75" y2="65" />
-    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="1" />
-    <circle class="qet-terminal" cx="30" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="3" />
-    <circle class="qet-terminal" cx="60" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="5" />
-    <circle class="qet-terminal" cx="0" cy="105" r="2.5" fill="#dc2626" stroke="none" data-label="2" />
-    <circle class="qet-terminal" cx="30" cy="105" r="2.5" fill="#dc2626" stroke="none" data-label="4" />
-    <circle class="qet-terminal" cx="60" cy="105" r="2.5" fill="#dc2626" stroke="none" data-label="6" />
+  <g stroke="#dc2626" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.0" y1="0.0" x2="0.0" y2="24.0" />
+    <line x1="48.0" y1="0.0" x2="48.0" y2="24.0" />
+    <line x1="96.0" y1="0.0" x2="96.0" y2="24.0" />
+    <line x1="-8.0" y1="24.0" x2="0.0" y2="72.0" />
+    <line x1="40.0" y1="24.0" x2="48.0" y2="72.0" />
+    <line x1="88.0" y1="24.0" x2="96.0" y2="72.0" />
+    <line x1="-8.0" y1="24.0" x2="0.0" y2="24.0" />
+    <line x1="40.0" y1="24.0" x2="48.0" y2="24.0" />
+    <line x1="88.0" y1="24.0" x2="96.0" y2="24.0" />
+    <line x1="0.0" y1="72.0" x2="0.0" y2="168.0" />
+    <line x1="48.0" y1="72.0" x2="48.0" y2="168.0" />
+    <line x1="96.0" y1="72.0" x2="96.0" y2="168.0" />
+    <polygon points="-24.0,72.0 120.0,72.0 120.0,144.0 -24.0,144.0" fill="#fee2e2" />
+    <line x1="-24.0" y1="104.0" x2="120.0" y2="104.0" />
+    <circle class="qet-terminal" cx="0.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="1" />
+    <circle class="qet-terminal" cx="48.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="3" />
+    <circle class="qet-terminal" cx="96.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="5" />
+    <circle class="qet-terminal" cx="0.0" cy="168.0" r="4.0" fill="#dc2626" stroke="none" data-label="2" />
+    <circle class="qet-terminal" cx="48.0" cy="168.0" r="4.0" fill="#dc2626" stroke="none" data-label="4" />
+    <circle class="qet-terminal" cx="96.0" cy="168.0" r="4.0" fill="#dc2626" stroke="none" data-label="6" />
   </g>
 </svg>

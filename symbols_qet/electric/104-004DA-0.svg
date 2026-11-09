@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-15.0 -2.0 30.0 30.0" data-name="motion detector">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="72.0" viewBox="-36.0 -4.8 72.0 72.0" data-name="motion detector" data-standard="48px">
   <title>motion detector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="5.00" y1="6.00" x2="5.00" y2="14.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="6.00" x2="-5.00" y2="14.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="10.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="20.00" x2="-10.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="10.00" x2="7.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12.00" y1="14.40" x2="12.00" y2="33.60" stroke="black" fill="none" />
+    <line x1="-12.00" y1="14.40" x2="-12.00" y2="33.60" stroke="black" fill="none" />
+    <line x1="-24.00" y1="24.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="24.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="24.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="48.00" x2="-24.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="24.00" x2="16.80" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

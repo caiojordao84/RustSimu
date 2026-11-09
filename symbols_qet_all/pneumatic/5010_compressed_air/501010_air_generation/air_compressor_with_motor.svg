@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-38.0 -30.0 50.0 50.0" data-name="Air compressor with motor">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-91.2 -72.0 120.0 120.0" data-name="Air compressor with motor" data-standard="48px">
   <title>Air compressor with motor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-25.00" cy="0.00" rx="7.50" ry="7.50" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <polygon points="-3,-4 3,-4 0,-10" stroke="black" fill="none" />
-    <line x1="-17.00" y1="1.00" x2="-10.00" y2="1.00" stroke="black" fill="none" />
-    <line x1="-17.00" y1="-1.00" x2="-10.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="15.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
-    <text x="-29.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-60.00" cy="0.00" rx="18.00" ry="18.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-36.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <polygon points="-7.20,-9.60 7.20,-9.60 0.00,-24.00" stroke="black" fill="none" />
+    <line x1="-40.80" y1="2.40" x2="-24.00" y2="2.40" stroke="black" fill="none" />
+    <line x1="-40.80" y1="-2.40" x2="-24.00" y2="-2.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="36.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <text x="-69.60" y="7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

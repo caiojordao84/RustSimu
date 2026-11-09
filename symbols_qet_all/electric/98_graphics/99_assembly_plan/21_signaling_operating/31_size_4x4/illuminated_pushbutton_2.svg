@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -25.0 50.0 50.0" data-name="Illuminated pushbutton">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -60.0 120.0 120.0" data-name="Illuminated pushbutton" data-standard="48px">
   <title>Illuminated pushbutton</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 0.00 -12.00 A 12.00 12.00 0 1 0 12.00 0.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="14.00" ry="14.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="22.00" ry="22.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 0.00 -28.80 A 28.80 28.80 0 1 0 28.80 0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="33.60" ry="33.60" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="52.80" ry="52.80" stroke="black" fill="none" />
   </g>
 </svg>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-15.0 -30.0 30.0 60.0" data-name="Voltage source (old)">
+<svg xmlns="http://www.w3.org/2000/svg" width="36.0" height="72.0" viewBox="-18.0 -36.0 36.0 72.0" data-name="Voltage source (old)" data-standard="48px">
   <title>Voltage source (old)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-3,-3 0,-7 3,-3" stroke="black" fill="black" />
-    <line x1="0.00" y1="-4.00" x2="0.00" y2="7.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="20.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-3.60,-3.60 0.00,-8.40 3.60,-3.60" stroke="black" fill="black" />
+    <line x1="0.00" y1="-4.80" x2="0.00" y2="8.40" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

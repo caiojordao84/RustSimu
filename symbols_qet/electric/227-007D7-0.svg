@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="110.0" viewBox="-31.0 -48.0 60.0 110.0" data-name="1-Wire Extension">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="264.0" viewBox="-74.4 -115.2 144.0 264.0" data-name="1-Wire Extension" data-standard="48px">
   <title>1-Wire Extension</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-9,-40.4 -26,-40.4" stroke="black" fill="none" />
-    <polyline points="-14,48 -26,48" stroke="black" fill="none" />
-    <polyline points="26,-40.4 9,-40.4" stroke="black" fill="none" />
-    <polyline points="26,48 18,48" stroke="black" fill="none" />
-    <polyline points="6,48 -2,48" stroke="black" fill="none" />
-    <text x="1.30" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="7.10" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5V</text>
-    <polyline points="-4.16,32.51 -7,32.51" stroke="black" fill="none" />
-    <text x="7.00" y="26.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Loxone
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-21.60,-96.96 -62.40,-96.96" stroke="black" fill="none" />
+    <polyline points="-33.60,115.20 -62.40,115.20" stroke="black" fill="none" />
+    <polyline points="62.40,-96.96 21.60,-96.96" stroke="black" fill="none" />
+    <polyline points="62.40,115.20 43.20,115.20" stroke="black" fill="none" />
+    <polyline points="14.40,115.20 -4.80,115.20" stroke="black" fill="none" />
+    <text x="3.12" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="17.04" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">5V</text>
+    <polyline points="-9.98,78.02 -16.80,78.02" stroke="black" fill="none" />
+    <text x="16.80" y="62.88" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Loxone
 Link</text>
-    <polyline points="-2.3,33.59 -4.16,32.51" stroke="black" fill="none" />
-    <polyline points="-7,32.51 -7.9,31.38" stroke="black" fill="none" />
-    <polyline points="-11.54,32.51 -8.84,32.51" stroke="black" fill="none" />
-    <polyline points="-13.51,33.59 -11.54,32.51" stroke="black" fill="none" />
-    <polyline points="-7,32.51 -7.9,31.38" stroke="black" fill="none" />
-    <polyline points="-8.84,32.51 -7.9,31.38" stroke="black" fill="none" />
-    <text x="10.00" y="43.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LOX+</text>
-    <text x="16.00" y="43.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LOX-</text>
-    <text x="-3.90" y="43.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <polyline points="18,56.8 12,56.8" stroke="black" fill="none" />
-    <polyline points="6,44.2 6,56.8" stroke="black" fill="none" />
-    <polyline points="18,44.2 18,56.8" stroke="black" fill="none" />
-    <polyline points="12,44.2 18,44.2" stroke="black" fill="none" />
-    <polyline points="-2,56.8 -8,56.8" stroke="black" fill="none" />
-    <polyline points="6,56.8 6,44.2" stroke="black" fill="none" />
-    <polyline points="3,-31.4 -3,-31.4" stroke="black" fill="none" />
-    <polyline points="-2,56.8 -2,44.2" stroke="black" fill="none" />
-    <polyline points="-2,44.2 -2,56.8" stroke="black" fill="none" />
-    <polyline points="3,-31.4 3,-44" stroke="black" fill="none" />
-    <polyline points="3,-44 3,-31.4" stroke="black" fill="none" />
-    <polyline points="-8,44.2 -2,44.2" stroke="black" fill="none" />
-    <polyline points="12,56.8 6,56.8" stroke="black" fill="none" />
-    <polyline points="9,-31.4 3,-31.4" stroke="black" fill="none" />
-    <polyline points="12,44.2 12,56.8" stroke="black" fill="none" />
-    <polyline points="-3,-44 3,-44" stroke="black" fill="none" />
-    <polyline points="-14,56.8 -14,44.2" stroke="black" fill="none" />
-    <polyline points="-8,56.8 -14,56.8" stroke="black" fill="none" />
-    <polyline points="-9,-31.4 -9,-44" stroke="black" fill="none" />
-    <polyline points="6,44.2 12,44.2" stroke="black" fill="none" />
-    <polyline points="9,-44 9,-31.4" stroke="black" fill="none" />
-    <polyline points="-8,44.2 -8,56.8" stroke="black" fill="none" />
-    <polyline points="3,-44 9,-44" stroke="black" fill="none" />
-    <polyline points="-3,-31.4 -9,-31.4" stroke="black" fill="none" />
-    <polyline points="-14,44.2 -8,44.2" stroke="black" fill="none" />
-    <polyline points="-3,-44 -3,-31.4" stroke="black" fill="none" />
-    <polyline points="-9,-44 -3,-44" stroke="black" fill="none" />
-    <polyline points="-7.25,2.67 -7.25,4.76" stroke="black" fill="none" />
-    <polyline points="4.63,2.67 -7.25,2.67" stroke="black" fill="none" />
-    <polyline points="4.63,4.76 4.63,2.67" stroke="black" fill="none" />
-    <polyline points="-7.25,4.76 4.63,4.76" stroke="black" fill="none" />
-    <polyline points="-21.58,2.67 -21.58,4.76" stroke="black" fill="none" />
-    <polyline points="-9.69,2.67 -21.58,2.67" stroke="black" fill="none" />
-    <polyline points="-9.69,4.76 -9.69,2.67" stroke="black" fill="none" />
-    <polyline points="-21.58,4.76 -9.69,4.76" stroke="black" fill="none" />
-    <polyline points="-26,17.2 26,17.2" stroke="black" fill="none" />
-    <polyline points="-26,-10 26,-10" stroke="black" fill="none" />
-    <polyline points="-24,8.2 -26,10" stroke="black" fill="none" />
-    <polyline points="-24,-1.7 -26,-3.5" stroke="black" fill="none" />
-    <polyline points="-24,-1.7 -24,8.2" stroke="black" fill="none" />
-    <polyline points="-26,-40.4 -26,-3.5" stroke="black" fill="none" />
-    <polyline points="-26,10 -26,47.8" stroke="black" fill="none" />
-    <polyline points="24,8.2 26,10" stroke="black" fill="none" />
-    <polyline points="24,-1.7 26,-3.5" stroke="black" fill="none" />
-    <polyline points="24,-1.7 24,8.2" stroke="black" fill="none" />
-    <polyline points="26,-40.4 26,-3.5" stroke="black" fill="none" />
-    <polyline points="26,10 26,48" stroke="black" fill="none" />
-    <polyline points="15.63,32.51 12.82,32.51" stroke="black" fill="none" />
-    <polyline points="17.49,33.59 15.63,32.51" stroke="black" fill="none" />
-    <polyline points="12.82,32.51 11.89,31.38" stroke="black" fill="none" />
-    <polyline points="8.25,32.51 10.95,32.51" stroke="black" fill="none" />
-    <polyline points="6.28,33.59 8.25,32.51" stroke="black" fill="none" />
-    <polyline points="12.82,32.51 11.89,31.38" stroke="black" fill="none" />
-    <polyline points="10.95,32.51 11.89,31.38" stroke="black" fill="none" />
-    <text x="-10.00" y="43.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V+</text>
-    <text x="-12.00" y="28.90" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power</text>
-    <text x="-19.00" y="-0.80" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
-    <text x="-8.00" y="13.30" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1-Wire</text>
-    <text x="-5.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DATA</text>
-    <circle class="qet-terminal" cx="-11.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="9.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="6.00" cy="-37.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="15.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-5.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-6.00" cy="-37.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-37.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <polyline points="-5.52,80.62 -9.98,78.02" stroke="black" fill="none" />
+    <polyline points="-16.80,78.02 -18.96,75.31" stroke="black" fill="none" />
+    <polyline points="-27.70,78.02 -21.22,78.02" stroke="black" fill="none" />
+    <polyline points="-32.42,80.62 -27.70,78.02" stroke="black" fill="none" />
+    <polyline points="-16.80,78.02 -18.96,75.31" stroke="black" fill="none" />
+    <polyline points="-21.22,78.02 -18.96,75.31" stroke="black" fill="none" />
+    <text x="24.00" y="103.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LOX+</text>
+    <text x="38.40" y="103.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LOX-</text>
+    <text x="-9.36" y="103.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <polyline points="43.20,136.32 28.80,136.32" stroke="black" fill="none" />
+    <polyline points="14.40,106.08 14.40,136.32" stroke="black" fill="none" />
+    <polyline points="43.20,106.08 43.20,136.32" stroke="black" fill="none" />
+    <polyline points="28.80,106.08 43.20,106.08" stroke="black" fill="none" />
+    <polyline points="-4.80,136.32 -19.20,136.32" stroke="black" fill="none" />
+    <polyline points="14.40,136.32 14.40,106.08" stroke="black" fill="none" />
+    <polyline points="7.20,-75.36 -7.20,-75.36" stroke="black" fill="none" />
+    <polyline points="-4.80,136.32 -4.80,106.08" stroke="black" fill="none" />
+    <polyline points="-4.80,106.08 -4.80,136.32" stroke="black" fill="none" />
+    <polyline points="7.20,-75.36 7.20,-105.60" stroke="black" fill="none" />
+    <polyline points="7.20,-105.60 7.20,-75.36" stroke="black" fill="none" />
+    <polyline points="-19.20,106.08 -4.80,106.08" stroke="black" fill="none" />
+    <polyline points="28.80,136.32 14.40,136.32" stroke="black" fill="none" />
+    <polyline points="21.60,-75.36 7.20,-75.36" stroke="black" fill="none" />
+    <polyline points="28.80,106.08 28.80,136.32" stroke="black" fill="none" />
+    <polyline points="-7.20,-105.60 7.20,-105.60" stroke="black" fill="none" />
+    <polyline points="-33.60,136.32 -33.60,106.08" stroke="black" fill="none" />
+    <polyline points="-19.20,136.32 -33.60,136.32" stroke="black" fill="none" />
+    <polyline points="-21.60,-75.36 -21.60,-105.60" stroke="black" fill="none" />
+    <polyline points="14.40,106.08 28.80,106.08" stroke="black" fill="none" />
+    <polyline points="21.60,-105.60 21.60,-75.36" stroke="black" fill="none" />
+    <polyline points="-19.20,106.08 -19.20,136.32" stroke="black" fill="none" />
+    <polyline points="7.20,-105.60 21.60,-105.60" stroke="black" fill="none" />
+    <polyline points="-7.20,-75.36 -21.60,-75.36" stroke="black" fill="none" />
+    <polyline points="-33.60,106.08 -19.20,106.08" stroke="black" fill="none" />
+    <polyline points="-7.20,-105.60 -7.20,-75.36" stroke="black" fill="none" />
+    <polyline points="-21.60,-105.60 -7.20,-105.60" stroke="black" fill="none" />
+    <polyline points="-17.40,6.41 -17.40,11.42" stroke="black" fill="none" />
+    <polyline points="11.11,6.41 -17.40,6.41" stroke="black" fill="none" />
+    <polyline points="11.11,11.42 11.11,6.41" stroke="black" fill="none" />
+    <polyline points="-17.40,11.42 11.11,11.42" stroke="black" fill="none" />
+    <polyline points="-51.79,6.41 -51.79,11.42" stroke="black" fill="none" />
+    <polyline points="-23.26,6.41 -51.79,6.41" stroke="black" fill="none" />
+    <polyline points="-23.26,11.42 -23.26,6.41" stroke="black" fill="none" />
+    <polyline points="-51.79,11.42 -23.26,11.42" stroke="black" fill="none" />
+    <polyline points="-62.40,41.28 62.40,41.28" stroke="black" fill="none" />
+    <polyline points="-62.40,-24.00 62.40,-24.00" stroke="black" fill="none" />
+    <polyline points="-57.60,19.68 -62.40,24.00" stroke="black" fill="none" />
+    <polyline points="-57.60,-4.08 -62.40,-8.40" stroke="black" fill="none" />
+    <polyline points="-57.60,-4.08 -57.60,19.68" stroke="black" fill="none" />
+    <polyline points="-62.40,-96.96 -62.40,-8.40" stroke="black" fill="none" />
+    <polyline points="-62.40,24.00 -62.40,114.72" stroke="black" fill="none" />
+    <polyline points="57.60,19.68 62.40,24.00" stroke="black" fill="none" />
+    <polyline points="57.60,-4.08 62.40,-8.40" stroke="black" fill="none" />
+    <polyline points="57.60,-4.08 57.60,19.68" stroke="black" fill="none" />
+    <polyline points="62.40,-96.96 62.40,-8.40" stroke="black" fill="none" />
+    <polyline points="62.40,24.00 62.40,115.20" stroke="black" fill="none" />
+    <polyline points="37.51,78.02 30.77,78.02" stroke="black" fill="none" />
+    <polyline points="41.98,80.62 37.51,78.02" stroke="black" fill="none" />
+    <polyline points="30.77,78.02 28.54,75.31" stroke="black" fill="none" />
+    <polyline points="19.80,78.02 26.28,78.02" stroke="black" fill="none" />
+    <polyline points="15.07,80.62 19.80,78.02" stroke="black" fill="none" />
+    <polyline points="30.77,78.02 28.54,75.31" stroke="black" fill="none" />
+    <polyline points="26.28,78.02 28.54,75.31" stroke="black" fill="none" />
+    <text x="-24.00" y="103.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">24V+</text>
+    <text x="-28.80" y="69.36" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Power</text>
+    <text x="-45.60" y="-1.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
+    <text x="-19.20" y="31.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1-Wire</text>
+    <text x="-12.00" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DATA</text>
+    <circle class="qet-terminal" cx="-26.40" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="21.60" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="14.40" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="36.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-12.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-14.40" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

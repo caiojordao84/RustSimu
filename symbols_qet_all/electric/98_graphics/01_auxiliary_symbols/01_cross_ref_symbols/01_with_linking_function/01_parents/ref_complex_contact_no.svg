@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-29.0 -32.0 40.0 60.0" data-name="ref complex contact NO">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-34.8 -38.4 48.0 72.0" data-name="ref complex contact NO" data-standard="48px">
   <title>ref complex contact NO</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-10.00" y1="-20.00" x2="-10.00" y2="-9.00" stroke="black" fill="none" />
-    <polyline points="-10,20 -10,10 -15,-9" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-12.00" y1="-24.00" x2="-12.00" y2="-10.80" stroke="black" fill="none" />
+    <polyline points="-12.00,24.00 -12.00,12.00 -18.00,-10.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-12.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-12.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

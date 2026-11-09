@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-5.0 -5.0 50.0 50.0" data-name="Danger general">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-12.0 -12.0 120.0 120.0" data-name="Danger general" data-standard="48px">
   <title>Danger general</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="0,40 40,40 20,0" stroke="black" fill="none" />
-    <polygon points="1,39 20,1 39,39" stroke="black" fill="none" />
-    <rect x="18.50" y="12.00" width="3.00" height="15.00" stroke="black" fill="black" />
-    <ellipse cx="20.00" cy="33.00" rx="2.50" ry="2.50" stroke="black" fill="black" />
-    <line x1="39.00" y1="40.00" x2="39.00" y2="39.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="40.00" x2="1.00" y2="39.00" stroke="black" fill="none" />
-    <rect x="1.00" y="39.00" width="37.00" height="1.00" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0.00,96.00 96.00,96.00 48.00,0.00" stroke="black" fill="none" />
+    <polygon points="2.40,93.60 48.00,2.40 93.60,93.60" stroke="black" fill="none" />
+    <rect x="44.40" y="28.80" width="7.20" height="36.00" stroke="black" fill="black" />
+    <ellipse cx="48.00" cy="79.20" rx="6.00" ry="6.00" stroke="black" fill="black" />
+    <line x1="93.60" y1="96.00" x2="93.60" y2="93.60" stroke="black" fill="none" />
+    <line x1="2.40" y1="96.00" x2="2.40" y2="93.60" stroke="black" fill="none" />
+    <rect x="2.40" y="93.60" width="88.80" height="2.40" stroke="black" fill="black" />
   </g>
 </svg>

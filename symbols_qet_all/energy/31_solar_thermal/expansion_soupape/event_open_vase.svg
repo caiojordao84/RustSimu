@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-17.0 -20.0 20.0 30.0" data-name="Event Open Vase">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-40.8 -48.0 48.0 72.0" data-name="Event Open Vase" data-standard="48px">
   <title>Event Open Vase</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
-    <path d="M 0.00 -10.00 A 5.00 5.00 0 0 0 -10.00 -10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-19.20" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="-24.00" y2="-24.00" stroke="black" fill="none" />
+    <path d="M 0.00 -24.00 A 12.00 12.00 0 0 0 -24.00 -24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

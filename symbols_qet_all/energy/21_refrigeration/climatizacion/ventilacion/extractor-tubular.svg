@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-26.0 -18.0 50.0 30.0" data-name="extractor-tubular">
+<svg xmlns="http://www.w3.org/2000/svg" width="66.7" height="40.0" viewBox="-34.7 -24.0 66.7 40.0" data-name="extractor-tubular" data-standard="48px">
   <title>extractor-tubular</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-16.40" y1="-2.40" x2="-11.60" y2="-2.40" stroke="black" fill="none" />
-    <path d="M -5.00 10.00 A 4.80 10.04 0 0 0 -5.00 -10.07" stroke="black" fill="none" />
-    <line x1="-16.33" y1="0.55" x2="-11.07" y2="0.55" stroke="black" fill="none" />
-    <line x1="-15.86" y1="4.10" x2="-11.54" y2="4.10" stroke="black" fill="none" />
-    <line x1="-15.80" y1="-0.63" x2="-11.00" y2="-0.63" stroke="black" fill="none" />
-    <line x1="-16.40" y1="2.32" x2="-11.61" y2="2.32" stroke="black" fill="none" />
-    <path d="M 4.00 10.00 A 4.80 10.04 0 0 0 4.00 -10.07" stroke="black" fill="none" />
-    <ellipse cx="-13.70" cy="-0.04" rx="3.90" ry="8.86" stroke="black" fill="none" />
-    <ellipse cx="-13.70" cy="-0.04" rx="2.70" ry="7.08" stroke="black" fill="none" />
-    <path d="M -7.70 8.82 A 3.90 8.86 0 0 0 -7.70 -8.89" stroke="black" fill="none" />
-    <path d="M 6.70 8.82 A 3.90 8.86 0 0 0 6.70 -8.89" stroke="black" fill="none" />
-    <polyline points="-14,-8.89 -8,-8.89 -5,-10.07 4,-10.07 7,-8.89 12.4,-8.89" stroke="black" fill="none" />
-    <polyline points="-14,8.82 -8,8.82 -4.4,10 4,10 7,8.82 12.4,8.82" stroke="black" fill="none" />
-    <path d="M 12.70 8.82 A 3.90 8.86 0 0 0 12.70 -8.89" stroke="black" fill="none" />
-    <polygon points="-1.4,-8.89 -0.2,-7.12 4.6,-7.12 3.4,-8.89" stroke="black" fill="none" />
-    <line x1="-16.40" y1="-4.17" x2="-11.60" y2="-4.17" stroke="black" fill="none" />
-    <polyline points="1.6,1.14 6.4,1.14 2.8,0.55 2.8,1.73 6.4,1.14" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="1.00" cy="-11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="17.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-21.87" y1="-3.20" x2="-15.47" y2="-3.20" stroke="black" fill="none" />
+    <path d="M -6.67 13.33 A 6.40 13.39 0 0 0 -6.67 -13.43" stroke="black" fill="none" />
+    <line x1="-21.77" y1="0.73" x2="-14.76" y2="0.73" stroke="black" fill="none" />
+    <line x1="-21.15" y1="5.47" x2="-15.39" y2="5.47" stroke="black" fill="none" />
+    <line x1="-21.07" y1="-0.84" x2="-14.67" y2="-0.84" stroke="black" fill="none" />
+    <line x1="-21.87" y1="3.09" x2="-15.48" y2="3.09" stroke="black" fill="none" />
+    <path d="M 5.33 13.33 A 6.40 13.39 0 0 0 5.33 -13.43" stroke="black" fill="none" />
+    <ellipse cx="-18.27" cy="-0.05" rx="5.20" ry="11.81" stroke="black" fill="none" />
+    <ellipse cx="-18.27" cy="-0.05" rx="3.60" ry="9.44" stroke="black" fill="none" />
+    <path d="M -10.27 11.76 A 5.20 11.81 0 0 0 -10.27 -11.85" stroke="black" fill="none" />
+    <path d="M 8.93 11.76 A 5.20 11.81 0 0 0 8.93 -11.85" stroke="black" fill="none" />
+    <polyline points="-18.67,-11.85 -10.67,-11.85 -6.67,-13.43 5.33,-13.43 9.33,-11.85 16.53,-11.85" stroke="black" fill="none" />
+    <polyline points="-18.67,11.76 -10.67,11.76 -5.87,13.33 5.33,13.33 9.33,11.76 16.53,11.76" stroke="black" fill="none" />
+    <path d="M 16.93 11.76 A 5.20 11.81 0 0 0 16.93 -11.85" stroke="black" fill="none" />
+    <polygon points="-1.87,-11.85 -0.27,-9.49 6.13,-9.49 4.53,-11.85" stroke="black" fill="none" />
+    <line x1="-21.87" y1="-5.56" x2="-15.47" y2="-5.56" stroke="black" fill="none" />
+    <polyline points="2.13,1.52 8.53,1.52 3.73,0.73 3.73,2.31 8.53,1.52" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="1.33" cy="-14.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-25.33" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="22.67" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

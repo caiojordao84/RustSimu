@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-45.0 -17.0 50.0 30.0" data-name="Inductor with fixed tappings">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="72.0" viewBox="-108.0 -40.8 120.0 72.0" data-name="Inductor with fixed tappings" data-standard="48px">
   <title>Inductor with fixed tappings</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -10.00 -10.00 A 5.00 5.00 0 0 0 -20.00 -10.00" stroke="black" fill="none" />
-    <path d="M -30.00 -10.00 A 5.00 5.00 0 0 0 -40.00 -10.00" stroke="black" fill="none" />
-    <path d="M 0.00 -10.00 A 5.00 5.00 0 0 0 -10.00 -10.00" stroke="black" fill="none" />
-    <path d="M -20.00 -10.00 A 5.00 5.00 0 0 0 -30.00 -10.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-10.00" x2="-40.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-10.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-10.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -24.00 -24.00 A 12.00 12.00 0 0 0 -48.00 -24.00" stroke="black" fill="none" />
+    <path d="M -72.00 -24.00 A 12.00 12.00 0 0 0 -96.00 -24.00" stroke="black" fill="none" />
+    <path d="M 0.00 -24.00 A 12.00 12.00 0 0 0 -24.00 -24.00" stroke="black" fill="none" />
+    <path d="M -48.00 -24.00 A 12.00 12.00 0 0 0 -72.00 -24.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-24.00" x2="-96.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-24.00" x2="-72.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-24.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
   </g>
 </svg>

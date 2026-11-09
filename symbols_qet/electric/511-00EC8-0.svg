@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="130.0" viewBox="-51.0 -75.0 100.0 130.0" data-name="787-2803">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="78.0" viewBox="-30.6 -45.0 60.0 78.0" data-name="787-2803" data-standard="48px">
   <title>787-2803</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-40.00" y="-50.00" width="80.00" height="100.00" stroke="black" fill="none" />
-    <text x="-29.00" y="-43.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC/DC 48V / 24V</text>
-    <text x="-39.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="20.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="-39.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <text x="36.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-39.00" y="36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <text x="36.00" y="36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="13.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC o.k.</text>
-    <text x="36.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-39.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <text x="20.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="36.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="17.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vout+</text>
-    <ellipse cx="-40.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-40.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-40.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-40.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-37.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="-37.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vin+</text>
-    <circle class="qet-terminal" cx="40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="e" />
-    <circle class="qet-terminal" cx="-40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="8" data-orientation="w" />
-    <circle class="qet-terminal" cx="40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="e" />
-    <circle class="qet-terminal" cx="-40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="7" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-30.00" width="48.00" height="60.00" stroke="black" fill="none" />
+    <text x="-17.40" y="-26.10" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">DC/DC 48V / 24V</text>
+    <text x="-23.40" y="-14.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="12.00" y="16.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-23.40" y="-2.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="21.60" y="-14.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-23.40" y="21.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="21.60" y="21.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="7.80" y="-19.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">DC o.k.</text>
+    <text x="21.60" y="-2.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-23.40" y="9.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="12.00" y="-7.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="21.60" y="9.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="10.20" y="4.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Vout+</text>
+    <ellipse cx="-24.00" cy="6.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="-18.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="18.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="-18.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="6.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="-6.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="18.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="-6.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <text x="-22.20" y="16.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-22.20" y="4.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Vin+</text>
+    <circle class="qet-terminal" cx="24.00" cy="-18.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="18.00" r="4.0" fill="red" stroke="none" data-name="8" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="18.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="w" />
   </g>
 </svg>

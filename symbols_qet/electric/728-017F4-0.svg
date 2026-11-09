@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -45.0 50.0 50.0" data-name="Differential voltmeter">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -108.0 120.0 120.0" data-name="Differential voltmeter" data-standard="48px">
   <title>Differential voltmeter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-20.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <text x="-4.00" y="-25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V</text>
-    <text x="-9.00" y="-9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U</text>
-    <text x="1.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">d</text>
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-48.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <text x="-9.60" y="-60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">V</text>
+    <text x="-21.60" y="-21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">U</text>
+    <text x="2.40" y="-19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">d</text>
   </g>
 </svg>

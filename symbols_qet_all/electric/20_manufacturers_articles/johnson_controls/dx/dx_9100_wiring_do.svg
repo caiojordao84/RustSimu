@@ -1,80 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="180.0" viewBox="-32.0 -47.0 130.0 180.0" data-name="DX 9100 wiring DO">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="432.0" viewBox="-76.8 -112.8 312.0 432.0" data-name="DX 9100 wiring DO" data-standard="48px">
   <title>DX 9100 wiring DO</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="15.00" y="122.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DX9100-8454</text>
-    <path d="M -10.00 115.00 A 7.50 4.50 0 0 0 -10.00 124.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="74.00" y="84.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">79</text>
-    <polyline points="88,115 88,124 -10,124" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <rect x="-12.00" y="-22.00" width="4.00" height="4.00" stroke="black" fill="none" />
-    <line x1="-12.00" y1="-22.00" x2="-8.00" y2="-18.00" stroke="black" fill="none" />
-    <text x="75.00" y="114.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">82</text>
-    <text x="74.00" y="94.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">80</text>
-    <line x1="-12.00" y1="-18.00" x2="-8.00" y2="-22.00" stroke="black" fill="none" />
-    <path d="M -10.00 -34.00 A 13.00 14.00 0 0 0 -10.00 -6.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="75.00" y="104.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">81</text>
-    <text x="75.00" y="44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">75</text>
-    <text x="74.00" y="54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">76</text>
-    <text x="75.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">77</text>
-    <line x1="72.00" y1="-6.00" x2="-10.00" y2="-6.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <polyline points="88,-6 88,-34 -10,-34" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="74.00" y="74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">78</text>
-    <text x="74.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">74</text>
-    <text x="75.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">73</text>
-    <text x="75.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">72</text>
-    <text x="90.00" y="32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
-    <text x="90.00" y="52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
-    <text x="90.00" y="112.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
-    <text x="90.00" y="72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
-    <text x="90.00" y="92.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
-    <text x="91.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO3</text>
-    <text x="91.00" y="81.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO7</text>
-    <text x="91.00" y="22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO4</text>
-    <text x="91.00" y="62.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO6</text>
-    <text x="91.00" y="42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO5</text>
-    <text x="91.00" y="101.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO8</text>
-    <text x="75.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">71</text>
-    <text x="69.00" y="90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO7</text>
-    <text x="69.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO5</text>
-    <text x="69.00" y="110.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO8</text>
-    <text x="69.00" y="70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO6</text>
-    <text x="69.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO4</text>
-    <text x="69.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO3</text>
-    <text x="90.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
-    <line x1="72.00" y1="-6.00" x2="88.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="72.00" y1="5.00" x2="88.00" y2="5.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="72.00" y1="15.00" x2="88.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="72.00" y1="25.00" x2="88.00" y2="25.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="72.00" y1="35.00" x2="88.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="72.00" y1="45.00" x2="88.00" y2="45.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="72.00" y1="55.00" x2="88.00" y2="55.00" stroke="black" fill="none" />
-    <line x1="72.00" y1="65.00" x2="88.00" y2="65.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="72.00" y1="75.00" x2="88.00" y2="75.00" stroke="black" fill="none" />
-    <line x1="72.00" y1="85.00" x2="88.00" y2="85.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="72.00" y1="95.00" x2="88.00" y2="95.00" stroke="black" fill="none" />
-    <line x1="72.00" y1="105.00" x2="88.00" y2="105.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="72.00" y1="115.00" x2="88.00" y2="115.00" stroke="black" fill="none" />
-    <text x="6.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DO</text>
-    <line x1="72.00" y1="115.00" x2="-10.00" y2="115.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="72.00" y1="95.00" x2="-10.00" y2="95.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="72.00" y1="75.00" x2="-10.00" y2="75.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="72.00" y1="15.00" x2="-10.00" y2="15.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="72.00" y1="35.00" x2="-10.00" y2="35.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="72.00" y1="55.00" x2="-10.00" y2="55.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="72.00" y1="115.00" x2="72.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="88.00" y1="-6.00" x2="88.00" y2="115.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="90.00" cy="60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="110.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="90.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="36.00" y="292.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DX9100-8454</text>
+    <path d="M -24.00 276.00 A 18.00 10.80 0 0 0 -24.00 297.60" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="177.60" y="201.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">79</text>
+    <polyline points="211.20,276.00 211.20,297.60 -24.00,297.60" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <rect x="-28.80" y="-52.80" width="9.60" height="9.60" stroke="black" fill="none" />
+    <line x1="-28.80" y1="-52.80" x2="-19.20" y2="-43.20" stroke="black" fill="none" />
+    <text x="180.00" y="273.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">82</text>
+    <text x="177.60" y="225.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">80</text>
+    <line x1="-28.80" y1="-43.20" x2="-19.20" y2="-52.80" stroke="black" fill="none" />
+    <path d="M -24.00 -81.60 A 31.20 33.60 0 0 0 -24.00 -14.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="180.00" y="249.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">81</text>
+    <text x="180.00" y="105.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">75</text>
+    <text x="177.60" y="129.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">76</text>
+    <text x="180.00" y="153.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">77</text>
+    <line x1="172.80" y1="-14.40" x2="-24.00" y2="-14.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polyline points="211.20,-14.40 211.20,-81.60 -24.00,-81.60" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="177.60" y="177.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">78</text>
+    <text x="177.60" y="81.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">74</text>
+    <text x="180.00" y="57.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">73</text>
+    <text x="180.00" y="33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">72</text>
+    <text x="216.00" y="76.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
+    <text x="216.00" y="124.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
+    <text x="216.00" y="268.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
+    <text x="216.00" y="172.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
+    <text x="216.00" y="220.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
+    <text x="218.40" y="4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO3</text>
+    <text x="218.40" y="194.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO7</text>
+    <text x="218.40" y="52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO4</text>
+    <text x="218.40" y="148.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO6</text>
+    <text x="218.40" y="100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO5</text>
+    <text x="218.40" y="242.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO8</text>
+    <text x="180.00" y="7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">71</text>
+    <text x="165.60" y="216.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO7</text>
+    <text x="165.60" y="120.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO5</text>
+    <text x="165.60" y="264.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO8</text>
+    <text x="165.60" y="168.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO6</text>
+    <text x="165.60" y="72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO4</text>
+    <text x="165.60" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO3</text>
+    <text x="216.00" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Com</text>
+    <line x1="172.80" y1="-14.40" x2="211.20" y2="-14.40" stroke="black" fill="none" />
+    <line x1="172.80" y1="12.00" x2="211.20" y2="12.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="172.80" y1="36.00" x2="211.20" y2="36.00" stroke="black" fill="none" />
+    <line x1="172.80" y1="60.00" x2="211.20" y2="60.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="172.80" y1="84.00" x2="211.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="172.80" y1="108.00" x2="211.20" y2="108.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="172.80" y1="132.00" x2="211.20" y2="132.00" stroke="black" fill="none" />
+    <line x1="172.80" y1="156.00" x2="211.20" y2="156.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="172.80" y1="180.00" x2="211.20" y2="180.00" stroke="black" fill="none" />
+    <line x1="172.80" y1="204.00" x2="211.20" y2="204.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="172.80" y1="228.00" x2="211.20" y2="228.00" stroke="black" fill="none" />
+    <line x1="172.80" y1="252.00" x2="211.20" y2="252.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="172.80" y1="276.00" x2="211.20" y2="276.00" stroke="black" fill="none" />
+    <text x="14.40" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DO</text>
+    <line x1="172.80" y1="276.00" x2="-24.00" y2="276.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="172.80" y1="228.00" x2="-24.00" y2="228.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="172.80" y1="180.00" x2="-24.00" y2="180.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="172.80" y1="36.00" x2="-24.00" y2="36.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="172.80" y1="84.00" x2="-24.00" y2="84.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="172.80" y1="132.00" x2="-24.00" y2="132.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="172.80" y1="276.00" x2="172.80" y2="-14.40" stroke="black" fill="none" />
+    <line x1="211.20" y1="-14.40" x2="211.20" y2="276.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="216.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="192.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="216.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="216.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-30.0 -5.0 40.0 20.0" data-name="Control air pressure drop">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="48.0" viewBox="-72.0 -12.0 96.0 48.0" data-name="Control air pressure drop" data-standard="48px">
   <title>Control air pressure drop</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-4,0 -4,10 -14,5" stroke="black" fill="none" />
-    <line x1="-4.00" y1="5.00" x2="-3.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="-16.00" y1="5.00" x2="-14.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="-25.00" y1="5.00" x2="-20.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="5.00" x2="5.00" y2="5.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-9.60,0.00 -9.60,24.00 -33.60,12.00" stroke="black" fill="none" />
+    <line x1="-9.60" y1="12.00" x2="-7.20" y2="12.00" stroke="black" fill="none" />
+    <line x1="-38.40" y1="12.00" x2="-33.60" y2="12.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="12.00" x2="-48.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="2.40" y1="12.00" x2="12.00" y2="12.00" stroke="black" fill="none" />
   </g>
 </svg>

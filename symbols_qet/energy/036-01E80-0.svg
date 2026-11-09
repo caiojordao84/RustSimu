@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="180.0" height="70.0" viewBox="-69.0 -30.0 180.0 70.0" data-name="Manifold">
+<svg xmlns="http://www.w3.org/2000/svg" width="221.5" height="86.2" viewBox="-84.9 -36.9 221.5 86.2" data-name="Manifold" data-standard="48px">
   <title>Manifold</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="15.00" y="20.00" width="10.00" height="7.00" stroke="black" fill="none" />
-    <rect x="94.00" y="3.00" width="5.00" height="5.00" stroke="black" fill="none" />
-    <rect x="74.00" y="-17.00" width="10.00" height="7.00" stroke="black" fill="none" />
-    <rect x="35.00" y="-17.00" width="10.00" height="7.00" stroke="black" fill="none" />
-    <rect x="-47.00" y="-10.00" width="135.00" height="30.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="-17.00" width="10.00" height="7.00" stroke="black" fill="none" />
-    <rect x="-11.00" y="-19.00" width="21.00" height="2.00" stroke="black" fill="none" />
-    <rect x="29.00" y="-19.00" width="21.00" height="2.00" stroke="black" fill="none" />
-    <rect x="68.00" y="-19.00" width="21.00" height="2.00" stroke="black" fill="none" />
-    <path d="M 89.00 20.00 A 5.00 15.00 0 0 0 89.00 -10.00" stroke="black" fill="none" />
-    <rect x="9.00" y="27.00" width="21.00" height="2.00" stroke="black" fill="none" />
-    <path d="M -47.00 -10.00 A 5.00 15.00 0 0 0 -47.00 20.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="-17.00" width="10.00" height="7.00" stroke="black" fill="none" />
-    <rect x="-51.00" y="-19.00" width="21.00" height="2.00" stroke="black" fill="none" />
-    <rect x="-57.00" y="2.00" width="5.00" height="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="79.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="100.00" cy="6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-58.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="18.46" y="24.62" width="12.31" height="8.62" stroke="black" fill="none" />
+    <rect x="115.69" y="3.69" width="6.15" height="6.15" stroke="black" fill="none" />
+    <rect x="91.08" y="-20.92" width="12.31" height="8.62" stroke="black" fill="none" />
+    <rect x="43.08" y="-20.92" width="12.31" height="8.62" stroke="black" fill="none" />
+    <rect x="-57.85" y="-12.31" width="166.15" height="36.92" stroke="black" fill="none" />
+    <rect x="-6.15" y="-20.92" width="12.31" height="8.62" stroke="black" fill="none" />
+    <rect x="-13.54" y="-23.38" width="25.85" height="2.46" stroke="black" fill="none" />
+    <rect x="35.69" y="-23.38" width="25.85" height="2.46" stroke="black" fill="none" />
+    <rect x="83.69" y="-23.38" width="25.85" height="2.46" stroke="black" fill="none" />
+    <path d="M 109.54 24.62 A 6.15 18.46 0 0 0 109.54 -12.31" stroke="black" fill="none" />
+    <rect x="11.08" y="33.23" width="25.85" height="2.46" stroke="black" fill="none" />
+    <path d="M -57.85 -12.31 A 6.15 18.46 0 0 0 -57.85 24.62" stroke="black" fill="none" />
+    <rect x="-55.38" y="-20.92" width="12.31" height="8.62" stroke="black" fill="none" />
+    <rect x="-62.77" y="-23.38" width="25.85" height="2.46" stroke="black" fill="none" />
+    <rect x="-70.15" y="2.46" width="6.15" height="6.15" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="97.23" cy="-24.62" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.62" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.62" cy="36.92" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="123.08" cy="7.38" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="49.23" cy="-24.62" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-71.38" cy="6.15" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-49.23" cy="-24.62" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

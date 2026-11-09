@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -25.0 40.0 50.0" data-name="Air filter">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="120.0" viewBox="-48.0 -60.0 96.0 120.0" data-name="Air filter" data-standard="48px">
   <title>Air filter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-10,-20 10,-10 -10,0 10,10 -10,20" stroke="black" fill="none" />
-    <rect x="-10.00" y="-20.00" width="20.00" height="40.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-24.00,-48.00 24.00,-24.00 -24.00,0.00 24.00,24.00 -24.00,48.00" stroke="black" fill="none" />
+    <rect x="-24.00" y="-48.00" width="48.00" height="96.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

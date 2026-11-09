@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-14.0 -25.0 30.0 50.0" data-name="compresor">
+<svg xmlns="http://www.w3.org/2000/svg" width="51.4" height="85.7" viewBox="-24.0 -42.9 51.4 85.7" data-name="compresor" data-standard="48px">
   <title>compresor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.32" cy="0.07" rx="9.32" ry="9.17" stroke="black" fill="none" />
-    <line x1="-3.29" y1="-8.33" x2="-8.00" y2="4.07" stroke="black" fill="none" />
-    <line x1="3.93" y1="-8.33" x2="8.65" y2="3.07" stroke="black" fill="none" />
-    <line x1="0.00" y1="9.88" x2="0.00" y2="13.60" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-14.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.55" cy="0.12" rx="15.98" ry="15.72" stroke="black" fill="none" />
+    <line x1="-5.64" y1="-14.28" x2="-13.71" y2="6.98" stroke="black" fill="none" />
+    <line x1="6.74" y1="-14.28" x2="14.83" y2="5.26" stroke="black" fill="none" />
+    <line x1="0.00" y1="16.94" x2="0.00" y2="23.31" stroke="black" fill="none" />
+    <line x1="0.00" y1="-17.14" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

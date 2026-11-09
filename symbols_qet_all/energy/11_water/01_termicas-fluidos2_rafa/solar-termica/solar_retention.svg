@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-20.0 -14.0 50.0 30.0" data-name="Solar retention">
+<svg xmlns="http://www.w3.org/2000/svg" width="70.6" height="42.4" viewBox="-28.2 -19.8 70.6 42.4" data-name="Solar retention" data-standard="48px">
   <title>Solar retention</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="19.85" y="-7.46" width="1.82" height="14.83" stroke="black" fill="none" />
-    <rect x="-10.00" y="-8.10" width="29.77" height="16.59" stroke="black" fill="none" />
-    <rect x="-12.00" y="-7.46" width="1.82" height="14.83" stroke="black" fill="none" />
-    <line x1="7.30" y1="0.00" x2="13.22" y2="0.00" stroke="black" fill="none" />
-    <ellipse cx="0.48" cy="0.39" rx="5.20" ry="5.09" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-9.92" y1="-4.70" x2="1.78" y2="-7.25" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-9.92" y1="5.49" x2="1.78" y2="8.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="-12.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="28.02" y="-10.53" width="2.57" height="20.94" stroke="black" fill="none" />
+    <rect x="-14.12" y="-11.44" width="42.03" height="23.42" stroke="black" fill="none" />
+    <rect x="-16.94" y="-10.53" width="2.57" height="20.94" stroke="black" fill="none" />
+    <line x1="10.31" y1="0.00" x2="18.66" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.68" cy="0.55" rx="7.34" ry="7.19" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-14.00" y1="-6.64" x2="2.51" y2="-10.24" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-14.00" y1="7.75" x2="2.51" y2="11.29" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-16.94" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="31.06" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

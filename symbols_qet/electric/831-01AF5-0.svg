@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-20.0 -15.0 40.0 40.0" data-name="MKS">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-48.0 -36.0 96.0 96.0" data-name="MKS" data-standard="48px">
   <title>MKS</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-17.00" y="-12.00" width="34.00" height="34.00" stroke="black" fill="none" />
-    <rect x="8.00" y="-9.00" width="5.00" height="1.00" stroke="black" fill="none" />
-    <rect x="-12.00" y="11.00" width="3.50" height="5.00" stroke="black" fill="none" />
-    <rect x="-9.00" y="2.00" width="20.00" height="6.00" stroke="black" fill="none" />
-    <polyline points="-6,-12 -6,-10 -4,-10 -4,-7 3,-7 3,-10 5,-10 5,-12" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-11.00" x2="5.00" y2="-11.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-10.00" x2="2.00" y2="-10.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-40.80" y="-28.80" width="81.60" height="81.60" stroke="black" fill="none" />
+    <rect x="19.20" y="-21.60" width="12.00" height="2.40" stroke="black" fill="none" />
+    <rect x="-28.80" y="26.40" width="8.40" height="12.00" stroke="black" fill="none" />
+    <rect x="-21.60" y="4.80" width="48.00" height="14.40" stroke="black" fill="none" />
+    <polyline points="-14.40,-28.80 -14.40,-24.00 -9.60,-24.00 -9.60,-16.80 7.20,-16.80 7.20,-24.00 12.00,-24.00 12.00,-28.80" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-26.40" x2="12.00" y2="-26.40" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-24.00" x2="4.80" y2="-24.00" stroke="black" fill="none" />
   </g>
 </svg>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-25.0 -37.0 50.0 40.0" data-name="Signal lamp, flashing type">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="96.0" viewBox="-60.0 -88.8 120.0 96.0" data-name="Signal lamp, flashing type" data-standard="48px">
   <title>Signal lamp, flashing type</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-10.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="-3.00" x2="7.00" y2="-17.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="-17.00" x2="7.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-10.00" x2="-10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-10.00" x2="20.00" y2="-10.00" stroke="black" fill="none" />
-    <polyline points="-5,-25 -2,-25 -2,-34 2,-34 2,-25 5,-25" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-24.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="-7.20" x2="16.80" y2="-40.80" stroke="black" fill="none" />
+    <line x1="-16.80" y1="-40.80" x2="16.80" y2="-7.20" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-24.00" x2="-24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-24.00" x2="48.00" y2="-24.00" stroke="black" fill="none" />
+    <polyline points="-12.00,-60.00 -4.80,-60.00 -4.80,-81.60 4.80,-81.60 4.80,-60.00 12.00,-60.00" stroke="black" fill="none" />
   </g>
 </svg>

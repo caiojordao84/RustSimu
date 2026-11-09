@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="50.0" viewBox="-34.0 -18.0 70.0 50.0" data-name="Septic tank">
+<svg xmlns="http://www.w3.org/2000/svg" width="74.7" height="53.3" viewBox="-36.3 -19.2 74.7 53.3" data-name="Septic tank" data-standard="48px">
   <title>Septic tank</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -13.00 -2.50 A 6.00 5.50 0 0 0 -19.00 -8.00" stroke="black" fill="none" />
-    <path d="M 19.00 -8.00 A 6.00 5.50 0 0 0 13.00 -2.50" stroke="black" fill="none" />
-    <rect x="-4.00" y="-8.00" width="8.00" height="8.00" stroke="black" fill="none" />
-    <rect x="12.00" y="-2.00" width="5.00" height="2.00" stroke="black" fill="none" />
-    <rect x="-20.00" y="0.00" width="40.00" height="20.00" stroke="black" fill="none" />
-    <path d="M -19.50 0.00 A 3.50 10.00 0 0 0 -19.50 20.00" stroke="black" fill="none" />
-    <path d="M 19.00 -5.00 A 3.00 2.50 0 0 0 16.00 -2.50" stroke="black" fill="none" />
-    <path d="M 19.50 20.00 A 3.50 10.00 0 0 0 19.50 0.00" stroke="black" fill="none" />
-    <rect x="19.00" y="-9.00" width="3.00" height="5.00" stroke="black" fill="none" />
-    <rect x="-17.00" y="-2.00" width="5.00" height="2.00" stroke="black" fill="none" />
-    <path d="M -16.00 -2.50 A 3.00 2.50 0 0 0 -19.00 -5.00" stroke="black" fill="none" />
-    <rect x="-23.00" y="-9.00" width="3.00" height="5.00" stroke="black" fill="none" />
-    <polyline points="-3,0 0,3 3,0" stroke="black" fill="none" />
-    <rect x="-6.00" y="-10.00" width="12.00" height="2.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-10.00" width="62.00" height="35.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-23.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="22.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -13.87 -2.67 A 6.40 5.87 0 0 0 -20.27 -8.53" stroke="black" fill="none" />
+    <path d="M 20.27 -8.53 A 6.40 5.87 0 0 0 13.87 -2.67" stroke="black" fill="none" />
+    <rect x="-4.27" y="-8.53" width="8.53" height="8.53" stroke="black" fill="none" />
+    <rect x="12.80" y="-2.13" width="5.33" height="2.13" stroke="black" fill="none" />
+    <rect x="-21.33" y="0.00" width="42.67" height="21.33" stroke="black" fill="none" />
+    <path d="M -20.80 0.00 A 3.73 10.67 0 0 0 -20.80 21.33" stroke="black" fill="none" />
+    <path d="M 20.27 -5.33 A 3.20 2.67 0 0 0 17.07 -2.67" stroke="black" fill="none" />
+    <path d="M 20.80 21.33 A 3.73 10.67 0 0 0 20.80 0.00" stroke="black" fill="none" />
+    <rect x="20.27" y="-9.60" width="3.20" height="5.33" stroke="black" fill="none" />
+    <rect x="-18.13" y="-2.13" width="5.33" height="2.13" stroke="black" fill="none" />
+    <path d="M -17.07 -2.67 A 3.20 2.67 0 0 0 -20.27 -5.33" stroke="black" fill="none" />
+    <rect x="-24.53" y="-9.60" width="3.20" height="5.33" stroke="black" fill="none" />
+    <polyline points="-3.20,0.00 0.00,3.20 3.20,0.00" stroke="black" fill="none" />
+    <rect x="-6.40" y="-10.67" width="12.80" height="2.13" stroke="black" fill="none" />
+    <rect x="-32.00" y="-10.67" width="66.13" height="37.33" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.53" cy="-7.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="23.47" cy="-7.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

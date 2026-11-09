@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="90.0" viewBox="-50.0 -42.0 100.0 90.0" data-name="787-785">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="54.0" viewBox="-30.0 -25.2 60.0 54.0" data-name="787-785" data-standard="48px">
   <title>787-785</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="10.00" cy="-30.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
-    <rect x="-40.00" y="-40.00" width="80.00" height="80.00" stroke="black" fill="none" />
-    <polygon points="-15,6 -15,14 -8,10" stroke="black" fill="none" />
-    <text x="-37.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V2 in-</text>
-    <polyline points="-8,14 -8,6" stroke="black" fill="none" />
-    <text x="20.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V out-</text>
-    <text x="20.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V out+</text>
-    <ellipse cx="-40.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-30.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 787-785</text>
-    <ellipse cx="-40.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-40.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-40.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-37.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V2 in+</text>
-    <text x="-37.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V1 in+</text>
-    <text x="-37.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V1 in-</text>
-    <line x1="-40.00" y1="-10.00" x2="40.00" y2="-10.00" stroke="black" fill="none" />
-    <polyline points="-40,30 20,30 20,-10" stroke="black" fill="none" />
-    <ellipse cx="20.00" cy="-10.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
-    <line x1="-40.00" y1="-30.00" x2="40.00" y2="-30.00" stroke="black" fill="none" />
-    <polyline points="-40,10 10,10 10,-30" stroke="black" fill="none" />
-    <polygon points="-15,-34 -15,-26 -8,-30" stroke="black" fill="none" />
-    <polyline points="-8,-26 -8,-34" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="V1in-" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="V2in-" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="V2in+" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="V1in+" data-orientation="w" />
-    <circle class="qet-terminal" cx="40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="Vout+" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Vout-" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="6.00" cy="-18.00" rx="0.90" ry="0.90" stroke="black" fill="black" />
+    <rect x="-24.00" y="-24.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <polygon points="-9.00,3.60 -9.00,8.40 -4.80,6.00" stroke="black" fill="none" />
+    <text x="-22.20" y="16.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">V2 in-</text>
+    <polyline points="-4.80,8.40 -4.80,3.60" stroke="black" fill="none" />
+    <text x="12.00" y="-7.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">V out-</text>
+    <text x="12.00" y="-19.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">V out+</text>
+    <ellipse cx="-24.00" cy="18.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="-18.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <text x="-18.00" y="23.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">WAGO 787-785</text>
+    <ellipse cx="-24.00" cy="6.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="-18.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="-6.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="-6.00" rx="1.50" ry="1.50" stroke="black" fill="white" />
+    <text x="-22.20" y="4.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">V2 in+</text>
+    <text x="-22.20" y="-19.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">V1 in+</text>
+    <text x="-22.20" y="-7.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">V1 in-</text>
+    <line x1="-24.00" y1="-6.00" x2="24.00" y2="-6.00" stroke="black" fill="none" />
+    <polyline points="-24.00,18.00 12.00,18.00 12.00,-6.00" stroke="black" fill="none" />
+    <ellipse cx="12.00" cy="-6.00" rx="0.90" ry="0.90" stroke="black" fill="black" />
+    <line x1="-24.00" y1="-18.00" x2="24.00" y2="-18.00" stroke="black" fill="none" />
+    <polyline points="-24.00,6.00 6.00,6.00 6.00,-18.00" stroke="black" fill="none" />
+    <polygon points="-9.00,-20.40 -9.00,-15.60 -4.80,-18.00" stroke="black" fill="none" />
+    <polyline points="-4.80,-15.60 -4.80,-20.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="V1in-" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="18.00" r="4.0" fill="red" stroke="none" data-name="V2in-" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="V2in+" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="-18.00" r="4.0" fill="red" stroke="none" data-name="V1in+" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-18.00" r="4.0" fill="red" stroke="none" data-name="Vout+" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="Vout-" data-orientation="e" />
   </g>
 </svg>

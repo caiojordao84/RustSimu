@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="80.0" viewBox="-39.0 -57.0 100.0 80.0" data-name="One-phase engine">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="192.0" viewBox="-93.6 -136.8 240.0 192.0" data-name="One-phase engine" data-standard="48px">
   <title>One-phase engine</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="31.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Z2</text>
-    <text x="12.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Z1</text>
-    <text x="-8.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U2</text>
-    <text x="51.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <text x="-5.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <ellipse cx="0.00" cy="0.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-50.00" x2="-10.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-50.00" x2="-30.00" y2="-23.00" stroke="black" fill="none" />
-    <text x="-8.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1 ~</text>
-    <text x="-28.00" y="-44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U1</text>
-    <line x1="10.00" y1="-50.00" x2="10.00" y2="-23.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-50.00" x2="30.00" y2="-22.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-22.00" x2="16.00" y2="-12.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-23.00" x2="-16.00" y2="-12.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-30.00" x2="-7.00" y2="-19.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-23.00" x2="8.00" y2="-19.00" stroke="black" fill="none" />
-    <path d="M 11.50 19.92 A 23.00 23.00 0 0 0 19.51 12.19" stroke="black" fill="none" />
-    <line x1="16.00" y1="17.00" x2="20.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="20.00" x2="50.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="20.00" x2="50.00" y2="-50.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-30.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="50.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="74.40" y="-105.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Z2</text>
+    <text x="28.80" y="-105.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Z1</text>
+    <text x="-19.20" y="-105.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">U2</text>
+    <text x="122.40" y="-105.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-12.00" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <ellipse cx="0.00" cy="0.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-120.00" x2="-24.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-120.00" x2="-72.00" y2="-55.20" stroke="black" fill="none" />
+    <text x="-19.20" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1 ~</text>
+    <text x="-67.20" y="-105.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">U1</text>
+    <line x1="24.00" y1="-120.00" x2="24.00" y2="-55.20" stroke="black" fill="none" />
+    <line x1="72.00" y1="-120.00" x2="72.00" y2="-52.80" stroke="black" fill="none" />
+    <line x1="72.00" y1="-52.80" x2="38.40" y2="-28.80" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-55.20" x2="-38.40" y2="-28.80" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-72.00" x2="-16.80" y2="-45.60" stroke="black" fill="none" />
+    <line x1="24.00" y1="-55.20" x2="19.20" y2="-45.60" stroke="black" fill="none" />
+    <path d="M 27.60 47.81 A 55.20 55.20 0 0 0 46.82 29.26" stroke="black" fill="none" />
+    <line x1="38.40" y1="40.80" x2="48.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="48.00" x2="120.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="120.00" y1="48.00" x2="120.00" y2="-120.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="120.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

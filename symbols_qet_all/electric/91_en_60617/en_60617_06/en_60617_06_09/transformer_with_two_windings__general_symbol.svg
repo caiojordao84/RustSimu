@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="170.0" viewBox="-86.0 -162.0 90.0 170.0" data-name="Transformer with two windings, general symbol">
+<svg xmlns="http://www.w3.org/2000/svg" width="30.9" height="58.3" viewBox="-29.5 -55.5 30.9 58.3" data-name="Transformer with two windings, general symbol" data-standard="48px">
   <title>Transformer with two windings, general symbol</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-30.00" cy="-90.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-140.00" x2="-30.00" y2="-120.00" stroke="black" fill="none" />
-    <text x="-74.00" y="-150.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
-    <ellipse cx="-30.00" cy="-50.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-20.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-30.00" cy="-140.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-10.29" cy="-30.86" rx="10.29" ry="10.29" stroke="black" fill="none" />
+    <line x1="-10.29" y1="-48.00" x2="-10.29" y2="-41.14" stroke="black" fill="none" />
+    <text x="-25.37" y="-51.43" font-size="3.1" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
+    <ellipse cx="-10.29" cy="-17.14" rx="10.29" ry="10.29" stroke="black" fill="none" />
+    <line x1="-10.29" y1="-6.86" x2="-10.29" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-10.29" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.29" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

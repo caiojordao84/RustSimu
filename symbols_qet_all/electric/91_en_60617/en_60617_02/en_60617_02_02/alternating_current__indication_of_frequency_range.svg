@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="20.0" viewBox="-11.0 -7.0 30.0 20.0" data-name="Alternating current (indication of frequency range)">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="48.0" viewBox="-26.4 -16.8 72.0 48.0" data-name="Alternating current (indication of frequency range)" data-standard="48px">
   <title>Alternating current (indication of frequency range)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -2.04 -2.07 A 3.50 2.50 0 0 0 -7.50 -0.00" stroke="black" fill="none" />
-    <path d="M 1.94 2.02 A 3.50 2.50 0 0 0 7.50 0.09" stroke="black" fill="none" />
-    <line x1="-2.00" y1="-2.00" x2="2.00" y2="2.00" stroke="black" fill="none" />
-    <text x="10.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">100...600 kHz</text>
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -4.90 -4.97 A 8.40 6.00 0 0 0 -18.00 -0.00" stroke="black" fill="none" />
+    <path d="M 4.66 4.85 A 8.40 6.00 0 0 0 18.00 0.22" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-4.80" x2="4.80" y2="4.80" stroke="black" fill="none" />
+    <text x="24.00" y="7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">100...600 kHz</text>
   </g>
 </svg>

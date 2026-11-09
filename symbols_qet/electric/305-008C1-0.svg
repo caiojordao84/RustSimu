@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="110.0" viewBox="-45.0 -30.0 120.0 110.0" data-name="Interface converter Phoenix Contact 2744461">
+<svg xmlns="http://www.w3.org/2000/svg" width="288.0" height="264.0" viewBox="-108.0 -72.0 288.0 264.0" data-name="Interface converter Phoenix Contact 2744461" data-standard="48px">
   <title>Interface converter Phoenix Contact 2744461</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="31.00" y="19.00" width="30.00" height="15.00" stroke="black" fill="none" />
-    <text x="-30.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
-    <rect x="49.00" y="21.00" width="10.00" height="11.00" stroke="black" fill="black" />
-    <text x="-4.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <text x="-18.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="2.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <rect x="-29.00" y="19.00" width="30.00" height="15.00" stroke="black" fill="none" />
-    <rect x="-27.00" y="21.00" width="10.00" height="11.00" stroke="black" fill="black" />
-    <text x="-35.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Pasive/Active</text>
-    <text x="30.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DTE/DCE</text>
-    <text x="-6.00" y="42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CONVERTER
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="74.40" y="45.60" width="72.00" height="36.00" stroke="black" fill="none" />
+    <text x="-72.00" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
+    <rect x="117.60" y="50.40" width="24.00" height="26.40" stroke="black" fill="black" />
+    <text x="-9.60" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="-43.20" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="4.80" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <rect x="-69.60" y="45.60" width="72.00" height="36.00" stroke="black" fill="none" />
+    <rect x="-64.80" y="50.40" width="24.00" height="26.40" stroke="black" fill="black" />
+    <text x="-84.00" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Pasive/Active</text>
+    <text x="72.00" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DTE/DCE</text>
+    <text x="-14.40" y="100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CONVERTER
 RS232/20mA</text>
-    <line x1="24.00" y1="-11.00" x2="64.00" y2="-11.00" stroke="black" fill="none" />
-    <path d="M 24.00 -11.00 A 6.00 12.00 0 0 0 30.00 1.00" stroke="black" fill="none" />
-    <path d="M 58.00 1.00 A 6.00 12.00 0 0 0 64.00 -11.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="1.00" x2="57.00" y2="1.00" stroke="black" fill="none" />
-    <text x="24.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SubD9cF</text>
-    <polygon points="-40,70 70,70 70,-20 -40,-20" stroke="black" fill="none" />
-    <text x="-36.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TXD+</text>
-    <text x="-16.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TXD-</text>
-    <text x="6.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <text x="24.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RXD+</text>
-    <text x="44.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RXD-</text>
-    <circle class="qet-terminal" cx="-30.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="50.00" cy="70.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <line x1="57.60" y1="-26.40" x2="153.60" y2="-26.40" stroke="black" fill="none" />
+    <path d="M 57.60 -26.40 A 14.40 28.80 0 0 0 72.00 2.40" stroke="black" fill="none" />
+    <path d="M 139.20 2.40 A 14.40 28.80 0 0 0 153.60 -26.40" stroke="black" fill="none" />
+    <line x1="72.00" y1="2.40" x2="136.80" y2="2.40" stroke="black" fill="none" />
+    <text x="57.60" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SubD9cF</text>
+    <polygon points="-96.00,168.00 168.00,168.00 168.00,-48.00 -96.00,-48.00" stroke="black" fill="none" />
+    <text x="-86.40" y="153.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">TXD+</text>
+    <text x="-38.40" y="153.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">TXD-</text>
+    <text x="14.40" y="153.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="57.60" y="153.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RXD+</text>
+    <text x="105.60" y="153.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RXD-</text>
+    <circle class="qet-terminal" cx="-72.00" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-48.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

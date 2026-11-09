@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="80.0" viewBox="-50.0 -40.0 100.0 80.0" data-name="Power Supply AC/DC 1-ph. DC 24V">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="192.0" viewBox="-120.0 -96.0 240.0 192.0" data-name="Power Supply AC/DC 1-ph. DC 24V" data-standard="48px">
   <title>Power Supply AC/DC 1-ph. DC 24V</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-45.00" y="-30.00" width="90.00" height="60.00" stroke="black" fill="none" />
-    <text x="-28.00" y="-7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC ~</text>
-    <ellipse cx="30.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="9.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="29.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="-32.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="5.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24 VDC</text>
-    <text x="-12.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="-3.00" y="-19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <ellipse cx="0.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="25.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <ellipse cx="-30.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="30.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-10.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="10.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-32.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <rect x="-30.00" y="-15.00" width="60.00" height="30.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-15.00" x2="-30.00" y2="15.00" stroke="black" fill="none" />
-    <ellipse cx="-30.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <circle class="qet-terminal" cx="30.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-30.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-30.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-108.00" y="-72.00" width="216.00" height="144.00" stroke="black" fill="none" />
+    <text x="-67.20" y="-16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">AC ~</text>
+    <ellipse cx="72.00" cy="-72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <text x="21.60" y="60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="69.60" y="60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="-76.80" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="12.00" y="31.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">24 VDC</text>
+    <text x="-28.80" y="60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="-7.20" y="-45.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <ellipse cx="0.00" cy="-72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <text x="60.00" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <ellipse cx="-72.00" cy="72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="72.00" cy="72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <text x="-76.80" y="60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <rect x="-72.00" y="-36.00" width="144.00" height="72.00" stroke="black" fill="none" />
+    <line x1="72.00" y1="-36.00" x2="-72.00" y2="36.00" stroke="black" fill="none" />
+    <ellipse cx="-72.00" cy="-72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="72.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

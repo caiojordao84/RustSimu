@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="40.0" viewBox="-50.0 -28.0 100.0 40.0" data-name="Direct current circuit">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="24.0" viewBox="-30.0 -16.8 60.0 24.0" data-name="Direct current circuit" data-standard="48px">
   <title>Direct current circuit</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-40.00" y1="0.00" x2="40.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-7.00" x2="-8.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-5.00" x2="-8.00" y2="-5.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-24.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-4.20" x2="-4.80" y2="-4.20" stroke="black" fill="none" />
+    <line x1="-9.00" y1="-3.00" x2="-4.80" y2="-3.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

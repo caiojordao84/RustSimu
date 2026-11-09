@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="20.0" viewBox="-40.0 -10.0 60.0 20.0" data-name="Connecting link, closed">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="24.0" viewBox="-48.0 -12.0 72.0 24.0" data-name="Connecting link, closed" data-standard="48px">
   <title>Connecting link, closed</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
-    <ellipse cx="-20.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-3.00" x2="0.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="3.00" x2="0.00" y2="3.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-23.00" y1="0.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="-24.00" cy="0.00" rx="3.60" ry="3.60" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-3.60" x2="0.00" y2="-3.60" stroke="black" fill="none" />
+    <line x1="-24.00" y1="3.60" x2="0.00" y2="3.60" stroke="black" fill="none" />
+    <line x1="3.60" y1="0.00" x2="12.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-27.60" y1="0.00" x2="-36.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-36.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="30.0" viewBox="-33.0 -14.0 90.0 30.0" data-name="vaina-tuberia">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.8" height="20.3" viewBox="-22.3 -9.5 60.8 20.3" data-name="vaina-tuberia" data-standard="48px">
   <title>vaina-tuberia</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="28.18" y1="0.00" x2="47.89" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-4.24" y1="0.00" x2="26.26" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-12.00" y1="11.00" x2="21.00" y2="11.00" stroke="black" fill="none" />
-    <ellipse cx="-13.00" cy="1.00" rx="7.00" ry="10.00" stroke="black" fill="none" />
-    <path d="M 20.00 11.00 A 7.00 10.00 0 0 0 20.00 -9.00" stroke="black" fill="none" />
-    <line x1="-13.00" y1="-9.00" x2="20.00" y2="-9.00" stroke="black" fill="none" />
-    <line x1="-25.82" y1="0.00" x2="-6.11" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="47.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19.05" y1="0.00" x2="32.38" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-2.87" y1="0.00" x2="17.75" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-8.11" y1="7.44" x2="14.20" y2="7.44" stroke="black" fill="none" />
+    <ellipse cx="-8.79" cy="0.68" rx="4.73" ry="6.76" stroke="black" fill="none" />
+    <path d="M 13.52 7.44 A 4.73 6.76 0 0 0 13.52 -6.08" stroke="black" fill="none" />
+    <line x1="-8.79" y1="-6.08" x2="13.52" y2="-6.08" stroke="black" fill="none" />
+    <line x1="-17.46" y1="0.00" x2="-4.13" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="-16.23" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="31.77" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

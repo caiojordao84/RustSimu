@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-27.0 -7.0 50.0 20.0" data-name="Reset signal output">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="48.0" viewBox="-64.8 -16.8 120.0 48.0" data-name="Reset signal output" data-standard="48px">
   <title>Reset signal output</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-2.64" y="3.52" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">R</text>
-    <path d="M 8.35 4.92 A 2.00 5.00 0 0 0 8.35 -4.92" stroke="black" fill="none" />
-    <path d="M -8.35 -4.92 A 2.00 5.00 0 0 0 -8.35 4.92" stroke="black" fill="none" />
-    <line x1="10.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-6.34" y="8.45" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">R</text>
+    <path d="M 20.04 11.81 A 4.80 12.00 0 0 0 20.04 -11.81" stroke="black" fill="none" />
+    <path d="M -20.04 -11.81 A 4.80 12.00 0 0 0 -20.04 11.81" stroke="black" fill="none" />
+    <line x1="24.00" y1="0.00" x2="48.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-45.60" y1="0.00" x2="-24.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

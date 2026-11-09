@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-15.0 -15.0 30.0 30.0" data-name="Wire of cable">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="72.0" viewBox="-36.0 -36.0 72.0 72.0" data-name="Wire of cable" data-standard="48px">
   <title>Wire of cable</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-9.76" y1="0.00" x2="9.83" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-4.10" x2="0.00" y2="4.11" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-23.42" y1="0.00" x2="23.59" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-9.84" x2="0.00" y2="9.86" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

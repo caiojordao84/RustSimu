@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="90.0" viewBox="-55.0 -74.0 150.0 90.0" data-name="Servomoteur Siemens 24V 0-10V">
+<svg xmlns="http://www.w3.org/2000/svg" width="180.0" height="108.0" viewBox="-66.0 -88.8 180.0 108.0" data-name="Servomoteur Siemens 24V 0-10V" data-standard="48px">
   <title>Servomoteur Siemens 24V 0-10V</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-10.00" cy="-30.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <polygon points="27,5 33,5 30,11" stroke="black" fill="black" />
-    <rect x="-50.00" y="-65.00" width="140.00" height="70.00" stroke="black" fill="none" />
-    <rect x="-35.00" y="-55.00" width="80.00" height="50.00" stroke="black" fill="none" />
-    <text x="-19.00" y="-57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">G</text>
-    <text x="35.00" y="-56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Y</text>
-    <text x="-24.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">G0</text>
-    <text x="-17.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <line x1="-20.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-60.00" x2="-10.00" y2="-55.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-60.00" x2="30.00" y2="-55.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="-10.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-15.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-5.00" x2="30.00" y2="5.00" stroke="black" fill="none" />
-    <text x="35.00" y="5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U</text>
-    <polygon points="27,-70 33,-70 30,-64" stroke="black" fill="black" />
-    <rect x="25.00" y="-43.00" width="10.00" height="25.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-49.00" x2="30.00" y2="-44.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-17.00" x2="30.00" y2="-12.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-30.00" x2="25.00" y2="-30.00" stroke="black" fill="none" />
-    <polygon points="35,-43 25,-18 25,-43" stroke="black" fill="black" />
-    <text x="35.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0%</text>
-    <text x="35.00" y="-45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">100%</text>
-    <text x="12.72" y="-57.93" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0-10V</text>
-    <circle class="qet-terminal" cx="-10.00" cy="-65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="-65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-12.00" cy="-36.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <polygon points="32.40,6.00 39.60,6.00 36.00,13.20" stroke="black" fill="black" />
+    <rect x="-60.00" y="-78.00" width="168.00" height="84.00" stroke="black" fill="none" />
+    <rect x="-42.00" y="-66.00" width="96.00" height="60.00" stroke="black" fill="none" />
+    <text x="-22.80" y="-68.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">G</text>
+    <text x="42.00" y="-67.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Y</text>
+    <text x="-28.80" y="4.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">G0</text>
+    <text x="-20.40" y="-31.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <line x1="-24.00" y1="-24.00" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-72.00" x2="-12.00" y2="-66.00" stroke="black" fill="none" />
+    <line x1="36.00" y1="-72.00" x2="36.00" y2="-66.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="0.00" x2="-12.00" y2="-6.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-18.00" x2="0.00" y2="-18.00" stroke="black" fill="none" />
+    <line x1="36.00" y1="-6.00" x2="36.00" y2="6.00" stroke="black" fill="none" />
+    <text x="42.00" y="6.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">U</text>
+    <polygon points="32.40,-84.00 39.60,-84.00 36.00,-76.80" stroke="black" fill="black" />
+    <rect x="30.00" y="-51.60" width="12.00" height="30.00" stroke="black" fill="none" />
+    <line x1="36.00" y1="-58.80" x2="36.00" y2="-52.80" stroke="black" fill="none" />
+    <line x1="36.00" y1="-20.40" x2="36.00" y2="-14.40" stroke="black" fill="none" />
+    <line x1="12.00" y1="-36.00" x2="30.00" y2="-36.00" stroke="black" fill="none" />
+    <polygon points="42.00,-51.60 30.00,-21.60 30.00,-51.60" stroke="black" fill="black" />
+    <text x="42.00" y="-12.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">0%</text>
+    <text x="42.00" y="-54.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">100%</text>
+    <text x="15.26" y="-69.52" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">0-10V</text>
+    <circle class="qet-terminal" cx="-12.00" cy="-78.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="36.00" cy="-78.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="36.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-12.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

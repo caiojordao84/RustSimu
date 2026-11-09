@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-29.0 -15.0 60.0 30.0" data-name="Flexible2">
+<svg xmlns="http://www.w3.org/2000/svg" width="70.2" height="35.1" viewBox="-34.0 -17.6 70.2 35.1" data-name="Flexible2" data-standard="48px">
   <title>Flexible2</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="11.00" y1="0.00" x2="21.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-10.90" x2="10.00" y2="10.89" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-10.90" x2="-10.00" y2="10.89" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="9.00" ry="13.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="21.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12.88" y1="0.00" x2="24.59" y2="0.00" stroke="black" fill="none" />
+    <line x1="11.71" y1="-12.76" x2="11.71" y2="12.75" stroke="black" fill="none" />
+    <line x1="-11.71" y1="-12.76" x2="-11.71" y2="12.75" stroke="black" fill="none" />
+    <line x1="-23.41" y1="0.00" x2="-11.71" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="10.54" ry="15.22" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-23.41" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.59" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

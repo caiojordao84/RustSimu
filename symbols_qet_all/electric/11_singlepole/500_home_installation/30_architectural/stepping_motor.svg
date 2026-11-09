@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -30.0 30.0 40.0" data-name="Stepping motor">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-36.0 -72.0 72.0 96.0" data-name="Stepping motor" data-standard="48px">
   <title>Stepping motor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="6.00" y1="-3.00" x2="6.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-3.00" x2="-6.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-3.00" x2="6.00" y2="-3.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-8.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
-    <text x="-4.50" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="14.40" y1="-7.20" x2="14.40" y2="-14.40" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-7.20" x2="-14.40" y2="-2.40" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-7.20" x2="14.40" y2="-7.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-19.20" rx="28.80" ry="28.80" stroke="black" fill="none" />
+    <text x="-10.80" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

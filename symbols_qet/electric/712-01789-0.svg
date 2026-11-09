@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="170.0" height="70.0" viewBox="-164.0 -65.0 170.0 70.0" data-name="Multi-position switch, with position dagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="408.0" height="168.0" viewBox="-393.6 -156.0 408.0 168.0" data-name="Multi-position switch, with position dagram" data-standard="48px">
   <title>Multi-position switch, with position dagram</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-40.00" x2="-20.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-40.00" x2="-40.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-40.00" x2="-60.00" y2="-60.00" stroke="black" fill="none" />
-    <polyline points="-20,0 -20,-20 -40,-35" stroke="black" fill="none" />
-    <line x1="-120.00" y1="-16.00" x2="-130.00" y2="-36.00" stroke="black" fill="none" />
-    <line x1="-120.00" y1="-16.00" x2="-110.00" y2="-36.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-120.00" y1="-16.00" x2="-90.00" y2="-36.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-120.00" y1="-16.00" x2="-150.00" y2="-36.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="-152.00" y="-40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-132.00" y="-40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-112.00" y="-40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="-93.00" y="-40.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <line x1="-124.00" y1="-25.00" x2="-27.00" y2="-25.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-96.00" x2="0.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-96.00" x2="-48.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-96.00" x2="-96.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-96.00" x2="-144.00" y2="-144.00" stroke="black" fill="none" />
+    <polyline points="-48.00,0.00 -48.00,-48.00 -96.00,-84.00" stroke="black" fill="none" />
+    <line x1="-288.00" y1="-38.40" x2="-312.00" y2="-86.40" stroke="black" fill="none" />
+    <line x1="-288.00" y1="-38.40" x2="-264.00" y2="-86.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-288.00" y1="-38.40" x2="-216.00" y2="-86.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-288.00" y1="-38.40" x2="-360.00" y2="-86.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="-364.80" y="-96.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-316.80" y="-96.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-268.80" y="-96.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-223.20" y="-96.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <line x1="-297.60" y1="-60.00" x2="-64.80" y2="-60.00" stroke="black" fill="none" stroke-dasharray="4,3" />
   </g>
 </svg>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-30.0 -7.0 50.0 30.0" data-name="Pulse, negative-going">
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="48.0" viewBox="-48.0 -11.2 80.0 48.0" data-name="Pulse, negative-going" data-standard="48px">
   <title>Pulse, negative-going</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-20,0 -10,0 -10,20 0,20 0,0 10,0" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-32.00,0.00 -16.00,0.00 -16.00,32.00 0.00,32.00 0.00,0.00 16.00,0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="16.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-32.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

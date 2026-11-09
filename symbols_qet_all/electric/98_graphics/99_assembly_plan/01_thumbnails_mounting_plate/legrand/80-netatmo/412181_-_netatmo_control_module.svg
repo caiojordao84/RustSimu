@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="210.0" viewBox="-5.0 -2.0 110.0 210.0" data-name="412181 - Netatmo Control module">
+<svg xmlns="http://www.w3.org/2000/svg" width="88.0" height="168.0" viewBox="-4.0 -1.6 88.0 168.0" data-name="412181 - Netatmo Control module" data-standard="48px">
   <title>412181 - Netatmo Control module</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="100.00" height="200.00" stroke="black" fill="white" />
-    <rect x="0.00" y="50.00" width="100.00" height="100.00" stroke="black" fill="none" />
-    <ellipse cx="47.00" cy="90.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <polyline points="4,121 4,146 9,146" stroke="#d40000" fill="none" />
-    <line x1="26.00" y1="146.00" x2="99.00" y2="146.00" stroke="#d40000" fill="none" />
-    <rect x="92.00" y="122.00" width="2.00" height="12.00" stroke="black" fill="black" />
-    <ellipse cx="93.00" cy="132.00" rx="0.50" ry="0.50" stroke="black" fill="white" />
-    <ellipse cx="21.00" cy="74.00" rx="5.00" ry="5.00" stroke="black" fill="black" />
-    <path d="M 12.00 128.00 A 2.00 2.00 0 0 0 10.34 128.88" stroke="black" fill="none" />
-    <path d="M 13.68 128.91 A 2.00 2.00 0 0 0 12.00 128.00" stroke="black" fill="none" />
-    <path d="M 12.10 126.50 A 3.50 3.50 0 0 0 9.20 128.04" stroke="black" fill="none" />
-    <path d="M 15.00 128.04 A 3.50 3.50 0 0 0 12.10 126.50" stroke="black" fill="none" />
-    <path d="M 12.00 125.00 A 5.00 5.00 0 0 0 7.81 127.28" stroke="black" fill="none" />
-    <path d="M 16.19 127.28 A 5.00 5.00 0 0 0 12.00 125.00" stroke="black" fill="none" />
-    <text x="16.00" y="95.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">⚙</text>
-    <text x="17.00" y="194.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <text x="78.00" y="194.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <circle class="qet-terminal" cx="20.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="80.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="80.00" height="160.00" stroke="black" fill="white" />
+    <rect x="0.00" y="40.00" width="80.00" height="80.00" stroke="black" fill="none" />
+    <ellipse cx="37.60" cy="72.00" rx="1.60" ry="1.60" stroke="black" fill="none" />
+    <polyline points="3.20,96.80 3.20,116.80 7.20,116.80" stroke="#d40000" fill="none" />
+    <line x1="20.80" y1="116.80" x2="79.20" y2="116.80" stroke="#d40000" fill="none" />
+    <rect x="73.60" y="97.60" width="1.60" height="9.60" stroke="black" fill="black" />
+    <ellipse cx="74.40" cy="105.60" rx="0.40" ry="0.40" stroke="black" fill="white" />
+    <ellipse cx="16.80" cy="59.20" rx="4.00" ry="4.00" stroke="black" fill="black" />
+    <path d="M 9.60 102.40 A 1.60 1.60 0 0 0 8.27 103.10" stroke="black" fill="none" />
+    <path d="M 10.94 103.13 A 1.60 1.60 0 0 0 9.60 102.40" stroke="black" fill="none" />
+    <path d="M 9.68 101.20 A 2.80 2.80 0 0 0 7.36 102.43" stroke="black" fill="none" />
+    <path d="M 12.00 102.43 A 2.80 2.80 0 0 0 9.68 101.20" stroke="black" fill="none" />
+    <path d="M 9.60 100.00 A 4.00 4.00 0 0 0 6.25 101.82" stroke="black" fill="none" />
+    <path d="M 12.95 101.82 A 4.00 4.00 0 0 0 9.60 100.00" stroke="black" fill="none" />
+    <text x="12.80" y="76.00" font-size="7.2" font-family="sans-serif" fill="black" stroke="none">⚙</text>
+    <text x="13.60" y="155.20" font-size="7.2" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="62.40" y="155.20" font-size="7.2" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <circle class="qet-terminal" cx="16.00" cy="160.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="64.00" cy="160.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

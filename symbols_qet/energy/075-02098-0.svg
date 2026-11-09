@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="70.0" viewBox="-25.0 -36.0 50.0 70.0" data-name="Heating Vase">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="168.0" viewBox="-60.0 -86.4 120.0 168.0" data-name="Heating Vase" data-standard="48px">
   <title>Heating Vase</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-2.00" y1="-24.00" x2="2.00" y2="-25.00" stroke="black" fill="none" />
-    <polygon points="-2,-24 -2,-28 2,-28 2,-24" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-17.00" rx="20.00" ry="7.50" stroke="none" fill="#d40000" />
-    <rect x="-20.00" y="-17.00" width="40.00" height="17.00" stroke="none" fill="#d40000" />
-    <rect x="-20.00" y="0.00" width="40.00" height="20.00" stroke="none" fill="#d40000" />
-    <ellipse cx="0.00" cy="20.00" rx="20.00" ry="7.50" stroke="none" fill="#d40000" />
-    <polygon points="0,0 -3,3 3,3" stroke="black" fill="none" />
-    <line x1="20.00" y1="-17.00" x2="20.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-17.00" x2="-20.00" y2="20.00" stroke="black" fill="none" />
-    <path d="M 20.00 -17.00 A 20.00 7.50 0 0 0 -20.00 -17.00" stroke="black" fill="none" />
-    <path d="M -20.00 20.00 A 20.00 7.50 0 0 0 20.00 20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="28.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <rect x="-0.50" y="29.00" width="1.00" height="1.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="-27.00" x2="2.00" y2="-28.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="-26.00" x2="2.00" y2="-27.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="-25.00" x2="2.00" y2="-26.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-28.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-4.80" y1="-57.60" x2="4.80" y2="-60.00" stroke="black" fill="none" />
+    <polygon points="-4.80,-57.60 -4.80,-67.20 4.80,-67.20 4.80,-57.60" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-40.80" rx="48.00" ry="18.00" stroke="none" fill="#d40000" />
+    <rect x="-48.00" y="-40.80" width="96.00" height="40.80" stroke="none" fill="#d40000" />
+    <rect x="-48.00" y="0.00" width="96.00" height="48.00" stroke="none" fill="#d40000" />
+    <ellipse cx="0.00" cy="48.00" rx="48.00" ry="18.00" stroke="none" fill="#d40000" />
+    <polygon points="0.00,0.00 -7.20,7.20 7.20,7.20" stroke="black" fill="none" />
+    <line x1="48.00" y1="-40.80" x2="48.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-40.80" x2="-48.00" y2="48.00" stroke="black" fill="none" />
+    <path d="M 48.00 -40.80 A 48.00 18.00 0 0 0 -48.00 -40.80" stroke="black" fill="none" />
+    <path d="M -48.00 48.00 A 48.00 18.00 0 0 0 48.00 48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="67.20" x2="0.00" y2="72.00" stroke="black" fill="none" />
+    <rect x="-1.20" y="69.60" width="2.40" height="2.40" stroke="black" fill="none" />
+    <line x1="-48.00" y1="0.00" x2="48.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-64.80" x2="4.80" y2="-67.20" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-62.40" x2="4.80" y2="-64.80" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-60.00" x2="4.80" y2="-62.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-67.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

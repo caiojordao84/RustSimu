@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -24.0 50.0 50.0" data-name="Danger electric">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -57.6 120.0 120.0" data-name="Danger electric" data-standard="48px">
   <title>Danger electric</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-19,20 0,-18 19,20" stroke="black" fill="none" />
-    <polygon points="-20,21 20,21 0,-19" stroke="black" fill="none" />
-    <line x1="19.00" y1="21.00" x2="19.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="21.00" x2="-19.00" y2="20.00" stroke="black" fill="none" />
-    <rect x="-19.00" y="20.00" width="37.00" height="1.00" stroke="black" fill="black" />
-    <polygon points="-4,12 -1,3 -5,4 -2,-6 4,-6 -3,2 2,1" stroke="black" fill="black" />
-    <polygon points="-5,11 -2.5,11.5 -6,16" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-45.60,48.00 0.00,-43.20 45.60,48.00" stroke="black" fill="none" />
+    <polygon points="-48.00,50.40 48.00,50.40 0.00,-45.60" stroke="black" fill="none" />
+    <line x1="45.60" y1="50.40" x2="45.60" y2="48.00" stroke="black" fill="none" />
+    <line x1="-45.60" y1="50.40" x2="-45.60" y2="48.00" stroke="black" fill="none" />
+    <rect x="-45.60" y="48.00" width="88.80" height="2.40" stroke="black" fill="black" />
+    <polygon points="-9.60,28.80 -2.40,7.20 -12.00,9.60 -4.80,-14.40 9.60,-14.40 -7.20,4.80 4.80,2.40" stroke="black" fill="black" />
+    <polygon points="-12.00,26.40 -6.00,27.60 -14.40,38.40" stroke="black" fill="black" />
   </g>
 </svg>

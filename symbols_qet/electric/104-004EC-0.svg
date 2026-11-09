@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="20.0" viewBox="-11.0 -13.0 30.0 20.0" data-name="Single pole switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="48.0" viewBox="-26.4 -31.2 72.0 48.0" data-name="Single pole switch" data-standard="48px">
   <title>Single pole switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="2,-2 10,-10 12,-8" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="4.80,-4.80 24.00,-24.00 28.80,-19.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

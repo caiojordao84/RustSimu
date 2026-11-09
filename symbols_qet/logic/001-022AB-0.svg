@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="80.0" viewBox="-37.0 -40.0 60.0 80.0" data-name="output">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="192.0" viewBox="-88.8 -96.0 144.0 192.0" data-name="output" data-standard="48px">
   <title>output</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-30.00" y1="0.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
-    <text x="-5.50" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Q</text>
-    <rect x="-20.00" y="-35.00" width="40.00" height="70.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-72.00" y1="0.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <text x="-13.20" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Q</text>
+    <rect x="-48.00" y="-84.00" width="96.00" height="168.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

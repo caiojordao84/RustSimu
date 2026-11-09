@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="20.0" viewBox="-30.0 -10.0 60.0 20.0" data-name="Radiator">
+<svg xmlns="http://www.w3.org/2000/svg" width="65.5" height="21.8" viewBox="-32.7 -10.9 65.5 21.8" data-name="Radiator" data-standard="48px">
   <title>Radiator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-3.37" width="40.00" height="6.37" stroke="black" fill="none" />
-    <polyline points="-19,-3.37 -15,3 -9,-3.37 -3,3 4,-3.37 11,3 18,-3.37" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-21.82" y="-3.68" width="43.64" height="6.95" stroke="black" fill="none" />
+    <polyline points="-20.73,-3.68 -16.36,3.27 -9.82,-3.68 -3.27,3.27 4.36,-3.68 12.00,3.27 19.64,-3.68" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

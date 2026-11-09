@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="80.0" viewBox="-15.0 -20.0 110.0 80.0" data-name="Process">
+<svg xmlns="http://www.w3.org/2000/svg" width="264.0" height="192.0" viewBox="-36.0 -48.0 264.0 192.0" data-name="Process" data-standard="48px">
   <title>Process</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-10.00" y="0.00" width="100.00" height="40.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="45.00" x2="40.00" y2="40.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="-9.90" x2="40.00" y2="-0.11" stroke="black" fill="none" />
-    <line x1="40.00" y1="40.00" x2="40.00" y2="50.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="0.00" width="240.00" height="96.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="108.00" x2="96.00" y2="96.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="-23.76" x2="96.00" y2="-0.26" stroke="black" fill="none" />
+    <line x1="96.00" y1="96.00" x2="96.00" y2="120.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="96.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

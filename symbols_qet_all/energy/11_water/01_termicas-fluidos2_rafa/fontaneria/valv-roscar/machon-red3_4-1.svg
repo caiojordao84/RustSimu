@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-20.0 -30.0 40.0 60.0" data-name="machon-red3 4-1">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="144.0" viewBox="-48.0 -72.0 96.0 144.0" data-name="machon-red3 4-1" data-standard="48px">
   <title>machon-red3 4-1</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-4.15" y1="8.45" x2="-5.08" y2="-7.12" stroke="black" fill="none" />
-    <path d="M -1.08 8.64 A 1.50 7.25 0 0 0 -2.58 15.89" stroke="black" fill="none" />
-    <path d="M 3.11 15.89 A 1.50 7.25 0 0 0 1.61 8.64" stroke="black" fill="none" />
-    <line x1="-5.32" y1="8.45" x2="-6.25" y2="-7.12" stroke="black" fill="none" />
-    <path d="M -2.58 -14.92 A 1.50 7.25 0 0 0 -1.08 -7.67" stroke="black" fill="none" />
-    <line x1="7.00" y1="6.22" x2="6.05" y2="-4.68" stroke="black" fill="none" />
-    <path d="M 2.07 8.64 A 1.07 8.15 0 0 0 2.07 -7.67" stroke="black" fill="none" />
-    <line x1="8.14" y1="6.22" x2="7.21" y2="-4.68" stroke="black" fill="none" />
-    <rect x="-2.58" y="-16.73" width="5.69" height="32.62" stroke="black" fill="none" />
-    <line x1="5.81" y1="6.22" x2="4.88" y2="-4.68" stroke="black" fill="none" />
-    <line x1="1.39" y1="-7.67" x2="-1.12" y2="-7.67" stroke="black" fill="none" />
-    <rect x="3.64" y="-5.23" width="5.87" height="11.19" stroke="black" fill="none" />
-    <line x1="-6.49" y1="8.45" x2="-7.42" y2="-7.12" stroke="black" fill="none" />
-    <path d="M 1.61 -7.67 A 1.50 7.25 0 0 0 3.11 -14.92" stroke="black" fill="none" />
-    <line x1="-1.09" y1="8.64" x2="1.36" y2="8.64" stroke="black" fill="none" />
-    <rect x="-8.65" y="-7.90" width="5.87" height="16.00" stroke="black" fill="none" />
-    <path d="M -1.51 -7.67 A 1.07 8.15 0 0 0 -1.51 8.64" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-9.96" y1="20.28" x2="-12.19" y2="-17.09" stroke="black" fill="none" />
+    <path d="M -2.59 20.74 A 3.60 17.40 0 0 0 -6.19 38.14" stroke="black" fill="none" />
+    <path d="M 7.46 38.14 A 3.60 17.40 0 0 0 3.86 20.74" stroke="black" fill="none" />
+    <line x1="-12.77" y1="20.28" x2="-15.00" y2="-17.09" stroke="black" fill="none" />
+    <path d="M -6.19 -35.81 A 3.60 17.40 0 0 0 -2.59 -18.41" stroke="black" fill="none" />
+    <line x1="16.80" y1="14.93" x2="14.52" y2="-11.23" stroke="black" fill="none" />
+    <path d="M 4.97 20.74 A 2.57 19.56 0 0 0 4.97 -18.41" stroke="black" fill="none" />
+    <line x1="19.54" y1="14.93" x2="17.30" y2="-11.23" stroke="black" fill="none" />
+    <rect x="-6.19" y="-40.15" width="13.66" height="78.29" stroke="black" fill="none" />
+    <line x1="13.94" y1="14.93" x2="11.71" y2="-11.23" stroke="black" fill="none" />
+    <line x1="3.34" y1="-18.41" x2="-2.69" y2="-18.41" stroke="black" fill="none" />
+    <rect x="8.74" y="-12.55" width="14.09" height="26.86" stroke="black" fill="none" />
+    <line x1="-15.58" y1="20.28" x2="-17.81" y2="-17.09" stroke="black" fill="none" />
+    <path d="M 3.86 -18.41 A 3.60 17.40 0 0 0 7.46 -35.81" stroke="black" fill="none" />
+    <line x1="-2.62" y1="20.74" x2="3.26" y2="20.74" stroke="black" fill="none" />
+    <rect x="-20.76" y="-18.96" width="14.09" height="38.40" stroke="black" fill="none" />
+    <path d="M -3.62 -18.41 A 2.57 19.56 0 0 0 -3.62 20.74" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="80.0" viewBox="-66.0 -50.0 100.0 80.0" data-name="Pulse meter electrically reset to 0">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="192.0" viewBox="-158.4 -120.0 240.0 192.0" data-name="Pulse meter electrically reset to 0" data-standard="48px">
   <title>Pulse meter electrically reset to 0</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-20.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <ellipse cx="-10.00" cy="-10.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <rect x="-60.00" y="-20.00" width="40.00" height="20.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-40.00" x2="-40.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="0.00" x2="-40.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-40.00" x2="-10.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-40.00" x2="14.00" y2="-40.00" stroke="black" fill="none" />
-    <polygon points="8,-40 8,-42 16,-40 8,-38" stroke="black" fill="black" />
-    <text x="18.00" y="-36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
-    <circle class="qet-terminal" cx="-40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-48.00" y="-48.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <ellipse cx="-24.00" cy="-24.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <rect x="-144.00" y="-48.00" width="96.00" height="48.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-96.00" x2="-96.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="0.00" x2="-96.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-96.00" x2="-24.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="-24.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-96.00" x2="33.60" y2="-96.00" stroke="black" fill="none" />
+    <polygon points="19.20,-96.00 19.20,-100.80 38.40,-96.00 19.20,-91.20" stroke="black" fill="black" />
+    <text x="43.20" y="-86.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <circle class="qet-terminal" cx="-96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

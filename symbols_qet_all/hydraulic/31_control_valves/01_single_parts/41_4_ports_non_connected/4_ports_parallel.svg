@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -20.0 40.0 50.0" data-name="4 ports parallel">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="120.0" viewBox="-48.0 -48.0 96.0 120.0" data-name="4 ports parallel" data-standard="48px">
   <title>4 ports parallel</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-15.00" y="-10.00" width="30.00" height="30.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="20.00" x2="-10.00" y2="-5.00" stroke="black" fill="none" />
-    <polygon points="-9.95,-9.95 -11.95,-4.95 -7.95,-4.95" stroke="black" fill="black" />
-    <line x1="10.00" y1="16.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
-    <polygon points="8,15 12,15 10,20" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-36.00" y="-24.00" width="72.00" height="72.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="48.00" x2="-24.00" y2="-12.00" stroke="black" fill="none" />
+    <polygon points="-23.88,-23.88 -28.68,-11.88 -19.08,-11.88" stroke="black" fill="black" />
+    <line x1="24.00" y1="38.40" x2="24.00" y2="-24.00" stroke="black" fill="none" />
+    <polygon points="19.20,36.00 28.80,36.00 24.00,48.00" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

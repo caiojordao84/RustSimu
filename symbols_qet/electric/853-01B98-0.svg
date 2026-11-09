@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -25.0 50.0 50.0" data-name="Arrow button">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -60.0 120.0 120.0" data-name="Arrow button" data-standard="48px">
   <title>Arrow button</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="1.00" y1="14.00" x2="1.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="14.00" x2="-1.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="14.00" x2="0.00" y2="-14.00" stroke="black" fill="black" />
-    <ellipse cx="0.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="22.00" ry="22.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="2.40" y1="33.60" x2="2.40" y2="-14.40" stroke="black" fill="none" />
+    <line x1="-2.40" y1="33.60" x2="-2.40" y2="-14.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="33.60" x2="0.00" y2="-33.60" stroke="black" fill="black" />
+    <ellipse cx="0.00" cy="0.00" rx="36.00" ry="36.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="52.80" ry="52.80" stroke="black" fill="none" />
   </g>
 </svg>

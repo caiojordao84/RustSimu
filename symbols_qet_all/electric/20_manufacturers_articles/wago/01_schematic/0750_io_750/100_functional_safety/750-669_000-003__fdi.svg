@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="730.0" height="110.0" viewBox="-365.0 -51.0 730.0 110.0" data-name="750-669/000-003 (FDI)">
+<svg xmlns="http://www.w3.org/2000/svg" width="876.0" height="132.0" viewBox="-438.0 -61.2 876.0 132.0" data-name="750-669/000-003 (FDI)" data-standard="48px">
   <title>750-669/000-003 (FDI)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-296.55" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">18</text>
-    <text x="-306.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <text x="-351.80" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
-    <polyline points="360,-40 -360,-40 -360,50 360,50" stroke="black" fill="none" />
-    <text x="-336.55" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">17</text>
-    <line x1="360.00" y1="-40.00" x2="360.00" y2="50.00" stroke="black" fill="none" stroke-dasharray="4,2,1.5,2" />
-    <ellipse cx="-300.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-76.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <ellipse cx="-340.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-79.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T2</text>
-    <text x="162.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I3</text>
-    <text x="165.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <text x="-156.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-159.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I1</text>
-    <text x="241.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T2</text>
-    <text x="246.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <text x="-236.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-239.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T1</text>
-    <text x="321.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I4</text>
-    <text x="326.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <text x="4.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="-339.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 750-669/000-003 (FDI)</text>
-    <text x="1.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I2</text>
-    <text x="82.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T1</text>
-    <text x="86.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="-130.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4FDI / 4FRO 48VAC / 60VDC / 6A PROFIsafe V2 iPar</text>
-    <ellipse cx="160.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-80.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="240.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-160.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="320.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-240.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="80.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="0.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <circle class="qet-terminal" cx="-340.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="24V.17" data-orientation="n" />
-    <circle class="qet-terminal" cx="80.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="T1.5" data-orientation="n" />
-    <circle class="qet-terminal" cx="-160.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="I1.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-80.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="T2.3" data-orientation="n" />
-    <circle class="qet-terminal" cx="-240.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="T1.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="240.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="T2.7" data-orientation="n" />
-    <circle class="qet-terminal" cx="160.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="I3.6" data-orientation="n" />
-    <circle class="qet-terminal" cx="320.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="I4.8" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="I2.4" data-orientation="n" />
-    <circle class="qet-terminal" cx="-300.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="0V.18" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-355.86" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">18</text>
+    <text x="-367.20" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="-422.16" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">+24V</text>
+    <polyline points="432.00,-48.00 -432.00,-48.00 -432.00,60.00 432.00,60.00" stroke="black" fill="none" />
+    <text x="-403.86" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">17</text>
+    <line x1="432.00" y1="-48.00" x2="432.00" y2="60.00" stroke="black" fill="none" stroke-dasharray="4,2,1.5,2" />
+    <ellipse cx="-360.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <text x="-91.20" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <ellipse cx="-408.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <text x="-94.80" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">T2</text>
+    <text x="194.40" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">I3</text>
+    <text x="198.00" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="-187.20" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-190.80" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">I1</text>
+    <text x="289.20" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">T2</text>
+    <text x="295.20" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="-283.20" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-286.80" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">T1</text>
+    <text x="385.20" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">I4</text>
+    <text x="391.20" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="4.80" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-406.80" y="54.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">WAGO 750-669/000-003 (FDI)</text>
+    <text x="1.20" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">I2</text>
+    <text x="98.40" y="-28.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">T1</text>
+    <text x="103.20" y="-50.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="-156.00" y="54.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">4FDI / 4FRO 48VAC / 60VDC / 6A PROFIsafe V2 iPar</text>
+    <ellipse cx="192.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <ellipse cx="-96.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <ellipse cx="288.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <ellipse cx="-192.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <ellipse cx="384.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <ellipse cx="-288.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <ellipse cx="96.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <ellipse cx="0.00" cy="-48.00" rx="3.00" ry="3.00" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="-408.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="24V.17" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="T1.5" data-orientation="n" />
+    <circle class="qet-terminal" cx="-192.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="I1.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="T2.3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-288.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="T1.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="288.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="T2.7" data-orientation="n" />
+    <circle class="qet-terminal" cx="192.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="I3.6" data-orientation="n" />
+    <circle class="qet-terminal" cx="384.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="I4.8" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="I2.4" data-orientation="n" />
+    <circle class="qet-terminal" cx="-360.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="0V.18" data-orientation="n" />
   </g>
 </svg>

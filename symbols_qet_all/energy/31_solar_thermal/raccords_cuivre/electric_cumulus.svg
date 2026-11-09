@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="70.0" viewBox="-20.0 -40.0 30.0 70.0" data-name="Electric cumulus">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="168.0" viewBox="-48.0 -96.0 72.0 168.0" data-name="Electric cumulus" data-standard="48px">
   <title>Electric cumulus</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-15.00" y="-25.00" width="20.00" height="50.00" stroke="black" fill="none" />
-    <line x1="-9.25" y1="-6.50" x2="-1.00" y2="-9.25" stroke="black" fill="none" />
-    <line x1="-9.50" y1="-6.00" x2="-0.75" y2="-3.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="1.50" x2="-0.25" y2="-2.50" stroke="black" fill="none" />
-    <line x1="-9.75" y1="1.75" x2="-1.25" y2="4.50" stroke="black" fill="none" />
-    <line x1="-10.50" y1="7.50" x2="-1.00" y2="4.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-36.00" y="-60.00" width="48.00" height="120.00" stroke="black" fill="none" />
+    <line x1="-22.20" y1="-15.60" x2="-2.40" y2="-22.20" stroke="black" fill="none" />
+    <line x1="-22.80" y1="-14.40" x2="-1.80" y2="-7.20" stroke="black" fill="none" />
+    <line x1="-24.00" y1="3.60" x2="-0.60" y2="-6.00" stroke="black" fill="none" />
+    <line x1="-23.40" y1="4.20" x2="-3.00" y2="10.80" stroke="black" fill="none" />
+    <line x1="-25.20" y1="18.00" x2="-2.40" y2="10.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

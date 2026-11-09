@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="90.0" viewBox="-40.0 -37.0 90.0 90.0" data-name="terrace solar capturator 2">
+<svg xmlns="http://www.w3.org/2000/svg" width="58.4" height="58.4" viewBox="-25.9 -24.0 58.4 58.4" data-name="terrace solar capturator 2" data-standard="48px">
   <title>terrace solar capturator 2</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-31.00" y1="18.00" x2="-17.00" y2="11.00" stroke="black" fill="none" />
-    <polygon points="39,30 0,-30 -27,-14 12,46" stroke="black" fill="none" />
-    <polygon points="-1,-27 -24,-13 12,43 36,29" stroke="black" fill="black" />
-    <polyline points="12,46 8,46 -31,-14 -27,-14" stroke="black" fill="none" />
-    <polyline points="-31,-14 -4,-30 0,-30" stroke="black" fill="none" />
-    <polyline points="-33,-14 -33,46.65 -30.8,46.65 -30.8,-10.2" stroke="black" fill="none" />
-    <polyline points="-31,-14 -33,-14 8,49 38,31" stroke="black" fill="none" />
-    <polyline points="-30.05,46 -4.4,30.29 -5.35,28.45 -30.05,43.23 -31,43.23" stroke="black" fill="none" />
-    <line x1="-31.00" y1="19.00" x2="-17.00" y2="12.00" stroke="black" fill="none" />
-    <polyline points="-33,-14 -8,-29 -6,-29" stroke="black" fill="none" />
-    <line x1="8.00" y1="46.00" x2="10.00" y2="48.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="-12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="5.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="3.00" cy="-29.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="29.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-20.11" y1="11.68" x2="-11.03" y2="7.14" stroke="black" fill="none" />
+    <polygon points="25.30,19.46 0.00,-19.46 -17.51,-9.08 7.78,29.84" stroke="black" fill="none" />
+    <polygon points="-0.65,-17.51 -15.57,-8.43 7.78,27.89 23.35,18.81" stroke="black" fill="black" />
+    <polyline points="7.78,29.84 5.19,29.84 -20.11,-9.08 -17.51,-9.08" stroke="black" fill="none" />
+    <polyline points="-20.11,-9.08 -2.59,-19.46 0.00,-19.46" stroke="black" fill="none" />
+    <polyline points="-21.41,-9.08 -21.41,30.26 -19.98,30.26 -19.98,-6.62" stroke="black" fill="none" />
+    <polyline points="-20.11,-9.08 -21.41,-9.08 5.19,31.78 24.65,20.11" stroke="black" fill="none" />
+    <polyline points="-19.49,29.84 -2.85,19.65 -3.47,18.45 -19.49,28.04 -20.11,28.04" stroke="black" fill="none" />
+    <line x1="-20.11" y1="12.32" x2="-11.03" y2="7.78" stroke="black" fill="none" />
+    <polyline points="-21.41,-9.08 -5.19,-18.81 -3.89,-18.81" stroke="black" fill="none" />
+    <line x1="5.19" y1="29.84" x2="6.49" y2="31.14" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-19.46" cy="-7.78" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="3.24" cy="29.19" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="1.95" cy="-18.81" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="25.95" cy="18.81" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-25.0 -22.0 50.0 60.0" data-name="Noiseless earth; Noiseless ground">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="144.0" viewBox="-60.0 -52.8 120.0 144.0" data-name="Noiseless earth; Noiseless ground" data-standard="48px">
   <title>Noiseless earth; Noiseless ground</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-10.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-15.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="5.00" x2="7.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="10.00" x2="4.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="0.50" y1="15.00" x2="-0.50" y2="15.00" stroke="black" fill="none" />
-    <path d="M 20.00 15.00 A 20.00 20.00 0 0 0 -20.00 15.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-24.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-36.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="12.00" x2="16.80" y2="12.00" stroke="black" fill="none" />
+    <line x1="-9.60" y1="24.00" x2="9.60" y2="24.00" stroke="black" fill="none" />
+    <line x1="1.20" y1="36.00" x2="-1.20" y2="36.00" stroke="black" fill="none" />
+    <path d="M 48.00 36.00 A 48.00 48.00 0 0 0 -48.00 36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

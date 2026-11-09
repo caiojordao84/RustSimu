@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="40.0" viewBox="-105.0 -37.0 130.0 40.0" data-name="Delay line, coaxial">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="96.0" viewBox="-252.0 -88.8 312.0 96.0" data-name="Delay line, coaxial" data-standard="48px">
   <title>Delay line, coaxial</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-80.00" y1="-30.00" x2="0.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-35.00" x2="-80.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-35.00" x2="0.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-100.00" y1="-10.00" x2="20.00" y2="-10.00" stroke="black" fill="black" />
-    <ellipse cx="-80.00" cy="-10.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-10.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="0.00" x2="-70.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-192.00" y1="-72.00" x2="0.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="-192.00" y1="-84.00" x2="-192.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-84.00" x2="0.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-240.00" y1="-24.00" x2="48.00" y2="-24.00" stroke="black" fill="black" />
+    <ellipse cx="-192.00" cy="-24.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-24.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <line x1="-192.00" y1="0.00" x2="-168.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="-24.00" y2="0.00" stroke="black" fill="none" />
   </g>
 </svg>

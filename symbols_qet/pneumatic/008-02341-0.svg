@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -12.0 30.0 40.0" data-name="Vacuum Indicator">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-36.0 -28.8 72.0 96.0" data-name="Vacuum Indicator" data-standard="48px">
   <title>Vacuum Indicator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="3.00" y1="3.00" x2="-4.00" y2="-4.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <polygon points="2.68,0.35 0.3,2.71 5,5 2.71,0.38" stroke="black" fill="black" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="15.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="7.20" y1="7.20" x2="-9.60" y2="-9.60" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <polygon points="6.43,0.84 0.72,6.50 12.00,12.00 6.50,0.91" stroke="black" fill="black" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

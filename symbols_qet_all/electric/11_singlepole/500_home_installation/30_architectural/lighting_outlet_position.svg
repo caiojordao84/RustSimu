@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-19.0 -10.0 40.0 20.0" data-name="Lighting outlet position">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="48.0" viewBox="-45.6 -24.0 96.0 48.0" data-name="Lighting outlet position" data-standard="48px">
   <title>Lighting outlet position</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-10.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="17.00" y1="-7.00" x2="3.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="-7.00" x2="17.00" y2="7.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-24.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="40.80" y1="-16.80" x2="7.20" y2="16.80" stroke="black" fill="none" />
+    <line x1="7.20" y1="-16.80" x2="40.80" y2="16.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

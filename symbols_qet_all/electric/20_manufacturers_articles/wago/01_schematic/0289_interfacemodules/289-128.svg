@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="70.0" viewBox="-70.0 -32.0 140.0 70.0" data-name="289-128">
+<svg xmlns="http://www.w3.org/2000/svg" width="56.0" height="28.0" viewBox="-28.0 -12.8 56.0 28.0" data-name="289-128" data-standard="48px">
   <title>289-128</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-60.00" y="-30.00" width="120.00" height="60.00" stroke="black" fill="none" />
-    <text x="-55.00" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="50.63" y="8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <ellipse cx="-60.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="60.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="50.63" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <ellipse cx="60.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-60.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <line x1="-41.50" y1="0.00" x2="41.50" y2="0.00" stroke="black" fill="black" />
-    <text x="-37.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Resistor 9k1</text>
-    <text x="-55.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-45.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 289-128</text>
-    <rect x="-15.00" y="-5.00" width="30.00" height="10.00" stroke="black" fill="white" />
-    <polyline points="-60,-10 -40,-10 -40,10 -60,10" stroke="black" fill="none" />
-    <polyline points="60,-10 40,-10 40,10 60,10" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="60.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="R1.2" data-orientation="e" />
-    <circle class="qet-terminal" cx="-60.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="R1.1" data-orientation="w" />
-    <circle class="qet-terminal" cx="60.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="R2.2" data-orientation="e" />
-    <circle class="qet-terminal" cx="-60.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="R2.1" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-12.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="-22.00" y="3.20" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="20.25" y="3.20" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <ellipse cx="-24.00" cy="4.00" rx="1.00" ry="1.00" stroke="black" fill="white" />
+    <ellipse cx="24.00" cy="4.00" rx="1.00" ry="1.00" stroke="black" fill="white" />
+    <text x="20.25" y="-4.80" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <ellipse cx="24.00" cy="-4.00" rx="1.00" ry="1.00" stroke="black" fill="white" />
+    <ellipse cx="-24.00" cy="-4.00" rx="1.00" ry="1.00" stroke="black" fill="white" />
+    <line x1="-16.60" y1="0.00" x2="16.60" y2="0.00" stroke="black" fill="black" />
+    <text x="-14.80" y="10.80" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">Resistor 9k1</text>
+    <text x="-22.00" y="-4.80" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-18.00" y="-6.40" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">WAGO 289-128</text>
+    <rect x="-6.00" y="-2.00" width="12.00" height="4.00" stroke="black" fill="white" />
+    <polyline points="-24.00,-4.00 -16.00,-4.00 -16.00,4.00 -24.00,4.00" stroke="black" fill="none" />
+    <polyline points="24.00,-4.00 16.00,-4.00 16.00,4.00 24.00,4.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-4.00" r="4.0" fill="red" stroke="none" data-name="R1.2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-4.00" r="4.0" fill="red" stroke="none" data-name="R1.1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="4.00" r="4.0" fill="red" stroke="none" data-name="R2.2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="4.00" r="4.0" fill="red" stroke="none" data-name="R2.1" data-orientation="w" />
   </g>
 </svg>

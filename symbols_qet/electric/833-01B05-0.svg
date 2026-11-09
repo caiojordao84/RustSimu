@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="160.0" viewBox="-68.0 -83.0 120.0 160.0" data-name="Three-phase switch-disconnector">
+<svg xmlns="http://www.w3.org/2000/svg" width="151.6" height="202.1" viewBox="-85.9 -104.8 151.6 202.1" data-name="Three-phase switch-disconnector" data-standard="48px">
   <title>Three-phase switch-disconnector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="14.00" y="-74.00" width="35.00" height="30.00" stroke="black" fill="white" />
-    <rect x="-25.00" y="-74.00" width="39.00" height="30.00" stroke="black" fill="white" />
-    <rect x="-61.00" y="-74.00" width="36.00" height="30.00" stroke="black" fill="white" />
-    <rect x="-25.00" y="37.00" width="39.00" height="30.00" stroke="black" fill="white" />
-    <rect x="-61.00" y="37.00" width="36.00" height="30.00" stroke="black" fill="white" />
-    <rect x="14.00" y="37.00" width="35.00" height="30.00" stroke="black" fill="white" />
-    <rect x="-61.00" y="-44.00" width="110.00" height="80.00" stroke="black" fill="yellow" />
-    <ellipse cx="-5.00" cy="0.00" rx="30.00" ry="30.00" stroke="black" fill="#d40000" />
-    <text x="-8.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-2.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">On</text>
-    <text x="-48.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Off</text>
-    <ellipse cx="40.00" cy="44.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <ellipse cx="-41.00" cy="44.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="-43.00" y1="42.00" x2="-39.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="-39.00" y1="42.00" x2="-43.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="-41.00" y1="42.00" x2="-41.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="-43.00" y1="44.00" x2="-39.00" y2="44.00" stroke="black" fill="none" />
-    <text x="-19.00" y="47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4T2</text>
-    <text x="21.00" y="47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6T3</text>
-    <ellipse cx="40.00" cy="44.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="38.00" y1="42.00" x2="42.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="42.00" y1="42.00" x2="38.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="42.00" x2="40.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="38.00" y1="44.00" x2="42.00" y2="44.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="44.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="42.00" x2="2.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="42.00" x2="-2.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="42.00" x2="0.00" y2="46.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="44.00" x2="2.00" y2="44.00" stroke="black" fill="none" />
-    <text x="-60.00" y="47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2T1</text>
-    <text x="-59.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Schneider Electric</text>
-    <text x="-20.00" y="-64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3L2</text>
-    <text x="18.00" y="-64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5L3</text>
-    <ellipse cx="37.00" cy="-61.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="-63.00" x2="39.00" y2="-59.00" stroke="black" fill="none" />
-    <line x1="39.00" y1="-63.00" x2="35.00" y2="-59.00" stroke="black" fill="none" />
-    <line x1="37.00" y1="-63.00" x2="37.00" y2="-59.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="-61.00" x2="39.00" y2="-61.00" stroke="black" fill="none" />
-    <ellipse cx="-1.00" cy="-61.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-63.00" x2="1.00" y2="-59.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="-63.00" x2="-3.00" y2="-59.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="-63.00" x2="-1.00" y2="-59.00" stroke="black" fill="none" />
-    <ellipse cx="-41.00" cy="-61.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-61.00" x2="1.00" y2="-61.00" stroke="black" fill="none" />
-    <line x1="-43.00" y1="-63.00" x2="-39.00" y2="-59.00" stroke="black" fill="none" />
-    <line x1="-39.00" y1="-63.00" x2="-43.00" y2="-59.00" stroke="black" fill="none" />
-    <line x1="-41.00" y1="-63.00" x2="-41.00" y2="-59.00" stroke="black" fill="none" />
-    <line x1="-43.00" y1="-61.00" x2="-39.00" y2="-61.00" stroke="black" fill="none" />
-    <text x="-59.00" y="-64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1L1</text>
-    <ellipse cx="-41.00" cy="44.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <text x="-45.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
-    <rect x="-35.00" y="-5.00" width="60.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-34.00" y="-5.00" width="10.00" height="10.00" stroke="black" fill="white" />
-    <rect x="-23.00" y="-3.00" width="45.00" height="6.00" stroke="none" fill="white" />
-    <polygon points="-26,-3 -32,0 -26,3 -26,-1" stroke="none" fill="#dcdcdc" />
-    <circle class="qet-terminal" cx="37.00" cy="-74.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-41.00" cy="-74.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-1.00" cy="-74.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="17.68" y="-93.47" width="44.21" height="37.89" stroke="black" fill="white" />
+    <rect x="-31.58" y="-93.47" width="49.26" height="37.89" stroke="black" fill="white" />
+    <rect x="-77.05" y="-93.47" width="45.47" height="37.89" stroke="black" fill="white" />
+    <rect x="-31.58" y="46.74" width="49.26" height="37.89" stroke="black" fill="white" />
+    <rect x="-77.05" y="46.74" width="45.47" height="37.89" stroke="black" fill="white" />
+    <rect x="17.68" y="46.74" width="44.21" height="37.89" stroke="black" fill="white" />
+    <rect x="-77.05" y="-55.58" width="138.95" height="101.05" stroke="black" fill="yellow" />
+    <ellipse cx="-6.32" cy="0.00" rx="37.89" ry="37.89" stroke="black" fill="#d40000" />
+    <text x="-10.11" y="-41.68" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-2.53" y="-41.68" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">On</text>
+    <text x="-60.63" y="-5.05" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">Off</text>
+    <ellipse cx="50.53" cy="55.58" rx="6.32" ry="6.32" stroke="black" fill="none" />
+    <ellipse cx="-51.79" cy="55.58" rx="6.32" ry="6.32" stroke="black" fill="none" />
+    <line x1="-54.32" y1="53.05" x2="-49.26" y2="58.11" stroke="black" fill="none" />
+    <line x1="-49.26" y1="53.05" x2="-54.32" y2="58.11" stroke="black" fill="none" />
+    <line x1="-51.79" y1="53.05" x2="-51.79" y2="58.11" stroke="black" fill="none" />
+    <line x1="-54.32" y1="55.58" x2="-49.26" y2="55.58" stroke="black" fill="none" />
+    <text x="-24.00" y="59.37" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">4T2</text>
+    <text x="26.53" y="59.37" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">6T3</text>
+    <ellipse cx="50.53" cy="55.58" rx="6.32" ry="6.32" stroke="black" fill="none" />
+    <line x1="48.00" y1="53.05" x2="53.05" y2="58.11" stroke="black" fill="none" />
+    <line x1="53.05" y1="53.05" x2="48.00" y2="58.11" stroke="black" fill="none" />
+    <line x1="50.53" y1="53.05" x2="50.53" y2="58.11" stroke="black" fill="none" />
+    <line x1="48.00" y1="55.58" x2="53.05" y2="55.58" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="55.58" rx="6.32" ry="6.32" stroke="black" fill="none" />
+    <line x1="-2.53" y1="53.05" x2="2.53" y2="58.11" stroke="black" fill="none" />
+    <line x1="2.53" y1="53.05" x2="-2.53" y2="58.11" stroke="black" fill="none" />
+    <line x1="0.00" y1="53.05" x2="0.00" y2="58.11" stroke="black" fill="none" />
+    <line x1="-2.53" y1="55.58" x2="2.53" y2="55.58" stroke="black" fill="none" />
+    <text x="-75.79" y="59.37" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">2T1</text>
+    <text x="-74.53" y="41.68" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">Schneider Electric</text>
+    <text x="-25.26" y="-80.84" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">3L2</text>
+    <text x="22.74" y="-80.84" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">5L3</text>
+    <ellipse cx="46.74" cy="-77.05" rx="6.32" ry="6.32" stroke="black" fill="none" />
+    <line x1="44.21" y1="-79.58" x2="49.26" y2="-74.53" stroke="black" fill="none" />
+    <line x1="49.26" y1="-79.58" x2="44.21" y2="-74.53" stroke="black" fill="none" />
+    <line x1="46.74" y1="-79.58" x2="46.74" y2="-74.53" stroke="black" fill="none" />
+    <line x1="44.21" y1="-77.05" x2="49.26" y2="-77.05" stroke="black" fill="none" />
+    <ellipse cx="-1.26" cy="-77.05" rx="6.32" ry="6.32" stroke="black" fill="none" />
+    <line x1="-3.79" y1="-79.58" x2="1.26" y2="-74.53" stroke="black" fill="none" />
+    <line x1="1.26" y1="-79.58" x2="-3.79" y2="-74.53" stroke="black" fill="none" />
+    <line x1="-1.26" y1="-79.58" x2="-1.26" y2="-74.53" stroke="black" fill="none" />
+    <ellipse cx="-51.79" cy="-77.05" rx="6.32" ry="6.32" stroke="black" fill="none" />
+    <line x1="-3.79" y1="-77.05" x2="1.26" y2="-77.05" stroke="black" fill="none" />
+    <line x1="-54.32" y1="-79.58" x2="-49.26" y2="-74.53" stroke="black" fill="none" />
+    <line x1="-49.26" y1="-79.58" x2="-54.32" y2="-74.53" stroke="black" fill="none" />
+    <line x1="-51.79" y1="-79.58" x2="-51.79" y2="-74.53" stroke="black" fill="none" />
+    <line x1="-54.32" y1="-77.05" x2="-49.26" y2="-77.05" stroke="black" fill="none" />
+    <text x="-74.53" y="-80.84" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">1L1</text>
+    <ellipse cx="-51.79" cy="55.58" rx="6.32" ry="6.32" stroke="black" fill="none" />
+    <text x="-56.84" y="8.84" font-size="11.4" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <rect x="-44.21" y="-6.32" width="75.79" height="12.63" stroke="black" fill="none" />
+    <rect x="-42.95" y="-6.32" width="12.63" height="12.63" stroke="black" fill="white" />
+    <rect x="-29.05" y="-3.79" width="56.84" height="7.58" stroke="none" fill="white" />
+    <polygon points="-32.84,-3.79 -40.42,0.00 -32.84,3.79 -32.84,-1.26" stroke="none" fill="#dcdcdc" />
+    <circle class="qet-terminal" cx="46.74" cy="-93.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="84.63" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-51.79" cy="-93.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-50.53" cy="84.63" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-1.26" cy="-93.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="50.53" cy="84.63" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

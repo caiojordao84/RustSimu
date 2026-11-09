@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-22.0 -31.0 50.0 50.0" data-name="Copper elbow no. 1">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-52.8 -74.4 120.0 120.0" data-name="Copper elbow no. 1" data-standard="48px">
   <title>Copper elbow no. 1</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 5.00 5.00 A 10.00 10.00 0 0 0 15.00 -5.00" stroke="black" fill="none" />
-    <path d="M 5.00 15.00 A 20.00 20.00 0 0 0 25.00 -5.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="-14.00" x2="15.00" y2="-14.00" stroke="black" fill="none" />
-    <path d="M 4.00 5.00 A 1.00 1.00 0 0 0 3.00 4.00" stroke="black" fill="none" />
-    <path d="M 3.00 16.00 A 1.00 1.00 0 0 0 4.00 15.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="4.00" x2="-4.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="4.00" x2="-4.00" y2="16.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="16.00" x2="2.00" y2="16.00" stroke="black" fill="none" />
-    <line x1="4.00" y1="5.00" x2="4.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="-6.00" x2="15.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="-6.00" x2="15.00" y2="-13.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="-6.00" x2="25.00" y2="-13.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-4.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="-14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 12.00 12.00 A 24.00 24.00 0 0 0 36.00 -12.00" stroke="black" fill="none" />
+    <path d="M 12.00 36.00 A 48.00 48.00 0 0 0 60.00 -12.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-33.60" x2="36.00" y2="-33.60" stroke="black" fill="none" />
+    <path d="M 9.60 12.00 A 2.40 2.40 0 0 0 7.20 9.60" stroke="black" fill="none" />
+    <path d="M 7.20 38.40 A 2.40 2.40 0 0 0 9.60 36.00" stroke="black" fill="none" />
+    <line x1="4.80" y1="9.60" x2="-9.60" y2="9.60" stroke="black" fill="none" />
+    <line x1="-9.60" y1="9.60" x2="-9.60" y2="38.40" stroke="black" fill="none" />
+    <line x1="-9.60" y1="38.40" x2="4.80" y2="38.40" stroke="black" fill="none" />
+    <line x1="9.60" y1="12.00" x2="9.60" y2="36.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-14.40" x2="36.00" y2="-14.40" stroke="black" fill="none" />
+    <line x1="36.00" y1="-14.40" x2="36.00" y2="-31.20" stroke="black" fill="none" />
+    <line x1="60.00" y1="-14.40" x2="60.00" y2="-31.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-9.60" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="48.00" cy="-33.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-7.0 -30.0 50.0 60.0" data-name="Thermal relay">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="144.0" viewBox="-16.8 -72.0 120.0 144.0" data-name="Thermal relay" data-standard="48px">
   <title>Thermal relay</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="13.00" y="19.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <line x1="10.00" y1="15.00" x2="10.00" y2="20.00" stroke="black" fill="none" />
-    <text x="3.00" y="19.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="13.00" y="-16.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <line x1="10.00" y1="15.00" x2="20.00" y2="15.00" stroke="black" fill="none" />
-    <text x="3.00" y="-16.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <line x1="17.00" y1="-12.00" x2="20.00" y2="-12.00" stroke="black" fill="none" />
-    <line x1="17.00" y1="12.00" x2="17.00" y2="-12.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="12.00" x2="17.00" y2="12.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="5.00" x2="20.00" y2="15.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="-10.00" width="35.00" height="20.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="5.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-5.00" x2="5.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-5.00" x2="5.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="5.00" x2="5.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-20.00" x2="10.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="5.00" x2="10.00" y2="12.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="-5.00" x2="15.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-5.00" x2="15.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="5.00" x2="15.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-12.00" x2="20.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="-5.00" x2="25.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-5.00" x2="25.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="5.00" x2="25.00" y2="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="31.20" y="46.39" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <line x1="24.00" y1="36.00" x2="24.00" y2="48.00" stroke="black" fill="none" />
+    <text x="7.20" y="46.39" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="31.20" y="-40.01" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <line x1="24.00" y1="36.00" x2="48.00" y2="36.00" stroke="black" fill="none" />
+    <text x="7.20" y="-40.01" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <line x1="40.80" y1="-28.80" x2="48.00" y2="-28.80" stroke="black" fill="none" />
+    <line x1="40.80" y1="28.80" x2="40.80" y2="-28.80" stroke="black" fill="none" />
+    <line x1="24.00" y1="28.80" x2="40.80" y2="28.80" stroke="black" fill="none" />
+    <line x1="48.00" y1="12.00" x2="48.00" y2="36.00" stroke="black" fill="none" />
+    <rect x="-12.00" y="-24.00" width="84.00" height="48.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="12.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-12.00" x2="12.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-12.00" x2="12.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="12.00" x2="12.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-48.00" x2="24.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="12.00" x2="24.00" y2="28.80" stroke="black" fill="none" />
+    <line x1="36.00" y1="-12.00" x2="36.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-12.00" x2="36.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="12.00" x2="36.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-28.80" x2="48.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-12.00" x2="60.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-12.00" x2="60.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="12.00" x2="60.00" y2="12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

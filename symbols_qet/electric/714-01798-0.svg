@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="80.0" viewBox="-11.0 -50.0 20.0 80.0" data-name="Contactor; Main make contact of a contactor">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="192.0" viewBox="-26.4 -120.0 48.0 192.0" data-name="Contactor; Main make contact of a contactor" data-standard="48px">
   <title>Contactor; Main make contact of a contactor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="-8.00" y2="-23.00" stroke="black" fill="none" />
-    <path d="M 0.00 -24.50 A 2.50 2.50 0 0 0 -0.00 -19.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="-96.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="-19.20" y2="-55.20" stroke="black" fill="none" />
+    <path d="M 0.00 -58.80 A 6.00 6.00 0 0 0 -0.00 -46.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

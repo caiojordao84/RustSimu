@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="120.0" viewBox="-77.0 -65.0 160.0 120.0" data-name="PanelView 800">
+<svg xmlns="http://www.w3.org/2000/svg" width="384.0" height="288.0" viewBox="-184.8 -156.0 384.0 288.0" data-name="PanelView 800" data-standard="48px">
   <title>PanelView 800</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-70.00" y="-50.00" width="140.00" height="100.00" stroke="black" fill="white" />
-    <text x="17.95" y="-47.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <text x="-2.15" y="-46.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="-60.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Allen Bradley</text>
-    <text x="-65.00" y="5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> PanelView 800</text>
-    <text x="-60.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2711R - T4T</text>
-    <text x="-22.00" y="-48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="49.25" y="-22.25" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">USB1</text>
-    <text x="48.75" y="-2.25" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">USB2</text>
-    <text x="46.75" y="12.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RS485</text>
-    <text x="33.50" y="33.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ETHERNET</text>
-    <line x1="-20.00" y1="-50.00" x2="-20.00" y2="-55.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-50.00" x2="0.00" y2="-55.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-50.00" x2="20.00" y2="-55.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="-30.00" x2="75.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="-10.00" x2="75.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="10.00" x2="75.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="30.00" x2="75.00" y2="30.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="75.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="75.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="75.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="20.00" cy="-55.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-55.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="-55.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="75.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-168.00" y="-120.00" width="336.00" height="240.00" stroke="black" fill="white" />
+    <text x="43.08" y="-114.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-5.16" y="-111.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="-144.00" y="-24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Allen Bradley</text>
+    <text x="-156.00" y="12.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> PanelView 800</text>
+    <text x="-144.00" y="48.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2711R - T4T</text>
+    <text x="-52.80" y="-115.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="118.20" y="-53.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">USB1</text>
+    <text x="117.00" y="-5.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">USB2</text>
+    <text x="112.20" y="30.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RS485</text>
+    <text x="80.40" y="80.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ETHERNET</text>
+    <line x1="-48.00" y1="-120.00" x2="-48.00" y2="-132.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-120.00" x2="0.00" y2="-132.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-120.00" x2="48.00" y2="-132.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="-72.00" x2="180.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="-24.00" x2="180.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="24.00" x2="180.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="72.00" x2="180.00" y2="72.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="180.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="180.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="180.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="48.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="180.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

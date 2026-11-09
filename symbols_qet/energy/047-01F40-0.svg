@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-20.0 -29.0 50.0 40.0" data-name="flexible-codo">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="96.0" viewBox="-48.0 -69.6 120.0 96.0" data-name="flexible-codo" data-standard="48px">
   <title>flexible-codo</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 8.90 5.49 A 2.63 4.34 0 0 0 8.90 -3.20" stroke="black" fill="none" />
-    <path d="M -15.49 -11.15 A 5.13 2.85 0 0 0 -5.23 -11.15" stroke="black" fill="none" />
-    <path d="M 13.90 5.49 A 2.63 4.34 0 0 0 13.90 -3.20" stroke="black" fill="none" />
-    <path d="M -15.22 -13.71 A 5.13 2.85 0 0 0 -4.96 -13.71" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-18.63" x2="-5.00" y2="-13.46" stroke="black" fill="none" />
-    <path d="M -15.22 -18.38 A 5.13 2.85 0 0 0 -4.96 -18.38" stroke="black" fill="none" />
-    <line x1="-15.22" y1="-18.63" x2="-15.22" y2="-13.46" stroke="black" fill="none" />
-    <ellipse cx="-10.09" cy="-18.89" rx="5.13" ry="2.85" stroke="black" fill="none" />
-    <polyline points="-14.95,-9.83 -15.49,-10.87 -14.95,-11.39 -15.22,-13.46 -15.22,-12.94" stroke="black" fill="none" />
-    <polyline points="-5.5,-7.76 -5,-8.8 -5.5,-9.83 -4.69,-10.87 -5,-12.94" stroke="black" fill="none" />
-    <line x1="10.00" y1="-3.00" x2="14.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="14.00" y1="5.50" x2="10.00" y2="5.50" stroke="black" fill="none" />
-    <polyline points="-4.91,-7 -3.06,-6.1 -4,-4.3 -1.2,-4.3 -1.2,-2.5 1.58,-4.3 2.51,-1.6 4.36,-3.4 6.22,-1.6 7.15,-3.4 9,-3.4 8.07,-3.4" stroke="black" fill="none" />
-    <polyline points="-15,-9 -14,-7.1 -15,-6.15 -12,-5.2 -13,-2.35 -11,-2.35 -11,0.5 -8,-0.45 -7,2.4 -5,1.45 -3,4.3 -1,3.35 2,5.25 3,3.35 6,6.2 7,5.25" stroke="black" fill="none" />
-    <line x1="9.00" y1="5.50" x2="7.00" y2="5.50" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="-5.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="2.00" x2="-3.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="4.00" x2="0.00" y2="-2.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="5.00" x2="3.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="5.00" x2="6.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-8.00" x2="-12.00" y2="-5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 21.36 13.18 A 6.31 10.42 0 0 0 21.36 -7.68" stroke="black" fill="none" />
+    <path d="M -37.18 -26.76 A 12.31 6.84 0 0 0 -12.55 -26.76" stroke="black" fill="none" />
+    <path d="M 33.36 13.18 A 6.31 10.42 0 0 0 33.36 -7.68" stroke="black" fill="none" />
+    <path d="M -36.53 -32.90 A 12.31 6.84 0 0 0 -11.90 -32.90" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-44.71" x2="-12.00" y2="-32.30" stroke="black" fill="none" />
+    <path d="M -36.53 -44.11 A 12.31 6.84 0 0 0 -11.90 -44.11" stroke="black" fill="none" />
+    <line x1="-36.53" y1="-44.71" x2="-36.53" y2="-32.30" stroke="black" fill="none" />
+    <ellipse cx="-24.22" cy="-45.34" rx="12.31" ry="6.84" stroke="black" fill="none" />
+    <polyline points="-35.88,-23.59 -37.18,-26.09 -35.88,-27.34 -36.53,-32.30 -36.53,-31.06" stroke="black" fill="none" />
+    <polyline points="-13.20,-18.62 -12.00,-21.12 -13.20,-23.59 -11.26,-26.09 -12.00,-31.06" stroke="black" fill="none" />
+    <line x1="24.00" y1="-7.20" x2="33.60" y2="-7.20" stroke="black" fill="none" />
+    <line x1="33.60" y1="13.20" x2="24.00" y2="13.20" stroke="black" fill="none" />
+    <polyline points="-11.78,-16.80 -7.34,-14.64 -9.60,-10.32 -2.88,-10.32 -2.88,-6.00 3.79,-10.32 6.02,-3.84 10.46,-8.16 14.93,-3.84 17.16,-8.16 21.60,-8.16 19.37,-8.16" stroke="black" fill="none" />
+    <polyline points="-36.00,-21.60 -33.60,-17.04 -36.00,-14.76 -28.80,-12.48 -31.20,-5.64 -26.40,-5.64 -26.40,1.20 -19.20,-1.08 -16.80,5.76 -12.00,3.48 -7.20,10.32 -2.40,8.04 4.80,12.60 7.20,8.04 14.40,14.88 16.80,12.60" stroke="black" fill="none" />
+    <line x1="21.60" y1="13.20" x2="16.80" y2="13.20" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="-12.00" y2="-14.40" stroke="black" fill="none" />
+    <line x1="-16.80" y1="4.80" x2="-7.20" y2="-7.20" stroke="black" fill="none" />
+    <line x1="-7.20" y1="9.60" x2="0.00" y2="-4.80" stroke="black" fill="none" />
+    <line x1="4.80" y1="12.00" x2="7.20" y2="-2.40" stroke="black" fill="none" />
+    <line x1="14.40" y1="12.00" x2="14.40" y2="-2.40" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-19.20" x2="-28.80" y2="-12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

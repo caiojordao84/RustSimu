@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-17.0 -20.0 30.0 40.0" data-name="brida-deslizante">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-40.8 -48.0 72.0 96.0" data-name="brida-deslizante" data-standard="48px">
   <title>brida-deslizante</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="6.00" x2="-1.00" y2="6.00" stroke="#d40000" fill="none" />
-    <line x1="-8.00" y1="4.00" x2="4.00" y2="4.00" stroke="#d40000" fill="none" />
-    <path d="M 2.00 7.50 A 2.00 1.50 0 0 0 0.00 6.00" stroke="#d40000" fill="none" />
-    <line x1="-7.66" y1="-6.00" x2="-2.34" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-7.65" y1="6.00" x2="-2.35" y2="6.00" stroke="black" fill="none" />
-    <path d="M -0.00 -6.00 A 2.00 1.50 0 0 0 2.00 -7.50" stroke="#d40000" fill="none" />
-    <rect x="-2.00" y="-17.00" width="4.00" height="33.00" stroke="black" fill="none" />
-    <rect x="9.00" y="14.00" width="1.00" height="0.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="-6.00" x2="-8.00" y2="6.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="-4.00" x2="4.00" y2="-4.00" stroke="#d40000" fill="none" />
-    <rect x="2.00" y="-9.00" width="2.00" height="18.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-6.00" x2="-1.00" y2="-6.00" stroke="#d40000" fill="none" />
-    <circle class="qet-terminal" cx="5.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-9.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="14.40" x2="-2.40" y2="14.40" stroke="#d40000" fill="none" />
+    <line x1="-19.20" y1="9.60" x2="9.60" y2="9.60" stroke="#d40000" fill="none" />
+    <path d="M 4.80 18.00 A 4.80 3.60 0 0 0 0.00 14.40" stroke="#d40000" fill="none" />
+    <line x1="-18.38" y1="-14.40" x2="-5.62" y2="-14.40" stroke="black" fill="none" />
+    <line x1="-18.36" y1="14.40" x2="-5.64" y2="14.40" stroke="black" fill="none" />
+    <path d="M -0.00 -14.40 A 4.80 3.60 0 0 0 4.80 -18.00" stroke="#d40000" fill="none" />
+    <rect x="-4.80" y="-40.80" width="9.60" height="79.20" stroke="black" fill="none" />
+    <rect x="21.60" y="33.60" width="2.40" height="0.00" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-14.40" x2="-19.20" y2="14.40" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-9.60" x2="9.60" y2="-9.60" stroke="#d40000" fill="none" />
+    <rect x="4.80" y="-21.60" width="4.80" height="43.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-14.40" x2="-2.40" y2="-14.40" stroke="#d40000" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-21.60" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-39.0 -20.0 50.0 40.0" data-name="Actuator (actuated by electromagnetic effect)">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="96.0" viewBox="-93.6 -48.0 120.0 96.0" data-name="Actuator (actuated by electromagnetic effect)" data-standard="48px">
   <title>Actuator (actuated by electromagnetic effect)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-14.00" y1="0.00" x2="6.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <rect x="-34.00" y="-5.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="-24.00" y1="-5.00" x2="-24.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-24.00" y1="5.00" x2="-24.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-33.60" y1="0.00" x2="14.40" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <rect x="-81.60" y="-12.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="-57.60" y1="-12.00" x2="-57.60" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-57.60" y1="12.00" x2="-57.60" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-57.60" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-57.60" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

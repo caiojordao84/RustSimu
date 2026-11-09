@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="210.0" height="280.0" viewBox="-124.0 -275.0 210.0 280.0" data-name="Reflex klystron">
+<svg xmlns="http://www.w3.org/2000/svg" width="504.0" height="672.0" viewBox="-297.6 -660.0 504.0 672.0" data-name="Reflex klystron" data-standard="48px">
   <title>Reflex klystron</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-60.00" x2="0.00" y2="-180.00" stroke="black" fill="none" />
-    <path d="M -120.00 -60.00 A 60.00 60.00 0 0 0 0.00 -60.00" stroke="black" fill="none" />
-    <path d="M 0.00 -180.00 A 60.00 60.00 0 0 0 -120.00 -180.00" stroke="black" fill="none" />
-    <line x1="-120.00" y1="-180.00" x2="-120.00" y2="-60.00" stroke="black" fill="none" />
-    <ellipse cx="-28.00" cy="-110.00" rx="5.00" ry="5.00" stroke="black" fill="black" />
-    <ellipse cx="-28.00" cy="-130.00" rx="5.00" ry="5.00" stroke="black" fill="black" />
-    <path d="M -26.24 -105.46 A 30.00 30.00 0 1 0 -25.72 -135.45" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-270.00" x2="-60.00" y2="-220.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-220.00" x2="-30.00" y2="-190.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-220.00" x2="-90.00" y2="-190.00" stroke="black" fill="none" />
-    <line x1="21.00" y1="-120.00" x2="81.00" y2="-120.00" stroke="black" fill="none" />
-    <ellipse cx="51.00" cy="-120.00" rx="5.00" ry="5.00" stroke="black" fill="black" />
-    <line x1="-80.00" y1="0.00" x2="-80.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="0.00" x2="-40.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-40.00" x2="-40.00" y2="-40.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-144.00" x2="0.00" y2="-432.00" stroke="black" fill="none" />
+    <path d="M -288.00 -144.00 A 144.00 144.00 0 0 0 0.00 -144.00" stroke="black" fill="none" />
+    <path d="M 0.00 -432.00 A 144.00 144.00 0 0 0 -288.00 -432.00" stroke="black" fill="none" />
+    <line x1="-288.00" y1="-432.00" x2="-288.00" y2="-144.00" stroke="black" fill="none" />
+    <ellipse cx="-67.20" cy="-264.00" rx="12.00" ry="12.00" stroke="black" fill="black" />
+    <ellipse cx="-67.20" cy="-312.00" rx="12.00" ry="12.00" stroke="black" fill="black" />
+    <path d="M -62.98 -253.10 A 72.00 72.00 0 1 0 -61.73 -325.08" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-648.00" x2="-144.00" y2="-528.00" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-528.00" x2="-72.00" y2="-456.00" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-528.00" x2="-216.00" y2="-456.00" stroke="black" fill="none" />
+    <line x1="50.40" y1="-288.00" x2="194.40" y2="-288.00" stroke="black" fill="none" />
+    <ellipse cx="122.40" cy="-288.00" rx="12.00" ry="12.00" stroke="black" fill="black" />
+    <line x1="-192.00" y1="0.00" x2="-192.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="0.00" x2="-96.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-192.00" y1="-96.00" x2="-96.00" y2="-96.00" stroke="black" fill="none" />
   </g>
 </svg>

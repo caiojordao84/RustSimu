@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="130.0" viewBox="-86.0 -104.0 90.0 130.0" data-name="Choke; Reactor, general symbol">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="312.0" viewBox="-206.4 -249.6 216.0 312.0" data-name="Choke; Reactor, general symbol" data-standard="48px">
   <title>Choke; Reactor, general symbol</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-74.00" y="-90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
-    <line x1="-30.00" y1="0.00" x2="-30.00" y2="20.00" stroke="black" fill="none" />
-    <path d="M -30.00 0.00 A 30.00 30.00 0 1 0 -60.00 -30.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-80.00" x2="-30.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-30.00" x2="-30.00" y2="-30.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="-80.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-177.60" y="-216.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
+    <line x1="-72.00" y1="0.00" x2="-72.00" y2="48.00" stroke="black" fill="none" />
+    <path d="M -72.00 0.00 A 72.00 72.00 0 1 0 -144.00 -72.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-192.00" x2="-72.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-72.00" x2="-72.00" y2="-72.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-72.00" cy="-192.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

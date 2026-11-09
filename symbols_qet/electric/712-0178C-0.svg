@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="60.0" viewBox="-71.0 -32.0 80.0 60.0" data-name="Multi-position switch, with position dagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="144.0" viewBox="-170.4 -76.8 192.0 144.0" data-name="Multi-position switch, with position dagram" data-standard="48px">
   <title>Multi-position switch, with position dagram</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-29.25" y1="0.80" x2="-39.25" y2="-19.20" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-29.25" y1="0.80" x2="-19.25" y2="-19.20" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-29.25" y1="0.80" x2="0.75" y2="-19.20" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-29.25" y1="0.80" x2="-59.25" y2="-19.20" stroke="black" fill="none" />
-    <text x="-61.25" y="-23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-41.25" y="-23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-21.25" y="-23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="-2.25" y="-23.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <ellipse cx="-29.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <polygon points="-16,-4 -13,-4 -14,1" stroke="black" fill="black" />
-    <path d="M -20.67 -17.08 A 19.00 19.00 0 0 0 -44.93 -10.35" stroke="black" fill="none" />
-    <polygon points="-42,-12 -44,-14 -45,-10" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-70.20" y1="1.92" x2="-94.20" y2="-46.08" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-70.20" y1="1.92" x2="-46.20" y2="-46.08" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-70.20" y1="1.92" x2="1.80" y2="-46.08" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-70.20" y1="1.92" x2="-142.20" y2="-46.08" stroke="black" fill="none" />
+    <text x="-147.00" y="-55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-99.00" y="-55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-51.00" y="-55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-5.40" y="-55.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <ellipse cx="-69.60" cy="0.00" rx="36.00" ry="36.00" stroke="black" fill="none" />
+    <polygon points="-38.40,-9.60 -31.20,-9.60 -33.60,2.40" stroke="black" fill="black" />
+    <path d="M -49.61 -40.99 A 45.60 45.60 0 0 0 -107.83 -24.84" stroke="black" fill="none" />
+    <polygon points="-100.80,-28.80 -105.60,-33.60 -108.00,-24.00" stroke="black" fill="black" />
   </g>
 </svg>

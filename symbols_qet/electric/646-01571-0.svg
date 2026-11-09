@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="10.0" height="20.0" viewBox="-5.0 -10.0 10.0 20.0" data-name="Actuating (either higher than or lower than)">
+<svg xmlns="http://www.w3.org/2000/svg" width="24.0" height="48.0" viewBox="-12.0 -24.0 24.0 48.0" data-name="Actuating (either higher than or lower than)" data-standard="48px">
   <title>Actuating (either higher than or lower than)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-1.00" y1="-5.00" x2="1.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="-3.00" x2="-1.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="1.00" x2="-1.00" y2="3.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="3.00" x2="1.00" y2="5.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-2.40" y1="-12.00" x2="2.40" y2="-7.20" stroke="black" fill="none" />
+    <line x1="2.40" y1="-7.20" x2="-2.40" y2="-2.40" stroke="black" fill="none" />
+    <line x1="2.40" y1="2.40" x2="-2.40" y2="7.20" stroke="black" fill="none" />
+    <line x1="-2.40" y1="7.20" x2="2.40" y2="12.00" stroke="black" fill="none" />
   </g>
 </svg>

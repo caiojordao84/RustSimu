@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-28.0 -34.0 50.0 60.0" data-name="Var hour meter">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="144.0" viewBox="-67.2 -81.6 120.0 144.0" data-name="Var hour meter" data-standard="48px">
   <title>Var hour meter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-13.00" y="2.33" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Varh</text>
-    <rect x="-15.00" y="-11.00" width="30.00" height="22.00" stroke="black" fill="none" />
-    <rect x="-15.00" y="-19.00" width="30.00" height="8.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-24.00" x2="-10.00" y2="-19.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-24.00" x2="10.00" y2="-19.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="11.00" x2="10.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="11.00" x2="-10.00" y2="15.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-10.00" cy="-24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-31.20" y="5.59" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Varh</text>
+    <rect x="-36.00" y="-26.40" width="72.00" height="52.80" stroke="black" fill="none" />
+    <rect x="-36.00" y="-45.60" width="72.00" height="19.20" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-57.60" x2="-24.00" y2="-45.60" stroke="black" fill="none" />
+    <line x1="24.00" y1="-57.60" x2="24.00" y2="-45.60" stroke="black" fill="none" />
+    <line x1="24.00" y1="26.40" x2="24.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="26.40" x2="-24.00" y2="36.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

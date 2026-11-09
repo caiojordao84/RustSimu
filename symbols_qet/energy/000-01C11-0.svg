@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -41.0 40.0 50.0" data-name="Wall-mounted boiler">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="120.0" viewBox="-48.0 -98.4 96.0 120.0" data-name="Wall-mounted boiler" data-standard="48px">
   <title>Wall-mounted boiler</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-12.00" y="-30.00" width="24.00" height="27.00" stroke="black" fill="none" />
-    <line x1="-6.81" y1="-30.09" x2="-3.00" y2="-37.00" stroke="black" fill="none" />
-    <line x1="4.00" y1="-37.00" x2="7.00" y2="-30.00" stroke="black" fill="none" />
-    <rect x="-3.00" y="-14.00" width="6.00" height="3.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-7.10" rx="1.65" ry="1.65" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-28.80" y="-72.00" width="57.60" height="64.80" stroke="black" fill="none" />
+    <line x1="-16.34" y1="-72.22" x2="-7.20" y2="-88.80" stroke="black" fill="none" />
+    <line x1="9.60" y1="-88.80" x2="16.80" y2="-72.00" stroke="black" fill="none" />
+    <rect x="-7.20" y="-33.60" width="14.40" height="7.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-17.04" rx="3.96" ry="3.96" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

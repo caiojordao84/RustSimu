@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="40.0" viewBox="-5.0 -21.0 70.0 40.0" data-name="Luminaire with three ﬂuorescent
-tubes">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="96.0" viewBox="-12.0 -50.4 168.0 96.0" data-name="Luminaire with three ﬂuorescent tubes" data-standard="48px">
   <title>Luminaire with three ﬂuorescent
 tubes</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-13.00" x2="0.00" y2="13.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="-13.00" x2="60.00" y2="13.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="60.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="60.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="60.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-31.20" x2="0.00" y2="31.20" stroke="black" fill="none" />
+    <line x1="144.00" y1="-31.20" x2="144.00" y2="31.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="144.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="144.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.00" x2="144.00" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

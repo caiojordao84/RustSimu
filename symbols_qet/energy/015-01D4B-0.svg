@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-12.0 -26.0 50.0 50.0" data-name="cuina">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.7" height="72.7" viewBox="-17.5 -37.8 72.7 72.7" data-name="cuina" data-standard="48px">
   <title>cuina</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="5.00" cy="-5.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="17.50" cy="-18.00" rx="2.50" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="15.00" cy="-5.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-10.00" width="30.00" height="31.00" stroke="black" fill="none" />
-    <polyline points="-10,-11 1,-21 31,-21 31,10 20,20" stroke="black" fill="none" />
-    <line x1="20.00" y1="-10.00" x2="31.00" y2="-20.00" stroke="black" fill="none" />
-    <ellipse cx="4.50" cy="-18.00" rx="2.50" ry="1.00" stroke="black" fill="none" />
-    <rect x="-7.00" y="2.00" width="24.00" height="14.00" stroke="black" fill="none" />
-    <polyline points="-2,4 -3,5 11,5 12,4" stroke="black" fill="none" />
-    <ellipse cx="-5.00" cy="-5.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="1.00" cy="-14.00" rx="3.00" ry="1.00" stroke="black" fill="none" />
-    <ellipse cx="13.00" cy="-14.50" rx="4.00" ry="1.50" stroke="black" fill="none" />
-    <polygon points="2,-19.63 -7,-12 19,-12 28,-19.63" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-3.00" cy="-19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="-18.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="7.27" cy="-7.27" rx="1.45" ry="1.45" stroke="black" fill="none" />
+    <ellipse cx="25.45" cy="-26.18" rx="3.64" ry="1.45" stroke="black" fill="none" />
+    <ellipse cx="21.82" cy="-7.27" rx="1.45" ry="1.45" stroke="black" fill="none" />
+    <rect x="-14.55" y="-14.55" width="43.64" height="45.09" stroke="black" fill="none" />
+    <polyline points="-14.55,-16.00 1.45,-30.55 45.09,-30.55 45.09,14.55 29.09,29.09" stroke="black" fill="none" />
+    <line x1="29.09" y1="-14.55" x2="45.09" y2="-29.09" stroke="black" fill="none" />
+    <ellipse cx="6.55" cy="-26.18" rx="3.64" ry="1.45" stroke="black" fill="none" />
+    <rect x="-10.18" y="2.91" width="34.91" height="20.36" stroke="black" fill="none" />
+    <polyline points="-2.91,5.82 -4.36,7.27 16.00,7.27 17.45,5.82" stroke="black" fill="none" />
+    <ellipse cx="-7.27" cy="-7.27" rx="1.45" ry="1.45" stroke="black" fill="none" />
+    <ellipse cx="1.45" cy="-20.36" rx="4.36" ry="1.45" stroke="black" fill="none" />
+    <ellipse cx="18.91" cy="-21.09" rx="5.82" ry="2.18" stroke="black" fill="none" />
+    <polygon points="2.91,-28.55 -10.18,-17.45 27.64,-17.45 40.73,-28.55" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-4.36" cy="-27.64" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="43.64" cy="-26.18" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

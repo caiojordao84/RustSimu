@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-30.0 -15.0 40.0 30.0" data-name="Actuator (operated by cam)">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="72.0" viewBox="-72.0 -36.0 96.0 72.0" data-name="Actuator (operated by cam)" data-standard="48px">
   <title>Actuator (operated by cam)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-10.00" y1="0.00" x2="7.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-19.00" y1="-9.00" x2="-19.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M -19.00 -9.00 A 9.00 9.00 0 1 0 -10.00 0.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="0.00" x2="-11.00" y2="0.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-24.00" y1="0.00" x2="16.80" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-45.60" y1="-21.60" x2="-45.60" y2="0.00" stroke="black" fill="none" />
+    <path d="M -45.60 -21.60 A 21.60 21.60 0 1 0 -24.00 0.00" stroke="black" fill="none" />
+    <line x1="-45.60" y1="0.00" x2="-26.40" y2="0.00" stroke="black" fill="none" />
   </g>
 </svg>

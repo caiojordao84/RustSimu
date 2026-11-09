@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-20.0 -23.0 40.0 30.0" data-name="presostato-ab">
+<svg xmlns="http://www.w3.org/2000/svg" width="101.1" height="75.8" viewBox="-50.5 -58.1 101.1 75.8" data-name="presostato-ab" data-standard="48px">
   <title>presostato-ab</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="9.00" y1="-9.80" x2="9.00" y2="-0.45" stroke="black" fill="none" />
-    <rect x="-14.00" y="-20.71" width="26.43" height="10.91" stroke="black" fill="none" />
-    <text x="-9.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PAB</text>
-    <line x1="-9.55" y1="-9.80" x2="-9.55" y2="-0.45" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="9.00" cy="-1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="22.74" y1="-24.76" x2="22.74" y2="-1.14" stroke="black" fill="none" />
+    <rect x="-35.37" y="-52.32" width="66.77" height="27.56" stroke="black" fill="none" />
+    <text x="-22.74" y="-35.37" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PAB</text>
+    <line x1="-24.13" y1="-24.76" x2="-24.13" y2="-1.14" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-25.26" cy="-5.05" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="22.74" cy="-2.53" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

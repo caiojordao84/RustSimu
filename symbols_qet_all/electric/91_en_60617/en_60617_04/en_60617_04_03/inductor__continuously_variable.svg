@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-45.0 -35.0 50.0 40.0" data-name="Inductor, continuously variable">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="96.0" viewBox="-108.0 -84.0 120.0 96.0" data-name="Inductor, continuously variable" data-standard="48px">
   <title>Inductor, continuously variable</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -10.00 -10.00 A 5.00 5.00 0 0 0 -20.00 -10.00" stroke="black" fill="none" />
-    <path d="M -30.00 -10.00 A 5.00 5.00 0 0 0 -40.00 -10.00" stroke="black" fill="none" />
-    <path d="M 0.00 -10.00 A 5.00 5.00 0 0 0 -10.00 -10.00" stroke="black" fill="none" />
-    <path d="M -20.00 -10.00 A 5.00 5.00 0 0 0 -30.00 -10.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-20.00" x2="0.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-10.00" x2="-40.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-5.00" x2="-10.00" y2="-25.00" stroke="black" fill="none" />
-    <polygon points="-9,-24 -11,-26 -7,-28" stroke="black" fill="black" />
-    <line x1="-5.00" y1="-25.00" x2="0.00" y2="-30.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -24.00 -24.00 A 12.00 12.00 0 0 0 -48.00 -24.00" stroke="black" fill="none" />
+    <path d="M -72.00 -24.00 A 12.00 12.00 0 0 0 -96.00 -24.00" stroke="black" fill="none" />
+    <path d="M 0.00 -24.00 A 12.00 12.00 0 0 0 -24.00 -24.00" stroke="black" fill="none" />
+    <path d="M -48.00 -24.00 A 12.00 12.00 0 0 0 -72.00 -24.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-48.00" x2="0.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-24.00" x2="-96.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-12.00" x2="-24.00" y2="-60.00" stroke="black" fill="none" />
+    <polygon points="-21.60,-57.60 -26.40,-62.40 -16.80,-67.20" stroke="black" fill="black" />
+    <line x1="-12.00" y1="-60.00" x2="0.00" y2="-72.00" stroke="black" fill="none" />
   </g>
 </svg>

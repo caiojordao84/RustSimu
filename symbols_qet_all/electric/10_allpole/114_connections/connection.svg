@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="20.0" viewBox="-10.0 -10.0 20.0 20.0" data-name="connection">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="48.0" viewBox="-24.0 -24.0 48.0 48.0" data-name="connection" data-standard="48px">
   <title>connection</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="2.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="e" />
-    <circle class="qet-terminal" cx="-2.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="2.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-2.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="4.80" ry="4.80" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="4.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="-4.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="4.80" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-4.80" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

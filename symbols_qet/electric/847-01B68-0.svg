@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="220.0" viewBox="-6.0 -10.0 50.0 220.0" data-name="Sofrel Surge Protector">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="528.0" viewBox="-14.4 -24.0 120.0 528.0" data-name="Sofrel Surge Protector" data-standard="48px">
   <title>Sofrel Surge Protector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="50.00" width="40.00" height="100.00" stroke="#0055d4" fill="none" />
-    <rect x="10.00" y="24.00" width="5.00" height="2.00" stroke="black" fill="black" />
-    <rect x="0.00" y="0.00" width="40.00" height="200.00" stroke="#0055d4" fill="white" />
-    <text x="9.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="28.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <line x1="0.00" y1="73.00" x2="40.00" y2="73.00" stroke="#0055d4" fill="none" />
-    <line x1="0.00" y1="116.00" x2="40.00" y2="116.00" stroke="#0055d4" fill="none" />
-    <text x="10.00" y="55.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SOFREL</text>
-    <text x="5.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SURGE PROTECTOR</text>
-    <text x="10.00" y="65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">100-240VAC</text>
-    <rect x="5.00" y="25.00" width="10.00" height="5.00" stroke="#0055d4" fill="#0055d4" />
-    <rect x="25.00" y="25.00" width="10.00" height="5.00" stroke="#0055d4" fill="#0055d4" />
-    <line x1="20.00" y1="170.00" x2="20.00" y2="180.00" stroke="#0055d4" fill="none" />
-    <line x1="27.00" y1="180.00" x2="13.00" y2="180.00" stroke="#0055d4" fill="none" />
-    <line x1="25.00" y1="183.00" x2="15.00" y2="183.00" stroke="#0055d4" fill="none" />
-    <line x1="17.00" y1="186.00" x2="23.00" y2="186.00" stroke="#0055d4" fill="black" />
-    <text x="4.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Red: to replace</text>
-    <text x="5.00" y="85.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Un            230V</text>
-    <text x="5.00" y="90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Uc            255V</text>
-    <text x="5.00" y="95.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">In             5KA</text>
-    <text x="10.00" y="100.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Imax   15KA</text>
-    <text x="0.00" y="115.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EN 61643-11 IEC 61643-1</text>
-    <text x="5.00" y="105.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Up    1 .5/0.9KV</text>
-    <text x="22.00" y="110.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">20A gG</text>
-    <rect x="4.00" y="106.00" width="10.00" height="5.00" stroke="#0055d4" fill="none" />
-    <line x1="16.00" y1="108.50" x2="2.00" y2="108.50" stroke="#0055d4" fill="none" />
-    <text x="5.00" y="100.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T2</text>
-    <rect x="5.00" y="97.00" width="4.00" height="4.00" stroke="#0055d4" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="120.00" width="96.00" height="240.00" stroke="#0055d4" fill="none" />
+    <rect x="24.00" y="57.60" width="12.00" height="4.80" stroke="black" fill="black" />
+    <rect x="0.00" y="0.00" width="96.00" height="480.00" stroke="#0055d4" fill="white" />
+    <text x="21.60" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="67.20" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <line x1="0.00" y1="175.20" x2="96.00" y2="175.20" stroke="#0055d4" fill="none" />
+    <line x1="0.00" y1="278.40" x2="96.00" y2="278.40" stroke="#0055d4" fill="none" />
+    <text x="24.00" y="132.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SOFREL</text>
+    <text x="12.00" y="144.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SURGE PROTECTOR</text>
+    <text x="24.00" y="156.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">100-240VAC</text>
+    <rect x="12.00" y="60.00" width="24.00" height="12.00" stroke="#0055d4" fill="#0055d4" />
+    <rect x="60.00" y="60.00" width="24.00" height="12.00" stroke="#0055d4" fill="#0055d4" />
+    <line x1="48.00" y1="408.00" x2="48.00" y2="432.00" stroke="#0055d4" fill="none" />
+    <line x1="64.80" y1="432.00" x2="31.20" y2="432.00" stroke="#0055d4" fill="none" />
+    <line x1="60.00" y1="439.20" x2="36.00" y2="439.20" stroke="#0055d4" fill="none" />
+    <line x1="40.80" y1="446.40" x2="55.20" y2="446.40" stroke="#0055d4" fill="black" />
+    <text x="9.60" y="108.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Red: to replace</text>
+    <text x="12.00" y="204.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Un            230V</text>
+    <text x="12.00" y="216.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Uc            255V</text>
+    <text x="12.00" y="228.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">In             5KA</text>
+    <text x="24.00" y="240.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Imax   15KA</text>
+    <text x="0.00" y="276.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EN 61643-11 IEC 61643-1</text>
+    <text x="12.00" y="252.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Up    1 .5/0.9KV</text>
+    <text x="52.80" y="264.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">20A gG</text>
+    <rect x="9.60" y="254.40" width="24.00" height="12.00" stroke="#0055d4" fill="none" />
+    <line x1="38.40" y1="260.40" x2="4.80" y2="260.40" stroke="#0055d4" fill="none" />
+    <text x="12.00" y="240.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">T2</text>
+    <rect x="12.00" y="232.80" width="9.60" height="9.60" stroke="#0055d4" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

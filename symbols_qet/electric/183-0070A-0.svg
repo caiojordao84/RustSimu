@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="170.0" viewBox="-52.0 -72.0 100.0 170.0" data-name="X-BRIDGE">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="408.0" viewBox="-124.8 -172.8 240.0 408.0" data-name="X-BRIDGE" data-standard="48px">
   <title>X-BRIDGE</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="34.00" y="-20.00" width="5.00" height="60.00" stroke="none" fill="#00aa00" />
-    <text x="9.00" y="-29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12Vcc</text>
-    <rect x="-25.00" y="-65.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="-65.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="20.00" y="-65.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="-55.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-25.00" y="-55.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="-16.00" y="57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BUS V3</text>
-    <text x="-17.00" y="-46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="-40.00" y="-46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <rect x="0.00" y="-65.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="-45.00" width="40.00" height="20.00" stroke="black" fill="none" />
-    <text x="-38.00" y="-33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BUS V4</text>
-    <rect x="0.00" y="-55.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="20.00" y="-55.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="28.00" y="-46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="5.00" y="-46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <rect x="0.00" y="-45.00" width="40.00" height="20.00" stroke="black" fill="none" />
-    <text x="13.00" y="-37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Pwr</text>
-    <rect x="-12.00" y="60.00" width="20.00" height="30.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="72.00" x2="-10.00" y2="82.00" stroke="black" fill="none" />
-    <line x1="5.30" y1="72.00" x2="-9.43" y2="72.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="72.00" x2="6.00" y2="82.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="82.00" x2="-9.00" y2="82.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="82.00" x2="6.00" y2="82.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="85.00" x2="-6.00" y2="82.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="85.00" x2="2.00" y2="82.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="85.00" x2="-6.00" y2="85.00" stroke="black" fill="none" />
-    <text x="-10.00" y="80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EXT</text>
-    <text x="-11.00" y="69.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RJ12</text>
-    <rect x="-45.00" y="-25.00" width="85.00" height="71.00" stroke="black" fill="none" />
-    <rect x="-50.00" y="-55.00" width="95.00" height="145.00" stroke="black" fill="none" />
-    <rect x="-44.00" y="-20.00" width="5.00" height="60.00" stroke="none" fill="#00aa00" />
-    <text x="-33.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
-    <circle class="qet-terminal" cx="30.00" cy="-65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="6.00" cy="-65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-15.00" cy="-65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-35.00" cy="-65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="81.60" y="-48.00" width="12.00" height="144.00" stroke="none" fill="#00aa00" />
+    <text x="21.60" y="-69.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">12Vcc</text>
+    <rect x="-60.00" y="-156.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-108.00" y="-156.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="48.00" y="-156.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-108.00" y="-132.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-60.00" y="-132.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="-38.40" y="136.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BUS V3</text>
+    <text x="-40.80" y="-110.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="-96.00" y="-110.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <rect x="0.00" y="-156.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-108.00" y="-108.00" width="96.00" height="48.00" stroke="black" fill="none" />
+    <text x="-91.20" y="-79.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BUS V4</text>
+    <rect x="0.00" y="-132.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="48.00" y="-132.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="67.20" y="-110.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="12.00" y="-110.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <rect x="0.00" y="-108.00" width="96.00" height="48.00" stroke="black" fill="none" />
+    <text x="31.20" y="-88.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Pwr</text>
+    <rect x="-28.80" y="144.00" width="48.00" height="72.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="172.80" x2="-24.00" y2="196.80" stroke="black" fill="none" />
+    <line x1="12.72" y1="172.80" x2="-22.63" y2="172.80" stroke="black" fill="none" />
+    <line x1="14.40" y1="172.80" x2="14.40" y2="196.80" stroke="black" fill="none" />
+    <line x1="-16.80" y1="196.80" x2="-21.60" y2="196.80" stroke="black" fill="none" />
+    <line x1="7.20" y1="196.80" x2="14.40" y2="196.80" stroke="black" fill="none" />
+    <line x1="-14.40" y1="204.00" x2="-14.40" y2="196.80" stroke="black" fill="none" />
+    <line x1="4.80" y1="204.00" x2="4.80" y2="196.80" stroke="black" fill="none" />
+    <line x1="4.80" y1="204.00" x2="-14.40" y2="204.00" stroke="black" fill="none" />
+    <text x="-24.00" y="192.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EXT</text>
+    <text x="-26.40" y="165.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RJ12</text>
+    <rect x="-108.00" y="-60.00" width="204.00" height="170.40" stroke="black" fill="none" />
+    <rect x="-120.00" y="-132.00" width="228.00" height="348.00" stroke="black" fill="none" />
+    <rect x="-105.60" y="-48.00" width="12.00" height="144.00" stroke="none" fill="#00aa00" />
+    <text x="-79.20" y="4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
+    <circle class="qet-terminal" cx="72.00" cy="-156.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="14.40" cy="-156.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-36.00" cy="-156.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-84.00" cy="-156.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

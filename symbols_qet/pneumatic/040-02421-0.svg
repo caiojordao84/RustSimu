@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="50.0" viewBox="-12.0 -20.0 70.0 50.0" data-name="Motor both directions of rotation + variable speed">
+<svg xmlns="http://www.w3.org/2000/svg" width="112.0" height="80.0" viewBox="-19.2 -32.0 112.0 80.0" data-name="Motor both directions of rotation + variable speed" data-standard="48px">
   <title>Motor both directions of rotation + variable speed</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="13.39,-7.62 9.13,-5.12 11.32,-3.07 13.49,-7.62" stroke="black" fill="black" />
-    <line x1="0.00" y1="15.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="16.00" x2="10.00" y2="-4.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
-    <path d="M 21.52 -4.03 A 17.50 17.50 0 0 0 20.82 16.03" stroke="black" fill="none" />
-    <polygon points="2.94,-4.58 -2.52,-4.63 0.08,1.19 2.88,-4.47" stroke="black" fill="none" />
-    <line x1="10.00" y1="7.00" x2="22.00" y2="7.00" stroke="black" fill="none" />
-    <polygon points="24.27,18.94 19.65,16.89 21.79,15.16 24.27,18.63" stroke="black" fill="black" />
-    <polygon points="24.93,-8 20.58,-5.07 22.93,-3.32" stroke="black" fill="black" />
-    <line x1="10.00" y1="3.00" x2="22.00" y2="3.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="5.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <polygon points="-2.94,14.58 2.53,14.64 -0.07,8.82 -2.88,14.47" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="21.42,-12.19 14.61,-8.19 18.11,-4.91 21.58,-12.19" stroke="black" fill="black" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="25.60" x2="16.00" y2="-6.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="-16.00" x2="0.00" y2="-8.00" stroke="black" fill="none" />
+    <path d="M 34.43 -6.45 A 28.00 28.00 0 0 0 33.31 25.65" stroke="black" fill="none" />
+    <polygon points="4.70,-7.33 -4.03,-7.41 0.13,1.90 4.61,-7.15" stroke="black" fill="none" />
+    <line x1="16.00" y1="11.20" x2="35.20" y2="11.20" stroke="black" fill="none" />
+    <polygon points="38.83,30.30 31.44,27.02 34.86,24.26 38.83,29.81" stroke="black" fill="black" />
+    <polygon points="39.89,-12.80 32.93,-8.11 36.69,-5.31" stroke="black" fill="black" />
+    <line x1="16.00" y1="4.80" x2="35.20" y2="4.80" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="8.00" rx="16.00" ry="16.00" stroke="black" fill="none" />
+    <polygon points="-4.70,23.33 4.05,23.42 -0.11,14.11 -4.61,23.15" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

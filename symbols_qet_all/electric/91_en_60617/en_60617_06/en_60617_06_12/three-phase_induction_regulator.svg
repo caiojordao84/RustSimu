@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="150.0" viewBox="-87.0 -134.0 110.0 150.0" data-name="Three-phase induction regulator">
+<svg xmlns="http://www.w3.org/2000/svg" width="264.0" height="360.0" viewBox="-208.8 -321.6 264.0 360.0" data-name="Three-phase induction regulator" data-standard="48px">
   <title>Three-phase induction regulator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-30.00" cy="-50.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-110.00" x2="-30.00" y2="-80.00" stroke="black" fill="none" />
-    <text x="-74.00" y="-120.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
-    <line x1="-30.00" y1="-20.00" x2="-30.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-95.00" x2="-20.00" y2="-100.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-100.00" x2="-20.00" y2="-105.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="0.00" x2="-20.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-5.00" x2="-20.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-90.00" x2="-20.00" y2="-95.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="5.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
-    <ellipse cx="-30.00" cy="-60.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <line x1="-70.00" y1="-20.00" x2="15.00" y2="-75.00" stroke="black" fill="none" />
-    <polygon points="15,-73 13,-76 19,-78" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-30.00" cy="-110.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-72.00" cy="-120.00" rx="72.00" ry="72.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-264.00" x2="-72.00" y2="-192.00" stroke="black" fill="none" />
+    <text x="-177.60" y="-288.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
+    <line x1="-72.00" y1="-48.00" x2="-72.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-228.00" x2="-48.00" y2="-240.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-240.00" x2="-48.00" y2="-252.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="0.00" x2="-48.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-12.00" x2="-48.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-216.00" x2="-48.00" y2="-228.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="12.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="-72.00" cy="-144.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <line x1="-168.00" y1="-48.00" x2="36.00" y2="-180.00" stroke="black" fill="none" />
+    <polygon points="36.00,-175.20 31.20,-182.40 45.60,-187.20" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-72.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

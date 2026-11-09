@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-9.0 -21.0 20.0 30.0" data-name="Chassis">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-21.6 -50.4 48.0 72.0" data-name="Chassis" data-standard="48px">
   <title>Chassis</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="7.50" y1="0.50" x2="5.00" y2="3.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="3.00" x2="1.50" y2="0.50" stroke="black" fill="none" />
-    <line x1="-7.00" y1="3.00" x2="-4.50" y2="0.50" stroke="black" fill="none" />
-    <line x1="2.00" y1="3.00" x2="4.50" y2="0.50" stroke="black" fill="none" />
-    <line x1="-4.00" y1="3.00" x2="-1.50" y2="0.50" stroke="black" fill="none" />
-    <line x1="-7.00" y1="0.00" x2="8.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-11.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="18.00" y1="1.20" x2="12.00" y2="7.20" stroke="black" fill="none" />
+    <line x1="-2.40" y1="7.20" x2="3.60" y2="1.20" stroke="black" fill="none" />
+    <line x1="-16.80" y1="7.20" x2="-10.80" y2="1.20" stroke="black" fill="none" />
+    <line x1="4.80" y1="7.20" x2="10.80" y2="1.20" stroke="black" fill="none" />
+    <line x1="-9.60" y1="7.20" x2="-3.60" y2="1.20" stroke="black" fill="none" />
+    <line x1="-16.80" y1="0.00" x2="19.20" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-26.40" r="4.0" fill="red" stroke="none" data-name="GND" data-orientation="n" />
   </g>
 </svg>

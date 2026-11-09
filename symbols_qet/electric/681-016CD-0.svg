@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="190.0" height="250.0" viewBox="-105.0 -85.0 190.0 250.0" data-name="Tuning indicator">
+<svg xmlns="http://www.w3.org/2000/svg" width="456.0" height="600.0" viewBox="-252.0 -204.0 456.0 600.0" data-name="Tuning indicator" data-standard="48px">
   <title>Tuning indicator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="40.00" y1="-80.00" x2="40.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="-35.00" x2="55.00" y2="-15.00" stroke="black" fill="none" />
-    <path d="M 20.00 120.00 A 20.00 20.00 0 0 0 -20.00 120.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="120.00" x2="-20.00" y2="160.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="120.00" x2="20.00" y2="160.00" stroke="black" fill="none" />
-    <path d="M 28.28 91.72 A 40.00 40.00 0 0 0 -40.00 120.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="120.00" x2="-40.00" y2="160.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="70.00" x2="29.00" y2="91.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="130.00" x2="60.00" y2="130.00" stroke="black" fill="none" />
-    <path d="M 60.00 130.00 A 20.00 20.00 0 0 0 80.00 110.00" stroke="black" fill="none" />
-    <path d="M -80.00 110.00 A 20.00 20.00 0 0 0 -60.00 130.00" stroke="black" fill="none" />
-    <line x1="80.00" y1="110.00" x2="80.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="110.00" x2="-80.00" y2="-30.00" stroke="black" fill="none" />
-    <path d="M -60.00 -50.00 A 20.00 20.00 0 0 0 -80.00 -30.00" stroke="black" fill="none" />
-    <path d="M 80.00 -30.00 A 20.00 20.00 0 0 0 60.00 -50.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-50.00" x2="60.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="70.00" x2="70.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="60.00" x2="10.00" y2="60.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-60.00" y1="60.00" x2="-20.00" y2="60.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-100.00" y1="60.00" x2="-60.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="-40.00" x2="25.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="55.00" y1="-20.00" x2="55.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="0.00" x2="25.00" y2="40.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="20.00" x2="25.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="40.00" x2="-40.00" y2="-80.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="40.00" x2="-20.00" y2="40.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="96.00" y1="-192.00" x2="96.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-84.00" x2="132.00" y2="-36.00" stroke="black" fill="none" />
+    <path d="M 48.00 288.00 A 48.00 48.00 0 0 0 -48.00 288.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="288.00" x2="-48.00" y2="384.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="288.00" x2="48.00" y2="384.00" stroke="black" fill="none" />
+    <path d="M 67.87 220.13 A 96.00 96.00 0 0 0 -96.00 288.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="288.00" x2="-96.00" y2="384.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="168.00" x2="69.60" y2="218.40" stroke="black" fill="none" />
+    <line x1="-144.00" y1="312.00" x2="144.00" y2="312.00" stroke="black" fill="none" />
+    <path d="M 144.00 312.00 A 48.00 48.00 0 0 0 192.00 264.00" stroke="black" fill="none" />
+    <path d="M -192.00 264.00 A 48.00 48.00 0 0 0 -144.00 312.00" stroke="black" fill="none" />
+    <line x1="192.00" y1="264.00" x2="192.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="-192.00" y1="264.00" x2="-192.00" y2="-72.00" stroke="black" fill="none" />
+    <path d="M -144.00 -120.00 A 48.00 48.00 0 0 0 -192.00 -72.00" stroke="black" fill="none" />
+    <path d="M 192.00 -72.00 A 48.00 48.00 0 0 0 144.00 -120.00" stroke="black" fill="none" />
+    <line x1="-144.00" y1="-120.00" x2="144.00" y2="-120.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="168.00" x2="168.00" y2="144.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="144.00" x2="24.00" y2="144.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-144.00" y1="144.00" x2="-48.00" y2="144.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-240.00" y1="144.00" x2="-144.00" y2="144.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-96.00" x2="60.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="132.00" y1="-48.00" x2="132.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="0.00" x2="60.00" y2="96.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="48.00" x2="60.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="96.00" x2="-96.00" y2="-192.00" stroke="black" fill="none" />
+    <line x1="-144.00" y1="96.00" x2="-48.00" y2="96.00" stroke="black" fill="none" />
   </g>
 </svg>

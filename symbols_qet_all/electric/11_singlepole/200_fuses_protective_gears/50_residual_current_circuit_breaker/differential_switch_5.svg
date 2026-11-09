@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-12.0 -30.0 30.0 60.0" data-name="Differential switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="36.0" height="72.0" viewBox="-14.4 -36.0 36.0 72.0" data-name="Differential switch" data-standard="48px">
   <title>Differential switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-20.46" x2="0.00" y2="-12.54" stroke="black" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-10.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="15.00" rx="5.00" ry="2.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="0.00" x2="-3.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-6.00" y1="15.00" x2="-8.00" y2="15.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-8.00" y1="0.00" x2="-8.00" y2="15.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-2.00" y1="-12.00" x2="2.00" y2="-12.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-10.50" rx="1.25" ry="1.25" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-24.55" x2="0.00" y2="-15.05" stroke="black" fill="none" />
+    <line x1="0.00" y1="12.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-12.00" x2="0.00" y2="12.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="18.00" rx="6.00" ry="2.40" stroke="black" fill="none" />
+    <line x1="-9.60" y1="0.00" x2="-3.60" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-7.20" y1="18.00" x2="-9.60" y2="18.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-9.60" y1="0.00" x2="-9.60" y2="18.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-2.40" y1="-14.40" x2="2.40" y2="-14.40" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-12.60" rx="1.50" ry="1.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-25.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="25.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="20.0" viewBox="-40.0 -9.0 80.0 20.0" data-name="PVC pressure pipe">
+<svg xmlns="http://www.w3.org/2000/svg" width="64.0" height="16.0" viewBox="-32.0 -7.2 64.0 16.0" data-name="PVC pressure pipe" data-standard="48px">
   <title>PVC pressure pipe</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-30.00" y="-5.00" width="60.00" height="10.00" stroke="black" fill="none" />
-    <text x="-15.00" y="2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PVC P</text>
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-4.00" width="48.00" height="8.00" stroke="black" fill="none" />
+    <text x="-12.00" y="1.60" font-size="7.2" font-family="sans-serif" fill="black" stroke="none">PVC P</text>
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

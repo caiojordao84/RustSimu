@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="60.0" viewBox="-40.0 -30.0 80.0 60.0" data-name="Adjustable throttle valve">
+<svg xmlns="http://www.w3.org/2000/svg" width="64.0" height="48.0" viewBox="-32.0 -24.0 64.0 48.0" data-name="Adjustable throttle valve" data-standard="48px">
   <title>Adjustable throttle valve</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="4,-6 6,-4 8,-8" stroke="black" fill="black" />
-    <path d="M 10.00 3.34 A 20.00 10.00 0 0 0 -10.00 3.34" stroke="black" fill="none" />
-    <line x1="-30.00" y1="0.00" x2="30.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="8.00" x2="5.00" y2="-5.00" stroke="black" fill="none" />
-    <path d="M -10.00 -3.34 A 20.00 10.00 0 0 0 10.00 -3.34" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="3.20,-4.80 4.80,-3.20 6.40,-6.40" stroke="black" fill="black" />
+    <path d="M 8.00 2.67 A 16.00 8.00 0 0 0 -8.00 2.67" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-6.40" y1="6.40" x2="4.00" y2="-4.00" stroke="black" fill="none" />
+    <path d="M -8.00 -2.67 A 16.00 8.00 0 0 0 8.00 -2.67" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

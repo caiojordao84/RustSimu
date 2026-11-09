@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-39.0 -10.0 60.0 50.0" data-name="Air heater">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="80.0" viewBox="-62.4 -16.0 96.0 80.0" data-name="Air heater" data-standard="48px">
   <title>Air heater</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-7.84" cy="10.05" rx="1.85" ry="4.38" stroke="black" fill="none" />
-    <ellipse cx="-12.79" cy="14.10" rx="4.32" ry="1.69" stroke="black" fill="none" />
-    <rect x="-30.20" y="29.63" width="4.45" height="1.64" stroke="black" fill="none" />
-    <polygon points="-23.53,2.29 -23.53,5 -21.86,5" stroke="black" fill="black" />
-    <rect x="-23.53" y="6.43" width="31.68" height="2.30" stroke="black" fill="none" />
-    <polygon points="-23.53,6.66 -23.53,9.4 -21.86,9.4" stroke="black" fill="black" />
-    <polygon points="-23.53,11 -23.53,13.77 -21.86,13.77" stroke="black" fill="black" />
-    <polygon points="-23.53,24.16 -23.53,26.89 -21.86,26.89" stroke="black" fill="black" />
-    <polygon points="-23.53,15.41 -23.53,18.14 -21.86,18.14" stroke="black" fill="black" />
-    <polygon points="-23.53,19.79 -23.53,22.52 -21.86,22.52" stroke="black" fill="black" />
-    <polygon points="-23.53,28.53 -23.53,31.27 -21.86,31.27" stroke="black" fill="black" />
-    <rect x="-23.53" y="23.92" width="31.68" height="2.30" stroke="black" fill="none" />
-    <rect x="-23.53" y="19.65" width="31.68" height="2.30" stroke="black" fill="none" />
-    <rect x="-25.75" y="-4.27" width="36.12" height="38.27" stroke="black" fill="none" />
-    <rect x="-23.53" y="28.52" width="31.68" height="2.30" stroke="black" fill="none" />
-    <rect x="-23.53" y="15.37" width="31.68" height="2.30" stroke="black" fill="none" />
-    <rect x="-23.53" y="2.15" width="31.68" height="2.30" stroke="black" fill="none" />
-    <rect x="-23.53" y="11.00" width="31.68" height="2.30" stroke="black" fill="none" />
-    <rect x="-23.53" y="-2.12" width="31.68" height="2.30" stroke="black" fill="none" />
-    <rect x="-30.20" y="-1.54" width="4.45" height="1.64" stroke="black" fill="none" />
-    <polygon points="-23.53,-2.08 -23.53,0.65 -21.86,0.65" stroke="black" fill="black" />
-    <ellipse cx="-7.23" cy="14.80" rx="12.35" ry="11.80" stroke="black" fill="none" />
-    <ellipse cx="-7.84" cy="18.82" rx="1.85" ry="4.38" stroke="black" fill="none" />
-    <ellipse cx="-2.91" cy="14.10" rx="4.32" ry="1.69" stroke="black" fill="none" />
-    <rect x="10.68" y="9.41" width="1.24" height="1.35" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="11.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-30.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-12.54" cy="16.08" rx="2.96" ry="7.01" stroke="black" fill="none" />
+    <ellipse cx="-20.46" cy="22.56" rx="6.91" ry="2.70" stroke="black" fill="none" />
+    <rect x="-48.32" y="47.41" width="7.12" height="2.62" stroke="black" fill="none" />
+    <polygon points="-37.65,3.66 -37.65,8.00 -34.98,8.00" stroke="black" fill="black" />
+    <rect x="-37.65" y="10.29" width="50.69" height="3.68" stroke="black" fill="none" />
+    <polygon points="-37.65,10.66 -37.65,15.04 -34.98,15.04" stroke="black" fill="black" />
+    <polygon points="-37.65,17.60 -37.65,22.03 -34.98,22.03" stroke="black" fill="black" />
+    <polygon points="-37.65,38.66 -37.65,43.02 -34.98,43.02" stroke="black" fill="black" />
+    <polygon points="-37.65,24.66 -37.65,29.02 -34.98,29.02" stroke="black" fill="black" />
+    <polygon points="-37.65,31.66 -37.65,36.03 -34.98,36.03" stroke="black" fill="black" />
+    <polygon points="-37.65,45.65 -37.65,50.03 -34.98,50.03" stroke="black" fill="black" />
+    <rect x="-37.65" y="38.27" width="50.69" height="3.68" stroke="black" fill="none" />
+    <rect x="-37.65" y="31.44" width="50.69" height="3.68" stroke="black" fill="none" />
+    <rect x="-41.20" y="-6.83" width="57.79" height="61.23" stroke="black" fill="none" />
+    <rect x="-37.65" y="45.63" width="50.69" height="3.68" stroke="black" fill="none" />
+    <rect x="-37.65" y="24.59" width="50.69" height="3.68" stroke="black" fill="none" />
+    <rect x="-37.65" y="3.44" width="50.69" height="3.68" stroke="black" fill="none" />
+    <rect x="-37.65" y="17.60" width="50.69" height="3.68" stroke="black" fill="none" />
+    <rect x="-37.65" y="-3.39" width="50.69" height="3.68" stroke="black" fill="none" />
+    <rect x="-48.32" y="-2.46" width="7.12" height="2.62" stroke="black" fill="none" />
+    <polygon points="-37.65,-3.33 -37.65,1.04 -34.98,1.04" stroke="black" fill="black" />
+    <ellipse cx="-11.57" cy="23.68" rx="19.76" ry="18.88" stroke="black" fill="none" />
+    <ellipse cx="-12.54" cy="30.11" rx="2.96" ry="7.01" stroke="black" fill="none" />
+    <ellipse cx="-4.66" cy="22.56" rx="6.91" ry="2.70" stroke="black" fill="none" />
+    <rect x="17.09" y="15.06" width="1.98" height="2.16" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="17.60" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-48.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

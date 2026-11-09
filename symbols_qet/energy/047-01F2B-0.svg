@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-19.0 -27.0 40.0 40.0" data-name="boca-aspiracion">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-45.6 -64.8 96.0 96.0" data-name="boca-aspiracion" data-standard="48px">
   <title>boca-aspiracion</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.70" cy="-0.44" rx="14.70" ry="10.44" stroke="black" fill="none" />
-    <path d="M 5.95 -14.54 A 6.09 3.04 0 0 0 -6.23 -14.54" stroke="black" fill="none" />
-    <path d="M 5.95 -11.05 A 6.09 3.04 0 0 0 -6.23 -11.05" stroke="black" fill="none" />
-    <line x1="5.95" y1="-14.75" x2="5.95" y2="-10.61" stroke="black" fill="none" />
-    <ellipse cx="1.12" cy="0.43" rx="10.92" ry="7.83" stroke="black" fill="none" />
-    <path d="M 5.53 -7.16 A 11.34 8.27 0 1 0 -0.14 8.26" stroke="black" fill="none" />
-    <line x1="-6.13" y1="-14.42" x2="-6.13" y2="-9.77" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="1.68" cy="-1.06" rx="35.28" ry="25.06" stroke="black" fill="none" />
+    <path d="M 14.28 -34.90 A 14.62 7.30 0 0 0 -14.95 -34.90" stroke="black" fill="none" />
+    <path d="M 14.28 -26.52 A 14.62 7.30 0 0 0 -14.95 -26.52" stroke="black" fill="none" />
+    <line x1="14.28" y1="-35.40" x2="14.28" y2="-25.46" stroke="black" fill="none" />
+    <ellipse cx="2.69" cy="1.03" rx="26.21" ry="18.79" stroke="black" fill="none" />
+    <path d="M 13.27 -17.18 A 27.22 19.85 0 1 0 -0.34 19.82" stroke="black" fill="none" />
+    <line x1="-14.71" y1="-34.61" x2="-14.71" y2="-23.45" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

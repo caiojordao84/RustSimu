@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="100.0" viewBox="-28.0 -46.0 50.0 100.0" data-name="Voltmeter digital">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="240.0" viewBox="-67.2 -110.4 120.0 240.0" data-name="Voltmeter digital" data-standard="48px">
   <title>Voltmeter digital</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="9.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V~</text>
-    <rect x="-20.00" y="-40.00" width="36.00" height="87.00" stroke="black" fill="none" />
-    <text x="9.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="1.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="-7.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <ellipse cx="-6.00" cy="-33.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="-33.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <line x1="7.70" y1="-33.00" x2="12.32" y2="-33.00" stroke="black" fill="none" />
-    <line x1="-8.30" y1="-33.00" x2="-3.68" y2="-33.00" stroke="black" fill="none" />
-    <ellipse cx="2.00" cy="-33.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <ellipse cx="-14.00" cy="-33.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <line x1="-16.30" y1="-33.00" x2="-11.68" y2="-33.00" stroke="black" fill="none" />
-    <line x1="-0.30" y1="-33.00" x2="4.32" y2="-33.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="12.00" x2="-4.00" y2="14.00" stroke="white" fill="none" />
-    <line x1="-2.12" y1="13.00" x2="-1.79" y2="13.00" stroke="white" fill="none" />
-    <ellipse cx="1.00" cy="13.00" rx="1.00" ry="1.00" stroke="white" fill="none" />
-    <polyline points="4,12 4,14 2.66,12 2.66,14" stroke="white" fill="none" />
-    <rect x="-16.00" y="0.00" width="24.00" height="12.00" stroke="black" fill="none" />
-    <text x="-19.00" y="25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">VLT</text>
-    <text x="-15.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <line x1="-20.00" y1="-18.00" x2="16.00" y2="-18.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="27.00" x2="16.00" y2="27.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-35.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="2.00" cy="-35.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-6.00" cy="-35.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-14.00" cy="-35.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="21.60" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">V~</text>
+    <rect x="-48.00" y="-96.00" width="86.40" height="208.80" stroke="black" fill="none" />
+    <text x="21.60" y="-62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="2.40" y="-62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-16.80" y="-62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <ellipse cx="-14.40" cy="-79.20" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="-79.20" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <line x1="18.48" y1="-79.20" x2="29.57" y2="-79.20" stroke="black" fill="none" />
+    <line x1="-19.92" y1="-79.20" x2="-8.83" y2="-79.20" stroke="black" fill="none" />
+    <ellipse cx="4.80" cy="-79.20" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <ellipse cx="-33.60" cy="-79.20" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <line x1="-39.12" y1="-79.20" x2="-28.03" y2="-79.20" stroke="black" fill="none" />
+    <line x1="-0.72" y1="-79.20" x2="10.37" y2="-79.20" stroke="black" fill="none" />
+    <line x1="-9.60" y1="28.80" x2="-9.60" y2="33.60" stroke="white" fill="none" />
+    <line x1="-5.09" y1="31.20" x2="-4.30" y2="31.20" stroke="white" fill="none" />
+    <ellipse cx="2.40" cy="31.20" rx="2.40" ry="2.40" stroke="white" fill="none" />
+    <polyline points="9.60,28.80 9.60,33.60 6.38,28.80 6.38,33.60" stroke="white" fill="none" />
+    <rect x="-38.40" y="0.00" width="57.60" height="28.80" stroke="black" fill="none" />
+    <text x="-45.60" y="60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">VLT</text>
+    <text x="-36.00" y="-62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <line x1="-48.00" y1="-43.20" x2="38.40" y2="-43.20" stroke="black" fill="none" />
+    <line x1="-48.00" y1="64.80" x2="38.40" y2="64.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-84.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="4.80" cy="-84.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-14.40" cy="-84.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-33.60" cy="-84.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

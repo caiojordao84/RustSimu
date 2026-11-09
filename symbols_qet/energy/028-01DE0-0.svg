@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="70.0" viewBox="-18.0 -13.0 40.0 70.0" data-name="PEX compression elbow with loose nut">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="168.0" viewBox="-43.2 -31.2 96.0 168.0" data-name="PEX compression elbow with loose nut" data-standard="48px">
   <title>PEX compression elbow with loose nut</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="5.00" y="20.00" width="10.00" height="25.00" stroke="#d40000" fill="#d40000" />
-    <rect x="-9.00" y="-7.00" width="7.00" height="14.00" stroke="black" fill="white" />
-    <line x1="-4.00" y1="-4.00" x2="-9.00" y2="-4.00" stroke="black" fill="none" />
-    <line x1="-9.00" y1="4.00" x2="-4.00" y2="4.00" stroke="black" fill="none" />
-    <path d="M -4.00 4.00 A 2.00 4.00 0 0 0 -4.00 -4.00" stroke="black" fill="none" />
-    <path d="M -4.00 -4.00 A 2.00 3.00 0 0 0 -2.00 -7.00" stroke="black" fill="none" />
-    <path d="M -2.00 7.00 A 2.00 3.00 0 0 0 -4.00 4.00" stroke="black" fill="none" />
-    <rect x="5.00" y="10.00" width="10.00" height="1.00" stroke="#d40000" fill="#d40000" />
-    <line x1="0.00" y1="-5.00" x2="0.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="4.00" y1="9.00" x2="16.00" y2="9.00" stroke="black" fill="none" />
-    <path d="M 4.00 8.00 A 3.00 3.00 0 0 0 1.00 5.00" stroke="black" fill="none" />
-    <path d="M 16.00 7.00 A 12.00 12.00 0 0 0 4.00 -5.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="4.00" x2="0.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="-4.00" x2="0.00" y2="-4.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-5.00" x2="3.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="16.00" y1="7.00" x2="16.00" y2="9.00" stroke="black" fill="none" />
-    <rect x="4.00" y="11.00" width="12.00" height="8.00" stroke="black" fill="none" />
-    <text x="13.00" y="43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PER</text>
-    <circle class="qet-terminal" cx="10.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-9.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="12.00" y="48.00" width="24.00" height="60.00" stroke="#d40000" fill="#d40000" />
+    <rect x="-21.60" y="-16.80" width="16.80" height="33.60" stroke="black" fill="white" />
+    <line x1="-9.60" y1="-9.60" x2="-21.60" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-21.60" y1="9.60" x2="-9.60" y2="9.60" stroke="black" fill="none" />
+    <path d="M -9.60 9.60 A 4.80 9.60 0 0 0 -9.60 -9.60" stroke="black" fill="none" />
+    <path d="M -9.60 -9.60 A 4.80 7.20 0 0 0 -4.80 -16.80" stroke="black" fill="none" />
+    <path d="M -4.80 16.80 A 4.80 7.20 0 0 0 -9.60 9.60" stroke="black" fill="none" />
+    <rect x="12.00" y="24.00" width="24.00" height="2.40" stroke="#d40000" fill="#d40000" />
+    <line x1="0.00" y1="-12.00" x2="0.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="9.60" y1="21.60" x2="38.40" y2="21.60" stroke="black" fill="none" />
+    <path d="M 9.60 19.20 A 7.20 7.20 0 0 0 2.40 12.00" stroke="black" fill="none" />
+    <path d="M 38.40 16.80 A 28.80 28.80 0 0 0 9.60 -12.00" stroke="black" fill="none" />
+    <line x1="-2.40" y1="9.60" x2="0.00" y2="9.60" stroke="black" fill="none" />
+    <line x1="-2.40" y1="-9.60" x2="0.00" y2="-9.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="-12.00" x2="7.20" y2="-12.00" stroke="black" fill="none" />
+    <line x1="38.40" y1="16.80" x2="38.40" y2="21.60" stroke="black" fill="none" />
+    <rect x="9.60" y="26.40" width="28.80" height="19.20" stroke="black" fill="none" />
+    <text x="31.20" y="103.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PER</text>
+    <circle class="qet-terminal" cx="24.00" cy="108.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-21.60" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

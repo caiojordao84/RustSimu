@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="40.0" viewBox="-28.0 -10.0 80.0 40.0" data-name="Telescopic double acting">
+<svg xmlns="http://www.w3.org/2000/svg" width="64.0" height="32.0" viewBox="-22.4 -8.0 64.0 32.0" data-name="Telescopic double acting" data-standard="48px">
   <title>Telescopic double acting</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="40.00" y1="12.00" x2="40.00" y2="16.00" stroke="black" fill="none" />
-    <polygon points="38,11 42,11 40,7" stroke="black" fill="none" />
-    <polyline points="43,7 43,11 -11,11 -11,15" stroke="black" fill="none" />
-    <polyline points="33,11 33,15 -23,15 -23,-5 33,-5 33,-1" stroke="black" fill="none" />
-    <polygon points="-22,15 -18,15 -20,11" stroke="black" fill="none" />
-    <polyline points="43,2 43,-1 -11,-1 -11,-5" stroke="black" fill="none" />
-    <polyline points="0,0 0,3 49,3 49,7 0,7 0,10" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="32.00" y1="9.60" x2="32.00" y2="12.80" stroke="black" fill="none" />
+    <polygon points="30.40,8.80 33.60,8.80 32.00,5.60" stroke="black" fill="none" />
+    <polyline points="34.40,5.60 34.40,8.80 -8.80,8.80 -8.80,12.00" stroke="black" fill="none" />
+    <polyline points="26.40,8.80 26.40,12.00 -18.40,12.00 -18.40,-4.00 26.40,-4.00 26.40,-0.80" stroke="black" fill="none" />
+    <polygon points="-17.60,12.00 -14.40,12.00 -16.00,8.80" stroke="black" fill="none" />
+    <polyline points="34.40,1.60 34.40,-0.80 -8.80,-0.80 -8.80,-4.00" stroke="black" fill="none" />
+    <polyline points="0.00,0.00 0.00,2.40 39.20,2.40 39.20,5.60 0.00,5.60 0.00,8.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="32.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-16.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

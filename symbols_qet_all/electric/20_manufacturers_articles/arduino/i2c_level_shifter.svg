@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="50.0" viewBox="-49.0 -27.0 110.0 50.0" data-name="I2C Level Shifter">
+<svg xmlns="http://www.w3.org/2000/svg" width="58.7" height="26.7" viewBox="-26.1 -14.4 58.7 26.7" data-name="I2C Level Shifter" data-standard="48px">
   <title>I2C Level Shifter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-34.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BVCC</text>
-    <text x="-34.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BSCL</text>
-    <text x="-34.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BSDA</text>
-    <text x="-34.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BGND</text>
-    <text x="19.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AVCC</text>
-    <text x="19.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ASCL</text>
-    <text x="18.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ASDA</text>
-    <text x="17.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AGND</text>
-    <rect x="-45.00" y="-25.00" width="101.00" height="41.00" stroke="black" fill="none" />
-    <text x="7.00" y="-20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I2C Level
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-18.13" y="-8.53" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">BVCC</text>
+    <text x="-18.13" y="-3.20" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">BSCL</text>
+    <text x="-18.13" y="2.13" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">BSDA</text>
+    <text x="-18.13" y="7.47" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">BGND</text>
+    <text x="10.13" y="-8.53" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">AVCC</text>
+    <text x="10.13" y="-3.20" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">ASCL</text>
+    <text x="9.60" y="2.13" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">ASDA</text>
+    <text x="9.07" y="7.47" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">AGND</text>
+    <rect x="-24.00" y="-13.33" width="53.87" height="21.87" stroke="black" fill="none" />
+    <text x="3.73" y="-10.67" font-size="4.8" font-family="sans-serif" fill="black" stroke="none">I2C Level
 shifter</text>
-    <circle class="qet-terminal" cx="-40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="50.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="50.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="50.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="50.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-21.33" cy="5.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.33" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.33" cy="-5.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.33" cy="-10.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="26.67" cy="5.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.67" cy="-10.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.67" cy="-5.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.67" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

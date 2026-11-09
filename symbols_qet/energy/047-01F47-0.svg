@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-10.0 -18.0 20.0 30.0" data-name="reg-velocidad">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-24.0 -43.2 48.0 72.0" data-name="reg-velocidad" data-standard="48px">
   <title>reg-velocidad</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-6.65" y="-8.28" width="13.78" height="16.32" stroke="black" fill="none" />
-    <polyline points="-7,-7.43 -7,8.58 7.14,8.58" stroke="black" fill="none" />
-    <rect x="-3.00" y="-7.00" width="8.00" height="3.20" stroke="black" fill="none" />
-    <ellipse cx="0.67" cy="0.68" rx="2.88" ry="2.57" stroke="black" fill="none" />
-    <line x1="-1.72" y1="-0.61" x2="0.67" y2="0.68" stroke="black" fill="none" />
-    <polygon points="3.07,6.17 -2.6,6.17 -2.6,4.82" stroke="#d40000" fill="#d40000" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-15.96" y="-19.87" width="33.07" height="39.17" stroke="black" fill="none" />
+    <polyline points="-16.80,-17.83 -16.80,20.59 17.14,20.59" stroke="black" fill="none" />
+    <rect x="-7.20" y="-16.80" width="19.20" height="7.68" stroke="black" fill="none" />
+    <ellipse cx="1.61" cy="1.63" rx="6.91" ry="6.17" stroke="black" fill="none" />
+    <line x1="-4.13" y1="-1.46" x2="1.61" y2="1.63" stroke="black" fill="none" />
+    <polygon points="7.37,14.81 -6.24,14.81 -6.24,11.57" stroke="#d40000" fill="#d40000" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

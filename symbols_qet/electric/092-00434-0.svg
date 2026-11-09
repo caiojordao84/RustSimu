@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="200.0" viewBox="-67.0 -11.0 130.0 200.0" data-name="Heated floor">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="480.0" viewBox="-160.8 -26.4 312.0 480.0" data-name="Heated floor" data-standard="48px">
   <title>Heated floor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-60.00" y="95.00" width="120.00" height="85.00" stroke="black" fill="none" />
-    <path d="M 20.70 46.45 A 6.96 4.54 0 0 0 20.71 37.38" stroke="black" fill="none" />
-    <line x1="-60.00" y1="165.00" x2="60.00" y2="165.00" stroke="black" fill="none" />
-    <path d="M 22.45 49.48 A 8.70 7.56 0 0 0 22.45 34.36" stroke="black" fill="none" />
-    <path d="M -17.70 49.48 A 8.70 4.54 0 0 0 -17.54 58.55" stroke="black" fill="none" />
-    <line x1="-19.64" y1="58.55" x2="24.18" y2="58.55" stroke="black" fill="none" />
-    <line x1="-21.00" y1="34.36" x2="23.49" y2="34.36" stroke="black" fill="none" />
-    <text x="-2.00" y="162.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
-    <line x1="-60.00" y1="135.00" x2="60.00" y2="135.00" stroke="black" fill="none" />
-    <line x1="-21.00" y1="37.38" x2="20.71" y2="37.38" stroke="black" fill="none" />
-    <line x1="-60.00" y1="115.00" x2="60.00" y2="115.00" stroke="black" fill="none" />
-    <line x1="-21.47" y1="46.45" x2="20.71" y2="46.45" stroke="black" fill="none" />
-    <line x1="-19.64" y1="49.48" x2="23.49" y2="49.48" stroke="black" fill="none" />
-    <text x="6.00" y="150.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <line x1="-21.00" y1="61.57" x2="24.18" y2="61.57" stroke="black" fill="none" />
-    <line x1="-60.00" y1="10.00" x2="60.00" y2="10.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <path d="M -19.47 46.45 A 10.44 7.56 0 0 0 -19.29 61.57" stroke="black" fill="none" />
-    <text x="-58.00" y="111.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Plancher chauffant</text>
-    <text x="-2.00" y="178.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
-    <line x1="-14.07" y1="28.31" x2="-14.07" y2="67.62" stroke="black" fill="none" />
-    <line x1="-0.16" y1="27.91" x2="-0.16" y2="68.00" stroke="black" fill="none" />
-    <line x1="13.75" y1="27.91" x2="13.75" y2="68.00" stroke="black" fill="none" />
-    <line x1="-21.00" y1="37.38" x2="-21.00" y2="34.36" stroke="black" fill="none" />
-    <line x1="0.00" y1="28.31" x2="0.00" y2="4.12" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-144.00" y="228.00" width="288.00" height="204.00" stroke="black" fill="none" />
+    <path d="M 49.68 111.48 A 16.70 10.90 0 0 0 49.70 89.71" stroke="black" fill="none" />
+    <line x1="-144.00" y1="396.00" x2="144.00" y2="396.00" stroke="black" fill="none" />
+    <path d="M 53.88 118.75 A 20.88 18.14 0 0 0 53.88 82.46" stroke="black" fill="none" />
+    <path d="M -42.48 118.75 A 20.88 10.90 0 0 0 -42.10 140.52" stroke="black" fill="none" />
+    <line x1="-47.14" y1="140.52" x2="58.03" y2="140.52" stroke="black" fill="none" />
+    <line x1="-50.40" y1="82.46" x2="56.38" y2="82.46" stroke="black" fill="none" />
+    <text x="-4.80" y="388.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
+    <line x1="-144.00" y1="324.00" x2="144.00" y2="324.00" stroke="black" fill="none" />
+    <line x1="-50.40" y1="89.71" x2="49.70" y2="89.71" stroke="black" fill="none" />
+    <line x1="-144.00" y1="276.00" x2="144.00" y2="276.00" stroke="black" fill="none" />
+    <line x1="-51.53" y1="111.48" x2="49.70" y2="111.48" stroke="black" fill="none" />
+    <line x1="-47.14" y1="118.75" x2="56.38" y2="118.75" stroke="black" fill="none" />
+    <text x="14.40" y="360.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <line x1="-50.40" y1="147.77" x2="58.03" y2="147.77" stroke="black" fill="none" />
+    <line x1="-144.00" y1="24.00" x2="144.00" y2="24.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <path d="M -46.73 111.48 A 25.06 18.14 0 0 0 -46.30 147.77" stroke="black" fill="none" />
+    <text x="-139.20" y="266.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Plancher chauffant</text>
+    <text x="-4.80" y="427.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <line x1="-33.77" y1="67.94" x2="-33.77" y2="162.29" stroke="black" fill="none" />
+    <line x1="-0.38" y1="66.98" x2="-0.38" y2="163.20" stroke="black" fill="none" />
+    <line x1="33.00" y1="66.98" x2="33.00" y2="163.20" stroke="black" fill="none" />
+    <line x1="-50.40" y1="89.71" x2="-50.40" y2="82.46" stroke="black" fill="none" />
+    <line x1="0.00" y1="67.94" x2="0.00" y2="9.89" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

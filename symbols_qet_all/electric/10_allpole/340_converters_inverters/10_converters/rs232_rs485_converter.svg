@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-74.0 -62.0 120.0 120.0" data-name="RS232/RS485 converter">
+<svg xmlns="http://www.w3.org/2000/svg" width="288.0" height="288.0" viewBox="-177.6 -148.8 288.0 288.0" data-name="RS232/RS485 converter" data-standard="48px">
   <title>RS232/RS485 converter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-40.00" y="-45.00" width="80.00" height="90.00" stroke="black" fill="white" />
-    <line x1="-40.00" y1="45.00" x2="40.00" y2="-45.00" stroke="black" fill="none" />
-    <text x="-26.75" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RX</text>
-    <text x="-13.50" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="-3.75" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TX</text>
-    <text x="16.00" y="-22.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+Ub</text>
-    <text x="25.25" y="-26.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-Ub</text>
-    <text x="16.25" y="43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DATA+</text>
-    <text x="23.50" y="42.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DATA-</text>
-    <text x="-35.00" y="-5.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RS232</text>
-    <text x="2.25" y="6.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RS485</text>
-    <line x1="-30.00" y1="-50.00" x2="-30.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-50.00" x2="-20.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-50.00" x2="-10.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-50.00" x2="10.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-50.00" x2="20.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="50.00" x2="10.00" y2="45.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="50.00" x2="20.00" y2="45.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-30.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-96.00" y="-108.00" width="192.00" height="216.00" stroke="black" fill="white" />
+    <line x1="-96.00" y1="108.00" x2="96.00" y2="-108.00" stroke="black" fill="none" />
+    <text x="-64.20" y="-72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RX</text>
+    <text x="-32.40" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-9.00" y="-72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">TX</text>
+    <text x="38.40" y="-54.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+Ub</text>
+    <text x="60.60" y="-64.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-Ub</text>
+    <text x="39.00" y="103.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DATA+</text>
+    <text x="56.40" y="102.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DATA-</text>
+    <text x="-84.00" y="-12.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RS232</text>
+    <text x="5.40" y="16.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RS485</text>
+    <line x1="-72.00" y1="-120.00" x2="-72.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-120.00" x2="-48.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-120.00" x2="-24.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="-120.00" x2="24.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="-120.00" x2="48.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="120.00" x2="24.00" y2="108.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="120.00" x2="48.00" y2="108.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="48.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

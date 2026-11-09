@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="250.0" height="250.0" viewBox="-125.0 -122.0 250.0 250.0" data-name="Touch panel 1">
+<svg xmlns="http://www.w3.org/2000/svg" width="600.0" height="600.0" viewBox="-300.0 -292.8 600.0 600.0" data-name="Touch panel 1" data-standard="48px">
   <title>Touch panel 1</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-100.00" y="-100.00" width="200.00" height="200.00" stroke="black" fill="none" />
-    <rect x="-120.00" y="-120.00" width="240.00" height="240.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-100.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="L+" data-orientation="s" />
-    <circle class="qet-terminal" cx="-80.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="L-" data-orientation="s" />
-    <circle class="qet-terminal" cx="-60.00" cy="120.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-240.00" y="-240.00" width="480.00" height="480.00" stroke="black" fill="none" />
+    <rect x="-288.00" y="-288.00" width="576.00" height="576.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-240.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="L+" data-orientation="s" />
+    <circle class="qet-terminal" cx="-192.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="L-" data-orientation="s" />
+    <circle class="qet-terminal" cx="-144.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="s" />
   </g>
 </svg>

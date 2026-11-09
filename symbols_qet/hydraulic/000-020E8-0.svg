@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="100.0" viewBox="-15.0 -43.0 30.0 100.0" data-name="Hydraulic accumulator">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="240.0" viewBox="-36.0 -103.2 72.0 240.0" data-name="Hydraulic accumulator" data-standard="48px">
   <title>Hydraulic accumulator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-12.00" y1="0.00" x2="12.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="0,0 -5,-5 5,-5" stroke="black" fill="none" />
-    <line x1="0.00" y1="37.86" x2="0.00" y2="46.93" stroke="black" fill="none" />
-    <path d="M 12.50 -25.00 A 12.50 12.50 0 0 0 -12.50 -25.00" stroke="black" fill="none" />
-    <path d="M -12.50 25.00 A 12.50 12.50 0 0 0 12.50 25.00" stroke="black" fill="none" />
-    <line x1="-12.50" y1="-25.00" x2="-12.50" y2="25.00" stroke="black" fill="none" />
-    <line x1="12.50" y1="-25.00" x2="12.50" y2="25.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="47.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-28.80" y1="0.00" x2="28.80" y2="0.00" stroke="black" fill="none" />
+    <polygon points="0.00,0.00 -12.00,-12.00 12.00,-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="90.86" x2="0.00" y2="112.63" stroke="black" fill="none" />
+    <path d="M 30.00 -60.00 A 30.00 30.00 0 0 0 -30.00 -60.00" stroke="black" fill="none" />
+    <path d="M -30.00 60.00 A 30.00 30.00 0 0 0 30.00 60.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="-60.00" x2="-30.00" y2="60.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-60.00" x2="30.00" y2="60.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="112.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

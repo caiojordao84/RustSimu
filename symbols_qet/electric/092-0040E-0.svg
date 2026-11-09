@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-15.0 -22.0 30.0 50.0" data-name="Cooker Hood filter">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="120.0" viewBox="-36.0 -52.8 72.0 120.0" data-name="Cooker Hood filter" data-standard="48px">
   <title>Cooker Hood filter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-12,-1 -12,23 12,23 12,-1" stroke="black" fill="none" />
-    <line x1="0.00" y1="23.00" x2="0.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="12.00" x2="6.00" y2="6.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="12.00" x2="-6.00" y2="6.00" stroke="black" fill="none" />
-    <rect x="-12.00" y="-1.00" width="24.00" height="7.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-13.00" x2="0.00" y2="-1.00" stroke="black" fill="none" />
-    <path d="M -5.50 0.58 A 2.00 2.00 0 0 0 -5.50 4.58" stroke="black" fill="none" />
-    <line x1="5.00" y1="0.56" x2="-5.00" y2="4.56" stroke="black" fill="none" />
-    <line x1="-5.00" y1="0.56" x2="5.00" y2="4.56" stroke="black" fill="none" />
-    <path d="M 5.56 4.58 A 2.00 2.00 0 0 0 5.56 0.58" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-28.80,-2.40 -28.80,55.20 28.80,55.20 28.80,-2.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="55.20" x2="0.00" y2="40.80" stroke="black" fill="none" />
+    <line x1="14.40" y1="28.80" x2="14.40" y2="14.40" stroke="black" fill="none" />
+    <line x1="-14.40" y1="28.80" x2="-14.40" y2="14.40" stroke="black" fill="none" />
+    <rect x="-28.80" y="-2.40" width="57.60" height="16.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="-31.20" x2="0.00" y2="-2.40" stroke="black" fill="none" />
+    <path d="M -13.20 1.39 A 4.80 4.80 0 0 0 -13.20 10.99" stroke="black" fill="none" />
+    <line x1="12.00" y1="1.34" x2="-12.00" y2="10.94" stroke="black" fill="none" />
+    <line x1="-12.00" y1="1.34" x2="12.00" y2="10.94" stroke="black" fill="none" />
+    <path d="M 13.34 10.99 A 4.80 4.80 0 0 0 13.34 1.39" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-31.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

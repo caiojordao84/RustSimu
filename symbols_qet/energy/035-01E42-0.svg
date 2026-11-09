@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-29.0 -29.0 60.0 50.0" data-name="Elbow 45º 22">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="120.0" viewBox="-69.6 -69.6 144.0 120.0" data-name="Elbow 45º 22" data-standard="48px">
   <title>Elbow 45º 22</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 1.38 3.60 A 1.69 1.50 0 0 0 -0.31 2.10" stroke="black" fill="none" />
-    <path d="M 1.51 3.14 A 8.07 8.00 0 0 0 6.84 1.72" stroke="black" fill="none" />
-    <path d="M -0.31 18.52 A 1.69 1.50 0 0 0 1.38 17.02" stroke="black" fill="none" />
-    <path d="M 1.83 17.04 A 22.29 21.86 0 0 0 16.16 11.93" stroke="black" fill="none" />
-    <line x1="1.49" y1="4.92" x2="1.49" y2="17.18" stroke="black" fill="none" />
-    <polyline points="-0.78,2.1 -8.47,2.1 -8.47,18.5 -0.78,18.5" stroke="black" fill="none" />
-    <polygon points="6.06,0.39 16.82,12.32 18.36,12.32 26,6.36 13.74,-7.07 6.06,-1.1" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 3.31 8.64 A 4.06 3.60 0 0 0 -0.74 5.04" stroke="black" fill="none" />
+    <path d="M 3.62 7.54 A 19.37 19.20 0 0 0 16.42 4.13" stroke="black" fill="none" />
+    <path d="M -0.74 44.45 A 4.06 3.60 0 0 0 3.31 40.85" stroke="black" fill="none" />
+    <path d="M 4.39 40.90 A 53.50 52.46 0 0 0 38.78 28.63" stroke="black" fill="none" />
+    <line x1="3.58" y1="11.81" x2="3.58" y2="41.23" stroke="black" fill="none" />
+    <polyline points="-1.87,5.04 -20.33,5.04 -20.33,44.40 -1.87,44.40" stroke="black" fill="none" />
+    <polygon points="14.54,0.94 40.37,29.57 44.06,29.57 62.40,15.26 32.98,-16.97 14.54,-2.64" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-15.0 -25.0 30.0 30.0" data-name="Key switch positions">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="72.0" viewBox="-36.0 -60.0 72.0 72.0" data-name="Key switch positions" data-standard="48px">
   <title>Key switch positions</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-1,-17 -2,-14 2,-14 1,-17" stroke="black" fill="none" />
-    <ellipse cx="0.01" cy="-19.00" rx="1.42" ry="1.42" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="9.00" y2="-9.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-1.00" x2="0.00" y2="-14.00" stroke="black" fill="none" />
-    <line x1="-9.00" y1="-9.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-2.40,-40.80 -4.80,-33.60 4.80,-33.60 2.40,-40.80" stroke="black" fill="none" />
+    <ellipse cx="0.02" cy="-45.60" rx="3.41" ry="3.41" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="21.60" y2="-21.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="-2.40" x2="0.00" y2="-33.60" stroke="black" fill="none" />
+    <line x1="-21.60" y1="-21.60" x2="0.00" y2="0.00" stroke="black" fill="none" />
   </g>
 </svg>

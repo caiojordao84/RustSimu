@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="190.0" height="150.0" viewBox="-95.0 -75.0 190.0 150.0" data-name="KINCO GL043E">
+<svg xmlns="http://www.w3.org/2000/svg" width="456.0" height="360.0" viewBox="-228.0 -180.0 456.0 360.0" data-name="KINCO GL043E" data-standard="48px">
   <title>KINCO GL043E</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="55.00" y="50.00" width="30.00" height="16.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <ellipse cx="60.00" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <ellipse cx="-60.00" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <ellipse cx="-40.00" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <ellipse cx="80.00" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <text x="59.00" y="57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="78.00" y="57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <text x="55.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">COM0/COM2</text>
-    <text x="-65.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="-43.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FG</text>
-    <rect x="-90.00" y="-70.00" width="180.00" height="140.00" stroke="black" fill="none" />
-    <text x="-35.00" y="35.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KINCO GL043E</text>
-    <rect x="-80.00" y="-60.00" width="160.00" height="80.00" stroke="black" fill="none" />
-    <text x="-85.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC24V</text>
-    <rect x="-87.00" y="50.00" width="53.00" height="16.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <ellipse cx="-80.00" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="80.00" cy="64.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="60.00" cy="64.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-40.00" cy="64.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-60.00" cy="64.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-80.00" cy="64.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="132.00" y="120.00" width="72.00" height="38.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="144.00" cy="144.00" rx="4.80" ry="4.80" stroke="black" fill="none" />
+    <ellipse cx="-144.00" cy="144.00" rx="4.80" ry="4.80" stroke="black" fill="none" />
+    <ellipse cx="-96.00" cy="144.00" rx="4.80" ry="4.80" stroke="black" fill="none" />
+    <ellipse cx="192.00" cy="144.00" rx="4.80" ry="4.80" stroke="black" fill="none" />
+    <text x="141.60" y="136.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="187.20" y="136.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="132.00" y="120.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">COM0/COM2</text>
+    <text x="-156.00" y="139.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-103.20" y="139.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">FG</text>
+    <rect x="-216.00" y="-168.00" width="432.00" height="336.00" stroke="black" fill="none" />
+    <text x="-84.00" y="84.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">KINCO GL043E</text>
+    <rect x="-192.00" y="-144.00" width="384.00" height="192.00" stroke="black" fill="none" />
+    <text x="-204.00" y="139.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DC24V</text>
+    <rect x="-208.80" y="120.00" width="127.20" height="38.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="-192.00" cy="144.00" rx="4.80" ry="4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="192.00" cy="153.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="144.00" cy="153.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="153.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-144.00" cy="153.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-192.00" cy="153.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

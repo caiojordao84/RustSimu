@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-10.0 -15.0 20.0 30.0" data-name="Wiring">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-24.0 -36.0 48.0 72.0" data-name="Wiring" data-standard="48px">
   <title>Wiring</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="5.00" y1="-5.00" x2="-5.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-5.00" x2="0.00" y2="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12.00" y1="-12.00" x2="-12.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-12.00" x2="0.00" y2="12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

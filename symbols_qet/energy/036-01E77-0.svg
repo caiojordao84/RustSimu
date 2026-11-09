@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-31.0 -35.0 60.0 60.0" data-name="Flanged tee">
+<svg xmlns="http://www.w3.org/2000/svg" width="62.6" height="62.6" viewBox="-32.3 -36.5 62.6 62.6" data-name="Flanged tee" data-standard="48px">
   <title>Flanged tee</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-23.20" y="-16.45" width="4.50" height="34.70" stroke="black" fill="none" />
-    <path d="M 15.61 -6.41 A 2.25 2.74 0 0 0 17.86 -9.15" stroke="black" fill="none" />
-    <path d="M -18.13 -9.15 A 2.25 2.74 0 0 0 -15.88 -6.41" stroke="black" fill="none" />
-    <path d="M -6.88 -17.37 A 2.25 2.74 0 0 0 -9.13 -20.11" stroke="black" fill="none" />
-    <path d="M 17.86 12.74 A 2.25 2.74 0 0 0 15.61 10.00" stroke="black" fill="none" />
-    <path d="M -15.88 10.00 A 2.25 2.74 0 0 0 -18.13 12.74" stroke="black" fill="none" />
-    <rect x="17.80" y="-16.45" width="3.50" height="34.70" stroke="black" fill="none" />
-    <path d="M 8.86 -20.11 A 2.25 2.74 0 0 0 6.61 -17.37" stroke="black" fill="none" />
-    <line x1="-15.00" y1="10.00" x2="14.67" y2="10.00" stroke="black" fill="none" />
-    <line x1="-14.85" y1="-6.41" x2="-7.94" y2="-6.41" stroke="black" fill="none" />
-    <line x1="7.57" y1="-6.41" x2="14.63" y2="-6.41" stroke="black" fill="none" />
-    <line x1="-6.89" y1="-16.63" x2="-6.89" y2="-7.20" stroke="black" fill="none" />
-    <line x1="6.61" y1="-17.45" x2="6.61" y2="-7.30" stroke="black" fill="none" />
-    <line x1="6.61" y1="-6.41" x2="2.11" y2="-1.84" stroke="black" fill="none" />
-    <line x1="-6.89" y1="-6.41" x2="-2.39" y2="-1.84" stroke="black" fill="none" />
-    <rect x="-14.63" y="-23.00" width="29.00" height="2.68" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="22.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.21" y="-17.17" width="4.70" height="36.21" stroke="black" fill="none" />
+    <path d="M 16.29 -6.69 A 2.35 2.86 0 0 0 18.64 -9.55" stroke="black" fill="none" />
+    <path d="M -18.92 -9.55 A 2.35 2.86 0 0 0 -16.57 -6.69" stroke="black" fill="none" />
+    <path d="M -7.18 -18.13 A 2.35 2.86 0 0 0 -9.53 -20.98" stroke="black" fill="none" />
+    <path d="M 18.64 13.29 A 2.35 2.86 0 0 0 16.29 10.43" stroke="black" fill="none" />
+    <path d="M -16.57 10.43 A 2.35 2.86 0 0 0 -18.92 13.29" stroke="black" fill="none" />
+    <rect x="18.57" y="-17.17" width="3.65" height="36.21" stroke="black" fill="none" />
+    <path d="M 9.25 -20.98 A 2.35 2.86 0 0 0 6.90 -18.13" stroke="black" fill="none" />
+    <line x1="-15.65" y1="10.43" x2="15.31" y2="10.43" stroke="black" fill="none" />
+    <line x1="-15.50" y1="-6.69" x2="-8.29" y2="-6.69" stroke="black" fill="none" />
+    <line x1="7.90" y1="-6.69" x2="15.27" y2="-6.69" stroke="black" fill="none" />
+    <line x1="-7.19" y1="-17.35" x2="-7.19" y2="-7.51" stroke="black" fill="none" />
+    <line x1="6.90" y1="-18.21" x2="6.90" y2="-7.62" stroke="black" fill="none" />
+    <line x1="6.90" y1="-6.69" x2="2.20" y2="-1.92" stroke="black" fill="none" />
+    <line x1="-7.19" y1="-6.69" x2="-2.49" y2="-1.92" stroke="black" fill="none" />
+    <rect x="-15.27" y="-24.00" width="30.26" height="2.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="22.96" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-25.04" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-25.04" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

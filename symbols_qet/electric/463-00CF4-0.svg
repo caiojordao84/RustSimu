@@ -1,120 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="230.0" height="90.0" viewBox="-115.0 -45.0 230.0 90.0" data-name="RUTM11">
+<svg xmlns="http://www.w3.org/2000/svg" width="552.0" height="216.0" viewBox="-276.0 -108.0 552.0 216.0" data-name="RUTM11" data-standard="48px">
   <title>RUTM11</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="50.00" cy="-31.00" r="5.00" stroke="black" fill="HTMLYellowGold" />
-    <circle cx="-10.00" cy="-31.00" r="5.00" stroke="black" fill="HTMLYellowGold" />
-    <circle cx="20.00" cy="-31.00" r="5.00" stroke="black" fill="HTMLYellowGold" />
-    <rect x="-110.00" y="16.00" width="80.00" height="24.00" stroke="black" fill="none" />
-    <text x="-100.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WiFi</text>
-    <text x="-24.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Mobile</text>
-    <text x="10.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GPS</text>
-    <text x="36.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Mobile</text>
-    <rect x="16.00" y="18.00" width="28.00" height="20.00" stroke="black" fill="#dcdcdc" />
-    <circle cx="20.00" cy="-31.00" r="1.00" stroke="black" fill="gray" />
-    <circle cx="-10.00" cy="-31.00" r="1.00" stroke="black" fill="gray" />
-    <circle cx="50.00" cy="-31.00" r="1.00" stroke="black" fill="gray" />
-    <text x="-96.50" y="48.05" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-76.50" y="48.05" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <line x1="-69.00" y1="-13.00" x2="-71.00" y2="-13.00" stroke="black" fill="none" />
-    <text x="-45.07" y="38.14" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Output</text>
-    <text x="18.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LAN2</text>
-    <text x="-65.07" y="38.14" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Input</text>
-    <line x1="-66.00" y1="-17.00" x2="-74.00" y2="-17.00" stroke="black" fill="none" />
-    <text x="-36.50" y="48.05" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="-85.07" y="38.14" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Ground</text>
-    <text x="79.50" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">USB</text>
-    <text x="-105.00" y="38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power</text>
-    <circle cx="-50.00" cy="-31.00" r="5.00" stroke="black" fill="HTMLYellowGold" />
-    <line x1="-67.50" y1="-15.00" x2="-72.50" y2="-15.00" stroke="black" fill="none" />
-    <circle cx="-70.00" cy="-30.00" r="7.00" stroke="black" fill="HTMLGraySilver" />
-    <text x="-56.50" y="48.05" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <rect x="75.00" y="-36.50" width="30.00" height="15.00" stroke="black" fill="gray" />
-    <text x="-60.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WiFi</text>
-    <circle cx="-70.00" cy="-30.00" r="5.50" stroke="black" fill="HTMLGraySilver" />
-    <circle cx="-50.00" cy="-31.00" r="1.00" stroke="black" fill="none" />
-    <line x1="-73.50" y1="-30.00" x2="-66.50" y2="-30.00" stroke="HTMLGrayDimGray" fill="none" />
-    <rect x="77.50" y="-34.70" width="25.00" height="11.50" stroke="black" fill="white" />
-    <line x1="-70.00" y1="-33.50" x2="-70.00" y2="-26.50" stroke="HTMLGrayDimGray" fill="none" />
-    <line x1="-70.00" y1="-20.00" x2="-70.00" y2="-17.00" stroke="black" fill="none" />
-    <rect x="86.80" y="-28.90" width="2.50" height="2.00" stroke="black" fill="white" />
-    <text x="79.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAN</text>
-    <rect x="92.00" y="-24.70" width="4.00" height="1.50" stroke="black" fill="white" />
-    <rect x="81.70" y="-28.90" width="2.50" height="2.00" stroke="black" fill="white" />
-    <text x="48.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LAN3</text>
-    <rect x="95.50" y="-28.90" width="2.50" height="2.00" stroke="black" fill="white" />
-    <rect x="76.00" y="18.00" width="28.00" height="20.00" stroke="black" fill="#dcdcdc" />
-    <rect x="83.00" y="-24.70" width="4.00" height="1.50" stroke="black" fill="white" />
-    <rect x="79.90" y="-32.00" width="20.00" height="3.10" stroke="black" fill="#dcdcdc" />
-    <rect x="-14.00" y="18.00" width="28.00" height="20.00" stroke="black" fill="#dcdcdc" />
-    <rect x="90.50" y="-28.90" width="2.50" height="2.00" stroke="black" fill="white" />
-    <rect x="46.00" y="18.00" width="28.00" height="20.00" stroke="black" fill="#dcdcdc" />
-    <polygon points="55,24 55,26 49,26 49,35 71,35 71,26 65,26 65,24 63,24 63,21 57,21 57,24 56,24" stroke="black" fill="white" />
-    <polygon points="-5,24 -5,26 -11,26 -11,35 11,35 11,26 5,26 5,24 3,24 3,21 -3,21 -3,24 -4,24" stroke="black" fill="white" />
-    <polygon points="25,24 25,26 19,26 19,35 41,35 41,26 35,26 35,24 33,24 33,21 27,21 27,24 26,24" stroke="black" fill="white" />
-    <line x1="29.00" y1="33.00" x2="29.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="33.00" x2="-1.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="59.00" y1="33.00" x2="59.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="33.00" x2="-3.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="27.00" y1="33.00" x2="27.00" y2="35.00" stroke="black" fill="none" />
-    <polygon points="85,24 85,26 79,26 79,35 101,35 101,26 95,26 95,24 93,24 93,21 87,21 87,24 86,24" stroke="black" fill="white" />
-    <line x1="57.00" y1="33.00" x2="57.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="33.00" x2="-5.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="33.00" x2="25.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="55.00" y1="33.00" x2="55.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="33.00" x2="-7.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="53.00" y1="33.00" x2="53.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="23.00" y1="33.00" x2="23.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="89.00" y1="33.00" x2="89.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="33.00" x2="1.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="31.00" y1="33.00" x2="31.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="61.00" y1="33.00" x2="61.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="87.00" y1="33.00" x2="87.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="63.00" y1="33.00" x2="63.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="33.00" y1="33.00" x2="33.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="33.00" x2="3.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="33.00" x2="35.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="33.00" x2="5.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="65.00" y1="33.00" x2="65.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="7.00" y1="33.00" x2="7.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="85.00" y1="33.00" x2="85.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="37.00" y1="33.00" x2="37.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="67.00" y1="33.00" x2="67.00" y2="35.00" stroke="black" fill="none" />
-    <rect x="37.00" y="20.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="67.00" y="20.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="7.00" y="20.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="-11.00" y="20.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <rect x="49.00" y="20.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <rect x="19.00" y="20.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <line x1="83.00" y1="33.00" x2="83.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="91.00" y1="33.00" x2="91.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="93.00" y1="33.00" x2="93.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="95.00" y1="33.00" x2="95.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="97.00" y1="33.00" x2="97.00" y2="35.00" stroke="black" fill="none" />
-    <rect x="97.00" y="20.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="79.00" y="20.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <text x="-12.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LAN1</text>
-    <rect x="-110.00" y="-40.00" width="220.00" height="80.00" stroke="black" fill="none" />
-    <circle cx="-90.00" cy="-31.00" r="5.00" stroke="black" fill="HTMLYellowGold" />
-    <circle cx="-90.00" cy="-31.00" r="1.00" stroke="black" fill="none" />
-    <circle cx="-40.00" cy="40.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="-60.00" cy="40.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="-80.00" cy="40.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="-100.00" cy="40.00" r="2.50" stroke="black" fill="white" />
-    <circle class="qet-terminal" cx="-90.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="WiFi.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="LAN1" data-orientation="s" />
-    <circle class="qet-terminal" cx="60.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="LAN3" data-orientation="s" />
-    <circle class="qet-terminal" cx="-70.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="n" />
-    <circle class="qet-terminal" cx="-50.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="WiFi.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="90.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="USB" data-orientation="n" />
-    <circle class="qet-terminal" cx="-100.00" cy="40.05" r="1.8" fill="red" stroke="none" data-name="PWR.1" data-orientation="s" />
-    <circle class="qet-terminal" cx="-80.00" cy="40.05" r="1.8" fill="red" stroke="none" data-name="PWR.2" data-orientation="s" />
-    <circle class="qet-terminal" cx="-40.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="PWR.4" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="Mobile.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="50.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="Mobile.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="LAN2" data-orientation="s" />
-    <circle class="qet-terminal" cx="-60.00" cy="40.05" r="1.8" fill="red" stroke="none" data-name="PWR.3" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="GPS" data-orientation="n" />
-    <circle class="qet-terminal" cx="90.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="WAN" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="120.00" cy="-74.40" r="12.00" stroke="black" fill="HTMLYellowGold" />
+    <circle cx="-24.00" cy="-74.40" r="12.00" stroke="black" fill="HTMLYellowGold" />
+    <circle cx="48.00" cy="-74.40" r="12.00" stroke="black" fill="HTMLYellowGold" />
+    <rect x="-264.00" y="38.40" width="192.00" height="57.60" stroke="black" fill="none" />
+    <text x="-240.00" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">WiFi</text>
+    <text x="-57.60" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Mobile</text>
+    <text x="24.00" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GPS</text>
+    <text x="86.40" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Mobile</text>
+    <rect x="38.40" y="43.20" width="67.20" height="48.00" stroke="black" fill="#dcdcdc" />
+    <circle cx="48.00" cy="-74.40" r="2.40" stroke="black" fill="gray" />
+    <circle cx="-24.00" cy="-74.40" r="2.40" stroke="black" fill="gray" />
+    <circle cx="120.00" cy="-74.40" r="2.40" stroke="black" fill="gray" />
+    <text x="-231.60" y="115.32" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-183.60" y="115.32" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <line x1="-165.60" y1="-31.20" x2="-170.40" y2="-31.20" stroke="black" fill="none" />
+    <text x="-108.17" y="91.54" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Output</text>
+    <text x="43.20" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LAN2</text>
+    <text x="-156.17" y="91.54" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Input</text>
+    <line x1="-158.40" y1="-40.80" x2="-177.60" y2="-40.80" stroke="black" fill="none" />
+    <text x="-87.60" y="115.32" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-204.17" y="91.54" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Ground</text>
+    <text x="190.80" y="-31.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">USB</text>
+    <text x="-252.00" y="91.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Power</text>
+    <circle cx="-120.00" cy="-74.40" r="12.00" stroke="black" fill="HTMLYellowGold" />
+    <line x1="-162.00" y1="-36.00" x2="-174.00" y2="-36.00" stroke="black" fill="none" />
+    <circle cx="-168.00" cy="-72.00" r="16.80" stroke="black" fill="HTMLGraySilver" />
+    <text x="-135.60" y="115.32" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <rect x="180.00" y="-87.60" width="72.00" height="36.00" stroke="black" fill="gray" />
+    <text x="-144.00" y="-33.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">WiFi</text>
+    <circle cx="-168.00" cy="-72.00" r="13.20" stroke="black" fill="HTMLGraySilver" />
+    <circle cx="-120.00" cy="-74.40" r="2.40" stroke="black" fill="none" />
+    <line x1="-176.40" y1="-72.00" x2="-159.60" y2="-72.00" stroke="HTMLGrayDimGray" fill="none" />
+    <rect x="186.00" y="-83.28" width="60.00" height="27.60" stroke="black" fill="white" />
+    <line x1="-168.00" y1="-80.40" x2="-168.00" y2="-63.60" stroke="HTMLGrayDimGray" fill="none" />
+    <line x1="-168.00" y1="-48.00" x2="-168.00" y2="-40.80" stroke="black" fill="none" />
+    <rect x="208.32" y="-69.36" width="6.00" height="4.80" stroke="black" fill="white" />
+    <text x="189.60" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">WAN</text>
+    <rect x="220.80" y="-59.28" width="9.60" height="3.60" stroke="black" fill="white" />
+    <rect x="196.08" y="-69.36" width="6.00" height="4.80" stroke="black" fill="white" />
+    <text x="115.20" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LAN3</text>
+    <rect x="229.20" y="-69.36" width="6.00" height="4.80" stroke="black" fill="white" />
+    <rect x="182.40" y="43.20" width="67.20" height="48.00" stroke="black" fill="#dcdcdc" />
+    <rect x="199.20" y="-59.28" width="9.60" height="3.60" stroke="black" fill="white" />
+    <rect x="191.76" y="-76.80" width="48.00" height="7.44" stroke="black" fill="#dcdcdc" />
+    <rect x="-33.60" y="43.20" width="67.20" height="48.00" stroke="black" fill="#dcdcdc" />
+    <rect x="217.20" y="-69.36" width="6.00" height="4.80" stroke="black" fill="white" />
+    <rect x="110.40" y="43.20" width="67.20" height="48.00" stroke="black" fill="#dcdcdc" />
+    <polygon points="132.00,57.60 132.00,62.40 117.60,62.40 117.60,84.00 170.40,84.00 170.40,62.40 156.00,62.40 156.00,57.60 151.20,57.60 151.20,50.40 136.80,50.40 136.80,57.60 134.40,57.60" stroke="black" fill="white" />
+    <polygon points="-12.00,57.60 -12.00,62.40 -26.40,62.40 -26.40,84.00 26.40,84.00 26.40,62.40 12.00,62.40 12.00,57.60 7.20,57.60 7.20,50.40 -7.20,50.40 -7.20,57.60 -9.60,57.60" stroke="black" fill="white" />
+    <polygon points="60.00,57.60 60.00,62.40 45.60,62.40 45.60,84.00 98.40,84.00 98.40,62.40 84.00,62.40 84.00,57.60 79.20,57.60 79.20,50.40 64.80,50.40 64.80,57.60 62.40,57.60" stroke="black" fill="white" />
+    <line x1="69.60" y1="79.20" x2="69.60" y2="84.00" stroke="black" fill="none" />
+    <line x1="-2.40" y1="79.20" x2="-2.40" y2="84.00" stroke="black" fill="none" />
+    <line x1="141.60" y1="79.20" x2="141.60" y2="84.00" stroke="black" fill="none" />
+    <line x1="-7.20" y1="79.20" x2="-7.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="64.80" y1="79.20" x2="64.80" y2="84.00" stroke="black" fill="none" />
+    <polygon points="204.00,57.60 204.00,62.40 189.60,62.40 189.60,84.00 242.40,84.00 242.40,62.40 228.00,62.40 228.00,57.60 223.20,57.60 223.20,50.40 208.80,50.40 208.80,57.60 206.40,57.60" stroke="black" fill="white" />
+    <line x1="136.80" y1="79.20" x2="136.80" y2="84.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="79.20" x2="-12.00" y2="84.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="79.20" x2="60.00" y2="84.00" stroke="black" fill="none" />
+    <line x1="132.00" y1="79.20" x2="132.00" y2="84.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="79.20" x2="-16.80" y2="84.00" stroke="black" fill="none" />
+    <line x1="127.20" y1="79.20" x2="127.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="55.20" y1="79.20" x2="55.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="213.60" y1="79.20" x2="213.60" y2="84.00" stroke="black" fill="none" />
+    <line x1="2.40" y1="79.20" x2="2.40" y2="84.00" stroke="black" fill="none" />
+    <line x1="74.40" y1="79.20" x2="74.40" y2="84.00" stroke="black" fill="none" />
+    <line x1="146.40" y1="79.20" x2="146.40" y2="84.00" stroke="black" fill="none" />
+    <line x1="208.80" y1="79.20" x2="208.80" y2="84.00" stroke="black" fill="none" />
+    <line x1="151.20" y1="79.20" x2="151.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="79.20" y1="79.20" x2="79.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="7.20" y1="79.20" x2="7.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="84.00" y1="79.20" x2="84.00" y2="84.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="79.20" x2="12.00" y2="84.00" stroke="black" fill="none" />
+    <line x1="156.00" y1="79.20" x2="156.00" y2="84.00" stroke="black" fill="none" />
+    <line x1="16.80" y1="79.20" x2="16.80" y2="84.00" stroke="black" fill="none" />
+    <line x1="204.00" y1="79.20" x2="204.00" y2="84.00" stroke="black" fill="none" />
+    <line x1="88.80" y1="79.20" x2="88.80" y2="84.00" stroke="black" fill="none" />
+    <line x1="160.80" y1="79.20" x2="160.80" y2="84.00" stroke="black" fill="none" />
+    <rect x="88.80" y="48.00" width="9.60" height="4.80" stroke="orange" fill="orange" />
+    <rect x="160.80" y="48.00" width="9.60" height="4.80" stroke="orange" fill="orange" />
+    <rect x="16.80" y="48.00" width="9.60" height="4.80" stroke="orange" fill="orange" />
+    <rect x="-26.40" y="48.00" width="9.60" height="4.80" stroke="green" fill="#00aa00" />
+    <rect x="117.60" y="48.00" width="9.60" height="4.80" stroke="green" fill="#00aa00" />
+    <rect x="45.60" y="48.00" width="9.60" height="4.80" stroke="green" fill="#00aa00" />
+    <line x1="199.20" y1="79.20" x2="199.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="218.40" y1="79.20" x2="218.40" y2="84.00" stroke="black" fill="none" />
+    <line x1="223.20" y1="79.20" x2="223.20" y2="84.00" stroke="black" fill="none" />
+    <line x1="228.00" y1="79.20" x2="228.00" y2="84.00" stroke="black" fill="none" />
+    <line x1="232.80" y1="79.20" x2="232.80" y2="84.00" stroke="black" fill="none" />
+    <rect x="232.80" y="48.00" width="9.60" height="4.80" stroke="orange" fill="orange" />
+    <rect x="189.60" y="48.00" width="9.60" height="4.80" stroke="green" fill="#00aa00" />
+    <text x="-28.80" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LAN1</text>
+    <rect x="-264.00" y="-96.00" width="528.00" height="192.00" stroke="black" fill="none" />
+    <circle cx="-216.00" cy="-74.40" r="12.00" stroke="black" fill="HTMLYellowGold" />
+    <circle cx="-216.00" cy="-74.40" r="2.40" stroke="black" fill="none" />
+    <circle cx="-96.00" cy="96.00" r="6.00" stroke="black" fill="white" />
+    <circle cx="-144.00" cy="96.00" r="6.00" stroke="black" fill="white" />
+    <circle cx="-192.00" cy="96.00" r="6.00" stroke="black" fill="white" />
+    <circle cx="-240.00" cy="96.00" r="6.00" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="-216.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="WiFi.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="LAN1" data-orientation="s" />
+    <circle class="qet-terminal" cx="144.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="LAN3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-168.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="n" />
+    <circle class="qet-terminal" cx="-120.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="WiFi.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="USB" data-orientation="n" />
+    <circle class="qet-terminal" cx="-240.00" cy="96.12" r="4.0" fill="red" stroke="none" data-name="PWR.1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-192.00" cy="96.12" r="4.0" fill="red" stroke="none" data-name="PWR.2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="PWR.4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="Mobile.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="120.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="Mobile.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="LAN2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-144.00" cy="96.12" r="4.0" fill="red" stroke="none" data-name="PWR.3" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="GPS" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="WAN" data-orientation="s" />
   </g>
 </svg>

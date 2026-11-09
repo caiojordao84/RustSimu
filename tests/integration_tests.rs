@@ -910,12 +910,12 @@ fn test_svg_push_button_rendering_and_animation() {
     let no_active = get_parsed_svg(no_active_path)
         .unwrap_or_else(|| panic!("Falha ao carregar SVG NO active: {no_active_path}"));
 
-    assert_eq!(no_idle.term_top_y, -21.0);
-    assert_eq!(no_idle.term_bottom_y, 21.0);
+    assert_eq!(no_idle.term_top_y, -25.2);
+    assert_eq!(no_idle.term_bottom_y, 25.2);
 
     // Mapeamento de terminais para escala de grade do CADe (distância 12 unidades)
-    let (t0_x, t0_y) = no_idle.map_point(0.0, -21.0, 12.0);
-    let (t1_x, t1_y) = no_idle.map_point(0.0, 21.0, 12.0);
+    let (t0_x, t0_y) = no_idle.map_point(0.0, -25.2, 12.0);
+    let (t1_x, t1_y) = no_idle.map_point(0.0, 25.2, 12.0);
     assert!((t0_x - 0.0).abs() < 1e-4 && (t0_y - 0.0).abs() < 1e-4);
     assert!((t1_x - 0.0).abs() < 1e-4 && (t1_y - 12.0).abs() < 1e-4);
 
@@ -949,8 +949,8 @@ fn test_svg_push_button_rendering_and_animation() {
     let nc_active = get_parsed_svg(nc_active_path)
         .unwrap_or_else(|| panic!("Falha ao carregar SVG NC active: {nc_active_path}"));
 
-    assert_eq!(nc_idle.term_top_y, -21.0);
-    assert_eq!(nc_idle.term_bottom_y, 21.0);
+    assert_eq!(nc_idle.term_top_y, -25.2);
+    assert_eq!(nc_idle.term_bottom_y, 25.2);
 
     // No ativo do NF, a lâmina é empurrada para a direita (x >= 8) abrindo o circuito
     let has_pushed_blade = nc_active.shapes.iter().any(|s| match s {
@@ -993,7 +993,7 @@ fn test_svg_push_button_rendering_and_animation() {
     assert!(th_act_path.contains("thermal_relay_4_active.svg"));
     let th_idle = get_parsed_svg(th_idle_path).expect("Relé térmico QET idle deve carregar");
     let _th_act = get_parsed_svg(th_act_path).expect("Relé térmico QET active deve carregar");
-    assert_eq!(th_idle.max_term_x, 40.0);
+    assert_eq!(th_idle.max_term_x, 96.0);
     assert!(
         th_idle
             .shapes
@@ -1002,8 +1002,8 @@ fn test_svg_push_button_rendering_and_animation() {
         "Relé térmico 4 deve conter linha pontilhada em volta (rect dashed)"
     );
     let (p1x, _) = th_idle.map_point(0.0, -21.0, 12.0);
-    let (p2x, _) = th_idle.map_point(20.0, -21.0, 12.0);
-    let (p3x, _) = th_idle.map_point(40.0, -21.0, 12.0);
+    let (p2x, _) = th_idle.map_point(48.0, -21.0, 12.0);
+    let (p3x, _) = th_idle.map_point(96.0, -21.0, 12.0);
     assert!(
         (p1x - 0.0).abs() < 1e-4,
         "Pólo 1 do relé térmico deve estar em x=0"
@@ -1031,10 +1031,10 @@ fn test_svg_push_button_rendering_and_animation() {
     assert!(b2_act_path.contains("magneto-thermal_circuit_breaker_gv_2p_active.svg"));
     let b2_idle = get_parsed_svg(b2_idle_path).expect("SVG 2P idle deve carregar");
     let _b2_act = get_parsed_svg(b2_act_path).expect("SVG 2P active deve carregar");
-    assert_eq!(b2_idle.min_term_x, -20.0);
+    assert_eq!(b2_idle.min_term_x, -48.0);
     assert_eq!(b2_idle.max_term_x, 0.0);
-    let (p1, p1_y) = b2_idle.map_point(-20.0, -40.0, 21.0);
-    let (p2, p2_y) = b2_idle.map_point(0.0, 40.0, 21.0);
+    let (p1, p1_y) = b2_idle.map_point(-48.0, b2_idle.term_top_y, 21.0);
+    let (p2, p2_y) = b2_idle.map_point(0.0, b2_idle.term_bottom_y, 21.0);
     assert!(
         (p1 - 0.0).abs() < 1e-4,
         "Terminal 1 do disjuntor 2P deve estar em x=0"
@@ -1059,11 +1059,11 @@ fn test_svg_push_button_rendering_and_animation() {
     assert!(b3_act_path.contains("magneto-thermal_circuit_breaker_gv_4_active.svg"));
     let b3_idle = get_parsed_svg(b3_idle_path).expect("SVG 3P idle deve carregar");
     let _b3_act = get_parsed_svg(b3_act_path).expect("SVG 3P active deve carregar");
-    assert_eq!(b3_idle.min_term_x, -20.0);
-    assert_eq!(b3_idle.max_term_x, 20.0);
-    let (b3_p1, _) = b3_idle.map_point(-20.0, -40.0, 21.0);
-    let (b3_p2, _) = b3_idle.map_point(0.0, -40.0, 21.0);
-    let (b3_p3, b3_p3_y) = b3_idle.map_point(20.0, 40.0, 21.0);
+    assert_eq!(b3_idle.min_term_x, -48.0);
+    assert_eq!(b3_idle.max_term_x, 48.0);
+    let (b3_p1, _) = b3_idle.map_point(-48.0, b3_idle.term_top_y, 21.0);
+    let (b3_p2, _) = b3_idle.map_point(0.0, b3_idle.term_top_y, 21.0);
+    let (b3_p3, b3_p3_y) = b3_idle.map_point(48.0, b3_idle.term_bottom_y, 21.0);
     assert!(
         (b3_p1 - 0.0).abs() < 1e-4,
         "Pólo 1 do disjuntor 3P deve estar em x=0"
@@ -1088,12 +1088,12 @@ fn test_svg_push_button_rendering_and_animation() {
     assert!(b4_act_path.contains("magneto-thermal_circuit_breaker_active.svg"));
     let b4_idle = get_parsed_svg(b4_idle_path).expect("SVG 4P idle deve carregar");
     let _b4_act = get_parsed_svg(b4_act_path).expect("SVG 4P active deve carregar");
-    assert_eq!(b4_idle.min_term_x, -20.0);
-    assert_eq!(b4_idle.max_term_x, 40.0);
-    let (b4_pn, _) = b4_idle.map_point(-20.0, -40.0, 21.0);
-    let (b4_p1, _) = b4_idle.map_point(0.0, -40.0, 21.0);
-    let (b4_p2, _) = b4_idle.map_point(20.0, -40.0, 21.0);
-    let (b4_p3, b4_p3_y) = b4_idle.map_point(40.0, 40.0, 21.0);
+    assert_eq!(b4_idle.min_term_x, -48.0);
+    assert_eq!(b4_idle.max_term_x, 96.0);
+    let (b4_pn, _) = b4_idle.map_point(-48.0, b4_idle.term_top_y, 21.0);
+    let (b4_p1, _) = b4_idle.map_point(0.0, b4_idle.term_top_y, 21.0);
+    let (b4_p2, _) = b4_idle.map_point(48.0, b4_idle.term_top_y, 21.0);
+    let (b4_p3, b4_p3_y) = b4_idle.map_point(96.0, b4_idle.term_bottom_y, 21.0);
     assert!(
         (b4_pn - 0.0).abs() < 1e-4,
         "Pólo N do disjuntor 4P deve estar em x=0"
@@ -4584,6 +4584,7 @@ fn test_qet_connector_two_pin_conduction_and_multi_pin_isolation() {
         max_term_x: 20.0,
         is_cade_svg: false,
         is_qet_native: true,
+        normalized_scale: 0.30,
     };
     register_parsed_svg("terminal/test_2pol.elmt", sym_2pin);
 
@@ -4601,6 +4602,7 @@ fn test_qet_connector_two_pin_conduction_and_multi_pin_isolation() {
         max_term_x: 60.0,
         is_cade_svg: false,
         is_qet_native: true,
+        normalized_scale: 0.30,
     };
     register_parsed_svg("connectors/test_4pol.elmt", sym_4pin);
 
@@ -4876,7 +4878,7 @@ fn test_export_real_svg_png_pdf_cad_scopes_and_cajetin_toggle() {
         app.pages[0].name.clone(),
         ExportFormat::Svg,
         ExportScope::Page,
-        true,
+        true.into(),
         None,
     ));
     assert!(
@@ -4900,7 +4902,7 @@ fn test_export_real_svg_png_pdf_cad_scopes_and_cajetin_toggle() {
         "Projeto Completo".to_string(),
         ExportFormat::Pdf,
         ExportScope::Project,
-        true,
+        true.into(),
         None,
     ));
     assert!(
@@ -5113,10 +5115,10 @@ fn test_canonical_library_ui_and_canvas_placement() {
     assert!(!parsed_motor.is_cade_svg);
     assert!(!parsed_motor.is_qet_native);
 
-    // No SVG original, os bornes U1, V1, W1 estão em x = -20.0, 0.0, 20.0 (distância 20 px)
-    let (u1_x, _) = parsed_motor.map_point(-20.0, -100.0, 1.0);
+    // No SVG padronizado, os bornes U1, V1, W1 estão em x = -48.0, 0.0, 48.0 (distância 48 px a 300 DPI / 4 mm)
+    let (u1_x, _) = parsed_motor.map_point(-48.0, -100.0, 1.0);
     let (v1_x, _) = parsed_motor.map_point(0.0, -100.0, 1.0);
-    let (w1_x, _) = parsed_motor.map_point(20.0, -100.0, 1.0);
+    let (w1_x, _) = parsed_motor.map_point(48.0, -100.0, 1.0);
     assert!(
         (u1_x - (-6.0)).abs() < 1e-4,
         "Terminal U1 deve estar em x = -6.0"
@@ -5168,8 +5170,8 @@ fn test_canonical_block_classification_and_simulation_isolation() {
     let block_elements = dict.filter_elements("", None, None, CanonicalScope::Block);
 
     assert_eq!(all_elements.len(), 9273);
-    assert_eq!(wireable_elements.len(), 5702);
-    assert_eq!(block_elements.len(), 3571);
+    assert_eq!(wireable_elements.len(), 5700);
+    assert_eq!(block_elements.len(), 3573);
     assert_eq!(
         wireable_elements.len() + block_elements.len(),
         all_elements.len()
@@ -5213,4 +5215,96 @@ fn test_canonical_block_classification_and_simulation_isolation() {
     let _ = app.update(Message::SelectCanonicalScope(CanonicalScope::Wireable));
     assert_eq!(app.canonical_scope, CanonicalScope::Wireable);
     let _ = app.view();
+}
+
+#[test]
+fn test_rigid_grid_module_and_terminal_spacing_standard() {
+    use cade_simu_rs::export::{export_to_svg, ExportOptions};
+    use cade_simu_rs::model::*;
+    use cade_simu_rs::svg_symbol::{calculate_normalized_scale, parse_svg_content};
+
+    // 1. Constantes padronizadas do Grid rígido e dimensões métricas / 300 DPI
+    assert_eq!(GRID_MODULE_MM, 4.0);
+    assert_eq!(GRID_MODULE_PX_300DPI, 48.0);
+    assert_eq!(GRID_MODULE_UNITS, 6.0);
+
+    assert_eq!(SUB_GRID_MM, 2.0);
+    assert_eq!(SUB_GRID_PX_300DPI, 24.0);
+    assert_eq!(SUB_GRID_UNITS, 3.0);
+
+    assert_eq!(TERMINAL_DIAMETER_PX_300DPI, 8.0);
+    assert_eq!(TERMINAL_RADIUS_PX_300DPI, 4.0);
+    assert_eq!(TERMINAL_DIAMETER_MM, 0.67);
+    assert_eq!(TERMINAL_RADIUS_UNITS, 0.5);
+
+    // GridDensity reflete os passos padronizados
+    assert_eq!(GridDensity::Fine.step(), 3);
+    assert_eq!(GridDensity::Medium.step(), 6);
+    assert_eq!(GridDensity::Coarse.step(), 12);
+
+    // 2. Normalização de escala isotrópica para bornes (Regra Rígida de 4 mm / 6 unidades)
+    // Símbolo nativo CADe_SIMU (30 px entre bornes) -> escala 1:5 = 0.20
+    let native_terms = vec![(0.0, 0.0), (30.0, 0.0), (60.0, 0.0)];
+    let scale_native = calculate_normalized_scale(&native_terms, true);
+    assert_eq!(scale_native, 0.20);
+    assert_eq!(30.0 * scale_native, 6.0); // 6.0 unidades = 4 mm
+
+    // Símbolo padrão QET (20 px entre bornes) -> escala 6.0 / 20.0 = 0.30
+    let qet_20px_terms = vec![(-20.0, 0.0), (0.0, 0.0), (20.0, 0.0)];
+    let scale_20px = calculate_normalized_scale(&qet_20px_terms, false);
+    assert_eq!(scale_20px, 0.30);
+    assert_eq!(20.0 * scale_20px, 6.0); // 6.0 unidades = 4 mm
+
+    // Símbolo externo largo (40 px entre bornes) -> escala 6.0 / 40.0 = 0.15
+    let ext_40px_terms = vec![(0.0, 0.0), (40.0, 0.0), (80.0, 0.0)];
+    let scale_40px = calculate_normalized_scale(&ext_40px_terms, false);
+    assert_eq!(scale_40px, 0.15);
+    assert_eq!(40.0 * scale_40px, 6.0); // 6.0 unidades = 4 mm
+
+    // Símbolo externo de grande porte (80 px entre bornes) -> escala 6.0 / 80.0 = 0.075
+    let ext_80px_terms = vec![(0.0, 0.0), (80.0, 0.0)];
+    let scale_80px = calculate_normalized_scale(&ext_80px_terms, false);
+    assert_eq!(scale_80px, 0.075);
+    assert_eq!(80.0 * scale_80px, 6.0); // 6.0 unidades = 4 mm
+
+    // Símbolo vertical (bobina com 40 px entre bornes) -> escala 12.0 / 40.0 = 0.30
+    let coil_terms = vec![(0.0, -20.0), (0.0, 20.0)];
+    let scale_coil = calculate_normalized_scale(&coil_terms, false);
+    assert_eq!(scale_coil, 0.30);
+    assert_eq!(40.0 * scale_coil, 12.0); // 12.0 unidades = 2 módulos
+
+    // Bloco sem terminais (visual / PLC / montagem) -> escala padrão 0.30
+    let block_no_terms = vec![];
+    let scale_block = calculate_normalized_scale(&block_no_terms, false);
+    assert_eq!(scale_block, 0.30);
+
+    // 3. Teste em SVG dinâmico: parse_svg_content computa e aplica a escala
+    let svg_xml = r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle class="qet-terminal" cx="10" cy="50" r="1.8" />
+        <circle class="qet-terminal" cx="50" cy="50" r="1.8" />
+        <circle class="qet-terminal" cx="90" cy="50" r="1.8" />
+    </svg>"#;
+    let parsed = parse_svg_content(svg_xml).expect("SVG com 40px pitch deve compilar");
+    assert_eq!(parsed.normalized_scale, 0.15);
+    let (p1, _) = parsed.map_point(10.0, 50.0, 1.0);
+    let (p2, _) = parsed.map_point(50.0, 50.0, 1.0);
+    assert!(
+        ((p2 - p1) - 6.0).abs() < 1e-4,
+        "Pitch deve ser exatamente 6.0 unidades (4 mm)"
+    );
+
+    // 4. Exportação com show_terminals inclui bornes de raio padronizado (0.5 unidades * 8.0 = 4.0 px)
+    let mut doc = SchematicDocument::default();
+    doc.items
+        .push(SchematicItem::new_symbol(1, 1000, 50, 50, "-M1"));
+    let opts = ExportOptions {
+        include_cajetin: false,
+        show_terminals: true,
+        monochrome: false,
+    };
+    let svg_out = export_to_svg(&doc, None, opts);
+    assert!(
+        svg_out.contains("r=\"4.0\""),
+        "Exportação SVG deve desenhar bornes com raio 4.0 px (diâmetro 8.0 px a 300 DPI)"
+    );
 }

@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="400.0" height="160.0" viewBox="-7.0 -2.0 400.0 160.0" data-name="Board 8DI">
+<svg xmlns="http://www.w3.org/2000/svg" width="640.0" height="256.0" viewBox="-11.2 -3.2 640.0 256.0" data-name="Board 8DI" data-standard="48px">
   <title>Board 8DI</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="246.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="278.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <text x="185.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="366.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <text x="338.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <text x="125.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
-    <text x="215.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
-    <text x="306.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
-    <text x="67.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="157.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="96.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <rect x="0.00" y="0.00" width="385.00" height="150.00" stroke="black" fill="none" />
-    <text x="280.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EMPLACEMENT</text>
-    <line x1="20.00" y1="150.00" x2="20.00" y2="120.00" stroke="black" fill="none" />
-    <line x1="115.00" y1="150.00" x2="115.00" y2="120.00" stroke="black" fill="none" />
-    <line x1="207.00" y1="150.00" x2="207.00" y2="120.00" stroke="black" fill="none" />
-    <text x="35.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
-    <line x1="385.00" y1="150.00" x2="385.00" y2="120.00" stroke="black" fill="none" />
-    <line x1="296.00" y1="150.00" x2="296.00" y2="120.00" stroke="black" fill="none" />
-    <text x="118.00" y="80.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARTE 8 DI</text>
-    <line x1="270.00" y1="20.00" x2="270.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="370.00" y1="0.00" x2="370.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="120.00" x2="386.00" y2="120.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="20.00" x2="385.00" y2="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="190.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="40.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="310.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="220.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="160.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="340.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="100.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="250.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="70.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="280.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="370.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="130.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="393.60" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="444.80" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="296.00" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="585.60" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="540.80" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="200.00" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <text x="344.00" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <text x="489.60" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <text x="107.20" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="251.20" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="153.60" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <rect x="0.00" y="0.00" width="616.00" height="240.00" stroke="black" fill="none" />
+    <text x="448.00" y="24.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">EMPLACEMENT</text>
+    <line x1="32.00" y1="240.00" x2="32.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="184.00" y1="240.00" x2="184.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="331.20" y1="240.00" x2="331.20" y2="192.00" stroke="black" fill="none" />
+    <text x="56.00" y="224.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">C</text>
+    <line x1="616.00" y1="240.00" x2="616.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="473.60" y1="240.00" x2="473.60" y2="192.00" stroke="black" fill="none" />
+    <text x="188.80" y="128.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">CARTE 8 DI</text>
+    <line x1="432.00" y1="32.00" x2="432.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="592.00" y1="0.00" x2="592.00" y2="32.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="192.00" x2="617.60" y2="192.00" stroke="black" fill="none" />
+    <line x1="-1.60" y1="32.00" x2="616.00" y2="32.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="304.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="64.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="496.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="352.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="256.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="544.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="160.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="400.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="112.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="448.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="592.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="208.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

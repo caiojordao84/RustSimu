@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-8.0 -15.0 20.0 30.0" data-name="Switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-19.2 -36.0 48.0 72.0" data-name="Switch" data-standard="48px">
   <title>Switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="2.00" y1="0.00" x2="9.00" y2="-11.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="5.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="4.80" y1="0.00" x2="21.60" y2="-26.40" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

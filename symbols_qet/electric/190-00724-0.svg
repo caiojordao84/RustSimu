@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-32.0 -15.0 60.0 30.0" data-name="Output Jack">
+<svg xmlns="http://www.w3.org/2000/svg" width="64.0" height="32.0" viewBox="-34.1 -16.0 64.0 32.0" data-name="Output Jack" data-standard="48px">
   <title>Output Jack</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <rect x="-25.00" y="-2.50" width="20.00" height="5.00" stroke="black" fill="black" />
-    <rect x="10.00" y="-2.50" width="10.00" height="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-25.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="10.67" ry="10.67" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="5.33" ry="5.33" stroke="black" fill="none" />
+    <rect x="-26.67" y="-2.67" width="21.33" height="5.33" stroke="black" fill="black" />
+    <rect x="10.67" y="-2.67" width="10.67" height="5.33" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-26.67" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="21.33" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

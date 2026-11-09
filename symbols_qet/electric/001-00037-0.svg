@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-21.0 -8.0 40.0 20.0" data-name="Phase source">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="48.0" viewBox="-50.4 -19.2 96.0 48.0" data-name="Phase source" data-standard="48px">
   <title>Phase source</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="0.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
-    <text x="-12.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="L" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <text x="-28.80" y="7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="L" data-orientation="e" />
   </g>
 </svg>

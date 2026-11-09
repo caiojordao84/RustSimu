@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-20.0 -30.0 30.0 60.0" data-name="Foot Switch (NO)">
+<svg xmlns="http://www.w3.org/2000/svg" width="36.0" height="72.0" viewBox="-24.0 -36.0 36.0 72.0" data-name="Foot Switch (NO)" data-standard="48px">
   <title>Foot Switch (NO)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-12.00" y1="0.00" x2="-3.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-9.73" y1="-5.00" x2="-13.91" y2="5.00" stroke="black" fill="none" />
-    <line x1="-13.91" y1="5.00" x2="-16.42" y2="3.00" stroke="black" fill="none" />
-    <polyline points="0,20 0,10 -6,-10" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-9.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="13" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="14" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-14.40" y1="0.00" x2="-3.60" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-11.68" y1="-6.00" x2="-16.69" y2="6.00" stroke="black" fill="none" />
+    <line x1="-16.69" y1="6.00" x2="-19.70" y2="3.60" stroke="black" fill="none" />
+    <polyline points="0.00,24.00 0.00,12.00 -7.20,-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-10.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="13" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="14" data-orientation="s" />
   </g>
 </svg>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-28.0 -14.0 40.0 30.0" data-name="Microwaves detector">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="72.0" viewBox="-67.2 -33.6 96.0 72.0" data-name="Microwaves detector" data-standard="48px">
   <title>Microwaves detector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-20,0 0,-10 0,10" stroke="black" fill="black" />
-    <path d="M 4.00 0.00 A 2.00 10.00 0 0 0 2.00 -10.00" stroke="black" fill="none" />
-    <path d="M 2.00 10.00 A 2.00 10.00 0 0 0 4.00 0.00" stroke="black" fill="none" />
-    <path d="M 6.00 0.00 A 2.00 11.00 0 0 0 4.00 -11.00" stroke="black" fill="none" />
-    <path d="M 4.00 12.00 A 2.00 12.00 0 0 0 6.00 0.00" stroke="black" fill="none" />
-    <path d="M 8.00 0.00 A 2.00 12.00 0 0 0 6.00 -12.00" stroke="black" fill="none" />
-    <path d="M 6.00 14.00 A 2.00 14.00 0 0 0 8.00 0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-48.00,0.00 0.00,-24.00 0.00,24.00" stroke="black" fill="black" />
+    <path d="M 9.60 0.00 A 4.80 24.00 0 0 0 4.80 -24.00" stroke="black" fill="none" />
+    <path d="M 4.80 24.00 A 4.80 24.00 0 0 0 9.60 0.00" stroke="black" fill="none" />
+    <path d="M 14.40 0.00 A 4.80 26.40 0 0 0 9.60 -26.40" stroke="black" fill="none" />
+    <path d="M 9.60 28.80 A 4.80 28.80 0 0 0 14.40 0.00" stroke="black" fill="none" />
+    <path d="M 19.20 0.00 A 4.80 28.80 0 0 0 14.40 -28.80" stroke="black" fill="none" />
+    <path d="M 14.40 33.60 A 4.80 33.60 0 0 0 19.20 0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-45.60" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

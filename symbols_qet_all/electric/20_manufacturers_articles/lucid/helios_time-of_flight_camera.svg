@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="270.0" height="100.0" viewBox="-136.0 -45.0 270.0 100.0" data-name="Helios Time-Of_Flight Camera">
+<svg xmlns="http://www.w3.org/2000/svg" width="648.0" height="240.0" viewBox="-326.4 -108.0 648.0 240.0" data-name="Helios Time-Of_Flight Camera" data-standard="48px">
   <title>Helios Time-Of_Flight Camera</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-130.25" y="-40.20" width="260.25" height="90.00" stroke="black" fill="white" />
-    <circle cx="-130.25" cy="9.80" r="2.50" stroke="black" fill="white" />
-    <text x="-125.25" y="13.80" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GPIO</text>
-    <circle cx="-130.25" cy="-10.20" r="2.50" stroke="black" fill="white" />
-    <text x="-88.25" y="-6.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IP Adr.:</text>
-    <text x="-125.25" y="-6.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Eth</text>
-    <text x="-141.25" y="-1.20" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X1</text>
-    <text x="-141.25" y="18.80" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X2</text>
-    <polygon points="112.36,-17.77 110.41,-17.86 110.37,-14.89 114.81,-14.74 114.83,-17.66" stroke="black" fill="none" />
-    <polygon points="112.3,-0.43 110.27,-0.43 110.25,2.55 114.68,2.54 114.68,-0.41" stroke="black" fill="none" />
-    <polygon points="86.83,0.07 84.61,0.1 84.61,3.06 89.64,2.93 89.67,0.04" stroke="black" fill="none" />
-    <polyline points="82.84,-27.28 82.82,11.75 115.8,10.53 115.97,-25.21 82.84,-27.28 57,-22 57,9 82.82,11.67 82.84,11.66" stroke="black" fill="none" />
-    <ellipse cx="99.92" cy="-7.66" rx="7.61" ry="8.64" stroke="black" fill="none" />
-    <polygon points="96.7,-18.37 90.61,-18.64 90.61,2.87 109.21,2.51 109.44,-17.88" stroke="black" fill="none" />
-    <polygon points="86.78,-18.82 84.45,-18.92 84.45,-15.96 89.49,-15.78 89.5,-18.69" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-130.25" cy="-10.20" r="1.8" fill="red" stroke="none" data-name="X1" data-orientation="w" />
-    <circle class="qet-terminal" cx="-130.25" cy="9.80" r="1.8" fill="red" stroke="none" data-name="X2" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-312.60" y="-96.48" width="624.60" height="216.00" stroke="black" fill="white" />
+    <circle cx="-312.60" cy="23.52" r="6.00" stroke="black" fill="white" />
+    <text x="-300.60" y="33.12" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GPIO</text>
+    <circle cx="-312.60" cy="-24.48" r="6.00" stroke="black" fill="white" />
+    <text x="-211.80" y="-14.88" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">IP Adr.:</text>
+    <text x="-300.60" y="-14.88" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Eth</text>
+    <text x="-339.00" y="-2.88" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X1</text>
+    <text x="-339.00" y="45.12" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X2</text>
+    <polygon points="269.66,-42.65 264.98,-42.86 264.89,-35.74 275.54,-35.38 275.59,-42.38" stroke="black" fill="none" />
+    <polygon points="269.52,-1.03 264.65,-1.03 264.60,6.12 275.23,6.10 275.23,-0.98" stroke="black" fill="none" />
+    <polygon points="208.39,0.17 203.06,0.24 203.06,7.34 215.14,7.03 215.21,0.10" stroke="black" fill="none" />
+    <polyline points="198.82,-65.47 198.77,28.20 277.92,25.27 278.33,-60.50 198.82,-65.47 136.80,-52.80 136.80,21.60 198.77,28.01 198.82,27.98" stroke="black" fill="none" />
+    <ellipse cx="239.81" cy="-18.38" rx="18.26" ry="20.74" stroke="black" fill="none" />
+    <polygon points="232.08,-44.09 217.46,-44.74 217.46,6.89 262.10,6.02 262.66,-42.91" stroke="black" fill="none" />
+    <polygon points="208.27,-45.17 202.68,-45.41 202.68,-38.30 214.78,-37.87 214.80,-44.86" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-312.60" cy="-24.48" r="4.0" fill="red" stroke="none" data-name="X1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-312.60" cy="23.52" r="4.0" fill="red" stroke="none" data-name="X2" data-orientation="w" />
   </g>
 </svg>

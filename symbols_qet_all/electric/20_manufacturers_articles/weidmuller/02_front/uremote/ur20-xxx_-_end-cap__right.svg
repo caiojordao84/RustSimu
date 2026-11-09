@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="250.0" viewBox="-15.0 -125.0 30.0 250.0" data-name="UR20-xxx - end-cap (right)">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="600.0" viewBox="-36.0 -300.0 72.0 600.0" data-name="UR20-xxx - end-cap (right)" data-standard="48px">
   <title>UR20-xxx - end-cap (right)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-11.50" y="-121.00" width="23.00" height="242.00" stroke="black" fill="HTMLGrayDarkSlateGray" />
-    <rect x="-3.00" y="14.00" width="12.00" height="5.00" stroke="none" fill="gray" />
-    <ellipse cx="3.00" cy="0.00" rx="6.00" ry="6.00" stroke="#888888" fill="#dcdcdc" />
-    <line x1="-1.00" y1="4.00" x2="7.00" y2="-4.00" stroke="#888888" fill="none" />
-    <rect x="-3.00" y="-19.00" width="12.00" height="5.00" stroke="none" fill="gray" />
-    <polyline points="-6,-120 -6,120" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-27.60" y="-290.40" width="55.20" height="580.80" stroke="black" fill="HTMLGrayDarkSlateGray" />
+    <rect x="-7.20" y="33.60" width="28.80" height="12.00" stroke="none" fill="gray" />
+    <ellipse cx="7.20" cy="0.00" rx="14.40" ry="14.40" stroke="#888888" fill="#dcdcdc" />
+    <line x1="-2.40" y1="9.60" x2="16.80" y2="-9.60" stroke="#888888" fill="none" />
+    <rect x="-7.20" y="-45.60" width="28.80" height="12.00" stroke="none" fill="gray" />
+    <polyline points="-14.40,-288.00 -14.40,288.00" stroke="black" fill="none" />
   </g>
 </svg>

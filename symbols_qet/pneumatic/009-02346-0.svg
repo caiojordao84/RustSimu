@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-25.0 -22.0 40.0 40.0" data-name="vacuum pump">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-60.0 -52.8 96.0 96.0" data-name="vacuum pump" data-standard="48px">
   <title>vacuum pump</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-9.00" y1="3.00" x2="-3.00" y2="-9.00" stroke="black" fill="none" />
-    <line x1="9.00" y1="3.00" x2="4.00" y2="-9.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="1.00" x2="-10.00" y2="1.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-1.00" x2="-10.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="15.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-21.60" y1="7.20" x2="-7.20" y2="-21.60" stroke="black" fill="none" />
+    <line x1="21.60" y1="7.20" x2="9.60" y2="-21.60" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="2.40" x2="-24.00" y2="2.40" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-2.40" x2="-24.00" y2="-2.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="36.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

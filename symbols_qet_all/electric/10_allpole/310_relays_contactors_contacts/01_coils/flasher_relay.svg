@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-28.0 -32.0 50.0 60.0" data-name="Flasher relay">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="72.0" viewBox="-33.6 -38.4 60.0 72.0" data-name="Flasher relay" data-standard="48px">
   <title>Flasher relay</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-22.00" y="-10.00" width="7.00" height="20.00" stroke="black" fill="none" />
-    <rect x="-15.00" y="-10.00" width="30.00" height="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="20.00" x2="0.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="1.42" x2="-20.00" y2="-1.47" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-2.00" x2="-17.00" y2="-2.00" stroke="black" fill="none" />
-    <line x1="-17.00" y1="-2.00" x2="-17.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="2.00" x2="-17.00" y2="2.00" stroke="black" fill="none" />
-    <line x1="-17.00" y1="2.00" x2="-17.00" y2="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-26.40" y="-12.00" width="8.40" height="24.00" stroke="black" fill="none" />
+    <rect x="-18.00" y="-12.00" width="36.00" height="24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="1.70" x2="-24.00" y2="-1.76" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-2.40" x2="-20.40" y2="-2.40" stroke="black" fill="none" />
+    <line x1="-20.40" y1="-2.40" x2="-20.40" y2="-6.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="2.40" x2="-20.40" y2="2.40" stroke="black" fill="none" />
+    <line x1="-20.40" y1="2.40" x2="-20.40" y2="6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="s" />
   </g>
 </svg>

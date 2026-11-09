@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-30.0 -35.0 60.0 50.0" data-name="difusor-rot">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="120.0" viewBox="-72.0 -84.0 144.0 120.0" data-name="difusor-rot" data-standard="48px">
   <title>difusor-rot</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-0.50" cy="0.05" rx="14.90" ry="5.92" stroke="black" fill="none" />
-    <path d="M 13.89 -14.10 A 12.38 3.84 0 0 0 -10.86 -14.10" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.05" rx="28.00" ry="12.15" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.05" rx="8.40" ry="2.92" stroke="black" fill="none" />
-    <polyline points="-18.72,-9.26 -12.32,-14.38 -12.32,-20.78" stroke="black" fill="none" />
-    <polyline points="18.65,-9.26 14.23,-14.38 14.23,-20.78" stroke="black" fill="none" />
-    <path d="M 14.37 -22.05 A 13.35 3.84 0 0 0 -12.32 -22.05" stroke="black" fill="none" />
-    <polygon points="10,0 23,-4 19,-7 9,-2" stroke="black" fill="none" />
-    <polygon points="10,2 19,6 14,8 9,3" stroke="black" fill="none" />
-    <polygon points="-1,4 2,4 4,10 -2,10" stroke="black" fill="none" />
-    <polygon points="-1,-4 2,-4 8,-9 -5,-9" stroke="black" fill="none" />
-    <polygon points="-10,-2 -16,-8 -21,-5 -11,0" stroke="black" fill="none" />
-    <polygon points="-10,2 -18,6 -12,9 -8,4" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-27.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-1.20" cy="0.12" rx="35.76" ry="14.21" stroke="black" fill="none" />
+    <path d="M 33.34 -33.84 A 29.71 9.22 0 0 0 -26.06 -33.84" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.12" rx="67.20" ry="29.16" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.12" rx="20.16" ry="7.01" stroke="black" fill="none" />
+    <polyline points="-44.93,-22.22 -29.57,-34.51 -29.57,-49.87" stroke="black" fill="none" />
+    <polyline points="44.76,-22.22 34.15,-34.51 34.15,-49.87" stroke="black" fill="none" />
+    <path d="M 34.49 -52.92 A 32.04 9.22 0 0 0 -29.57 -52.92" stroke="black" fill="none" />
+    <polygon points="24.00,0.00 55.20,-9.60 45.60,-16.80 21.60,-4.80" stroke="black" fill="none" />
+    <polygon points="24.00,4.80 45.60,14.40 33.60,19.20 21.60,7.20" stroke="black" fill="none" />
+    <polygon points="-2.40,9.60 4.80,9.60 9.60,24.00 -4.80,24.00" stroke="black" fill="none" />
+    <polygon points="-2.40,-9.60 4.80,-9.60 19.20,-21.60 -12.00,-21.60" stroke="black" fill="none" />
+    <polygon points="-24.00,-4.80 -38.40,-19.20 -50.40,-12.00 -26.40,0.00" stroke="black" fill="none" />
+    <polygon points="-24.00,4.80 -43.20,14.40 -28.80,21.60 -19.20,9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-64.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

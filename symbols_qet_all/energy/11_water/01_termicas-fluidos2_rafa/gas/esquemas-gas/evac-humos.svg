@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="20.0" viewBox="-10.0 -12.0 20.0 20.0" data-name="evac-humos">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="48.0" viewBox="-24.0 -28.8 48.0 48.0" data-name="evac-humos" data-standard="48px">
   <title>evac-humos</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-5.50" rx="5.00" ry="4.50" stroke="black" fill="none" />
-    <polygon points="-4,-3 3,-9 4,-7 4,-5 4,-4 3,-3 2,-2 -1,-1 -2,-2" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-13.20" rx="12.00" ry="10.80" stroke="black" fill="none" />
+    <polygon points="-9.60,-7.20 7.20,-21.60 9.60,-16.80 9.60,-12.00 9.60,-9.60 7.20,-7.20 4.80,-4.80 -2.40,-2.40 -4.80,-4.80" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

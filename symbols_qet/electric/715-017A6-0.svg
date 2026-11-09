@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -25.0 50.0 50.0" data-name="Star-delta starter">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -60.0 120.0 120.0" data-name="Star-delta starter" data-standard="48px">
   <title>Star-delta starter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-20.00" width="40.00" height="40.00" stroke="black" fill="none" />
-    <polyline points="-20,-20 0,-10 20,-20" stroke="black" fill="none" />
-    <polygon points="10,15 -10,15 0,-5" stroke="black" fill="none" />
-    <line x1="-10.00" y1="15.00" x2="0.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="7.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="7.00" x2="10.00" y2="15.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-48.00" y="-48.00" width="96.00" height="96.00" stroke="black" fill="none" />
+    <polyline points="-48.00,-48.00 0.00,-24.00 48.00,-48.00" stroke="black" fill="none" />
+    <polygon points="24.00,36.00 -24.00,36.00 0.00,-12.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="36.00" x2="0.00" y2="16.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="16.80" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="16.80" x2="24.00" y2="36.00" stroke="black" fill="none" />
   </g>
 </svg>

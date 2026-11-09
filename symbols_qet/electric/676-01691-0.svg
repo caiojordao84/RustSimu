@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="110.0" viewBox="-112.0 -105.0 150.0 110.0" data-name="Optical coupling device with slot for light-barrier">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="105.6" viewBox="-107.5 -100.8 144.0 105.6" data-name="Optical coupling device with slot for light-barrier" data-standard="48px">
   <title>Optical coupling device with slot for light-barrier</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-60.00" x2="30.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="30.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-110.00" y1="-60.00" x2="-75.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-110.00" y1="-10.00" x2="-75.00" y2="-10.00" stroke="black" fill="none" />
-    <polygon points="-85,-45 -65,-45 -75,-25" stroke="black" fill="none" />
-    <line x1="-85.00" y1="-25.00" x2="-65.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-75.00" y1="-60.00" x2="-75.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-45.00" x2="-20.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-30.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-40.00" x2="0.00" y2="-60.00" stroke="black" fill="none" />
-    <polyline points="-11,-23 -9,-19 -13,-21" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-40.00" x2="-50.00" y2="-40.00" stroke="black" fill="black" />
-    <line x1="-60.00" y1="-30.00" x2="-50.00" y2="-30.00" stroke="black" fill="black" />
-    <line x1="-35.00" y1="-100.00" x2="-35.00" y2="-25.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <polygon points="-90,-70 -45,-70 -45,-15 -25,-15 -25,-70 10,-70 10,0 -90,0" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="30.00" cy="-60.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-57.60" x2="28.80" y2="-57.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="-9.60" x2="28.80" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-105.60" y1="-57.60" x2="-72.00" y2="-57.60" stroke="black" fill="none" />
+    <line x1="-105.60" y1="-9.60" x2="-72.00" y2="-9.60" stroke="black" fill="none" />
+    <polygon points="-81.60,-43.20 -62.40,-43.20 -72.00,-24.00" stroke="black" fill="none" />
+    <line x1="-81.60" y1="-24.00" x2="-62.40" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-72.00" y1="-57.60" x2="-72.00" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-43.20" x2="-19.20" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-28.80" x2="0.00" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-38.40" x2="0.00" y2="-57.60" stroke="black" fill="none" />
+    <polyline points="-10.56,-22.08 -8.64,-18.24 -12.48,-20.16" stroke="black" fill="none" />
+    <line x1="-57.60" y1="-38.40" x2="-48.00" y2="-38.40" stroke="black" fill="black" />
+    <line x1="-57.60" y1="-28.80" x2="-48.00" y2="-28.80" stroke="black" fill="black" />
+    <line x1="-33.60" y1="-96.00" x2="-33.60" y2="-24.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polygon points="-86.40,-67.20 -43.20,-67.20 -43.20,-14.40 -24.00,-14.40 -24.00,-67.20 9.60,-67.20 9.60,0.00 -86.40,0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="28.80" cy="-57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="28.80" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

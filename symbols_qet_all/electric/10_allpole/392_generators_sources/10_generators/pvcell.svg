@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="60.0" viewBox="-33.0 -34.0 70.0 60.0" data-name="PVCell">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="144.0" viewBox="-79.2 -81.6 168.0 144.0" data-name="PVCell" data-standard="48px">
   <title>PVCell</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="12.05" y1="21.75" x2="14.53" y2="21.75" stroke="black" fill="none" />
-    <rect x="-1.80" y="-19.13" width="4.26" height="37.65" stroke="white" fill="white" />
-    <line x1="12.82" y1="23.00" x2="13.81" y2="23.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="-11.00" width="10.00" height="31.00" stroke="black" fill="white" />
-    <polygon points="-5,20 -10,22 -10,23 10,23 10,22 5,20" stroke="black" fill="black" />
-    <polygon points="-28.79,-11 -5.42,-30.69 32,-30.69 9.78,-11" stroke="black" fill="white" />
-    <polygon points="-11.82,-21.56 -8.07,-24.38 -2.08,-24.38 -5.64,-21.56" stroke="black" fill="none" />
-    <polygon points="0.28,-21.56 4,-24.38 10,-24.38 6.46,-21.56" stroke="black" fill="none" />
-    <polygon points="-10.72,-12.26 -7,-15.08 -1,-15.08 -4.54,-12.26" stroke="black" fill="none" />
-    <polygon points="12.38,-21.56 16.13,-24.38 22.12,-24.38 18.56,-21.56" stroke="black" fill="none" />
-    <polygon points="5.78,-26.21 9.53,-29 15.52,-29 12,-26.21" stroke="black" fill="none" />
-    <polygon points="17.88,-26.21 21.63,-29 27.62,-29 24.06,-26.21" stroke="black" fill="none" />
-    <polygon points="-6.32,-26.21 -2.57,-29 3.42,-29 -0.14,-26.21" stroke="black" fill="none" />
-    <polygon points="0.28,-12.26 4,-15.08 10,-15.08 6.46,-12.26" stroke="black" fill="none" />
-    <polygon points="-22.82,-12.26 -19.07,-15.08 -13.08,-15.08 -16.64,-12.26" stroke="black" fill="none" />
-    <polygon points="-5.22,-16.91 -1.47,-19.73 4.52,-19.73 1,-16.91" stroke="black" fill="none" />
-    <polygon points="-17.32,-16.91 -13.57,-19.73 -7.58,-19.73 -11.14,-16.91" stroke="black" fill="none" />
-    <polygon points="6.88,-16.91 10.63,-19.73 16.62,-19.73 13.06,-16.91" stroke="black" fill="none" />
-    <line x1="5.00" y1="15.00" x2="13.25" y2="15.00" stroke="black" fill="none" />
-    <line x1="13.25" y1="15.00" x2="13.25" y2="20.50" stroke="black" fill="none" />
-    <line x1="10.50" y1="20.50" x2="16.00" y2="20.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-5.00" cy="6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-5.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="5.00" cy="9.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="5.00" cy="3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="28.92" y1="52.20" x2="34.87" y2="52.20" stroke="black" fill="none" />
+    <rect x="-4.32" y="-45.91" width="10.22" height="90.36" stroke="white" fill="white" />
+    <line x1="30.77" y1="55.20" x2="33.14" y2="55.20" stroke="black" fill="none" />
+    <rect x="-12.00" y="-26.40" width="24.00" height="74.40" stroke="black" fill="white" />
+    <polygon points="-12.00,48.00 -24.00,52.80 -24.00,55.20 24.00,55.20 24.00,52.80 12.00,48.00" stroke="black" fill="black" />
+    <polygon points="-69.10,-26.40 -13.01,-73.66 76.80,-73.66 23.47,-26.40" stroke="black" fill="white" />
+    <polygon points="-28.37,-51.74 -19.37,-58.51 -4.99,-58.51 -13.54,-51.74" stroke="black" fill="none" />
+    <polygon points="0.67,-51.74 9.60,-58.51 24.00,-58.51 15.50,-51.74" stroke="black" fill="none" />
+    <polygon points="-25.73,-29.42 -16.80,-36.19 -2.40,-36.19 -10.90,-29.42" stroke="black" fill="none" />
+    <polygon points="29.71,-51.74 38.71,-58.51 53.09,-58.51 44.54,-51.74" stroke="black" fill="none" />
+    <polygon points="13.87,-62.90 22.87,-69.60 37.25,-69.60 28.80,-62.90" stroke="black" fill="none" />
+    <polygon points="42.91,-62.90 51.91,-69.60 66.29,-69.60 57.74,-62.90" stroke="black" fill="none" />
+    <polygon points="-15.17,-62.90 -6.17,-69.60 8.21,-69.60 -0.34,-62.90" stroke="black" fill="none" />
+    <polygon points="0.67,-29.42 9.60,-36.19 24.00,-36.19 15.50,-29.42" stroke="black" fill="none" />
+    <polygon points="-54.77,-29.42 -45.77,-36.19 -31.39,-36.19 -39.94,-29.42" stroke="black" fill="none" />
+    <polygon points="-12.53,-40.58 -3.53,-47.35 10.85,-47.35 2.40,-40.58" stroke="black" fill="none" />
+    <polygon points="-41.57,-40.58 -32.57,-47.35 -18.19,-47.35 -26.74,-40.58" stroke="black" fill="none" />
+    <polygon points="16.51,-40.58 25.51,-47.35 39.89,-47.35 31.34,-40.58" stroke="black" fill="none" />
+    <line x1="12.00" y1="36.00" x2="31.80" y2="36.00" stroke="black" fill="none" />
+    <line x1="31.80" y1="36.00" x2="31.80" y2="49.20" stroke="black" fill="none" />
+    <line x1="25.20" y1="49.20" x2="38.40" y2="49.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-12.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-12.00" cy="28.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="12.00" cy="21.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="12.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

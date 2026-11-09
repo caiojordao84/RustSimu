@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="60.0" viewBox="-38.0 -30.0 80.0 60.0" data-name="Magnetic brake">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="144.0" viewBox="-91.2 -72.0 192.0 144.0" data-name="Magnetic brake" data-standard="48px">
   <title>Magnetic brake</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-10.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <ellipse cx="30.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <line x1="7.00" y1="-20.00" x2="-7.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="-20.00" x2="33.00" y2="-20.00" stroke="black" fill="none" />
-    <text x="6.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">wh</text>
-    <line x1="27.00" y1="-20.00" x2="13.00" y2="-20.00" stroke="black" fill="none" />
-    <text x="28.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">bl</text>
-    <line x1="-30.00" y1="0.00" x2="-20.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <polygon points="-30,20 -30,-20 -36,-27 -36,27" stroke="black" fill="none" />
-    <line x1="40.00" y1="20.00" x2="40.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="20.00" x2="-20.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-13.00" y1="-20.00" x2="-20.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-20.00" x2="-20.00" y2="20.00" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <text x="-14.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">rd</text>
-    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-24.00" cy="-48.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <ellipse cx="72.00" cy="-48.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <line x1="16.80" y1="-48.00" x2="-16.80" y2="-48.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="-48.00" x2="79.20" y2="-48.00" stroke="black" fill="none" />
+    <text x="14.40" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">wh</text>
+    <line x1="64.80" y1="-48.00" x2="31.20" y2="-48.00" stroke="black" fill="none" />
+    <text x="67.20" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">bl</text>
+    <line x1="-72.00" y1="0.00" x2="-48.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <polygon points="-72.00,48.00 -72.00,-48.00 -86.40,-64.80 -86.40,64.80" stroke="black" fill="none" />
+    <line x1="96.00" y1="48.00" x2="96.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="48.00" x2="-48.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="-31.20" y1="-48.00" x2="-48.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-48.00" x2="-48.00" y2="48.00" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="-48.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <text x="-33.60" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">rd</text>
+    <circle class="qet-terminal" cx="-24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

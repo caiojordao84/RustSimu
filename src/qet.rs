@@ -677,6 +677,9 @@ fn parse_definition_node<'a>(
 
     let view_box = (-hotspot_x, -hotspot_y, width, height);
 
+    let term_points: Vec<(f32, f32)> = terminals.iter().map(|t| (t.x, t.y)).collect();
+    let normalized_scale = crate::svg_symbol::calculate_normalized_scale(&term_points, false);
+
     let parsed_symbol = ParsedSvgSymbol {
         view_box,
         shapes,
@@ -686,6 +689,7 @@ fn parse_definition_node<'a>(
         max_term_x,
         is_cade_svg: false,
         is_qet_native: true,
+        normalized_scale,
     };
 
     let definition = QetDefinition {

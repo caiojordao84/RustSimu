@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-25.0 -35.0 50.0 60.0" data-name="Starter-regulator">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="144.0" viewBox="-60.0 -84.0 120.0 144.0" data-name="Starter-regulator" data-standard="48px">
   <title>Starter-regulator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-20.00" width="40.00" height="40.00" stroke="black" fill="none" />
-    <polyline points="-20,-20 0,-10 20,-20" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-10.00" x2="7.00" y2="-27.00" stroke="black" fill="none" />
-    <polygon points="5,-28 10,-30 8,-25" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-48.00" y="-48.00" width="96.00" height="96.00" stroke="black" fill="none" />
+    <polyline points="-48.00,-48.00 0.00,-24.00 48.00,-48.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-24.00" x2="16.80" y2="-64.80" stroke="black" fill="none" />
+    <polygon points="12.00,-67.20 24.00,-72.00 19.20,-60.00" stroke="black" fill="black" />
   </g>
 </svg>

@@ -1,170 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="450.0" height="220.0" viewBox="-225.0 -113.0 450.0 220.0" data-name="X-Pool connect">
+<svg xmlns="http://www.w3.org/2000/svg" width="1080.0" height="528.0" viewBox="-540.0 -271.2 1080.0 528.0" data-name="X-Pool connect" data-standard="48px">
   <title>X-Pool connect</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-115.00" y="-90.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-128.00" y="72.00" width="16.00" height="11.00" stroke="black" fill="black" />
-    <text x="-126.00" y="79.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SEL</text>
-    <rect x="-115.00" y="-100.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-220.00" y="-90.00" width="440.00" height="180.00" stroke="black" fill="none" />
-    <text x="-135.00" y="-56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">total : 32A max</text>
-    <text x="-113.00" y="-82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">NC</text>
-    <line x1="120.00" y1="90.00" x2="120.00" y2="80.00" stroke="black" fill="none" />
-    <line x1="100.00" y1="90.00" x2="100.00" y2="80.00" stroke="black" fill="none" />
-    <polyline points="-210,-69 -210,-54 -10,-54 -10,-69" stroke="black" fill="none" />
-    <line x1="80.00" y1="90.00" x2="80.00" y2="80.00" stroke="black" fill="none" />
-    <polyline points="-40,-54 -40,-40 -36,-40 -27,-45" stroke="black" fill="none" />
-    <line x1="190.00" y1="60.00" x2="190.00" y2="54.00" stroke="black" fill="none" />
-    <line x1="150.00" y1="60.00" x2="150.00" y2="54.00" stroke="black" fill="none" />
-    <line x1="110.00" y1="60.00" x2="110.00" y2="54.00" stroke="black" fill="none" />
-    <line x1="130.00" y1="60.00" x2="130.00" y2="54.00" stroke="black" fill="none" />
-    <text x="-141.00" y="-73.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <polyline points="-150,-54 -150,-40 -146,-40 -137,-45" stroke="black" fill="none" />
-    <polyline points="-90,-54 -90,-40 -86,-40 -77,-45" stroke="black" fill="none" />
-    <polyline points="-200,-54 -200,-40 -196,-40 -187,-45" stroke="black" fill="none" />
-    <text x="-81.00" y="-73.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <line x1="50.00" y1="60.00" x2="50.00" y2="54.00" stroke="black" fill="none" />
-    <text x="-31.00" y="-73.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <rect x="-140.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="180.00" y1="90.00" x2="180.00" y2="80.00" stroke="black" fill="none" />
-    <line x1="140.00" y1="90.00" x2="140.00" y2="80.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="160.00" y1="90.00" x2="160.00" y2="80.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="60.00" x2="70.00" y2="54.00" stroke="black" fill="none" />
-    <rect x="-80.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-190.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-190.00" y="-100.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="90.00" y1="60.00" x2="90.00" y2="54.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="90.00" x2="60.00" y2="80.00" stroke="black" fill="none" />
-    <rect x="20.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="170.00" y1="60.00" x2="170.00" y2="54.00" stroke="black" fill="none" />
-    <rect x="-140.00" y="-100.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-100.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-80.00" y="-100.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="22.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <rect x="-50.00" y="-100.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <polyline points="-70,-54 -70,-40 -76,-40" stroke="black" fill="none" />
-    <rect x="-100.00" y="-100.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <polyline points="-130,-54 -130,-40 -136,-40" stroke="black" fill="none" />
-    <line x1="190.00" y1="80.00" x2="190.00" y2="74.00" stroke="black" fill="none" />
-    <line x1="150.00" y1="80.00" x2="150.00" y2="74.00" stroke="black" fill="none" />
-    <rect x="-100.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <polyline points="-180,-54 -180,-40 -186,-40" stroke="black" fill="none" />
-    <line x1="110.00" y1="80.00" x2="110.00" y2="74.00" stroke="black" fill="none" />
-    <rect x="-160.00" y="-100.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-50.00" y="-80.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <line x1="90.00" y1="80.00" x2="90.00" y2="74.00" stroke="black" fill="none" />
-    <rect x="-100.00" y="-80.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-160.00" y="-80.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <line x1="170.00" y1="80.00" x2="170.00" y2="74.00" stroke="black" fill="none" />
-    <polyline points="-20,-54 -20,-40 -26,-40" stroke="black" fill="none" />
-    <line x1="130.00" y1="80.00" x2="130.00" y2="74.00" stroke="black" fill="none" />
-    <rect x="-160.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-50.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="80.00" x2="70.00" y2="74.00" stroke="black" fill="none" />
-    <line x1="67.00" y1="74.00" x2="67.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="167.00" y1="74.00" x2="167.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="107.00" y1="74.00" x2="107.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="87.00" y1="74.00" x2="87.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="127.00" y1="74.00" x2="127.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="147.00" y1="74.00" x2="147.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="187.00" y1="74.00" x2="187.00" y2="60.00" stroke="black" fill="none" />
-    <rect x="65.00" y="64.00" width="2.00" height="6.00" stroke="black" fill="black" />
-    <rect x="165.00" y="64.00" width="2.00" height="6.00" stroke="black" fill="black" />
-    <rect x="105.00" y="64.00" width="2.00" height="6.00" stroke="black" fill="black" />
-    <rect x="145.00" y="64.00" width="2.00" height="6.00" stroke="black" fill="black" />
-    <rect x="85.00" y="64.00" width="2.00" height="6.00" stroke="black" fill="black" />
-    <rect x="125.00" y="64.00" width="2.00" height="6.00" stroke="black" fill="black" />
-    <rect x="185.00" y="64.00" width="2.00" height="6.00" stroke="black" fill="black" />
-    <polygon points="-168,72 -152,72 -152,82 -156,82 -156,85 -164,85 -164,82 -168,82" stroke="black" fill="none" />
-    <text x="-149.00" y="70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUTPUT</text>
-    <text x="-166.00" y="70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">INPUT</text>
-    <rect x="160.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="180.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="140.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="120.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="168.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <text x="148.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <text x="188.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <text x="128.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <rect x="-210.00" y="-100.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="-167.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Powered EBX</text>
-    <text x="-191.00" y="-73.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-91.41" y="-83.25" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <rect x="-210.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="-130.58" y="-83.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="-40.88" y="-83.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <text x="-202.00" y="-83.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-71.00" y="-83.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <text x="-181.36" y="-82.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-21.48" y="-83.25" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">9</text>
-    <text x="-151.22" y="-83.74" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <rect x="-210.00" y="-80.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <text x="-203.00" y="-63.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Relay Outputs - Max switched current 16A - 250 VAC</text>
-    <line x1="-161.00" y1="-70.00" x2="-169.00" y2="-70.00" stroke="black" fill="none" />
-    <text x="-147.00" y="79.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RJ45</text>
-    <text x="-167.00" y="79.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RJ45</text>
-    <text x="-146.00" y="66.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EBX</text>
-    <rect x="80.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="-166.00" y="66.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EBX</text>
-    <rect x="60.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="40.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="88.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="68.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="48.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <rect x="100.00" y="90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="108.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <line x1="50.00" y1="80.00" x2="50.00" y2="74.00" stroke="black" fill="none" />
-    <line x1="47.00" y1="74.00" x2="47.00" y2="60.00" stroke="black" fill="none" />
-    <rect x="45.00" y="64.00" width="2.00" height="6.00" stroke="black" fill="black" />
-    <rect x="-210.00" y="-30.00" width="10.00" height="60.00" stroke="none" fill="#00aa00" />
-    <rect x="-195.00" y="-21.00" width="47.00" height="3.00" stroke="black" fill="black" />
-    <text x="-195.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X-DEVICES</text>
-    <rect x="138.00" y="20.00" width="72.00" height="10.00" stroke="none" fill="#00aa00" />
-    <text x="126.00" y="18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
-    <polygon points="-148,72 -132,72 -132,82 -136,82 -136,85 -144,85 -144,82 -148,82" stroke="black" fill="none" />
-    <polyline points="-170,90 -170,60 -130,60 -130,90 -150,90 -150,60" stroke="black" fill="none" />
-    <polygon points="-215,-35 -215,35 215,35 215,-35" stroke="black" fill="none" />
-    <polyline points="30,80 30,54 190,54" stroke="black" fill="none" />
-    <polyline points="20,90 20,80 200,80 200,90" stroke="black" fill="none" />
-    <line x1="40.00" y1="90.00" x2="40.00" y2="80.00" stroke="black" fill="none" />
-    <line x1="-59.00" y1="-70.00" x2="-51.00" y2="-70.00" stroke="black" fill="none" />
-    <line x1="-119.00" y1="-70.00" x2="-101.00" y2="-70.00" stroke="black" fill="none" />
-    <polyline points="-129,69 -110,69 -110,90" stroke="black" fill="none" />
-    <rect x="120.00" y="-102.00" width="1.75" height="3.50" stroke="black" fill="none" />
-    <rect x="170.50" y="-102.00" width="1.75" height="3.50" stroke="black" fill="none" />
-    <text x="100.00" y="-74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ORP</text>
-    <text x="155.50" y="-74.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">T°</text>
-    <rect x="70.00" y="-102.00" width="1.75" height="3.50" stroke="black" fill="none" />
-    <rect x="150.17" y="-105.89" width="20.00" height="20.00" stroke="black" fill="none" />
-    <rect x="99.67" y="-105.89" width="20.00" height="20.00" stroke="black" fill="none" />
-    <rect x="147.75" y="-101.00" width="1.75" height="3.50" stroke="black" fill="none" />
-    <rect x="97.25" y="-101.00" width="1.75" height="3.50" stroke="black" fill="none" />
-    <rect x="49.67" y="-105.89" width="20.00" height="20.00" stroke="black" fill="none" />
-    <rect x="47.25" y="-101.00" width="1.75" height="3.50" stroke="black" fill="none" />
-    <text x="52.00" y="-73.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PH</text>
-    <circle class="qet-terminal" cx="60.00" cy="-105.00" r="1.8" fill="red" stroke="none" data-name="PH" data-orientation="n" />
-    <circle class="qet-terminal" cx="110.00" cy="-105.00" r="1.8" fill="red" stroke="none" data-name="ORP" data-orientation="n" />
-    <circle class="qet-terminal" cx="190.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D8" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D-GND" data-orientation="s" />
-    <circle class="qet-terminal" cx="-150.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="R2-1" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="R4-2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-130.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="R2-2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-160.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="EBX-IN" data-orientation="s" />
-    <circle class="qet-terminal" cx="70.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D2" data-orientation="s" />
-    <circle class="qet-terminal" cx="90.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D3" data-orientation="s" />
-    <circle class="qet-terminal" cx="50.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D1" data-orientation="s" />
-    <circle class="qet-terminal" cx="-200.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="R1-1" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="R4-1" data-orientation="n" />
-    <circle class="qet-terminal" cx="-140.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="EBX-OUT" data-orientation="s" />
-    <circle class="qet-terminal" cx="130.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D5" data-orientation="s" />
-    <circle class="qet-terminal" cx="110.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D4" data-orientation="s" />
-    <circle class="qet-terminal" cx="-180.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="R1-2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-70.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="R3-2" data-orientation="n" />
-    <circle class="qet-terminal" cx="170.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D7" data-orientation="s" />
-    <circle class="qet-terminal" cx="-90.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="R3-1" data-orientation="n" />
-    <circle class="qet-terminal" cx="-110.00" cy="-100.00" r="1.8" fill="red" stroke="none" data-name="NC" data-orientation="n" />
-    <circle class="qet-terminal" cx="150.00" cy="100.00" r="1.8" fill="red" stroke="none" data-name="D6" data-orientation="s" />
-    <circle class="qet-terminal" cx="160.00" cy="-105.00" r="1.8" fill="red" stroke="none" data-name="T" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-276.00" y="-216.00" width="24.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-307.20" y="172.80" width="38.40" height="26.40" stroke="black" fill="black" />
+    <text x="-302.40" y="190.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SEL</text>
+    <rect x="-276.00" y="-240.00" width="24.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-528.00" y="-216.00" width="1056.00" height="432.00" stroke="black" fill="none" />
+    <text x="-324.00" y="-134.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">total : 32A max</text>
+    <text x="-271.20" y="-196.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">NC</text>
+    <line x1="288.00" y1="216.00" x2="288.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="240.00" y1="216.00" x2="240.00" y2="192.00" stroke="black" fill="none" />
+    <polyline points="-504.00,-165.60 -504.00,-129.60 -24.00,-129.60 -24.00,-165.60" stroke="black" fill="none" />
+    <line x1="192.00" y1="216.00" x2="192.00" y2="192.00" stroke="black" fill="none" />
+    <polyline points="-96.00,-129.60 -96.00,-96.00 -86.40,-96.00 -64.80,-108.00" stroke="black" fill="none" />
+    <line x1="456.00" y1="144.00" x2="456.00" y2="129.60" stroke="black" fill="none" />
+    <line x1="360.00" y1="144.00" x2="360.00" y2="129.60" stroke="black" fill="none" />
+    <line x1="264.00" y1="144.00" x2="264.00" y2="129.60" stroke="black" fill="none" />
+    <line x1="312.00" y1="144.00" x2="312.00" y2="129.60" stroke="black" fill="none" />
+    <text x="-338.40" y="-175.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <polyline points="-360.00,-129.60 -360.00,-96.00 -350.40,-96.00 -328.80,-108.00" stroke="black" fill="none" />
+    <polyline points="-216.00,-129.60 -216.00,-96.00 -206.40,-96.00 -184.80,-108.00" stroke="black" fill="none" />
+    <polyline points="-480.00,-129.60 -480.00,-96.00 -470.40,-96.00 -448.80,-108.00" stroke="black" fill="none" />
+    <text x="-194.40" y="-175.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <line x1="120.00" y1="144.00" x2="120.00" y2="129.60" stroke="black" fill="none" />
+    <text x="-74.40" y="-175.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <rect x="-336.00" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="432.00" y1="216.00" x2="432.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="336.00" y1="216.00" x2="336.00" y2="192.00" stroke="black" fill="none" />
+    <rect x="-72.00" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="384.00" y1="216.00" x2="384.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="144.00" x2="168.00" y2="129.60" stroke="black" fill="none" />
+    <rect x="-192.00" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-456.00" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-456.00" y="-240.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="216.00" y1="144.00" x2="216.00" y2="129.60" stroke="black" fill="none" />
+    <line x1="144.00" y1="216.00" x2="144.00" y2="192.00" stroke="black" fill="none" />
+    <rect x="48.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="408.00" y1="144.00" x2="408.00" y2="129.60" stroke="black" fill="none" />
+    <rect x="-336.00" y="-240.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-72.00" y="-240.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-192.00" y="-240.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="52.80" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <rect x="-120.00" y="-240.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <polyline points="-168.00,-129.60 -168.00,-96.00 -182.40,-96.00" stroke="black" fill="none" />
+    <rect x="-240.00" y="-240.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <polyline points="-312.00,-129.60 -312.00,-96.00 -326.40,-96.00" stroke="black" fill="none" />
+    <line x1="456.00" y1="192.00" x2="456.00" y2="177.60" stroke="black" fill="none" />
+    <line x1="360.00" y1="192.00" x2="360.00" y2="177.60" stroke="black" fill="none" />
+    <rect x="-240.00" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <polyline points="-432.00,-129.60 -432.00,-96.00 -446.40,-96.00" stroke="black" fill="none" />
+    <line x1="264.00" y1="192.00" x2="264.00" y2="177.60" stroke="black" fill="none" />
+    <rect x="-384.00" y="-240.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-120.00" y="-192.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <line x1="216.00" y1="192.00" x2="216.00" y2="177.60" stroke="black" fill="none" />
+    <rect x="-240.00" y="-192.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-384.00" y="-192.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <line x1="408.00" y1="192.00" x2="408.00" y2="177.60" stroke="black" fill="none" />
+    <polyline points="-48.00,-129.60 -48.00,-96.00 -62.40,-96.00" stroke="black" fill="none" />
+    <line x1="312.00" y1="192.00" x2="312.00" y2="177.60" stroke="black" fill="none" />
+    <rect x="-384.00" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-120.00" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="192.00" x2="168.00" y2="177.60" stroke="black" fill="none" />
+    <line x1="160.80" y1="177.60" x2="160.80" y2="144.00" stroke="black" fill="none" />
+    <line x1="400.80" y1="177.60" x2="400.80" y2="144.00" stroke="black" fill="none" />
+    <line x1="256.80" y1="177.60" x2="256.80" y2="144.00" stroke="black" fill="none" />
+    <line x1="208.80" y1="177.60" x2="208.80" y2="144.00" stroke="black" fill="none" />
+    <line x1="304.80" y1="177.60" x2="304.80" y2="144.00" stroke="black" fill="none" />
+    <line x1="352.80" y1="177.60" x2="352.80" y2="144.00" stroke="black" fill="none" />
+    <line x1="448.80" y1="177.60" x2="448.80" y2="144.00" stroke="black" fill="none" />
+    <rect x="156.00" y="153.60" width="4.80" height="14.40" stroke="black" fill="black" />
+    <rect x="396.00" y="153.60" width="4.80" height="14.40" stroke="black" fill="black" />
+    <rect x="252.00" y="153.60" width="4.80" height="14.40" stroke="black" fill="black" />
+    <rect x="348.00" y="153.60" width="4.80" height="14.40" stroke="black" fill="black" />
+    <rect x="204.00" y="153.60" width="4.80" height="14.40" stroke="black" fill="black" />
+    <rect x="300.00" y="153.60" width="4.80" height="14.40" stroke="black" fill="black" />
+    <rect x="444.00" y="153.60" width="4.80" height="14.40" stroke="black" fill="black" />
+    <polygon points="-403.20,172.80 -364.80,172.80 -364.80,196.80 -374.40,196.80 -374.40,204.00 -393.60,204.00 -393.60,196.80 -403.20,196.80" stroke="black" fill="none" />
+    <text x="-357.60" y="168.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OUTPUT</text>
+    <text x="-398.40" y="168.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">INPUT</text>
+    <rect x="384.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="432.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="336.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="288.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="403.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="355.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="451.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="307.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <rect x="-504.00" y="-240.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="-400.80" y="139.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Powered EBX</text>
+    <text x="-458.40" y="-175.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-219.38" y="-199.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <rect x="-504.00" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="-313.39" y="-199.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-98.11" y="-199.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="-484.80" y="-199.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-170.40" y="-199.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="-435.26" y="-198.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-51.55" y="-199.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">9</text>
+    <text x="-362.93" y="-200.98" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <rect x="-504.00" y="-192.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <text x="-487.20" y="-151.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Relay Outputs - Max switched current 16A - 250 VAC</text>
+    <line x1="-386.40" y1="-168.00" x2="-405.60" y2="-168.00" stroke="black" fill="none" />
+    <text x="-352.80" y="189.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RJ45</text>
+    <text x="-400.80" y="189.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">RJ45</text>
+    <text x="-350.40" y="158.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EBX</text>
+    <rect x="192.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="-398.40" y="158.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EBX</text>
+    <rect x="144.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="96.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="211.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="163.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="115.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <rect x="240.00" y="216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="259.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <line x1="120.00" y1="192.00" x2="120.00" y2="177.60" stroke="black" fill="none" />
+    <line x1="112.80" y1="177.60" x2="112.80" y2="144.00" stroke="black" fill="none" />
+    <rect x="108.00" y="153.60" width="4.80" height="14.40" stroke="black" fill="black" />
+    <rect x="-504.00" y="-72.00" width="24.00" height="144.00" stroke="none" fill="#00aa00" />
+    <rect x="-468.00" y="-50.40" width="112.80" height="7.20" stroke="black" fill="black" />
+    <text x="-468.00" y="-55.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X-DEVICES</text>
+    <rect x="331.20" y="48.00" width="172.80" height="24.00" stroke="none" fill="#00aa00" />
+    <text x="302.40" y="43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
+    <polygon points="-355.20,172.80 -316.80,172.80 -316.80,196.80 -326.40,196.80 -326.40,204.00 -345.60,204.00 -345.60,196.80 -355.20,196.80" stroke="black" fill="none" />
+    <polyline points="-408.00,216.00 -408.00,144.00 -312.00,144.00 -312.00,216.00 -360.00,216.00 -360.00,144.00" stroke="black" fill="none" />
+    <polygon points="-516.00,-84.00 -516.00,84.00 516.00,84.00 516.00,-84.00" stroke="black" fill="none" />
+    <polyline points="72.00,192.00 72.00,129.60 456.00,129.60" stroke="black" fill="none" />
+    <polyline points="48.00,216.00 48.00,192.00 480.00,192.00 480.00,216.00" stroke="black" fill="none" />
+    <line x1="96.00" y1="216.00" x2="96.00" y2="192.00" stroke="black" fill="none" />
+    <line x1="-141.60" y1="-168.00" x2="-122.40" y2="-168.00" stroke="black" fill="none" />
+    <line x1="-285.60" y1="-168.00" x2="-242.40" y2="-168.00" stroke="black" fill="none" />
+    <polyline points="-309.60,165.60 -264.00,165.60 -264.00,216.00" stroke="black" fill="none" />
+    <rect x="288.00" y="-244.80" width="4.20" height="8.40" stroke="black" fill="none" />
+    <rect x="409.20" y="-244.80" width="4.20" height="8.40" stroke="black" fill="none" />
+    <text x="240.00" y="-177.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ORP</text>
+    <text x="373.20" y="-177.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">T°</text>
+    <rect x="168.00" y="-244.80" width="4.20" height="8.40" stroke="black" fill="none" />
+    <rect x="360.41" y="-254.14" width="48.00" height="48.00" stroke="black" fill="none" />
+    <rect x="239.21" y="-254.14" width="48.00" height="48.00" stroke="black" fill="none" />
+    <rect x="354.60" y="-242.40" width="4.20" height="8.40" stroke="black" fill="none" />
+    <rect x="233.40" y="-242.40" width="4.20" height="8.40" stroke="black" fill="none" />
+    <rect x="119.21" y="-254.14" width="48.00" height="48.00" stroke="black" fill="none" />
+    <rect x="113.40" y="-242.40" width="4.20" height="8.40" stroke="black" fill="none" />
+    <text x="124.80" y="-175.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PH</text>
+    <circle class="qet-terminal" cx="144.00" cy="-252.00" r="4.0" fill="red" stroke="none" data-name="PH" data-orientation="n" />
+    <circle class="qet-terminal" cx="264.00" cy="-252.00" r="4.0" fill="red" stroke="none" data-name="ORP" data-orientation="n" />
+    <circle class="qet-terminal" cx="456.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D8" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D-GND" data-orientation="s" />
+    <circle class="qet-terminal" cx="-360.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="R2-1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="R4-2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-312.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="R2-2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-384.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="EBX-IN" data-orientation="s" />
+    <circle class="qet-terminal" cx="168.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D2" data-orientation="s" />
+    <circle class="qet-terminal" cx="216.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D3" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-480.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="R1-1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="R4-1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-336.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="EBX-OUT" data-orientation="s" />
+    <circle class="qet-terminal" cx="312.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D5" data-orientation="s" />
+    <circle class="qet-terminal" cx="264.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-432.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="R1-2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-168.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="R3-2" data-orientation="n" />
+    <circle class="qet-terminal" cx="408.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D7" data-orientation="s" />
+    <circle class="qet-terminal" cx="-216.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="R3-1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-264.00" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="NC" data-orientation="n" />
+    <circle class="qet-terminal" cx="360.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="D6" data-orientation="s" />
+    <circle class="qet-terminal" cx="384.00" cy="-252.00" r="4.0" fill="red" stroke="none" data-name="T" data-orientation="n" />
   </g>
 </svg>

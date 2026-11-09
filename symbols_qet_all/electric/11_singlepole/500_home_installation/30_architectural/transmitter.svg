@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="30.0" viewBox="-37.0 -17.0 70.0 30.0" data-name="Transmitter">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="72.0" viewBox="-88.8 -40.8 168.0 72.0" data-name="Transmitter" data-standard="48px">
   <title>Transmitter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-30.00" y="-10.00" width="60.00" height="20.00" stroke="black" fill="none" />
-    <path d="M -10.00 0.00 A 5.00 5.00 0 0 0 -15.00 -5.00" stroke="black" fill="none" />
-    <path d="M -15.00 5.00 A 5.00 5.00 0 0 0 -10.00 0.00" stroke="black" fill="none" />
-    <path d="M -20.00 -0.00 A 5.00 5.00 0 0 0 -15.00 5.00" stroke="black" fill="none" />
-    <path d="M -15.00 -5.00 A 5.00 5.00 0 0 0 -20.00 -0.00" stroke="black" fill="none" />
-    <path d="M 20.00 0.00 A 5.00 5.00 0 0 0 15.00 -5.00" stroke="black" fill="none" />
-    <path d="M 15.00 5.00 A 5.00 5.00 0 0 0 20.00 0.00" stroke="black" fill="none" />
-    <path d="M 10.00 -0.00 A 5.00 5.00 0 0 0 15.00 5.00" stroke="black" fill="none" />
-    <path d="M 15.00 -5.00 A 5.00 5.00 0 0 0 10.00 -0.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-5.00" x2="15.00" y2="-5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-72.00" y="-24.00" width="144.00" height="48.00" stroke="black" fill="none" />
+    <path d="M -24.00 0.00 A 12.00 12.00 0 0 0 -36.00 -12.00" stroke="black" fill="none" />
+    <path d="M -36.00 12.00 A 12.00 12.00 0 0 0 -24.00 0.00" stroke="black" fill="none" />
+    <path d="M -48.00 -0.00 A 12.00 12.00 0 0 0 -36.00 12.00" stroke="black" fill="none" />
+    <path d="M -36.00 -12.00 A 12.00 12.00 0 0 0 -48.00 -0.00" stroke="black" fill="none" />
+    <path d="M 48.00 0.00 A 12.00 12.00 0 0 0 36.00 -12.00" stroke="black" fill="none" />
+    <path d="M 36.00 12.00 A 12.00 12.00 0 0 0 48.00 0.00" stroke="black" fill="none" />
+    <path d="M 24.00 -0.00 A 12.00 12.00 0 0 0 36.00 12.00" stroke="black" fill="none" />
+    <path d="M 36.00 -12.00 A 12.00 12.00 0 0 0 24.00 -0.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-12.00" x2="36.00" y2="-12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

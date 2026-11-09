@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="80.0" viewBox="-25.0 -30.0 60.0 80.0" data-name="Temperature limit controller">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="128.0" viewBox="-40.0 -48.0 96.0 128.0" data-name="Temperature limit controller" data-standard="48px">
   <title>Temperature limit controller</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="-20.00" width="50.00" height="60.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <ellipse cx="-1.00" cy="28.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
-    <ellipse cx="-14.00" cy="-6.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <ellipse cx="24.00" cy="-6.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <polyline points="-10,-15 -10,-6 -12,-6" stroke="black" fill="none" />
-    <polyline points="20,-15 20,-6 22,-6" stroke="black" fill="none" />
-    <line x1="0.00" y1="35.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <polyline points="-12,-6.47 -0.18,27.17" stroke="black" fill="none" />
-    <rect x="14.00" y="1.00" width="14.00" height="9.00" stroke="black" fill="none" />
-    <polyline points="23,4 26,6 23,8" stroke="black" fill="none" />
-    <polyline points="12,6 -4,6" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <polyline points="-4,6 -4,1 5,6" stroke="black" fill="none" />
-    <polyline points="8,6 8,-1" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <line x1="6.00" y1="-1.00" x2="10.00" y2="-1.00" stroke="black" fill="none" />
-    <text x="22.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="15.39" y="8.48" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">θ</text>
-    <text x="2.00" y="37.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-8.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="0.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A25CN-9001</text>
-    <line x1="-10.00" y1="-15.00" x2="-10.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-20.00" x2="20.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="31.00" x2="0.00" y2="40.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-32.00" y="-32.00" width="80.00" height="96.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <ellipse cx="-1.60" cy="44.80" rx="3.20" ry="3.20" stroke="black" fill="black" />
+    <ellipse cx="-22.40" cy="-9.60" rx="3.20" ry="3.20" stroke="black" fill="none" />
+    <ellipse cx="38.40" cy="-9.60" rx="3.20" ry="3.20" stroke="black" fill="none" />
+    <polyline points="-16.00,-24.00 -16.00,-9.60 -19.20,-9.60" stroke="black" fill="none" />
+    <polyline points="32.00,-24.00 32.00,-9.60 35.20,-9.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="56.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <polyline points="-19.20,-10.35 -0.29,43.47" stroke="black" fill="none" />
+    <rect x="22.40" y="1.60" width="22.40" height="14.40" stroke="black" fill="none" />
+    <polyline points="36.80,6.40 41.60,9.60 36.80,12.80" stroke="black" fill="none" />
+    <polyline points="19.20,9.60 -6.40,9.60" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <polyline points="-6.40,9.60 -6.40,1.60 8.00,9.60" stroke="black" fill="none" />
+    <polyline points="12.80,9.60 12.80,-1.60" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <line x1="9.60" y1="-1.60" x2="16.00" y2="-1.60" stroke="black" fill="none" />
+    <text x="35.20" y="-19.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="24.62" y="13.57" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">θ</text>
+    <text x="3.20" y="59.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-12.80" y="-19.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="0.00" y="32.00" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">A25CN-9001</text>
+    <line x1="-16.00" y1="-24.00" x2="-16.00" y2="-32.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="-32.00" x2="32.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="49.60" x2="0.00" y2="64.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="32.00" cy="-32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="64.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-16.00" cy="-32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-10.0 -17.0 20.0 30.0" data-name="Exterior tempeture probe">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-24.0 -40.8 48.0 72.0" data-name="Exterior tempeture probe" data-standard="48px">
   <title>Exterior tempeture probe</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-4.00" y="0.18" width="6.30" height="10.82" stroke="black" fill="none" />
-    <rect x="-0.90" y="-9.84" width="1.40" height="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-9.60" y="0.43" width="15.12" height="25.97" stroke="black" fill="none" />
+    <rect x="-2.16" y="-23.62" width="3.36" height="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

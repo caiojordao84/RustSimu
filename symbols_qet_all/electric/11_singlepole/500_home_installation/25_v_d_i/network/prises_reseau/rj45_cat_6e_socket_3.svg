@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-20.0 -22.0 40.0 30.0" data-name="RJ45 Cat 6e socket">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="72.0" viewBox="-48.0 -52.8 96.0 72.0" data-name="RJ45 Cat 6e socket" data-standard="48px">
   <title>RJ45 Cat 6e socket</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-14.00" y="-15.00" width="28.00" height="20.00" stroke="black" fill="#dcdcdc" />
-    <polygon points="-5,0 -5,-2 -11,-2 -11,-12 11,-12 11,-2 5,-2 5,0 3,0 3,2 -3,2 -3,0 -4,0" stroke="black" fill="white" />
-    <line x1="-1.00" y1="-12.00" x2="-1.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-12.00" x2="-3.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-12.00" x2="-5.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="-12.00" x2="-7.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="-12.00" x2="1.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="-12.00" x2="3.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-12.00" x2="5.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="7.00" y1="-12.00" x2="7.00" y2="-10.00" stroke="black" fill="none" />
-    <rect x="-11.00" y="1.00" width="4.00" height="2.00" stroke="orange" fill="orange" />
-    <rect x="7.00" y="1.00" width="4.00" height="2.00" stroke="green" fill="#00aa00" />
-    <circle class="qet-terminal" cx="0.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-33.60" y="-36.00" width="67.20" height="48.00" stroke="black" fill="#dcdcdc" />
+    <polygon points="-12.00,0.00 -12.00,-4.80 -26.40,-4.80 -26.40,-28.80 26.40,-28.80 26.40,-4.80 12.00,-4.80 12.00,0.00 7.20,0.00 7.20,4.80 -7.20,4.80 -7.20,0.00 -9.60,0.00" stroke="black" fill="white" />
+    <line x1="-2.40" y1="-28.80" x2="-2.40" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-28.80" x2="-7.20" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-28.80" x2="-12.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="-28.80" x2="-16.80" y2="-24.00" stroke="black" fill="none" />
+    <line x1="2.40" y1="-28.80" x2="2.40" y2="-24.00" stroke="black" fill="none" />
+    <line x1="7.20" y1="-28.80" x2="7.20" y2="-24.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-28.80" x2="12.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="16.80" y1="-28.80" x2="16.80" y2="-24.00" stroke="black" fill="none" />
+    <rect x="-26.40" y="2.40" width="9.60" height="4.80" stroke="orange" fill="orange" />
+    <rect x="16.80" y="2.40" width="9.60" height="4.80" stroke="green" fill="#00aa00" />
+    <circle class="qet-terminal" cx="0.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

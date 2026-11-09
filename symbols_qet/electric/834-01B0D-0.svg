@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="210.0" viewBox="-6.0 -5.0 50.0 210.0" data-name="Disjoncteur10A">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="504.0" viewBox="-14.4 -12.0 120.0 504.0" data-name="Disjoncteur10A" data-standard="48px">
   <title>Disjoncteur10A</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="40.00" height="200.00" stroke="black" fill="white" />
-    <rect x="3.00" y="72.00" width="10.00" height="4.00" stroke="black" fill="none" />
-    <rect x="2.00" y="110.00" width="36.00" height="6.00" stroke="black" fill="black" />
-    <rect x="0.00" y="50.00" width="40.00" height="100.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="83.00" x2="40.00" y2="83.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="83.00" x2="20.00" y2="83.00" stroke="black" fill="none" />
-    <rect x="8.00" y="83.00" width="25.00" height="25.00" stroke="black" fill="#00aa00" />
-    <line x1="8.00" y1="112.00" x2="33.00" y2="112.00" stroke="white" fill="white" />
-    <line x1="8.00" y1="114.00" x2="33.00" y2="114.00" stroke="white" fill="black" />
-    <line x1="15.00" y1="60.00" x2="38.00" y2="60.00" stroke="green" fill="none" />
-    <text x="13.00" y="89.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0-OFF</text>
-    <rect x="8.00" y="91.00" width="25.00" height="18.00" stroke="black" fill="black" />
-    <text x="4.00" y="75.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4500</text>
-    <text x="15.00" y="146.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C10</text>
-    <text x="7.00" y="79.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="4.00" y="82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">230 V</text>
-    <rect x="6.50" y="76.00" width="2.50" height="4.00" stroke="black" fill="none" />
-    <path d="M 11.00 81.50 A 0.50 0.50 0 0 0 10.00 81.50" stroke="black" fill="none" />
-    <path d="M 11.00 81.50 A 0.50 0.50 0 0 0 12.00 81.50" stroke="black" fill="none" />
-    <line x1="0.00" y1="116.00" x2="40.00" y2="116.00" stroke="black" fill="none" />
-    <polygon points="8,61 6,61 3,67 5,67 6,65 8,65 9,63 3,63 2,65 6,65" stroke="green" fill="none" />
-    <text x="28.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">20725</text>
-    <line x1="37.00" y1="66.00" x2="36.00" y2="67.00" stroke="black" fill="none" />
-    <line x1="36.00" y1="66.00" x2="37.00" y2="67.00" stroke="black" fill="none" />
-    <line x1="36.50" y1="66.50" x2="36.50" y2="65.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="67.00" x2="37.00" y2="71.00" stroke="black" fill="none" />
-    <line x1="37.00" y1="71.00" x2="37.00" y2="74.00" stroke="black" fill="none" />
-    <line x1="37.00" y1="74.00" x2="38.00" y2="74.00" stroke="black" fill="none" />
-    <line x1="38.00" y1="74.00" x2="38.00" y2="75.00" stroke="black" fill="none" />
-    <line x1="38.00" y1="75.00" x2="37.00" y2="75.00" stroke="black" fill="none" />
-    <line x1="37.00" y1="75.00" x2="37.00" y2="76.00" stroke="black" fill="none" />
-    <path d="M 37.00 78.00 A 1.00 1.00 0 0 0 37.00 76.00" stroke="black" fill="none" />
-    <line x1="37.00" y1="78.00" x2="37.00" y2="79.00" stroke="black" fill="none" />
-    <line x1="32.00" y1="66.00" x2="33.00" y2="67.00" stroke="black" fill="none" />
-    <line x1="33.00" y1="66.00" x2="32.00" y2="67.00" stroke="black" fill="none" />
-    <line x1="32.50" y1="65.00" x2="32.50" y2="66.50" stroke="black" fill="none" />
-    <line x1="31.00" y1="67.00" x2="33.00" y2="71.00" stroke="black" fill="none" />
-    <line x1="33.00" y1="71.00" x2="33.00" y2="79.00" stroke="black" fill="none" />
-    <line x1="31.00" y1="69.00" x2="37.00" y2="69.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <ellipse cx="10.00" cy="15.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <ellipse cx="30.00" cy="15.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="185.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <ellipse cx="30.00" cy="185.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="12.00" y1="13.00" x2="8.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="8.00" y1="13.00" x2="12.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="28.00" y1="13.00" x2="32.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="32.00" y1="13.00" x2="28.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="13.00" x2="30.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="28.00" y1="15.00" x2="32.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="13.00" x2="10.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="8.00" y1="15.00" x2="12.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="8.00" y1="183.00" x2="12.00" y2="187.00" stroke="black" fill="none" />
-    <line x1="12.00" y1="183.00" x2="8.00" y2="187.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="183.00" x2="10.00" y2="187.00" stroke="black" fill="none" />
-    <line x1="8.00" y1="185.00" x2="12.00" y2="185.00" stroke="black" fill="none" />
-    <line x1="28.00" y1="183.00" x2="32.00" y2="187.00" stroke="black" fill="none" />
-    <line x1="32.00" y1="183.00" x2="28.00" y2="187.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="183.00" x2="30.00" y2="187.00" stroke="black" fill="none" />
-    <line x1="28.00" y1="185.00" x2="32.00" y2="185.00" stroke="black" fill="none" />
-    <ellipse cx="23.00" cy="74.00" rx="4.00" ry="2.50" stroke="black" fill="none" />
-    <text x="21.00" y="75.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">NF</text>
-    <text x="8.00" y="57.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Schneider</text>
-    <text x="5.00" y="175.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <text x="7.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="96.00" height="480.00" stroke="black" fill="white" />
+    <rect x="7.20" y="172.80" width="24.00" height="9.60" stroke="black" fill="none" />
+    <rect x="4.80" y="264.00" width="86.40" height="14.40" stroke="black" fill="black" />
+    <rect x="0.00" y="120.00" width="96.00" height="240.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="199.20" x2="96.00" y2="199.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="199.20" x2="48.00" y2="199.20" stroke="black" fill="none" />
+    <rect x="19.20" y="199.20" width="60.00" height="60.00" stroke="black" fill="#00aa00" />
+    <line x1="19.20" y1="268.80" x2="79.20" y2="268.80" stroke="white" fill="white" />
+    <line x1="19.20" y1="273.60" x2="79.20" y2="273.60" stroke="white" fill="black" />
+    <line x1="36.00" y1="144.00" x2="91.20" y2="144.00" stroke="green" fill="none" />
+    <text x="31.20" y="213.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0-OFF</text>
+    <rect x="19.20" y="218.40" width="60.00" height="43.20" stroke="black" fill="black" />
+    <text x="9.60" y="180.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4500</text>
+    <text x="36.00" y="350.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">C10</text>
+    <text x="16.80" y="189.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="9.60" y="196.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">230 V</text>
+    <rect x="15.60" y="182.40" width="6.00" height="9.60" stroke="black" fill="none" />
+    <path d="M 26.40 195.60 A 1.20 1.20 0 0 0 24.00 195.60" stroke="black" fill="none" />
+    <path d="M 26.40 195.60 A 1.20 1.20 0 0 0 28.80 195.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="278.40" x2="96.00" y2="278.40" stroke="black" fill="none" />
+    <polygon points="19.20,146.40 14.40,146.40 7.20,160.80 12.00,160.80 14.40,156.00 19.20,156.00 21.60,151.20 7.20,151.20 4.80,156.00 14.40,156.00" stroke="green" fill="none" />
+    <text x="67.20" y="153.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">20725</text>
+    <line x1="88.80" y1="158.40" x2="86.40" y2="160.80" stroke="black" fill="none" />
+    <line x1="86.40" y1="158.40" x2="88.80" y2="160.80" stroke="black" fill="none" />
+    <line x1="87.60" y1="159.60" x2="87.60" y2="156.00" stroke="black" fill="none" />
+    <line x1="84.00" y1="160.80" x2="88.80" y2="170.40" stroke="black" fill="none" />
+    <line x1="88.80" y1="170.40" x2="88.80" y2="177.60" stroke="black" fill="none" />
+    <line x1="88.80" y1="177.60" x2="91.20" y2="177.60" stroke="black" fill="none" />
+    <line x1="91.20" y1="177.60" x2="91.20" y2="180.00" stroke="black" fill="none" />
+    <line x1="91.20" y1="180.00" x2="88.80" y2="180.00" stroke="black" fill="none" />
+    <line x1="88.80" y1="180.00" x2="88.80" y2="182.40" stroke="black" fill="none" />
+    <path d="M 88.80 187.20 A 2.40 2.40 0 0 0 88.80 182.40" stroke="black" fill="none" />
+    <line x1="88.80" y1="187.20" x2="88.80" y2="189.60" stroke="black" fill="none" />
+    <line x1="76.80" y1="158.40" x2="79.20" y2="160.80" stroke="black" fill="none" />
+    <line x1="79.20" y1="158.40" x2="76.80" y2="160.80" stroke="black" fill="none" />
+    <line x1="78.00" y1="156.00" x2="78.00" y2="159.60" stroke="black" fill="none" />
+    <line x1="74.40" y1="160.80" x2="79.20" y2="170.40" stroke="black" fill="none" />
+    <line x1="79.20" y1="170.40" x2="79.20" y2="189.60" stroke="black" fill="none" />
+    <line x1="74.40" y1="165.60" x2="88.80" y2="165.60" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="24.00" cy="36.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <ellipse cx="72.00" cy="36.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="444.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <ellipse cx="72.00" cy="444.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <line x1="28.80" y1="31.20" x2="19.20" y2="40.80" stroke="black" fill="none" />
+    <line x1="19.20" y1="31.20" x2="28.80" y2="40.80" stroke="black" fill="none" />
+    <line x1="67.20" y1="31.20" x2="76.80" y2="40.80" stroke="black" fill="none" />
+    <line x1="76.80" y1="31.20" x2="67.20" y2="40.80" stroke="black" fill="none" />
+    <line x1="72.00" y1="31.20" x2="72.00" y2="40.80" stroke="black" fill="none" />
+    <line x1="67.20" y1="36.00" x2="76.80" y2="36.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="31.20" x2="24.00" y2="40.80" stroke="black" fill="none" />
+    <line x1="19.20" y1="36.00" x2="28.80" y2="36.00" stroke="black" fill="none" />
+    <line x1="19.20" y1="439.20" x2="28.80" y2="448.80" stroke="black" fill="none" />
+    <line x1="28.80" y1="439.20" x2="19.20" y2="448.80" stroke="black" fill="none" />
+    <line x1="24.00" y1="439.20" x2="24.00" y2="448.80" stroke="black" fill="none" />
+    <line x1="19.20" y1="444.00" x2="28.80" y2="444.00" stroke="black" fill="none" />
+    <line x1="67.20" y1="439.20" x2="76.80" y2="448.80" stroke="black" fill="none" />
+    <line x1="76.80" y1="439.20" x2="67.20" y2="448.80" stroke="black" fill="none" />
+    <line x1="72.00" y1="439.20" x2="72.00" y2="448.80" stroke="black" fill="none" />
+    <line x1="67.20" y1="444.00" x2="76.80" y2="444.00" stroke="black" fill="none" />
+    <ellipse cx="55.20" cy="177.60" rx="9.60" ry="6.00" stroke="black" fill="none" />
+    <text x="50.40" y="180.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">NF</text>
+    <text x="19.20" y="136.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Schneider</text>
+    <text x="12.00" y="420.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="16.80" y="81.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
   </g>
 </svg>

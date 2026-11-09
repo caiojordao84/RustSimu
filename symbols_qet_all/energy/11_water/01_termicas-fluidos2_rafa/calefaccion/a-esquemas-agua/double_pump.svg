@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-30.0 -25.0 60.0 50.0" data-name="Double pump">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="60.0" viewBox="-36.0 -30.0 72.0 60.0" data-name="Double pump" data-standard="48px">
   <title>Double pump</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="14.00" y1="-10.00" x2="14.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="14.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="18.00" y1="0.00" x2="14.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="14.00" y1="-10.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
-    <polygon points="8,-10 -4,-17 -4,-3" stroke="black" fill="black" />
-    <polygon points="8,10 -4,3 -4,17" stroke="black" fill="black" />
-    <ellipse cx="0.00" cy="-10.00" rx="9.50" ry="9.50" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="10.00" rx="9.50" ry="9.50" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-10.00" x2="-14.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="10.00" x2="-14.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-14.00" y1="-10.00" x2="-14.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-14.00" y1="0.00" x2="-17.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="16.80" y1="-12.00" x2="16.80" y2="12.00" stroke="black" fill="none" />
+    <line x1="16.80" y1="12.00" x2="12.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="21.60" y1="0.00" x2="16.80" y2="0.00" stroke="black" fill="none" />
+    <line x1="16.80" y1="-12.00" x2="12.00" y2="-12.00" stroke="black" fill="none" />
+    <polygon points="9.60,-12.00 -4.80,-20.40 -4.80,-3.60" stroke="black" fill="black" />
+    <polygon points="9.60,12.00 -4.80,3.60 -4.80,20.40" stroke="black" fill="black" />
+    <ellipse cx="0.00" cy="-12.00" rx="11.40" ry="11.40" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.00" rx="11.40" ry="11.40" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-12.00" x2="-16.80" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="12.00" x2="-16.80" y2="12.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="-12.00" x2="-16.80" y2="12.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="0.00" x2="-20.40" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

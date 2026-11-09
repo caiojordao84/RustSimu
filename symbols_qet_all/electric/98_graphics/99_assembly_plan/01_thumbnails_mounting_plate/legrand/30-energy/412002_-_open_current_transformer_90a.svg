@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="80.0" viewBox="-13.0 -5.0 90.0 80.0" data-name="412002 - Open current transformer 90A">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="192.0" viewBox="-31.2 -12.0 216.0 192.0" data-name="412002 - Open current transformer 90A" data-standard="48px">
   <title>412002 - Open current transformer 90A</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="70.00" height="65.00" stroke="black" fill="#0055d4" />
-    <line x1="0.50" y1="50.00" x2="69.50" y2="50.00" stroke="black" fill="black" />
-    <line x1="45.00" y1="0.50" x2="45.00" y2="9.50" stroke="black" fill="none" />
-    <text x="39.00" y="60.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Imax=90 A</text>
-    <line x1="45.00" y1="40.50" x2="45.00" y2="49.50" stroke="black" fill="none" />
-    <text x="63.00" y="54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CE</text>
-    <ellipse cx="45.00" cy="25.00" rx="15.00" ry="15.00" stroke="black" fill="white" />
-    <circle class="qet-terminal" cx="10.00" cy="65.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="168.00" height="156.00" stroke="black" fill="#0055d4" />
+    <line x1="1.20" y1="120.00" x2="166.80" y2="120.00" stroke="black" fill="black" />
+    <line x1="108.00" y1="1.20" x2="108.00" y2="22.80" stroke="black" fill="none" />
+    <text x="93.60" y="144.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Imax=90 A</text>
+    <line x1="108.00" y1="97.20" x2="108.00" y2="118.80" stroke="black" fill="none" />
+    <text x="151.20" y="129.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CE</text>
+    <ellipse cx="108.00" cy="60.00" rx="36.00" ry="36.00" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="24.00" cy="156.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

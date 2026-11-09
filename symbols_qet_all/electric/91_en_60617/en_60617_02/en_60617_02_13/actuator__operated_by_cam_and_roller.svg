@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-39.0 -11.0 50.0 20.0" data-name="Actuator (operated by cam and roller)">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="48.0" viewBox="-93.6 -26.4 120.0 48.0" data-name="Actuator (operated by cam and roller)" data-standard="48px">
   <title>Actuator (operated by cam and roller)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-22.00" y1="0.00" x2="8.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <ellipse cx="-31.00" cy="0.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
-    <ellipse cx="-22.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <path d="M -26.00 -7.00 A 5.00 1.50 0 0 0 -36.00 -7.00" stroke="black" fill="none" />
-    <line x1="-36.00" y1="-7.00" x2="-35.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-26.00" y1="-7.00" x2="-27.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-26.00" y1="4.00" x2="-25.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="-25.00" y1="5.00" x2="-27.00" y2="7.00" stroke="black" fill="none" />
-    <line x1="-27.00" y1="7.00" x2="-28.00" y2="6.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-52.80" y1="0.00" x2="19.20" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="-74.40" cy="0.00" rx="14.40" ry="14.40" stroke="black" fill="none" />
+    <ellipse cx="-52.80" cy="0.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <path d="M -62.40 -16.80 A 12.00 3.60 0 0 0 -86.40 -16.80" stroke="black" fill="none" />
+    <line x1="-86.40" y1="-16.80" x2="-84.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-62.40" y1="-16.80" x2="-64.80" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-62.40" y1="9.60" x2="-60.00" y2="12.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="12.00" x2="-64.80" y2="16.80" stroke="black" fill="none" />
+    <line x1="-64.80" y1="16.80" x2="-67.20" y2="14.40" stroke="black" fill="none" />
   </g>
 </svg>

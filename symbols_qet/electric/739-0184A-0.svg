@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="40.0" viewBox="-150.0 -31.0 160.0 40.0" data-name="DC power feeding on telecommunication lines">
+<svg xmlns="http://www.w3.org/2000/svg" width="54.9" height="13.7" viewBox="-51.4 -10.6 54.9 13.7" data-name="DC power feeding on telecommunication lines" data-standard="48px">
   <title>DC power feeding on telecommunication lines</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="0.00" x2="-140.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-130.00" y1="-10.00" x2="-110.00" y2="-10.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-130.00" y1="-15.00" x2="-110.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="-130.00" y1="-25.00" x2="-105.00" y2="-25.00" stroke="black" fill="none" />
-    <polygon points="-110,-22 -110,-28 -100,-25" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-140.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-44.57" y1="-3.43" x2="-37.71" y2="-3.43" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-44.57" y1="-5.14" x2="-37.71" y2="-5.14" stroke="black" fill="none" />
+    <line x1="-44.57" y1="-8.57" x2="-36.00" y2="-8.57" stroke="black" fill="none" />
+    <polygon points="-37.71,-7.54 -37.71,-9.60 -34.29,-8.57" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

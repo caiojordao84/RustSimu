@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="70.0" viewBox="-14.0 -35.0 30.0 70.0" data-name="Single phase transformer with screen">
+<svg xmlns="http://www.w3.org/2000/svg" width="27.7" height="64.6" viewBox="-12.9 -32.3 27.7 64.6" data-name="Single phase transformer with screen" data-standard="48px">
   <title>Single phase transformer with screen</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-11.00" y1="0.00" x2="13.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <ellipse cx="0.00" cy="5.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-5.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-25.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="15.00" x2="0.00" y2="25.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-26.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="26.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-10.15" y1="0.00" x2="12.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="0.00" cy="4.62" rx="9.23" ry="9.23" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-4.62" rx="9.23" ry="9.23" stroke="black" fill="none" />
+    <line x1="0.00" y1="-23.08" x2="0.00" y2="-13.85" stroke="black" fill="none" />
+    <line x1="0.00" y1="13.85" x2="0.00" y2="23.08" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

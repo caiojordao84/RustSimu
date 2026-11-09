@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="50.0" viewBox="-10.0 -9.0 130.0 50.0" data-name="Float valve">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="120.0" viewBox="-24.0 -21.6 312.0 120.0" data-name="Float valve" data-standard="48px">
   <title>Float valve</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 39.64 14.05 A 23.54 20.25 0 0 0 16.11 -6.20" stroke="black" fill="none" />
-    <line x1="3.82" y1="-4.55" x2="5.40" y2="4.73" stroke="black" fill="none" />
-    <line x1="6.71" y1="-4.55" x2="8.28" y2="4.73" stroke="black" fill="none" />
-    <line x1="9.33" y1="-4.55" x2="10.91" y2="4.73" stroke="black" fill="none" />
-    <rect x="0.67" y="-5.48" width="10.50" height="11.14" stroke="black" fill="none" />
-    <rect x="11.17" y="-7.15" width="5.21" height="15.32" stroke="black" fill="none" />
-    <line x1="1.19" y1="-4.55" x2="2.77" y2="4.73" stroke="black" fill="none" />
-    <rect x="25.38" y="14.71" width="14.20" height="4.57" stroke="black" fill="none" />
-    <path d="M 25.27 14.05 A 8.38 6.54 0 0 0 16.89 7.52" stroke="black" fill="none" />
-    <line x1="23.68" y1="-6.00" x2="48.41" y2="-6.00" stroke="black" fill="none" />
-    <line x1="38.00" y1="6.87" x2="48.41" y2="6.87" stroke="black" fill="none" />
-    <path d="M 48.78 6.87 A 6.78 6.21 0 0 0 48.78 -5.55" stroke="black" fill="none" />
-    <ellipse cx="48.00" cy="-2.61" rx="2.00" ry="1.64" stroke="black" fill="none" />
-    <line x1="55.59" y1="-1.63" x2="105.05" y2="12.75" stroke="black" fill="none" />
-    <line x1="55.59" y1="1.00" x2="103.45" y2="14.71" stroke="black" fill="none" />
-    <ellipse cx="106.23" cy="21.16" rx="8.78" ry="7.84" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="33.00" cy="19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 95.14 33.72 A 56.50 48.60 0 0 0 38.66 -14.88" stroke="black" fill="none" />
+    <line x1="9.17" y1="-10.92" x2="12.96" y2="11.35" stroke="black" fill="none" />
+    <line x1="16.10" y1="-10.92" x2="19.87" y2="11.35" stroke="black" fill="none" />
+    <line x1="22.39" y1="-10.92" x2="26.18" y2="11.35" stroke="black" fill="none" />
+    <rect x="1.61" y="-13.15" width="25.20" height="26.74" stroke="black" fill="none" />
+    <rect x="26.81" y="-17.16" width="12.50" height="36.77" stroke="black" fill="none" />
+    <line x1="2.86" y1="-10.92" x2="6.65" y2="11.35" stroke="black" fill="none" />
+    <rect x="60.91" y="35.30" width="34.08" height="10.97" stroke="black" fill="none" />
+    <path d="M 60.65 33.72 A 20.11 15.70 0 0 0 40.54 18.05" stroke="black" fill="none" />
+    <line x1="56.83" y1="-14.40" x2="116.18" y2="-14.40" stroke="black" fill="none" />
+    <line x1="91.20" y1="16.49" x2="116.18" y2="16.49" stroke="black" fill="none" />
+    <path d="M 117.07 16.49 A 16.27 14.90 0 0 0 117.07 -13.32" stroke="black" fill="none" />
+    <ellipse cx="115.20" cy="-6.26" rx="4.80" ry="3.94" stroke="black" fill="none" />
+    <line x1="133.42" y1="-3.91" x2="252.12" y2="30.60" stroke="black" fill="none" />
+    <line x1="133.42" y1="2.40" x2="248.28" y2="35.30" stroke="black" fill="none" />
+    <ellipse cx="254.95" cy="50.78" rx="21.07" ry="18.82" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="79.20" cy="45.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

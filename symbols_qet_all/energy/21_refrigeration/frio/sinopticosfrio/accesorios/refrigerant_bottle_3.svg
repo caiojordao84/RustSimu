@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="60.0" viewBox="-10.0 -38.0 20.0 60.0" data-name="Refrigerant bottle">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="144.0" viewBox="-24.0 -91.2 48.0 144.0" data-name="Refrigerant bottle" data-standard="48px">
   <title>Refrigerant bottle</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="2.50" y1="-27.00" x2="2.50" y2="-22.50" stroke="black" fill="none" />
-    <path d="M 8.00 -17.54 A 8.00 4.95 0 0 0 -8.00 -17.54" stroke="black" fill="none" />
-    <line x1="-2.50" y1="-27.00" x2="-2.50" y2="-22.50" stroke="black" fill="none" />
-    <path d="M 2.50 -28.00 A 2.50 2.50 0 0 0 -2.50 -28.00" stroke="black" fill="none" />
-    <polyline points="-8,-17 -8,18 8,18 8,-17" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="6.00" y1="-64.80" x2="6.00" y2="-54.00" stroke="black" fill="none" />
+    <path d="M 19.20 -42.10 A 19.20 11.88 0 0 0 -19.20 -42.10" stroke="black" fill="none" />
+    <line x1="-6.00" y1="-64.80" x2="-6.00" y2="-54.00" stroke="black" fill="none" />
+    <path d="M 6.00 -67.20 A 6.00 6.00 0 0 0 -6.00 -67.20" stroke="black" fill="none" />
+    <polyline points="-19.20,-40.80 -19.20,43.20 19.20,43.20 19.20,-40.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

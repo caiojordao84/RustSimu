@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="30.0" viewBox="-15.0 -7.0 30.0 30.0" data-name="TV-FM socket">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="72.0" viewBox="-36.0 -16.8 72.0 72.0" data-name="TV-FM socket" data-standard="48px">
   <title>TV-FM socket</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-5.00" cy="10.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
-    <ellipse cx="-5.00" cy="10.00" rx="0.50" ry="0.50" stroke="black" fill="none" />
-    <ellipse cx="6.00" cy="10.00" rx="3.00" ry="3.00" stroke="black" fill="none" />
-    <ellipse cx="6.00" cy="10.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="0.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-12.00" cy="24.00" rx="7.20" ry="7.20" stroke="black" fill="none" />
+    <ellipse cx="-12.00" cy="24.00" rx="1.20" ry="1.20" stroke="black" fill="none" />
+    <ellipse cx="14.40" cy="24.00" rx="7.20" ry="7.20" stroke="black" fill="none" />
+    <ellipse cx="14.40" cy="24.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <rect x="-24.00" y="0.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

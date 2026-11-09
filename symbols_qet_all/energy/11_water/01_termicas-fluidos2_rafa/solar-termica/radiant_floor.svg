@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="60.0" viewBox="-33.0 -34.0 100.0 60.0" data-name="Radiant floor">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="144.0" viewBox="-79.2 -81.6 240.0 144.0" data-name="Radiant floor" data-standard="48px">
   <title>Radiant floor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="32.00" y="-20.00" width="17.00" height="3.00" stroke="black" fill="#0055d4" />
-    <polyline points="27,-16 -28,-16 -28,24 12,24 12,-8 -17,-8 -17,15 2,15 2,4 -4,4 -4,10 -9,10 -9,-1 7,-1 7,20 -23,20 -23,-11 19,-11 19,4 27,4 34,4" stroke="black" fill="none" />
-    <line x1="48.79" y1="-18.00" x2="56.23" y2="-18.00" stroke="black" fill="none" />
-    <rect x="24.00" y="-29.00" width="17.00" height="3.00" stroke="black" fill="#d40000" />
-    <line x1="40.79" y1="-27.00" x2="48.23" y2="-27.00" stroke="black" fill="none" />
-    <line x1="27.00" y1="-16.00" x2="27.00" y2="-26.00" stroke="black" fill="none" />
-    <line x1="35.00" y1="-17.00" x2="35.00" y2="4.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="48.00" cy="-27.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="56.00" cy="-18.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="76.80" y="-48.00" width="40.80" height="7.20" stroke="black" fill="#0055d4" />
+    <polyline points="64.80,-38.40 -67.20,-38.40 -67.20,57.60 28.80,57.60 28.80,-19.20 -40.80,-19.20 -40.80,36.00 4.80,36.00 4.80,9.60 -9.60,9.60 -9.60,24.00 -21.60,24.00 -21.60,-2.40 16.80,-2.40 16.80,48.00 -55.20,48.00 -55.20,-26.40 45.60,-26.40 45.60,9.60 64.80,9.60 81.60,9.60" stroke="black" fill="none" />
+    <line x1="117.10" y1="-43.20" x2="134.95" y2="-43.20" stroke="black" fill="none" />
+    <rect x="57.60" y="-69.60" width="40.80" height="7.20" stroke="black" fill="#d40000" />
+    <line x1="97.90" y1="-64.80" x2="115.75" y2="-64.80" stroke="black" fill="none" />
+    <line x1="64.80" y1="-38.40" x2="64.80" y2="-62.40" stroke="black" fill="none" />
+    <line x1="84.00" y1="-40.80" x2="84.00" y2="9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="115.20" cy="-64.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="134.40" cy="-43.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

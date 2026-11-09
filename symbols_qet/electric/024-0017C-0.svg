@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-30.0 -30.0 40.0 60.0" data-name="Centrifugal contact (No)">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-36.0 -36.0 48.0 72.0" data-name="Centrifugal contact (No)" data-standard="48px">
   <title>Centrifugal contact (No)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="-19.00" cy="-10.01" rx="2.23" ry="2.23" stroke="black" fill="none" />
-    <polyline points="-5,-10 0,10 0,20" stroke="black" fill="none" />
-    <polyline points="-20,-8 -25,0 -20,7" stroke="black" fill="none" />
-    <ellipse cx="-19.00" cy="8.99" rx="2.23" ry="2.23" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-25.00" y1="0.00" x2="-3.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="-22.80" cy="-12.01" rx="2.68" ry="2.68" stroke="black" fill="none" />
+    <polyline points="-6.00,-12.00 0.00,12.00 0.00,24.00" stroke="black" fill="none" />
+    <polyline points="-24.00,-9.60 -30.00,0.00 -24.00,8.40" stroke="black" fill="none" />
+    <ellipse cx="-22.80" cy="10.79" rx="2.68" ry="2.68" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-30.00" y1="0.00" x2="-3.60" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

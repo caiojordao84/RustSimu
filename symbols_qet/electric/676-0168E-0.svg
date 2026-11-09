@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="70.0" viewBox="-30.0 -60.0 40.0 70.0" data-name="Light dependent resistor (LDR); Photo resistor">
+<svg xmlns="http://www.w3.org/2000/svg" width="38.4" height="67.2" viewBox="-28.8 -57.6 38.4 67.2" data-name="Light dependent resistor (LDR); Photo resistor" data-standard="48px">
   <title>Light dependent resistor (LDR); Photo resistor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="-40.00" width="10.00" height="30.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-50.00" x2="0.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-40.00" x2="-10.00" y2="-30.00" stroke="black" fill="black" />
-    <line x1="-25.00" y1="-35.00" x2="-15.00" y2="-25.00" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-9.60" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="-4.80" y="-38.40" width="9.60" height="28.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="-38.40" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-38.40" x2="-9.60" y2="-28.80" stroke="black" fill="black" />
+    <line x1="-24.00" y1="-33.60" x2="-14.40" y2="-24.00" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

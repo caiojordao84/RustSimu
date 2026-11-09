@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="190.0" viewBox="-14.0 -181.0 140.0 190.0" data-name="Filtration">
+<svg xmlns="http://www.w3.org/2000/svg" width="336.0" height="456.0" viewBox="-33.6 -434.4 336.0 456.0" data-name="Filtration" data-standard="48px">
   <title>Filtration</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="70.00" cy="-170.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
-    <rect x="49.25" y="-156.19" width="21.70" height="2.27" stroke="black" fill="#0055d4" />
-    <rect x="0.00" y="-85.00" width="120.00" height="85.00" stroke="black" fill="none" />
-    <line x1="70.00" y1="-170.00" x2="70.00" y2="-157.00" stroke="black" fill="none" />
-    <ellipse cx="59.75" cy="-150.91" rx="14.70" ry="4.54" stroke="black" fill="#0055d4" />
-    <rect x="45.05" y="-150.90" width="29.40" height="10.58" stroke="black" fill="#0055d4" />
-    <line x1="0.00" y1="-15.00" x2="120.00" y2="-15.00" stroke="black" fill="none" />
-    <rect x="42.25" y="-150.90" width="2.80" height="9.07" stroke="black" fill="#0055d4" />
-    <rect x="74.45" y="-150.90" width="2.80" height="9.07" stroke="black" fill="#0055d4" />
-    <path d="M 74.45 -150.91 A 14.70 4.54 0 0 0 45.05 -150.91" stroke="black" fill="none" />
-    <line x1="45.05" y1="-144.86" x2="45.05" y2="-140.33" stroke="black" fill="none" />
-    <line x1="45.05" y1="-140.33" x2="74.45" y2="-140.33" stroke="black" fill="none" />
-    <text x="58.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
-    <line x1="74.45" y1="-140.33" x2="74.45" y2="-144.86" stroke="black" fill="none" />
-    <line x1="0.00" y1="-45.00" x2="120.00" y2="-45.00" stroke="black" fill="none" />
-    <polygon points="46.45,-140.33 49.25,-95 70.25,-95 73.05,-140.33" stroke="black" fill="none" />
-    <rect x="52.05" y="-140.33" width="15.40" height="45.33" stroke="black" fill="bdiag" />
-    <rect x="45.75" y="-140.33" width="28.00" height="6.00" stroke="black" fill="#0055d4" />
-    <line x1="0.00" y1="-65.00" x2="120.00" y2="-65.00" stroke="black" fill="none" />
-    <line x1="59.75" y1="-140.33" x2="59.75" y2="-134.28" stroke="black" fill="none" />
-    <line x1="51.35" y1="-140.33" x2="51.35" y2="-134.28" stroke="black" fill="none" />
-    <text x="66.00" y="-30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A</text>
-    <line x1="68.15" y1="-140.33" x2="68.15" y2="-134.28" stroke="black" fill="none" />
-    <text x="58.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
-    <ellipse cx="50.00" cy="-170.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
-    <line x1="50.00" y1="-170.00" x2="50.00" y2="-157.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="60.00" cy="-95.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="50.00" cy="-170.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="70.00" cy="-170.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="168.00" cy="-408.00" rx="4.80" ry="4.80" stroke="black" fill="black" />
+    <rect x="118.20" y="-374.86" width="52.08" height="5.45" stroke="black" fill="#0055d4" />
+    <rect x="0.00" y="-204.00" width="288.00" height="204.00" stroke="black" fill="none" />
+    <line x1="168.00" y1="-408.00" x2="168.00" y2="-376.80" stroke="black" fill="none" />
+    <ellipse cx="143.40" cy="-362.18" rx="35.28" ry="10.90" stroke="black" fill="#0055d4" />
+    <rect x="108.12" y="-362.16" width="70.56" height="25.39" stroke="black" fill="#0055d4" />
+    <line x1="0.00" y1="-36.00" x2="288.00" y2="-36.00" stroke="black" fill="none" />
+    <rect x="101.40" y="-362.16" width="6.72" height="21.77" stroke="black" fill="#0055d4" />
+    <rect x="178.68" y="-362.16" width="6.72" height="21.77" stroke="black" fill="#0055d4" />
+    <path d="M 178.68 -362.18 A 35.28 10.90 0 0 0 108.12 -362.18" stroke="black" fill="none" />
+    <line x1="108.12" y1="-347.66" x2="108.12" y2="-336.79" stroke="black" fill="none" />
+    <line x1="108.12" y1="-336.79" x2="178.68" y2="-336.79" stroke="black" fill="none" />
+    <text x="139.20" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> kA C</text>
+    <line x1="178.68" y1="-336.79" x2="178.68" y2="-347.66" stroke="black" fill="none" />
+    <line x1="0.00" y1="-108.00" x2="288.00" y2="-108.00" stroke="black" fill="none" />
+    <polygon points="111.48,-336.79 118.20,-228.00 168.60,-228.00 175.32,-336.79" stroke="black" fill="none" />
+    <rect x="124.92" y="-336.79" width="36.96" height="108.79" stroke="black" fill="bdiag" />
+    <rect x="109.80" y="-336.79" width="67.20" height="14.40" stroke="black" fill="#0055d4" />
+    <line x1="0.00" y1="-156.00" x2="288.00" y2="-156.00" stroke="black" fill="none" />
+    <line x1="143.40" y1="-336.79" x2="143.40" y2="-322.27" stroke="black" fill="none" />
+    <line x1="123.24" y1="-336.79" x2="123.24" y2="-322.27" stroke="black" fill="none" />
+    <text x="158.40" y="-72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
+    <line x1="163.56" y1="-336.79" x2="163.56" y2="-322.27" stroke="black" fill="none" />
+    <text x="139.20" y="-4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
+    <ellipse cx="120.00" cy="-408.00" rx="4.80" ry="4.80" stroke="black" fill="black" />
+    <line x1="120.00" y1="-408.00" x2="120.00" y2="-376.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="144.00" cy="-228.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="-408.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="-408.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

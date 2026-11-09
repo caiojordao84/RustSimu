@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="70.0" viewBox="-48.0 -31.0 80.0 70.0" data-name="deposito-balsa">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="168.0" viewBox="-115.2 -74.4 192.0 168.0" data-name="deposito-balsa" data-standard="48px">
   <title>deposito-balsa</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -31.00 -16.00 A 30.00 7.00 0 0 0 29.00 -16.00" stroke="black" fill="none" />
-    <line x1="-31.00" y1="-17.58" x2="-31.00" y2="25.55" stroke="black" fill="none" />
-    <path d="M 29.00 -18.00 A 30.00 7.00 0 0 0 -31.00 -18.00" stroke="black" fill="none" />
-    <path d="M -31.00 26.00 A 30.00 7.00 0 0 0 29.00 26.00" stroke="black" fill="none" />
-    <path d="M 26.00 -18.00 A 27.00 6.00 0 0 0 26.00 -18.00" stroke="black" fill="none" />
-    <line x1="29.00" y1="-17.58" x2="29.00" y2="25.55" stroke="black" fill="none" />
-    <rect x="-34.00" y="18.00" width="3.00" height="5.00" stroke="black" fill="none" />
-    <ellipse cx="-1.00" cy="5.00" rx="30.00" ry="6.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
-    <rect x="-38.00" y="16.00" width="4.00" height="8.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -74.40 -38.40 A 72.00 16.80 0 0 0 69.60 -38.40" stroke="black" fill="none" />
+    <line x1="-74.40" y1="-42.19" x2="-74.40" y2="61.32" stroke="black" fill="none" />
+    <path d="M 69.60 -43.20 A 72.00 16.80 0 0 0 -74.40 -43.20" stroke="black" fill="none" />
+    <path d="M -74.40 62.40 A 72.00 16.80 0 0 0 69.60 62.40" stroke="black" fill="none" />
+    <path d="M 62.40 -43.20 A 64.80 14.40 0 0 0 62.40 -43.20" stroke="black" fill="none" />
+    <line x1="69.60" y1="-42.19" x2="69.60" y2="61.32" stroke="black" fill="none" />
+    <rect x="-81.60" y="43.20" width="7.20" height="12.00" stroke="black" fill="none" />
+    <ellipse cx="-2.40" cy="12.00" rx="72.00" ry="14.40" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <rect x="-91.20" y="38.40" width="9.60" height="19.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-96.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

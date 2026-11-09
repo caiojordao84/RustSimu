@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="90.0" viewBox="-59.0 -60.0 160.0 90.0" data-name="almacenar-calor">
+<svg xmlns="http://www.w3.org/2000/svg" width="365.7" height="205.7" viewBox="-134.9 -137.1 365.7 205.7" data-name="almacenar-calor" data-standard="48px">
   <title>almacenar-calor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-16.59" y1="-53.05" x2="-16.59" y2="-47.05" stroke="black" fill="none" />
-    <line x1="82.00" y1="-34.00" x2="82.00" y2="21.00" stroke="black" fill="none" />
-    <rect x="-10.59" y="-49.05" width="2.00" height="3.00" stroke="black" fill="none" />
-    <rect x="10.41" y="-49.05" width="2.00" height="3.00" stroke="black" fill="none" />
-    <path d="M -39.12 -33.93 A 8.65 27.57 0 0 0 -39.12 21.20" stroke="black" fill="none" />
-    <path d="M 81.95 21.20 A 8.65 27.57 0 0 0 81.95 -33.93" stroke="black" fill="none" />
-    <line x1="11.65" y1="-44.00" x2="11.65" y2="19.47" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
-    <polyline points="-33.72,21.2 -33.72,25.4 -28.48,25.4 -23.24,21.2" stroke="black" fill="none" />
-    <polyline points="71.1,21.2 71.1,25.4 65.86,25.4 60.62,21.2" stroke="black" fill="none" />
-    <rect x="-17.00" y="-45.00" width="37.00" height="2.00" stroke="black" fill="none" />
-    <line x1="-39.00" y1="-34.00" x2="-14.00" y2="-34.00" stroke="black" fill="none" />
-    <line x1="17.00" y1="-34.00" x2="81.00" y2="-34.00" stroke="black" fill="none" />
-    <line x1="-39.00" y1="21.00" x2="82.00" y2="21.00" stroke="black" fill="none" />
-    <line x1="-39.00" y1="-34.00" x2="-39.00" y2="21.00" stroke="black" fill="none" />
-    <polyline points="-14.36,-43.05 -14.36,-34.05 -11.28,-31.05 -2.05,-29.05 4.1,-29.05 13.34,-31.05 16.41,-34.05 16.41,-43.05" stroke="black" fill="none" />
-    <line x1="17.41" y1="-54.05" x2="17.41" y2="-48.05" stroke="black" fill="none" />
-    <polyline points="-14.59,-39.05 -53.59,-39.05 -53.59,24.95 96.41,24.95 96.41,-39.05 17.41,-39.05" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="11.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-10.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-37.92" y1="-121.26" x2="-37.92" y2="-107.54" stroke="black" fill="none" />
+    <line x1="187.43" y1="-77.71" x2="187.43" y2="48.00" stroke="black" fill="none" />
+    <rect x="-24.21" y="-112.11" width="4.57" height="6.86" stroke="black" fill="none" />
+    <rect x="23.79" y="-112.11" width="4.57" height="6.86" stroke="black" fill="none" />
+    <path d="M -89.42 -77.55 A 19.77 63.02 0 0 0 -89.42 48.46" stroke="black" fill="none" />
+    <path d="M 187.31 48.46 A 19.77 63.02 0 0 0 187.31 -77.55" stroke="black" fill="none" />
+    <line x1="26.63" y1="-100.57" x2="26.63" y2="44.50" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
+    <polyline points="-77.07,48.46 -77.07,58.06 -65.10,58.06 -53.12,48.46" stroke="black" fill="none" />
+    <polyline points="162.51,48.46 162.51,58.06 150.54,58.06 138.56,48.46" stroke="black" fill="none" />
+    <rect x="-38.86" y="-102.86" width="84.57" height="4.57" stroke="black" fill="none" />
+    <line x1="-89.14" y1="-77.71" x2="-32.00" y2="-77.71" stroke="black" fill="none" />
+    <line x1="38.86" y1="-77.71" x2="185.14" y2="-77.71" stroke="black" fill="none" />
+    <line x1="-89.14" y1="48.00" x2="187.43" y2="48.00" stroke="black" fill="none" />
+    <line x1="-89.14" y1="-77.71" x2="-89.14" y2="48.00" stroke="black" fill="none" />
+    <polyline points="-32.82,-98.40 -32.82,-77.83 -25.78,-70.97 -4.69,-66.40 9.37,-66.40 30.49,-70.97 37.51,-77.83 37.51,-98.40" stroke="black" fill="none" />
+    <line x1="39.79" y1="-123.54" x2="39.79" y2="-109.83" stroke="black" fill="none" />
+    <polyline points="-33.35,-89.26 -122.49,-89.26 -122.49,57.03 220.37,57.03 220.37,-89.26 39.79,-89.26" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="25.14" cy="-114.29" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-22.86" cy="-114.29" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

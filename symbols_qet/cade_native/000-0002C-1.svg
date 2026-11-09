@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="80" viewBox="-32 -10 64 80" data-generator="cade2svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="102.4" height="128.0" viewBox="-51.2 -16.0 102.4 128.0" data-generator="cade2svg">
   <title>Sinaleiro Luminoso (Piloto) (Ativo)</title>
-  <g stroke="#dc2626" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0" y1="0" x2="0" y2="15" />
-    <line x1="0" y1="45" x2="0" y2="60" />
-    <ellipse cx="0" cy="30" rx="15" ry="15" fill="#fee2e2" />
-    <line x1="-10" y1="20" x2="10" y2="40" />
-    <line x1="-10" y1="40" x2="10" y2="20" />
-    <line x1="-22" y1="30" x2="-17" y2="30" />
-    <line x1="17" y1="30" x2="22" y2="30" />
-    <line x1="-16" y1="14" x2="-12" y2="18" />
-    <line x1="12" y1="18" x2="16" y2="14" />
-    <circle class="qet-terminal" cx="0" cy="0" r="2.5" fill="#dc2626" stroke="none" data-label="X1" />
-    <circle class="qet-terminal" cx="0" cy="60" r="2.5" fill="#dc2626" stroke="none" data-label="X2" />
+  <g stroke="#dc2626" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.0" y1="0.0" x2="0.0" y2="24.0" />
+    <line x1="0.0" y1="72.0" x2="0.0" y2="96.0" />
+    <ellipse cx="0.0" cy="48.0" rx="24.0" ry="24.0" fill="#fee2e2" />
+    <line x1="-16.0" y1="32.0" x2="16.0" y2="64.0" />
+    <line x1="-16.0" y1="64.0" x2="16.0" y2="32.0" />
+    <line x1="-35.2" y1="48.0" x2="-27.2" y2="48.0" />
+    <line x1="27.2" y1="48.0" x2="35.2" y2="48.0" />
+    <line x1="-25.6" y1="22.4" x2="-19.2" y2="28.8" />
+    <line x1="19.2" y1="28.8" x2="25.6" y2="22.4" />
+    <circle class="qet-terminal" cx="0.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="X1" />
+    <circle class="qet-terminal" cx="0.0" cy="96.0" r="4.0" fill="#dc2626" stroke="none" data-label="X2" />
   </g>
 </svg>

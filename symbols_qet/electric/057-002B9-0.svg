@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="70.0" viewBox="-10.0 -35.0 20.0 70.0" data-name="Heating element">
+<svg xmlns="http://www.w3.org/2000/svg" width="19.2" height="67.2" viewBox="-9.6 -33.6 19.2 67.2" data-name="Heating element" data-standard="48px">
   <title>Heating element</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-25.00" x2="0.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="15.00" x2="0.00" y2="25.00" stroke="black" fill="none" />
-    <rect x="-5.00" y="-15.00" width="10.00" height="30.00" stroke="black" fill="none" />
-    <polyline points="-5,-10 5,-10 5,-5 -5,-5 -5,0 5,0 5,5 -5,5 -5,10 5,10" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-25.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-14.40" stroke="black" fill="none" />
+    <line x1="0.00" y1="14.40" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <rect x="-4.80" y="-14.40" width="9.60" height="28.80" stroke="black" fill="none" />
+    <polyline points="-4.80,-9.60 4.80,-9.60 4.80,-4.80 -4.80,-4.80 -4.80,0.00 4.80,0.00 4.80,4.80 -4.80,4.80 -4.80,9.60 4.80,9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="30.0" viewBox="-47.0 -13.0 70.0 30.0" data-name="Brake, applied">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="72.0" viewBox="-112.8 -31.2 168.0 72.0" data-name="Brake, applied" data-standard="48px">
   <title>Brake, applied</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="10,0 -10,0 -6,-8 6,-8" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <ellipse cx="-30.00" cy="0.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <text x="-35.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="24.00,0.00 -24.00,0.00 -14.40,-19.20 14.40,-19.20" stroke="black" fill="none" />
+    <line x1="-48.00" y1="0.00" x2="48.00" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <ellipse cx="-72.00" cy="0.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <text x="-84.00" y="9.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
   </g>
 </svg>

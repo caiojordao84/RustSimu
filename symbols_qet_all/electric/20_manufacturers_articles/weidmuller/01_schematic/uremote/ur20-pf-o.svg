@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="740.0" height="110.0" viewBox="-370.0 -51.0 740.0 110.0" data-name="UR20-PF-O">
+<svg xmlns="http://www.w3.org/2000/svg" width="1776.0" height="264.0" viewBox="-888.0 -122.4 1776.0 264.0" data-name="UR20-PF-O" data-standard="48px">
   <title>UR20-PF-O</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-360.00" y="-39.00" width="720.00" height="90.00" stroke="black" fill="white" />
-    <text x="283.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vcc Outputs</text>
-    <polyline points="210,-30 210,20 220,30" stroke="black" fill="none" />
-    <ellipse cx="250.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <polyline points="250,-30 250,20 260,30" stroke="black" fill="none" />
-    <ellipse cx="210.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <polyline points="200,-40 200,-30 220,-30 220,-40" stroke="black" fill="none" />
-    <polyline points="240,-40 240,-30 260,-30 260,-40" stroke="black" fill="none" />
-    <ellipse cx="260.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="240.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="220.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <line x1="210.00" y1="30.00" x2="358.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="-362.00" y1="10.00" x2="358.00" y2="10.00" stroke="black" fill="none" />
-    <text x="-330.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">UR20-PF-O</text>
-    <text x="257.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">−</text>
-    <text x="217.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="203.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4.1</text>
-    <text x="224.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4.2</text>
-    <text x="244.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4.3</text>
-    <text x="264.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4.4</text>
-    <text x="-138.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power-Supply Outputs</text>
-    <path d="M 362.50 27.50 A 2.50 2.50 0 0 0 362.50 32.50" stroke="black" fill="none" />
-    <path d="M 362.50 7.50 A 2.50 2.50 0 0 0 362.50 12.50" stroke="black" fill="none" />
-    <text x="283.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vcc Inputs</text>
-    <circle class="qet-terminal" cx="-360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Vcc.Inputs.In" data-orientation="w" />
-    <circle class="qet-terminal" cx="360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Vcc.Inputs.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="360.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="Vcc.Outputs.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="220.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="240.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4.3" data-orientation="n" />
-    <circle class="qet-terminal" cx="260.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4.4" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-864.00" y="-93.60" width="1728.00" height="216.00" stroke="black" fill="white" />
+    <text x="679.20" y="64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Vcc Outputs</text>
+    <polyline points="504.00,-72.00 504.00,48.00 528.00,72.00" stroke="black" fill="none" />
+    <ellipse cx="600.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="black" />
+    <polyline points="600.00,-72.00 600.00,48.00 624.00,72.00" stroke="black" fill="none" />
+    <ellipse cx="504.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="black" />
+    <polyline points="480.00,-96.00 480.00,-72.00 528.00,-72.00 528.00,-96.00" stroke="black" fill="none" />
+    <polyline points="576.00,-96.00 576.00,-72.00 624.00,-72.00 624.00,-96.00" stroke="black" fill="none" />
+    <ellipse cx="624.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="576.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="528.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="480.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <line x1="504.00" y1="72.00" x2="859.20" y2="72.00" stroke="black" fill="none" />
+    <line x1="-868.80" y1="24.00" x2="859.20" y2="24.00" stroke="black" fill="none" />
+    <text x="-792.00" y="108.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">UR20-PF-O</text>
+    <text x="616.80" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">−</text>
+    <text x="520.80" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="487.20" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4.1</text>
+    <text x="537.60" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4.2</text>
+    <text x="585.60" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4.3</text>
+    <text x="633.60" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4.4</text>
+    <text x="-331.20" y="108.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Power-Supply Outputs</text>
+    <path d="M 870.00 66.00 A 6.00 6.00 0 0 0 870.00 78.00" stroke="black" fill="none" />
+    <path d="M 870.00 18.00 A 6.00 6.00 0 0 0 870.00 30.00" stroke="black" fill="none" />
+    <text x="679.20" y="16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Vcc Inputs</text>
+    <circle class="qet-terminal" cx="-864.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="Vcc.Inputs.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="864.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="Vcc.Inputs.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="864.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="Vcc.Outputs.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="480.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="528.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="576.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4.3" data-orientation="n" />
+    <circle class="qet-terminal" cx="624.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4.4" data-orientation="n" />
   </g>
 </svg>

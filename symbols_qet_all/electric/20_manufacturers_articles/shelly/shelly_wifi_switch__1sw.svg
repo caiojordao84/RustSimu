@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-12.0 -28.0 40.0 50.0" data-name="Shelly WiFi Switch (1sw)">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="75.0" viewBox="-18.0 -42.0 60.0 75.0" data-name="Shelly WiFi Switch (1sw)" data-standard="48px">
   <title>Shelly WiFi Switch (1sw)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <path d="M 2.12 -2.12 A 3.00 3.00 0 0 0 -2.12 -2.12" stroke="black" fill="none" />
-    <path d="M 3.54 -3.54 A 5.00 5.00 0 0 0 -3.54 -3.54" stroke="black" fill="none" />
-    <path d="M 4.95 -4.95 A 7.00 7.00 0 0 0 -4.95 -4.95" stroke="black" fill="none" />
-    <rect x="-8.00" y="-12.00" width="34.00" height="18.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-15.00" x2="20.00" y2="-9.00" stroke="black" fill="none" />
-    <line x1="19.00" y1="-3.00" x2="5.00" y2="-3.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <text x="15.00" y="-13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I</text>
-    <text x="14.00" y="11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O</text>
-    <polyline points="20,9 20,3 24,-9" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="-19.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="1.50" ry="1.50" stroke="black" fill="black" />
+    <path d="M 3.18 -3.18 A 4.50 4.50 0 0 0 -3.18 -3.18" stroke="black" fill="none" />
+    <path d="M 5.31 -5.31 A 7.50 7.50 0 0 0 -5.31 -5.31" stroke="black" fill="none" />
+    <path d="M 7.43 -7.43 A 10.50 10.50 0 0 0 -7.43 -7.43" stroke="black" fill="none" />
+    <rect x="-12.00" y="-18.00" width="51.00" height="27.00" stroke="black" fill="none" />
+    <line x1="30.00" y1="-22.50" x2="30.00" y2="-13.50" stroke="black" fill="none" />
+    <line x1="28.50" y1="-4.50" x2="7.50" y2="-4.50" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <text x="22.50" y="-19.50" font-size="13.5" font-family="sans-serif" fill="black" stroke="none">I</text>
+    <text x="21.00" y="16.50" font-size="13.5" font-family="sans-serif" fill="black" stroke="none">O</text>
+    <polyline points="30.00,13.50 30.00,4.50 36.00,-13.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="30.00" cy="19.50" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="-28.50" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

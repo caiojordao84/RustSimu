@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="20.0" viewBox="-29.0 -9.0 60.0 20.0" data-name="pressure reductor">
+<svg xmlns="http://www.w3.org/2000/svg" width="73.8" height="24.6" viewBox="-35.7 -11.1 73.8 24.6" data-name="pressure reductor" data-standard="48px">
   <title>pressure reductor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="10.92" y1="0.00" x2="18.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-5.00" width="20.00" height="11.00" stroke="black" fill="none" />
-    <line x1="-18.13" y1="0.00" x2="-10.95" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-5.00" x2="9.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="6.00" x2="10.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="13.44" y1="0.00" x2="22.15" y2="0.00" stroke="black" fill="none" />
+    <rect x="-12.31" y="-6.15" width="24.62" height="13.54" stroke="black" fill="none" />
+    <line x1="-22.31" y1="0.00" x2="-13.48" y2="0.00" stroke="black" fill="none" />
+    <line x1="-12.31" y1="-6.15" x2="11.08" y2="0.00" stroke="black" fill="none" />
+    <line x1="-12.31" y1="7.38" x2="12.31" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-23.38" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.62" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

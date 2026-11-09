@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="80.0" viewBox="-15.0 -50.0 50.0 80.0" data-name="Magneto-thermal differential switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="192.0" viewBox="-36.0 -120.0 120.0 192.0" data-name="Magneto-thermal differential switch" data-standard="48px">
   <title>Magneto-thermal differential switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -0.00 15.50 A 2.50 2.50 0 0 0 0.00 10.50" stroke="black" fill="none" />
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="-30.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="-32.00" x2="-2.00" y2="-28.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="-32.00" x2="2.00" y2="-28.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-4.00" rx="5.00" ry="2.00" stroke="black" fill="none" />
-    <polyline points="-7,-29 0,-10 0,0 5,0 5,6 0,6 0,10" stroke="black" fill="none" />
-    <line x1="0.00" y1="20.00" x2="0.00" y2="16.00" stroke="black" fill="none" />
-    <polyline points="-4,-20 -10,-20 -10,-4 -5,-4" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -0.00 37.20 A 6.00 6.00 0 0 0 0.00 25.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-96.00" x2="0.00" y2="-72.00" stroke="black" fill="none" />
+    <line x1="4.80" y1="-76.80" x2="-4.80" y2="-67.20" stroke="black" fill="none" />
+    <line x1="-4.80" y1="-76.80" x2="4.80" y2="-67.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-9.60" rx="12.00" ry="4.80" stroke="black" fill="none" />
+    <polyline points="-16.80,-69.60 0.00,-24.00 0.00,0.00 12.00,0.00 12.00,14.40 0.00,14.40 0.00,24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="48.00" x2="0.00" y2="38.40" stroke="black" fill="none" />
+    <polyline points="-9.60,-48.00 -24.00,-48.00 -24.00,-9.60 -12.00,-9.60" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

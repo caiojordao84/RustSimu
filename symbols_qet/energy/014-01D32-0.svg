@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="50.0" viewBox="-20.0 -31.0 40.0 50.0" data-name="Gas meter">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="120.0" viewBox="-48.0 -74.4 96.0 120.0" data-name="Gas meter" data-standard="48px">
   <title>Gas meter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="9.40" y1="-12.76" x2="9.40" y2="-19.37" stroke="black" fill="none" />
-    <polygon points="-12.2,-12.37 -12.2,12 11.2,12 11.2,-12.37" stroke="black" fill="none" />
-    <rect x="-9.86" y="-9.93" width="18.72" height="3.66" stroke="black" fill="none" />
-    <line x1="-10.40" y1="-12.76" x2="-10.40" y2="-19.37" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="22.56" y1="-30.62" x2="22.56" y2="-46.49" stroke="black" fill="none" />
+    <polygon points="-29.28,-29.69 -29.28,28.80 26.88,28.80 26.88,-29.69" stroke="black" fill="none" />
+    <rect x="-23.66" y="-23.83" width="44.93" height="8.78" stroke="black" fill="none" />
+    <line x1="-24.96" y1="-30.62" x2="-24.96" y2="-46.49" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

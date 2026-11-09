@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-23.0 -22.0 60.0 40.0" data-name="DHW+return">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="96.0" viewBox="-55.2 -52.8 144.0 96.0" data-name="DHW+return" data-standard="48px">
   <title>DHW+return</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-8.73" y1="-0.33" x2="10.56" y2="-0.33" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="-9.70" y1="-9.55" x2="6.89" y2="-9.55" stroke="black" fill="none" />
-    <line x1="8.40" y1="-9.55" x2="15.40" y2="-0.89" stroke="black" fill="none" />
-    <line x1="11.20" y1="3.45" x2="21.00" y2="-5.22" stroke="black" fill="none" />
-    <path d="M 11.14 3.33 A 8.40 7.22 0 0 0 20.87 -5.03" stroke="black" fill="none" />
-    <line x1="23.80" y1="-2.33" x2="33.60" y2="2.00" stroke="black" fill="none" />
-    <line x1="15.40" y1="6.33" x2="19.60" y2="15.00" stroke="black" fill="none" />
-    <line x1="21.00" y1="3.45" x2="28.00" y2="10.67" stroke="black" fill="none" />
-    <line x1="22.40" y1="0.56" x2="28.00" y2="4.89" stroke="black" fill="none" />
-    <line x1="18.20" y1="4.89" x2="22.40" y2="10.67" stroke="black" fill="none" />
-    <text x="-12.60" y="-13.89" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ACS</text>
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-20.95" y1="-0.79" x2="25.34" y2="-0.79" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="-23.28" y1="-22.92" x2="16.54" y2="-22.92" stroke="black" fill="none" />
+    <line x1="20.16" y1="-22.92" x2="36.96" y2="-2.14" stroke="black" fill="none" />
+    <line x1="26.88" y1="8.28" x2="50.40" y2="-12.53" stroke="black" fill="none" />
+    <path d="M 26.74 7.99 A 20.16 17.33 0 0 0 50.09 -12.07" stroke="black" fill="none" />
+    <line x1="57.12" y1="-5.59" x2="80.64" y2="4.80" stroke="black" fill="none" />
+    <line x1="36.96" y1="15.19" x2="47.04" y2="36.00" stroke="black" fill="none" />
+    <line x1="50.40" y1="8.28" x2="67.20" y2="25.61" stroke="black" fill="none" />
+    <line x1="53.76" y1="1.34" x2="67.20" y2="11.74" stroke="black" fill="none" />
+    <line x1="43.68" y1="11.74" x2="53.76" y2="25.61" stroke="black" fill="none" />
+    <text x="-30.24" y="-33.34" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ACS</text>
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

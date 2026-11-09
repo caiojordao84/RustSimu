@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="250.0" viewBox="-56.0 -125.0 110.0 250.0" data-name="EL8-EC Motor Driver">
+<svg xmlns="http://www.w3.org/2000/svg" width="211.2" height="480.0" viewBox="-107.5 -240.0 211.2 480.0" data-name="EL8-EC Motor Driver" data-standard="48px">
   <title>EL8-EC Motor Driver</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="31.07" y="3.00" width="16.07" height="18.32" stroke="black" fill="none" />
-    <text x="-32.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">W</text>
-    <rect x="6.00" y="3.00" width="16.07" height="18.32" stroke="black" fill="none" />
-    <polygon points="7.34,9.09 7.34,15.2 11.36,15.2 11.36,19.78 19.39,19.78 19.39,4.52 11.36,4.52 11.36,9.09" stroke="black" fill="none" />
-    <polygon points="32.4,9.09 32.4,15.2 36.42,15.2 36.42,19.78 44.45,19.78 44.45,4.52 36.42,4.52 36.42,9.09" stroke="black" fill="none" />
-    <text x="-37.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B1</text>
-    <text x="8.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CN3</text>
-    <text x="-38.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P+</text>
-    <text x="33.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CN4</text>
-    <text x="-32.00" y="66.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <rect x="-34.00" y="30.00" width="12.00" height="40.00" stroke="black" fill="none" />
-    <text x="-37.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L3</text>
-    <text x="-39.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DC-</text>
-    <text x="-37.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B2</text>
-    <rect x="-50.00" y="-110.00" width="100.00" height="220.00" stroke="black" fill="none" />
-    <text x="-31.00" y="39.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U</text>
-    <text x="-39.00" y="-47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L1C</text>
-    <text x="-31.00" y="49.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V</text>
-    <polygon points="20,76 20,90 36,90 48,86 48,80 36,76" stroke="black" fill="none" />
-    <text x="-39.00" y="-38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L2C</text>
-    <text x="-37.00" y="-19.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L2</text>
-    <polygon points="34,-17 26,-17 26,-11 28,-7 32,-7 34,-11" stroke="black" fill="none" />
-    <polygon points="23,97 23,107 33,107 42,105 42,99 33,97" stroke="black" fill="none" />
-    <rect x="-40.00" y="-55.00" width="15.00" height="82.00" stroke="black" fill="none" />
-    <text x="22.00" y="87.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CN7</text>
-    <text x="-37.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L1</text>
-    <text x="25.00" y="104.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CN2</text>
-    <rect x="-50.00" y="-88.00" width="100.00" height="30.00" stroke="black" fill="none" />
-    <rect x="-32.00" y="-70.00" width="5.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-17.00" y="-70.00" width="5.00" height="10.00" stroke="black" fill="none" />
-    <rect x="13.00" y="-70.00" width="5.00" height="10.00" stroke="black" fill="none" />
-    <rect x="27.00" y="-70.00" width="5.00" height="10.00" stroke="black" fill="none" />
-    <text x="21.00" y="-38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="59.65" y="5.76" width="30.85" height="35.17" stroke="black" fill="none" />
+    <text x="-61.44" y="111.36" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">W</text>
+    <rect x="11.52" y="5.76" width="30.85" height="35.17" stroke="black" fill="none" />
+    <polygon points="14.09,17.45 14.09,29.18 21.81,29.18 21.81,37.98 37.23,37.98 37.23,8.68 21.81,8.68 21.81,17.45" stroke="black" fill="none" />
+    <polygon points="62.21,17.45 62.21,29.18 69.93,29.18 69.93,37.98 85.34,37.98 85.34,8.68 69.93,8.68 69.93,17.45" stroke="black" fill="none" />
+    <text x="-71.04" y="13.44" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">B1</text>
+    <text x="15.36" y="26.88" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">CN3</text>
+    <text x="-72.96" y="-3.84" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">P+</text>
+    <text x="63.36" y="26.88" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">CN4</text>
+    <text x="-61.44" y="126.72" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <rect x="-65.28" y="57.60" width="23.04" height="76.80" stroke="black" fill="none" />
+    <text x="-71.04" y="-21.12" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">L3</text>
+    <text x="-74.88" y="46.08" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">DC-</text>
+    <text x="-71.04" y="30.72" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">B2</text>
+    <rect x="-96.00" y="-211.20" width="192.00" height="422.40" stroke="black" fill="none" />
+    <text x="-59.52" y="74.88" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">U</text>
+    <text x="-74.88" y="-90.24" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">L1C</text>
+    <text x="-59.52" y="94.08" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">V</text>
+    <polygon points="38.40,145.92 38.40,172.80 69.12,172.80 92.16,165.12 92.16,153.60 69.12,145.92" stroke="black" fill="none" />
+    <text x="-74.88" y="-72.96" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">L2C</text>
+    <text x="-71.04" y="-36.48" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">L2</text>
+    <polygon points="65.28,-32.64 49.92,-32.64 49.92,-21.12 53.76,-13.44 61.44,-13.44 65.28,-21.12" stroke="black" fill="none" />
+    <polygon points="44.16,186.24 44.16,205.44 63.36,205.44 80.64,201.60 80.64,190.08 63.36,186.24" stroke="black" fill="none" />
+    <rect x="-76.80" y="-105.60" width="28.80" height="157.44" stroke="black" fill="none" />
+    <text x="42.24" y="167.04" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">CN7</text>
+    <text x="-71.04" y="-53.76" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">L1</text>
+    <text x="48.00" y="199.68" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">CN2</text>
+    <rect x="-96.00" y="-168.96" width="192.00" height="57.60" stroke="black" fill="none" />
+    <rect x="-61.44" y="-134.40" width="9.60" height="19.20" stroke="black" fill="none" />
+    <rect x="-32.64" y="-134.40" width="9.60" height="19.20" stroke="black" fill="none" />
+    <rect x="24.96" y="-134.40" width="9.60" height="19.20" stroke="black" fill="none" />
+    <rect x="51.84" y="-134.40" width="9.60" height="19.20" stroke="black" fill="none" />
+    <text x="40.32" y="-72.96" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">
 Diagnostics 
 Port </text>
-    <rect x="20.00" y="-53.00" width="20.00" height="25.30" stroke="black" fill="none" />
-    <rect x="25.00" y="35.00" width="10.00" height="33.00" stroke="black" fill="none" />
-    <text x="25.00" y="32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CN1</text>
-    <text x="25.00" y="-18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CN6</text>
-    <rect x="24.00" y="-49.00" width="12.00" height="6.00" stroke="black" fill="none" />
-    <rect x="27.00" y="-110.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <text x="25.00" y="-93.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CN5</text>
-    <rect x="-22.00" y="73.00" width="16.00" height="22.00" stroke="black" fill="none" />
-    <text x="-21.00" y="92.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BR2</text>
-    <text x="-21.00" y="81.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BR1</text>
-    <polygon points="-50,95 -40,95 -35,100 -35,110 -50,110" stroke="black" fill="none" />
-    <ellipse cx="-45.00" cy="99.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <ellipse cx="-40.00" cy="106.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <text x="-49.00" y="94.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <circle class="qet-terminal" cx="-45.00" cy="-5.00" r="1.8" fill="red" stroke="none" data-name="P+" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="94.00" r="1.8" fill="red" stroke="none" data-name="CN7" data-orientation="s" />
-    <circle class="qet-terminal" cx="-45.00" cy="-32.00" r="1.8" fill="red" stroke="none" data-name="L1" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="-3.00" r="1.8" fill="red" stroke="none" data-name="CN6" data-orientation="s" />
-    <circle class="qet-terminal" cx="-45.00" cy="13.00" r="1.8" fill="red" stroke="none" data-name="B2" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="72.00" r="1.8" fill="red" stroke="none" data-name="CN1" data-orientation="s" />
-    <circle class="qet-terminal" cx="32.00" cy="-115.00" r="1.8" fill="red" stroke="none" data-name="CN5" data-orientation="n" />
-    <circle class="qet-terminal" cx="-45.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="L1C" data-orientation="w" />
-    <circle class="qet-terminal" cx="-45.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="B1" data-orientation="w" />
-    <circle class="qet-terminal" cx="-45.00" cy="22.00" r="1.8" fill="red" stroke="none" data-name="DC -" data-orientation="w" />
-    <circle class="qet-terminal" cx="-39.00" cy="63.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="w" />
-    <circle class="qet-terminal" cx="-39.00" cy="54.00" r="1.8" fill="red" stroke="none" data-name="W" data-orientation="w" />
-    <circle class="qet-terminal" cx="-39.00" cy="36.00" r="1.8" fill="red" stroke="none" data-name="U" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="-39.00" r="1.8" fill="red" stroke="none" data-name="Diagnostics" data-orientation="s" />
-    <circle class="qet-terminal" cx="-39.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="V" data-orientation="w" />
-    <circle class="qet-terminal" cx="-27.00" cy="89.00" r="1.8" fill="red" stroke="none" data-name="BR2" data-orientation="w" />
-    <circle class="qet-terminal" cx="-27.00" cy="78.00" r="1.8" fill="red" stroke="none" data-name="BR1" data-orientation="w" />
-    <circle class="qet-terminal" cx="14.00" cy="26.00" r="1.8" fill="red" stroke="none" data-name="CN3" data-orientation="s" />
-    <circle class="qet-terminal" cx="-45.00" cy="-14.00" r="1.8" fill="red" stroke="none" data-name="L3" data-orientation="w" />
-    <circle class="qet-terminal" cx="-45.00" cy="-41.00" r="1.8" fill="red" stroke="none" data-name="L2C" data-orientation="w" />
-    <circle class="qet-terminal" cx="30.00" cy="112.00" r="1.8" fill="red" stroke="none" data-name="CN2" data-orientation="s" />
-    <circle class="qet-terminal" cx="-43.00" cy="115.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="s" />
-    <circle class="qet-terminal" cx="-45.00" cy="-23.00" r="1.8" fill="red" stroke="none" data-name="L2" data-orientation="w" />
-    <circle class="qet-terminal" cx="39.00" cy="26.00" r="1.8" fill="red" stroke="none" data-name="CN4" data-orientation="s" />
+    <rect x="38.40" y="-101.76" width="38.40" height="48.58" stroke="black" fill="none" />
+    <rect x="48.00" y="67.20" width="19.20" height="63.36" stroke="black" fill="none" />
+    <text x="48.00" y="61.44" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">CN1</text>
+    <text x="48.00" y="-34.56" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">CN6</text>
+    <rect x="46.08" y="-94.08" width="23.04" height="11.52" stroke="black" fill="none" />
+    <rect x="51.84" y="-211.20" width="19.20" height="19.20" stroke="black" fill="none" />
+    <text x="48.00" y="-178.56" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">CN5</text>
+    <rect x="-42.24" y="140.16" width="30.72" height="42.24" stroke="black" fill="none" />
+    <text x="-40.32" y="176.64" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">BR2</text>
+    <text x="-40.32" y="155.52" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">BR1</text>
+    <polygon points="-96.00,182.40 -76.80,182.40 -67.20,192.00 -67.20,211.20 -96.00,211.20" stroke="black" fill="none" />
+    <ellipse cx="-86.40" cy="190.08" rx="3.84" ry="3.84" stroke="black" fill="none" />
+    <ellipse cx="-76.80" cy="203.52" rx="3.84" ry="3.84" stroke="black" fill="none" />
+    <text x="-94.08" y="180.48" font-size="17.3" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <circle class="qet-terminal" cx="-86.40" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="P+" data-orientation="w" />
+    <circle class="qet-terminal" cx="57.60" cy="180.48" r="4.0" fill="red" stroke="none" data-name="CN7" data-orientation="s" />
+    <circle class="qet-terminal" cx="-86.40" cy="-61.44" r="4.0" fill="red" stroke="none" data-name="L1" data-orientation="w" />
+    <circle class="qet-terminal" cx="57.60" cy="-5.76" r="4.0" fill="red" stroke="none" data-name="CN6" data-orientation="s" />
+    <circle class="qet-terminal" cx="-86.40" cy="24.96" r="4.0" fill="red" stroke="none" data-name="B2" data-orientation="w" />
+    <circle class="qet-terminal" cx="57.60" cy="138.24" r="4.0" fill="red" stroke="none" data-name="CN1" data-orientation="s" />
+    <circle class="qet-terminal" cx="61.44" cy="-220.80" r="4.0" fill="red" stroke="none" data-name="CN5" data-orientation="n" />
+    <circle class="qet-terminal" cx="-86.40" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="L1C" data-orientation="w" />
+    <circle class="qet-terminal" cx="-86.40" cy="7.68" r="4.0" fill="red" stroke="none" data-name="B1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-86.40" cy="42.24" r="4.0" fill="red" stroke="none" data-name="DC -" data-orientation="w" />
+    <circle class="qet-terminal" cx="-74.88" cy="120.96" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="w" />
+    <circle class="qet-terminal" cx="-74.88" cy="103.68" r="4.0" fill="red" stroke="none" data-name="W" data-orientation="w" />
+    <circle class="qet-terminal" cx="-74.88" cy="69.12" r="4.0" fill="red" stroke="none" data-name="U" data-orientation="w" />
+    <circle class="qet-terminal" cx="57.60" cy="-74.88" r="4.0" fill="red" stroke="none" data-name="Diagnostics" data-orientation="s" />
+    <circle class="qet-terminal" cx="-74.88" cy="86.40" r="4.0" fill="red" stroke="none" data-name="V" data-orientation="w" />
+    <circle class="qet-terminal" cx="-51.84" cy="170.88" r="4.0" fill="red" stroke="none" data-name="BR2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-51.84" cy="149.76" r="4.0" fill="red" stroke="none" data-name="BR1" data-orientation="w" />
+    <circle class="qet-terminal" cx="26.88" cy="49.92" r="4.0" fill="red" stroke="none" data-name="CN3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-86.40" cy="-26.88" r="4.0" fill="red" stroke="none" data-name="L3" data-orientation="w" />
+    <circle class="qet-terminal" cx="-86.40" cy="-78.72" r="4.0" fill="red" stroke="none" data-name="L2C" data-orientation="w" />
+    <circle class="qet-terminal" cx="57.60" cy="215.04" r="4.0" fill="red" stroke="none" data-name="CN2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-82.56" cy="220.80" r="4.0" fill="red" stroke="none" data-name="GND" data-orientation="s" />
+    <circle class="qet-terminal" cx="-86.40" cy="-44.16" r="4.0" fill="red" stroke="none" data-name="L2" data-orientation="w" />
+    <circle class="qet-terminal" cx="74.88" cy="49.92" r="4.0" fill="red" stroke="none" data-name="CN4" data-orientation="s" />
   </g>
 </svg>

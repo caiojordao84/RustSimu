@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="60.0" viewBox="-75.0 -55.0 160.0 60.0" data-name="3 Way Pickup Selector Switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="320.0" height="120.0" viewBox="-150.0 -110.0 320.0 120.0" data-name="3 Way Pickup Selector Switch" data-standard="48px">
   <title>3 Way Pickup Selector Switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="18.00" y="-45.00" width="7.50" height="15.00" stroke="#888888" fill="gray" />
-    <rect x="-6.00" y="-45.00" width="7.50" height="15.00" stroke="#888888" fill="gray" />
-    <rect x="42.00" y="-45.00" width="7.50" height="15.00" stroke="#888888" fill="gray" />
-    <rect x="-42.00" y="-23.00" width="7.50" height="15.00" stroke="#888888" fill="gray" />
-    <rect x="30.00" y="-23.00" width="7.50" height="15.00" stroke="#888888" fill="gray" />
-    <rect x="-18.00" y="-23.00" width="7.50" height="15.00" stroke="#888888" fill="gray" />
-    <ellipse cx="75.00" cy="-5.00" rx="3.50" ry="3.50" stroke="black" fill="none" />
-    <rect x="6.00" y="-23.00" width="7.50" height="15.00" stroke="#888888" fill="gray" />
-    <line x1="41.00" y1="-45.00" x2="41.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-43.00" y1="-3.00" x2="-43.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-19.00" y1="-3.00" x2="-19.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="17.00" y1="-45.00" x2="17.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="29.00" y1="-3.00" x2="29.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="-45.00" x2="-7.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-3.00" x2="5.00" y2="-8.00" stroke="black" fill="none" />
-    <rect x="-70.00" y="-10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-3.00" x2="-10.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="26.00" y1="-45.00" x2="26.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="-45.00" x2="50.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="-45.00" x2="2.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-34.00" y1="-3.00" x2="-34.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="38.00" y1="-3.00" x2="38.00" y2="-8.00" stroke="black" fill="none" />
-    <rect x="70.00" y="-10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <line x1="14.00" y1="-3.00" x2="14.00" y2="-8.00" stroke="black" fill="none" />
-    <ellipse cx="9.50" cy="-16.00" rx="1.75" ry="4.00" stroke="black" fill="white" />
-    <ellipse cx="-65.00" cy="-5.00" rx="3.50" ry="3.50" stroke="black" fill="none" />
-    <ellipse cx="-14.50" cy="-16.00" rx="1.75" ry="4.00" stroke="black" fill="white" />
-    <ellipse cx="-2.50" cy="-38.00" rx="1.75" ry="4.00" stroke="black" fill="white" />
-    <ellipse cx="-38.50" cy="-16.00" rx="1.75" ry="4.00" stroke="black" fill="white" />
-    <ellipse cx="33.50" cy="-16.00" rx="1.75" ry="4.00" stroke="black" fill="white" />
-    <ellipse cx="21.50" cy="-38.00" rx="1.75" ry="4.00" stroke="black" fill="white" />
-    <ellipse cx="45.50" cy="-38.00" rx="1.75" ry="4.00" stroke="black" fill="white" />
-    <rect x="-60.00" y="-25.00" width="5.00" height="25.00" stroke="black" fill="none" />
-    <rect x="65.00" y="-25.00" width="5.00" height="25.00" stroke="black" fill="none" />
-    <rect x="-60.00" y="-30.00" width="130.00" height="5.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="-5.00" width="120.00" height="5.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="-45.00" width="7.50" height="15.00" stroke="#888888" fill="gray" />
-    <line x1="-31.00" y1="-45.00" x2="-31.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-22.00" y1="-45.00" x2="-22.00" y2="-50.00" stroke="black" fill="none" />
-    <ellipse cx="-26.50" cy="-38.00" rx="1.75" ry="4.00" stroke="black" fill="white" />
-    <line x1="-55.00" y1="-10.00" x2="65.00" y2="-10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-3.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-27.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="46.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-39.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-15.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="34.00" cy="-17.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="22.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="36.00" y="-90.00" width="15.00" height="30.00" stroke="#888888" fill="gray" />
+    <rect x="-12.00" y="-90.00" width="15.00" height="30.00" stroke="#888888" fill="gray" />
+    <rect x="84.00" y="-90.00" width="15.00" height="30.00" stroke="#888888" fill="gray" />
+    <rect x="-84.00" y="-46.00" width="15.00" height="30.00" stroke="#888888" fill="gray" />
+    <rect x="60.00" y="-46.00" width="15.00" height="30.00" stroke="#888888" fill="gray" />
+    <rect x="-36.00" y="-46.00" width="15.00" height="30.00" stroke="#888888" fill="gray" />
+    <ellipse cx="150.00" cy="-10.00" rx="7.00" ry="7.00" stroke="black" fill="none" />
+    <rect x="12.00" y="-46.00" width="15.00" height="30.00" stroke="#888888" fill="gray" />
+    <line x1="82.00" y1="-90.00" x2="82.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="-86.00" y1="-6.00" x2="-86.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="-38.00" y1="-6.00" x2="-38.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="34.00" y1="-90.00" x2="34.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="58.00" y1="-6.00" x2="58.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="-14.00" y1="-90.00" x2="-14.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="10.00" y1="-6.00" x2="10.00" y2="-16.00" stroke="black" fill="none" />
+    <rect x="-140.00" y="-20.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <line x1="-20.00" y1="-6.00" x2="-20.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="52.00" y1="-90.00" x2="52.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="100.00" y1="-90.00" x2="100.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="4.00" y1="-90.00" x2="4.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="-68.00" y1="-6.00" x2="-68.00" y2="-16.00" stroke="black" fill="none" />
+    <line x1="76.00" y1="-6.00" x2="76.00" y2="-16.00" stroke="black" fill="none" />
+    <rect x="140.00" y="-20.00" width="20.00" height="20.00" stroke="black" fill="none" />
+    <line x1="28.00" y1="-6.00" x2="28.00" y2="-16.00" stroke="black" fill="none" />
+    <ellipse cx="19.00" cy="-32.00" rx="3.50" ry="8.00" stroke="black" fill="white" />
+    <ellipse cx="-130.00" cy="-10.00" rx="7.00" ry="7.00" stroke="black" fill="none" />
+    <ellipse cx="-29.00" cy="-32.00" rx="3.50" ry="8.00" stroke="black" fill="white" />
+    <ellipse cx="-5.00" cy="-76.00" rx="3.50" ry="8.00" stroke="black" fill="white" />
+    <ellipse cx="-77.00" cy="-32.00" rx="3.50" ry="8.00" stroke="black" fill="white" />
+    <ellipse cx="67.00" cy="-32.00" rx="3.50" ry="8.00" stroke="black" fill="white" />
+    <ellipse cx="43.00" cy="-76.00" rx="3.50" ry="8.00" stroke="black" fill="white" />
+    <ellipse cx="91.00" cy="-76.00" rx="3.50" ry="8.00" stroke="black" fill="white" />
+    <rect x="-120.00" y="-50.00" width="10.00" height="50.00" stroke="black" fill="none" />
+    <rect x="130.00" y="-50.00" width="10.00" height="50.00" stroke="black" fill="none" />
+    <rect x="-120.00" y="-60.00" width="260.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-110.00" y="-10.00" width="240.00" height="10.00" stroke="black" fill="none" />
+    <rect x="-60.00" y="-90.00" width="15.00" height="30.00" stroke="#888888" fill="gray" />
+    <line x1="-62.00" y1="-90.00" x2="-62.00" y2="-100.00" stroke="black" fill="none" />
+    <line x1="-44.00" y1="-90.00" x2="-44.00" y2="-100.00" stroke="black" fill="none" />
+    <ellipse cx="-53.00" cy="-76.00" rx="3.50" ry="8.00" stroke="black" fill="white" />
+    <line x1="-110.00" y1="-20.00" x2="130.00" y2="-20.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-6.00" cy="-80.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-54.00" cy="-80.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="92.00" cy="-80.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="-34.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-78.00" cy="-34.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-30.00" cy="-34.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="68.00" cy="-34.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="44.00" cy="-80.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

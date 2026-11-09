@@ -1,79 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="750.0" height="110.0" viewBox="-380.0 -51.0 750.0 110.0" data-name="UC20-SL2000-EC-CAN">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800.0" height="264.0" viewBox="-912.0 -122.4 1800.0 264.0" data-name="UC20-SL2000-EC-CAN" data-standard="48px">
   <title>UC20-SL2000-EC-CAN</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-360.00" y="-40.00" width="720.00" height="90.00" stroke="black" fill="white" />
-    <text x="-37.69" y="-7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CAN_H</text>
-    <text x="-57.56" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CAN_L</text>
-    <text x="283.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vcc Outputs</text>
-    <polyline points="110,-30 110,0 120,10" stroke="black" fill="none" />
-    <ellipse cx="-40.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-60.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-80.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="210.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <ellipse cx="150.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <text x="-77.50" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X4.1</text>
-    <polyline points="150,-30 150,0 160,10" stroke="black" fill="none" />
-    <text x="-57.50" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X4.2</text>
-    <text x="-37.50" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X4.3</text>
-    <ellipse cx="110.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <polyline points="210,-30 210,20 220,30" stroke="black" fill="none" />
-    <polyline points="200,-40 200,-30 220,-30 220,-40" stroke="black" fill="none" />
-    <polyline points="100,-40 100,-30 120,-30 120,-40" stroke="black" fill="none" />
-    <polyline points="140,-40 140,-30 160,-30 160,-40" stroke="black" fill="none" />
-    <ellipse cx="-360.00" cy="20.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-312.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IP Adr. 1:</text>
-    <text x="-355.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Eth2</text>
-    <ellipse cx="-360.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="160.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="140.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="120.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="100.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="260.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="240.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="220.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <line x1="210.00" y1="30.00" x2="358.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="110.00" y1="10.00" x2="358.00" y2="10.00" stroke="black" fill="none" />
-    <text x="-330.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">UC20-SL2000-EC-CAN</text>
-    <text x="-312.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IP Adr. 2:</text>
-    <text x="257.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">−</text>
-    <text x="217.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="157.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">−</text>
-    <text x="117.00" y="-22.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="-355.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Eth1</text>
-    <text x="102.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3.1</text>
-    <text x="123.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3.2</text>
-    <text x="143.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3.3</text>
-    <text x="163.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3.4</text>
-    <text x="203.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4.1</text>
-    <text x="223.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4.2</text>
-    <text x="243.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4.3</text>
-    <text x="263.00" y="-42.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4.4</text>
-    <text x="-138.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Controller, u-control 2000</text>
-    <text x="-371.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X1</text>
-    <text x="-371.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X2</text>
-    <path d="M 362.50 27.50 A 2.50 2.50 0 0 0 362.50 32.50" stroke="black" fill="none" />
-    <path d="M 362.50 7.50 A 2.50 2.50 0 0 0 362.50 12.50" stroke="black" fill="none" />
-    <polyline points="250,-30 250,20 260,30" stroke="black" fill="none" />
-    <polyline points="240,-40 240,-30 260,-30 260,-40" stroke="black" fill="none" />
-    <ellipse cx="250.00" cy="-30.00" rx="1.00" ry="1.00" stroke="black" fill="black" />
-    <text x="265.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Vcc System / Inputs</text>
-    <text x="-77.00" y="-15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <circle class="qet-terminal" cx="-360.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="X1" data-orientation="w" />
-    <circle class="qet-terminal" cx="-360.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="X2" data-orientation="w" />
-    <circle class="qet-terminal" cx="360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Vcc.Inputs.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="360.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="Vcc.Outputs.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="-80.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="X4.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="-60.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="X4.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="X4.3" data-orientation="n" />
-    <circle class="qet-terminal" cx="100.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="3.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="120.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="3.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="140.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="3.3" data-orientation="n" />
-    <circle class="qet-terminal" cx="160.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="3.4" data-orientation="n" />
-    <circle class="qet-terminal" cx="200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="220.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4.2" data-orientation="n" />
-    <circle class="qet-terminal" cx="240.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4.3" data-orientation="n" />
-    <circle class="qet-terminal" cx="260.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="4.4" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-864.00" y="-96.00" width="1728.00" height="216.00" stroke="black" fill="white" />
+    <text x="-90.46" y="-16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CAN_H</text>
+    <text x="-138.14" y="-19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">CAN_L</text>
+    <text x="679.20" y="64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Vcc Outputs</text>
+    <polyline points="264.00,-72.00 264.00,0.00 288.00,24.00" stroke="black" fill="none" />
+    <ellipse cx="-96.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="-144.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="-192.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="504.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="black" />
+    <ellipse cx="360.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="black" />
+    <text x="-186.00" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X4.1</text>
+    <polyline points="360.00,-72.00 360.00,0.00 384.00,24.00" stroke="black" fill="none" />
+    <text x="-138.00" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X4.2</text>
+    <text x="-90.00" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X4.3</text>
+    <ellipse cx="264.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="black" />
+    <polyline points="504.00,-72.00 504.00,48.00 528.00,72.00" stroke="black" fill="none" />
+    <polyline points="480.00,-96.00 480.00,-72.00 528.00,-72.00 528.00,-96.00" stroke="black" fill="none" />
+    <polyline points="240.00,-96.00 240.00,-72.00 288.00,-72.00 288.00,-96.00" stroke="black" fill="none" />
+    <polyline points="336.00,-96.00 336.00,-72.00 384.00,-72.00 384.00,-96.00" stroke="black" fill="none" />
+    <ellipse cx="-864.00" cy="48.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <text x="-748.80" y="9.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">IP Adr. 1:</text>
+    <text x="-852.00" y="57.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Eth2</text>
+    <ellipse cx="-864.00" cy="0.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="384.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="336.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="288.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="240.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="624.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="576.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="528.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="480.00" cy="-96.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <line x1="504.00" y1="72.00" x2="859.20" y2="72.00" stroke="black" fill="none" />
+    <line x1="264.00" y1="24.00" x2="859.20" y2="24.00" stroke="black" fill="none" />
+    <text x="-792.00" y="108.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">UC20-SL2000-EC-CAN</text>
+    <text x="-748.80" y="57.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">IP Adr. 2:</text>
+    <text x="616.80" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">−</text>
+    <text x="520.80" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="376.80" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">−</text>
+    <text x="280.80" y="-52.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="-852.00" y="9.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Eth1</text>
+    <text x="244.80" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3.1</text>
+    <text x="295.20" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3.2</text>
+    <text x="343.20" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3.3</text>
+    <text x="391.20" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3.4</text>
+    <text x="487.20" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4.1</text>
+    <text x="535.20" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4.2</text>
+    <text x="583.20" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4.3</text>
+    <text x="631.20" y="-100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4.4</text>
+    <text x="-331.20" y="108.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Controller, u-control 2000</text>
+    <text x="-890.40" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X1</text>
+    <text x="-890.40" y="69.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X2</text>
+    <path d="M 870.00 66.00 A 6.00 6.00 0 0 0 870.00 78.00" stroke="black" fill="none" />
+    <path d="M 870.00 18.00 A 6.00 6.00 0 0 0 870.00 30.00" stroke="black" fill="none" />
+    <polyline points="600.00,-72.00 600.00,48.00 624.00,72.00" stroke="black" fill="none" />
+    <polyline points="576.00,-96.00 576.00,-72.00 624.00,-72.00 624.00,-96.00" stroke="black" fill="none" />
+    <ellipse cx="600.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="black" />
+    <text x="636.00" y="16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Vcc System / Inputs</text>
+    <text x="-184.80" y="-36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <circle class="qet-terminal" cx="-864.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="X1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-864.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="X2" data-orientation="w" />
+    <circle class="qet-terminal" cx="864.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="Vcc.Inputs.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="864.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="Vcc.Outputs.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="-192.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="X4.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-144.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="X4.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="X4.3" data-orientation="n" />
+    <circle class="qet-terminal" cx="240.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="3.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="288.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="3.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="336.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="3.3" data-orientation="n" />
+    <circle class="qet-terminal" cx="384.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="3.4" data-orientation="n" />
+    <circle class="qet-terminal" cx="480.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="528.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4.2" data-orientation="n" />
+    <circle class="qet-terminal" cx="576.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4.3" data-orientation="n" />
+    <circle class="qet-terminal" cx="624.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4.4" data-orientation="n" />
   </g>
 </svg>

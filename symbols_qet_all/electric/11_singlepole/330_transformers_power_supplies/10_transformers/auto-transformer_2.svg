@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="90.0" viewBox="-40.0 -50.0 60.0 90.0" data-name="Auto-transformer">
+<svg xmlns="http://www.w3.org/2000/svg" width="41.1" height="61.7" viewBox="-27.4 -34.3 41.1 61.7" data-name="Auto-transformer" data-standard="48px">
   <title>Auto-transformer</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="none" />
-    <line x1="-5.05" y1="-30.05" x2="4.95" y2="-34.05" stroke="black" fill="none" />
-    <line x1="-5.00" y1="22.00" x2="5.00" y2="18.00" stroke="black" fill="none" />
-    <line x1="-5.05" y1="-28.05" x2="4.95" y2="-32.05" stroke="black" fill="none" />
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="15.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="24.00" x2="5.00" y2="20.00" stroke="black" fill="none" />
-    <path d="M 15.00 -0.48 A 25.00 27.50 0 0 0 0.17 -25.12" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="10.29" ry="10.29" stroke="black" fill="none" />
+    <line x1="-3.46" y1="-20.61" x2="3.39" y2="-23.35" stroke="black" fill="none" />
+    <line x1="-3.43" y1="15.09" x2="3.43" y2="12.34" stroke="black" fill="none" />
+    <line x1="-3.46" y1="-19.23" x2="3.39" y2="-21.98" stroke="black" fill="none" />
+    <line x1="0.00" y1="-27.43" x2="0.00" y2="-17.14" stroke="black" fill="none" />
+    <line x1="0.00" y1="10.29" x2="0.00" y2="20.57" stroke="black" fill="none" />
+    <line x1="-3.43" y1="16.46" x2="3.43" y2="13.71" stroke="black" fill="none" />
+    <path d="M 10.29 -0.33 A 17.14 18.86 0 0 0 0.12 -17.23" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-27.43" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="20.57" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

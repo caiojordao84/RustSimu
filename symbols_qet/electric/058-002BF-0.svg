@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-15.0 -30.0 30.0 60.0" data-name="Lamp">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="144.0" viewBox="-36.0 -72.0 72.0 144.0" data-name="Lamp" data-standard="48px">
   <title>Lamp</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 0.00 1.30 A 2.00 3.30 0 1 0 -3.96 1.99" stroke="black" fill="none" />
-    <polyline points="-3.9,2.5 -2,12 -2,20" stroke="black" fill="none" />
-    <polyline points="3.9,2.5 2,12 2,20" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-7.50" rx="12.00" ry="17.50" stroke="black" fill="none" />
-    <rect x="-4.50" y="10.00" width="9.00" height="8.00" stroke="black" fill="none" />
-    <path d="M 3.96 1.99 A 2.00 3.30 0 1 0 0.00 1.30" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="2.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-2.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 0.00 3.12 A 4.80 7.92 0 1 0 -9.50 4.78" stroke="black" fill="none" />
+    <polyline points="-9.36,6.00 -4.80,28.80 -4.80,48.00" stroke="black" fill="none" />
+    <polyline points="9.36,6.00 4.80,28.80 4.80,48.00" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-18.00" rx="28.80" ry="42.00" stroke="black" fill="none" />
+    <rect x="-10.80" y="24.00" width="21.60" height="19.20" stroke="black" fill="none" />
+    <path d="M 9.50 4.78 A 4.80 7.92 0 1 0 0.00 3.12" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

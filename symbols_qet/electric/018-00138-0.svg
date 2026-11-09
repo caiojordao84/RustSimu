@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="60.0" viewBox="-10.0 -30.0 20.0 60.0" data-name="Spark-gap">
+<svg xmlns="http://www.w3.org/2000/svg" width="24.0" height="72.0" viewBox="-12.0 -36.0 24.0 72.0" data-name="Spark-gap" data-standard="48px">
   <title>Spark-gap</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="5.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <polygon points="-3,10 0,2 3,10" stroke="black" fill="black" />
-    <polygon points="-3,-10 0,-2 3,-10" stroke="black" fill="black" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="21.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="6.00" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <polygon points="-3.60,12.00 0.00,2.40 3.60,12.00" stroke="black" fill="black" />
+    <polygon points="-3.60,-12.00 0.00,-2.40 3.60,-12.00" stroke="black" fill="black" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-6.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-25.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="25.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

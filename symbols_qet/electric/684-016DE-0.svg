@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-3.0 -2.0 50.0 30.0" data-name="m-phase winding, phases not interconnected">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="72.0" viewBox="-7.2 -4.8 120.0 72.0" data-name="m-phase winding, phases not interconnected" data-standard="48px">
   <title>m-phase winding, phases not interconnected</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 35.00 15.00 A 5.00 2.50 0 0 0 25.00 15.00" stroke="black" fill="none" />
-    <path d="M 35.00 15.00 A 5.00 2.50 0 0 0 45.00 15.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <text x="5.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">m</text>
-    <text x="15.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">m</text>
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 84.00 36.00 A 12.00 6.00 0 0 0 60.00 36.00" stroke="black" fill="none" />
+    <path d="M 84.00 36.00 A 12.00 6.00 0 0 0 108.00 36.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <text x="12.00" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">m</text>
+    <text x="36.00" y="48.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">m</text>
   </g>
 </svg>

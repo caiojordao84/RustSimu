@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="40.0" viewBox="-30.0 -12.0 80.0 40.0" data-name="Single acting cylinder - returned by spring">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="96.0" viewBox="-72.0 -28.8 192.0 96.0" data-name="Single acting cylinder - returned by spring" data-standard="48px">
   <title>Single acting cylinder - returned by spring</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-25,-10 35,-10 35,10 -25,10" stroke="black" fill="none" />
-    <line x1="-15.00" y1="0.00" x2="45.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="30.50" y1="-5.00" x2="34.75" y2="5.00" stroke="black" fill="none" />
-    <polyline points="-14.5,5 -9.5,-5 -4.5,5 0.5,-5 5.5,5 10.5,-5 15.5,5 20.5,-5 25.5,5 30.5,-5" stroke="black" fill="none" />
-    <line x1="-20.00" y1="10.00" x2="-20.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-10.00" x2="-15.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-60.00,-24.00 84.00,-24.00 84.00,24.00 -60.00,24.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="0.00" x2="108.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="73.20" y1="-12.00" x2="83.40" y2="12.00" stroke="black" fill="none" />
+    <polyline points="-34.80,12.00 -22.80,-12.00 -10.80,12.00 1.20,-12.00 13.20,12.00 25.20,-12.00 37.20,12.00 49.20,-12.00 61.20,12.00 73.20,-12.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="24.00" x2="-48.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-24.00" x2="-36.00" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-48.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

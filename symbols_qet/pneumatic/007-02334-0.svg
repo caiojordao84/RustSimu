@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-31.0 -30.0 60.0 60.0" data-name="pneumatic timer">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="144.0" viewBox="-74.4 -72.0 144.0 144.0" data-name="pneumatic timer" data-standard="48px">
   <title>pneumatic timer</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="12.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-14.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="13.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">t1</text>
-    <text x="-4.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <line x1="16.00" y1="5.00" x2="-17.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="-17.00" y1="2.00" x2="-17.00" y2="8.00" stroke="black" fill="none" />
-    <line x1="17.00" y1="2.00" x2="17.00" y2="8.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="9.00" x2="10.00" y2="-1.00" stroke="black" fill="none" />
-    <text x="-20.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">t0</text>
-    <rect x="-25.00" y="-15.00" width="50.00" height="30.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="28.80" y="48.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-33.60" y="48.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="31.20" y="-2.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">t1</text>
+    <text x="-9.60" y="-38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <line x1="38.40" y1="12.00" x2="-40.80" y2="12.00" stroke="black" fill="none" />
+    <line x1="-40.80" y1="4.80" x2="-40.80" y2="19.20" stroke="black" fill="none" />
+    <line x1="40.80" y1="4.80" x2="40.80" y2="19.20" stroke="black" fill="none" />
+    <line x1="-24.00" y1="21.60" x2="24.00" y2="-2.40" stroke="black" fill="none" />
+    <text x="-48.00" y="-2.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">t0</text>
+    <rect x="-60.00" y="-36.00" width="120.00" height="72.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

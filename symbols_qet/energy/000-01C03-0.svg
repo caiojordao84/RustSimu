@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-27.0 -16.0 40.0 40.0" data-name="Tap">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-64.8 -38.4 96.0 96.0" data-name="Tap" data-standard="48px">
   <title>Tap</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-11.26" y1="0.00" x2="5.28" y2="0.00" stroke="black" fill="none" />
-    <path d="M -11.50 0.00 A 8.50 8.50 0 0 0 -20.00 8.50" stroke="black" fill="none" />
-    <line x1="-7.00" y1="0.00" x2="-7.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-12.17" y1="-10.00" x2="-1.82" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-22.00" y1="11.00" x2="-24.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="-18.00" y1="11.00" x2="-15.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="11.00" x2="-20.00" y2="17.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="5.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-27.02" y1="0.00" x2="12.67" y2="0.00" stroke="black" fill="none" />
+    <path d="M -27.60 0.00 A 20.40 20.40 0 0 0 -48.00 20.40" stroke="black" fill="none" />
+    <line x1="-16.80" y1="0.00" x2="-16.80" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-29.21" y1="-24.00" x2="-4.37" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-52.80" y1="26.40" x2="-57.60" y2="40.80" stroke="black" fill="none" />
+    <line x1="-43.20" y1="26.40" x2="-36.00" y2="40.80" stroke="black" fill="none" />
+    <line x1="-48.00" y1="26.40" x2="-48.00" y2="40.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="12.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

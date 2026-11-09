@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="730.0" height="140.0" viewBox="-364.0 -76.0 730.0 140.0" data-name="EK1100">
+<svg xmlns="http://www.w3.org/2000/svg" width="438.0" height="84.0" viewBox="-218.4 -45.6 438.0 84.0" data-name="EK1100" data-standard="48px">
   <title>EK1100</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="120.00" y1="-66.00" x2="120.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-66.00" x2="-40.00" y2="-10.00" stroke="black" fill="none" />
-    <rect x="-360.00" y="-70.00" width="720.00" height="130.00" stroke="black" fill="none" />
-    <circle cx="120.00" cy="10.00" r="1.50" stroke="black" fill="black" />
-    <circle cx="280.00" cy="-70.00" r="2.50" stroke="black" fill="white" />
-    <text x="270.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power contact PE</text>
-    <line x1="40.00" y1="-66.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="200.00" y1="-66.00" x2="200.00" y2="30.00" stroke="black" fill="none" />
-    <circle cx="-40.00" cy="-70.00" r="2.50" stroke="black" fill="white" />
-    <line x1="-120.00" y1="-68.00" x2="-120.00" y2="-10.00" stroke="black" fill="none" />
-    <circle cx="-40.00" cy="-10.00" r="1.50" stroke="black" fill="black" />
-    <circle cx="200.00" cy="-45.00" r="1.50" stroke="black" fill="black" />
-    <text x="281.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <text x="-36.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <path d="M 355.00 -33.00 A 3.00 3.00 0 0 0 355.00 -27.00" stroke="green" fill="none" />
-    <line x1="200.00" y1="30.00" x2="360.00" y2="30.00" stroke="black" fill="white" />
-    <text x="-39.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V Up</text>
-    <text x="284.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <path d="M 362.50 27.50 A 2.50 2.50 0 0 0 362.50 32.50" stroke="black" fill="none" />
-    <circle cx="-200.00" cy="-70.00" r="2.50" stroke="black" fill="white" />
-    <text x="270.00" y="48.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">E-Bus: 2000mA</text>
-    <circle cx="40.00" cy="-70.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="200.00" cy="-70.00" r="2.50" stroke="black" fill="white" />
-    <text x="-196.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="-199.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V Us</text>
-    <circle cx="120.00" cy="-70.00" r="2.50" stroke="black" fill="white" />
-    <text x="204.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="270.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EtherCAT OUT</text>
-    <text x="201.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <text x="44.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="121.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V Up</text>
-    <text x="-260.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EK1100</text>
-    <text x="41.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V Up</text>
-    <text x="124.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <path d="M -355.00 -27.00 A 3.00 3.00 0 0 0 -355.00 -33.00" stroke="green" fill="none" />
-    <rect x="-362.00" y="-31.00" width="8.00" height="2.00" stroke="green" fill="#00aa00" />
-    <rect x="354.00" y="-31.00" width="8.00" height="2.00" stroke="green" fill="#00aa00" />
-    <text x="-349.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EtherCAT IN</text>
-    <circle cx="-120.00" cy="-70.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="-280.00" cy="-70.00" r="2.50" stroke="black" fill="white" />
-    <text x="270.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power contact +24V</text>
-    <text x="270.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Power contact 0V</text>
-    <line x1="40.00" y1="10.00" x2="360.00" y2="10.00" stroke="black" fill="white" />
-    <line x1="-120.00" y1="-10.00" x2="360.00" y2="-10.00" stroke="black" fill="white" />
-    <text x="-350.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">BECKHOFF</text>
-    <text x="-116.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-119.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V Up</text>
-    <text x="-276.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-280.00" y="-54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V Us</text>
-    <text x="-200.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EtherCAT Coupler</text>
-    <path d="M 362.50 -12.50 A 2.50 2.50 0 0 0 362.50 -7.50" stroke="black" fill="none" />
-    <path d="M 362.50 7.50 A 2.50 2.50 0 0 0 362.50 12.50" stroke="black" fill="none" />
-    <line x1="280.00" y1="-70.00" x2="280.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="200.00" y1="-45.00" x2="280.00" y2="-45.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="40.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
-    <circle class="qet-terminal" cx="-40.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="6" data-orientation="n" />
-    <circle class="qet-terminal" cx="360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="280.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="8" data-orientation="n" />
-    <circle class="qet-terminal" cx="-280.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
-    <circle class="qet-terminal" cx="-120.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-360.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="EtherCAT IN" data-orientation="w" />
-    <circle class="qet-terminal" cx="200.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="n" />
-    <circle class="qet-terminal" cx="360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="-200.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="n" />
-    <circle class="qet-terminal" cx="360.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="Pow.PE.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="120.00" cy="-70.00" r="1.8" fill="red" stroke="none" data-name="7" data-orientation="n" />
-    <circle class="qet-terminal" cx="360.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="EtherCAT OUT" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="72.00" y1="-39.60" x2="72.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-39.60" x2="-24.00" y2="-6.00" stroke="black" fill="none" />
+    <rect x="-216.00" y="-42.00" width="432.00" height="78.00" stroke="black" fill="none" />
+    <circle cx="72.00" cy="6.00" r="0.90" stroke="black" fill="black" />
+    <circle cx="168.00" cy="-42.00" r="1.50" stroke="black" fill="white" />
+    <text x="162.00" y="17.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Power contact PE</text>
+    <line x1="24.00" y1="-39.60" x2="24.00" y2="6.00" stroke="black" fill="none" />
+    <line x1="120.00" y1="-39.60" x2="120.00" y2="18.00" stroke="black" fill="none" />
+    <circle cx="-24.00" cy="-42.00" r="1.50" stroke="black" fill="white" />
+    <line x1="-72.00" y1="-40.80" x2="-72.00" y2="-6.00" stroke="black" fill="none" />
+    <circle cx="-24.00" cy="-6.00" r="0.90" stroke="black" fill="black" />
+    <circle cx="120.00" cy="-27.00" r="0.90" stroke="black" fill="black" />
+    <text x="168.60" y="-32.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-21.60" y="-43.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <path d="M 213.00 -19.80 A 1.80 1.80 0 0 0 213.00 -16.20" stroke="green" fill="none" />
+    <line x1="120.00" y1="18.00" x2="216.00" y2="18.00" stroke="black" fill="white" />
+    <text x="-23.40" y="-32.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">+24V Up</text>
+    <text x="170.40" y="-43.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <path d="M 217.50 16.50 A 1.50 1.50 0 0 0 217.50 19.50" stroke="black" fill="none" />
+    <circle cx="-120.00" cy="-42.00" r="1.50" stroke="black" fill="white" />
+    <text x="162.00" y="28.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">E-Bus: 2000mA</text>
+    <circle cx="24.00" cy="-42.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="120.00" cy="-42.00" r="1.50" stroke="black" fill="white" />
+    <text x="-117.60" y="-43.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="-119.40" y="-32.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">0V Us</text>
+    <circle cx="72.00" cy="-42.00" r="1.50" stroke="black" fill="white" />
+    <text x="122.40" y="-43.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="162.00" y="-16.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">EtherCAT OUT</text>
+    <text x="120.60" y="-32.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="26.40" y="-43.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="72.60" y="-32.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">0V Up</text>
+    <text x="-156.00" y="20.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">EK1100</text>
+    <text x="24.60" y="-32.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">0V Up</text>
+    <text x="74.40" y="-43.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <path d="M -213.00 -16.20 A 1.80 1.80 0 0 0 -213.00 -19.80" stroke="green" fill="none" />
+    <rect x="-217.20" y="-18.60" width="4.80" height="1.20" stroke="green" fill="#00aa00" />
+    <rect x="212.40" y="-18.60" width="4.80" height="1.20" stroke="green" fill="#00aa00" />
+    <text x="-209.40" y="-16.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">EtherCAT IN</text>
+    <circle cx="-72.00" cy="-42.00" r="1.50" stroke="black" fill="white" />
+    <circle cx="-168.00" cy="-42.00" r="1.50" stroke="black" fill="white" />
+    <text x="162.00" y="-6.60" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Power contact +24V</text>
+    <text x="162.00" y="5.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">Power contact 0V</text>
+    <line x1="24.00" y1="6.00" x2="216.00" y2="6.00" stroke="black" fill="white" />
+    <line x1="-72.00" y1="-6.00" x2="216.00" y2="-6.00" stroke="black" fill="white" />
+    <text x="-210.00" y="20.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">BECKHOFF</text>
+    <text x="-69.60" y="-43.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-71.40" y="-32.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">+24V Up</text>
+    <text x="-165.60" y="-43.20" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-168.00" y="-32.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">+24V Us</text>
+    <text x="-120.00" y="20.40" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">EtherCAT Coupler</text>
+    <path d="M 217.50 -7.50 A 1.50 1.50 0 0 0 217.50 -4.50" stroke="black" fill="none" />
+    <path d="M 217.50 4.50 A 1.50 1.50 0 0 0 217.50 7.50" stroke="black" fill="none" />
+    <line x1="168.00" y1="-42.00" x2="168.00" y2="-27.00" stroke="black" fill="none" />
+    <line x1="120.00" y1="-27.00" x2="168.00" y2="-27.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-42.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-42.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="168.00" cy="-42.00" r="4.0" fill="red" stroke="none" data-name="8" data-orientation="n" />
+    <circle class="qet-terminal" cx="-168.00" cy="-42.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="-42.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-216.00" cy="-18.00" r="4.0" fill="red" stroke="none" data-name="EtherCAT IN" data-orientation="w" />
+    <circle class="qet-terminal" cx="120.00" cy="-42.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="-120.00" cy="-42.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="18.00" r="4.0" fill="red" stroke="none" data-name="Pow.PE.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="72.00" cy="-42.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="n" />
+    <circle class="qet-terminal" cx="216.00" cy="-18.00" r="4.0" fill="red" stroke="none" data-name="EtherCAT OUT" data-orientation="e" />
   </g>
 </svg>

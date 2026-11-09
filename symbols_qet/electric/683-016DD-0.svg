@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="250.0" viewBox="-107.0 -220.0 130.0 250.0" data-name="Solion tetrode">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="600.0" viewBox="-256.8 -528.0 312.0 600.0" data-name="Solion tetrode" data-standard="48px">
   <title>Solion tetrode</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-40.00" y1="-80.00" x2="-45.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-55.00" y1="-80.00" x2="-60.00" y2="-60.00" stroke="black" fill="none" />
-    <path d="M -80.00 -40.00 A 40.00 40.00 0 0 0 0.00 -40.00" stroke="black" fill="none" />
-    <line x1="-25.00" y1="-80.00" x2="-30.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-40.00" x2="0.00" y2="-160.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-40.00" x2="-80.00" y2="-160.00" stroke="black" fill="none" />
-    <path d="M 0.00 -160.00 A 40.00 40.00 0 0 0 -80.00 -160.00" stroke="black" fill="none" />
-    <polyline points="-55,-170 -55,-180 -25,-180 -25,-195" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-210.00" x2="-40.00" y2="-160.00" stroke="black" fill="none" />
-    <line x1="-55.00" y1="-160.00" x2="-25.00" y2="-160.00" stroke="black" fill="none" />
-    <ellipse cx="-40.00" cy="-150.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="10.00" x2="-40.00" y2="-20.00" stroke="black" fill="none" />
-    <line x1="-25.00" y1="-20.00" x2="-55.00" y2="-20.00" stroke="black" fill="none" />
-    <ellipse cx="-40.00" cy="-30.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <path d="M -70.00 -135.00 A 5.00 5.00 0 0 0 -60.00 -135.00" stroke="black" fill="none" />
-    <path d="M -60.00 -135.00 A 5.00 5.00 0 0 0 -50.00 -135.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="-120.00" x2="-45.00" y2="-100.00" stroke="black" fill="none" />
-    <line x1="-55.00" y1="-120.00" x2="-60.00" y2="-100.00" stroke="black" fill="none" />
-    <line x1="-25.00" y1="-120.00" x2="-30.00" y2="-100.00" stroke="black" fill="none" />
-    <line x1="-100.00" y1="-110.00" x2="-58.00" y2="-110.00" stroke="black" fill="none" />
-    <line x1="-28.00" y1="-70.00" x2="20.00" y2="-70.00" stroke="black" fill="none" />
-    <text x="-95.00" y="-115.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">G</text>
-    <text x="10.00" y="-75.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">O</text>
-    <text x="-50.00" y="-205.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">I</text>
-    <text x="-50.00" y="15.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">C</text>
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-96.00" y1="-192.00" x2="-108.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="-132.00" y1="-192.00" x2="-144.00" y2="-144.00" stroke="black" fill="none" />
+    <path d="M -192.00 -96.00 A 96.00 96.00 0 0 0 0.00 -96.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="-192.00" x2="-72.00" y2="-144.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-96.00" x2="0.00" y2="-384.00" stroke="black" fill="none" />
+    <line x1="-192.00" y1="-96.00" x2="-192.00" y2="-384.00" stroke="black" fill="none" />
+    <path d="M 0.00 -384.00 A 96.00 96.00 0 0 0 -192.00 -384.00" stroke="black" fill="none" />
+    <polyline points="-132.00,-408.00 -132.00,-432.00 -60.00,-432.00 -60.00,-468.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-504.00" x2="-96.00" y2="-384.00" stroke="black" fill="none" />
+    <line x1="-132.00" y1="-384.00" x2="-60.00" y2="-384.00" stroke="black" fill="none" />
+    <ellipse cx="-96.00" cy="-360.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="24.00" x2="-96.00" y2="-48.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="-48.00" x2="-132.00" y2="-48.00" stroke="black" fill="none" />
+    <ellipse cx="-96.00" cy="-72.00" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <path d="M -168.00 -324.00 A 12.00 12.00 0 0 0 -144.00 -324.00" stroke="black" fill="none" />
+    <path d="M -144.00 -324.00 A 12.00 12.00 0 0 0 -120.00 -324.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="-288.00" x2="-108.00" y2="-240.00" stroke="black" fill="none" />
+    <line x1="-132.00" y1="-288.00" x2="-144.00" y2="-240.00" stroke="black" fill="none" />
+    <line x1="-60.00" y1="-288.00" x2="-72.00" y2="-240.00" stroke="black" fill="none" />
+    <line x1="-240.00" y1="-264.00" x2="-139.20" y2="-264.00" stroke="black" fill="none" />
+    <line x1="-67.20" y1="-168.00" x2="48.00" y2="-168.00" stroke="black" fill="none" />
+    <text x="-228.00" y="-276.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">G</text>
+    <text x="24.00" y="-180.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">O</text>
+    <text x="-120.00" y="-492.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">I</text>
+    <text x="-120.00" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">C</text>
   </g>
 </svg>

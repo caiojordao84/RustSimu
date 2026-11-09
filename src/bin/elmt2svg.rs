@@ -176,17 +176,78 @@ pub fn convert_elmt_file(
     let svg_filename = format!("{}.svg", unique_stem);
     let out_file_path = output_dir.join(&svg_filename);
 
-    let min_x = -hotspot_x;
-    let min_y = -hotspot_y;
+    // Determina o fator de escala beta para padronizar com a grade rígida de 48 px (4 mm a 300 DPI)
+    let mut raw_terms: Vec<(f64, f64)> = Vec::new();
+    if let Some(desc) = root
+        .children()
+        .find(|n| n.tag_name().name() == "description")
+    {
+        for child in desc
+            .children()
+            .filter(|c| c.tag_name().name() == "terminal")
+        {
+            let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
+            let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
+            raw_terms.push((x, y));
+        }
+    }
+
+    let mut beta = 2.4f64; // Escala padrão QET (20 px * 2.4 = 48 px a 300 DPI)
+    if raw_terms.len() >= 2 {
+        let mut min_dx = f64::MAX;
+        for i in 0..raw_terms.len() {
+            for j in (i + 1)..raw_terms.len() {
+                if (raw_terms[i].1 - raw_terms[j].1).abs() <= 2.5 {
+                    let dx = (raw_terms[i].0 - raw_terms[j].0).abs();
+                    if dx >= 5.0 && dx < min_dx {
+                        min_dx = dx;
+                    }
+                }
+            }
+        }
+        if (15.0..1e7).contains(&min_dx) {
+            beta = 48.0 / min_dx;
+        } else {
+            let mut min_dy = f64::MAX;
+            for i in 0..raw_terms.len() {
+                for j in (i + 1)..raw_terms.len() {
+                    if (raw_terms[i].0 - raw_terms[j].0).abs() <= 2.5 {
+                        let dy = (raw_terms[i].1 - raw_terms[j].1).abs();
+                        if dy >= 8.0 && dy < min_dy {
+                            min_dy = dy;
+                        }
+                    }
+                }
+            }
+            if min_dy < 1e7 {
+                if (min_dy - 20.0).abs() <= 3.0 {
+                    beta = 48.0 / 20.0;
+                } else if (min_dy - 40.0).abs() <= 3.0 {
+                    beta = 48.0 / 40.0;
+                } else if (min_dy - 60.0).abs() <= 3.0 {
+                    beta = 48.0 / 20.0;
+                } else if (min_dy - 80.0).abs() <= 3.0 {
+                    beta = 48.0 / 40.0;
+                } else if min_dy >= 15.0 {
+                    beta = 48.0 / min_dy;
+                }
+            }
+        }
+    }
+
+    let scaled_w = width * beta;
+    let scaled_h = height * beta;
+    let scaled_min_x = -hotspot_x * beta;
+    let scaled_min_y = -hotspot_y * beta;
 
     let mut svg = String::new();
     svg.push_str("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
     svg.push_str(&format!(
-        "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{:.1}\" height=\"{:.1}\" viewBox=\"{:.1} {:.1} {:.1} {:.1}\" data-name=\"{}\">\n",
-        width, height, min_x, min_y, width, height, final_name_en
+        "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{:.1}\" height=\"{:.1}\" viewBox=\"{:.1} {:.1} {:.1} {:.1}\" data-name=\"{}\" data-standard=\"48px\">\n",
+        scaled_w, scaled_h, scaled_min_x, scaled_min_y, scaled_w, scaled_h, final_name_en
     ));
     svg.push_str(&format!("  <title>{}</title>\n", final_name_en));
-    svg.push_str("  <g stroke=\"black\" stroke-width=\"1.5\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n");
+    svg.push_str("  <g stroke=\"black\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n");
 
     let mut terminals = Vec::new();
 
@@ -208,46 +269,54 @@ pub fn convert_elmt_file(
 
             match child.tag_name().name() {
                 "line" => {
-                    let x1: f64 = child.attribute("x1").unwrap_or("0").parse().unwrap_or(0.0);
-                    let y1: f64 = child.attribute("y1").unwrap_or("0").parse().unwrap_or(0.0);
-                    let x2: f64 = child.attribute("x2").unwrap_or("0").parse().unwrap_or(0.0);
-                    let y2: f64 = child.attribute("y2").unwrap_or("0").parse().unwrap_or(0.0);
+                    let x1: f64 =
+                        child.attribute("x1").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let y1: f64 =
+                        child.attribute("y1").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let x2: f64 =
+                        child.attribute("x2").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let y2: f64 =
+                        child.attribute("y2").unwrap_or("0").parse().unwrap_or(0.0) * beta;
                     svg.push_str(&format!(
                         "    <line x1=\"{:.2}\" y1=\"{:.2}\" x2=\"{:.2}\" y2=\"{:.2}\" stroke=\"{}\" fill=\"{}\"{} />\n",
                         x1, y1, x2, y2, stroke, fill, dash_attr
                     ));
                 }
                 "rect" => {
-                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
-                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
+                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0) * beta;
                     let w: f64 = child
                         .attribute("width")
                         .unwrap_or("0")
                         .parse()
-                        .unwrap_or(0.0);
+                        .unwrap_or(0.0)
+                        * beta;
                     let h: f64 = child
                         .attribute("height")
                         .unwrap_or("0")
                         .parse()
-                        .unwrap_or(0.0);
+                        .unwrap_or(0.0)
+                        * beta;
                     svg.push_str(&format!(
                         "    <rect x=\"{:.2}\" y=\"{:.2}\" width=\"{:.2}\" height=\"{:.2}\" stroke=\"{}\" fill=\"{}\"{} />\n",
                         x, y, w, h, stroke, fill, dash_attr
                     ));
                 }
                 "ellipse" => {
-                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
-                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
+                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0) * beta;
                     let w: f64 = child
                         .attribute("width")
                         .unwrap_or("0")
                         .parse()
-                        .unwrap_or(0.0);
+                        .unwrap_or(0.0)
+                        * beta;
                     let h: f64 = child
                         .attribute("height")
                         .unwrap_or("0")
                         .parse()
-                        .unwrap_or(0.0);
+                        .unwrap_or(0.0)
+                        * beta;
                     let rx = w / 2.0;
                     let ry = h / 2.0;
                     let cx = x + rx;
@@ -258,13 +327,14 @@ pub fn convert_elmt_file(
                     ));
                 }
                 "circle" => {
-                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
-                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
+                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0) * beta;
                     let diameter: f64 = child
                         .attribute("diameter")
                         .unwrap_or("0")
                         .parse()
-                        .unwrap_or(0.0);
+                        .unwrap_or(0.0)
+                        * beta;
                     let r = diameter / 2.0;
                     let cx = x + r;
                     let cy = y + r;
@@ -280,7 +350,9 @@ pub fn convert_elmt_file(
                         child.attribute(format!("x{}", i).as_str()),
                         child.attribute(format!("y{}", i).as_str()),
                     ) {
-                        points.push(format!("{},{}", x, y));
+                        let px: f64 = x.parse().unwrap_or(0.0) * beta;
+                        let py: f64 = y.parse().unwrap_or(0.0) * beta;
+                        points.push(format!("{:.2},{:.2}", px, py));
                         i += 1;
                     }
                     let is_closed = child.attribute("closed").unwrap_or("true") == "true";
@@ -305,18 +377,20 @@ pub fn convert_elmt_file(
                     }
                 }
                 "arc" => {
-                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
-                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
+                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0) * beta;
                     let w: f64 = child
                         .attribute("width")
                         .unwrap_or("0")
                         .parse()
-                        .unwrap_or(0.0);
+                        .unwrap_or(0.0)
+                        * beta;
                     let h: f64 = child
                         .attribute("height")
                         .unwrap_or("0")
                         .parse()
-                        .unwrap_or(0.0);
+                        .unwrap_or(0.0)
+                        * beta;
                     let start: f64 = child
                         .attribute("start")
                         .unwrap_or("0")
@@ -334,8 +408,8 @@ pub fn convert_elmt_file(
                     ));
                 }
                 "dynamic_text" | "text" => {
-                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
-                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
+                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0) * beta;
                     let rotation: f64 = child
                         .attribute("rotation")
                         .and_then(|r| r.parse().ok())
@@ -349,7 +423,8 @@ pub fn convert_elmt_file(
                                 .and_then(|f| f.split(',').nth(1))
                                 .and_then(|s| s.trim().parse().ok())
                         })
-                        .unwrap_or(7.0);
+                        .unwrap_or(7.0)
+                        * beta;
 
                     let mut text_str = child.attribute("text").unwrap_or("").to_string();
                     if text_str.is_empty() {
@@ -377,7 +452,7 @@ pub fn convert_elmt_file(
                         };
                         svg.push_str(&format!(
                             "    <text x=\"{:.2}\" y=\"{:.2}\" font-size=\"{:.1}\" font-family=\"sans-serif\" fill=\"black\" stroke=\"none\"{}>{}</text>\n",
-                            x, y, size, transform_attr, escaped
+                            x, y, size.min(20.0), transform_attr, escaped
                         ));
                     }
                 }
@@ -385,8 +460,8 @@ pub fn convert_elmt_file(
                     if is_plc_element(&unique_stem, category, &final_name_en) {
                         continue;
                     }
-                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0);
-                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0);
+                    let x: f64 = child.attribute("x").unwrap_or("0").parse().unwrap_or(0.0) * beta;
+                    let y: f64 = child.attribute("y").unwrap_or("0").parse().unwrap_or(0.0) * beta;
                     let name = child.attribute("name").unwrap_or("").to_string();
                     let orientation = child.attribute("orientation").unwrap_or("n").to_string();
 
@@ -398,7 +473,7 @@ pub fn convert_elmt_file(
                     });
 
                     svg.push_str(&format!(
-                        "    <circle class=\"qet-terminal\" cx=\"{:.2}\" cy=\"{:.2}\" r=\"1.8\" fill=\"red\" stroke=\"none\" data-name=\"{}\" data-orientation=\"{}\" />\n",
+                        "    <circle class=\"qet-terminal\" cx=\"{:.2}\" cy=\"{:.2}\" r=\"4.0\" fill=\"red\" stroke=\"none\" data-name=\"{}\" data-orientation=\"{}\" />\n",
                         x, y, name, orientation
                     ));
                 }
@@ -419,10 +494,10 @@ pub fn convert_elmt_file(
         name_pt,
         category: category.to_string(),
         svg_file: svg_filename,
-        width,
-        height,
-        hotspot_x,
-        hotspot_y,
+        width: scaled_w,
+        height: scaled_h,
+        hotspot_x: hotspot_x * beta,
+        hotspot_y: hotspot_y * beta,
         terminals,
         source: Some("qet".to_string()),
         state: None,

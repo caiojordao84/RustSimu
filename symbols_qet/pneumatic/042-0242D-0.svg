@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="40.0" viewBox="-15.0 -10.0 70.0 40.0" data-name="Diaphragm actuator">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="96.0" viewBox="-36.0 -24.0 168.0 96.0" data-name="Diaphragm actuator" data-standard="48px">
   <title>Diaphragm actuator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="50.00" y1="15.00" x2="50.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="15.00" x2="-10.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-5.00" x2="40.00" y2="-5.00" stroke="black" fill="none" />
-    <path d="M 40.00 15.00 A 10.00 10.00 0 0 0 40.00 -5.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="15.00" x2="50.00" y2="15.00" stroke="black" fill="none" />
-    <path d="M 0.00 -5.00 A 10.00 10.00 0 0 0 -0.00 15.00" stroke="black" fill="none" />
-    <polygon points="18,15 22,15 20,11" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="120.00" y1="36.00" x2="120.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="36.00" x2="-24.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-12.00" x2="96.00" y2="-12.00" stroke="black" fill="none" />
+    <path d="M 96.00 36.00 A 24.00 24.00 0 0 0 96.00 -12.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="36.00" x2="120.00" y2="36.00" stroke="black" fill="none" />
+    <path d="M 0.00 -12.00 A 24.00 24.00 0 0 0 -0.00 36.00" stroke="black" fill="none" />
+    <polygon points="43.20,36.00 52.80,36.00 48.00,26.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="48.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

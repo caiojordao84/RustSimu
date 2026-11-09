@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-15.0 -20.0 30.0 50.0" data-name="Water heater">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="120.0" viewBox="-36.0 -48.0 72.0 120.0" data-name="Water heater" data-standard="48px">
   <title>Water heater</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -10.00 23.00 A 10.00 3.00 0 0 0 10.00 23.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-13.00" x2="0.00" y2="-1.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="2.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <path d="M 10.00 2.00 A 10.00 3.00 0 0 0 -10.00 2.00" stroke="black" fill="none" />
-    <rect x="-3.00" y="26.00" width="6.00" height="2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-13.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -24.00 55.20 A 24.00 7.20 0 0 0 24.00 55.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-31.20" x2="0.00" y2="-2.40" stroke="black" fill="none" />
+    <rect x="-24.00" y="4.80" width="48.00" height="48.00" stroke="black" fill="none" />
+    <path d="M 24.00 4.80 A 24.00 7.20 0 0 0 -24.00 4.80" stroke="black" fill="none" />
+    <rect x="-7.20" y="62.40" width="14.40" height="4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-31.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

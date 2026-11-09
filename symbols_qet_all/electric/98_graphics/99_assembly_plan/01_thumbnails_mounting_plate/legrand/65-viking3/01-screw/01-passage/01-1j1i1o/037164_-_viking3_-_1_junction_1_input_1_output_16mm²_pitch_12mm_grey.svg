@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="150.0" viewBox="-6.0 -11.0 40.0 150.0" data-name="037164 - Viking3 - 1 junction 1 input 1 output 16mm² pitch 12mm Grey">
+<svg xmlns="http://www.w3.org/2000/svg" width="15.0" height="56.2" viewBox="-2.2 -4.1 15.0 56.2" data-name="037164 - Viking3 - 1 junction 1 input 1 output 16mm² pitch 12mm Grey" data-standard="48px">
   <title>037164 - Viking3 - 1 junction 1 input 1 output 16mm² pitch 12mm Grey</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="27.00" height="128.00" stroke="black" fill="#dcdcdc" />
-    <rect x="0.00" y="8.50" width="27.00" height="111.00" stroke="black" fill="#dcdcdc" />
-    <rect x="0.00" y="57.00" width="27.00" height="13.00" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="13.50" cy="60.00" rx="2.00" ry="2.00" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="13.50" cy="65.00" rx="2.00" ry="2.00" stroke="black" fill="#dcdcdc" />
-    <ellipse cx="13.50" cy="74.00" rx="3.00" ry="3.00" stroke="black" fill="gray" />
-    <polygon points="11.3,75.8 15.3,71.8 15.8,72.3 11.8,76.3" stroke="black" fill="gray" />
-    <ellipse cx="13.50" cy="51.00" rx="3.00" ry="3.00" stroke="black" fill="gray" />
-    <polygon points="11.3,52.8 15.3,48.8 15.8,49.3 11.8,53.3" stroke="black" fill="gray" />
-    <circle class="qet-terminal" cx="14.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="14.00" cy="128.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="10.12" height="48.00" stroke="black" fill="#dcdcdc" />
+    <rect x="0.00" y="3.19" width="10.12" height="41.62" stroke="black" fill="#dcdcdc" />
+    <rect x="0.00" y="21.38" width="10.12" height="4.88" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="5.06" cy="22.50" rx="0.75" ry="0.75" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="5.06" cy="24.38" rx="0.75" ry="0.75" stroke="black" fill="#dcdcdc" />
+    <ellipse cx="5.06" cy="27.75" rx="1.12" ry="1.12" stroke="black" fill="gray" />
+    <polygon points="4.24,28.42 5.74,26.92 5.93,27.11 4.43,28.61" stroke="black" fill="gray" />
+    <ellipse cx="5.06" cy="19.12" rx="1.12" ry="1.12" stroke="black" fill="gray" />
+    <polygon points="4.24,19.80 5.74,18.30 5.93,18.49 4.43,19.99" stroke="black" fill="gray" />
+    <circle class="qet-terminal" cx="5.25" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="5.25" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

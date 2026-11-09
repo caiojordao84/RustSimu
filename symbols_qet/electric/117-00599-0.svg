@@ -1,126 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="140.0" height="150.0" viewBox="-64.0 -69.0 140.0 150.0" data-name="WEMOS D1">
+<svg xmlns="http://www.w3.org/2000/svg" width="56.5" height="60.5" viewBox="-25.8 -27.8 56.5 60.5" data-name="WEMOS D1" data-standard="48px">
   <title>WEMOS D1</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-25.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LED</text>
-    <text x="-44.00" y="-31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GPIO</text>
-    <text x="21.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Antenne SMA</text>
-    <text x="-43.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3V3</text>
-    <text x="-53.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D8</text>
-    <text x="-53.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D6</text>
-    <text x="-25.00" y="-20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Antenne céramique</text>
-    <text x="-53.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A0</text>
-    <text x="26.00" y="58.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SLEEP</text>
-    <text x="-53.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D0</text>
-    <text x="-53.00" y="44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3V3</text>
-    <text x="58.00" y="44.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5V</text>
-    <text x="-53.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D7</text>
-    <text x="44.00" y="-31.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GPIO</text>
-    <text x="-53.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D5</text>
-    <text x="49.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5V</text>
-    <text x="50.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">5</text>
-    <text x="-43.00" y="-4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">16</text>
-    <text x="58.00" y="-6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D1</text>
-    <ellipse cx="-39.00" cy="-57.00" rx="3.00" ry="3.00" stroke="black" fill="black" />
-    <text x="48.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RXD</text>
-    <text x="58.00" y="-16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RX</text>
-    <text x="-43.00" y="-14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">A0</text>
-    <text x="58.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D3</text>
-    <text x="50.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
-    <text x="-43.00" y="16.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12</text>
-    <ellipse cx="50.00" cy="65.00" rx="3.00" ry="3.00" stroke="black" fill="black" />
-    <text x="57.00" y="34.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="46.00" y="36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="-43.00" y="36.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">15</text>
-    <text x="50.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="58.00" y="4.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D2</text>
-    <text x="-43.00" y="6.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">14</text>
-    <text x="-53.00" y="-25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RST</text>
-    <text x="58.00" y="24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">D4</text>
-    <text x="-43.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">13</text>
-    <text x="50.00" y="26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="48.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TXD</text>
-    <text x="-43.00" y="-24.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RST</text>
-    <text x="-43.00" y="61.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RESET</text>
-    <text x="58.00" y="-25.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">TX</text>
-    <rect x="46.00" y="-30.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="-30.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="56.00" y="-30.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="-20.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="46.00" y="-20.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="-10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="56.00" y="-20.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="46.00" y="-10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="56.00" y="-10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="46.00" y="0.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="0.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="56.00" y="0.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="46.00" y="10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="46.00" y="20.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="56.00" y="10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="20.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="30.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="56.00" y="20.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="46.00" y="30.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="46.00" y="40.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-45.00" y="40.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <line x1="56.00" y1="70.00" x2="56.00" y2="-63.00" stroke="black" fill="none" />
-    <rect x="56.00" y="30.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="56.00" y="40.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <line x1="-45.00" y1="-63.00" x2="-45.00" y2="70.00" stroke="black" fill="none" />
-    <line x1="-45.00" y1="70.00" x2="56.00" y2="70.00" stroke="black" fill="none" />
-    <rect x="-15.00" y="50.00" width="35.00" height="20.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="-30.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="-20.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="-10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="0.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="10.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="20.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="30.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-55.00" y="40.00" width="10.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-50.00" y="53.00" width="5.00" height="12.00" stroke="black" fill="none" />
-    <rect x="-53.00" y="56.00" width="3.00" height="5.00" stroke="black" fill="black" />
-    <rect x="-52.00" y="58.00" width="0.00" height="1.00" stroke="black" fill="black" />
-    <line x1="-30.00" y1="-60.00" x2="-30.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-60.00" x2="-20.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-60.00" x2="-20.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-50.00" x2="-10.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-60.00" x2="-10.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-60.00" x2="0.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-60.00" x2="0.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-50.00" x2="10.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-50.00" x2="10.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-60.00" x2="20.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-60.00" x2="20.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-50.00" x2="30.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-50.00" x2="30.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="30.00" y1="-60.00" x2="40.00" y2="-60.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="-60.00" x2="40.00" y2="-40.00" stroke="black" fill="none" />
-    <line x1="-45.00" y1="-63.00" x2="55.00" y2="-63.00" stroke="black" fill="none" />
-    <rect x="-30.00" y="43.00" width="4.00" height="10.00" stroke="#0055d4" fill="#0055d4" />
-    <rect x="27.00" y="45.00" width="3.00" height="9.00" stroke="black" fill="black" />
-    <rect x="33.00" y="45.00" width="3.00" height="9.00" stroke="black" fill="black" />
-    <ellipse cx="34.00" cy="-24.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <ellipse cx="34.00" cy="-24.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <rect x="-18.00" y="-34.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-16.00" y="-32.00" width="16.00" height="6.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="2.00" cy="69.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-54.00" cy="-24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-54.00" cy="6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-54.00" cy="36.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-54.00" cy="16.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-54.00" cy="26.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-54.00" cy="-14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-54.00" cy="46.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-54.00" cy="-4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="65.00" cy="36.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="65.00" cy="-24.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="66.00" cy="26.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="65.00" cy="16.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="65.00" cy="46.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="65.00" cy="6.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="65.00" cy="-14.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="65.00" cy="-4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-10.08" y="18.15" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">LED</text>
+    <text x="-17.75" y="-12.50" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">GPIO</text>
+    <text x="8.47" y="-6.45" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">Antenne SMA</text>
+    <text x="-17.34" y="18.55" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">3V3</text>
+    <text x="-21.38" y="13.71" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D8</text>
+    <text x="-21.38" y="5.65" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D6</text>
+    <text x="-10.08" y="-8.07" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">Antenne céramique</text>
+    <text x="-21.38" y="-6.45" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">A0</text>
+    <text x="10.49" y="23.39" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">SLEEP</text>
+    <text x="-21.38" y="-2.42" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D0</text>
+    <text x="-21.38" y="17.75" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">3V3</text>
+    <text x="23.39" y="17.75" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">5V</text>
+    <text x="-21.38" y="9.68" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D7</text>
+    <text x="17.75" y="-12.50" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">GPIO</text>
+    <text x="-21.38" y="1.61" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D5</text>
+    <text x="19.76" y="18.55" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">5V</text>
+    <text x="20.17" y="-1.61" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">5</text>
+    <text x="-17.34" y="-1.61" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">16</text>
+    <text x="23.39" y="-2.42" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D1</text>
+    <ellipse cx="-15.73" cy="-22.99" rx="1.21" ry="1.21" stroke="black" fill="black" />
+    <text x="19.36" y="-5.65" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">RXD</text>
+    <text x="23.39" y="-6.45" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">RX</text>
+    <text x="-17.34" y="-5.65" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">A0</text>
+    <text x="23.39" y="5.65" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D3</text>
+    <text x="20.17" y="6.45" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <text x="-17.34" y="6.45" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">12</text>
+    <ellipse cx="20.17" cy="26.22" rx="1.21" ry="1.21" stroke="black" fill="black" />
+    <text x="22.99" y="13.71" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="18.55" y="14.52" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="-17.34" y="14.52" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">15</text>
+    <text x="20.17" y="2.42" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="23.39" y="1.61" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D2</text>
+    <text x="-17.34" y="2.42" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">14</text>
+    <text x="-21.38" y="-10.08" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">RST</text>
+    <text x="23.39" y="9.68" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">D4</text>
+    <text x="-17.34" y="10.49" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">13</text>
+    <text x="20.17" y="10.49" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="19.36" y="-9.68" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">TXD</text>
+    <text x="-17.34" y="-9.68" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">RST</text>
+    <text x="-17.34" y="24.61" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">RESET</text>
+    <text x="23.39" y="-10.08" font-size="3.6" font-family="sans-serif" fill="black" stroke="none">TX</text>
+    <rect x="18.55" y="-12.10" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-18.15" y="-12.10" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="22.59" y="-12.10" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-18.15" y="-8.07" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="18.55" y="-8.07" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-18.15" y="-4.03" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="22.59" y="-8.07" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="18.55" y="-4.03" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="22.59" y="-4.03" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="18.55" y="0.00" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-18.15" y="0.00" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="22.59" y="0.00" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-18.15" y="4.03" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="18.55" y="4.03" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="18.55" y="8.07" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="22.59" y="4.03" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-18.15" y="8.07" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-18.15" y="12.10" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="22.59" y="8.07" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="18.55" y="12.10" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="18.55" y="16.13" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-18.15" y="16.13" width="4.03" height="4.03" stroke="black" fill="none" />
+    <line x1="22.59" y1="28.24" x2="22.59" y2="-25.41" stroke="black" fill="none" />
+    <rect x="22.59" y="12.10" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="22.59" y="16.13" width="4.03" height="4.03" stroke="black" fill="none" />
+    <line x1="-18.15" y1="-25.41" x2="-18.15" y2="28.24" stroke="black" fill="none" />
+    <line x1="-18.15" y1="28.24" x2="22.59" y2="28.24" stroke="black" fill="none" />
+    <rect x="-6.05" y="20.17" width="14.12" height="8.07" stroke="black" fill="none" />
+    <rect x="-22.18" y="-12.10" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-22.18" y="-8.07" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-22.18" y="-4.03" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-22.18" y="0.00" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-22.18" y="4.03" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-22.18" y="8.07" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-22.18" y="12.10" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-22.18" y="16.13" width="4.03" height="4.03" stroke="black" fill="none" />
+    <rect x="-20.17" y="21.38" width="2.02" height="4.84" stroke="black" fill="none" />
+    <rect x="-21.38" y="22.59" width="1.21" height="2.02" stroke="black" fill="black" />
+    <rect x="-20.97" y="23.39" width="0.00" height="0.40" stroke="black" fill="black" />
+    <line x1="-12.10" y1="-24.20" x2="-12.10" y2="-18.15" stroke="black" fill="none" />
+    <line x1="-12.10" y1="-24.20" x2="-8.07" y2="-24.20" stroke="black" fill="none" />
+    <line x1="-8.07" y1="-24.20" x2="-8.07" y2="-20.17" stroke="black" fill="none" />
+    <line x1="-8.07" y1="-20.17" x2="-4.03" y2="-20.17" stroke="black" fill="none" />
+    <line x1="-4.03" y1="-24.20" x2="-4.03" y2="-20.17" stroke="black" fill="none" />
+    <line x1="-4.03" y1="-24.20" x2="0.00" y2="-24.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.20" x2="0.00" y2="-20.17" stroke="black" fill="none" />
+    <line x1="0.00" y1="-20.17" x2="4.03" y2="-20.17" stroke="black" fill="none" />
+    <line x1="4.03" y1="-20.17" x2="4.03" y2="-24.20" stroke="black" fill="none" />
+    <line x1="4.03" y1="-24.20" x2="8.07" y2="-24.20" stroke="black" fill="none" />
+    <line x1="8.07" y1="-24.20" x2="8.07" y2="-20.17" stroke="black" fill="none" />
+    <line x1="8.07" y1="-20.17" x2="12.10" y2="-20.17" stroke="black" fill="none" />
+    <line x1="12.10" y1="-20.17" x2="12.10" y2="-24.20" stroke="black" fill="none" />
+    <line x1="12.10" y1="-24.20" x2="16.13" y2="-24.20" stroke="black" fill="none" />
+    <line x1="16.13" y1="-24.20" x2="16.13" y2="-16.13" stroke="black" fill="none" />
+    <line x1="-18.15" y1="-25.41" x2="22.18" y2="-25.41" stroke="black" fill="none" />
+    <rect x="-12.10" y="17.34" width="1.61" height="4.03" stroke="#0055d4" fill="#0055d4" />
+    <rect x="10.89" y="18.15" width="1.21" height="3.63" stroke="black" fill="black" />
+    <rect x="13.31" y="18.15" width="1.21" height="3.63" stroke="black" fill="black" />
+    <ellipse cx="13.71" cy="-9.68" rx="0.81" ry="0.81" stroke="black" fill="none" />
+    <ellipse cx="13.71" cy="-9.68" rx="1.61" ry="1.61" stroke="black" fill="none" />
+    <rect x="-7.26" y="-13.71" width="8.07" height="4.03" stroke="black" fill="none" />
+    <rect x="-6.45" y="-12.91" width="6.45" height="2.42" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.81" cy="27.83" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-21.78" cy="-9.68" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.78" cy="2.42" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.78" cy="14.52" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.78" cy="6.45" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.78" cy="10.49" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.78" cy="-5.65" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.78" cy="18.55" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-21.78" cy="-1.61" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="26.22" cy="14.52" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.22" cy="-9.68" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.62" cy="10.49" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.22" cy="6.45" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.22" cy="18.55" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.22" cy="2.42" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.22" cy="-5.65" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.22" cy="-1.61" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

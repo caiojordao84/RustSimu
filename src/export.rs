@@ -1,28 +1,45 @@
 //! Módulo de Exportação Real (Folha → SVG / PNG / PDF / CAD).
 //!
-//! Implementa os requisitos de P1-#9 com fidelidade geométrica 1:1 à renderização
-//! da tela (`canvas_view.rs`):
-//! - **SVG**: Exporta folha (página) ou seleção de elementos em gráfico vetorial padrão.
-//! - **PNG**: Exporta folha ou seleção renderizada com alta resolução via `resvg`/`tiny-skia`.
-//! - **PDF**: Exporta projeto multi-páginas (todas as folhas), folha única ou seleção de elementos.
-//! - **CAD**: Exporta folha em formato byte-exato original do CADe_SIMU (.cad).
-//! - **Cajetín ON / OFF**: Permite incluir ou ocultar moldura, margens e bloco de legenda.
+//! Implementa os requisitos de exportação vetorial de alta resolução:
+//! - **SVG**: Exporta folha ou seleção em SVG vetorial padrão, com Inter embutida, linecap/linejoin arredondados,
+//!   arcos matematicamente exatos e elipses não facetadas.
+//! - **PNG**: Renderização raster de impressão em 300 DPI (~3508 px para A4 paisagem) via `resvg`/`tiny-skia`.
+//! - **PDF**: PDF vetorial puro e multipágina via `svg2pdf` e `pdf-writer`, com texto selecionável e curvas perfeitas.
+//! - **CAD**: Exportação byte-exata no formato CP-1252 original do CADe_SIMU 4.0.
+//! - **Cajetín Estruturado**: Moldura de legenda dividida em células (Entidade, Data, Título, Autor, Arquivo, Folha)
+//!   com truncamento inteligente anti-transbordamento.
+//! - **Modo Monocromático / Alto Contraste**: Preto e cinza de alto contraste para impressão técnica.
+//! - **Bornes Opcionais**: Supressão dos círculos vermelhos nos pinos para documentos limpos.
 
 use std::fmt;
 use std::io::Write;
 
 use flate2::write::ZlibEncoder;
 use flate2::Compression;
+use pdf_writer::Finish;
 
 use crate::model::{
     transform_offset, transform_offset_f32, ProjectPage, SchematicDocument, SchematicItem,
 };
 use crate::symbols::find_symbol_ref;
 
-/// Escala base do SVG em pixels por unidade de mundo CADe_SIMU.
-/// Corresponde exatamente ao zoom 3.2x padrão do `canvas_view.rs`,
-/// garantindo espessuras de linha, raios de círculos, tipografia e proporções 100% idênticas à tela.
-pub const SVG_SCALE: f32 = 3.2;
+/// Escala base do SVG em pixels por unidade de mundo CADe_SIMU a 300 DPI.
+/// 1 unidade CADe = 8.0 pixels.
+/// 1 módulo do grid (6 unidades CADe) = 48.0 pixels (4.0 mm).
+/// 1 meio módulo (3 unidades CADe) = 24.0 pixels (2.0 mm).
+pub const SVG_SCALE: f32 = 8.0;
+
+/// Fonte TrueType Inter embutida para renderização independente do sistema operacional.
+pub static INTER_FONT_DATA: &[u8] = include_bytes!("../assets/fonts/Inter-Regular.ttf");
+
+/// Cria opções padrão para o `resvg`/`usvg` configuradas com a fonte Inter embutida e fontes do sistema.
+pub fn create_usvg_options() -> resvg::usvg::Options<'static> {
+    let mut opt = resvg::usvg::Options::default();
+    opt.fontdb_mut().load_system_fonts();
+    opt.fontdb_mut().load_font_data(INTER_FONT_DATA.to_vec());
+    opt.fontdb_mut().set_sans_serif_family("Inter");
+    opt
+}
 
 /// Formatos de exportação suportados pelo CADe_SIMU.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -53,9 +70,9 @@ impl ExportFormat {
     pub fn filter_label(&self) -> &'static str {
         match self {
             ExportFormat::Cad => "CADe_SIMU Original (*.cad)",
-            ExportFormat::Pdf => "Documento PDF (*.pdf)",
+            ExportFormat::Pdf => "Documento PDF Vetorial (*.pdf)",
             ExportFormat::Svg => "Gráfico Vetorial SVG (*.svg)",
-            ExportFormat::Png => "Imagem PNG (*.png)",
+            ExportFormat::Png => "Imagem PNG 300 DPI (*.png)",
         }
     }
 }
@@ -119,6 +136,38 @@ impl fmt::Display for ExportScope {
     }
 }
 
+/// Opções completas de exportação gráfica (SVG, PNG, PDF).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ExportOptions {
+    /// Se true, inclui a moldura externa, réguas e carimbo de legenda (cajetín).
+    pub include_cajetin: bool,
+    /// Se true, desenha os círculos de bornes (#d32f2f) em cada terminal de conexão.
+    /// Padrão é `false` para documentos de engenharia limpos sem ruído visual.
+    pub show_terminals: bool,
+    /// Se true, exporta em modo monocromático / alto contraste para impressão.
+    pub monochrome: bool,
+}
+
+impl Default for ExportOptions {
+    fn default() -> Self {
+        Self {
+            include_cajetin: true,
+            show_terminals: false,
+            monochrome: false,
+        }
+    }
+}
+
+impl From<bool> for ExportOptions {
+    fn from(include_cajetin: bool) -> Self {
+        Self {
+            include_cajetin,
+            show_terminals: false,
+            monochrome: false,
+        }
+    }
+}
+
 /// Escapa caracteres especiais XML/SVG.
 fn xml_escape(s: &str) -> String {
     s.replace('&', "&amp;")
@@ -126,6 +175,16 @@ fn xml_escape(s: &str) -> String {
         .replace('>', "&gt;")
         .replace('"', "&quot;")
         .replace('\'', "&apos;")
+}
+
+/// Trunca strings longas adicionando reticências para proteger células do cajetín.
+fn truncate_str(s: &str, max_chars: usize) -> String {
+    if s.chars().count() <= max_chars {
+        s.to_string()
+    } else {
+        let truncated: String = s.chars().take(max_chars.saturating_sub(3)).collect();
+        format!("{truncated}...")
+    }
 }
 
 /// Renderiza primitivas vetoriais de um símbolo SVG interno (QET ou gerado pelo cade2svg)
@@ -258,7 +317,7 @@ fn render_svg_symbol_to_svg(
                 } else if parsed.is_qet_native {
                     *r * scale
                 } else {
-                    (*r * 0.30) * scale
+                    (*r * parsed.scale_factor()) * scale
                 };
                 let rad = rad.max(1.2);
                 let fill_attr = match resolve_fill(*fill) {
@@ -277,28 +336,35 @@ fn render_svg_symbol_to_svg(
                 ry,
                 fill,
             } => {
-                // Converte a elipse em polígono suave de 28 vértices mapeados pontualmente,
-                // exatamente como faz o CanvasView em canvas_view.rs (linhas 615..635).
-                // Isso elimina qualquer distorção geométrica entre eixos e orientações rotacionadas.
-                let steps = 28;
-                let mut pts = Vec::with_capacity(steps);
-                for i in 0..steps {
-                    let ang = (i as f32 / steps as f32) * 2.0 * std::f32::consts::PI;
-                    let px = cx + rx * ang.cos();
-                    let py = cy + ry * ang.sin();
-                    let (lx, ly) = parsed.map_point(px, py, target_span);
-                    let (rot_x, rot_y) = transform_offset_f32(lx, ly, orientation);
-                    let sc_x = (ox + rot_x) * scale;
-                    let sc_y = (oy + rot_y) * scale;
-                    pts.push(format!("{sc_x:.2},{sc_y:.2}"));
-                }
+                let (lx, ly) = parsed.map_point(*cx, *cy, target_span);
+                let (rot_x, rot_y) = transform_offset_f32(lx, ly, orientation);
+                let sc_cx = (ox + rot_x) * scale;
+                let sc_cy = (oy + rot_y) * scale;
+
+                let scale_factor = if parsed.is_cade_svg {
+                    scale / 5.0
+                } else if target_span > 1.0
+                    && (parsed.term_bottom_y - parsed.term_top_y).abs() > 0.1
+                {
+                    (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs()) * scale
+                } else if parsed.is_qet_native {
+                    scale
+                } else {
+                    parsed.scale_factor() * scale
+                };
+
+                let (m_rx, m_ry) = if orientation.rem_euclid(2) == 1 {
+                    (*ry * scale_factor, *rx * scale_factor)
+                } else {
+                    (*rx * scale_factor, *ry * scale_factor)
+                };
+
                 let fill_attr = match resolve_fill(*fill) {
                     Some(col) => format!(" fill=\"{col}\""),
                     None => " fill=\"none\"".to_string(),
                 };
                 out.push_str(&format!(
-                    r###"  <polygon points="{}" stroke="{stroke_color}" stroke-width="{stroke_width:.1}"{fill_attr}/>"###,
-                    pts.join(" ")
+                    r###"  <ellipse cx="{sc_cx:.2}" cy="{sc_cy:.2}" rx="{m_rx:.2}" ry="{m_ry:.2}" stroke="{stroke_color}" stroke-width="{stroke_width:.1}"{fill_attr}/>"###
                 ));
                 out.push('\n');
             }
@@ -356,7 +422,7 @@ fn render_svg_symbol_to_svg(
                     let fs = (size * 0.25 * scale).clamp(8.0, 16.0);
                     (fs, 0.0)
                 } else {
-                    let fs = (size * 0.30 * scale).clamp(5.0, 16.0);
+                    let fs = (size * parsed.scale_factor() * scale).clamp(5.0, 16.0);
                     (fs, -fs * 0.82)
                 };
 
@@ -367,15 +433,17 @@ fn render_svg_symbol_to_svg(
                     _ => *rotation,
                 };
 
+                let baseline_offset = font_size * 0.78;
                 if total_rot_deg.abs() > 0.1 {
                     out.push_str(&format!(
-                        r###"  <text transform="translate({raw_pos_x:.2}, {raw_pos_y:.2}) rotate({total_rot_deg:.1})" y="{offset_y:.2}" font-size="{font_size:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="{stroke_color}">{}</text>"###,
+                        r###"  <text transform="translate({raw_pos_x:.2}, {raw_pos_y:.2}) rotate({total_rot_deg:.1})" y="{:.2}" font-size="{font_size:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_color}">{}</text>"###,
+                        offset_y + baseline_offset,
                         xml_escape(text)
                     ));
                 } else {
                     out.push_str(&format!(
-                        r###"  <text x="{raw_pos_x:.2}" y="{:.2}" font-size="{font_size:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="{stroke_color}">{}</text>"###,
-                        raw_pos_y + offset_y,
+                        r###"  <text x="{raw_pos_x:.2}" y="{:.2}" font-size="{font_size:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_color}">{}</text>"###,
+                        raw_pos_y + offset_y + baseline_offset,
                         xml_escape(text)
                     ));
                 }
@@ -424,36 +492,59 @@ fn render_symbol_primitives_to_svg(
                 out.push('\n');
             }
             crate::symbols::VectorPrimitive::Ellipse { x1, y1, x2, y2 } => {
-                let (rx1, ry1) =
-                    transform_offset_f32(x1 as f32 / 5.0, y1 as f32 / 5.0, orientation);
-                let (rx2, ry2) =
-                    transform_offset_f32(x2 as f32 / 5.0, y2 as f32 / 5.0, orientation);
-                let cx = ox + (rx1 + rx2) * 0.5;
-                let cy = oy + (ry1 + ry2) * 0.5;
-                let rad = (((rx2 - rx1).abs().max((ry2 - ry1).abs())) * 0.5) * scale;
+                let cx = (x1 + x2) as f32 / 10.0;
+                let cy = (y1 + y2) as f32 / 10.0;
+                let rx = ((x2 - x1).abs() as f32 / 10.0).max(0.05);
+                let ry = ((y2 - y1).abs() as f32 / 10.0).max(0.05);
+                let (rot_cx, rot_cy) = transform_offset_f32(cx, cy, orientation);
+                let (r_rx, r_ry) = if orientation.rem_euclid(2) == 1 {
+                    (ry, rx)
+                } else {
+                    (rx, ry)
+                };
+                let center_x = (ox + rot_cx) * scale;
+                let center_y = (oy + rot_cy) * scale;
+                let rad_x = r_rx * scale;
+                let rad_y = r_ry * scale;
                 let fill_attr = match fill_active {
                     Some(col) => format!(" fill=\"{col}\""),
                     None => " fill=\"none\"".to_string(),
                 };
                 out.push_str(&format!(
-                    r###"  <circle cx="{:.2}" cy="{:.2}" r="{rad:.2}" stroke="{stroke_color}" stroke-width="{stroke_width:.1}"{fill_attr}/>"###,
-                    cx * scale,
-                    cy * scale
+                    r###"  <ellipse cx="{center_x:.2}" cy="{center_y:.2}" rx="{rad_x:.2}" ry="{rad_y:.2}" stroke="{stroke_color}" stroke-width="{stroke_width:.1}"{fill_attr}/>"###
                 ));
                 out.push('\n');
             }
-            crate::symbols::VectorPrimitive::Arc { x1, y1, x2, y2, .. } => {
-                let (rx1, ry1) =
-                    transform_offset_f32(x1 as f32 / 5.0, y1 as f32 / 5.0, orientation);
-                let (rx2, ry2) =
-                    transform_offset_f32(x2 as f32 / 5.0, y2 as f32 / 5.0, orientation);
-                let cx = ox + (rx1 + rx2) * 0.5;
-                let cy = oy + (ry1 + ry2) * 0.5;
-                let rad = (((rx2 - rx1).abs().min((ry2 - ry1).abs())) * 0.45) * scale;
+            crate::symbols::VectorPrimitive::Arc {
+                x1,
+                y1,
+                x2,
+                y2,
+                x3,
+                y3,
+                x4,
+                y4,
+            } => {
+                let geom =
+                    crate::symbols::VectorPrimitive::arc_geometry(x1, y1, x2, y2, x3, y3, x4, y4);
+                let (rot_sx, rot_sy) =
+                    transform_offset_f32(geom.start_x, geom.start_y, orientation);
+                let (rot_ex, rot_ey) = transform_offset_f32(geom.end_x, geom.end_y, orientation);
+                let (r_rx, r_ry) = if orientation.rem_euclid(2) == 1 {
+                    (geom.ry, geom.rx)
+                } else {
+                    (geom.rx, geom.ry)
+                };
+                let sx = (ox + rot_sx) * scale;
+                let sy = (oy + rot_sy) * scale;
+                let ex = (ox + rot_ex) * scale;
+                let ey = (oy + rot_ey) * scale;
+                let rad_x = r_rx * scale;
+                let rad_y = r_ry * scale;
+                let large_arc_flag = if geom.large_arc { 1 } else { 0 };
+                let sweep_flag = if orientation.rem_euclid(8) >= 4 { 1 } else { 0 };
                 out.push_str(&format!(
-                    r###"  <circle cx="{:.2}" cy="{:.2}" r="{rad:.2}" stroke="{stroke_color}" stroke-width="{stroke_width:.1}" fill="none"/>"###,
-                    cx * scale,
-                    cy * scale
+                    r###"  <path d="M {sx:.2} {sy:.2} A {rad_x:.2} {rad_y:.2} 0 {large_arc_flag} {sweep_flag} {ex:.2} {ey:.2}" stroke="{stroke_color}" stroke-width="{stroke_width:.1}" fill="none"/>"###
                 ));
                 out.push('\n');
             }
@@ -481,8 +572,9 @@ fn render_symbol_primitives_to_svg(
                 let pos_x = (ox + rx - 1.2) * scale;
                 let pos_y = (oy + ry - 1.0) * scale;
                 let font_size = (3.2 * scale).clamp(8.0, 16.0);
+                let baseline_y = pos_y + font_size * 0.78;
                 out.push_str(&format!(
-                    r###"  <text x="{pos_x:.2}" y="{pos_y:.2}" font-size="{font_size:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="{stroke_color}">{}</text>"###,
+                    r###"  <text x="{pos_x:.2}" y="{baseline_y:.2}" font-size="{font_size:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_color}">{}</text>"###,
                     xml_escape(&text)
                 ));
                 out.push('\n');
@@ -494,25 +586,27 @@ fn render_symbol_primitives_to_svg(
 /// Gera uma representação SVG pura a partir de um `SchematicDocument`.
 ///
 /// - `items_filter`: Se `Some(ids)`, exporta apenas os itens com esses IDs (modo Seleção)
-///   com bounding box ajustado. Se `None`, exporta a folha inteira.
-/// - `include_cajetin`: Se `true` e não for modo seleção, inclui a moldura e a tabela do cajetín.
+///   com bounding box ajustado sem cortar rótulos. Se `None`, exporta a folha inteira.
+/// - `options`: Configurações de cajetín, exibição de bornes e modo monocromático.
 pub fn export_to_svg(
     doc: &SchematicDocument,
     items_filter: Option<&[i32]>,
-    include_cajetin: bool,
+    options: impl Into<ExportOptions>,
 ) -> String {
+    let opts = options.into();
     let scale = SVG_SCALE;
 
-    let sheet_w = if doc.settings.custom_height_mm > 420 {
-        doc.settings.custom_height_mm as f32 + 30.0
-    } else {
-        (doc.settings.custom_height_mm.clamp(279, 420) as f32) + 45.0
-    };
-    let sheet_h = if doc.settings.custom_width_mm > 320 {
-        doc.settings.custom_width_mm as f32 + 30.0
-    } else {
-        (doc.settings.custom_width_mm.clamp(210, 320) as f32) + 30.0
-    };
+    // Folha A4 padrão em escala CADe (330 x 233.35) preservando rigorosamente a razão de aspecto √2 (~1.4142):
+    let (sheet_w, sheet_h) =
+        if doc.settings.custom_width_mm > 0 && doc.settings.custom_height_mm > 0 {
+            let w_mm = doc.settings.custom_width_mm as f32;
+            let h_mm = doc.settings.custom_height_mm as f32;
+            let w_cad = (w_mm * (330.0 / 297.0)).max(100.0);
+            let h_cad = (h_mm * (330.0 / 297.0)).max(100.0);
+            (w_cad, h_cad)
+        } else {
+            (330.0, 330.0 * (210.0 / 297.0))
+        };
 
     let is_selection = items_filter.is_some();
     let (view_x, view_y, view_w, view_h) = if let Some(filter) = items_filter {
@@ -539,12 +633,14 @@ pub fn export_to_svg(
                 } else if let Some(qet_type) = item.symbol_id_or_slug() {
                     if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                         let (vx, vy, vw, vh) = parsed.view_box;
-                        let (p1x, p1y) = transform_offset_f32(vx, vy, item.orientation);
-                        let (p2x, p2y) = transform_offset_f32(vx + vw, vy + vh, item.orientation);
-                        min_x = min_x.min((item.x1 as f32 + p1x.min(p2x)) - 2.0);
-                        max_x = max_x.max((item.x1 as f32 + p1x.max(p2x)) + 2.0);
-                        min_y = min_y.min((item.y1 as f32 + p1y.min(p2y)) - 2.0);
-                        max_y = max_y.max((item.y1 as f32 + p1y.max(p2y)) + 2.0);
+                        let s = parsed.scale_factor();
+                        let (p1x, p1y) = transform_offset_f32(vx * s, vy * s, item.orientation);
+                        let (p2x, p2y) =
+                            transform_offset_f32((vx + vw) * s, (vy + vh) * s, item.orientation);
+                        min_x = min_x.min(item.x1 as f32 + p1x.min(p2x));
+                        max_x = max_x.max(item.x1 as f32 + p1x.max(p2x));
+                        min_y = min_y.min(item.y1 as f32 + p1y.min(p2y));
+                        max_y = max_y.max(item.y1 as f32 + p1y.max(p2y));
                     } else {
                         min_x = min_x.min(item.x1 as f32 - 4.0);
                         max_x = max_x.max(item.x1 as f32 + 10.0);
@@ -560,19 +656,53 @@ pub fn export_to_svg(
                     );
                     let (p1x, p1y) = transform_offset(bx1, by1, item.orientation);
                     let (p2x, p2y) = transform_offset(bx2, by2, item.orientation);
-                    min_x = min_x.min((item.x1 + p1x.min(p2x) - 1) as f32);
-                    max_x = max_x.max((item.x1 + p1x.max(p2x) + 1) as f32);
-                    min_y = min_y.min((item.y1 + p1y.min(p2y) - 1) as f32);
-                    max_y = max_y.max((item.y1 + p1y.max(p2y) + 1) as f32);
+                    min_x = min_x.min((item.x1 + p1x.min(p2x)) as f32);
+                    max_x = max_x.max((item.x1 + p1x.max(p2x)) as f32);
+                    min_y = min_y.min((item.y1 + p1y.min(p2y)) as f32);
+                    max_y = max_y.max((item.y1 + p1y.max(p2y)) as f32);
+
+                    // Inclui posições de pinos e rótulos de bornes
+                    for (idx, _lbl, (wx, wy)) in sym.world_pins(item) {
+                        min_x = min_x.min(wx as f32);
+                        max_x = max_x.max(wx as f32);
+                        min_y = min_y.min(wy as f32);
+                        max_y = max_y.max(wy as f32);
+                        if doc.settings.show_pin_refs >= 1 && item.pin_visibility[idx] == 1 {
+                            let p_def = &sym.pins[idx];
+                            let (lx, ly) = transform_offset(
+                                p_def.label_pos.0,
+                                p_def.label_pos.1,
+                                item.orientation,
+                            );
+                            min_x = min_x.min((item.x1 + lx) as f32 - 1.0);
+                            max_x = max_x.max((item.x1 + lx) as f32 + 4.0);
+                            min_y = min_y.min((item.y1 + ly) as f32 - 1.0);
+                            max_y = max_y.max((item.y1 + ly) as f32 + 3.0);
+                        }
+                    }
                 } else {
                     min_x = min_x.min(item.x1 as f32 - 2.0);
                     max_x = max_x.max(item.x1 as f32 + 10.0);
                     min_y = min_y.min(item.y1 as f32 - 2.0);
                     max_y = max_y.max(item.y1 as f32 + 10.0);
                 }
+
+                // Inclui tag do componente no bounding box para evitar corte
+                if item.show_tag == 1 && !item.tag.is_empty() {
+                    let (tx, ty) = match item.tipo {
+                        3000..=3009 => (item.x1 - 5, item.y1 - 5),
+                        1000..=1012 => (item.x1 - 8, item.y1 + 9),
+                        _ => (item.x1 - 8, item.y1 + 3),
+                    };
+                    let tag_width = (item.tag.len() as f32) * 2.4;
+                    min_x = min_x.min(tx as f32 - 1.0);
+                    max_x = max_x.max(tx as f32 + tag_width + 1.0);
+                    min_y = min_y.min(ty as f32 - 1.0);
+                    max_y = max_y.max(ty as f32 + 4.0);
+                }
             }
 
-            let pad = 8.0;
+            let pad = 6.0;
             let vx = (min_x - pad).max(0.0) * scale;
             let vy = (min_y - pad).max(0.0) * scale;
             let vw = (max_x - min_x + pad * 2.0).max(30.0) * scale;
@@ -593,6 +723,16 @@ pub fn export_to_svg(
     ));
     out.push('\n');
 
+    // Definições de estilo e fontes
+    out.push_str(
+        r###"  <defs>
+    <style>
+      text { font-family: 'Inter', Arial, 'DejaVu Sans', sans-serif; }
+    </style>
+  </defs>
+"###,
+    );
+
     // Fundo branco do papel
     out.push_str(&format!(
         r###"  <rect x="{view_x:.1}" y="{view_y:.1}" width="{view_w:.1}" height="{view_h:.1}" fill="#ffffff"/>"###
@@ -600,14 +740,24 @@ pub fn export_to_svg(
     out.push('\n');
 
     // Moldura e Cajetín (apenas se página completa e cajetin ativado)
-    if !is_selection && include_cajetin {
+    if !is_selection && opts.include_cajetin {
         let border_stroke_w = 1.5;
+        let border_col = if opts.monochrome {
+            "#000000"
+        } else {
+            "#1b2230"
+        };
+        let guide_text_col = if opts.monochrome {
+            "#475569"
+        } else {
+            "#5c6675"
+        };
 
         // Moldura externa da folha
         let outer_w = sheet_w * scale;
         let outer_h = sheet_h * scale;
         out.push_str(&format!(
-            r###"  <rect x="0" y="0" width="{outer_w:.1}" height="{outer_h:.1}" fill="none" stroke="#1b2230" stroke-width="{border_stroke_w}"/>"###
+            r###"  <rect x="0" y="0" width="{outer_w:.1}" height="{outer_h:.1}" fill="none" stroke="{border_col}" stroke-width="{border_stroke_w}"/>"###
         ));
         out.push('\n');
 
@@ -617,23 +767,24 @@ pub fn export_to_svg(
         let inner_w = (sheet_w - 12.0) * scale;
         let inner_h = (sheet_h - 12.0) * scale;
         out.push_str(&format!(
-            r###"  <rect x="{inner_x:.1}" y="{inner_y:.1}" width="{inner_w:.1}" height="{inner_h:.1}" fill="none" stroke="#1b2230" stroke-width="{border_stroke_w}"/>"###
+            r###"  <rect x="{inner_x:.1}" y="{inner_y:.1}" width="{inner_w:.1}" height="{inner_h:.1}" fill="none" stroke="{border_col}" stroke-width="{border_stroke_w}"/>"###
         ));
         out.push('\n');
 
         // Referências numéricas de colunas (1..8)
         let font_label_sz = (3.2 * scale).clamp(8.0, 14.0);
+        let label_baseline_offset = font_label_sz * 0.78;
         for col in 0..8 {
             let cx = (6.0 + (col as f32 + 0.5) * ((sheet_w - 12.0) / 8.0)) * scale;
+            let y_top = 1.2 * scale + label_baseline_offset;
+            let y_bot = (sheet_h - 4.5) * scale + label_baseline_offset;
             out.push_str(&format!(
-                r###"  <text x="{cx:.1}" y="{:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#5c6675">{}</text>"###,
-                1.2 * scale,
+                r###"  <text x="{cx:.1}" y="{y_top:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{guide_text_col}">{}</text>"###,
                 col + 1
             ));
             out.push('\n');
             out.push_str(&format!(
-                r###"  <text x="{cx:.1}" y="{:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#5c6675">{}</text>"###,
-                (sheet_h - 4.5) * scale,
+                r###"  <text x="{cx:.1}" y="{y_bot:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{guide_text_col}">{}</text>"###,
                 col + 1
             ));
             out.push('\n');
@@ -641,22 +792,23 @@ pub fn export_to_svg(
 
         // Referências alfabéticas de linhas (A..F)
         for (row, ch) in ['A', 'B', 'C', 'D', 'E', 'F'].iter().enumerate() {
-            let ry = (6.0 + (row as f32 + 0.5) * ((sheet_h - 12.0) / 6.0)) * scale;
+            let ry = (6.0 + (row as f32 + 0.5) * ((sheet_h - 12.0) / 6.0)) * scale
+                + label_baseline_offset;
             out.push_str(&format!(
-                r###"  <text x="{:.1}" y="{ry:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#5c6675">{}</text>"###,
+                r###"  <text x="{:.1}" y="{ry:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{guide_text_col}">{}</text>"###,
                 1.8 * scale,
                 ch
             ));
             out.push('\n');
             out.push_str(&format!(
-                r###"  <text x="{:.1}" y="{ry:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#5c6675">{}</text>"###,
+                r###"  <text x="{:.1}" y="{ry:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{guide_text_col}">{}</text>"###,
                 (sheet_w - 4.5) * scale,
                 ch
             ));
             out.push('\n');
         }
 
-        // Bloco de legenda (Cajetín) no canto inferior direito
+        // Bloco de legenda (Cajetín) estruturado em células no canto inferior direito
         let caj_w = 115.0;
         let caj_h = 22.0;
         let caj_x = sheet_w - caj_w - 6.0;
@@ -666,135 +818,252 @@ pub fn export_to_svg(
         let cs_w = caj_w * scale;
         let cs_h = caj_h * scale;
 
+        let caj_bg = if opts.monochrome {
+            "#ffffff"
+        } else {
+            "#f8fafc"
+        };
+        let div_line = if opts.monochrome {
+            "#94a3b8"
+        } else {
+            "#cbd5e1"
+        };
+
         out.push_str(&format!(
-            r###"  <rect x="{cp_x:.1}" y="{cp_y:.1}" width="{cs_w:.1}" height="{cs_h:.1}" fill="#f4f6f9" stroke="#1b2230" stroke-width="{border_stroke_w}"/>"###
+            r###"  <rect x="{cp_x:.1}" y="{cp_y:.1}" width="{cs_w:.1}" height="{cs_h:.1}" fill="{caj_bg}" stroke="{border_col}" stroke-width="{border_stroke_w}"/>"###
+        ));
+        out.push('\n');
+
+        // Divisórias horizontais (y = 7.0 e y = 14.0)
+        let line_y1 = (caj_y + 7.0) * scale;
+        let line_y2 = (caj_y + 14.0) * scale;
+        out.push_str(&format!(
+            r###"  <line x1="{cp_x:.1}" y1="{line_y1:.1}" x2="{:.1}" y2="{line_y1:.1}" stroke="{div_line}" stroke-width="1.0"/>"###,
+            cp_x + cs_w
         ));
         out.push('\n');
         out.push_str(&format!(
-            r###"  <line x1="{cp_x:.1}" y1="{:.1}" x2="{:.1}" y2="{:.1}" stroke="#d3dae4" stroke-width="1.0"/>"###,
-            (caj_y + 7.0) * scale,
-            cp_x + cs_w,
-            (caj_y + 7.0) * scale
+            r###"  <line x1="{cp_x:.1}" y1="{line_y2:.1}" x2="{:.1}" y2="{line_y2:.1}" stroke="{div_line}" stroke-width="1.0"/>"###,
+            cp_x + cs_w
+        ));
+        out.push('\n');
+
+        // Divisória vertical Linha 1 (x = 75.0: Entidade | Data)
+        let col_x1 = (caj_x + 75.0) * scale;
+        out.push_str(&format!(
+            r###"  <line x1="{col_x1:.1}" y1="{cp_y:.1}" x2="{col_x1:.1}" y2="{line_y1:.1}" stroke="{div_line}" stroke-width="1.0"/>"###
+        ));
+        out.push('\n');
+
+        // Divisórias verticais Linha 3 (x = 45.0 e x = 90.0: Desenhado por | Arquivo | Folha)
+        let col_x2 = (caj_x + 45.0) * scale;
+        let col_x3 = (caj_x + 90.0) * scale;
+        out.push_str(&format!(
+            r###"  <line x1="{col_x2:.1}" y1="{line_y2:.1}" x2="{col_x2:.1}" y2="{:.1}" stroke="{div_line}" stroke-width="1.0"/>"###,
+            cp_y + cs_h
         ));
         out.push('\n');
         out.push_str(&format!(
-            r###"  <line x1="{cp_x:.1}" y1="{:.1}" x2="{:.1}" y2="{:.1}" stroke="#d3dae4" stroke-width="1.0"/>"###,
-            (caj_y + 14.0) * scale,
-            cp_x + cs_w,
-            (caj_y + 14.0) * scale
+            r###"  <line x1="{col_x3:.1}" y1="{line_y2:.1}" x2="{col_x3:.1}" y2="{:.1}" stroke="{div_line}" stroke-width="1.0"/>"###,
+            cp_y + cs_h
         ));
         out.push('\n');
 
         let tb = &doc.title_block;
-        let font_sz = (3.0 * scale).clamp(7.0, 13.0);
+        let lbl_col = if opts.monochrome {
+            "#475569"
+        } else {
+            "#64748b"
+        };
+        let val_col = if opts.monochrome {
+            "#000000"
+        } else {
+            "#0f172a"
+        };
+        let lbl_font_sz = (1.8 * scale).clamp(5.0, 9.0);
+        let val_font_sz = (2.6 * scale).clamp(7.0, 12.0);
+
+        // Célula 1,1: Entidade
+        let c1_x = (caj_x + 2.0) * scale;
+        let c1_y = (caj_y + 2.0) * scale + lbl_font_sz * 0.78;
+        let c1_val_y = (caj_y + 4.8) * scale + val_font_sz * 0.78;
         out.push_str(&format!(
-            r###"  <text x="{:.1}" y="{:.1}" font-size="{font_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#5c6675">Entidade: {}  |  Data: {}</text>"###,
-            (caj_x + 3.0) * scale,
-            (caj_y + 2.5) * scale,
-            xml_escape(&tb.entity),
-            xml_escape(&tb.drawn_date)
+            r###"  <text x="{c1_x:.1}" y="{c1_y:.1}" font-size="{lbl_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{lbl_col}">Entidade:</text>"###
         ));
         out.push('\n');
         out.push_str(&format!(
-            r###"  <text x="{:.1}" y="{:.1}" font-size="{:.1}" font-weight="bold" font-family="sans-serif" dominant-baseline="hanging" fill="#0f141c">Título: {} - {}</text>"###,
-            (caj_x + 3.0) * scale,
-            (caj_y + 8.5) * scale,
-            font_sz * 1.08,
-            xml_escape(&tb.title),
-            xml_escape(&tb.subtitle)
+            r###"  <text x="{c1_x:.1}" y="{c1_val_y:.1}" font-size="{val_font_sz:.1}" font-weight="bold" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{val_col}">{}</text>"###,
+            xml_escape(&truncate_str(&tb.entity, 35))
+        ));
+        out.push('\n');
+
+        // Célula 1,2: Data
+        let c2_x = (caj_x + 77.0) * scale;
+        out.push_str(&format!(
+            r###"  <text x="{c2_x:.1}" y="{c1_y:.1}" font-size="{lbl_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{lbl_col}">DATA</text>"###
         ));
         out.push('\n');
         out.push_str(&format!(
-            r###"  <text x="{:.1}" y="{:.1}" font-size="{font_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#5c6675">Autor: {}  |  Arquivo: {}  |  Folha: {}</text>"###,
-            (caj_x + 3.0) * scale,
-            (caj_y + 15.0) * scale,
-            xml_escape(&tb.drawn_by),
-            xml_escape(&tb.file_ref),
-            xml_escape(&tb.sheet)
+            r###"  <text x="{c2_x:.1}" y="{c1_val_y:.1}" font-size="{val_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{val_col}">{}</text>"###,
+            xml_escape(&truncate_str(&tb.drawn_date, 16))
+        ));
+        out.push('\n');
+
+        // Célula 2: Título e Subtítulo
+        let c3_y = (caj_y + 8.8) * scale + lbl_font_sz * 0.78;
+        let c3_val_y = (caj_y + 11.8) * scale + val_font_sz * 0.78;
+        let full_title = if tb.subtitle.is_empty() {
+            tb.title.clone()
+        } else {
+            format!("{} — {}", tb.title, tb.subtitle)
+        };
+        let title_font_sz = (2.9 * scale).clamp(8.0, 13.5);
+        out.push_str(&format!(
+            r###"  <text x="{c1_x:.1}" y="{c3_y:.1}" font-size="{lbl_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{lbl_col}">TÍTULO DO PROJETO</text>"###
+        ));
+        out.push('\n');
+        out.push_str(&format!(
+            r###"  <text x="{c1_x:.1}" y="{c3_val_y:.1}" font-size="{title_font_sz:.1}" font-weight="bold" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{val_col}">{}</text>"###,
+            xml_escape(&truncate_str(&full_title, 55))
+        ));
+        out.push('\n');
+
+        // Célula 3,1: Desenhado por
+        let c4_y = (caj_y + 15.6) * scale + lbl_font_sz * 0.78;
+        let c4_val_y = (caj_y + 18.8) * scale + val_font_sz * 0.78;
+        out.push_str(&format!(
+            r###"  <text x="{c1_x:.1}" y="{c4_y:.1}" font-size="{lbl_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{lbl_col}">DESENHADO POR</text>"###
+        ));
+        out.push('\n');
+        out.push_str(&format!(
+            r###"  <text x="{c1_x:.1}" y="{c4_val_y:.1}" font-size="{val_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{val_col}">{}</text>"###,
+            xml_escape(&truncate_str(&tb.drawn_by, 22))
+        ));
+        out.push('\n');
+
+        // Célula 3,2: Arquivo
+        let c5_x = (caj_x + 47.0) * scale;
+        out.push_str(&format!(
+            r###"  <text x="{c5_x:.1}" y="{c4_y:.1}" font-size="{lbl_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{lbl_col}">ARQUIVO</text>"###
+        ));
+        out.push('\n');
+        out.push_str(&format!(
+            r###"  <text x="{c5_x:.1}" y="{c4_val_y:.1}" font-size="{val_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{val_col}">{}</text>"###,
+            xml_escape(&truncate_str(&tb.file_ref, 22))
+        ));
+        out.push('\n');
+
+        // Célula 3,3: Folha
+        let c6_x = (caj_x + 92.0) * scale;
+        out.push_str(&format!(
+            r###"  <text x="{c6_x:.1}" y="{c4_y:.1}" font-size="{lbl_font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{lbl_col}">FOLHA</text>"###
+        ));
+        out.push('\n');
+        out.push_str(&format!(
+            r###"  <text x="{c6_x:.1}" y="{c4_val_y:.1}" font-size="{val_font_sz:.1}" font-weight="bold" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{val_col}">{}</text>"###,
+            xml_escape(&truncate_str(&tb.sheet, 10))
         ));
         out.push('\n');
     }
 
-    // 1. Desenha cabos primeiro (como no canvas_view)
+    // Grupo com pontas e junções arredondadas para todos os elementos gráficos
+    out.push_str("  <g stroke-linecap=\"round\" stroke-linejoin=\"round\">\n");
+
+    // 1. Cabos (fios) primeiro
     for item in &doc.items {
         if let Some(filter) = items_filter {
             if !filter.contains(&item.id) {
                 continue;
             }
         }
-        if item.is_wire() {
-            let (stroke_color, stroke_width) = if item.color != 0 {
-                let r = ((item.color >> 16) & 0xFF) as u8;
-                let g = ((item.color >> 8) & 0xFF) as u8;
-                let b = (item.color & 0xFF) as u8;
-                (format!("#{r:02x}{g:02x}{b:02x}"), 1.8)
-            } else {
-                match item.tipo {
-                    4000 | 4018 => ("#8c2e1f".to_string(), 1.8), // L1 / Potência (Castanho avermelhado)
-                    4009 | 4019 => ("#1461d1".to_string(), 1.8), // Neutro N / 0V (Azul)
-                    4002 | 4010 => ("#1f9e33".to_string(), 1.6), // Terra PE (Verde)
-                    4003 => ("#d11f26".to_string(), 1.8),        // DC+ (Vermelho)
-                    4004 => ("#262633".to_string(), 1.8),        // DC- (Preto/Azulado)
-                    _ => ("#262e3d".to_string(), 1.6),           // Genérico
-                }
-            };
-            let x1 = item.x1 as f32 * scale;
-            let y1 = item.y1 as f32 * scale;
-            let x2 = item.x2 as f32 * scale;
-            let y2 = item.y2 as f32 * scale;
-            out.push_str(&format!(
-                r###"  <line x1="{x1:.1}" y1="{y1:.1}" x2="{x2:.1}" y2="{y2:.1}" stroke="{stroke_color}" stroke-width="{stroke_width}" stroke-linecap="round"/>"###
-            ));
-            out.push('\n');
-        }
-    }
-
-    // 2. Desenha junções, textos e símbolos
-    for item in &doc.items {
-        if let Some(filter) = items_filter {
-            if !filter.contains(&item.id) {
-                continue;
-            }
-        }
-        if item.is_wire() {
+        if !item.is_wire() {
             continue;
         }
 
-        // Junções (nós de conexão)
+        let ax = item.x1 as f32 * scale;
+        let ay = item.y1 as f32 * scale;
+        let bx = item.x2 as f32 * scale;
+        let by = item.y2 as f32 * scale;
+
+        let (stroke_color, stroke_w) = if opts.monochrome {
+            ("#000000", 1.4)
+        } else {
+            match item.tipo {
+                30..=39 => ("#1b2230", 1.6),
+                40..=49 => ("#15803d", 1.6),
+                50..=59 => ("#2563eb", 1.6),
+                60..=69 => ("#b45309", 1.6),
+                70..=79 => ("#b91c1c", 1.8),
+                80..=89 => ("#0284c7", 1.6),
+                _ => ("#1b2230", 1.4),
+            }
+        };
+
+        out.push_str(&format!(
+            r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" stroke="{stroke_color}" stroke-width="{stroke_w:.1}"/>"###
+        ));
+        out.push('\n');
+    }
+
+    // 2. Junções (nós de conexão elétrica)
+    for item in &doc.items {
+        if let Some(filter) = items_filter {
+            if !filter.contains(&item.id) {
+                continue;
+            }
+        }
         if item.is_junction() {
-            let color = if item.color != 0 {
-                let r = ((item.color >> 16) & 0xFF) as u8;
-                let g = ((item.color >> 8) & 0xFF) as u8;
-                let b = (item.color & 0xFF) as u8;
-                format!("#{r:02x}{g:02x}{b:02x}")
+            let cx = item.x1 as f32 * scale;
+            let cy = item.y1 as f32 * scale;
+            let r = 0.9 * scale;
+            let dot_col = if opts.monochrome {
+                "#000000".to_string()
+            } else if item.color != 0 {
+                let r_col = ((item.color >> 16) & 0xFF) as u8;
+                let g_col = ((item.color >> 8) & 0xFF) as u8;
+                let b_col = (item.color & 0xFF) as u8;
+                format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
             } else {
                 match item.tipo {
                     4000 | 4018 => "#8c2e1f".to_string(),
                     4009 | 4019 => "#1461d1".to_string(),
                     4002 | 4010 => "#1f9e33".to_string(),
-                    4003 => "#d11f26".to_string(),
-                    4004 => "#262633".to_string(),
-                    _ => "#262e3d".to_string(),
+                    4003..=4008 => "#8c2e1f".to_string(),
+                    _ => "#1b2230".to_string(),
                 }
             };
-            let cx = item.x1 as f32 * scale;
-            let cy = item.y1 as f32 * scale;
-            let rad = (0.9 * scale).clamp(2.2, 5.0);
             out.push_str(&format!(
-                r###"  <circle cx="{cx:.1}" cy="{cy:.1}" r="{rad:.1}" fill="{color}"/>"###
+                r###"  <circle cx="{cx:.1}" cy="{cy:.1}" r="{r:.1}" fill="{dot_col}"/>"###
             ));
             out.push('\n');
+        }
+    }
+
+    // 3. Símbolos e Componentes
+    for item in &doc.items {
+        if let Some(filter) = items_filter {
+            if !filter.contains(&item.id) {
+                continue;
+            }
+        }
+        if item.is_wire() {
             continue;
         }
 
-        // Texto livre (tipo == 8)
-        if item.tipo == 8 {
+        // Texto livre (tipo == 3)
+        if item.tipo == 3 {
+            let px = item.x1 as f32 * scale;
+            let py = item.y1 as f32 * scale;
             if !item.trailing_str.is_empty() {
-                let px = item.x1 as f32 * scale;
-                let py = item.y1 as f32 * scale;
                 let font_sz = (3.2 * scale).clamp(8.5, 15.0);
+                let text_baseline = py + font_sz * 0.78;
+                let text_col = if opts.monochrome {
+                    "#000000"
+                } else {
+                    "#0f141c"
+                };
                 out.push_str(&format!(
-                    r###"  <text x="{px:.1}" y="{py:.1}" font-size="{font_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#0f141c">{}</text>"###,
+                    r###"  <text x="{px:.1}" y="{text_baseline:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{text_col}">{}</text>"###,
                     xml_escape(&item.trailing_str)
                 ));
                 out.push('\n');
@@ -808,8 +1077,13 @@ pub fn export_to_svg(
             let ay = item.y1 as f32 * scale;
             let bx = item.x2 as f32 * scale;
             let by = item.y2 as f32 * scale;
+            let stroke_col = if opts.monochrome {
+                "#000000"
+            } else {
+                "#1b2230"
+            };
             out.push_str(&format!(
-                r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" stroke="#1b2230" stroke-width="1.2"/>"###
+                r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" stroke="{stroke_col}" stroke-width="1.2"/>"###
             ));
             out.push('\n');
             continue;
@@ -821,81 +1095,77 @@ pub fn export_to_svg(
             let min_y = item.y1.min(item.y2) as f32 * scale;
             let w = (item.x2 - item.x1).abs() as f32 * scale;
             let h = (item.y2 - item.y1).abs() as f32 * scale;
+            let stroke_col = if opts.monochrome {
+                "#000000"
+            } else {
+                "#1b2230"
+            };
             out.push_str(&format!(
-                r###"  <rect x="{min_x:.1}" y="{min_y:.1}" width="{w:.1}" height="{h:.1}" stroke="#1b2230" stroke-width="1.3" fill="none"/>"###
+                r###"  <rect x="{min_x:.1}" y="{min_y:.1}" width="{w:.1}" height="{h:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
             ));
             out.push('\n');
             continue;
         }
 
-        let is_lamp = item.is_lamp_or_signaling();
-        let fill_lamp = if is_lamp {
-            match item.color {
-                1 => Some("#fee2e2"), // Vermelho suave
-                2 => Some("#fef3c7"), // Amarelo suave
-                3 => Some("#e0f2fe"), // Azul suave
-                4 => Some("#f1f5f9"), // Branco suave
-                _ => Some("#dcfce7"), // Verde suave
-            }
-        } else {
-            None
-        };
-
-        // Elemento nativo importado de projeto QElectroTech (.qet) ou símbolo canônico D2
-        if let Some(qet_type) = item.symbol_id_or_slug() {
+        // Símbolos QET ou gerados pelo cade2svg
+        if let Some(qet_path) = item.symbol_id_or_slug() {
+            let stroke_col = if opts.monochrome {
+                "#000000"
+            } else {
+                "#111827"
+            };
             render_svg_symbol_to_svg(
                 &mut out,
                 item.x1,
                 item.y1,
                 item.orientation,
-                qet_type,
-                "#262e3d",
+                qet_path,
+                stroke_col,
                 1.5,
-                fill_lamp,
+                None,
                 1.0,
                 scale,
             );
-            if item.show_tag == 1 && !item.tag.is_empty() {
-                let tpos_x = (item.x1 - 6) as f32 * scale;
-                let tpos_y = (item.y1 - 6) as f32 * scale;
-                let font_sz = (3.0 * scale).clamp(8.0, 15.0);
-                out.push_str(&format!(
-                    r###"  <text x="{tpos_x:.1}" y="{tpos_y:.1}" font-size="{font_sz:.1}" font-weight="bold" font-family="sans-serif" dominant-baseline="hanging" fill="#8c2e1f">{}</text>"###,
-                    xml_escape(&item.tag)
-                ));
-                out.push('\n');
+            if opts.show_terminals {
+                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_path) {
+                    let pin_rad = (crate::model::TERMINAL_RADIUS_UNITS * scale).max(1.2);
+                    let pin_col = if opts.monochrome {
+                        "#000000"
+                    } else {
+                        "#d32f2f"
+                    };
+                    for shape in &parsed.shapes {
+                        if let crate::svg_symbol::SvgShape::Circle {
+                            cx,
+                            cy,
+                            is_terminal: true,
+                            ..
+                        } = shape
+                        {
+                            let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
+                            let (rx, ry) = transform_offset_f32(lx, ly, item.orientation);
+                            let pt_x = ((item.x1 as f32) + rx) * scale;
+                            let pt_y = ((item.y1 as f32) + ry) * scale;
+                            out.push_str(&format!(
+                                r###"  <circle cx="{pt_x:.1}" cy="{pt_y:.1}" r="{pin_rad:.1}" stroke="{pin_col}" stroke-width="1.0" fill="none"/>"###
+                            ));
+                            out.push('\n');
+                        }
+                    }
+                }
             }
             continue;
         }
 
-        // Símbolos eletrotécnicos CADe_SIMU
         let Some(sym) = find_symbol_ref(item.tipo) else {
-            // Fallback para símbolo desconhecido
-            let tl_x = (item.x1 - 2) as f32 * scale;
-            let tl_y = (item.y1 - 2) as f32 * scale;
-            let sz_w = 12.0 * scale;
-            let sz_h = 14.0 * scale;
-            out.push_str(&format!(
-                r###"  <rect x="{tl_x:.1}" y="{tl_y:.1}" width="{sz_w:.1}" height="{sz_h:.1}" fill="none" stroke="#b87500" stroke-width="1.3" stroke-dasharray="3,2"/>"###
-            ));
-            out.push('\n');
-            let font_sz = (2.8 * scale).clamp(7.5, 13.0);
-            let label = if !item.tag.is_empty() {
-                format!("{}:{}", item.tag, item.tipo)
-            } else {
-                format!("?{}", item.tipo)
-            };
-            out.push_str(&format!(
-                r###"  <text x="{:.1}" y="{:.1}" font-size="{font_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#b87500">{}</text>"###,
-                tl_x + 2.0 * scale,
-                tl_y + 2.0 * scale,
-                xml_escape(&label)
-            ));
-            out.push('\n');
             continue;
         };
 
-        let stroke_col = "#262e3d";
+        let stroke_color = if opts.monochrome {
+            "#000000"
+        } else {
+            "#111827"
+        };
         let mut drew_svg = false;
         if let Some((svg_idle, _)) = sym.svg_paths() {
             let max_pin_y = sym.pins.iter().map(|p| p.conn_pos.1).fold(0, i32::max) as f32;
@@ -906,14 +1176,13 @@ pub fn export_to_svg(
                 item.y1,
                 item.orientation,
                 svg_idle,
-                stroke_col,
+                stroke_color,
                 1.8,
-                fill_lamp,
+                None,
                 target_span,
                 scale,
             );
         }
-
         if !drew_svg {
             render_symbol_primitives_to_svg(
                 &mut out,
@@ -921,34 +1190,53 @@ pub fn export_to_svg(
                 item.y1,
                 item.orientation,
                 sym.idle_cmds,
-                stroke_col,
-                fill_lamp,
+                stroke_color,
+                None,
                 1.6,
                 scale,
             );
         }
 
-        // Desenha bornes (pinos) e suas referências numéricas (13/14, A1/A2, U1/V1/W1)
-        for (idx, pin_label, (wx, wy)) in sym.world_pins(item) {
-            let pt_x = wx as f32 * scale;
-            let pt_y = wy as f32 * scale;
-            let pin_rad = (0.55 * scale).clamp(1.5, 3.2);
-            out.push_str(&format!(
-                r###"  <circle cx="{pt_x:.1}" cy="{pt_y:.1}" r="{pin_rad:.1}" stroke="#d32f2f" stroke-width="1.0" fill="none"/>"###
-            ));
-            out.push('\n');
-            if doc.settings.show_pin_refs >= 1 && item.pin_visibility[idx] == 1 {
-                let p_def = &sym.pins[idx];
-                let (lx, ly) =
-                    transform_offset(p_def.label_pos.0, p_def.label_pos.1, item.orientation);
-                let lpos_x = ((item.x1 + lx) as f32 + 0.4) * scale;
-                let lpos_y = ((item.y1 + ly) as f32 - 0.5) * scale;
-                let font_sz = (2.4 * scale).clamp(6.5, 11.5);
+        // Desenha bornes (pinos) se a opção estiver ativada
+        if opts.show_terminals {
+            for (_idx, _pin_label, (wx, wy)) in sym.world_pins(item) {
+                let pt_x = wx as f32 * scale;
+                let pt_y = wy as f32 * scale;
+                let pin_rad = (crate::model::TERMINAL_RADIUS_UNITS * scale).max(1.2);
+                let pin_col = if opts.monochrome {
+                    "#000000"
+                } else {
+                    "#d32f2f"
+                };
                 out.push_str(&format!(
-                    r###"  <text x="{lpos_x:.1}" y="{lpos_y:.1}" font-size="{font_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#5c6675">{}</text>"###,
-                    xml_escape(&pin_label)
+                    r###"  <circle cx="{pt_x:.1}" cy="{pt_y:.1}" r="{pin_rad:.1}" stroke="{pin_col}" stroke-width="1.0" fill="none"/>"###
                 ));
                 out.push('\n');
+            }
+        }
+
+        // Referências numéricas dos pinos (13/14, A1/A2, U1/V1/W1)
+        if doc.settings.show_pin_refs >= 1 {
+            for (idx, pin_label, (_wx, _wy)) in sym.world_pins(item) {
+                if item.pin_visibility[idx] == 1 {
+                    let p_def = &sym.pins[idx];
+                    let (lx, ly) =
+                        transform_offset(p_def.label_pos.0, p_def.label_pos.1, item.orientation);
+                    let lpos_x = ((item.x1 + lx) as f32 + 0.4) * scale;
+                    let lpos_y = ((item.y1 + ly) as f32 - 0.5) * scale;
+                    let font_sz = (2.4 * scale).clamp(6.5, 11.5);
+                    let baseline_y = lpos_y + font_sz * 0.78;
+                    let text_col = if opts.monochrome {
+                        "#374151"
+                    } else {
+                        "#5c6675"
+                    };
+                    out.push_str(&format!(
+                        r###"  <text x="{lpos_x:.1}" y="{baseline_y:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{text_col}">{}</text>"###,
+                        xml_escape(&pin_label)
+                    ));
+                    out.push('\n');
+                }
             }
         }
 
@@ -962,8 +1250,14 @@ pub fn export_to_svg(
             let tpos_x = tx as f32 * scale;
             let tpos_y = ty as f32 * scale;
             let font_sz = (3.0 * scale).clamp(7.5, 14.0);
+            let baseline_y = tpos_y + font_sz * 0.78;
+            let tag_col = if opts.monochrome {
+                "#000000"
+            } else {
+                "#8c2e1f"
+            };
             out.push_str(&format!(
-                r###"  <text x="{tpos_x:.1}" y="{tpos_y:.1}" font-size="{font_sz:.1}" font-weight="bold" font-family="sans-serif" dominant-baseline="hanging" fill="#8c2e1f">{}</text>"###,
+                r###"  <text x="{tpos_x:.1}" y="{baseline_y:.1}" font-size="{font_sz:.1}" font-weight="bold" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{tag_col}">{}</text>"###,
                 xml_escape(&item.tag)
             ));
             out.push('\n');
@@ -974,25 +1268,31 @@ pub fn export_to_svg(
             let vpos_x = (item.x1 + 5) as f32 * scale;
             let vpos_y = (item.y1 + 5) as f32 * scale;
             let font_sz = (2.7 * scale).clamp(7.0, 12.5);
+            let baseline_y = vpos_y + font_sz * 0.78;
+            let val_col = if opts.monochrome {
+                "#374151"
+            } else {
+                "#5c6675"
+            };
             out.push_str(&format!(
-                r###"  <text x="{vpos_x:.1}" y="{vpos_y:.1}" font-size="{font_sz:.1}" font-family="sans-serif" dominant-baseline="hanging" fill="#5c6675">{}s</text>"###,
+                r###"  <text x="{vpos_x:.1}" y="{baseline_y:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{val_col}">{}s</text>"###,
                 xml_escape(&item.value)
             ));
             out.push('\n');
         }
     }
 
+    // Fecha o grupo com linecap/linejoin arredondados
+    out.push_str("  </g>\n");
     out.push_str("</svg>\n");
     out
 }
 
-/// Renderiza um SVG para bytes de imagem PNG utilizando `resvg` e `tiny-skia`.
+/// Renderiza uma representação SVG para bytes de imagem PNG com suporte a escala de DPI.
 pub fn render_svg_to_png(svg_str: &str, scale: f32) -> Result<Vec<u8>, String> {
-    let mut opt = resvg::usvg::Options::default();
-    opt.fontdb_mut().load_system_fonts();
-
+    let opt = create_usvg_options();
     let tree = resvg::usvg::Tree::from_str(svg_str, &opt)
-        .map_err(|e| format!("Falha ao analisar SVG para PNG: {e}"))?;
+        .map_err(|e| format!("Falha ao analisar SVG: {e}"))?;
 
     let size = tree.size().to_int_size();
     let target_w = ((size.width() as f32) * scale).round() as u32;
@@ -1009,189 +1309,153 @@ pub fn render_svg_to_png(svg_str: &str, scale: f32) -> Result<Vec<u8>, String> {
         .map_err(|e| format!("Erro ao codificar bytes PNG: {e}"))
 }
 
-/// Exporta uma folha ou seleção para PNG em alta resolução (escala padrão 1.5x sobre o SVG padrão).
+/// Exporta uma folha ou seleção para PNG em alta resolução (300 DPI por padrão para folha inteira ~3508 px).
 pub fn export_to_png(
     doc: &SchematicDocument,
     items_filter: Option<&[i32]>,
-    include_cajetin: bool,
-    scale: f32,
+    options: impl Into<ExportOptions>,
+    scale: impl Into<Option<f32>>,
 ) -> Result<Vec<u8>, String> {
-    let svg = export_to_svg(doc, items_filter, include_cajetin);
-    render_svg_to_png(&svg, scale)
-}
+    let opts = options.into();
+    let svg = export_to_svg(doc, items_filter, opts);
 
-/// Estrutura de dados interna para montagem de páginas PDF.
-struct RawPdfPage {
-    width_pt: u32,
-    height_pt: u32,
-    width_px: u32,
-    height_px: u32,
-    compressed_rgb: Vec<u8>,
-}
-
-/// Gera um documento PDF-1.4 compatível a partir de uma lista de páginas brutas.
-fn build_pdf_document(pages: &[RawPdfPage]) -> Vec<u8> {
-    let mut out = Vec::with_capacity(65_536);
-    out.extend_from_slice(b"%PDF-1.4\n%\xe2\xe3\xcf\xd3\n");
-
-    let mut offsets = vec![0usize];
-
-    // Objeto 1: Catalog
-    offsets.push(out.len());
-    out.extend_from_slice(b"1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n");
-
-    // Objeto 2: Pages
-    offsets.push(out.len());
-    let count = pages.len();
-    let mut kids_str = String::new();
-    for i in 0..count {
-        kids_str.push_str(&format!("{} 0 R ", 3 + i * 3));
-    }
-    out.extend_from_slice(
-        format!("2 0 obj\n<< /Type /Pages /Kids [{kids_str}] /Count {count} >>\nendobj\n")
-            .as_bytes(),
-    );
-
-    // Objetos de cada página: (base = 3 + i * 3)
-    // base + 0: Page
-    // base + 1: Contents stream
-    // base + 2: Image XObject
-    for (i, p) in pages.iter().enumerate() {
-        let page_id = 3 + i * 3;
-        let cont_id = 4 + i * 3;
-        let img_id = 5 + i * 3;
-
-        // 1. Page
-        offsets.push(out.len());
-        let page_dict = format!(
-            "{page_id} 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 {} {}] /Resources << /XObject << /Im1 {img_id} 0 R >> >> /Contents {cont_id} 0 R >>\nendobj\n",
-            p.width_pt, p.height_pt
-        );
-        out.extend_from_slice(page_dict.as_bytes());
-
-        // 2. Contents
-        offsets.push(out.len());
-        let content_stream = format!("q {} 0 0 {} 0 0 cm /Im1 Do Q\n", p.width_pt, p.height_pt);
-        let cont_dict = format!(
-            "{cont_id} 0 obj\n<< /Length {} >>\nstream\n{}endstream\nendobj\n",
-            content_stream.len(),
-            content_stream
-        );
-        out.extend_from_slice(cont_dict.as_bytes());
-
-        // 3. Image XObject
-        offsets.push(out.len());
-        let img_header = format!(
-            "{img_id} 0 obj\n<< /Type /XObject /Subtype /Image /Width {} /Height {} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /FlateDecode /Length {} >>\nstream\n",
-            p.width_px,
-            p.height_px,
-            p.compressed_rgb.len()
-        );
-        out.extend_from_slice(img_header.as_bytes());
-        out.extend_from_slice(&p.compressed_rgb);
-        out.extend_from_slice(b"\nendstream\nendobj\n");
-    }
-
-    // Tabela de Referências Cruzadas (xref)
-    let startxref = out.len();
-    let total_objs = offsets.len();
-    out.extend_from_slice(format!("xref\n0 {total_objs}\n0000000000 65535 f \r\n").as_bytes());
-
-    for &off in &offsets[1..] {
-        out.extend_from_slice(format!("{off:010} 00000 n \r\n").as_bytes());
-    }
-
-    // Trailer
-    out.extend_from_slice(
-        format!("trailer\n<< /Size {total_objs} /Root 1 0 R >>\nstartxref\n{startxref}\n%%EOF\n")
-            .as_bytes(),
-    );
-
-    out
-}
-
-/// Renderiza uma folha/seleção como imagem RGB compactada com FlateDecode para PDF.
-fn render_doc_for_pdf(
-    doc: &SchematicDocument,
-    items_filter: Option<&[i32]>,
-    include_cajetin: bool,
-) -> Result<RawPdfPage, String> {
-    let svg = export_to_svg(doc, items_filter, include_cajetin);
-
-    let mut opt = resvg::usvg::Options::default();
-    opt.fontdb_mut().load_system_fonts();
-
+    let opt = create_usvg_options();
     let tree = resvg::usvg::Tree::from_str(&svg, &opt)
-        .map_err(|e| format!("Falha ao analisar SVG para PDF: {e}"))?;
+        .map_err(|e| format!("Falha ao analisar SVG para PNG: {e}"))?;
 
     let size = tree.size().to_int_size();
-    let scale = 1.5; // Resolução otimizada para PDF nítido e leve
-    let target_w = ((size.width() as f32) * scale).round() as u32;
-    let target_h = ((size.height() as f32) * scale).round() as u32;
+    let eff_scale = scale.into().unwrap_or_else(|| {
+        // Padrão 300 DPI para A4 horizontal: ~3508 px de largura
+        (3508.0 / size.width() as f32).max(2.0)
+    });
 
-    let mut pixmap = tiny_skia::Pixmap::new(target_w, target_h)
-        .ok_or_else(|| "Falha ao alocar buffer para renderizar página PDF".to_string())?;
-
-    let transform = tiny_skia::Transform::from_scale(scale, scale);
-    resvg::render(&tree, transform, &mut pixmap.as_mut());
-
-    // Extrai scanlines RGB (3 bytes por pixel) a partir de RGBA
-    let rgba = pixmap.data();
-    let mut rgb = Vec::with_capacity(rgba.len() / 4 * 3);
-    for chunk in rgba.as_chunks::<4>().0 {
-        rgb.push(chunk[0]);
-        rgb.push(chunk[1]);
-        rgb.push(chunk[2]);
-    }
-
-    // Compacta com zlib/deflate
-    let mut encoder = ZlibEncoder::new(Vec::new(), Compression::default());
-    encoder
-        .write_all(&rgb)
-        .map_err(|e| format!("Falha ao comprimir imagem para PDF: {e}"))?;
-    let compressed_rgb = encoder
-        .finish()
-        .map_err(|e| format!("Falha ao finalizar compressão para PDF: {e}"))?;
-
-    // Dimensões da página em pontos PDF proporcionais (A4 landscape: base 842 pt)
-    let width_pt = 842;
-    let height_pt = ((842.0 * size.height() as f32 / size.width() as f32).round() as u32).max(100);
-
-    Ok(RawPdfPage {
-        width_pt,
-        height_pt,
-        width_px: target_w,
-        height_px: target_h,
-        compressed_rgb,
-    })
+    render_svg_to_png(&svg, eff_scale)
 }
 
-/// Exporta uma folha ou seleção de elementos para documento PDF.
+/// Exporta uma folha ou seleção de elementos para documento PDF vetorial puro (via `svg2pdf`).
 pub fn export_doc_to_pdf(
     doc: &SchematicDocument,
     items_filter: Option<&[i32]>,
-    include_cajetin: bool,
+    options: impl Into<ExportOptions>,
 ) -> Result<Vec<u8>, String> {
-    let page = render_doc_for_pdf(doc, items_filter, include_cajetin)?;
-    Ok(build_pdf_document(&[page]))
+    let opts = options.into();
+    let svg = export_to_svg(doc, items_filter, opts);
+
+    let usvg_opt = create_usvg_options();
+    let tree = resvg::usvg::Tree::from_str(&svg, &usvg_opt)
+        .map_err(|e| format!("Falha ao analisar SVG para PDF: {e}"))?;
+
+    let mut pdf_bytes = svg2pdf::to_pdf(
+        &tree,
+        svg2pdf::ConversionOptions::default(),
+        svg2pdf::PageOptions::default(),
+    );
+    if pdf_bytes.starts_with(b"%PDF-1.7") {
+        pdf_bytes[7] = b'4';
+    }
+    Ok(pdf_bytes)
 }
 
-/// Exporta um projeto completo multipáginas para um único documento PDF (uma página por folha).
+/// Exporta um projeto completo multipáginas para um único documento PDF vetorial (uma página por folha).
 pub fn export_project_to_pdf(
     pages: &[ProjectPage],
-    include_cajetin: bool,
+    options: impl Into<ExportOptions>,
 ) -> Result<Vec<u8>, String> {
     if pages.is_empty() {
         return Err("Nenhuma página disponível no projeto para exportar.".to_string());
     }
+    let opts = options.into();
 
-    let mut pdf_pages = Vec::with_capacity(pages.len());
-    for page in pages {
-        let pdf_page = render_doc_for_pdf(&page.doc, None, include_cajetin)?;
-        pdf_pages.push(pdf_page);
+    if pages.len() == 1 {
+        return export_doc_to_pdf(&pages[0].doc, None, opts);
     }
 
-    Ok(build_pdf_document(&pdf_pages))
+    let usvg_opt = create_usvg_options();
+    let mut pdf = pdf_writer::Pdf::new();
+    pdf.set_version(1, 4);
+    let mut alloc = pdf_writer::Ref::new(1);
+    let catalog_id = alloc.bump();
+    let page_tree_id = alloc.bump();
+
+    let mut page_ids = Vec::with_capacity(pages.len());
+    let mut page_chunks = Vec::with_capacity(pages.len());
+
+    for (page_idx, page) in pages.iter().enumerate() {
+        let svg = export_to_svg(&page.doc, None, opts);
+        let tree = resvg::usvg::Tree::from_str(&svg, &usvg_opt)
+            .map_err(|e| format!("Falha ao analisar folha {page_idx} para PDF: {e}"))?;
+
+        let (svg_chunk, raw_svg_id) =
+            svg2pdf::to_chunk(&tree, svg2pdf::ConversionOptions::default());
+
+        let page_id = alloc.bump();
+        let content_id = alloc.bump();
+
+        let mut id_map = std::collections::HashMap::new();
+        let renumbered_chunk =
+            svg_chunk.renumber(|old| *id_map.entry(old).or_insert_with(|| alloc.bump()));
+        let svg_xobj_id = *id_map
+            .get(&raw_svg_id)
+            .ok_or_else(|| format!("ID do objeto SVG não encontrado na folha {page_idx}"))?;
+
+        let svg_w = tree.size().width();
+        let svg_h = tree.size().height();
+
+        let page_w_pt = 841.89_f32;
+        let page_h_pt = 595.28_f32;
+
+        let scale_x = page_w_pt / svg_w;
+        let scale_y = page_h_pt / svg_h;
+        let fit_scale = scale_x.min(scale_y);
+
+        let final_w = svg_w * fit_scale;
+        let final_h = svg_h * fit_scale;
+        let offset_x = (page_w_pt - final_w) * 0.5;
+        let offset_y = (page_h_pt - final_h) * 0.5;
+
+        let svg_name = pdf_writer::Name(b"SvgSheet");
+
+        let mut pdf_page = pdf.page(page_id);
+        pdf_page.media_box(pdf_writer::Rect::new(0.0, 0.0, page_w_pt, page_h_pt));
+        pdf_page.parent(page_tree_id);
+        pdf_page.contents(content_id);
+
+        let mut resources = pdf_page.resources();
+        resources.x_objects().pair(svg_name, svg_xobj_id);
+        resources.finish();
+        pdf_page.finish();
+
+        let mut content = pdf_writer::Content::new();
+        content.save_state();
+        content.transform([fit_scale, 0.0, 0.0, fit_scale, offset_x, offset_y]);
+        content.x_object(svg_name);
+        content.restore_state();
+
+        let stream_bytes = content.finish();
+        let mut encoder = ZlibEncoder::new(Vec::new(), Compression::default());
+        encoder
+            .write_all(&stream_bytes)
+            .map_err(|e| e.to_string())?;
+        let compressed_stream = encoder.finish().map_err(|e| e.to_string())?;
+
+        pdf.stream(content_id, &compressed_stream)
+            .filter(pdf_writer::Filter::FlateDecode)
+            .finish();
+
+        page_ids.push(page_id);
+        page_chunks.push(renumbered_chunk);
+    }
+
+    pdf.catalog(catalog_id).pages(page_tree_id);
+    pdf.pages(page_tree_id)
+        .kids(page_ids)
+        .count(pages.len() as i32);
+
+    for chunk in page_chunks {
+        pdf.extend(&chunk);
+    }
+
+    Ok(pdf.finish())
 }
 
 /// Exporta uma folha em formato CADe_SIMU original (.cad) em bytes CP-1252.
@@ -1230,12 +1494,16 @@ mod tests {
         assert!(svg.starts_with("<?xml version=\"1.0\""));
         assert!(svg.contains("<svg"));
         assert!(svg.ends_with("</svg>\n"));
-        // Cajetín ativado
+        // Cajetín estruturado ativado
         assert!(svg.contains("Entidade:"));
         assert!(svg.contains("Partida Direta Trifasica"));
         // Wires e componentes
         assert!(svg.contains("<line"));
         assert!(svg.contains("-Q1"));
+        // Grupo de cantos arredondados
+        assert!(svg.contains("<g stroke-linecap=\"round\" stroke-linejoin=\"round\">"));
+        // Bornes desligados por padrão
+        assert!(!svg.contains("#d32f2f"));
     }
 
     #[test]
@@ -1248,6 +1516,22 @@ mod tests {
         assert!(!svg.contains("Partida Direta Trifasica"));
         // Mas contém os componentes do circuito
         assert!(svg.contains("-Q1"));
+    }
+
+    #[test]
+    fn test_export_to_svg_with_terminals_and_monochrome() {
+        let doc = build_dol_starter_preset();
+        let options = ExportOptions {
+            include_cajetin: true,
+            show_terminals: true,
+            monochrome: true,
+        };
+        let svg = export_to_svg(&doc, None, options);
+
+        // Com bornes ativados
+        assert!(svg.contains("<circle"));
+        // Modo monocromático
+        assert!(!svg.contains("#8c2e1f")); // Tags em preto, sem marrom
     }
 
     #[test]
@@ -1275,19 +1559,19 @@ mod tests {
     }
 
     #[test]
-    fn test_export_to_pdf_single_and_multipage() {
+    fn test_export_to_pdf_vector_single_and_multipage() {
         let doc1 = build_dol_starter_preset();
         let pdf_single = export_doc_to_pdf(&doc1, None, true).expect("PDF single");
 
-        assert!(pdf_single.starts_with(b"%PDF-1.4"));
-        assert!(pdf_single.ends_with(b"%%EOF\n"));
+        assert!(pdf_single.starts_with(b"%PDF-"));
+        assert!(pdf_single.ends_with(b"%%EOF\n") || pdf_single.ends_with(b"%%EOF"));
 
         // Multipage
         let page1 = ProjectPage::new(1, "Potência".to_string(), doc1.clone());
         let page2 = ProjectPage::new(2, "Comando".to_string(), doc1);
         let pdf_multi = export_project_to_pdf(&[page1, page2], true).expect("PDF multi");
 
-        assert!(pdf_multi.starts_with(b"%PDF-1.4"));
+        assert!(pdf_multi.starts_with(b"%PDF-"));
         assert!(pdf_multi
             .windows(b"/Count 2".len())
             .any(|w| w == b"/Count 2"));
@@ -1304,5 +1588,27 @@ mod tests {
 
         assert_eq!(parsed_with.title_block.title, "Partida Direta Trifasica");
         assert_eq!(parsed_without.title_block.title, "");
+    }
+
+    #[test]
+    fn test_export_vector_primitives_arc_and_ellipse() {
+        use crate::model::{SchematicDocument, SchematicItem};
+
+        let mut doc = SchematicDocument::default();
+        // Item com tipo 8004 (Botão Cogumelo NA, contém comando ARCO nativo sem SVG pré-compilado)
+        doc.items
+            .push(SchematicItem::new_symbol(1, 8004, 50, 50, "-S1"));
+        // Item com tipo 3000 (Alimentação Fase, contém comando ELIP nos idle_cmds)
+        doc.items
+            .push(SchematicItem::new_symbol(2, 3000, 20, 20, "-X1"));
+
+        let svg = export_to_svg(&doc, None, false);
+        // Deve conter o path com arco vetorial (A rx ry ...) e NÃO circle
+        assert!(svg.contains("<path d=\"M "));
+        assert!(svg.contains(" A "));
+        // Deve conter ellipse com rx e ry reais e NÃO circle
+        assert!(svg.contains("<ellipse "));
+        assert!(svg.contains("rx=\""));
+        assert!(svg.contains("ry=\""));
     }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -21.0 30.0 40.0" data-name="Electric convector">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-36.0 -50.4 72.0 96.0" data-name="Electric convector" data-standard="48px">
   <title>Electric convector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-12,0 -12,15 12,15 12,0" stroke="black" fill="none" />
-    <line x1="0.00" y1="-12.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-12.00" y1="4.50" x2="12.00" y2="4.50" stroke="black" fill="none" />
-    <line x1="-12.00" y1="3.00" x2="12.00" y2="3.00" stroke="black" fill="none" />
-    <line x1="-12.00" y1="1.50" x2="12.00" y2="1.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-28.80,0.00 -28.80,36.00 28.80,36.00 28.80,0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-28.80" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-28.80" y1="10.80" x2="28.80" y2="10.80" stroke="black" fill="none" />
+    <line x1="-28.80" y1="7.20" x2="28.80" y2="7.20" stroke="black" fill="none" />
+    <line x1="-28.80" y1="3.60" x2="28.80" y2="3.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-28.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

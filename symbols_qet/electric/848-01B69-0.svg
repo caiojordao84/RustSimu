@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="140.0" viewBox="-25.0 -25.0 160.0 140.0" data-name="SOMESCA">
+<svg xmlns="http://www.w3.org/2000/svg" width="384.0" height="336.0" viewBox="-60.0 -60.0 384.0 336.0" data-name="SOMESCA" data-standard="48px">
   <title>SOMESCA</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-10.00" y="-20.00" width="130.00" height="130.00" stroke="black" fill="#dcdcdc" />
-    <rect x="0.00" y="-10.00" width="110.00" height="110.00" stroke="black" fill="#d40000" />
-    <ellipse cx="10.00" cy="55.00" rx="1.25" ry="1.25" stroke="none" fill="#00aa00" />
-    <ellipse cx="10.00" cy="50.00" rx="1.25" ry="1.25" stroke="none" fill="#00aa00" />
-    <ellipse cx="95.00" cy="50.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="45.00" rx="1.25" ry="1.25" stroke="none" fill="#00aa00" />
-    <ellipse cx="65.00" cy="50.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <ellipse cx="50.00" cy="50.00" rx="5.00" ry="5.00" stroke="black" fill="#d40000" />
-    <rect x="30.00" y="0.00" width="50.00" height="15.00" stroke="black" fill="#00aa00" />
-    <polygon points="48,53 48,47 54,50" stroke="#d40000" fill="black" />
-    <rect x="120.00" y="-20.00" width="10.00" height="130.00" stroke="black" fill="cyan" />
-    <rect x="-20.00" y="-20.00" width="10.00" height="130.00" stroke="black" fill="cyan" />
-    <ellipse cx="10.00" cy="40.00" rx="1.25" ry="1.25" stroke="none" fill="#00aa00" />
-    <text x="60.26" y="53.82" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="77.47" y="53.82" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <text x="92.00" y="54.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V</text>
-    <text x="45.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">ENERGIE</text>
-    <text x="15.00" y="41.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DEFAUT</text>
-    <text x="15.00" y="46.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SECTEUR</text>
-    <text x="15.00" y="51.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SEUIL</text>
-    <text x="15.00" y="56.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DEBIT</text>
-    <text x="5.00" y="70.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SOMESCA</text>
-    <text x="5.00" y="75.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">FONDE EN 1955</text>
-    <text x="6.00" y="79.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">tél=+33(0)1 47 86 84 00</text>
-    <ellipse cx="80.00" cy="50.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <ellipse cx="17.50" cy="87.50" rx="5.00" ry="5.00" stroke="black" fill="black" />
-    <rect x="45.00" y="60.00" width="55.00" height="20.00" stroke="black" fill="white" />
-    <text x="46.00" y="64.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Marque: Somesca</text>
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-48.00" width="312.00" height="312.00" stroke="black" fill="#dcdcdc" />
+    <rect x="0.00" y="-24.00" width="264.00" height="264.00" stroke="black" fill="#d40000" />
+    <ellipse cx="24.00" cy="132.00" rx="3.00" ry="3.00" stroke="none" fill="#00aa00" />
+    <ellipse cx="24.00" cy="120.00" rx="3.00" ry="3.00" stroke="none" fill="#00aa00" />
+    <ellipse cx="228.00" cy="120.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="108.00" rx="3.00" ry="3.00" stroke="none" fill="#00aa00" />
+    <ellipse cx="156.00" cy="120.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <ellipse cx="120.00" cy="120.00" rx="12.00" ry="12.00" stroke="black" fill="#d40000" />
+    <rect x="72.00" y="0.00" width="120.00" height="36.00" stroke="black" fill="#00aa00" />
+    <polygon points="115.20,127.20 115.20,112.80 129.60,120.00" stroke="#d40000" fill="black" />
+    <rect x="288.00" y="-48.00" width="24.00" height="312.00" stroke="black" fill="cyan" />
+    <rect x="-48.00" y="-48.00" width="24.00" height="312.00" stroke="black" fill="cyan" />
+    <ellipse cx="24.00" cy="96.00" rx="3.00" ry="3.00" stroke="none" fill="#00aa00" />
+    <text x="144.62" y="129.17" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="185.93" y="129.17" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <text x="220.80" y="129.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">V</text>
+    <text x="108.00" y="31.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ENERGIE</text>
+    <text x="36.00" y="98.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DEFAUT</text>
+    <text x="36.00" y="110.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SECTEUR</text>
+    <text x="36.00" y="122.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SEUIL</text>
+    <text x="36.00" y="134.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DEBIT</text>
+    <text x="12.00" y="168.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SOMESCA</text>
+    <text x="12.00" y="180.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">FONDE EN 1955</text>
+    <text x="14.40" y="189.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">tél=+33(0)1 47 86 84 00</text>
+    <ellipse cx="192.00" cy="120.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <ellipse cx="42.00" cy="210.00" rx="12.00" ry="12.00" stroke="black" fill="black" />
+    <rect x="108.00" y="144.00" width="132.00" height="48.00" stroke="black" fill="white" />
+    <text x="110.40" y="153.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Marque: Somesca</text>
   </g>
 </svg>

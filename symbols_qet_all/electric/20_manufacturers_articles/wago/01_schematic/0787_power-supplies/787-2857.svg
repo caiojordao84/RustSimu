@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="130.0" viewBox="-50.0 -65.0 100.0 130.0" data-name="787-2857">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="312.0" viewBox="-120.0 -156.0 240.0 312.0" data-name="787-2857" data-standard="48px">
   <title>787-2857</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-40.00" y="-60.00" width="80.00" height="120.00" stroke="black" fill="none" />
-    <text x="13.00" y="53.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+18V</text>
-    <text x="17.00" y="-47.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <ellipse cx="40.00" cy="-10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="17.00" y="-7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <text x="13.00" y="13.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+18V</text>
-    <text x="13.00" y="33.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+18V</text>
-    <ellipse cx="40.00" cy="30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="17.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
-    <ellipse cx="-40.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="-50.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-40.00" cy="20.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="10.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="-40.00" cy="-20.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="50.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <ellipse cx="40.00" cy="-30.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-37.00" y="17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <text x="-37.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="-37.00" y="-3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <text x="-10.00" y="50.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 787-2857</text>
-    <rect x="-1.00" y="-60.00" width="2.00" height="120.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-40.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="AC.L" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="AC.N" data-orientation="w" />
-    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="AC.PE" data-orientation="w" />
-    <circle class="qet-terminal" cx="40.00" cy="-50.00" r="1.8" fill="red" stroke="none" data-name="OUT-.6" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="OUT-.5" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="OUT-.4" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="OUT+.3" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="OUT+.2" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="OUT+.1" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-96.00" y="-144.00" width="192.00" height="288.00" stroke="black" fill="none" />
+    <text x="31.20" y="127.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+18V</text>
+    <text x="40.80" y="-112.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <ellipse cx="96.00" cy="-24.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <text x="40.80" y="-16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <text x="31.20" y="31.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+18V</text>
+    <text x="31.20" y="79.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+18V</text>
+    <ellipse cx="96.00" cy="72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <text x="40.80" y="-64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND</text>
+    <ellipse cx="-96.00" cy="0.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="96.00" cy="-120.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="-96.00" cy="48.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="96.00" cy="24.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="-96.00" cy="-48.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="96.00" cy="120.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <ellipse cx="96.00" cy="-72.00" rx="6.00" ry="6.00" stroke="black" fill="white" />
+    <text x="-88.80" y="40.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <text x="-88.80" y="-55.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="-88.80" y="-7.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="-24.00" y="120.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">WAGO 787-2857</text>
+    <rect x="-2.40" y="-144.00" width="4.80" height="288.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-96.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="AC.L" data-orientation="w" />
+    <circle class="qet-terminal" cx="-96.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="AC.N" data-orientation="w" />
+    <circle class="qet-terminal" cx="-96.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="AC.PE" data-orientation="w" />
+    <circle class="qet-terminal" cx="96.00" cy="-120.00" r="4.0" fill="red" stroke="none" data-name="OUT-.6" data-orientation="e" />
+    <circle class="qet-terminal" cx="96.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="OUT-.5" data-orientation="e" />
+    <circle class="qet-terminal" cx="96.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="OUT-.4" data-orientation="e" />
+    <circle class="qet-terminal" cx="96.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="OUT+.3" data-orientation="e" />
+    <circle class="qet-terminal" cx="96.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="OUT+.2" data-orientation="e" />
+    <circle class="qet-terminal" cx="96.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="OUT+.1" data-orientation="e" />
   </g>
 </svg>

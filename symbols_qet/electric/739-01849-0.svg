@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="40.0" viewBox="-150.0 -29.0 160.0 40.0" data-name="AC power feeding on telecommunication lines">
+<svg xmlns="http://www.w3.org/2000/svg" width="54.9" height="13.7" viewBox="-51.4 -9.9 54.9 13.7" data-name="AC power feeding on telecommunication lines" data-standard="48px">
   <title>AC power feeding on telecommunication lines</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="0.00" x2="-140.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M -125.00 -10.00 A 5.00 2.50 0 0 0 -135.00 -10.00" stroke="black" fill="none" />
-    <path d="M -125.00 -10.00 A 5.00 2.50 0 0 0 -115.00 -10.00" stroke="black" fill="none" />
-    <line x1="-135.00" y1="-20.00" x2="-110.00" y2="-20.00" stroke="black" fill="none" />
-    <polygon points="-110,-16 -110,-23 -100,-20" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-140.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <path d="M -42.86 -3.43 A 1.71 0.86 0 0 0 -46.29 -3.43" stroke="black" fill="none" />
+    <path d="M -42.86 -3.43 A 1.71 0.86 0 0 0 -39.43 -3.43" stroke="black" fill="none" />
+    <line x1="-46.29" y1="-6.86" x2="-37.71" y2="-6.86" stroke="black" fill="none" />
+    <polygon points="-37.71,-5.49 -37.71,-7.89 -34.29,-6.86" stroke="black" fill="black" />
+    <circle class="qet-terminal" cx="-48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

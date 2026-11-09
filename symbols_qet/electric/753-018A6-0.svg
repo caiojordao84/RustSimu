@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="100.0" viewBox="-30.0 -42.0 80.0 100.0" data-name="Central feeder unit with equipment box">
+<svg xmlns="http://www.w3.org/2000/svg" width="64.0" height="80.0" viewBox="-24.0 -33.6 64.0 80.0" data-name="Central feeder unit with equipment box" data-standard="48px">
   <title>Central feeder unit with equipment box</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="40.00" y1="50.00" x2="-20.00" y2="50.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="45.00" x2="-20.00" y2="55.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="45.00" x2="40.00" y2="55.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="50.00" x2="10.00" y2="30.00" stroke="black" fill="none" />
-    <rect x="0.00" y="10.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <polygon points="7,23 8,21 7,19 9,19 10,17 11,19 13,19 12,21 13,23 10,22" stroke="black" fill="black" />
-    <polygon points="20,0 0,0 10,-20" stroke="black" fill="none" />
-    <line x1="10.00" y1="10.00" x2="10.00" y2="-40.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="40.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="50.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="32.00" y1="40.00" x2="-16.00" y2="40.00" stroke="black" fill="none" />
+    <line x1="-16.00" y1="36.00" x2="-16.00" y2="44.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="36.00" x2="32.00" y2="44.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="40.00" x2="8.00" y2="24.00" stroke="black" fill="none" />
+    <rect x="0.00" y="8.00" width="16.00" height="16.00" stroke="black" fill="none" />
+    <polygon points="5.60,18.40 6.40,16.80 5.60,15.20 7.20,15.20 8.00,13.60 8.80,15.20 10.40,15.20 9.60,16.80 10.40,18.40 8.00,17.60" stroke="black" fill="black" />
+    <polygon points="16.00,0.00 0.00,0.00 8.00,-16.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="8.00" x2="8.00" y2="-32.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="32.00" cy="40.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-16.00" cy="40.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

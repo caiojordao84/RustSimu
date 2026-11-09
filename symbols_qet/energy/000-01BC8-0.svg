@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-20.0 -10.0 40.0 20.0" data-name="Detachable link">
+<svg xmlns="http://www.w3.org/2000/svg" width="91.4" height="45.7" viewBox="-45.7 -22.9 91.4 45.7" data-name="Detachable link" data-standard="48px">
   <title>Detachable link</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="2.70" y1="-0.09" x2="9.33" y2="-0.09" stroke="black" fill="none" />
-    <line x1="2.00" y1="6.05" x2="2.00" y2="-6.23" stroke="black" fill="none" />
-    <line x1="-10.21" y1="-0.09" x2="-2.77" y2="-0.09" stroke="black" fill="none" />
-    <line x1="-2.00" y1="6.05" x2="-2.00" y2="-6.23" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="6.17" y1="-0.21" x2="21.33" y2="-0.21" stroke="black" fill="none" />
+    <line x1="4.57" y1="13.83" x2="4.57" y2="-14.24" stroke="black" fill="none" />
+    <line x1="-23.34" y1="-0.21" x2="-6.33" y2="-0.21" stroke="black" fill="none" />
+    <line x1="-4.57" y1="13.83" x2="-4.57" y2="-14.24" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-25.14" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="22.86" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

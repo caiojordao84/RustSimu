@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="100.0" viewBox="-35.0 -64.0 70.0 100.0" data-name="Volume 500k Ohms">
+<svg xmlns="http://www.w3.org/2000/svg" width="197.6" height="282.4" viewBox="-98.8 -180.7 197.6 282.4" data-name="Volume 500k Ohms" data-standard="48px">
   <title>Volume 500k Ohms</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-23.00" y1="-19.00" x2="-23.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="12.00" y1="-28.00" x2="12.00" y2="-50.00" stroke="black" fill="none" />
-    <ellipse cx="17.00" cy="-43.50" rx="3.50" ry="3.50" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-43.50" rx="3.50" ry="3.50" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="0.00" rx="30.00" ry="30.00" stroke="black" fill="none" />
-    <line x1="-12.00" y1="-28.00" x2="-12.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-50.00" x2="4.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="22.00" y1="-21.00" x2="22.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="13.00" y1="-50.00" x2="22.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-30.00" x2="-5.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-30.00" x2="5.00" y2="-50.00" stroke="black" fill="none" />
-    <ellipse cx="-17.50" cy="-43.50" rx="3.50" ry="3.50" stroke="black" fill="none" />
-    <line x1="-22.00" y1="-50.00" x2="-13.00" y2="-50.00" stroke="black" fill="none" />
-    <text x="-22.00" y="-1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">500 Ohms</text>
-    <circle class="qet-terminal" cx="0.00" cy="-54.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-18.00" cy="-54.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="17.00" cy="-54.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-64.94" y1="-53.65" x2="-64.94" y2="-141.18" stroke="black" fill="none" />
+    <line x1="33.88" y1="-79.06" x2="33.88" y2="-141.18" stroke="black" fill="none" />
+    <ellipse cx="48.00" cy="-122.82" rx="9.88" ry="9.88" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-122.82" rx="9.88" ry="9.88" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="0.00" rx="84.71" ry="84.71" stroke="black" fill="none" />
+    <line x1="-33.88" y1="-79.06" x2="-33.88" y2="-141.18" stroke="black" fill="none" />
+    <line x1="-14.12" y1="-141.18" x2="11.29" y2="-141.18" stroke="black" fill="none" />
+    <line x1="62.12" y1="-59.29" x2="62.12" y2="-141.18" stroke="black" fill="none" />
+    <line x1="36.71" y1="-141.18" x2="62.12" y2="-141.18" stroke="black" fill="none" />
+    <line x1="-14.12" y1="-84.71" x2="-14.12" y2="-141.18" stroke="black" fill="none" />
+    <line x1="14.12" y1="-84.71" x2="14.12" y2="-141.18" stroke="black" fill="none" />
+    <ellipse cx="-49.41" cy="-122.82" rx="9.88" ry="9.88" stroke="black" fill="none" />
+    <line x1="-62.12" y1="-141.18" x2="-36.71" y2="-141.18" stroke="black" fill="none" />
+    <text x="-62.12" y="-2.82" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">500 Ohms</text>
+    <circle class="qet-terminal" cx="0.00" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-50.82" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

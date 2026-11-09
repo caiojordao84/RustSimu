@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="50.0" viewBox="-45.0 -22.0 90.0 50.0" data-name="Conductivity cell">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="120.0" viewBox="-108.0 -52.8 216.0 120.0" data-name="Conductivity cell" data-standard="48px">
   <title>Conductivity cell</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="15,-5 15,25 -15,25 -15,-5" stroke="black" fill="none" />
-    <polyline points="-40,-20 -10,-20 -10,20" stroke="black" fill="none" />
-    <polyline points="40,-20 10,-20 10,20" stroke="black" fill="none" />
-    <path d="M -10.00 15.00 A 5.00 5.00 0 0 0 0.00 15.00" stroke="black" fill="none" />
-    <path d="M 0.00 15.00 A 5.00 5.00 0 0 0 10.00 15.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="36.00,-12.00 36.00,60.00 -36.00,60.00 -36.00,-12.00" stroke="black" fill="none" />
+    <polyline points="-96.00,-48.00 -24.00,-48.00 -24.00,48.00" stroke="black" fill="none" />
+    <polyline points="96.00,-48.00 24.00,-48.00 24.00,48.00" stroke="black" fill="none" />
+    <path d="M -24.00 36.00 A 12.00 12.00 0 0 0 0.00 36.00" stroke="black" fill="none" />
+    <path d="M 0.00 36.00 A 12.00 12.00 0 0 0 24.00 36.00" stroke="black" fill="none" />
   </g>
 </svg>

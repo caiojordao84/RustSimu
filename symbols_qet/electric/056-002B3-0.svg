@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="60.0" viewBox="-12.0 -28.0 30.0 60.0" data-name="Electromechanical brake">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="144.0" viewBox="-28.8 -67.2 72.0 144.0" data-name="Electromechanical brake" data-standard="48px">
   <title>Electromechanical brake</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="1.00" y1="-10.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="-23.00" x2="-7.00" y2="26.00" stroke="black" fill="none" />
-    <polygon points="-10,-23 -7,-23 0,-13 0,17 -7,27 -10,27" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="24.00" x2="24.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="2.40" y1="-24.00" x2="24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-16.80" y1="-55.20" x2="-16.80" y2="62.40" stroke="black" fill="none" />
+    <polygon points="-24.00,-55.20 -16.80,-55.20 0.00,-31.20 0.00,40.80 -16.80,64.80 -24.00,64.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

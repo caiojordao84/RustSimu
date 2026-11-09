@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="740.0" height="110.0" viewBox="-370.0 -50.0 740.0 110.0" data-name="750-644">
+<svg xmlns="http://www.w3.org/2000/svg" width="49.3" height="7.3" viewBox="-24.7 -3.3 49.3 7.3" data-name="750-644" data-standard="48px">
   <title>750-644</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-360.00" y="-40.00" width="720.00" height="90.00" stroke="black" fill="none" />
-    <text x="-330.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">WAGO 750-644</text>
-    <ellipse cx="-200.00" cy="-40.00" rx="2.50" ry="2.50" stroke="black" fill="white" />
-    <text x="-138.00" y="45.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">RF-Transceiver Bluetooth</text>
-    <text x="-355.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24V</text>
-    <text x="-355.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <line x1="-360.00" y1="10.00" x2="360.00" y2="10.00" stroke="black" fill="white" />
-    <line x1="-360.00" y1="-10.00" x2="360.00" y2="-10.00" stroke="black" fill="white" />
-    <polyline points="-362,-10 -356,-10" stroke="black" fill="white" />
-    <path d="M 362.50 -12.50 A 2.50 2.50 0 0 0 362.50 -7.50" stroke="black" fill="none" />
-    <polyline points="-362,10 -356,10" stroke="black" fill="white" />
-    <path d="M 362.50 7.50 A 2.50 2.50 0 0 0 362.50 12.50" stroke="black" fill="none" />
-    <text x="-219.00" y="-27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Antenna</text>
-    <circle class="qet-terminal" cx="-200.00" cy="-40.00" r="1.8" fill="red" stroke="none" data-name="Antenna" data-orientation="n" />
-    <circle class="qet-terminal" cx="-360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.In" data-orientation="w" />
-    <circle class="qet-terminal" cx="-360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.In" data-orientation="w" />
-    <circle class="qet-terminal" cx="360.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
-    <circle class="qet-terminal" cx="360.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-24.00" y="-2.67" width="48.00" height="6.00" stroke="black" fill="none" />
+    <text x="-22.00" y="3.00" font-size="0.6" font-family="sans-serif" fill="black" stroke="none">WAGO 750-644</text>
+    <ellipse cx="-13.33" cy="-2.67" rx="0.17" ry="0.17" stroke="black" fill="white" />
+    <text x="-9.20" y="3.00" font-size="0.6" font-family="sans-serif" fill="black" stroke="none">RF-Transceiver Bluetooth</text>
+    <text x="-23.67" y="-0.73" font-size="0.6" font-family="sans-serif" fill="black" stroke="none">24V</text>
+    <text x="-23.67" y="0.60" font-size="0.6" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <line x1="-24.00" y1="0.67" x2="24.00" y2="0.67" stroke="black" fill="white" />
+    <line x1="-24.00" y1="-0.67" x2="24.00" y2="-0.67" stroke="black" fill="white" />
+    <polyline points="-24.13,-0.67 -23.73,-0.67" stroke="black" fill="white" />
+    <path d="M 24.17 -0.83 A 0.17 0.17 0 0 0 24.17 -0.50" stroke="black" fill="none" />
+    <polyline points="-24.13,0.67 -23.73,0.67" stroke="black" fill="white" />
+    <path d="M 24.17 0.50 A 0.17 0.17 0 0 0 24.17 0.83" stroke="black" fill="none" />
+    <text x="-14.60" y="-1.80" font-size="0.6" font-family="sans-serif" fill="black" stroke="none">Antenna</text>
+    <circle class="qet-terminal" cx="-13.33" cy="-2.67" r="4.0" fill="red" stroke="none" data-name="Antenna" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-0.67" r="4.0" fill="red" stroke="none" data-name="Pow.L.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.67" r="4.0" fill="red" stroke="none" data-name="Pow.N.In" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-0.67" r="4.0" fill="red" stroke="none" data-name="Pow.L.Out" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="0.67" r="4.0" fill="red" stroke="none" data-name="Pow.N.Out" data-orientation="e" />
   </g>
 </svg>

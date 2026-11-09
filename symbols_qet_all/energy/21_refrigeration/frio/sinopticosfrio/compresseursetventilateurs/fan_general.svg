@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-25.0 -20.0 50.0 40.0" data-name="Fan general">
+<svg xmlns="http://www.w3.org/2000/svg" width="75.0" height="60.0" viewBox="-37.5 -30.0 75.0 60.0" data-name="Fan general" data-standard="48px">
   <title>Fan general</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="0.00" rx="15.00" ry="15.00" stroke="black" fill="white" />
-    <path d="M -7.00 -6.00 A 6.00 6.00 0 0 0 -1.00 0.00" stroke="black" fill="none" />
-    <path d="M -1.00 0.00 A 6.00 6.00 0 0 0 -7.00 6.00" stroke="black" fill="none" />
-    <path d="M -6.00 7.00 A 6.00 6.00 0 0 0 0.00 1.00" stroke="black" fill="none" />
-    <path d="M -7.00 6.00 A 1.00 1.00 0 0 0 -6.00 7.00" stroke="black" fill="none" />
-    <path d="M 0.00 -1.00 A 6.00 6.00 0 0 0 -6.00 -7.00" stroke="black" fill="none" />
-    <path d="M -6.00 -7.00 A 1.00 1.00 0 0 0 -7.00 -6.00" stroke="black" fill="none" />
-    <path d="M -1.00 0.00 A 1.00 1.00 0 0 0 0.00 -1.00" stroke="black" fill="none" />
-    <ellipse cx="4.50" cy="0.00" rx="4.50" ry="2.50" stroke="black" fill="none" />
-    <line x1="-15.00" y1="0.00" x2="-16.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="0.00" x2="16.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="-13.00" x2="13.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="13.00" x2="13.00" y2="7.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="16.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-16.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="0.00" rx="22.50" ry="22.50" stroke="black" fill="white" />
+    <path d="M -10.50 -9.00 A 9.00 9.00 0 0 0 -1.50 0.00" stroke="black" fill="none" />
+    <path d="M -1.50 0.00 A 9.00 9.00 0 0 0 -10.50 9.00" stroke="black" fill="none" />
+    <path d="M -9.00 10.50 A 9.00 9.00 0 0 0 0.00 1.50" stroke="black" fill="none" />
+    <path d="M -10.50 9.00 A 1.50 1.50 0 0 0 -9.00 10.50" stroke="black" fill="none" />
+    <path d="M 0.00 -1.50 A 9.00 9.00 0 0 0 -9.00 -10.50" stroke="black" fill="none" />
+    <path d="M -9.00 -10.50 A 1.50 1.50 0 0 0 -10.50 -9.00" stroke="black" fill="none" />
+    <path d="M -1.50 0.00 A 1.50 1.50 0 0 0 0.00 -1.50" stroke="black" fill="none" />
+    <ellipse cx="6.75" cy="0.00" rx="6.75" ry="3.75" stroke="black" fill="none" />
+    <line x1="-22.50" y1="0.00" x2="-24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="22.50" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-10.50" y1="-19.50" x2="19.50" y2="-10.50" stroke="black" fill="none" />
+    <line x1="-10.50" y1="19.50" x2="19.50" y2="10.50" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

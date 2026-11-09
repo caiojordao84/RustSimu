@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="70.0" viewBox="-36.0 -33.0 70.0 70.0" data-name="conductosfibra">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="168.0" viewBox="-86.4 -79.2 168.0 168.0" data-name="conductosfibra" data-standard="48px">
   <title>conductosfibra</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="20,30 20,25 19,28 21,28 20,25" stroke="black" fill="none" />
-    <line x1="12.00" y1="20.00" x2="29.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-33.00" y1="16.00" x2="-16.00" y2="16.00" stroke="black" fill="none" />
-    <line x1="-33.00" y1="20.00" x2="-16.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="12.00" y1="16.00" x2="29.00" y2="16.00" stroke="black" fill="none" />
-    <rect x="12.00" y="14.00" width="17.00" height="8.00" stroke="black" fill="none" />
-    <line x1="12.00" y1="18.00" x2="29.00" y2="18.00" stroke="black" fill="none" />
-    <polyline points="26,0 26,10 30,14 12,14 16,10 16,0" stroke="black" fill="none" />
-    <polyline points="-19,0 -19,10 -15,14 -33,14 -29,10 -29,0" stroke="black" fill="none" />
-    <line x1="-19.00" y1="0.00" x2="15.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="-33.00" y="14.00" width="17.00" height="8.00" stroke="black" fill="none" />
-    <line x1="-33.00" y1="18.00" x2="-16.00" y2="18.00" stroke="black" fill="none" />
-    <polyline points="-26,30 -26,25 -27,28 -25,28 -26,25" stroke="black" fill="none" />
-    <polyline points="-29,-1 -29,-8 -26,-10 -7,-10 -5,-12 -5,-21 7,-21 7,-12 10,-10 23,-10 26,-8 26,-2" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-22.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="48.00,72.00 48.00,60.00 45.60,67.20 50.40,67.20 48.00,60.00" stroke="black" fill="none" />
+    <line x1="28.80" y1="48.00" x2="69.60" y2="48.00" stroke="black" fill="none" />
+    <line x1="-79.20" y1="38.40" x2="-38.40" y2="38.40" stroke="black" fill="none" />
+    <line x1="-79.20" y1="48.00" x2="-38.40" y2="48.00" stroke="black" fill="none" />
+    <line x1="28.80" y1="38.40" x2="69.60" y2="38.40" stroke="black" fill="none" />
+    <rect x="28.80" y="33.60" width="40.80" height="19.20" stroke="black" fill="none" />
+    <line x1="28.80" y1="43.20" x2="69.60" y2="43.20" stroke="black" fill="none" />
+    <polyline points="62.40,0.00 62.40,24.00 72.00,33.60 28.80,33.60 38.40,24.00 38.40,0.00" stroke="black" fill="none" />
+    <polyline points="-45.60,0.00 -45.60,24.00 -36.00,33.60 -79.20,33.60 -69.60,24.00 -69.60,0.00" stroke="black" fill="none" />
+    <line x1="-45.60" y1="0.00" x2="36.00" y2="0.00" stroke="black" fill="none" />
+    <rect x="-79.20" y="33.60" width="40.80" height="19.20" stroke="black" fill="none" />
+    <line x1="-79.20" y1="43.20" x2="-38.40" y2="43.20" stroke="black" fill="none" />
+    <polyline points="-62.40,72.00 -62.40,60.00 -64.80,67.20 -60.00,67.20 -62.40,60.00" stroke="black" fill="none" />
+    <polyline points="-69.60,-2.40 -69.60,-19.20 -62.40,-24.00 -16.80,-24.00 -12.00,-28.80 -12.00,-50.40 16.80,-50.40 16.80,-28.80 24.00,-24.00 55.20,-24.00 62.40,-19.20 62.40,-4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-52.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

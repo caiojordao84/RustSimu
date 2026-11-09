@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="60.0" viewBox="-39.0 -38.0 60.0 60.0" data-name="Elbow 45 flanges">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="144.0" viewBox="-93.6 -91.2 144.0 144.0" data-name="Elbow 45 flanges" data-standard="48px">
   <title>Elbow 45 flanges</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-30.20" y="-17.45" width="3.50" height="34.70" stroke="black" fill="none" />
-    <path d="M -13.50 7.00 A 20.50 19.50 0 0 0 1.00 1.29" stroke="black" fill="none" />
-    <path d="M -2.29 -13.21 A 2.25 2.74 0 0 0 -2.29 -17.09" stroke="black" fill="none" />
-    <path d="M 10.84 -5.09 A 2.25 2.24 0 0 0 7.67 -5.37" stroke="black" fill="none" />
-    <line x1="1.00" y1="1.00" x2="7.00" y2="-5.00" stroke="black" fill="none" />
-    <path d="M -26.13 -9.15 A 2.25 2.74 0 0 0 -23.88 -6.41" stroke="black" fill="none" />
-    <path d="M -23.88 7.00 A 2.25 2.74 0 0 0 -26.13 9.74" stroke="black" fill="none" />
-    <path d="M -14.00 -6.00 A 8.00 7.00 0 0 0 -8.34 -8.05" stroke="black" fill="none" />
-    <line x1="-23.31" y1="7.00" x2="-14.69" y2="7.00" stroke="black" fill="none" />
-    <line x1="-13.00" y1="-6.00" x2="-23.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="-8.00" x2="-2.00" y2="-14.00" stroke="black" fill="none" />
-    <polygon points="-8,-22 14,-2 16,-4 -6,-24" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="5.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-72.48" y="-41.88" width="8.40" height="83.28" stroke="black" fill="none" />
+    <path d="M -32.40 16.80 A 49.20 46.80 0 0 0 2.40 3.10" stroke="black" fill="none" />
+    <path d="M -5.50 -31.70 A 5.40 6.58 0 0 0 -5.50 -41.02" stroke="black" fill="none" />
+    <path d="M 26.02 -12.22 A 5.40 5.38 0 0 0 18.41 -12.89" stroke="black" fill="none" />
+    <line x1="2.40" y1="2.40" x2="16.80" y2="-12.00" stroke="black" fill="none" />
+    <path d="M -62.71 -21.96 A 5.40 6.58 0 0 0 -57.31 -15.38" stroke="black" fill="none" />
+    <path d="M -57.31 16.80 A 5.40 6.58 0 0 0 -62.71 23.38" stroke="black" fill="none" />
+    <path d="M -33.60 -14.40 A 19.20 16.80 0 0 0 -20.02 -19.32" stroke="black" fill="none" />
+    <line x1="-55.94" y1="16.80" x2="-35.26" y2="16.80" stroke="black" fill="none" />
+    <line x1="-31.20" y1="-14.40" x2="-55.20" y2="-14.40" stroke="black" fill="none" />
+    <line x1="-19.20" y1="-19.20" x2="-4.80" y2="-33.60" stroke="black" fill="none" />
+    <polygon points="-19.20,-52.80 33.60,-4.80 38.40,-9.60 -14.40,-57.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="12.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

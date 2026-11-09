@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-17.0 -32.0 40.0 60.0" data-name="Coil">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-20.4 -38.4 48.0 72.0" data-name="Coil" data-standard="48px">
   <title>Coil</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="14.00" y="-8.00" width="6.00" height="16.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="8.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <polygon points="-14,-8 14,-8 20,0 14,8 -14,8" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="A2" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="16.80" y="-9.60" width="7.20" height="19.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-9.60" stroke="black" fill="none" />
+    <line x1="0.00" y1="9.60" x2="0.00" y2="24.00" stroke="black" fill="none" />
+    <polygon points="-16.80,-9.60 16.80,-9.60 24.00,0.00 16.80,9.60 -16.80,9.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="n" />
   </g>
 </svg>

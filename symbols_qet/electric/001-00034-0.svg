@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-16.0 -30.0 30.0 50.0" data-name="Ground">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="120.0" viewBox="-38.4 -72.0 72.0 120.0" data-name="Ground" data-standard="48px">
   <title>Ground</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="13.00" stroke="black" fill="none" />
-    <line x1="-13.65" y1="14.00" x2="12.62" y2="14.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="GND" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="31.20" stroke="black" fill="none" />
+    <line x1="-32.76" y1="33.60" x2="30.29" y2="33.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="GND" data-orientation="n" />
   </g>
 </svg>

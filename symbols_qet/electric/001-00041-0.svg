@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="80.0" viewBox="-29.0 -39.0 50.0 80.0" data-name="Three-pole source + PEN">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="192.0" viewBox="-69.6 -93.6 120.0 192.0" data-name="Three-pole source + PEN" data-standard="48px">
   <title>Three-pole source + PEN</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="10.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="10.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="30.00" x2="10.00" y2="30.00" stroke="black" fill="none" />
-    <text x="-18.00" y="32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PEN</text>
-    <text x="-18.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L3</text>
-    <text x="-18.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L2</text>
-    <text x="-18.00" y="-28.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L1</text>
-    <line x1="0.00" y1="-30.00" x2="10.00" y2="-30.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="L1" data-orientation="e" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="L2" data-orientation="e" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="L3" data-orientation="e" />
-    <circle class="qet-terminal" cx="10.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="PEN" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="24.00" x2="24.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="24.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="72.00" x2="24.00" y2="72.00" stroke="black" fill="none" />
+    <text x="-43.20" y="76.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PEN</text>
+    <text x="-43.20" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L3</text>
+    <text x="-43.20" y="-19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L2</text>
+    <text x="-43.20" y="-67.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L1</text>
+    <line x1="0.00" y1="-72.00" x2="24.00" y2="-72.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="L1" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="L2" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="L3" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="PEN" data-orientation="e" />
   </g>
 </svg>

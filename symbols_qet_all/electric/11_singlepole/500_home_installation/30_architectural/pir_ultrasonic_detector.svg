@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="30.0" viewBox="-10.0 -14.0 70.0 30.0" data-name="PIR ultrasonic detector">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="72.0" viewBox="-24.0 -33.6 168.0 72.0" data-name="PIR ultrasonic detector" data-standard="48px">
   <title>PIR ultrasonic detector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 48.50 0.50 A 2.00 10.00 0 0 0 46.50 -9.50" stroke="black" fill="none" />
-    <path d="M 46.50 10.50 A 2.00 10.00 0 0 0 48.50 0.50" stroke="black" fill="none" />
-    <path d="M 50.50 0.50 A 2.00 11.00 0 0 0 48.50 -10.50" stroke="black" fill="none" />
-    <path d="M 48.50 12.50 A 2.00 12.00 0 0 0 50.50 0.50" stroke="black" fill="none" />
-    <path d="M 52.50 0.50 A 2.00 12.00 0 0 0 50.50 -11.50" stroke="black" fill="none" />
-    <path d="M 50.50 14.50 A 2.00 14.00 0 0 0 52.50 0.50" stroke="black" fill="none" />
-    <polygon points="20,-10 0,0 20,10" stroke="black" fill="none" />
-    <line x1="25.00" y1="-5.00" x2="40.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="0.00" x2="40.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="5.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="1.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 116.40 1.20 A 4.80 24.00 0 0 0 111.60 -22.80" stroke="black" fill="none" />
+    <path d="M 111.60 25.20 A 4.80 24.00 0 0 0 116.40 1.20" stroke="black" fill="none" />
+    <path d="M 121.20 1.20 A 4.80 26.40 0 0 0 116.40 -25.20" stroke="black" fill="none" />
+    <path d="M 116.40 30.00 A 4.80 28.80 0 0 0 121.20 1.20" stroke="black" fill="none" />
+    <path d="M 126.00 1.20 A 4.80 28.80 0 0 0 121.20 -27.60" stroke="black" fill="none" />
+    <path d="M 121.20 34.80 A 4.80 33.60 0 0 0 126.00 1.20" stroke="black" fill="none" />
+    <polygon points="48.00,-24.00 0.00,0.00 48.00,24.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-12.00" x2="96.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="0.00" x2="96.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="12.00" x2="96.00" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="2.40" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

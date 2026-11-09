@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="30.0" viewBox="-45.0 -6.0 110.0 30.0" data-name="Equalizer">
+<svg xmlns="http://www.w3.org/2000/svg" width="264.0" height="72.0" viewBox="-108.0 -14.4 264.0 72.0" data-name="Equalizer" data-standard="48px">
   <title>Equalizer</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-40.00" y1="9.00" x2="-10.00" y2="9.00" stroke="black" fill="none" />
-    <polygon points="-10,9 10,-1 30,9 10,19" stroke="black" fill="none" />
-    <line x1="30.00" y1="9.00" x2="60.00" y2="9.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-96.00" y1="21.60" x2="-24.00" y2="21.60" stroke="black" fill="none" />
+    <polygon points="-24.00,21.60 24.00,-2.40 72.00,21.60 24.00,45.60" stroke="black" fill="none" />
+    <line x1="72.00" y1="21.60" x2="144.00" y2="21.60" stroke="black" fill="none" />
   </g>
 </svg>

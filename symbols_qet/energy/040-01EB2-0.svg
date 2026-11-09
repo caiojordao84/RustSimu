@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-19.0 -17.0 40.0 40.0" data-name="Elbow 45° PVC 40 MF">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-45.6 -40.8 96.0 96.0" data-name="Elbow 45° PVC 40 MF" data-standard="48px">
   <title>Elbow 45° PVC 40 MF</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="3.00" y="-6.50" width="14.00" height="7.00" stroke="black" fill="none" />
-    <path d="M 11.31 11.31 A 16.00 16.00 0 0 0 16.00 0.00" stroke="black" fill="none" />
-    <path d="M 2.83 2.83 A 4.00 4.00 0 0 0 4.00 0.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="3.00" x2="-3.00" y2="9.00" stroke="black" fill="none" />
-    <line x1="11.00" y1="11.00" x2="5.00" y2="17.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="9.00" x2="5.00" y2="17.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="12.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="-7.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="7.20" y="-15.60" width="33.60" height="16.80" stroke="black" fill="none" />
+    <path d="M 27.14 27.14 A 38.40 38.40 0 0 0 38.40 0.00" stroke="black" fill="none" />
+    <path d="M 6.79 6.79 A 9.60 9.60 0 0 0 9.60 0.00" stroke="black" fill="none" />
+    <line x1="7.20" y1="7.20" x2="-7.20" y2="21.60" stroke="black" fill="none" />
+    <line x1="26.40" y1="26.40" x2="12.00" y2="40.80" stroke="black" fill="none" />
+    <line x1="-7.20" y1="21.60" x2="12.00" y2="40.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="28.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-16.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-20.0 -21.0 40.0 30.0" data-name="solenoid">
+<svg xmlns="http://www.w3.org/2000/svg" width="87.3" height="65.5" viewBox="-43.6 -45.8 87.3 65.5" data-name="solenoid" data-standard="48px">
   <title>solenoid</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-3.00" y1="-13.00" x2="3.00" y2="-9.00" stroke="black" fill="none" />
-    <path d="M -3.00 -7.00 A 3.00 3.00 0 0 0 3.00 -7.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-8.00" x2="-3.00" y2="-15.00" stroke="black" fill="none" />
-    <path d="M 3.00 -15.00 A 3.00 3.00 0 0 0 -3.00 -15.00" stroke="black" fill="none" />
-    <line x1="3.00" y1="-8.00" x2="3.00" y2="-15.00" stroke="black" fill="none" />
-    <polygon points="2,1 0,3 -2,1 -10,5 -10,-5 10,5 10,-5 -2,1 0,0" stroke="black" fill="white" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="-4.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="0.00" x2="11.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="0.00" x2="-11.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-6.55" y1="-28.36" x2="6.55" y2="-19.64" stroke="black" fill="none" />
+    <path d="M -6.55 -15.27 A 6.55 6.55 0 0 0 6.55 -15.27" stroke="black" fill="none" />
+    <line x1="-6.55" y1="-17.45" x2="-6.55" y2="-32.73" stroke="black" fill="none" />
+    <path d="M 6.55 -32.73 A 6.55 6.55 0 0 0 -6.55 -32.73" stroke="black" fill="none" />
+    <line x1="6.55" y1="-17.45" x2="6.55" y2="-32.73" stroke="black" fill="none" />
+    <polygon points="4.36,2.18 0.00,6.55 -4.36,2.18 -21.82,10.91 -21.82,-10.91 21.82,10.91 21.82,-10.91 -4.36,2.18 0.00,0.00" stroke="black" fill="white" />
+    <line x1="0.00" y1="0.00" x2="0.00" y2="-8.73" stroke="black" fill="none" />
+    <line x1="21.82" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-21.82" y1="0.00" x2="-24.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

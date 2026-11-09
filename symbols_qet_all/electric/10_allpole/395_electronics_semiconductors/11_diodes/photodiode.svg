@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="50.0" viewBox="-9.0 -30.0 30.0 50.0" data-name="Photodiode">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="80.0" viewBox="-14.4 -48.0 48.0 80.0" data-name="Photodiode" data-standard="48px">
   <title>Photodiode</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-1.00" y1="-13.00" x2="4.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-4.00" y1="-9.00" x2="1.00" y2="-4.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-20.00" x2="10.00" y2="10.00" stroke="black" fill="none" />
-    <polygon points="5,-10 15,-10 10,0" stroke="black" fill="none" />
-    <line x1="5.00" y1="0.00" x2="15.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-1.60" y1="-20.80" x2="6.40" y2="-12.80" stroke="black" fill="none" />
+    <line x1="-6.40" y1="-14.40" x2="1.60" y2="-6.40" stroke="black" fill="none" />
+    <line x1="16.00" y1="-32.00" x2="16.00" y2="16.00" stroke="black" fill="none" />
+    <polygon points="8.00,-16.00 24.00,-16.00 16.00,0.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="16.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="16.00" cy="-32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

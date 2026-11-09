@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="60.0" viewBox="-21.0 -20.0 40.0 60.0" data-name="Roller shutter">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="144.0" viewBox="-50.4 -48.0 96.0 144.0" data-name="Roller shutter" data-standard="48px">
   <title>Roller shutter</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 10.95 -0.18 A 6.05 5.50 0 0 0 10.95 -0.18" stroke="black" fill="none" />
-    <path d="M -13.25 -5.68 A 6.05 5.50 0 0 0 -13.25 5.32" stroke="black" fill="none" />
-    <line x1="-13.25" y1="-5.68" x2="10.95" y2="-0.18" stroke="black" fill="none" />
-    <line x1="17.00" y1="5.33" x2="17.00" y2="28.00" stroke="black" fill="none" />
-    <line x1="17.00" y1="29.00" x2="-7.00" y2="21.00" stroke="black" fill="none" />
-    <line x1="-7.00" y1="7.00" x2="-7.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-13.25" y1="5.33" x2="10.95" y2="10.83" stroke="black" fill="none" />
-    <path d="M 10.95 8.08 A 3.02 2.75 0 0 0 10.95 8.08" stroke="black" fill="none" />
-    <line x1="10.00" y1="-10.00" x2="10.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-10.00" x2="-10.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="23.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 26.28 -0.43 A 14.52 13.20 0 0 0 26.28 -0.43" stroke="black" fill="none" />
+    <path d="M -31.80 -13.63 A 14.52 13.20 0 0 0 -31.80 12.77" stroke="black" fill="none" />
+    <line x1="-31.80" y1="-13.63" x2="26.28" y2="-0.43" stroke="black" fill="none" />
+    <line x1="40.80" y1="12.79" x2="40.80" y2="67.20" stroke="black" fill="none" />
+    <line x1="40.80" y1="69.60" x2="-16.80" y2="50.40" stroke="black" fill="none" />
+    <line x1="-16.80" y1="16.80" x2="-16.80" y2="48.00" stroke="black" fill="none" />
+    <line x1="-31.80" y1="12.79" x2="26.28" y2="25.99" stroke="black" fill="none" />
+    <path d="M 26.28 19.39 A 7.25 6.60 0 0 0 26.28 19.39" stroke="black" fill="none" />
+    <line x1="24.00" y1="-24.00" x2="24.00" y2="-2.40" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-24.00" x2="-24.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="55.20" x2="0.00" y2="72.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

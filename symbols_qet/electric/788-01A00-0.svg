@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="220.0" viewBox="-5.0 -10.0 90.0 220.0" data-name="Legrand two-pole switch-disconnector 63A">
+<svg xmlns="http://www.w3.org/2000/svg" width="108.0" height="264.0" viewBox="-6.0 -12.0 108.0 264.0" data-name="Legrand two-pole switch-disconnector 63A" data-standard="48px">
   <title>Legrand two-pole switch-disconnector 63A</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="80.00" height="200.00" stroke="black" fill="white" />
-    <rect x="48.00" y="83.00" width="25.00" height="25.00" stroke="black" fill="#d40000" />
-    <ellipse cx="60.00" cy="182.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <text x="10.00" y="140.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">AC22A</text>
-    <line x1="58.00" y1="180.00" x2="62.00" y2="184.00" stroke="black" fill="none" />
-    <text x="12.00" y="146.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Legrand</text>
-    <rect x="46.00" y="110.00" width="30.00" height="6.00" stroke="black" fill="none" />
-    <line x1="62.00" y1="180.00" x2="58.00" y2="184.00" stroke="black" fill="none" />
-    <text x="10.00" y="134.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">63A</text>
-    <line x1="60.00" y1="180.00" x2="60.00" y2="184.00" stroke="black" fill="none" />
-    <line x1="48.00" y1="114.00" x2="73.00" y2="114.00" stroke="black" fill="black" />
-    <ellipse cx="21.00" cy="181.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <text x="10.00" y="127.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">DX3-IS</text>
-    <line x1="48.00" y1="112.00" x2="73.00" y2="112.00" stroke="black" fill="black" />
-    <line x1="58.00" y1="182.00" x2="62.00" y2="182.00" stroke="black" fill="none" />
-    <ellipse cx="60.00" cy="20.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="58.00" y1="18.00" x2="62.00" y2="22.00" stroke="black" fill="none" />
-    <line x1="19.00" y1="179.00" x2="23.00" y2="183.00" stroke="black" fill="none" />
-    <line x1="23.00" y1="179.00" x2="19.00" y2="183.00" stroke="black" fill="none" />
-    <line x1="62.00" y1="18.00" x2="58.00" y2="22.00" stroke="black" fill="none" />
-    <line x1="21.00" y1="179.00" x2="21.00" y2="183.00" stroke="black" fill="none" />
-    <line x1="60.00" y1="18.00" x2="60.00" y2="22.00" stroke="black" fill="none" />
-    <line x1="19.00" y1="181.00" x2="23.00" y2="181.00" stroke="black" fill="none" />
-    <ellipse cx="20.00" cy="20.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="150.00" x2="40.00" y2="200.00" stroke="black" fill="none" />
-    <line x1="58.00" y1="20.00" x2="62.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="18.00" y1="18.00" x2="22.00" y2="22.00" stroke="black" fill="none" />
-    <rect x="0.00" y="50.00" width="80.00" height="100.00" stroke="black" fill="none" />
-    <line x1="22.00" y1="18.00" x2="18.00" y2="22.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="18.00" x2="20.00" y2="22.00" stroke="black" fill="none" />
-    <line x1="18.00" y1="20.00" x2="22.00" y2="20.00" stroke="black" fill="none" />
-    <rect x="7.00" y="83.00" width="25.00" height="25.00" stroke="black" fill="#d40000" />
-    <text x="12.00" y="89.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0-OFF</text>
-    <rect x="5.00" y="110.00" width="30.00" height="6.00" stroke="black" fill="none" />
-    <line x1="7.00" y1="114.00" x2="32.00" y2="114.00" stroke="black" fill="black" />
-    <line x1="7.00" y1="112.00" x2="32.00" y2="112.00" stroke="black" fill="black" />
-    <line x1="40.00" y1="0.00" x2="40.00" y2="50.00" stroke="black" fill="none" />
-    <polyline points="5,120 5,145 10,145" stroke="#d40000" fill="#d40000" />
-    <polyline points="30,145 75,145" stroke="#d40000" fill="#d40000" />
-    <rect x="0.00" y="50.00" width="80.00" height="30.00" stroke="black" fill="none" />
-    <rect x="7.00" y="83.00" width="66.00" height="12.00" stroke="black" fill="#d40000" />
-    <circle class="qet-terminal" cx="20.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="60.00" cy="200.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="96.00" height="240.00" stroke="black" fill="white" />
+    <rect x="57.60" y="99.60" width="30.00" height="30.00" stroke="black" fill="#d40000" />
+    <ellipse cx="72.00" cy="218.40" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <text x="12.00" y="168.00" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">AC22A</text>
+    <line x1="69.60" y1="216.00" x2="74.40" y2="220.80" stroke="black" fill="none" />
+    <text x="14.40" y="175.20" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Legrand</text>
+    <rect x="55.20" y="132.00" width="36.00" height="7.20" stroke="black" fill="none" />
+    <line x1="74.40" y1="216.00" x2="69.60" y2="220.80" stroke="black" fill="none" />
+    <text x="12.00" y="160.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">63A</text>
+    <line x1="72.00" y1="216.00" x2="72.00" y2="220.80" stroke="black" fill="none" />
+    <line x1="57.60" y1="136.80" x2="87.60" y2="136.80" stroke="black" fill="black" />
+    <ellipse cx="25.20" cy="217.20" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <text x="12.00" y="152.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">DX3-IS</text>
+    <line x1="57.60" y1="134.40" x2="87.60" y2="134.40" stroke="black" fill="black" />
+    <line x1="69.60" y1="218.40" x2="74.40" y2="218.40" stroke="black" fill="none" />
+    <ellipse cx="72.00" cy="24.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <line x1="69.60" y1="21.60" x2="74.40" y2="26.40" stroke="black" fill="none" />
+    <line x1="22.80" y1="214.80" x2="27.60" y2="219.60" stroke="black" fill="none" />
+    <line x1="27.60" y1="214.80" x2="22.80" y2="219.60" stroke="black" fill="none" />
+    <line x1="74.40" y1="21.60" x2="69.60" y2="26.40" stroke="black" fill="none" />
+    <line x1="25.20" y1="214.80" x2="25.20" y2="219.60" stroke="black" fill="none" />
+    <line x1="72.00" y1="21.60" x2="72.00" y2="26.40" stroke="black" fill="none" />
+    <line x1="22.80" y1="217.20" x2="27.60" y2="217.20" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="24.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="180.00" x2="48.00" y2="240.00" stroke="black" fill="none" />
+    <line x1="69.60" y1="24.00" x2="74.40" y2="24.00" stroke="black" fill="none" />
+    <line x1="21.60" y1="21.60" x2="26.40" y2="26.40" stroke="black" fill="none" />
+    <rect x="0.00" y="60.00" width="96.00" height="120.00" stroke="black" fill="none" />
+    <line x1="26.40" y1="21.60" x2="21.60" y2="26.40" stroke="black" fill="none" />
+    <line x1="24.00" y1="21.60" x2="24.00" y2="26.40" stroke="black" fill="none" />
+    <line x1="21.60" y1="24.00" x2="26.40" y2="24.00" stroke="black" fill="none" />
+    <rect x="8.40" y="99.60" width="30.00" height="30.00" stroke="black" fill="#d40000" />
+    <text x="14.40" y="106.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">0-OFF</text>
+    <rect x="6.00" y="132.00" width="36.00" height="7.20" stroke="black" fill="none" />
+    <line x1="8.40" y1="136.80" x2="38.40" y2="136.80" stroke="black" fill="black" />
+    <line x1="8.40" y1="134.40" x2="38.40" y2="134.40" stroke="black" fill="black" />
+    <line x1="48.00" y1="0.00" x2="48.00" y2="60.00" stroke="black" fill="none" />
+    <polyline points="6.00,144.00 6.00,174.00 12.00,174.00" stroke="#d40000" fill="#d40000" />
+    <polyline points="36.00,174.00 90.00,174.00" stroke="#d40000" fill="#d40000" />
+    <rect x="0.00" y="60.00" width="96.00" height="36.00" stroke="black" fill="none" />
+    <rect x="8.40" y="99.60" width="79.20" height="14.40" stroke="black" fill="#d40000" />
+    <circle class="qet-terminal" cx="24.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

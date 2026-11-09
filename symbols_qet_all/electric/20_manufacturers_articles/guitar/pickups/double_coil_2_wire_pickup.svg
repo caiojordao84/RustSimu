@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="160.0" height="110.0" viewBox="-72.0 -31.0 160.0 110.0" data-name="Double Coil 2 Wire Pickup">
+<svg xmlns="http://www.w3.org/2000/svg" width="384.0" height="264.0" viewBox="-172.8 -74.4 384.0 264.0" data-name="Double Coil 2 Wire Pickup" data-standard="48px">
   <title>Double Coil 2 Wire Pickup</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="29.97" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="29.97" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <line x1="64.00" y1="54.50" x2="79.00" y2="59.50" stroke="#d40000" fill="none" />
-    <ellipse cx="-11.34" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="-11.34" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="50.63" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="50.63" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <text x="68.00" y="66.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <line x1="-52.00" y1="31.50" x2="43.00" y2="31.50" stroke="black" fill="none" />
-    <line x1="-52.00" y1="1.50" x2="43.00" y2="1.50" stroke="black" fill="none" />
-    <ellipse cx="9.32" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="9.32" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <line x1="-52.00" y1="31.50" x2="43.00" y2="31.50" stroke="black" fill="none" />
-    <line x1="-52.00" y1="61.50" x2="43.00" y2="61.50" stroke="black" fill="none" />
-    <ellipse cx="-32.00" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="-32.00" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="-52.00" cy="15.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <ellipse cx="-52.00" cy="45.50" rx="2.83" ry="2.83" stroke="black" fill="none" />
-    <path d="M 60.00 46.50 A 16.00 15.00 0 0 0 44.00 31.50" stroke="black" fill="none" />
-    <path d="M 60.00 16.50 A 16.00 15.00 0 0 0 44.00 1.50" stroke="black" fill="none" />
-    <path d="M 44.00 61.50 A 16.00 15.50 0 0 0 60.00 46.00" stroke="black" fill="none" />
-    <path d="M 44.00 31.50 A 16.00 15.50 0 0 0 60.00 16.00" stroke="black" fill="none" />
-    <path d="M -52.60 31.50 A 16.33 15.00 0 0 0 -68.93 46.50" stroke="black" fill="none" />
-    <path d="M -52.60 1.50 A 16.33 15.00 0 0 0 -68.93 16.50" stroke="black" fill="none" />
-    <path d="M -68.93 46.50 A 16.33 15.00 0 0 0 -52.60 61.50" stroke="black" fill="none" />
-    <path d="M -68.93 16.50 A 16.33 15.00 0 0 0 -52.60 31.50" stroke="black" fill="none" />
-    <line x1="64.00" y1="12.50" x2="79.00" y2="7.50" stroke="black" fill="none" />
-    <text x="69.00" y="7.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <line x1="-69.00" y1="15.50" x2="-69.00" y2="45.50" stroke="black" fill="none" />
-    <line x1="60.00" y1="15.50" x2="60.00" y2="45.50" stroke="black" fill="none" />
-    <text x="-13.00" y="-23.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Two Wire</text>
-    <circle class="qet-terminal" cx="79.00" cy="4.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="79.00" cy="64.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="71.93" cy="109.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <ellipse cx="71.93" cy="37.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <line x1="153.60" y1="130.80" x2="189.60" y2="142.80" stroke="#d40000" fill="none" />
+    <ellipse cx="-27.22" cy="109.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <ellipse cx="-27.22" cy="37.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <ellipse cx="121.51" cy="109.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <ellipse cx="121.51" cy="37.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <text x="163.20" y="159.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <line x1="-124.80" y1="75.60" x2="103.20" y2="75.60" stroke="black" fill="none" />
+    <line x1="-124.80" y1="3.60" x2="103.20" y2="3.60" stroke="black" fill="none" />
+    <ellipse cx="22.37" cy="109.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <ellipse cx="22.37" cy="37.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <line x1="-124.80" y1="75.60" x2="103.20" y2="75.60" stroke="black" fill="none" />
+    <line x1="-124.80" y1="147.60" x2="103.20" y2="147.60" stroke="black" fill="none" />
+    <ellipse cx="-76.80" cy="37.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <ellipse cx="-76.80" cy="109.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <ellipse cx="-124.80" cy="37.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <ellipse cx="-124.80" cy="109.20" rx="6.79" ry="6.79" stroke="black" fill="none" />
+    <path d="M 144.00 111.60 A 38.40 36.00 0 0 0 105.60 75.60" stroke="black" fill="none" />
+    <path d="M 144.00 39.60 A 38.40 36.00 0 0 0 105.60 3.60" stroke="black" fill="none" />
+    <path d="M 105.60 147.60 A 38.40 37.20 0 0 0 144.00 110.40" stroke="black" fill="none" />
+    <path d="M 105.60 75.60 A 38.40 37.20 0 0 0 144.00 38.40" stroke="black" fill="none" />
+    <path d="M -126.24 75.60 A 39.19 36.00 0 0 0 -165.43 111.60" stroke="black" fill="none" />
+    <path d="M -126.24 3.60 A 39.19 36.00 0 0 0 -165.43 39.60" stroke="black" fill="none" />
+    <path d="M -165.43 111.60 A 39.19 36.00 0 0 0 -126.24 147.60" stroke="black" fill="none" />
+    <path d="M -165.43 39.60 A 39.19 36.00 0 0 0 -126.24 75.60" stroke="black" fill="none" />
+    <line x1="153.60" y1="30.00" x2="189.60" y2="18.00" stroke="black" fill="none" />
+    <text x="165.60" y="18.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <line x1="-165.60" y1="37.20" x2="-165.60" y2="109.20" stroke="black" fill="none" />
+    <line x1="144.00" y1="37.20" x2="144.00" y2="109.20" stroke="black" fill="none" />
+    <text x="-31.20" y="-55.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Two Wire</text>
+    <circle class="qet-terminal" cx="189.60" cy="9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="189.60" cy="153.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

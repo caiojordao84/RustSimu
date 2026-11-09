@@ -123,6 +123,8 @@ pub enum Message {
     SelectExportScope(ExportScope),
     SelectExportPage(usize),
     ToggleExportCajetin(bool),
+    ToggleExportShowTerminals(bool),
+    ToggleExportMonochrome(bool),
     ConfirmExport,
     FileExported(
         Option<PathBuf>,
@@ -130,7 +132,7 @@ pub enum Message {
         String,
         ExportFormat,
         ExportScope,
-        bool,
+        crate::export::ExportOptions,
         Option<i32>,
     ),
     FilePathChanged(String),
@@ -289,6 +291,8 @@ pub struct CadeSimuApp {
     pub export_scope: ExportScope,
     pub export_page_index: usize,
     pub export_include_cajetin: bool,
+    pub export_show_terminals: bool,
+    pub export_monochrome: bool,
     pub undo_stack: Vec<SchematicDocument>,
     pub redo_stack: Vec<SchematicDocument>,
     pub drag_undo_snapshot: Option<SchematicDocument>,
@@ -411,6 +415,8 @@ impl CadeSimuApp {
                 export_scope: ExportScope::Page,
                 export_page_index: 0,
                 export_include_cajetin: true,
+                export_show_terminals: false,
+                export_monochrome: false,
                 undo_stack: Vec::new(),
                 redo_stack: Vec::new(),
                 drag_undo_snapshot: None,
@@ -579,6 +585,8 @@ impl CadeSimuApp {
             | Message::SelectExportScope(_)
             | Message::SelectExportPage(_)
             | Message::ToggleExportCajetin(_)
+            | Message::ToggleExportShowTerminals(_)
+            | Message::ToggleExportMonochrome(_)
             | Message::ConfirmExport
             | Message::FileExported(..)
             | Message::FilePathChanged(_)
@@ -992,6 +1000,12 @@ impl CadeSimuApp {
             Message::ToggleExportCajetin(enabled) => {
                 self.export_include_cajetin = enabled;
             }
+            Message::ToggleExportShowTerminals(enabled) => {
+                self.export_show_terminals = enabled;
+            }
+            Message::ToggleExportMonochrome(enabled) => {
+                self.export_monochrome = enabled;
+            }
             Message::SelectExportPage(idx) => {
                 self.export_page_index = idx;
             }
@@ -999,7 +1013,11 @@ impl CadeSimuApp {
                 self.show_export_modal = false;
                 let fmt = self.export_format;
                 let scope = self.export_scope;
-                let include_cajetin = self.export_include_cajetin;
+                let export_options = crate::export::ExportOptions {
+                    include_cajetin: self.export_include_cajetin,
+                    show_terminals: self.export_show_terminals,
+                    monochrome: self.export_monochrome,
+                };
                 let selected_id = self.selected_id;
 
                 if scope == ExportScope::Selection && selected_id.is_none() {
@@ -1080,7 +1098,7 @@ impl CadeSimuApp {
                             page_title.clone(),
                             fmt,
                             scope,
-                            include_cajetin,
+                            export_options,
                             selected_id,
                         )
                     },
@@ -1092,7 +1110,7 @@ impl CadeSimuApp {
                 page_title,
                 fmt,
                 scope,
-                include_cajetin,
+                export_options,
                 selected_id,
             ) => {
                 let Some(path) = maybe_path else {
@@ -1112,22 +1130,23 @@ impl CadeSimuApp {
 
                 let res: Result<(), String> = match fmt {
                     ExportFormat::Cad => {
-                        let bytes = crate::export::export_to_cad(&doc, include_cajetin);
+                        let bytes =
+                            crate::export::export_to_cad(&doc, export_options.include_cajetin);
                         crate::io::atomic_write(&path, bytes)
                     }
                     ExportFormat::Svg => {
-                        let svg = crate::export::export_to_svg(&doc, items_filter, include_cajetin);
+                        let svg = crate::export::export_to_svg(&doc, items_filter, export_options);
                         crate::io::atomic_write(&path, svg.as_bytes())
                     }
                     ExportFormat::Png => {
-                        crate::export::export_to_png(&doc, items_filter, include_cajetin, 2.5)
+                        crate::export::export_to_png(&doc, items_filter, export_options, None)
                             .and_then(|bytes| crate::io::atomic_write(&path, bytes))
                     }
                     ExportFormat::Pdf => {
                         let pdf_res = if scope == ExportScope::Project {
-                            crate::export::export_project_to_pdf(&self.pages, include_cajetin)
+                            crate::export::export_project_to_pdf(&self.pages, export_options)
                         } else {
-                            crate::export::export_doc_to_pdf(&doc, items_filter, include_cajetin)
+                            crate::export::export_doc_to_pdf(&doc, items_filter, export_options)
                         };
                         pdf_res.and_then(|bytes| crate::io::atomic_write(&path, bytes))
                     }

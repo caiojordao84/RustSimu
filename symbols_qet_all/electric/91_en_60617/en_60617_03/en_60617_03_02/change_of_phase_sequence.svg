@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="50.0" viewBox="-50.0 -20.0 120.0 50.0" data-name="Change of phase sequence">
+<svg xmlns="http://www.w3.org/2000/svg" width="57.6" height="24.0" viewBox="-24.0 -9.6 57.6 24.0" data-name="Change of phase sequence" data-standard="48px">
   <title>Change of phase sequence</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-40.00" y1="0.00" x2="60.00" y2="0.00" stroke="black" fill="none" />
-    <polyline points="-40,10 -30,10 -10,-10 0,-10" stroke="black" fill="none" />
-    <line x1="20.00" y1="-10.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
-    <text x="-10.00" y="-10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L1</text>
-    <line x1="30.00" y1="-10.00" x2="50.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="40.00" y1="-10.00" x2="60.00" y2="10.00" stroke="black" fill="none" />
-    <text x="-40.00" y="20.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L3</text>
-    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-40.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-19.20" y1="0.00" x2="28.80" y2="0.00" stroke="black" fill="none" />
+    <polyline points="-19.20,4.80 -14.40,4.80 -4.80,-4.80 0.00,-4.80" stroke="black" fill="none" />
+    <line x1="9.60" y1="-4.80" x2="19.20" y2="4.80" stroke="black" fill="none" />
+    <text x="-4.80" y="-4.80" font-size="4.3" font-family="sans-serif" fill="black" stroke="none">L1</text>
+    <line x1="14.40" y1="-4.80" x2="24.00" y2="4.80" stroke="black" fill="none" />
+    <line x1="19.20" y1="-4.80" x2="28.80" y2="4.80" stroke="black" fill="none" />
+    <text x="-19.20" y="9.60" font-size="4.3" font-family="sans-serif" fill="black" stroke="none">L3</text>
+    <circle class="qet-terminal" cx="28.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-19.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

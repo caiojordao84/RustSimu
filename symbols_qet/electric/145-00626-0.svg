@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="130.0" height="240.0" viewBox="-65.0 -118.0 130.0 240.0" data-name="Smart Light ControllerV2">
+<svg xmlns="http://www.w3.org/2000/svg" width="312.0" height="576.0" viewBox="-156.0 -283.2 312.0 576.0" data-name="Smart Light ControllerV2" data-standard="48px">
   <title>Smart Light ControllerV2</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="25.00" y="-115.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="-30.00" y="77.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LED-Driver 28W
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="60.00" y="-276.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="-72.00" y="184.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LED-Driver 28W
 max 850mA
 max 54V</text>
-    <text x="24.00" y="-95.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Smart-
+    <text x="57.60" y="-228.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Smart-
 Sensor
 RJ45</text>
-    <text x="15.00" y="-65.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MS660201M</text>
-    <text x="35.00" y="-75.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Smart Light Controller</text>
-    <ellipse cx="-10.00" cy="110.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="110.00" rx="4.00" ry="4.00" stroke="black" fill="none" />
-    <rect x="-60.00" y="-115.00" width="120.00" height="230.00" stroke="black" fill="none" />
-    <rect x="-44.00" y="-115.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="-45.00" y="-95.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Poe+bt
+    <text x="36.00" y="-156.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MS660201M</text>
+    <text x="84.00" y="-180.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Smart Light Controller</text>
+    <ellipse cx="-24.00" cy="264.00" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="264.00" rx="9.60" ry="9.60" stroke="black" fill="none" />
+    <rect x="-144.00" y="-276.00" width="288.00" height="552.00" stroke="black" fill="none" />
+    <rect x="-105.60" y="-276.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="-108.00" y="-228.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Poe+bt
 54V
 RJ45</text>
-    <rect x="-20.00" y="95.00" width="40.00" height="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="95.00" x2="0.00" y2="115.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="35.00" cy="-110.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-34.00" cy="-110.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="114.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="114.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <rect x="-48.00" y="228.00" width="96.00" height="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="228.00" x2="0.00" y2="276.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="84.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-81.60" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="273.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="273.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

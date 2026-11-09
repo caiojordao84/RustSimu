@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-23.0 -21.0 40.0 40.0" data-name="curva-canaleta">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-55.2 -50.4 96.0 96.0" data-name="curva-canaleta" data-standard="48px">
   <title>curva-canaleta</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -6.00 0.00 A 5.00 5.00 0 0 0 -1.00 -5.00" stroke="black" fill="none" />
-    <path d="M -1.00 10.00 A 10.00 10.00 0 0 0 9.00 0.00" stroke="black" fill="none" />
-    <polyline points="9,0 9,-10 -1,-10 -1,-5" stroke="black" fill="none" />
-    <polyline points="-1,10 -11,10 -11,0 -6,0" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="1.00" cy="-11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="6.00" cy="-11.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-12.00" cy="2.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-12.00" cy="8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -14.40 0.00 A 12.00 12.00 0 0 0 -2.40 -12.00" stroke="black" fill="none" />
+    <path d="M -2.40 24.00 A 24.00 24.00 0 0 0 21.60 0.00" stroke="black" fill="none" />
+    <polyline points="21.60,0.00 21.60,-24.00 -2.40,-24.00 -2.40,-12.00" stroke="black" fill="none" />
+    <polyline points="-2.40,24.00 -26.40,24.00 -26.40,0.00 -14.40,0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="2.40" cy="-26.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="14.40" cy="-26.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-28.80" cy="4.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-28.80" cy="19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

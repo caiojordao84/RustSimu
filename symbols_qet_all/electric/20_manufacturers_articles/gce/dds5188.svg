@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="200.0" viewBox="-29.0 -100.0 50.0 200.0" data-name="DDS5188">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="480.0" viewBox="-69.6 -240.0 120.0 480.0" data-name="DDS5188" data-standard="48px">
   <title>DDS5188</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="12.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="-21.00" y="-52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">21</text>
-    <ellipse cx="9.00" cy="-86.00" rx="2.50" ry="2.50" stroke="none" fill="#d40000" />
-    <text x="-19.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">4</text>
-    <text x="-11.00" y="-43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Cmpt</text>
-    <ellipse cx="9.00" cy="85.00" rx="2.50" ry="2.50" stroke="none" fill="#d40000" />
-    <text x="-11.00" y="78.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">INPUT</text>
-    <text x="-1.00" y="-52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">22</text>
-    <text x="-8.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <ellipse cx="-11.00" cy="85.00" rx="2.50" ry="2.50" stroke="none" fill="#0055d4" />
-    <text x="1.00" y="88.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-19.00" y="-82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6</text>
-    <text x="1.00" y="-82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="-16.00" y="-72.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUTPUT</text>
-    <rect x="-1.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-1.00" y="-60.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-21.00" y="-60.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-21.00" y="-90.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <text x="11.00" y="-53.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <text x="-8.00" y="-82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <text x="12.00" y="-82.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <text x="-8.00" y="-52.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-</text>
-    <rect x="-21.00" y="-50.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-21.00" y="-80.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <text x="-10.00" y="-2.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">kWh</text>
-    <rect x="-21.00" y="-90.00" width="40.00" height="180.00" stroke="black" fill="none" />
-    <rect x="-6.00" y="-25.00" width="20.00" height="55.00" stroke="black" fill="#dcdcdc" />
-    <text x="7.00" y="27.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0000000</text>
-    <rect x="-21.00" y="80.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-1.00" y="80.00" width="20.00" height="10.00" stroke="black" fill="none" />
-    <rect x="-21.00" y="70.00" width="40.00" height="10.00" stroke="black" fill="none" />
-    <ellipse cx="-15.25" cy="42.25" rx="2.25" ry="2.25" stroke="black" fill="#00aa00" />
-    <rect x="-21.00" y="50.00" width="40.00" height="20.00" stroke="black" fill="none" />
-    <text x="-10.00" y="43.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0.5Wh/Imp</text>
-    <ellipse cx="-11.00" cy="-86.00" rx="2.50" ry="2.50" stroke="none" fill="#0055d4" />
-    <circle class="qet-terminal" cx="9.00" cy="-90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-11.00" cy="-90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-11.00" cy="-59.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="9.00" cy="-59.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-11.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="9.00" cy="90.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="28.80" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="-50.40" y="-124.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">21</text>
+    <ellipse cx="21.60" cy="-206.40" rx="6.00" ry="6.00" stroke="none" fill="#d40000" />
+    <text x="-45.60" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">4</text>
+    <text x="-26.40" y="-103.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Cmpt</text>
+    <ellipse cx="21.60" cy="204.00" rx="6.00" ry="6.00" stroke="none" fill="#d40000" />
+    <text x="-26.40" y="187.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">INPUT</text>
+    <text x="-2.40" y="-124.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">22</text>
+    <text x="-19.20" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <ellipse cx="-26.40" cy="204.00" rx="6.00" ry="6.00" stroke="none" fill="#0055d4" />
+    <text x="2.40" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-45.60" y="-196.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">6</text>
+    <text x="2.40" y="-196.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-38.40" y="-172.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OUTPUT</text>
+    <rect x="-2.40" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-2.40" y="-144.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-50.40" y="-144.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-50.40" y="-216.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <text x="26.40" y="-127.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
+    <text x="-19.20" y="-196.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="28.80" y="-196.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <text x="-19.20" y="-124.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
+    <rect x="-50.40" y="-120.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-50.40" y="-192.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <text x="-24.00" y="-4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">kWh</text>
+    <rect x="-50.40" y="-216.00" width="96.00" height="432.00" stroke="black" fill="none" />
+    <rect x="-14.40" y="-60.00" width="48.00" height="132.00" stroke="black" fill="#dcdcdc" />
+    <text x="16.80" y="64.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0000000</text>
+    <rect x="-50.40" y="192.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-2.40" y="192.00" width="48.00" height="24.00" stroke="black" fill="none" />
+    <rect x="-50.40" y="168.00" width="96.00" height="24.00" stroke="black" fill="none" />
+    <ellipse cx="-36.60" cy="101.40" rx="5.40" ry="5.40" stroke="black" fill="#00aa00" />
+    <rect x="-50.40" y="120.00" width="96.00" height="48.00" stroke="black" fill="none" />
+    <text x="-24.00" y="103.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0.5Wh/Imp</text>
+    <ellipse cx="-26.40" cy="-206.40" rx="6.00" ry="6.00" stroke="none" fill="#0055d4" />
+    <circle class="qet-terminal" cx="21.60" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-26.40" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-26.40" cy="-141.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="21.60" cy="-141.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-26.40" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="21.60" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

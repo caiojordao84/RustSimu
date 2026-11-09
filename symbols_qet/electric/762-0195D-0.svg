@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-5.0 -5.0 40.0 40.0" data-name="screw">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-12.0 -12.0 96.0 96.0" data-name="screw" data-standard="48px">
   <title>screw</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="15.00" cy="15.00" rx="15.00" ry="15.00" stroke="black" fill="brun" />
-    <line x1="15.00" y1="0.00" x2="15.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="15.00" x2="30.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="2.00" x2="15.00" y2="28.00" stroke="#888888" fill="none" />
-    <line x1="28.00" y1="15.00" x2="2.00" y2="15.00" stroke="#888888" fill="brun" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="36.00" cy="36.00" rx="36.00" ry="36.00" stroke="black" fill="brun" />
+    <line x1="36.00" y1="0.00" x2="36.00" y2="72.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="36.00" x2="72.00" y2="36.00" stroke="black" fill="none" />
+    <line x1="36.00" y1="4.80" x2="36.00" y2="67.20" stroke="#888888" fill="none" />
+    <line x1="67.20" y1="36.00" x2="4.80" y2="36.00" stroke="#888888" fill="brun" />
   </g>
 </svg>

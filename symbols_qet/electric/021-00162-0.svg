@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="60.0" viewBox="-9.0 -30.0 20.0 60.0" data-name="Contact power contactor (NC)">
+<svg xmlns="http://www.w3.org/2000/svg" width="24.0" height="72.0" viewBox="-10.8 -36.0 24.0 72.0" data-name="Contact power contactor (NC)" data-standard="48px">
   <title>Contact power contactor (NC)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="5,-10 0,10 0,20" stroke="black" fill="none" />
-    <line x1="0.00" y1="-9.00" x2="6.00" y2="-9.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-9.00" stroke="black" fill="none" />
-    <path d="M -0.00 -9.50 A 2.50 2.50 0 0 0 0.00 -14.50" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="6.00,-12.00 0.00,12.00 0.00,24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-10.80" x2="7.20" y2="-10.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-10.80" stroke="black" fill="none" />
+    <path d="M -0.00 -11.40 A 3.00 3.00 0 0 0 0.00 -17.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

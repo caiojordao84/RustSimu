@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-30.0 -25.0 60.0 50.0" data-name="NOT (NOT)">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="60.0" viewBox="-36.0 -30.0 72.0 60.0" data-name="NOT (NOT)" data-standard="48px">
   <title>NOT (NOT)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="10.00" cy="0.00" rx="2.50" ry="2.50" stroke="black" fill="black" />
-    <line x1="-20.00" y1="0.00" x2="-11.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="0.00" x2="11.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M -9.65 20.00 A 20.00 20.00 0 0 0 -10.00 -20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-20.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="12.00" cy="0.00" rx="3.00" ry="3.00" stroke="black" fill="black" />
+    <line x1="-24.00" y1="0.00" x2="-13.20" y2="0.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="0.00" x2="13.20" y2="0.00" stroke="black" fill="none" />
+    <path d="M -11.58 24.00 A 24.00 24.00 0 0 0 -12.00 -24.00" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-24.00" x2="-12.00" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

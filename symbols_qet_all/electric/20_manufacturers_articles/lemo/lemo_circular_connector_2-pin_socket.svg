@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="60.0" viewBox="-38.0 -30.0 70.0 60.0" data-name="Lemo Circular Connector 2-pin socket">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="144.0" viewBox="-91.2 -72.0 168.0 144.0" data-name="Lemo Circular Connector 2-pin socket" data-standard="48px">
   <title>Lemo Circular Connector 2-pin socket</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 4.17 -23.64 A 24.00 24.00 0 0 0 -4.17 -23.64" stroke="#d40000" fill="none" />
-    <circle cx="0.00" cy="-10.00" r="6.50" stroke="black" fill="none" />
-    <text x="-29.00" y="-12.63" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-29.00" y="8.37" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <line x1="-29.00" y1="-10.00" x2="-7.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-29.00" y1="10.00" x2="-7.00" y2="10.00" stroke="black" fill="none" />
-    <circle cx="0.00" cy="10.00" r="6.50" stroke="black" fill="none" />
-    <circle cx="0.00" cy="0.00" r="25.00" stroke="black" fill="none" />
-    <circle cx="0.00" cy="0.00" r="22.50" stroke="black" fill="none" />
-    <path d="M -8.86 -11.56 A 9.00 9.00 0 1 0 8.86 -11.56" stroke="black" fill="none" />
-    <line x1="0.00" y1="-1.00" x2="0.00" y2="2.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-30.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-30.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 10.01 -56.74 A 57.60 57.60 0 0 0 -10.01 -56.74" stroke="#d40000" fill="none" />
+    <circle cx="0.00" cy="-24.00" r="15.60" stroke="black" fill="none" />
+    <text x="-69.60" y="-30.31" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-69.60" y="20.09" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <line x1="-69.60" y1="-24.00" x2="-16.80" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-69.60" y1="24.00" x2="-16.80" y2="24.00" stroke="black" fill="none" />
+    <circle cx="0.00" cy="24.00" r="15.60" stroke="black" fill="none" />
+    <circle cx="0.00" cy="0.00" r="60.00" stroke="black" fill="none" />
+    <circle cx="0.00" cy="0.00" r="54.00" stroke="black" fill="none" />
+    <path d="M -21.26 -27.74 A 21.60 21.60 0 1 0 21.26 -27.74" stroke="black" fill="none" />
+    <line x1="0.00" y1="-2.40" x2="0.00" y2="4.80" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-72.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

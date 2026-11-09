@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-15.0 -9.0 50.0 20.0" data-name="visor-liquido">
+<svg xmlns="http://www.w3.org/2000/svg" width="68.6" height="27.4" viewBox="-20.6 -12.3 68.6 27.4" data-name="visor-liquido" data-standard="48px">
   <title>visor-liquido</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="21.73" y1="-0.05" x2="27.65" y2="-0.05" stroke="black" fill="none" />
-    <rect x="-0.70" y="-5.79" width="22.75" height="11.79" stroke="black" fill="none" />
-    <ellipse cx="10.68" cy="0.10" rx="6.12" ry="5.89" stroke="black" fill="none" />
-    <line x1="-7.70" y1="-0.05" x2="-0.70" y2="-0.05" stroke="black" fill="none" />
-    <text x="8.00" y="3.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V</text>
-    <circle class="qet-terminal" cx="27.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-8.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="29.80" y1="-0.07" x2="37.92" y2="-0.07" stroke="black" fill="none" />
+    <rect x="-0.96" y="-7.94" width="31.20" height="16.17" stroke="black" fill="none" />
+    <ellipse cx="14.65" cy="0.14" rx="8.39" ry="8.08" stroke="black" fill="none" />
+    <line x1="-10.56" y1="-0.07" x2="-0.96" y2="-0.07" stroke="black" fill="none" />
+    <text x="10.97" y="4.11" font-size="12.3" font-family="sans-serif" fill="black" stroke="none">V</text>
+    <circle class="qet-terminal" cx="37.03" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.97" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

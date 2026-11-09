@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="60.0" viewBox="-15.0 -30.0 50.0 60.0" data-name="Residual Circuit Breaker with Overload">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="72.0" viewBox="-18.0 -36.0 60.0 72.0" data-name="Residual Circuit Breaker with Overload" data-standard="48px">
   <title>Residual Circuit Breaker with Overload</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="2.00" y1="-12.00" x2="-2.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="-12.00" x2="2.00" y2="-8.00" stroke="black" fill="none" />
-    <polyline points="0,20 0,10 -7,-9" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="13.00" rx="4.50" ry="2.00" stroke="black" fill="none" />
-    <polyline points="-4,0 -10,0 -10,13 -5,13" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-24.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
+    <line x1="2.40" y1="-14.40" x2="-2.40" y2="-9.60" stroke="black" fill="none" />
+    <line x1="-2.40" y1="-14.40" x2="2.40" y2="-9.60" stroke="black" fill="none" />
+    <polyline points="0.00,24.00 0.00,12.00 -8.40,-10.80" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="15.60" rx="5.40" ry="2.40" stroke="black" fill="none" />
+    <polyline points="-4.80,0.00 -12.00,0.00 -12.00,15.60 -6.00,15.60" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

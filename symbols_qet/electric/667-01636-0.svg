@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="110.0" viewBox="-84.0 -105.0 120.0 110.0" data-name="Ferrite core matrix">
+<svg xmlns="http://www.w3.org/2000/svg" width="288.0" height="264.0" viewBox="-201.6 -252.0 288.0 264.0" data-name="Ferrite core matrix" data-standard="48px">
   <title>Ferrite core matrix</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="0.00" x2="0.00" y2="-100.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-20.00" y2="-100.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="0.00" x2="-40.00" y2="-100.00" stroke="black" fill="none" />
-    <line x1="-70.00" y1="-70.00" x2="30.00" y2="-70.00" stroke="black" fill="none" />
-    <line x1="-70.00" y1="-50.00" x2="30.00" y2="-50.00" stroke="black" fill="none" />
-    <line x1="-70.00" y1="-30.00" x2="30.00" y2="-30.00" stroke="black" fill="none" />
-    <polyline points="-65,-55 -15,-5 -5,-15 -55,-65 -45,-75 5,-25 15,-35 -35,-85 -25,-95 25,-45" stroke="black" fill="none" />
-    <line x1="-35.00" y1="-75.00" x2="-45.00" y2="-65.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-75.00" x2="-25.00" y2="-65.00" stroke="black" fill="none" />
-    <line x1="-35.00" y1="-55.00" x2="-45.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="-35.00" y1="-35.00" x2="-45.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-55.00" x2="-25.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-75.00" x2="-5.00" y2="-65.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-55.00" x2="-5.00" y2="-45.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-35.00" x2="-25.00" y2="-25.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-35.00" x2="-5.00" y2="-25.00" stroke="black" fill="none" />
-    <text x="-70.00" y="-75.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">x</text>
-    <text x="-55.00" y="-90.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">y</text>
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="0.00" x2="0.00" y2="-240.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="0.00" x2="-48.00" y2="-240.00" stroke="black" fill="none" />
+    <line x1="-96.00" y1="0.00" x2="-96.00" y2="-240.00" stroke="black" fill="none" />
+    <line x1="-168.00" y1="-168.00" x2="72.00" y2="-168.00" stroke="black" fill="none" />
+    <line x1="-168.00" y1="-120.00" x2="72.00" y2="-120.00" stroke="black" fill="none" />
+    <line x1="-168.00" y1="-72.00" x2="72.00" y2="-72.00" stroke="black" fill="none" />
+    <polyline points="-156.00,-132.00 -36.00,-12.00 -12.00,-36.00 -132.00,-156.00 -108.00,-180.00 12.00,-60.00 36.00,-84.00 -84.00,-204.00 -60.00,-228.00 60.00,-108.00" stroke="black" fill="none" />
+    <line x1="-84.00" y1="-180.00" x2="-108.00" y2="-156.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-180.00" x2="-60.00" y2="-156.00" stroke="black" fill="none" />
+    <line x1="-84.00" y1="-132.00" x2="-108.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="-84.00" y1="-84.00" x2="-108.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-132.00" x2="-60.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-180.00" x2="-12.00" y2="-156.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-132.00" x2="-12.00" y2="-108.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-84.00" x2="-60.00" y2="-60.00" stroke="black" fill="none" />
+    <line x1="12.00" y1="-84.00" x2="-12.00" y2="-60.00" stroke="black" fill="none" />
+    <text x="-168.00" y="-180.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">x</text>
+    <text x="-132.00" y="-216.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">y</text>
   </g>
 </svg>

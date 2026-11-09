@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="50.0" viewBox="-50.0 -31.0 80.0 50.0" data-name="3/2m_nc [mech]-[spring]">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="120.0" viewBox="-120.0 -74.4 192.0 120.0" data-name="3/2m_nc [mech]-[spring]" data-standard="48px">
   <title>3/2m_nc [mech]-[spring]</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="-25,3 -35,3 -35,-3 -25,-3 -25,3 -35,3 -31,0 -34.8,-2.79" stroke="black" fill="none" />
-    <line x1="-35.00" y1="-1.00" x2="-43.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="8.00" y1="1.00" x2="0.00" y2="-15.00" stroke="black" fill="black" />
-    <line x1="-35.00" y1="1.00" x2="-43.00" y2="1.00" stroke="black" fill="none" />
-    <path d="M -43.98 -1.00 A 1.00 1.00 0 1 0 -43.98 1.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="5.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="7.82,0.36 6.69,1.29 9.94,4.66 9,0" stroke="black" fill="black" />
-    <polygon points="-19.95,-14.95 -21.65,-10 -18.35,-10" stroke="black" fill="black" />
-    <line x1="-12.00" y1="0.00" x2="-8.00" y2="0.00" stroke="black" fill="none" />
-    <rect x="-25.00" y="-15.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="4.00" x2="-20.00" y2="-11.00" stroke="black" fill="black" />
-    <rect x="-5.00" y="-15.00" width="20.00" height="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="5.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-2.00" y1="0.00" x2="2.00" y2="0.00" stroke="black" fill="none" />
-    <polyline points="15.11,-2.7 17,3 18,-3 20,3 21,-3 23,3 24.17,-2.58" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="-60.00,7.20 -84.00,7.20 -84.00,-7.20 -60.00,-7.20 -60.00,7.20 -84.00,7.20 -74.40,0.00 -83.52,-6.70" stroke="black" fill="none" />
+    <line x1="-84.00" y1="-2.40" x2="-103.20" y2="-2.40" stroke="black" fill="none" />
+    <line x1="19.20" y1="2.40" x2="0.00" y2="-36.00" stroke="black" fill="black" />
+    <line x1="-84.00" y1="2.40" x2="-103.20" y2="2.40" stroke="black" fill="none" />
+    <path d="M -105.55 -2.40 A 2.40 2.40 0 1 0 -105.55 2.40" stroke="black" fill="none" />
+    <line x1="-24.00" y1="12.00" x2="-24.00" y2="0.00" stroke="black" fill="none" />
+    <polygon points="18.77,0.86 16.06,3.10 23.86,11.18 21.60,0.00" stroke="black" fill="black" />
+    <polygon points="-47.88,-35.88 -51.96,-24.00 -44.04,-24.00" stroke="black" fill="black" />
+    <line x1="-28.80" y1="0.00" x2="-19.20" y2="0.00" stroke="black" fill="none" />
+    <rect x="-60.00" y="-36.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="9.60" x2="-48.00" y2="-26.40" stroke="black" fill="black" />
+    <rect x="-12.00" y="-36.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="12.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-4.80" y1="0.00" x2="4.80" y2="0.00" stroke="black" fill="none" />
+    <polyline points="36.26,-6.48 40.80,7.20 43.20,-7.20 48.00,7.20 50.40,-7.20 55.20,7.20 58.01,-6.19" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

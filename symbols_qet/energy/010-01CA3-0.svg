@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="40.0" viewBox="-30.0 -21.0 60.0 40.0" data-name="Counter flanges">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="48.0" viewBox="-36.0 -25.2 72.0 48.0" data-name="Counter flanges" data-standard="48px">
   <title>Counter flanges</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="17.00" y="-13.00" width="2.00" height="25.00" stroke="black" fill="none" />
-    <rect x="-19.00" y="-13.00" width="2.00" height="25.00" stroke="black" fill="none" />
-    <polyline points="-17,7 -11,7 -9,11 8,11 11,7 17,7" stroke="black" fill="none" />
-    <polyline points="-17,-7 -12,-7 -10,-11 8,-11 10,-7 17,-7" stroke="black" fill="none" />
-    <rect x="-10.00" y="-13.00" width="18.00" height="2.00" stroke="black" fill="none" />
-    <rect x="-4.00" y="-15.00" width="6.00" height="2.00" stroke="black" fill="none" />
-    <polyline points="-11,-6 -9,-3 -9,3 -11,6" stroke="black" fill="none" />
-    <polyline points="10,-6 8,-4 8,4 10,6" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="20.40" y="-15.60" width="2.40" height="30.00" stroke="black" fill="none" />
+    <rect x="-22.80" y="-15.60" width="2.40" height="30.00" stroke="black" fill="none" />
+    <polyline points="-20.40,8.40 -13.20,8.40 -10.80,13.20 9.60,13.20 13.20,8.40 20.40,8.40" stroke="black" fill="none" />
+    <polyline points="-20.40,-8.40 -14.40,-8.40 -12.00,-13.20 9.60,-13.20 12.00,-8.40 20.40,-8.40" stroke="black" fill="none" />
+    <rect x="-12.00" y="-15.60" width="21.60" height="2.40" stroke="black" fill="none" />
+    <rect x="-4.80" y="-18.00" width="7.20" height="2.40" stroke="black" fill="none" />
+    <polyline points="-13.20,-7.20 -10.80,-3.60 -10.80,3.60 -13.20,7.20" stroke="black" fill="none" />
+    <polyline points="12.00,-7.20 9.60,-4.80 9.60,4.80 12.00,7.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

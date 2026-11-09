@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="110.0" height="40.0" viewBox="-50.0 -10.0 110.0 40.0" data-name="Straight section with tap-off by movable contact">
+<svg xmlns="http://www.w3.org/2000/svg" width="58.7" height="21.3" viewBox="-26.7 -5.3 58.7 21.3" data-name="Straight section with tap-off by movable contact" data-standard="48px">
   <title>Straight section with tap-off by movable contact</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="50.00" y1="20.00" x2="-40.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="-40.00" y1="15.00" x2="-40.00" y2="25.00" stroke="black" fill="none" />
-    <line x1="50.00" y1="15.00" x2="50.00" y2="25.00" stroke="black" fill="none" />
-    <polygon points="10,10 10,0 0,-5 0,15" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-40.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="50.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="26.67" y1="10.67" x2="-21.33" y2="10.67" stroke="black" fill="none" />
+    <line x1="-21.33" y1="8.00" x2="-21.33" y2="13.33" stroke="black" fill="none" />
+    <line x1="26.67" y1="8.00" x2="26.67" y2="13.33" stroke="black" fill="none" />
+    <polygon points="5.33,5.33 5.33,0.00 0.00,-2.67 0.00,8.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-21.33" cy="10.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="26.67" cy="10.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

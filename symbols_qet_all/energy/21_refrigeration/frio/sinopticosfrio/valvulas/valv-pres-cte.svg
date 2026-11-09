@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-24.0 -21.0 50.0 30.0" data-name="valv-pres-cte">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.7" height="43.6" viewBox="-34.9 -30.5 72.7 43.6" data-name="valv-pres-cte" data-standard="48px">
   <title>valv-pres-cte</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-13.90" y1="0.27" x2="-8.17" y2="0.27" stroke="black" fill="none" />
-    <line x1="8.37" y1="0.27" x2="16.71" y2="0.27" stroke="black" fill="none" />
-    <polygon points="-7.77,-5.53 -7.77,6 7.25,-5.53 7.25,6" stroke="black" fill="none" />
-    <line x1="-0.29" y1="-0.15" x2="-0.29" y2="-8.00" stroke="black" fill="none" />
-    <ellipse cx="-0.26" cy="-13.14" rx="5.20" ry="4.61" stroke="black" fill="none" />
-    <text x="-3.81" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PC</text>
-    <polyline points="-2.71,2 -0.51,5 1.69,3" stroke="black" fill="none" />
-    <polyline points="4.55,-13.06 8.51,-13.06 8.51,-8.75 0.59,-1" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="18.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-15.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-20.22" y1="0.39" x2="-11.88" y2="0.39" stroke="black" fill="none" />
+    <line x1="12.17" y1="0.39" x2="24.31" y2="0.39" stroke="black" fill="none" />
+    <polygon points="-11.30,-8.04 -11.30,8.73 10.55,-8.04 10.55,8.73" stroke="black" fill="none" />
+    <line x1="-0.42" y1="-0.22" x2="-0.42" y2="-11.64" stroke="black" fill="none" />
+    <ellipse cx="-0.38" cy="-19.11" rx="7.56" ry="6.71" stroke="black" fill="none" />
+    <text x="-5.54" y="-16.00" font-size="13.1" font-family="sans-serif" fill="black" stroke="none">PC</text>
+    <polyline points="-3.94,2.91 -0.74,7.27 2.46,4.36" stroke="black" fill="none" />
+    <polyline points="6.62,-19.00 12.38,-19.00 12.38,-12.73 0.86,-1.45" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="26.18" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-21.82" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

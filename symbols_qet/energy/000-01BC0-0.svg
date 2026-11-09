@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-22.0 -19.0 50.0 30.0" data-name="buoy valve">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="72.0" viewBox="-52.8 -45.6 120.0 72.0" data-name="buoy valve" data-standard="48px">
   <title>buoy valve</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="9.00" y1="-11.00" x2="25.00" y2="-8.00" stroke="black" fill="none" />
-    <ellipse cx="8.00" cy="-12.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
-    <line x1="10.00" y1="-12.00" x2="25.00" y2="-9.00" stroke="black" fill="none" />
-    <path d="M 19.05 -9.11 A 3.00 3.50 0 0 0 24.95 -7.89" stroke="black" fill="none" />
-    <line x1="25.00" y1="-9.00" x2="25.00" y2="-8.00" stroke="black" fill="none" />
-    <ellipse cx="8.00" cy="-12.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <polygon points="-9,-5 -9,5 11,-5 11,5" stroke="black" fill="none" />
-    <line x1="1.00" y1="0.00" x2="8.00" y2="-12.00" stroke="black" fill="none" />
-    <line x1="-9.00" y1="0.00" x2="-15.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="11.00" y1="0.00" x2="19.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-15.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="21.60" y1="-26.40" x2="60.00" y2="-19.20" stroke="black" fill="none" />
+    <ellipse cx="19.20" cy="-28.80" rx="4.80" ry="4.80" stroke="black" fill="none" />
+    <line x1="24.00" y1="-28.80" x2="60.00" y2="-21.60" stroke="black" fill="none" />
+    <path d="M 45.72 -21.86 A 7.20 8.40 0 0 0 59.88 -18.94" stroke="black" fill="none" />
+    <line x1="60.00" y1="-21.60" x2="60.00" y2="-19.20" stroke="black" fill="none" />
+    <ellipse cx="19.20" cy="-28.80" rx="2.40" ry="2.40" stroke="black" fill="none" />
+    <polygon points="-21.60,-12.00 -21.60,12.00 26.40,-12.00 26.40,12.00" stroke="black" fill="none" />
+    <line x1="2.40" y1="0.00" x2="19.20" y2="-28.80" stroke="black" fill="none" />
+    <line x1="-21.60" y1="0.00" x2="-36.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="26.40" y1="0.00" x2="45.60" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-36.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

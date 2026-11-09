@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="40.0" viewBox="-8.0 -21.0 50.0 40.0" data-name="DHW return">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="96.0" viewBox="-19.2 -50.4 120.0 96.0" data-name="DHW return" data-standard="48px">
   <title>DHW return</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-9.75" x2="11.07" y2="-9.75" stroke="black" fill="none" />
-    <line x1="11.50" y1="-9.75" x2="19.00" y2="-1.72" stroke="black" fill="none" />
-    <line x1="14.50" y1="2.29" x2="25.00" y2="-5.74" stroke="black" fill="none" />
-    <path d="M 14.44 2.19 A 9.00 6.69 0 0 0 24.86 -5.56" stroke="black" fill="none" />
-    <line x1="28.00" y1="-3.06" x2="38.50" y2="1.00" stroke="black" fill="none" />
-    <line x1="19.00" y1="5.00" x2="23.50" y2="13.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="2.29" x2="32.50" y2="9.00" stroke="black" fill="none" />
-    <line x1="26.50" y1="-0.38" x2="32.50" y2="3.63" stroke="black" fill="none" />
-    <line x1="22.00" y1="3.63" x2="26.50" y2="9.00" stroke="black" fill="none" />
-    <line x1="-1.00" y1="1.00" x2="11.00" y2="1.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <line x1="11.00" y1="0.59" x2="11.00" y2="-8.62" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <text x="-1.00" y="7.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Ret.</text>
-    <line x1="1.00" y1="-2.00" x2="6.00" y2="-2.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-2.00" x2="4.00" y2="-3.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-2.00" x2="4.00" y2="-1.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-1.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-1.00" cy="1.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-23.40" x2="26.57" y2="-23.40" stroke="black" fill="none" />
+    <line x1="27.60" y1="-23.40" x2="45.60" y2="-4.13" stroke="black" fill="none" />
+    <line x1="34.80" y1="5.50" x2="60.00" y2="-13.78" stroke="black" fill="none" />
+    <path d="M 34.66 5.26 A 21.60 16.06 0 0 0 59.66 -13.34" stroke="black" fill="none" />
+    <line x1="67.20" y1="-7.34" x2="92.40" y2="2.40" stroke="black" fill="none" />
+    <line x1="45.60" y1="12.00" x2="56.40" y2="31.20" stroke="black" fill="none" />
+    <line x1="60.00" y1="5.50" x2="78.00" y2="21.60" stroke="black" fill="none" />
+    <line x1="63.60" y1="-0.91" x2="78.00" y2="8.71" stroke="black" fill="none" />
+    <line x1="52.80" y1="8.71" x2="63.60" y2="21.60" stroke="black" fill="none" />
+    <line x1="-2.40" y1="2.40" x2="26.40" y2="2.40" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <line x1="26.40" y1="1.42" x2="26.40" y2="-20.69" stroke="black" fill="none" stroke-dasharray="4,3" />
+    <text x="-2.40" y="16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Ret.</text>
+    <line x1="2.40" y1="-4.80" x2="14.40" y2="-4.80" stroke="black" fill="none" />
+    <line x1="0.00" y1="-4.80" x2="9.60" y2="-7.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-4.80" x2="9.60" y2="-2.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-2.40" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-2.40" cy="2.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

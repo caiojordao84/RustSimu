@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="70.0" viewBox="-31.0 -28.0 70.0 70.0" data-name="Three-phase engine">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="168.0" viewBox="-74.4 -67.2 168.0 168.0" data-name="Three-phase engine" data-standard="48px">
   <title>Three-phase engine</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="22.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">W1</text>
-    <text x="2.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V1</text>
-    <text x="23.00" y="30.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <path d="M 4.50 25.00 A 3.00 2.50 0 0 0 10.50 25.00" stroke="black" fill="none" />
-    <path d="M 4.50 25.00 A 3.00 2.50 0 0 0 -1.50 25.00" stroke="black" fill="none" />
-    <text x="-10.25" y="18.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <ellipse cx="0.00" cy="16.00" rx="23.00" ry="23.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-20.00" x2="20.00" y2="4.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="-20.00" x2="-20.00" y2="4.00" stroke="black" fill="none" />
-    <text x="-11.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="-18.00" y="-12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">U1</text>
-    <line x1="23.00" y1="20.00" x2="30.00" y2="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="U1" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="W1" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="V1" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="PE" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="52.80" y="-28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">W1</text>
+    <text x="4.80" y="-28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">V1</text>
+    <text x="55.20" y="72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
+    <path d="M 10.80 60.00 A 7.20 6.00 0 0 0 25.20 60.00" stroke="black" fill="none" />
+    <path d="M 10.80 60.00 A 7.20 6.00 0 0 0 -3.60 60.00" stroke="black" fill="none" />
+    <text x="-24.60" y="43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <ellipse cx="0.00" cy="38.40" rx="55.20" ry="55.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="-16.80" stroke="black" fill="none" />
+    <line x1="48.00" y1="-48.00" x2="48.00" y2="9.60" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-48.00" x2="-48.00" y2="9.60" stroke="black" fill="none" />
+    <text x="-26.40" y="69.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="-43.20" y="-28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">U1</text>
+    <line x1="55.20" y1="48.00" x2="72.00" y2="48.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-48.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="U1" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="W1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="V1" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="e" />
   </g>
 </svg>

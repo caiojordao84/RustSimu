@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="50.0" viewBox="-30.0 -25.0 60.0 50.0" data-name="OR (OR)">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="120.0" viewBox="-72.0 -60.0 144.0 120.0" data-name="OR (OR)" data-standard="48px">
   <title>OR (OR)</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-20.00" y1="-10.00" x2="7.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="10.00" x2="7.00" y2="10.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="0.00" x2="11.00" y2="0.00" stroke="black" fill="none" />
-    <path d="M -9.65 20.00 A 20.00 20.00 0 0 0 -10.00 -20.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-20.00" x2="-10.00" y2="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-48.00" y1="-24.00" x2="16.80" y2="-24.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="24.00" x2="16.80" y2="24.00" stroke="black" fill="none" />
+    <line x1="48.00" y1="0.00" x2="26.40" y2="0.00" stroke="black" fill="none" />
+    <path d="M -23.16 48.00 A 48.00 48.00 0 0 0 -24.00 -48.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-48.00" x2="-24.00" y2="48.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-48.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

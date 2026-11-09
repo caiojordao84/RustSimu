@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="30.0" viewBox="-7.0 -15.0 50.0 30.0" data-name="PIR detector">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="72.0" viewBox="-16.8 -36.0 120.0 72.0" data-name="PIR detector" data-standard="48px">
   <title>PIR detector</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="20,-10 0,0 20,10" stroke="black" fill="none" />
-    <line x1="25.00" y1="-5.00" x2="40.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="0.00" x2="40.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="25.00" y1="5.00" x2="40.00" y2="10.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="1.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="48.00,-24.00 0.00,0.00 48.00,24.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="-12.00" x2="96.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="0.00" x2="96.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="60.00" y1="12.00" x2="96.00" y2="24.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="2.40" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

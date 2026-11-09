@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="40.0" viewBox="-18.0 -30.0 40.0 40.0" data-name="Floodlight">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="96.0" viewBox="-43.2 -72.0 96.0 96.0" data-name="Floodlight" data-standard="48px">
   <title>Floodlight</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="19.00" y1="4.00" x2="8.00" y2="-7.00" stroke="black" fill="black" />
-    <line x1="8.00" y1="-13.00" x2="19.00" y2="-24.00" stroke="black" fill="black" />
-    <line x1="-3.00" y1="-13.00" x2="3.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="-3.00" y1="-7.00" x2="3.00" y2="-13.00" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="-10.00" rx="4.50" ry="4.50" stroke="black" fill="none" />
-    <path d="M 0.00 -20.00 A 10.00 10.00 0 0 0 -0.00 0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="45.60" y1="9.60" x2="19.20" y2="-16.80" stroke="black" fill="black" />
+    <line x1="19.20" y1="-31.20" x2="45.60" y2="-57.60" stroke="black" fill="black" />
+    <line x1="-7.20" y1="-31.20" x2="7.20" y2="-16.80" stroke="black" fill="none" />
+    <line x1="-7.20" y1="-16.80" x2="7.20" y2="-31.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="-24.00" rx="10.80" ry="10.80" stroke="black" fill="none" />
+    <path d="M 0.00 -48.00 A 24.00 24.00 0 0 0 -0.00 0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

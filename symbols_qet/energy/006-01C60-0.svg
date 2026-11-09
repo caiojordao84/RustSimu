@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="20.0" viewBox="-15.0 -12.0 30.0 20.0" data-name="Radiator valve right">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="48.0" viewBox="-36.0 -28.8 72.0 48.0" data-name="Radiator valve right" data-standard="48px">
   <title>Radiator valve right</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-0.60" y1="-7.73" x2="-0.60" y2="-4.47" stroke="black" fill="none" />
-    <line x1="0.60" y1="-7.73" x2="0.60" y2="-4.47" stroke="black" fill="none" />
-    <line x1="4.88" y1="0.94" x2="6.60" y2="0.94" stroke="black" fill="none" />
-    <line x1="1.79" y1="-7.73" x2="1.79" y2="-4.47" stroke="black" fill="none" />
-    <rect x="2.40" y="-1.12" width="1.80" height="2.10" stroke="black" fill="none" />
-    <rect x="-2.40" y="-2.57" width="4.80" height="5.21" stroke="black" fill="none" />
-    <rect x="4.45" y="-3.41" width="2.15" height="5.80" stroke="black" fill="none" />
-    <line x1="4.88" y1="-2.00" x2="6.60" y2="-2.00" stroke="black" fill="none" />
-    <rect x="-5.20" y="-1.10" width="2.40" height="2.60" stroke="black" fill="none" />
-    <rect x="-1.20" y="-3.83" width="2.40" height="1.26" stroke="black" fill="none" />
-    <polygon points="-3,-3.83 3,-3.83 3,-7.93 1.8,-9.69 -1.8,-9.69 -3,-7.93" stroke="black" fill="none" />
-    <line x1="-1.80" y1="-7.73" x2="-1.80" y2="-4.47" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-6.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="6.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-1.44" y1="-18.55" x2="-1.44" y2="-10.73" stroke="black" fill="none" />
+    <line x1="1.44" y1="-18.55" x2="1.44" y2="-10.73" stroke="black" fill="none" />
+    <line x1="11.71" y1="2.26" x2="15.84" y2="2.26" stroke="black" fill="none" />
+    <line x1="4.30" y1="-18.55" x2="4.30" y2="-10.73" stroke="black" fill="none" />
+    <rect x="5.76" y="-2.69" width="4.32" height="5.04" stroke="black" fill="none" />
+    <rect x="-5.76" y="-6.17" width="11.52" height="12.50" stroke="black" fill="none" />
+    <rect x="10.68" y="-8.18" width="5.16" height="13.92" stroke="black" fill="none" />
+    <line x1="11.71" y1="-4.80" x2="15.84" y2="-4.80" stroke="black" fill="none" />
+    <rect x="-12.48" y="-2.64" width="5.76" height="6.24" stroke="black" fill="none" />
+    <rect x="-2.88" y="-9.19" width="5.76" height="3.02" stroke="black" fill="none" />
+    <polygon points="-7.20,-9.19 7.20,-9.19 7.20,-19.03 4.32,-23.26 -4.32,-23.26 -7.20,-19.03" stroke="black" fill="none" />
+    <line x1="-4.32" y1="-18.55" x2="-4.32" y2="-10.73" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-14.40" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="14.40" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

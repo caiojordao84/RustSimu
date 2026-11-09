@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="210.0" viewBox="-15.0 -31.0 240.0 210.0" data-name="6AV6647-0AB11-3AX0_COLOR">
+<svg xmlns="http://www.w3.org/2000/svg" width="576.0" height="504.0" viewBox="-36.0 -74.4 576.0 504.0" data-name="6AV6647-0AB11-3AX0_COLOR" data-standard="48px">
   <title>6AV6647-0AB11-3AX0_COLOR</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-9.00" y="-28.00" width="230.00" height="197.00" stroke="black" fill="HTMLWhiteHoneydew" />
-    <text x="28.00" y="150.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">P1</text>
-    <text x="6.00" y="136.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PROFINET</text>
-    <text x="166.00" y="160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
-    <text x="14.00" y="150.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">X1</text>
-    <text x="-6.00" y="-17.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">KTP600 BASIC MONO</text>
-    <text x="168.00" y="150.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">24VDC</text>
-    <text x="187.00" y="160.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <ellipse cx="190.00" cy="168.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <line x1="173.00" y1="168.00" x2="187.00" y2="168.00" stroke="black" fill="none" />
-    <ellipse cx="170.00" cy="168.00" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <line x1="166.00" y1="168.00" x2="167.00" y2="168.00" stroke="black" fill="none" />
-    <rect x="10.00" y="140.00" width="30.00" height="28.00" stroke="black" fill="none" />
-    <line x1="160.00" y1="168.00" x2="160.00" y2="140.00" stroke="black" fill="none" />
-    <line x1="161.00" y1="140.00" x2="200.00" y2="140.00" stroke="black" fill="none" />
-    <line x1="200.00" y1="140.00" x2="200.00" y2="168.00" stroke="black" fill="none" />
-    <line x1="193.00" y1="168.00" x2="199.00" y2="168.00" stroke="black" fill="none" />
-    <rect x="10.00" y="-10.00" width="191.00" height="130.00" stroke="black" fill="cyan" />
-    <rect x="12.00" y="165.00" width="26.00" height="3.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="170.00" cy="171.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="190.00" cy="171.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="25.00" cy="169.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-21.60" y="-67.20" width="552.00" height="472.80" stroke="black" fill="HTMLWhiteHoneydew" />
+    <text x="67.20" y="360.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">P1</text>
+    <text x="14.40" y="326.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PROFINET</text>
+    <text x="398.40" y="384.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
+    <text x="33.60" y="360.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X1</text>
+    <text x="-14.40" y="-40.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">KTP600 BASIC MONO</text>
+    <text x="403.20" y="360.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">24VDC</text>
+    <text x="448.80" y="384.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <ellipse cx="456.00" cy="403.20" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <line x1="415.20" y1="403.20" x2="448.80" y2="403.20" stroke="black" fill="none" />
+    <ellipse cx="408.00" cy="403.20" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <line x1="398.40" y1="403.20" x2="400.80" y2="403.20" stroke="black" fill="none" />
+    <rect x="24.00" y="336.00" width="72.00" height="67.20" stroke="black" fill="none" />
+    <line x1="384.00" y1="403.20" x2="384.00" y2="336.00" stroke="black" fill="none" />
+    <line x1="386.40" y1="336.00" x2="480.00" y2="336.00" stroke="black" fill="none" />
+    <line x1="480.00" y1="336.00" x2="480.00" y2="403.20" stroke="black" fill="none" />
+    <line x1="463.20" y1="403.20" x2="477.60" y2="403.20" stroke="black" fill="none" />
+    <rect x="24.00" y="-24.00" width="458.40" height="312.00" stroke="black" fill="cyan" />
+    <rect x="28.80" y="396.00" width="62.40" height="7.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="408.00" cy="410.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="456.00" cy="410.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="60.00" cy="405.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

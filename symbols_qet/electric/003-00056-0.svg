@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="190.0" height="30.0" viewBox="-94.0 -4.0 190.0 30.0" data-name="Multi wire cable 10-pole Demux">
+<svg xmlns="http://www.w3.org/2000/svg" width="456.0" height="72.0" viewBox="-225.6 -9.6 456.0 72.0" data-name="Multi wire cable 10-pole Demux" data-standard="48px">
   <title>Multi wire cable 10-pole Demux</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="90.00" y1="10.00" x2="90.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="-50.00" y1="10.00" x2="-50.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="70.00" y1="10.00" x2="70.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="-10.00" y1="10.00" x2="-10.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="50.00" y1="10.00" x2="50.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="30.00" y1="10.00" x2="30.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="10.00" y1="10.00" x2="10.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="-30.00" y1="10.00" x2="-30.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="-70.00" y1="10.00" x2="-70.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="0.00" y1="10.00" x2="0.00" y2="0.00" stroke="#d40000" fill="none" />
-    <line x1="-90.00" y1="10.00" x2="-90.00" y2="19.00" stroke="#d40000" fill="none" />
-    <line x1="-90.00" y1="10.00" x2="90.00" y2="10.00" stroke="#d40000" fill="none" />
-    <circle class="qet-terminal" cx="90.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="10" data-orientation="s" />
-    <circle class="qet-terminal" cx="-50.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="Cable" data-orientation="n" />
-    <circle class="qet-terminal" cx="-90.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="7" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="s" />
-    <circle class="qet-terminal" cx="-70.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="6" data-orientation="s" />
-    <circle class="qet-terminal" cx="-30.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="s" />
-    <circle class="qet-terminal" cx="50.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="8" data-orientation="s" />
-    <circle class="qet-terminal" cx="70.00" cy="20.00" r="1.8" fill="red" stroke="none" data-name="9" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="216.00" y1="24.00" x2="216.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="-120.00" y1="24.00" x2="-120.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="168.00" y1="24.00" x2="168.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="-24.00" y1="24.00" x2="-24.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="120.00" y1="24.00" x2="120.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="72.00" y1="24.00" x2="72.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="24.00" y1="24.00" x2="24.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="-72.00" y1="24.00" x2="-72.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="-168.00" y1="24.00" x2="-168.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="0.00" y1="24.00" x2="0.00" y2="0.00" stroke="#d40000" fill="none" />
+    <line x1="-216.00" y1="24.00" x2="-216.00" y2="45.60" stroke="#d40000" fill="none" />
+    <line x1="-216.00" y1="24.00" x2="216.00" y2="24.00" stroke="#d40000" fill="none" />
+    <circle class="qet-terminal" cx="216.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="10" data-orientation="s" />
+    <circle class="qet-terminal" cx="-120.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="Cable" data-orientation="n" />
+    <circle class="qet-terminal" cx="-216.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="-168.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="8" data-orientation="s" />
+    <circle class="qet-terminal" cx="168.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="9" data-orientation="s" />
   </g>
 </svg>

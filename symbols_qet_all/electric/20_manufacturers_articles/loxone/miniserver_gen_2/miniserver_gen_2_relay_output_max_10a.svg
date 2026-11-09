@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="80.0" viewBox="-45.0 -40.0 90.0 80.0" data-name="Miniserver Gen.2 relay output max.10A">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="192.0" viewBox="-108.0 -96.0 216.0 192.0" data-name="Miniserver Gen.2 relay output max.10A" data-standard="48px">
   <title>Miniserver Gen.2 relay output max.10A</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <ellipse cx="0.00" cy="-30.00" rx="2.50" ry="2.50" stroke="#d40000" fill="none" />
-    <ellipse cx="0.00" cy="30.00" rx="2.50" ry="2.50" stroke="#d40000" fill="none" />
-    <polyline points="-40,-30 -40,-30 -3,-30" stroke="black" fill="none" />
-    <polyline points="3,-30 3,-30 40,-30" stroke="black" fill="none" />
-    <polyline points="-40,-30 -40,30 -3,30" stroke="black" fill="none" />
-    <polyline points="3,30 40,30 40,-30" stroke="black" fill="none" />
-    <line x1="-15.00" y1="-13.00" x2="-5.00" y2="-13.00" stroke="black" fill="none" />
-    <line x1="-5.00" y1="-13.00" x2="5.00" y2="-18.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-13.00" x2="15.00" y2="-13.00" stroke="black" fill="none" />
-    <text x="-23.60" y="0.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Loxone Gen.2</text>
-    <text x="-22.70" y="7.50" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Digital Output</text>
-    <circle class="qet-terminal" cx="0.00" cy="-31.00" r="1.8" fill="red" stroke="none" data-name="Q1.1" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="31.00" r="1.8" fill="red" stroke="none" data-name="Q1.2" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="0.00" cy="-72.00" rx="6.00" ry="6.00" stroke="#d40000" fill="none" />
+    <ellipse cx="0.00" cy="72.00" rx="6.00" ry="6.00" stroke="#d40000" fill="none" />
+    <polyline points="-96.00,-72.00 -96.00,-72.00 -7.20,-72.00" stroke="black" fill="none" />
+    <polyline points="7.20,-72.00 7.20,-72.00 96.00,-72.00" stroke="black" fill="none" />
+    <polyline points="-96.00,-72.00 -96.00,72.00 -7.20,72.00" stroke="black" fill="none" />
+    <polyline points="7.20,72.00 96.00,72.00 96.00,-72.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="-31.20" x2="-12.00" y2="-31.20" stroke="black" fill="none" />
+    <line x1="-12.00" y1="-31.20" x2="12.00" y2="-43.20" stroke="black" fill="none" />
+    <line x1="12.00" y1="-31.20" x2="36.00" y2="-31.20" stroke="black" fill="none" />
+    <text x="-56.64" y="0.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Loxone Gen.2</text>
+    <text x="-54.48" y="18.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Digital Output</text>
+    <circle class="qet-terminal" cx="0.00" cy="-74.40" r="4.0" fill="red" stroke="none" data-name="Q1.1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="Q1.2" data-orientation="s" />
   </g>
 </svg>

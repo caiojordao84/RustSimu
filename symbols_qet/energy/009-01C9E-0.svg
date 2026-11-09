@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="30.0" viewBox="-25.0 -9.0 40.0 30.0" data-name="Right derivation">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="72.0" viewBox="-60.0 -21.6 96.0 72.0" data-name="Right derivation" data-standard="48px">
   <title>Right derivation</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="0,-4 0,4 10,0" stroke="black" fill="black" />
-    <line x1="0.00" y1="0.00" x2="-20.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-8.00" y1="4.00" x2="-8.00" y2="8.00" stroke="black" fill="none" />
-    <path d="M -8.00 4.00 A 3.50 4.00 0 0 0 -11.50 0.00" stroke="black" fill="none" />
-    <polygon points="-12,9 -4,9 -8,16" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="0.00,-9.60 0.00,9.60 24.00,0.00" stroke="black" fill="black" />
+    <line x1="0.00" y1="0.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-19.20" y1="9.60" x2="-19.20" y2="19.20" stroke="black" fill="none" />
+    <path d="M -19.20 9.60 A 8.40 9.60 0 0 0 -27.60 0.00" stroke="black" fill="none" />
+    <polygon points="-28.80,21.60 -9.60,21.60 -19.20,38.40" stroke="black" fill="black" />
   </g>
 </svg>

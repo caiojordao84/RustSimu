@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="40.0" viewBox="-41.0 -23.0 70.0 40.0" data-name="Electric motor">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="96.0" viewBox="-98.4 -55.2 168.0 96.0" data-name="Electric motor" data-standard="48px">
   <title>Electric motor</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-6,8 -3,5 0,11" stroke="black" fill="black" />
-    <text x="-28.00" y="1.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <polygon points="-6,-14 -3,-11 0,-17" stroke="black" fill="black" />
-    <ellipse cx="-23.00" cy="-3.00" rx="10.00" ry="10.00" stroke="black" fill="none" />
-    <path d="M -3.61 -13.61 A 15.00 15.00 0 0 0 -3.61 7.61" stroke="black" fill="none" />
-    <line x1="-13.00" y1="-6.00" x2="5.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="-13.00" y1="0.00" x2="5.00" y2="0.00" stroke="black" fill="none" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-14.40,19.20 -7.20,12.00 0.00,26.40" stroke="black" fill="black" />
+    <text x="-67.20" y="2.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <polygon points="-14.40,-33.60 -7.20,-26.40 0.00,-40.80" stroke="black" fill="black" />
+    <ellipse cx="-55.20" cy="-7.20" rx="24.00" ry="24.00" stroke="black" fill="none" />
+    <path d="M -8.66 -32.66 A 36.00 36.00 0 0 0 -8.66 18.26" stroke="black" fill="none" />
+    <line x1="-31.20" y1="-14.40" x2="12.00" y2="-14.40" stroke="black" fill="none" />
+    <line x1="-31.20" y1="0.00" x2="12.00" y2="0.00" stroke="black" fill="none" />
   </g>
 </svg>

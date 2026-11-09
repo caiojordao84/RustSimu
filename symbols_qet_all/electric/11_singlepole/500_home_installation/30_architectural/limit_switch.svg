@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="20.0" height="30.0" viewBox="-7.0 -16.0 20.0 30.0" data-name="Limit switch">
+<svg xmlns="http://www.w3.org/2000/svg" width="48.0" height="72.0" viewBox="-16.8 -38.4 48.0 72.0" data-name="Limit switch" data-standard="48px">
   <title>Limit switch</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="2.00" y1="0.00" x2="8.00" y2="-9.00" stroke="black" fill="none" />
-    <ellipse cx="9.50" cy="-11.00" rx="1.75" ry="1.75" stroke="black" fill="none" />
-    <ellipse cx="0.00" cy="5.00" rx="5.00" ry="5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="4.80" y1="0.00" x2="19.20" y2="-21.60" stroke="black" fill="none" />
+    <ellipse cx="22.80" cy="-26.40" rx="4.20" ry="4.20" stroke="black" fill="none" />
+    <ellipse cx="0.00" cy="12.00" rx="12.00" ry="12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>

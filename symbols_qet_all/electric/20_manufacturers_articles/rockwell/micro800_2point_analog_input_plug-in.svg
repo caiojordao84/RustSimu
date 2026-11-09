@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="660.0" height="150.0" viewBox="-5.0 -6.0 660.0 150.0" data-name="Micro800 2Point Analog Input Plug-In">
+<svg xmlns="http://www.w3.org/2000/svg" width="633.6" height="144.0" viewBox="-4.8 -5.8 633.6 144.0" data-name="Micro800 2Point Analog Input Plug-In" data-standard="48px">
   <title>Micro800 2Point Analog Input Plug-In</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="650.00" height="140.00" stroke="black" fill="none" />
-    <rect x="330.00" y="60.00" width="190.00" height="34.00" stroke="black" fill="none" />
-    <rect x="130.00" y="60.00" width="190.00" height="34.00" stroke="black" fill="none" />
-    <line x1="400.00" y1="30.00" x2="400.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="300.00" y1="30.00" x2="300.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="150.00" y1="30.00" x2="150.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="200.00" y1="30.00" x2="200.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="130.00" y1="60.00" x2="320.00" y2="94.00" stroke="black" fill="none" />
-    <line x1="330.00" y1="60.00" x2="520.00" y2="94.00" stroke="black" fill="none" />
-    <line x1="250.00" y1="30.00" x2="250.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="500.00" y1="30.00" x2="500.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="350.00" y1="30.00" x2="350.00" y2="60.00" stroke="black" fill="none" />
-    <line x1="450.00" y1="30.00" x2="450.00" y2="60.00" stroke="black" fill="none" />
-    <circle cx="400.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="250.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="350.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="300.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="500.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="450.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="200.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle cx="150.00" cy="0.00" r="2.50" stroke="black" fill="white" />
-    <circle class="qet-terminal" cx="150.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
-    <circle class="qet-terminal" cx="200.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="n" />
-    <circle class="qet-terminal" cx="250.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
-    <circle class="qet-terminal" cx="300.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="n" />
-    <circle class="qet-terminal" cx="350.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="5" data-orientation="n" />
-    <circle class="qet-terminal" cx="400.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="6" data-orientation="n" />
-    <circle class="qet-terminal" cx="450.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="7" data-orientation="n" />
-    <circle class="qet-terminal" cx="500.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="8" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="624.00" height="134.40" stroke="black" fill="none" />
+    <rect x="316.80" y="57.60" width="182.40" height="32.64" stroke="black" fill="none" />
+    <rect x="124.80" y="57.60" width="182.40" height="32.64" stroke="black" fill="none" />
+    <line x1="384.00" y1="28.80" x2="384.00" y2="57.60" stroke="black" fill="none" />
+    <line x1="288.00" y1="28.80" x2="288.00" y2="57.60" stroke="black" fill="none" />
+    <line x1="144.00" y1="28.80" x2="144.00" y2="57.60" stroke="black" fill="none" />
+    <line x1="192.00" y1="28.80" x2="192.00" y2="57.60" stroke="black" fill="none" />
+    <line x1="124.80" y1="57.60" x2="307.20" y2="90.24" stroke="black" fill="none" />
+    <line x1="316.80" y1="57.60" x2="499.20" y2="90.24" stroke="black" fill="none" />
+    <line x1="240.00" y1="28.80" x2="240.00" y2="57.60" stroke="black" fill="none" />
+    <line x1="480.00" y1="28.80" x2="480.00" y2="57.60" stroke="black" fill="none" />
+    <line x1="336.00" y1="28.80" x2="336.00" y2="57.60" stroke="black" fill="none" />
+    <line x1="432.00" y1="28.80" x2="432.00" y2="57.60" stroke="black" fill="none" />
+    <circle cx="384.00" cy="0.00" r="2.40" stroke="black" fill="white" />
+    <circle cx="240.00" cy="0.00" r="2.40" stroke="black" fill="white" />
+    <circle cx="336.00" cy="0.00" r="2.40" stroke="black" fill="white" />
+    <circle cx="288.00" cy="0.00" r="2.40" stroke="black" fill="white" />
+    <circle cx="480.00" cy="0.00" r="2.40" stroke="black" fill="white" />
+    <circle cx="432.00" cy="0.00" r="2.40" stroke="black" fill="white" />
+    <circle cx="192.00" cy="0.00" r="2.40" stroke="black" fill="white" />
+    <circle cx="144.00" cy="0.00" r="2.40" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="144.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="192.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="240.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="288.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="336.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="n" />
+    <circle class="qet-terminal" cx="384.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="n" />
+    <circle class="qet-terminal" cx="432.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="n" />
+    <circle class="qet-terminal" cx="480.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="8" data-orientation="n" />
   </g>
 </svg>

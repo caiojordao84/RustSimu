@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="90.0" viewBox="-50.0 -41.0 100.0 90.0" data-name="Signal conditioner Phoenix Contact 2810913">
+<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="216.0" viewBox="-120.0 -98.4 240.0 216.0" data-name="Signal conditioner Phoenix Contact 2810913" data-standard="48px">
   <title>Signal conditioner Phoenix Contact 2810913</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <text x="-34.00" y="32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND1</text>
-    <polygon points="-40,40 40,40 40,-30 -40,-30" stroke="black" fill="none" />
-    <text x="-39.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <text x="-39.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">2</text>
-    <text x="-39.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <text x="36.00" y="29.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">9</text>
-    <text x="36.00" y="9.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">8</text>
-    <text x="36.00" y="-11.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">7</text>
-    <text x="-19.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">10</text>
-    <text x="1.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">11</text>
-    <text x="21.00" y="-26.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12</text>
-    <rect x="-15.00" y="-10.00" width="30.00" height="30.00" stroke="black" fill="none" />
-    <line x1="-15.00" y1="20.00" x2="15.00" y2="-10.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-7.00" width="1.00" height="6.00" stroke="black" fill="none" />
-    <rect x="-7.00" y="-7.00" width="1.00" height="6.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-7.00" x2="-12.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="-10.00" y1="-1.00" x2="-12.00" y2="-1.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-7.00" x2="-4.00" y2="-7.00" stroke="black" fill="none" />
-    <line x1="-6.00" y1="-1.00" x2="-4.00" y2="-1.00" stroke="black" fill="none" />
-    <polygon points="4,6 4,16 12,11" stroke="black" fill="none" />
-    <text x="-6.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND3</text>
-    <text x="14.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND3</text>
-    <text x="-27.00" y="-21.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
-    <polyline points="0,-20 0,-18 20,-18 20,-20" stroke="black" fill="none" />
-    <text x="-34.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">IN U/I</text>
-    <text x="-34.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND1</text>
-    <text x="22.00" y="32.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">GND2</text>
-    <text x="20.00" y="12.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT U</text>
-    <text x="21.00" y="-8.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">OUT I</text>
-    <polyline points="-22,10 -20,10 -20,30 -22,30" stroke="black" fill="none" />
-    <text x="-18.00" y="38.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">MCR-C-UI-UI-DCI</text>
-    <text x="-14.00" y="10.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">~</text>
-    <line x1="-9.00" y1="7.00" x2="-7.00" y2="3.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-40.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="40.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-40.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <text x="-81.60" y="76.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND1</text>
+    <polygon points="-96.00,96.00 96.00,96.00 96.00,-72.00 -96.00,-72.00" stroke="black" fill="none" />
+    <text x="-93.60" y="-26.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
+    <text x="-93.60" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
+    <text x="-93.60" y="69.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">3</text>
+    <text x="86.40" y="69.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">9</text>
+    <text x="86.40" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">8</text>
+    <text x="86.40" y="-26.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">7</text>
+    <text x="-45.60" y="-62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">10</text>
+    <text x="2.40" y="-62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">11</text>
+    <text x="50.40" y="-62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">12</text>
+    <rect x="-36.00" y="-24.00" width="72.00" height="72.00" stroke="black" fill="none" />
+    <line x1="-36.00" y1="48.00" x2="36.00" y2="-24.00" stroke="black" fill="none" />
+    <rect x="-24.00" y="-16.80" width="2.40" height="14.40" stroke="black" fill="none" />
+    <rect x="-16.80" y="-16.80" width="2.40" height="14.40" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-16.80" x2="-28.80" y2="-16.80" stroke="black" fill="none" />
+    <line x1="-24.00" y1="-2.40" x2="-28.80" y2="-2.40" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-16.80" x2="-9.60" y2="-16.80" stroke="black" fill="none" />
+    <line x1="-14.40" y1="-2.40" x2="-9.60" y2="-2.40" stroke="black" fill="none" />
+    <polygon points="9.60,14.40 9.60,38.40 28.80,26.40" stroke="black" fill="none" />
+    <text x="-14.40" y="-50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND3</text>
+    <text x="33.60" y="-50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND3</text>
+    <text x="-64.80" y="-50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
+    <polyline points="0.00,-48.00 0.00,-43.20 48.00,-43.20 48.00,-48.00" stroke="black" fill="none" />
+    <text x="-81.60" y="-19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">IN U/I</text>
+    <text x="-81.60" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND1</text>
+    <text x="52.80" y="76.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GND2</text>
+    <text x="48.00" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OUT U</text>
+    <text x="50.40" y="-19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">OUT I</text>
+    <polyline points="-52.80,24.00 -48.00,24.00 -48.00,72.00 -52.80,72.00" stroke="black" fill="none" />
+    <text x="-43.20" y="91.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MCR-C-UI-UI-DCI</text>
+    <text x="-33.60" y="24.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">~</text>
+    <line x1="-21.60" y1="16.80" x2="-16.80" y2="7.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-96.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="48.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-96.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="96.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-96.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

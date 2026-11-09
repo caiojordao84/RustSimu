@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -19.0 60.0 30.0" data-name="Flexible Connection">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="36.0" viewBox="-36.0 -22.8 72.0 36.0" data-name="Flexible Connection" data-standard="48px">
   <title>Flexible Connection</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="10.00" y1="0.00" x2="20.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-20.00" y1="0.00" x2="-10.00" y2="0.00" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="0.00" rx="1.15" ry="1.15" stroke="black" fill="black" />
-    <ellipse cx="-10.00" cy="0.00" rx="1.15" ry="1.15" stroke="black" fill="black" />
-    <path d="M -9.42 0.60 A 11.50 11.50 0 0 0 9.42 0.60" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12.00" y1="0.00" x2="24.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-24.00" y1="0.00" x2="-12.00" y2="0.00" stroke="black" fill="none" />
+    <ellipse cx="12.00" cy="0.00" rx="1.38" ry="1.38" stroke="black" fill="black" />
+    <ellipse cx="-12.00" cy="0.00" rx="1.38" ry="1.38" stroke="black" fill="black" />
+    <path d="M -11.30 0.72 A 13.80 13.80 0 0 0 11.30 0.72" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

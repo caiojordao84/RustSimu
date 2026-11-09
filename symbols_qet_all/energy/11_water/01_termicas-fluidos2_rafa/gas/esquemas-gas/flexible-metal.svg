@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="20.0" viewBox="-30.0 -10.0 50.0 20.0" data-name="flexible-metal">
+<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="32.0" viewBox="-48.0 -16.0 80.0 32.0" data-name="flexible-metal" data-standard="48px">
   <title>flexible-metal</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M -4.62 0.15 A 3.00 2.32 0 0 0 -1.62 -2.17" stroke="black" fill="none" />
-    <path d="M 4.45 -2.17 A 3.00 2.32 0 0 0 7.45 0.15" stroke="black" fill="none" />
-    <path d="M -7.62 -2.17 A 3.00 2.32 0 0 0 -4.62 0.15" stroke="black" fill="none" />
-    <path d="M -7.65 -2.17 A 3.00 2.32 0 0 0 -13.65 -2.17" stroke="black" fill="none" />
-    <line x1="-19.72" y1="0.15" x2="-17.34" y2="0.15" stroke="black" fill="none" />
-    <line x1="8.00" y1="0.15" x2="10.00" y2="0.15" stroke="black" fill="none" />
-    <path d="M 4.42 -2.17 A 3.00 2.32 0 0 0 -1.58 -2.17" stroke="black" fill="none" />
-    <path d="M -16.69 0.15 A 3.00 2.32 0 0 0 -13.69 -2.17" stroke="black" fill="none" />
-    <ellipse cx="-15.54" cy="-1.71" rx="0.38" ry="0.00" stroke="black" fill="none" />
-    <ellipse cx="-14.41" cy="-4.03" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <ellipse cx="-11.39" cy="-5.88" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <ellipse cx="-2.34" cy="-3.10" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <ellipse cx="-0.07" cy="-5.88" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <ellipse cx="3.33" cy="-5.42" rx="0.38" ry="0.00" stroke="black" fill="none" />
-    <ellipse cx="6.38" cy="-2.64" rx="0.38" ry="0.00" stroke="black" fill="none" />
-    <ellipse cx="-13.28" cy="-5.42" rx="0.38" ry="0.00" stroke="black" fill="none" />
-    <ellipse cx="-9.51" cy="-5.42" rx="0.38" ry="0.00" stroke="black" fill="none" />
-    <ellipse cx="-7.62" cy="-4.96" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <ellipse cx="-3.85" cy="-1.24" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <ellipse cx="-5.74" cy="-1.71" rx="0.38" ry="0.00" stroke="black" fill="none" />
-    <ellipse cx="-6.49" cy="-2.64" rx="0.38" ry="0.00" stroke="black" fill="none" />
-    <ellipse cx="-1.58" cy="-4.96" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <ellipse cx="1.44" cy="-5.88" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <ellipse cx="5.21" cy="-4.03" rx="0.00" ry="0.47" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M -7.39 0.24 A 4.80 3.71 0 0 0 -2.59 -3.47" stroke="black" fill="none" />
+    <path d="M 7.12 -3.47 A 4.80 3.71 0 0 0 11.92 0.24" stroke="black" fill="none" />
+    <path d="M -12.19 -3.47 A 4.80 3.71 0 0 0 -7.39 0.24" stroke="black" fill="none" />
+    <path d="M -12.24 -3.47 A 4.80 3.71 0 0 0 -21.84 -3.47" stroke="black" fill="none" />
+    <line x1="-31.55" y1="0.24" x2="-27.74" y2="0.24" stroke="black" fill="none" />
+    <line x1="12.80" y1="0.24" x2="16.00" y2="0.24" stroke="black" fill="none" />
+    <path d="M 7.07 -3.47 A 4.80 3.71 0 0 0 -2.53 -3.47" stroke="black" fill="none" />
+    <path d="M -26.70 0.24 A 4.80 3.71 0 0 0 -21.90 -3.47" stroke="black" fill="none" />
+    <ellipse cx="-24.86" cy="-2.74" rx="0.61" ry="0.00" stroke="black" fill="none" />
+    <ellipse cx="-23.06" cy="-6.45" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <ellipse cx="-18.22" cy="-9.41" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <ellipse cx="-3.74" cy="-4.96" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <ellipse cx="-0.11" cy="-9.41" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <ellipse cx="5.33" cy="-8.67" rx="0.61" ry="0.00" stroke="black" fill="none" />
+    <ellipse cx="10.21" cy="-4.22" rx="0.61" ry="0.00" stroke="black" fill="none" />
+    <ellipse cx="-21.25" cy="-8.67" rx="0.61" ry="0.00" stroke="black" fill="none" />
+    <ellipse cx="-15.22" cy="-8.67" rx="0.61" ry="0.00" stroke="black" fill="none" />
+    <ellipse cx="-12.19" cy="-7.94" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <ellipse cx="-6.16" cy="-1.98" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <ellipse cx="-9.18" cy="-2.74" rx="0.61" ry="0.00" stroke="black" fill="none" />
+    <ellipse cx="-10.38" cy="-4.22" rx="0.61" ry="0.00" stroke="black" fill="none" />
+    <ellipse cx="-2.53" cy="-7.94" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <ellipse cx="2.30" cy="-9.41" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <ellipse cx="8.34" cy="-6.45" rx="0.00" ry="0.75" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="16.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-32.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
   </g>
 </svg>

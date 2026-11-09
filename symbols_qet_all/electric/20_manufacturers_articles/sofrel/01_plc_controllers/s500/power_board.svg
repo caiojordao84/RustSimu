@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="760.0" height="160.0" viewBox="-5.0 -2.0 760.0 160.0" data-name="Power board">
+<svg xmlns="http://www.w3.org/2000/svg" width="729.6" height="153.6" viewBox="-4.8 -1.9 729.6 153.6" data-name="Power board" data-standard="48px">
   <title>Power board</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="0.00" y="0.00" width="750.00" height="150.00" stroke="black" fill="none" />
-    <text x="644.00" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <text x="595.00" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">V+</text>
-    <text x="397.00" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B-</text>
-    <text x="345.00" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">B+</text>
-    <text x="637.00" y="14.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">EMPLACEMENT</text>
-    <text x="738.00" y="12.67" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0</text>
-    <line x1="662.00" y1="150.00" x2="662.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="592.00" y1="150.00" x2="592.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="642.00" y1="150.00" x2="642.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="612.00" y1="150.00" x2="612.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="92.00" y1="150.00" x2="92.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="112.00" y1="150.00" x2="112.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="162.00" y1="150.00" x2="162.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="142.00" y1="150.00" x2="142.00" y2="131.00" stroke="black" fill="none" />
-    <text x="147.50" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <text x="99.00" y="144.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L</text>
-    <line x1="412.00" y1="150.00" x2="412.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="392.00" y1="150.00" x2="392.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="362.00" y1="148.67" x2="362.00" y2="130.67" stroke="black" fill="none" />
-    <line x1="342.00" y1="150.00" x2="342.00" y2="131.00" stroke="black" fill="none" />
-    <text x="203.00" y="85.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">CARTE ALIMENTATION</text>
-    <line x1="632.00" y1="20.00" x2="632.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="732.00" y1="0.00" x2="732.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="131.00" x2="750.00" y2="131.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="20.00" x2="750.00" y2="20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="100.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="350.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="400.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="600.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="650.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="150.00" cy="150.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0.00" y="0.00" width="720.00" height="144.00" stroke="black" fill="none" />
+    <text x="618.24" y="138.24" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="571.20" y="138.24" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">V+</text>
+    <text x="381.12" y="138.24" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">B-</text>
+    <text x="331.20" y="138.24" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">B+</text>
+    <text x="611.52" y="13.44" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">EMPLACEMENT</text>
+    <text x="708.48" y="12.16" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">0</text>
+    <line x1="635.52" y1="144.00" x2="635.52" y2="125.76" stroke="black" fill="none" />
+    <line x1="568.32" y1="144.00" x2="568.32" y2="125.76" stroke="black" fill="none" />
+    <line x1="616.32" y1="144.00" x2="616.32" y2="125.76" stroke="black" fill="none" />
+    <line x1="587.52" y1="144.00" x2="587.52" y2="125.76" stroke="black" fill="none" />
+    <line x1="88.32" y1="144.00" x2="88.32" y2="125.76" stroke="black" fill="none" />
+    <line x1="107.52" y1="144.00" x2="107.52" y2="125.76" stroke="black" fill="none" />
+    <line x1="155.52" y1="144.00" x2="155.52" y2="125.76" stroke="black" fill="none" />
+    <line x1="136.32" y1="144.00" x2="136.32" y2="125.76" stroke="black" fill="none" />
+    <text x="141.60" y="138.24" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">N</text>
+    <text x="95.04" y="138.24" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">L</text>
+    <line x1="395.52" y1="144.00" x2="395.52" y2="125.76" stroke="black" fill="none" />
+    <line x1="376.32" y1="144.00" x2="376.32" y2="125.76" stroke="black" fill="none" />
+    <line x1="347.52" y1="142.72" x2="347.52" y2="125.44" stroke="black" fill="none" />
+    <line x1="328.32" y1="144.00" x2="328.32" y2="125.76" stroke="black" fill="none" />
+    <text x="194.88" y="81.60" font-size="8.6" font-family="sans-serif" fill="black" stroke="none">CARTE ALIMENTATION</text>
+    <line x1="606.72" y1="19.20" x2="606.72" y2="0.00" stroke="black" fill="none" />
+    <line x1="702.72" y1="0.00" x2="702.72" y2="19.20" stroke="black" fill="none" />
+    <line x1="0.00" y1="125.76" x2="720.00" y2="125.76" stroke="black" fill="none" />
+    <line x1="0.00" y1="19.20" x2="720.00" y2="19.20" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="96.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="336.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="384.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="576.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="624.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="144.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

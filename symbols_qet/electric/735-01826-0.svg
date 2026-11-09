@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="50.0" viewBox="-25.0 -45.0 50.0 50.0" data-name="Synchronous device, general symbol">
+<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-60.0 -108.0 120.0 120.0" data-name="Synchronous device, general symbol" data-standard="48px">
   <title>Synchronous device, general symbol</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-2,-22 2,-22 0,-25" stroke="black" fill="black" />
-    <ellipse cx="0.00" cy="-20.00" rx="20.00" ry="20.00" stroke="black" fill="none" />
-    <polygon points="-2,-22 -2,-19 -6,-20" stroke="black" fill="black" />
-    <polygon points="2,-22 2,-19 6,-20" stroke="black" fill="black" />
-    <polygon points="-2,-19 0,-17 -3,-15" stroke="black" fill="black" />
-    <ellipse cx="0.00" cy="-20.00" rx="18.00" ry="18.00" stroke="black" fill="none" />
-    <polygon points="0,-17 2,-19 4,-15" stroke="black" fill="black" />
-    <rect x="-2.00" y="-22.00" width="4.00" height="4.00" stroke="black" fill="black" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-4.80,-52.80 4.80,-52.80 0.00,-60.00" stroke="black" fill="black" />
+    <ellipse cx="0.00" cy="-48.00" rx="48.00" ry="48.00" stroke="black" fill="none" />
+    <polygon points="-4.80,-52.80 -4.80,-45.60 -14.40,-48.00" stroke="black" fill="black" />
+    <polygon points="4.80,-52.80 4.80,-45.60 14.40,-48.00" stroke="black" fill="black" />
+    <polygon points="-4.80,-45.60 0.00,-40.80 -7.20,-36.00" stroke="black" fill="black" />
+    <ellipse cx="0.00" cy="-48.00" rx="43.20" ry="43.20" stroke="black" fill="none" />
+    <polygon points="0.00,-40.80 4.80,-45.60 9.60,-36.00" stroke="black" fill="black" />
+    <rect x="-4.80" y="-52.80" width="9.60" height="9.60" stroke="black" fill="black" />
   </g>
 </svg>

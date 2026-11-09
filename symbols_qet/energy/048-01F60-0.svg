@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="80.0" height="80.0" viewBox="-13.0 -38.0 80.0 80.0" data-name="Vacuum pump">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="192.0" viewBox="-31.2 -91.2 192.0 192.0" data-name="Vacuum pump" data-standard="48px">
   <title>Vacuum pump</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="14.00" y1="4.00" x2="20.00" y2="-1.00" stroke="black" fill="none" />
-    <ellipse cx="10.50" cy="14.50" rx="0.50" ry="2.50" stroke="black" fill="none" />
-    <polygon points="15,-4 12,-4 10,-2 10,0 10,1 12,2 14,1 16,-1 16,-3" stroke="#d40000" fill="none" />
-    <polyline points="10,12 8.48,15 8.48,18 10,17" stroke="black" fill="none" />
-    <ellipse cx="10.62" cy="6.66" rx="0.47" ry="1.66" stroke="#d40000" fill="#d40000" />
-    <polyline points="23.45,-9.9 25.35,-18.18 46.25,-26.47 46.25,-17.36 45.3,-17.36" stroke="black" fill="none" />
-    <ellipse cx="1.12" cy="-2.44" rx="0.47" ry="1.66" stroke="#0055d4" fill="#0055d4" />
-    <polygon points="-6.1,16.95 12.9,33.52 12.9,8.67 22.4,0.38 3.4,-16.18 -6.1,-7.9" stroke="black" fill="none" />
-    <ellipse cx="9.67" cy="6.66" rx="0.47" ry="1.66" stroke="#d40000" fill="#d40000" />
-    <polygon points="-8,16.95 12.9,36 60.4,16.95 60.4,-16.18 41.4,-32.75 3.4,-17.84 -8,-7.9" stroke="black" fill="none" />
-    <line x1="23.25" y1="0.38" x2="60.50" y2="-16.53" stroke="black" fill="none" />
-    <polyline points="23.45,-9.9 20.6,-12.39 22.5,-20.67 42.45,-28.95 46.25,-26.47" stroke="black" fill="none" />
-    <polyline points="27.25,-11.56 28.2,-16.53 43.4,-23.15 43.4,-16.53 46.25,-18.18" stroke="black" fill="none" />
-    <polyline points="43.4,-17.36 40.55,-19 40.55,-21.5" stroke="black" fill="none" />
-    <line x1="23.45" y1="-9.90" x2="27.25" y2="-11.56" stroke="black" fill="none" />
-    <ellipse cx="0.17" cy="-2.44" rx="0.47" ry="1.66" stroke="#0055d4" fill="#0055d4" />
-    <line x1="1.00" y1="-6.00" x2="7.00" y2="-11.00" stroke="black" fill="none" />
-    <polygon points="9,-8 6,-8 4,-6 4,-4 4,-3 6,-2 8,-3 10,-5 10,-7" stroke="#0055d4" fill="none" />
-    <line x1="7.00" y1="-5.00" x2="7.00" y2="-8.00" stroke="black" fill="none" />
-    <line x1="13.00" y1="-1.00" x2="14.00" y2="-3.00" stroke="black" fill="none" />
-    <ellipse cx="-1.00" cy="13.50" rx="1.00" ry="1.50" stroke="black" fill="none" />
-    <ellipse cx="10.00" cy="23.00" rx="1.00" ry="2.00" stroke="black" fill="none" />
-    <ellipse cx="-0.50" cy="6.50" rx="0.50" ry="2.50" stroke="black" fill="none" />
-    <polyline points="-1,4 -2.52,7 -2.52,10 -1,9" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-1.00" cy="-3.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="15.00" cy="8.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="33.60" y1="9.60" x2="48.00" y2="-2.40" stroke="black" fill="none" />
+    <ellipse cx="25.20" cy="34.80" rx="1.20" ry="6.00" stroke="black" fill="none" />
+    <polygon points="36.00,-9.60 28.80,-9.60 24.00,-4.80 24.00,0.00 24.00,2.40 28.80,4.80 33.60,2.40 38.40,-2.40 38.40,-7.20" stroke="#d40000" fill="none" />
+    <polyline points="24.00,28.80 20.35,36.00 20.35,43.20 24.00,40.80" stroke="black" fill="none" />
+    <ellipse cx="25.49" cy="15.98" rx="1.13" ry="3.98" stroke="#d40000" fill="#d40000" />
+    <polyline points="56.28,-23.76 60.84,-43.63 111.00,-63.53 111.00,-41.66 108.72,-41.66" stroke="black" fill="none" />
+    <ellipse cx="2.69" cy="-5.86" rx="1.13" ry="3.98" stroke="#0055d4" fill="#0055d4" />
+    <polygon points="-14.64,40.68 30.96,80.45 30.96,20.81 53.76,0.91 8.16,-38.83 -14.64,-18.96" stroke="black" fill="none" />
+    <ellipse cx="23.21" cy="15.98" rx="1.13" ry="3.98" stroke="#d40000" fill="#d40000" />
+    <polygon points="-19.20,40.68 30.96,86.40 144.96,40.68 144.96,-38.83 99.36,-78.60 8.16,-42.82 -19.20,-18.96" stroke="black" fill="none" />
+    <line x1="55.80" y1="0.91" x2="145.20" y2="-39.67" stroke="black" fill="none" />
+    <polyline points="56.28,-23.76 49.44,-29.74 54.00,-49.61 101.88,-69.48 111.00,-63.53" stroke="black" fill="none" />
+    <polyline points="65.40,-27.74 67.68,-39.67 104.16,-55.56 104.16,-39.67 111.00,-43.63" stroke="black" fill="none" />
+    <polyline points="104.16,-41.66 97.32,-45.60 97.32,-51.60" stroke="black" fill="none" />
+    <line x1="56.28" y1="-23.76" x2="65.40" y2="-27.74" stroke="black" fill="none" />
+    <ellipse cx="0.41" cy="-5.86" rx="1.13" ry="3.98" stroke="#0055d4" fill="#0055d4" />
+    <line x1="2.40" y1="-14.40" x2="16.80" y2="-26.40" stroke="black" fill="none" />
+    <polygon points="21.60,-19.20 14.40,-19.20 9.60,-14.40 9.60,-9.60 9.60,-7.20 14.40,-4.80 19.20,-7.20 24.00,-12.00 24.00,-16.80" stroke="#0055d4" fill="none" />
+    <line x1="16.80" y1="-12.00" x2="16.80" y2="-19.20" stroke="black" fill="none" />
+    <line x1="31.20" y1="-2.40" x2="33.60" y2="-7.20" stroke="black" fill="none" />
+    <ellipse cx="-2.40" cy="32.40" rx="2.40" ry="3.60" stroke="black" fill="none" />
+    <ellipse cx="24.00" cy="55.20" rx="2.40" ry="4.80" stroke="black" fill="none" />
+    <ellipse cx="-1.20" cy="15.60" rx="1.20" ry="6.00" stroke="black" fill="none" />
+    <polyline points="-2.40,9.60 -6.05,16.80 -6.05,24.00 -2.40,21.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-2.40" cy="-7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="36.00" cy="19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

@@ -2,13 +2,32 @@ use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
 
+/// Módulo principal da grade: 4.0 mm = 48 px a 300 DPI = 6.0 unidades CADe (espaço padrão entre bornes).
+pub const GRID_MODULE_MM: f32 = 4.0;
+pub const GRID_MODULE_PX_300DPI: f32 = 48.0;
+pub const GRID_MODULE_UNITS: f32 = 6.0;
+
+/// Meio módulo (sub-grade): 2.0 mm = 24 px a 300 DPI = 3.0 unidades CADe (centralização de corpos e eixos).
+pub const SUB_GRID_MM: f32 = 2.0;
+pub const SUB_GRID_PX_300DPI: f32 = 24.0;
+pub const SUB_GRID_UNITS: f32 = 3.0;
+
+/// Dimensões padronizadas dos bornes de conexão:
+/// 8 px de diâmetro (4 px de raio) a 300 DPI = 0.67 mm diâmetro (0.33 mm raio) = 0.5 unidades CADe de raio (1.0 unidade de diâmetro).
+pub const TERMINAL_DIAMETER_PX_300DPI: f32 = 8.0;
+pub const TERMINAL_RADIUS_PX_300DPI: f32 = 4.0;
+pub const TERMINAL_DIAMETER_MM: f32 = 0.67;
+pub const TERMINAL_RADIUS_MM: f32 = 0.333;
+pub const TERMINAL_RADIUS_UNITS: f32 = 0.5;
+pub const TERMINAL_DIAMETER_UNITS: f32 = 1.0;
+
 /// Densidade da grade do diagrama (pontos por centímetro / passo da grade).
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default, Serialize, Deserialize)]
 pub enum GridDensity {
-    Fine, // 10 pts/cm -> passo 3
+    Fine, // 10 pts/cm -> passo 3 (Meio Módulo 2 mm)
     #[default]
-    Medium, // 5 pts/cm  -> passo 6
-    Coarse, // 2.5 pts/cm -> passo 12
+    Medium, // 5 pts/cm  -> passo 6 (Módulo Principal 4 mm)
+    Coarse, // 2.5 pts/cm -> passo 12 (Passo Duplo 8 mm)
 }
 
 impl GridDensity {
@@ -16,17 +35,17 @@ impl GridDensity {
 
     pub fn label(self) -> &'static str {
         match self {
-            GridDensity::Fine => "Fina (10 pts/cm)",
-            GridDensity::Medium => "Média (5 pts/cm)",
-            GridDensity::Coarse => "Larga (2.5 pts/cm)",
+            GridDensity::Fine => "Fina (10 pts/cm - 2 mm)",
+            GridDensity::Medium => "Média (5 pts/cm - 4 mm)",
+            GridDensity::Coarse => "Larga (2.5 pts/cm - 8 mm)",
         }
     }
 
     pub fn step(self) -> i32 {
         match self {
-            GridDensity::Fine => 3,
-            GridDensity::Medium => 6,
-            GridDensity::Coarse => 12,
+            GridDensity::Fine => SUB_GRID_UNITS as i32,
+            GridDensity::Medium => GRID_MODULE_UNITS as i32,
+            GridDensity::Coarse => (GRID_MODULE_UNITS * 2.0) as i32,
         }
     }
 }

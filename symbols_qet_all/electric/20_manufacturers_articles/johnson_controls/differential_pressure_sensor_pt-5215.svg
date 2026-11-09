@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="120.0" height="120.0" viewBox="-82.0 -45.0 120.0 120.0" data-name="Differential pressure sensor PT-5215">
+<svg xmlns="http://www.w3.org/2000/svg" width="192.0" height="192.0" viewBox="-131.2 -72.0 192.0 192.0" data-name="Differential pressure sensor PT-5215" data-standard="48px">
   <title>Differential pressure sensor PT-5215</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-10.00" y="30.00" width="30.00" height="30.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="0.00" width="30.00" height="30.00" stroke="black" fill="none" />
-    <rect x="-10.00" y="-30.00" width="30.00" height="30.00" stroke="black" fill="none" />
-    <rect x="-65.00" y="-20.00" width="40.00" height="40.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="45.00" x2="30.00" y2="45.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="15.00" x2="30.00" y2="15.00" stroke="black" fill="none" />
-    <line x1="20.00" y1="-15.00" x2="30.00" y2="-15.00" stroke="black" fill="none" />
-    <line x1="5.00" y1="-25.00" x2="5.00" y2="-5.00" stroke="#d40000" fill="none" />
-    <line x1="-5.00" y1="-15.00" x2="15.00" y2="-15.00" stroke="#d40000" fill="none" />
-    <line x1="-5.00" y1="25.00" x2="15.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="5.00" x2="5.00" y2="5.00" stroke="black" fill="none" />
-    <line x1="15.00" y1="5.00" x2="15.00" y2="15.00" stroke="black" fill="none" />
-    <ellipse cx="5.00" cy="45.00" rx="10.00" ry="10.00" stroke="#d40000" fill="none" />
-    <polyline points="-65,0 -70,0 -70,45 -10,45" stroke="black" fill="none" />
-    <polyline points="-45,20 -45,25 -10,25" stroke="black" fill="none" />
-    <polyline points="-10,-5 -25,-5" stroke="black" fill="none" />
-    <line x1="-64.65" y1="-19.75" x2="-25.21" y2="19.69" stroke="black" fill="none" />
-    <text x="-46.38" y="-7.49" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">Δ P</text>
-    <text x="-58.74" y="13.52" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">E</text>
-    <polygon points="-65,-40 30,-40 30,70 -80,70 -80,-40" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <circle class="qet-terminal" cx="30.00" cy="15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="30.00" cy="-15.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="30.00" cy="45.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-16.00" y="48.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <rect x="-16.00" y="0.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <rect x="-16.00" y="-48.00" width="48.00" height="48.00" stroke="black" fill="none" />
+    <rect x="-104.00" y="-32.00" width="64.00" height="64.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="72.00" x2="48.00" y2="72.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="24.00" x2="48.00" y2="24.00" stroke="black" fill="none" />
+    <line x1="32.00" y1="-24.00" x2="48.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="8.00" y1="-40.00" x2="8.00" y2="-8.00" stroke="#d40000" fill="none" />
+    <line x1="-8.00" y1="-24.00" x2="24.00" y2="-24.00" stroke="#d40000" fill="none" />
+    <line x1="-8.00" y1="40.00" x2="24.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="8.00" x2="8.00" y2="8.00" stroke="black" fill="none" />
+    <line x1="24.00" y1="8.00" x2="24.00" y2="24.00" stroke="black" fill="none" />
+    <ellipse cx="8.00" cy="72.00" rx="16.00" ry="16.00" stroke="#d40000" fill="none" />
+    <polyline points="-104.00,0.00 -112.00,0.00 -112.00,72.00 -16.00,72.00" stroke="black" fill="none" />
+    <polyline points="-72.00,32.00 -72.00,40.00 -16.00,40.00" stroke="black" fill="none" />
+    <polyline points="-16.00,-8.00 -40.00,-8.00" stroke="black" fill="none" />
+    <line x1="-103.44" y1="-31.60" x2="-40.34" y2="31.50" stroke="black" fill="none" />
+    <text x="-74.21" y="-11.98" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">Δ P</text>
+    <text x="-93.98" y="21.63" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">E</text>
+    <polygon points="-104.00,-64.00 48.00,-64.00 48.00,112.00 -128.00,112.00 -128.00,-64.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
+    <circle class="qet-terminal" cx="48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="48.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="48.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

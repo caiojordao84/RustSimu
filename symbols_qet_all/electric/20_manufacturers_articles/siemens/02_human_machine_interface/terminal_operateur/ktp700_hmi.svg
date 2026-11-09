@@ -1,86 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="490.0" height="340.0" viewBox="-245.0 -140.0 490.0 340.0" data-name="KTP700 HMI">
+<svg xmlns="http://www.w3.org/2000/svg" width="1176.0" height="816.0" viewBox="-588.0 -336.0 1176.0 816.0" data-name="KTP700 HMI" data-standard="48px">
   <title>KTP700 HMI</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="79.00" y1="45.00" x2="109.00" y2="25.00" stroke="black" fill="none" />
-    <rect x="-74.25" y="159.75" width="27.72" height="23.52" stroke="black" fill="none" />
-    <line x1="56.14" y1="105.40" x2="56.14" y2="81.25" stroke="black" fill="none" />
-    <text x="-40.00" y="180.00" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">-X1_P1</text>
-    <line x1="79.00" y1="55.00" x2="109.00" y2="35.00" stroke="black" fill="none" />
-    <line x1="65.14" y1="90.25" x2="65.14" y2="81.25" stroke="black" fill="none" />
-    <text x="-73.25" y="157.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">PROFINET</text>
-    <line x1="75.64" y1="105.40" x2="75.64" y2="85.75" stroke="black" fill="none" />
-    <line x1="84.64" y1="105.40" x2="84.64" y2="81.25" stroke="black" fill="none" />
-    <line x1="93.64" y1="90.25" x2="93.64" y2="81.25" stroke="black" fill="none" />
-    <polygon points="-70.78,179.91 -70.78,166.47 -67.32,166.47 -67.32,163.11 -63.86,163.11 -63.86,161.43 -56.93,161.43 -56.93,163.11 -53.46,163.11 -53.46,166.47 -50,166.47 -50,179.91" stroke="black" fill="none" />
-    <line x1="104.14" y1="105.40" x2="104.14" y2="85.75" stroke="black" fill="none" />
-    <text x="121.75" y="171.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
-    <text x="-227.25" y="147.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">SIEMENS Simatic HMI</text>
-    <text x="-227.25" y="159.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">6AV2123-2GB03-0AX0</text>
-    <text x="95.75" y="180.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
-    <line x1="56.14" y1="90.25" x2="65.14" y2="90.25" stroke="black" fill="none" />
-    <line x1="84.64" y1="90.25" x2="93.64" y2="90.25" stroke="black" fill="none" />
-    <ellipse cx="99.75" cy="185.75" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <text x="116.75" y="180.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">M</text>
-    <ellipse cx="119.75" cy="185.75" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <ellipse cx="209.75" cy="185.75" rx="2.50" ry="2.50" stroke="black" fill="none" />
-    <text x="101.75" y="171.75" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
-    <line x1="104.14" y1="85.75" x2="93.64" y2="85.75" stroke="black" fill="none" />
-    <line x1="75.64" y1="85.75" x2="65.14" y2="85.75" stroke="black" fill="none" />
-    <line x1="207.75" y1="174.75" x2="211.75" y2="174.75" stroke="black" fill="none" />
-    <line x1="208.75" y1="172.75" x2="210.75" y2="172.75" stroke="black" fill="none" />
-    <line x1="205.75" y1="176.75" x2="213.75" y2="176.75" stroke="black" fill="none" />
-    <line x1="93.64" y1="81.25" x2="84.64" y2="81.25" stroke="black" fill="none" />
-    <line x1="65.14" y1="81.25" x2="56.14" y2="81.25" stroke="black" fill="none" />
-    <line x1="209.75" y1="176.75" x2="209.75" y2="183.75" stroke="black" fill="none" />
-    <line x1="116.75" y1="185.75" x2="102.75" y2="185.75" stroke="black" fill="none" />
-    <line x1="-115.86" y1="105.40" x2="-115.86" y2="81.25" stroke="black" fill="none" />
-    <line x1="-106.86" y1="90.25" x2="-106.86" y2="81.25" stroke="black" fill="none" />
-    <line x1="-96.36" y1="105.40" x2="-96.36" y2="85.75" stroke="black" fill="none" />
-    <line x1="-87.36" y1="105.40" x2="-87.36" y2="81.25" stroke="black" fill="none" />
-    <line x1="-78.36" y1="90.25" x2="-78.36" y2="81.25" stroke="black" fill="none" />
-    <line x1="-67.86" y1="105.40" x2="-67.86" y2="85.75" stroke="black" fill="none" />
-    <line x1="-58.86" y1="105.40" x2="-58.86" y2="81.25" stroke="black" fill="none" />
-    <line x1="-49.86" y1="90.25" x2="-49.86" y2="81.25" stroke="black" fill="none" />
-    <line x1="-39.36" y1="105.40" x2="-39.36" y2="85.75" stroke="black" fill="none" />
-    <line x1="-30.36" y1="105.40" x2="-30.36" y2="81.25" stroke="black" fill="none" />
-    <line x1="-21.36" y1="90.25" x2="-21.36" y2="81.25" stroke="black" fill="none" />
-    <line x1="-10.86" y1="105.40" x2="-10.86" y2="85.75" stroke="black" fill="none" />
-    <line x1="-1.86" y1="105.40" x2="-1.86" y2="81.25" stroke="black" fill="none" />
-    <line x1="7.14" y1="90.25" x2="7.14" y2="81.25" stroke="black" fill="none" />
-    <line x1="17.64" y1="105.40" x2="17.64" y2="85.75" stroke="black" fill="none" />
-    <line x1="26.64" y1="105.40" x2="26.64" y2="81.25" stroke="black" fill="none" />
-    <line x1="35.64" y1="90.25" x2="35.64" y2="81.25" stroke="black" fill="none" />
-    <line x1="46.14" y1="105.40" x2="46.14" y2="85.75" stroke="black" fill="none" />
-    <line x1="-115.86" y1="90.25" x2="-106.86" y2="90.25" stroke="black" fill="none" />
-    <line x1="-87.36" y1="90.25" x2="-78.36" y2="90.25" stroke="black" fill="none" />
-    <line x1="-58.86" y1="90.25" x2="-49.86" y2="90.25" stroke="black" fill="none" />
-    <line x1="-30.36" y1="90.25" x2="-21.36" y2="90.25" stroke="black" fill="none" />
-    <line x1="-1.86" y1="90.25" x2="7.14" y2="90.25" stroke="black" fill="none" />
-    <line x1="26.64" y1="90.25" x2="35.64" y2="90.25" stroke="black" fill="none" />
-    <line x1="46.14" y1="85.75" x2="35.64" y2="85.75" stroke="black" fill="none" />
-    <line x1="17.64" y1="85.75" x2="7.14" y2="85.75" stroke="black" fill="none" />
-    <line x1="-10.86" y1="85.75" x2="-21.36" y2="85.75" stroke="black" fill="none" />
-    <line x1="-39.36" y1="85.75" x2="-49.86" y2="85.75" stroke="black" fill="none" />
-    <line x1="-67.86" y1="85.75" x2="-78.36" y2="85.75" stroke="black" fill="none" />
-    <line x1="-96.36" y1="85.75" x2="-106.86" y2="85.75" stroke="black" fill="none" />
-    <line x1="35.64" y1="81.25" x2="26.64" y2="81.25" stroke="black" fill="none" />
-    <line x1="7.14" y1="81.25" x2="-1.86" y2="81.25" stroke="black" fill="none" />
-    <line x1="-21.36" y1="81.25" x2="-30.36" y2="81.25" stroke="black" fill="none" />
-    <line x1="-49.86" y1="81.25" x2="-58.86" y2="81.25" stroke="black" fill="none" />
-    <line x1="-78.36" y1="81.25" x2="-87.36" y2="81.25" stroke="black" fill="none" />
-    <line x1="-106.86" y1="81.25" x2="-115.86" y2="81.25" stroke="black" fill="none" />
-    <polyline points="96.75,185.75 -240.25,185.75 -240.25,-134.25 239.75,-134.25 239.75,185.75 212.75,185.75" stroke="black" fill="none" />
-    <line x1="-240.25" y1="125.75" x2="239.75" y2="125.75" stroke="#888888" fill="none" />
-    <line x1="122.75" y1="185.75" x2="206.75" y2="185.75" stroke="black" fill="none" />
-    <rect x="-168.00" y="-105.00" width="340.00" height="210.00" stroke="black" fill="none" />
-    <rect x="-118.00" y="-75.00" width="240.00" height="140.00" stroke="black" fill="none" />
-    <line x1="-103.00" y1="-43.00" x2="-73.00" y2="-63.00" stroke="black" fill="none" />
-    <line x1="-103.00" y1="-33.00" x2="-73.00" y2="-53.00" stroke="black" fill="none" />
-    <rect x="-175.00" y="-110.00" width="350.00" height="220.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="210.00" cy="189.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="100.00" cy="189.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="120.00" cy="189.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-60.00" cy="186.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="189.60" y1="108.00" x2="261.60" y2="60.00" stroke="black" fill="none" />
+    <rect x="-178.20" y="383.40" width="66.53" height="56.45" stroke="black" fill="none" />
+    <line x1="134.74" y1="252.96" x2="134.74" y2="195.00" stroke="black" fill="none" />
+    <text x="-96.00" y="432.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-X1_P1</text>
+    <line x1="189.60" y1="132.00" x2="261.60" y2="84.00" stroke="black" fill="none" />
+    <line x1="156.34" y1="216.60" x2="156.34" y2="195.00" stroke="black" fill="none" />
+    <text x="-175.80" y="378.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PROFINET</text>
+    <line x1="181.54" y1="252.96" x2="181.54" y2="205.80" stroke="black" fill="none" />
+    <line x1="203.14" y1="252.96" x2="203.14" y2="195.00" stroke="black" fill="none" />
+    <line x1="224.74" y1="216.60" x2="224.74" y2="195.00" stroke="black" fill="none" />
+    <polygon points="-169.87,431.78 -169.87,399.53 -161.57,399.53 -161.57,391.46 -153.26,391.46 -153.26,387.43 -136.63,387.43 -136.63,391.46 -128.30,391.46 -128.30,399.53 -120.00,399.53 -120.00,431.78" stroke="black" fill="none" />
+    <line x1="249.94" y1="252.96" x2="249.94" y2="205.80" stroke="black" fill="none" />
+    <text x="292.20" y="412.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0V</text>
+    <text x="-545.40" y="354.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SIEMENS Simatic HMI</text>
+    <text x="-545.40" y="383.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">6AV2123-2GB03-0AX0</text>
+    <text x="229.80" y="433.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L+</text>
+    <line x1="134.74" y1="216.60" x2="156.34" y2="216.60" stroke="black" fill="none" />
+    <line x1="203.14" y1="216.60" x2="224.74" y2="216.60" stroke="black" fill="none" />
+    <ellipse cx="239.40" cy="445.80" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <text x="280.20" y="433.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
+    <ellipse cx="287.40" cy="445.80" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <ellipse cx="503.40" cy="445.80" rx="6.00" ry="6.00" stroke="black" fill="none" />
+    <text x="244.20" y="412.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+24V</text>
+    <line x1="249.94" y1="205.80" x2="224.74" y2="205.80" stroke="black" fill="none" />
+    <line x1="181.54" y1="205.80" x2="156.34" y2="205.80" stroke="black" fill="none" />
+    <line x1="498.60" y1="419.40" x2="508.20" y2="419.40" stroke="black" fill="none" />
+    <line x1="501.00" y1="414.60" x2="505.80" y2="414.60" stroke="black" fill="none" />
+    <line x1="493.80" y1="424.20" x2="513.00" y2="424.20" stroke="black" fill="none" />
+    <line x1="224.74" y1="195.00" x2="203.14" y2="195.00" stroke="black" fill="none" />
+    <line x1="156.34" y1="195.00" x2="134.74" y2="195.00" stroke="black" fill="none" />
+    <line x1="503.40" y1="424.20" x2="503.40" y2="441.00" stroke="black" fill="none" />
+    <line x1="280.20" y1="445.80" x2="246.60" y2="445.80" stroke="black" fill="none" />
+    <line x1="-278.06" y1="252.96" x2="-278.06" y2="195.00" stroke="black" fill="none" />
+    <line x1="-256.46" y1="216.60" x2="-256.46" y2="195.00" stroke="black" fill="none" />
+    <line x1="-231.26" y1="252.96" x2="-231.26" y2="205.80" stroke="black" fill="none" />
+    <line x1="-209.66" y1="252.96" x2="-209.66" y2="195.00" stroke="black" fill="none" />
+    <line x1="-188.06" y1="216.60" x2="-188.06" y2="195.00" stroke="black" fill="none" />
+    <line x1="-162.86" y1="252.96" x2="-162.86" y2="205.80" stroke="black" fill="none" />
+    <line x1="-141.26" y1="252.96" x2="-141.26" y2="195.00" stroke="black" fill="none" />
+    <line x1="-119.66" y1="216.60" x2="-119.66" y2="195.00" stroke="black" fill="none" />
+    <line x1="-94.46" y1="252.96" x2="-94.46" y2="205.80" stroke="black" fill="none" />
+    <line x1="-72.86" y1="252.96" x2="-72.86" y2="195.00" stroke="black" fill="none" />
+    <line x1="-51.26" y1="216.60" x2="-51.26" y2="195.00" stroke="black" fill="none" />
+    <line x1="-26.06" y1="252.96" x2="-26.06" y2="205.80" stroke="black" fill="none" />
+    <line x1="-4.46" y1="252.96" x2="-4.46" y2="195.00" stroke="black" fill="none" />
+    <line x1="17.14" y1="216.60" x2="17.14" y2="195.00" stroke="black" fill="none" />
+    <line x1="42.34" y1="252.96" x2="42.34" y2="205.80" stroke="black" fill="none" />
+    <line x1="63.94" y1="252.96" x2="63.94" y2="195.00" stroke="black" fill="none" />
+    <line x1="85.54" y1="216.60" x2="85.54" y2="195.00" stroke="black" fill="none" />
+    <line x1="110.74" y1="252.96" x2="110.74" y2="205.80" stroke="black" fill="none" />
+    <line x1="-278.06" y1="216.60" x2="-256.46" y2="216.60" stroke="black" fill="none" />
+    <line x1="-209.66" y1="216.60" x2="-188.06" y2="216.60" stroke="black" fill="none" />
+    <line x1="-141.26" y1="216.60" x2="-119.66" y2="216.60" stroke="black" fill="none" />
+    <line x1="-72.86" y1="216.60" x2="-51.26" y2="216.60" stroke="black" fill="none" />
+    <line x1="-4.46" y1="216.60" x2="17.14" y2="216.60" stroke="black" fill="none" />
+    <line x1="63.94" y1="216.60" x2="85.54" y2="216.60" stroke="black" fill="none" />
+    <line x1="110.74" y1="205.80" x2="85.54" y2="205.80" stroke="black" fill="none" />
+    <line x1="42.34" y1="205.80" x2="17.14" y2="205.80" stroke="black" fill="none" />
+    <line x1="-26.06" y1="205.80" x2="-51.26" y2="205.80" stroke="black" fill="none" />
+    <line x1="-94.46" y1="205.80" x2="-119.66" y2="205.80" stroke="black" fill="none" />
+    <line x1="-162.86" y1="205.80" x2="-188.06" y2="205.80" stroke="black" fill="none" />
+    <line x1="-231.26" y1="205.80" x2="-256.46" y2="205.80" stroke="black" fill="none" />
+    <line x1="85.54" y1="195.00" x2="63.94" y2="195.00" stroke="black" fill="none" />
+    <line x1="17.14" y1="195.00" x2="-4.46" y2="195.00" stroke="black" fill="none" />
+    <line x1="-51.26" y1="195.00" x2="-72.86" y2="195.00" stroke="black" fill="none" />
+    <line x1="-119.66" y1="195.00" x2="-141.26" y2="195.00" stroke="black" fill="none" />
+    <line x1="-188.06" y1="195.00" x2="-209.66" y2="195.00" stroke="black" fill="none" />
+    <line x1="-256.46" y1="195.00" x2="-278.06" y2="195.00" stroke="black" fill="none" />
+    <polyline points="232.20,445.80 -576.60,445.80 -576.60,-322.20 575.40,-322.20 575.40,445.80 510.60,445.80" stroke="black" fill="none" />
+    <line x1="-576.60" y1="301.80" x2="575.40" y2="301.80" stroke="#888888" fill="none" />
+    <line x1="294.60" y1="445.80" x2="496.20" y2="445.80" stroke="black" fill="none" />
+    <rect x="-403.20" y="-252.00" width="816.00" height="504.00" stroke="black" fill="none" />
+    <rect x="-283.20" y="-180.00" width="576.00" height="336.00" stroke="black" fill="none" />
+    <line x1="-247.20" y1="-103.20" x2="-175.20" y2="-151.20" stroke="black" fill="none" />
+    <line x1="-247.20" y1="-79.20" x2="-175.20" y2="-127.20" stroke="black" fill="none" />
+    <rect x="-420.00" y="-264.00" width="840.00" height="528.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="504.00" cy="453.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="240.00" cy="453.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="288.00" cy="453.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-144.00" cy="446.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

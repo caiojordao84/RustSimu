@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="40.0" height="20.0" viewBox="-20.0 -12.0 40.0 20.0" data-name="gas-puntoalto">
+<svg xmlns="http://www.w3.org/2000/svg" width="96.0" height="48.0" viewBox="-48.0 -28.8 96.0 48.0" data-name="gas-puntoalto" data-standard="48px">
   <title>gas-puntoalto</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-10.05" y1="0.00" x2="9.06" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-2.00" x2="0.00" y2="-10.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-6.00" x2="7.00" y2="-6.00" stroke="black" fill="none" />
-    <line x1="0.12" y1="-6.00" x2="-7.11" y2="-6.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="-24.12" y1="0.00" x2="21.74" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-4.80" x2="0.00" y2="-24.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-14.40" x2="16.80" y2="-14.40" stroke="black" fill="none" />
+    <line x1="0.29" y1="-14.40" x2="-17.06" y2="-14.40" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

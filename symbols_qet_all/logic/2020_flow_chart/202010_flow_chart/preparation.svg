@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="90.0" height="80.0" viewBox="-45.0 -40.0 90.0 80.0" data-name="preparation">
+<svg xmlns="http://www.w3.org/2000/svg" width="216.0" height="192.0" viewBox="-108.0 -96.0 216.0 192.0" data-name="preparation" data-standard="48px">
   <title>preparation</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="-30,-20 30,-20 40,0 30,20 -30,20 -40,0" stroke="black" fill="none" />
-    <line x1="0.00" y1="25.00" x2="0.00" y2="20.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="20.00" x2="0.00" y2="30.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-20.00" x2="0.00" y2="-29.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="30.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="-72.00,-48.00 72.00,-48.00 96.00,0.00 72.00,48.00 -72.00,48.00 -96.00,0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="60.00" x2="0.00" y2="48.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="48.00" x2="0.00" y2="72.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-48.00" x2="0.00" y2="-69.60" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

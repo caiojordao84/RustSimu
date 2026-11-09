@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="80.0" viewBox="-16.0 -58.0 50.0 80.0" data-name="valv-compuerta-bridas">
+<svg xmlns="http://www.w3.org/2000/svg" width="64.9" height="103.8" viewBox="-20.8 -75.2 64.9 103.8" data-name="valv-compuerta-bridas" data-standard="48px">
   <title>valv-compuerta-bridas</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-6.50" y="-7.50" width="30.00" height="15.00" stroke="black" fill="none" />
-    <rect x="6.00" y="-41.48" width="5.00" height="4.00" stroke="black" fill="none" />
-    <line x1="-13.00" y1="10.00" x2="-4.00" y2="10.00" stroke="#d40000" fill="none" />
-    <line x1="30.00" y1="10.00" x2="21.00" y2="10.00" stroke="#d40000" fill="none" />
-    <line x1="30.00" y1="-10.00" x2="21.00" y2="-10.00" stroke="#d40000" fill="none" />
-    <rect x="23.50" y="-12.00" width="3.50" height="24.00" stroke="black" fill="none" />
-    <line x1="-13.00" y1="-10.00" x2="-4.00" y2="-10.00" stroke="#d40000" fill="none" />
-    <rect x="-10.00" y="-12.00" width="3.50" height="24.00" stroke="black" fill="none" />
-    <rect x="4.00" y="-41.48" width="9.00" height="4.00" stroke="black" fill="none" />
-    <rect x="-7.50" y="-52.00" width="32.00" height="2.50" stroke="black" fill="none" />
-    <rect x="7.20" y="-49.50" width="2.60" height="8.00" stroke="black" fill="none" />
-    <rect x="-1.00" y="-29.50" width="19.00" height="45.00" stroke="black" fill="white" />
-    <rect x="4.00" y="-37.50" width="9.00" height="9.00" stroke="black" fill="white" />
-    <rect x="-4.00" y="-22.00" width="25.00" height="2.60" stroke="black" fill="white" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="w" />
-    <circle class="qet-terminal" cx="27.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-8.43" y="-9.73" width="38.92" height="19.46" stroke="black" fill="none" />
+    <rect x="7.78" y="-53.81" width="6.49" height="5.19" stroke="black" fill="none" />
+    <line x1="-16.86" y1="12.97" x2="-5.19" y2="12.97" stroke="#d40000" fill="none" />
+    <line x1="38.92" y1="12.97" x2="27.24" y2="12.97" stroke="#d40000" fill="none" />
+    <line x1="38.92" y1="-12.97" x2="27.24" y2="-12.97" stroke="#d40000" fill="none" />
+    <rect x="30.49" y="-15.57" width="4.54" height="31.14" stroke="black" fill="none" />
+    <line x1="-16.86" y1="-12.97" x2="-5.19" y2="-12.97" stroke="#d40000" fill="none" />
+    <rect x="-12.97" y="-15.57" width="4.54" height="31.14" stroke="black" fill="none" />
+    <rect x="5.19" y="-53.81" width="11.68" height="5.19" stroke="black" fill="none" />
+    <rect x="-9.73" y="-67.46" width="41.51" height="3.24" stroke="black" fill="none" />
+    <rect x="9.34" y="-64.22" width="3.37" height="10.38" stroke="black" fill="none" />
+    <rect x="-1.30" y="-38.27" width="24.65" height="58.38" stroke="black" fill="white" />
+    <rect x="5.19" y="-48.65" width="11.68" height="11.68" stroke="black" fill="white" />
+    <rect x="-5.19" y="-28.54" width="32.43" height="3.37" stroke="black" fill="white" />
+    <circle class="qet-terminal" cx="-12.97" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="35.03" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

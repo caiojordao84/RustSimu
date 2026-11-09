@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="30.0" viewBox="-30.0 -10.0 60.0 30.0" data-name="Horizontal radiator">
+<svg xmlns="http://www.w3.org/2000/svg" width="144.0" height="72.0" viewBox="-72.0 -24.0 144.0 72.0" data-name="Horizontal radiator" data-standard="48px">
   <title>Horizontal radiator</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-20.00" y="1.67" width="40.00" height="7.33" stroke="black" fill="none" />
-    <polyline points="-19,1.67 -15,9 -9,1.67 -3,9 4,1.67 11,9 18,1.67" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="20.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-48.00" y="4.01" width="96.00" height="17.59" stroke="black" fill="none" />
+    <polyline points="-45.60,4.01 -36.00,21.60 -21.60,4.01 -7.20,21.60 9.60,4.01 26.40,21.60 43.20,4.01" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

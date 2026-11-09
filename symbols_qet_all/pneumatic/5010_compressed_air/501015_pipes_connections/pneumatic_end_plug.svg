@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="30.0" height="40.0" viewBox="-15.0 -19.0 30.0 40.0" data-name="pneumatic end plug">
+<svg xmlns="http://www.w3.org/2000/svg" width="72.0" height="96.0" viewBox="-36.0 -45.6 72.0 96.0" data-name="pneumatic end plug" data-standard="48px">
   <title>pneumatic end plug</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="6.00" x2="0.00" y2="-14.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="1.00" x2="-6.00" y2="-11.00" stroke="black" fill="none" />
-    <line x1="6.00" y1="-11.00" x2="-6.00" y2="1.00" stroke="black" fill="none" />
-    <line x1="-9.00" y1="-5.00" x2="9.00" y2="-5.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="14.40" x2="0.00" y2="-33.60" stroke="black" fill="none" />
+    <line x1="14.40" y1="2.40" x2="-14.40" y2="-26.40" stroke="black" fill="none" />
+    <line x1="14.40" y1="-26.40" x2="-14.40" y2="2.40" stroke="black" fill="none" />
+    <line x1="-21.60" y1="-12.00" x2="21.60" y2="-12.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
   </g>
 </svg>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="20.0" viewBox="-90.0 -15.0 100.0 20.0" data-name="Straight section adjustable in length">
+<svg xmlns="http://www.w3.org/2000/svg" width="60.0" height="12.0" viewBox="-54.0 -9.0 60.0 12.0" data-name="Straight section adjustable in length" data-standard="48px">
   <title>Straight section adjustable in length</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="0.00" y1="-5.00" x2="-30.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-10.00" x2="-80.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="-10.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-80.00" y1="-5.00" x2="-40.00" y2="-5.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="-5.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-30.00" y1="0.00" x2="-50.00" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-80.00" cy="-5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="-5.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.00" y1="-3.00" x2="-18.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-6.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="0.00" y1="-6.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-48.00" y1="-3.00" x2="-24.00" y2="-3.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="-3.00" x2="-18.00" y2="0.00" stroke="black" fill="none" />
+    <line x1="-18.00" y1="0.00" x2="-30.00" y2="0.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="-48.00" cy="-3.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-3.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
   </g>
 </svg>

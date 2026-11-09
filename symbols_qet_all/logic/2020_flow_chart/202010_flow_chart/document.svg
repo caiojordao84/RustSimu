@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="70.0" height="80.0" viewBox="-15.0 -28.0 70.0 80.0" data-name="Document">
+<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="192.0" viewBox="-36.0 -67.2 168.0 192.0" data-name="Document" data-standard="48px">
   <title>Document</title>
-  <g stroke="black" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M 45.11 24.39 A 15.00 15.00 0 0 0 23.89 24.39" stroke="black" fill="none" />
-    <path d="M -4.64 35.49 A 15.00 15.00 0 0 0 14.64 35.49" stroke="black" fill="none" />
-    <line x1="24.00" y1="24.00" x2="15.00" y2="35.00" stroke="black" fill="none" />
-    <polyline points="-5,35 -10,30 -10,-10 50,-10 50,30 45,24" stroke="black" fill="none" />
-    <line x1="20.00" y1="-10.00" x2="20.00" y2="-20.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="-20.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 108.26 58.54 A 36.00 36.00 0 0 0 57.34 58.54" stroke="black" fill="none" />
+    <path d="M -11.14 85.18 A 36.00 36.00 0 0 0 35.14 85.18" stroke="black" fill="none" />
+    <line x1="57.60" y1="57.60" x2="36.00" y2="84.00" stroke="black" fill="none" />
+    <polyline points="-12.00,84.00 -24.00,72.00 -24.00,-24.00 120.00,-24.00 120.00,72.00 108.00,57.60" stroke="black" fill="none" />
+    <line x1="48.00" y1="-24.00" x2="48.00" y2="-48.00" stroke="black" fill="none" />
+    <circle class="qet-terminal" cx="48.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
   </g>
 </svg>
