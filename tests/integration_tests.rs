@@ -5613,3 +5613,298 @@ fn test_canvas_placement_canonical_pins_populated_and_editable() {
         "Edição de borne deve ser persistida no item selecionado"
     );
 }
+
+#[test]
+fn test_p2_15_multipage_cross_reference_and_orphan_detection() {
+    use cade_simu_rs::xref::collect_project_xrefs;
+
+    // Folha 1: Circuito de Potência
+    let mut doc_power = SchematicDocument::default();
+    let mut breaker = SchematicItem::new_symbol(1, 6000, 100, 100, "-Q1");
+    breaker.pins[0] = "1".to_string();
+    breaker.pins[1] = "2".to_string();
+    breaker.pins[2] = "3".to_string();
+    breaker.pins[3] = "4".to_string();
+    doc_power.items.push(breaker);
+
+    let mut contactor_poles = SchematicItem::new_symbol(2, 2000, 100, 200, "-KM1");
+    contactor_poles.pins[0] = "1".to_string();
+    contactor_poles.pins[1] = "2".to_string();
+    contactor_poles.pins[2] = "3".to_string();
+    contactor_poles.pins[3] = "4".to_string();
+    contactor_poles.pins[4] = "5".to_string();
+    contactor_poles.pins[5] = "6".to_string();
+    doc_power.items.push(contactor_poles);
+
+    let mut motor = SchematicItem::new_symbol(3, 1000, 100, 300, "-M1");
+    motor.pins[0] = "U".to_string();
+    motor.pins[1] = "V".to_string();
+    motor.pins[2] = "W".to_string();
+    doc_power.items.push(motor);
+
+    // Folha 2: Circuito de Comando
+    let mut doc_control = SchematicDocument::default();
+    let mut coil_km1 = SchematicItem::new_symbol(4, 9000, 150, 100, "-KM1");
+    coil_km1.pins[0] = "A1".to_string();
+    coil_km1.pins[1] = "A2".to_string();
+    doc_control.items.push(coil_km1);
+
+    let mut aux_no_km1 = SchematicItem::new_symbol(5, 7000, 150, 200, "-KM1");
+    aux_no_km1.pins[0] = "13".to_string();
+    aux_no_km1.pins[1] = "14".to_string();
+    doc_control.items.push(aux_no_km1);
+
+    let mut orphan_contact = SchematicItem::new_symbol(6, 7000, 150, 300, "-KM2");
+    orphan_contact.pins[0] = "13".to_string();
+    orphan_contact.pins[1] = "14".to_string();
+    doc_control.items.push(orphan_contact);
+
+    let pages = vec![
+        ProjectPage::new(1, "Circuito de Força".to_string(), doc_power.clone()),
+        ProjectPage::new(2, "Circuito de Comando".to_string(), doc_control.clone()),
+    ];
+
+    let dir = collect_project_xrefs(&pages, 0, &doc_power);
+    assert_eq!(
+        dir.total_pages, 2,
+        "Projeto deve conter exatamente 2 folhas"
+    );
+
+    // Grupo -KM1: Bobina na Folha 2 (índice 1) e polos/contatos em ambas as folhas
+    let km1_group = dir
+        .groups
+        .iter()
+        .find(|g| g.tag == "-KM1")
+        .expect("Grupo -KM1 deve existir");
+    assert!(
+        km1_group.primary.is_some(),
+        "-KM1 deve ter uma bobina primária"
+    );
+    assert_eq!(
+        km1_group.primary.as_ref().unwrap().page_index,
+        1,
+        "Bobina de -KM1 deve estar na Folha 2"
+    );
+    assert!(
+        km1_group
+            .primary
+            .as_ref()
+            .unwrap()
+            .grid_ref
+            .starts_with("2."),
+        "Coordenada da bobina deve ter prefixo de página 2."
+    );
+    assert_eq!(
+        km1_group.contacts.len(),
+        2,
+        "-KM1 deve ter 2 contatos subordinados (polos de força + contato aux NA)"
+    );
+
+    let has_page_1_contact = km1_group.contacts.iter().any(|c| c.page_index == 0);
+    let has_page_2_contact = km1_group.contacts.iter().any(|c| c.page_index == 1);
+    assert!(
+        has_page_1_contact,
+        "Deve haver polo de força de -KM1 na Folha 1"
+    );
+    assert!(
+        has_page_2_contact,
+        "Deve haver contato auxiliar de -KM1 na Folha 2"
+    );
+    assert!(
+        !km1_group.is_orphan_contact,
+        "-KM1 possui bobina, não é órfão"
+    );
+    assert!(
+        !km1_group.has_duplicate_primary,
+        "-KM1 não possui bobina duplicada"
+    );
+
+    // Grupo -KM2: Contato órfão (sem bobina no projeto)
+    let km2_group = dir
+        .groups
+        .iter()
+        .find(|g| g.tag == "-KM2")
+        .expect("Grupo -KM2 deve existir");
+    assert!(km2_group.primary.is_none(), "-KM2 não possui bobina");
+    assert!(
+        km2_group.is_orphan_contact,
+        "-KM2 deve ser identificado como contato órfão"
+    );
+}
+
+#[test]
+fn test_p2_15_electrical_connections_parallel_and_series_analysis() {
+    use cade_simu_rs::xref::{analyze_pin_connections, ElectricalConnectionType};
+
+    let doc = cade_simu_rs::io::build_dol_starter_preset();
+
+    // Na partida direta padrão:
+    // - Item id 23: Botoeira Liga -S1 (NA 13-14)
+    // - Item id 24: Contato de Selo -KM1 (NA 13-14)
+    // - Item id 25: Bobina -KM1 (A1-A2)
+    // O contato de selo e o botão liga estão em PARALELO entre si.
+    // O botão liga e o selo estão em SÉRIE com a bobina.
+    let conn_seal = analyze_pin_connections(24, &doc, 0);
+    assert!(
+        !conn_seal.is_empty(),
+        "Contato de selo deve ter conexões mapeadas"
+    );
+
+    // Borne 13 do selo deve estar em paralelo com o botão liga -S1
+    let pin_13_summary = conn_seal
+        .iter()
+        .find(|p| p.pin_label == "13")
+        .expect("Borne 13");
+    let parallel_to_s1 = pin_13_summary
+        .targets
+        .iter()
+        .any(|t| t.tag.contains("S1") && t.conn_type == ElectricalConnectionType::Parallel);
+    assert!(
+        parallel_to_s1,
+        "Borne 13 do selo -KM1 deve estar em paralelo com a botoeira -S1"
+    );
+
+    // Borne 14 do selo deve estar conectado à bobina -KM1:A1 em série
+    let pin_14_summary = conn_seal
+        .iter()
+        .find(|p| p.pin_label == "14")
+        .expect("Borne 14");
+    let series_to_coil = pin_14_summary.targets.iter().any(|t| {
+        t.tag.contains("KM1")
+            && t.pin_label == "A1"
+            && t.conn_type == ElectricalConnectionType::Series
+    });
+    assert!(
+        series_to_coil,
+        "Borne 14 do selo deve estar em série com o terminal A1 da bobina -KM1"
+    );
+}
+
+#[test]
+fn test_p2_15_terminal_strips_iec_81346_classification_and_renumbering() {
+    use cade_simu_rs::xref::{collect_project_xrefs, renumber_terminal_strip, TerminalStripKind};
+
+    let mut doc = SchematicDocument::default();
+
+    // Cria bornes de potência (-XP) com numeração desordenada e repetida
+    let mut t_p1 = SchematicItem::new_symbol(1, 7001, 100, 300, "-XP");
+    t_p1.pins[0] = "9".to_string();
+    doc.items.push(t_p1);
+
+    let mut t_p2 = SchematicItem::new_symbol(2, 7001, 100, 100, "-XP");
+    t_p2.pins[0] = "9".to_string(); // duplicado
+    doc.items.push(t_p2);
+
+    let mut t_p3 = SchematicItem::new_symbol(3, 7001, 100, 200, "-XP");
+    t_p3.pins[0] = "42".to_string();
+    doc.items.push(t_p3);
+
+    // Cria borne de comando (-XC)
+    let mut t_c1 = SchematicItem::new_symbol(4, 7001, 200, 100, "-XC");
+    t_c1.pins[0] = "1".to_string();
+    doc.items.push(t_c1);
+
+    // Cria borne de medição (-XT)
+    let mut t_m1 = SchematicItem::new_symbol(5, 7001, 300, 100, "-XT");
+    t_m1.pins[0] = "1".to_string();
+    doc.items.push(t_m1);
+
+    let mut pages = vec![ProjectPage::new(1, "Painel Geral".to_string(), doc.clone())];
+
+    let dir_before = collect_project_xrefs(&pages, 0, &doc);
+    assert_eq!(
+        dir_before.terminal_strips.len(),
+        3,
+        "Devem existir 3 réguas (-XC, -XP, -XT)"
+    );
+
+    let strip_xp = dir_before
+        .terminal_strips
+        .iter()
+        .find(|s| s.strip_tag == "-XP")
+        .unwrap();
+    assert_eq!(
+        strip_xp.kind,
+        TerminalStripKind::Power,
+        "-XP deve ser classificada como Potência (IEC 81346)"
+    );
+    assert!(
+        strip_xp.has_duplicates,
+        "Régua -XP deve reportar bornes com numeração repetida"
+    );
+
+    let strip_xc = dir_before
+        .terminal_strips
+        .iter()
+        .find(|s| s.strip_tag == "-XC")
+        .unwrap();
+    assert_eq!(
+        strip_xc.kind,
+        TerminalStripKind::Control,
+        "-XC deve ser classificada como Comando (IEC 81346)"
+    );
+
+    let strip_xt = dir_before
+        .terminal_strips
+        .iter()
+        .find(|s| s.strip_tag == "-XT")
+        .unwrap();
+    assert_eq!(
+        strip_xt.kind,
+        TerminalStripKind::Measurement,
+        "-XT deve ser classificada como Medição (IEC 81346)"
+    );
+
+    // Executa renumbração sequencial automática da régua -XP
+    renumber_terminal_strip("-XP", &mut pages, 0, &mut doc);
+
+    let dir_after = collect_project_xrefs(&pages, 0, &doc);
+    let strip_xp_after = dir_after
+        .terminal_strips
+        .iter()
+        .find(|s| s.strip_tag == "-XP")
+        .unwrap();
+    assert!(
+        !strip_xp_after.has_duplicates,
+        "Após renumbração, -XP não deve ter duplicatas"
+    );
+    assert_eq!(strip_xp_after.terminals.len(), 3);
+    assert_eq!(strip_xp_after.terminals[0].terminal_number, "1");
+    assert_eq!(strip_xp_after.terminals[1].terminal_number, "2");
+    assert_eq!(strip_xp_after.terminals[2].terminal_number, "3");
+}
+
+#[test]
+fn test_p2_15_xref_navigation_message_switches_page_and_selects_item() {
+    let (mut app, _) = CadeSimuApp::new();
+
+    // Cria folha 2 com um elemento alvo
+    let mut doc2 = SchematicDocument::default();
+    let target_item = SchematicItem::new_symbol(42, 9000, 120, 180, "-KM1");
+    doc2.items.push(target_item);
+
+    app.pages
+        .push(ProjectPage::new(2, "Folha 2".to_string(), doc2));
+    assert_eq!(app.pages.len(), 2);
+    assert_eq!(app.active_page_index, 0);
+
+    // Emite mensagem de navegação inter-folhas para o elemento #42 na Folha 2 (índice 1)
+    let _ = app.update(Message::NavigateToElement {
+        page_index: 1,
+        item_id: 42,
+    });
+
+    assert_eq!(
+        app.active_page_index, 1,
+        "Página ativa deve mudar para a Folha 2"
+    );
+    assert_eq!(
+        app.selected_id,
+        Some(42),
+        "Elemento #42 deve estar selecionado"
+    );
+    assert!(
+        app.status_msg.contains("Navegado para elemento #42"),
+        "Mensagem de status deve confirmar navegação"
+    );
+}

@@ -148,6 +148,13 @@ pub enum Message {
     EditTitleBlockTitle(String),
     EditTitleBlockSubtitle(String),
     EditTitleBlockAuthor(String),
+    NavigateToElement {
+        page_index: usize,
+        item_id: i32,
+    },
+    RenumberTerminalStrip(String),
+    RenumberAllTerminalStrips,
+    XrefSearchChanged(String),
     PrevFolio,
     NextFolio,
     SelectFolio(usize),
@@ -281,6 +288,7 @@ pub struct CadeSimuApp {
     pub dragging_canonical_id: Option<String>,
     pub last_canonical_click: Option<(String, std::time::Instant)>,
     pub prop_tab: usize,
+    pub xref_search: String,
     pub left_dock_tab: usize,
     pub left_dock_collapsed: bool,
     pub right_dock_collapsed: bool,
@@ -405,6 +413,7 @@ impl CadeSimuApp {
                 dragging_canonical_id: None,
                 last_canonical_click: None,
                 prop_tab: 0,
+                xref_search: String::new(),
                 left_dock_tab: 0,
                 left_dock_collapsed: false,
                 right_dock_collapsed: false,
@@ -669,7 +678,11 @@ impl CadeSimuApp {
             | Message::SetLampColor(_)
             | Message::SetPulseDuration(_)
             | Message::ApplyIecNumberingPreset(_)
-            | Message::SelectPinSequence(_) => self.update_properties(message),
+            | Message::SelectPinSequence(_)
+            | Message::NavigateToElement { .. }
+            | Message::RenumberTerminalStrip(_)
+            | Message::RenumberAllTerminalStrips
+            | Message::XrefSearchChanged(_) => self.update_properties(message),
 
             Message::ToggleSimulation | Message::StopSimulation | Message::SimTick => {
                 self.update_simulation(message)
@@ -2172,6 +2185,61 @@ impl CadeSimuApp {
                         }
                     }
                 }
+            }
+            Message::XrefSearchChanged(q) => {
+                self.xref_search = q;
+            }
+            Message::NavigateToElement {
+                page_index,
+                item_id,
+            } => {
+                if page_index < self.pages.len() && page_index != self.active_page_index {
+                    self.pages[self.active_page_index].doc = self.doc.clone();
+                    self.active_page_index = page_index;
+                    self.doc = self.pages[page_index].doc.clone();
+                }
+                self.selected_id = Some(item_id);
+                if let Some(item) = self.doc.items.iter().find(|i| i.id == item_id) {
+                    let (sheet_w, sheet_h) = crate::xref::sheet_dimensions(&self.doc);
+                    let cell = crate::xref::calculate_grid_cell(
+                        item.x1 as f32,
+                        item.y1 as f32,
+                        sheet_w,
+                        sheet_h,
+                    );
+                    self.status_msg = format!(
+                        "Navegado para elemento #{} '{}' na Folha {} ({cell})",
+                        item_id,
+                        item.tag,
+                        page_index + 1
+                    );
+                }
+            }
+            Message::RenumberTerminalStrip(strip_tag) => {
+                self.push_undo();
+                crate::xref::renumber_terminal_strip(
+                    &strip_tag,
+                    &mut self.pages,
+                    self.active_page_index,
+                    &mut self.doc,
+                );
+                self.is_modified = true;
+                self.status_msg = format!(
+                    "Régua de bornes '{}' renumerada sequencialmente.",
+                    strip_tag
+                );
+            }
+            Message::RenumberAllTerminalStrips => {
+                self.push_undo();
+                crate::xref::renumber_all_terminal_strips(
+                    &mut self.pages,
+                    self.active_page_index,
+                    &mut self.doc,
+                );
+                self.is_modified = true;
+                self.status_msg =
+                    "Todas as réguas de bornes do projeto foram renumeradas sequencialmente."
+                        .to_string();
             }
             _ => {}
         }

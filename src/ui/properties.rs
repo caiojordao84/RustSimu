@@ -72,9 +72,13 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
     };
 
     let tabs_bar = container(
-        row![tab_btn(0, "Propriedades"), tab_btn(1, "Referência Cruzada"),]
-            .spacing(4)
-            .width(Length::Fill),
+        row![
+            tab_btn(0, "Propriedades"),
+            tab_btn(1, "Ref. Cruzada"),
+            tab_btn(2, "Réguas de Bornes"),
+        ]
+        .spacing(4)
+        .width(Length::Fill),
     )
     .style(theme::bar)
     .width(Length::Fill);
@@ -105,11 +109,23 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                         "Elemento".to_string()
                     };
 
-                    body_col =
-                        body_col.push(text(format!("#{sel_id} · {title}")).size(13).font(Font {
-                            weight: iced::font::Weight::Bold,
-                            ..UI
-                        }));
+                    let (sheet_w, sheet_h) = crate::xref::sheet_dimensions(&app.doc);
+                    let grid_ref = crate::xref::format_grid_ref(
+                        app.active_page_index,
+                        item.x1 as f32,
+                        item.y1 as f32,
+                        sheet_w,
+                        sheet_h,
+                    );
+
+                    body_col = body_col.push(
+                        text(format!("#{sel_id} · {title} · {grid_ref}"))
+                            .size(13)
+                            .font(Font {
+                                weight: iced::font::Weight::Bold,
+                                ..UI
+                            }),
+                    );
 
                     if let Some(qet_id) = item.symbol_id_or_slug() {
                         if let Some(dict) = crate::canonical::global_dictionary() {
@@ -165,6 +181,8 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                 let parent_name = find_symbol(parent.tipo)
                                     .map(|s| s.name)
                                     .unwrap_or("Aparelho");
+                                let p_page = app.active_page_index;
+                                let p_id = parent.id;
                                 body_col = body_col.push(
                                     row![
                                         crate::icons::view_icon(
@@ -178,6 +196,14 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                         ))
                                         .size(10.5)
                                         .color(t.success),
+                                        horizontal_space(),
+                                        button(text("Ir").size(10.0).font(UI))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([2.0, 6.0]))
+                                            .on_press(Message::NavigateToElement {
+                                                page_index: p_page,
+                                                item_id: p_id,
+                                            }),
                                     ]
                                     .spacing(4)
                                     .align_y(Alignment::Center),
@@ -585,6 +611,56 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
 
                             body_col = body_col.push(colors_row).push(pulse_row);
                         }
+
+                        if crate::symbols::is_terminal_item(item) {
+                            let strip_kind = crate::xref::TerminalStripKind::from_tag(&item.tag);
+                            let strip_tag_for_btn = item.tag.trim().to_string();
+                            body_col = body_col.push(horizontal_rule(1));
+                            body_col = body_col.push(
+                                column![
+                                    row![
+                                        text("Régua de Bornes (IEC 81346):").size(11.5).font(
+                                            Font {
+                                                weight: iced::font::Weight::Bold,
+                                                ..UI
+                                            }
+                                        ),
+                                        horizontal_space(),
+                                        container(
+                                            text(strip_kind.badge_label())
+                                                .size(10.0)
+                                                .color(t.primary)
+                                        )
+                                        .style(theme::card)
+                                        .padding(Padding::from([2.0, 6.0])),
+                                    ]
+                                    .align_y(Alignment::Center),
+                                    row![
+                                        text("Tipo:").size(10.5).color(t.text2),
+                                        text(strip_kind.display_name()).size(10.5).color(t.text),
+                                    ]
+                                    .spacing(4),
+                                    button(
+                                        row![
+                                            crate::icons::view_icon(
+                                                crate::icons::Icon::Bolt,
+                                                11,
+                                                t.primary
+                                            ),
+                                            text(format!("Renumerar régua '{}'", item.tag.trim()))
+                                                .size(10.5)
+                                                .font(UI),
+                                        ]
+                                        .spacing(4)
+                                        .align_y(Alignment::Center)
+                                    )
+                                    .style(theme::tool)
+                                    .padding(Padding::from([2.0, 6.0]))
+                                    .on_press(Message::RenumberTerminalStrip(strip_tag_for_btn)),
+                                ]
+                                .spacing(4),
+                            );
+                        }
                     }
                 }
             } else {
@@ -639,26 +715,20 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
             container(scrollable(body_col)).height(Length::Fill).into()
         }
         1 => {
-            // Aba Referência Cruzada (XRef)
+            // Aba Referência Cruzada (XRef) Inter-Folhas e Ligações
             let mut xref_col = column![].spacing(8).padding(Padding::from([10.0, 12.0]));
 
-            xref_col = xref_col.push(text("Referências Cruzadas no Projeto").size(13).font(Font {
-                weight: iced::font::Weight::Bold,
-                ..UI
-            }));
-
-            // Se houver elemento selecionado, exibe a referência contextual específica em destaque
             if let Some(sel_id) = app.selected_id {
-                if let Some(sel_item) = app.doc.items.iter().find(|i| i.id == sel_id) {
-                    let clean_sel_tag = sel_item.tag.trim();
-                    if !clean_sel_tag.is_empty() {
-                        let rel_items: Vec<_> = app
-                            .doc
-                            .items
-                            .iter()
-                            .filter(|i| i.tag.trim() == clean_sel_tag)
-                            .collect();
-                        let ctx_card = container(
+                // Elemento Selecionado -> Análise contextual inter-folhas e equipotenciais
+                if let Some(ctx) = crate::xref::analyze_element_xref(
+                    sel_id,
+                    &app.pages,
+                    app.active_page_index,
+                    &app.doc,
+                ) {
+                    let sel = &ctx.selected_item;
+                    xref_col = xref_col.push(
+                        container(
                             column![
                                 row![
                                     crate::icons::view_icon(
@@ -666,143 +736,691 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                         13,
                                         t.primary
                                     ),
-                                    text(format!(
-                                        "Referência do Elemento Selecionado: #{} ({})",
-                                        sel_id, clean_sel_tag
-                                    ))
-                                    .size(12)
-                                    .font(Font {
-                                        weight: iced::font::Weight::Bold,
-                                        ..UI
-                                    })
-                                    .color(t.primary),
+                                    text(format!("#{sel_id} {} ({})", sel.tag, sel.symbol_name))
+                                        .size(12.5)
+                                        .font(Font {
+                                            weight: iced::font::Weight::Bold,
+                                            ..UI
+                                        })
+                                        .color(t.primary),
+                                    horizontal_space(),
+                                    button(text("XRef Global").size(10.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([2.0, 6.0]))
+                                        .on_press(Message::DeselectAll),
                                 ]
-                                .spacing(4)
                                 .align_y(Alignment::Center),
-                                text(format!(
-                                    "Total de dispositivos vinculados ao tag '{}': {}",
-                                    clean_sel_tag,
-                                    rel_items.len()
-                                ))
-                                .size(10.5)
-                                .color(t.text2),
-                                column(rel_items.iter().map(|item| {
-                                    let sname = find_symbol(item.tipo)
-                                        .map(|s| s.name)
-                                        .unwrap_or("Dispositivo");
-                                    let p_list = item
-                                        .pins
-                                        .iter()
-                                        .filter(|p| !p.is_empty())
-                                        .cloned()
-                                        .collect::<Vec<_>>()
-                                        .join("-");
-                                    let status = if app.doc.sim_active(item.id) {
-                                        "[Ativo]"
-                                    } else {
-                                        "[Desligado]"
-                                    };
+                                row![
                                     text(format!(
-                                        "• #{} {}: [{}] ({})",
-                                        item.id, sname, p_list, status
+                                        "Localização: Folha {} · {}",
+                                        sel.page_index + 1,
+                                        sel.grid_ref
                                     ))
-                                    .size(11)
-                                    .font(MONO)
-                                    .color(if item.id == sel_id { t.primary } else { t.text })
-                                    .into()
-                                }))
-                                .spacing(2),
+                                    .size(10.5)
+                                    .color(t.text2),
+                                    horizontal_space(),
+                                    text(sel.role.display_name())
+                                        .size(10.5)
+                                        .font(Font {
+                                            weight: iced::font::Weight::Medium,
+                                            ..UI
+                                        })
+                                        .color(t.text),
+                                ]
+                                .align_y(Alignment::Center),
                             ]
                             .spacing(4),
                         )
                         .style(theme::card)
-                        .padding(Padding::from([6.0, 8.0]))
-                        .width(Length::Fill);
+                        .padding(Padding::from([8.0, 10.0]))
+                        .width(Length::Fill),
+                    );
 
-                        xref_col = xref_col.push(ctx_card).push(horizontal_rule(1));
+                    // 1. Aparelho e Contatos Vinculados (Inter-Folhas)
+                    let mut assoc_col =
+                        column![text("Vínculo de Aparelho & Contatos (Inter-Folhas)")
+                            .size(11.5)
+                            .font(Font {
+                                weight: iced::font::Weight::Bold,
+                                ..UI
+                            }),]
+                        .spacing(4);
+
+                    if let Some(ref parent) = ctx.parent_apparatus {
+                        let p_page = parent.page_index;
+                        let p_id = parent.id;
+                        assoc_col = assoc_col.push(
+                            row![
+                                crate::icons::view_icon(crate::icons::Icon::Check, 12, t.success),
+                                text(format!(
+                                    "Aparelho Pai: #{} {} na Folha {} ({})",
+                                    parent.id,
+                                    parent.tag,
+                                    p_page + 1,
+                                    parent.grid_ref
+                                ))
+                                .size(10.5)
+                                .color(t.success),
+                                horizontal_space(),
+                                button(text("Ir").size(10.0).font(UI))
+                                    .style(theme::tool)
+                                    .padding(Padding::from([2.0, 6.0]))
+                                    .on_press(Message::NavigateToElement {
+                                        page_index: p_page,
+                                        item_id: p_id,
+                                    }),
+                            ]
+                            .spacing(4)
+                            .align_y(Alignment::Center),
+                        );
+                    } else if ctx.selected_item.role.is_subordinate_contact() {
+                        assoc_col = assoc_col.push(
+                            row![
+                                crate::icons::view_icon(crate::icons::Icon::Warning, 12, t.amber),
+                                text("Contato órfão: Nenhuma bobina vinculada no projeto.")
+                                    .size(10.5)
+                                    .color(t.amber),
+                            ]
+                            .spacing(4)
+                            .align_y(Alignment::Center),
+                        );
                     }
-                }
-            }
 
-            // Agrupa itens por tag para visualização global do projeto
-            let mut tags_seen: Vec<String> = Vec::new();
-            for item in &app.doc.items {
-                let clean_tag = item.tag.trim();
-                if !clean_tag.is_empty() && !tags_seen.contains(&clean_tag.to_string()) {
-                    tags_seen.push(clean_tag.to_string());
-                }
-            }
-            tags_seen.sort();
+                    if !ctx.sibling_contacts.is_empty() {
+                        assoc_col = assoc_col.push(
+                            text(format!(
+                                "Contatos associados no projeto ({}):",
+                                ctx.sibling_contacts.len()
+                            ))
+                            .size(10.5)
+                            .color(t.text2),
+                        );
+                        for sibling in &ctx.sibling_contacts {
+                            let sib_page = sibling.page_index;
+                            let sib_id = sibling.id;
+                            let p_str = if sibling.pins.is_empty() {
+                                String::new()
+                            } else {
+                                format!(" [{}]", sibling.pins.join("-"))
+                            };
+                            assoc_col = assoc_col.push(
+                                row![
+                                    text(format!(
+                                        "• #{} {}{}: Folha {} ({})",
+                                        sibling.id,
+                                        sibling.symbol_name,
+                                        p_str,
+                                        sib_page + 1,
+                                        sibling.grid_ref
+                                    ))
+                                    .size(10.5)
+                                    .font(MONO),
+                                    horizontal_space(),
+                                    button(text("Ir").size(10.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([2.0, 6.0]))
+                                        .on_press(Message::NavigateToElement {
+                                            page_index: sib_page,
+                                            item_id: sib_id,
+                                        }),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center),
+                            );
+                        }
+                    } else if !ctx.selected_item.role.is_subordinate_contact() {
+                        assoc_col = assoc_col.push(
+                            text(
+                                "Nenhum contato auxiliar subordinado associado a esta tag no projeto.",
+                            )
+                            .size(10.5)
+                            .color(t.text2),
+                        );
+                    }
 
-            if tags_seen.is_empty() {
-                xref_col = xref_col.push(
-                    text("Nenhum elemento com etiqueta definido.")
-                        .size(12)
-                        .color(t.text2),
-                );
-            } else {
-                for tag in tags_seen {
-                    let matching: Vec<_> = app
-                        .doc
-                        .items
-                        .iter()
-                        .filter(|i| i.tag.trim() == tag)
-                        .collect();
+                    xref_col = xref_col.push(
+                        container(assoc_col)
+                            .style(theme::card)
+                            .padding(Padding::from([8.0, 10.0]))
+                            .width(Length::Fill),
+                    );
 
-                    if matching.len() > 1
-                        || matching
-                            .iter()
-                            .any(|i| matches!(i.tipo, 9000..=9008 | 6000..=6009 | 1000..=1002))
-                    {
+                    // 2. Ligações Elétricas dos Bornes (Série e Paralelo)
+                    let mut conn_col =
+                        column![text("Ligações Elétricas dos Bornes (Série / Paralelo)")
+                            .size(11.5)
+                            .font(Font {
+                                weight: iced::font::Weight::Bold,
+                                ..UI
+                            }),]
+                        .spacing(4);
+
+                    if ctx.pin_connections.is_empty() {
+                        conn_col = conn_col.push(
+                            text("Componente sem bornes elétricos configurados.")
+                                .size(10.5)
+                                .color(t.text2),
+                        );
+                    } else {
+                        for pin_sum in &ctx.pin_connections {
+                            let mut pin_box = column![row![
+                                text(format!("Borne {}:", pin_sum.pin_label))
+                                    .size(11.0)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..MONO
+                                    }),
+                                horizontal_space(),
+                                if !pin_sum.is_connected {
+                                    text("[Aberto / Não Conectado]").size(10.0).color(t.text2)
+                                } else {
+                                    text(format!("{} conexão(ões)", pin_sum.targets.len()))
+                                        .size(10.0)
+                                        .color(t.text2)
+                                },
+                            ]
+                            .align_y(Alignment::Center),]
+                            .spacing(2);
+
+                            for tgt in &pin_sum.targets {
+                                let t_page = app.active_page_index;
+                                let t_id = tgt.item_id;
+                                let badge_style = match tgt.conn_type {
+                                    crate::xref::ElectricalConnectionType::Parallel => t.primary,
+                                    crate::xref::ElectricalConnectionType::Series => t.success,
+                                    crate::xref::ElectricalConnectionType::Direct => t.text2,
+                                };
+                                pin_box = pin_box.push(
+                                    row![
+                                        container(
+                                            text(tgt.conn_type.badge_label())
+                                                .size(9.5)
+                                                .color(badge_style)
+                                        )
+                                        .style(theme::card)
+                                        .padding(Padding::from([1.0, 4.0])),
+                                        text(format!(
+                                            "{} : {} ({}) · {}",
+                                            tgt.tag, tgt.pin_label, tgt.symbol_name, tgt.grid_ref
+                                        ))
+                                        .size(10.5)
+                                        .font(MONO),
+                                        horizontal_space(),
+                                        button(text("Ir").size(9.5).font(UI))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([1.0, 5.0]))
+                                            .on_press(Message::NavigateToElement {
+                                                page_index: t_page,
+                                                item_id: t_id,
+                                            }),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center),
+                                );
+                            }
+
+                            conn_col = conn_col.push(
+                                container(pin_box)
+                                    .style(theme::card)
+                                    .padding(Padding::from([4.0, 6.0]))
+                                    .width(Length::Fill),
+                            );
+                        }
+                    }
+
+                    xref_col = xref_col.push(
+                        container(conn_col)
+                            .style(theme::card)
+                            .padding(Padding::from([8.0, 10.0]))
+                            .width(Length::Fill),
+                    );
+
+                    // 3. Informações de Régua de Bornes (se for borne)
+                    if let Some(ref strip) = ctx.terminal_strip {
                         xref_col = xref_col.push(
                             container(
                                 column![
                                     row![
-                                        text(format!("Etiqueta: {tag}"))
-                                            .size(12)
+                                        text(format!("Régua de Bornes: {}", strip.strip_tag))
+                                            .size(11.5)
                                             .font(Font {
                                                 weight: iced::font::Weight::Bold,
-                                                ..MONO
-                                            })
-                                            .color(t.primary),
+                                                ..UI
+                                            }),
                                         horizontal_space(),
-                                        text(format!("{} instâncias", matching.len()))
-                                            .size(10.5)
-                                            .font(MONO)
-                                            .color(t.text2),
+                                        container(
+                                            text(strip.kind.badge_label())
+                                                .size(10.0)
+                                                .color(t.primary)
+                                        )
+                                        .style(theme::card)
+                                        .padding(Padding::from([2.0, 6.0])),
                                     ]
                                     .align_y(Alignment::Center),
-                                    column(matching.iter().map(|item| {
-                                        let sname = find_symbol(item.tipo)
-                                            .map(|s| s.short_label)
-                                            .unwrap_or("Item");
-                                        let bornes = if item.pins.is_empty() {
-                                            String::new()
-                                        } else {
-                                            format!("- bornes: {}", item.pins.join("-"))
-                                        };
-                                        text(format!(
-                                            "• #{}: {} (X:{}, Y:{}) {}",
-                                            item.id, sname, item.x1, item.y1, bornes
-                                        ))
-                                        .size(11)
-                                        .font(MONO)
-                                        .color(t.text)
-                                        .into()
-                                    }))
-                                    .spacing(2),
+                                    text(format!(
+                                        "Total: {} bornes nesta régua em todo o projeto.",
+                                        strip.terminals.len()
+                                    ))
+                                    .size(10.5)
+                                    .color(t.text2),
+                                    button(
+                                        row![
+                                            crate::icons::view_icon(
+                                                crate::icons::Icon::Bolt,
+                                                11,
+                                                t.primary
+                                            ),
+                                            text("Renumerar Esta Régua Sequencialmente")
+                                                .size(10.5)
+                                                .font(UI),
+                                        ]
+                                        .spacing(4)
+                                        .align_y(Alignment::Center)
+                                    )
+                                    .style(theme::tool)
+                                    .padding(Padding::from([3.0, 8.0]))
+                                    .on_press(
+                                        Message::RenumberTerminalStrip(strip.strip_tag.clone())
+                                    ),
                                 ]
                                 .spacing(4),
                             )
                             .style(theme::card)
-                            .padding(Padding::from([6.0, 8.0]))
+                            .padding(Padding::from([8.0, 10.0]))
                             .width(Length::Fill),
+                        );
+                    }
+                }
+            } else {
+                // Nenhum elemento selecionado -> Diretório Global de Referências Cruzadas
+                let directory =
+                    crate::xref::collect_project_xrefs(&app.pages, app.active_page_index, &app.doc);
+
+                xref_col = xref_col.push(
+                    row![
+                        text("Diretório Global de Referências").size(13).font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        }),
+                        horizontal_space(),
+                        text(format!(
+                            "{} tags · {} folhas",
+                            directory.total_tags, directory.total_pages
+                        ))
+                        .size(10.5)
+                        .color(t.text2),
+                    ]
+                    .align_y(Alignment::Center),
+                );
+
+                // Barra de busca
+                xref_col = xref_col.push(
+                    text_input(
+                        "Filtrar por etiqueta (ex: KM1, Q1, S1)...",
+                        &app.xref_search,
+                    )
+                    .on_input(Message::XrefSearchChanged)
+                    .padding(Padding::from([4.0, 8.0]))
+                    .size(11.5)
+                    .style(theme::field),
+                );
+
+                let filter = app.xref_search.trim().to_uppercase();
+                let filtered_groups: Vec<_> = directory
+                    .groups
+                    .iter()
+                    .filter(|g| {
+                        if filter.is_empty() {
+                            true
+                        } else {
+                            g.tag.to_uppercase().contains(&filter)
+                        }
+                    })
+                    .collect();
+
+                if filtered_groups.is_empty() {
+                    xref_col = xref_col.push(
+                        text("Nenhum aparelho encontrado com a etiqueta informada.")
+                            .size(11.5)
+                            .color(t.text2),
+                    );
+                } else {
+                    for group in filtered_groups {
+                        let mut card_col = column![row![
+                            text(format!("Etiqueta: {}", group.tag))
+                                .size(12.0)
+                                .font(Font {
+                                    weight: iced::font::Weight::Bold,
+                                    ..MONO
+                                })
+                                .color(t.primary),
+                            horizontal_space(),
+                            if group.is_orphan_contact {
+                                container(text("Sem Bobina").size(9.5).color(t.amber))
+                                    .style(theme::card)
+                                    .padding(Padding::from([1.0, 4.0]))
+                            } else if group.has_duplicate_primary {
+                                container(text("Bobina Duplicada").size(9.5).color(t.danger))
+                                    .style(theme::card)
+                                    .padding(Padding::from([1.0, 4.0]))
+                            } else {
+                                container(Space::with_width(0))
+                            },
+                        ]
+                        .align_y(Alignment::Center),]
+                        .spacing(4);
+
+                        if let Some(ref primary) = group.primary {
+                            let p_page = primary.page_index;
+                            let p_id = primary.id;
+                            let p_str = if primary.pins.is_empty() {
+                                String::new()
+                            } else {
+                                format!(" [{}]", primary.pins.join("-"))
+                            };
+                            card_col = card_col.push(
+                                row![
+                                    text(format!(
+                                        "• Aparelho: #{} {}{} · Folha {} ({})",
+                                        primary.id,
+                                        primary.symbol_name,
+                                        p_str,
+                                        p_page + 1,
+                                        primary.grid_ref
+                                    ))
+                                    .size(10.5)
+                                    .font(MONO),
+                                    horizontal_space(),
+                                    button(text("Ir").size(9.5).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 5.0]))
+                                        .on_press(Message::NavigateToElement {
+                                            page_index: p_page,
+                                            item_id: p_id,
+                                        }),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center),
+                            );
+                        }
+
+                        for contact in &group.contacts {
+                            let c_page = contact.page_index;
+                            let c_id = contact.id;
+                            let c_str = if contact.pins.is_empty() {
+                                String::new()
+                            } else {
+                                format!(" [{}]", contact.pins.join("-"))
+                            };
+                            card_col = card_col.push(
+                                row![
+                                    text(format!(
+                                        "  - Contato: #{} {}{} · Folha {} ({})",
+                                        contact.id,
+                                        contact.symbol_name,
+                                        c_str,
+                                        c_page + 1,
+                                        contact.grid_ref
+                                    ))
+                                    .size(10.5)
+                                    .font(MONO),
+                                    horizontal_space(),
+                                    button(text("Ir").size(9.5).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 5.0]))
+                                        .on_press(Message::NavigateToElement {
+                                            page_index: c_page,
+                                            item_id: c_id,
+                                        }),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center),
+                            );
+                        }
+
+                        for other in &group.other_instances {
+                            let o_page = other.page_index;
+                            let o_id = other.id;
+                            let o_str = if other.pins.is_empty() {
+                                String::new()
+                            } else {
+                                format!(" [{}]", other.pins.join("-"))
+                            };
+                            card_col = card_col.push(
+                                row![
+                                    text(format!(
+                                        "• Instância: #{} {}{} · Folha {} ({})",
+                                        other.id,
+                                        other.symbol_name,
+                                        o_str,
+                                        o_page + 1,
+                                        other.grid_ref
+                                    ))
+                                    .size(10.5)
+                                    .font(MONO),
+                                    horizontal_space(),
+                                    button(text("Ir").size(9.5).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 5.0]))
+                                        .on_press(Message::NavigateToElement {
+                                            page_index: o_page,
+                                            item_id: o_id,
+                                        }),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center),
+                            );
+                        }
+
+                        xref_col = xref_col.push(
+                            container(card_col)
+                                .style(theme::card)
+                                .padding(Padding::from([6.0, 8.0]))
+                                .width(Length::Fill),
                         );
                     }
                 }
             }
 
             container(scrollable(xref_col)).height(Length::Fill).into()
+        }
+        2 => {
+            // Aba Réguas de Bornes (IEC 81346)
+            let mut bornes_col = column![].spacing(8).padding(Padding::from([10.0, 12.0]));
+            let directory =
+                crate::xref::collect_project_xrefs(&app.pages, app.active_page_index, &app.doc);
+
+            bornes_col = bornes_col.push(
+                column![
+                    text("Réguas de Bornes (IEC 81346)").size(13).font(Font {
+                        weight: iced::font::Weight::Bold,
+                        ..UI
+                    }),
+                    text("Subdivisão: XP (Potência), XC (Comando), XT (Medição)")
+                        .size(10.5)
+                        .color(t.text2),
+                ]
+                .spacing(2),
+            );
+
+            bornes_col = bornes_col.push(
+                row![
+                    text(format!(
+                        "{} régua(s) · {} borne(s)",
+                        directory.terminal_strips.len(),
+                        directory.total_terminals
+                    ))
+                    .size(11.0)
+                    .color(t.text2),
+                    horizontal_space(),
+                    if !directory.terminal_strips.is_empty() {
+                        button(
+                            row![
+                                crate::icons::view_icon(crate::icons::Icon::Bolt, 11, t.primary),
+                                text("Renumerar Todas (1..N)").size(10.5).font(UI),
+                            ]
+                            .spacing(4)
+                            .align_y(Alignment::Center),
+                        )
+                        .style(theme::tool)
+                        .padding(Padding::from([3.0, 8.0]))
+                        .on_press(Message::RenumberAllTerminalStrips)
+                    } else {
+                        button(text("Sem réguas").size(10.5).font(UI))
+                            .style(theme::tool)
+                            .padding(Padding::from([3.0, 8.0]))
+                    },
+                ]
+                .align_y(Alignment::Center),
+            );
+
+            if directory.terminal_strips.is_empty() {
+                bornes_col = bornes_col.push(
+                    container(
+                        column![
+                            row![
+                                crate::icons::view_icon(crate::icons::Icon::Info, 13, t.primary),
+                                text("Nenhuma régua de bornes identificada no projeto.")
+                                    .size(11.5)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    })
+                                    .color(t.primary),
+                            ]
+                            .spacing(4)
+                            .align_y(Alignment::Center),
+                            text(
+                                "Para criar uma régua de bornes:\n- Insira símbolos de borne no esquema ou painel.\n- Atribua a etiqueta da régua (ex: -XP para força, -XC para comando, -XT para medição, ou -X1).\n- Utilize a numeração sequencial automática.",
+                            )
+                            .size(10.5)
+                            .color(t.text2),
+                        ]
+                        .spacing(6),
+                    )
+                    .style(theme::card)
+                    .padding(Padding::from([10.0, 12.0]))
+                    .width(Length::Fill),
+                );
+            } else {
+                for strip in &directory.terminal_strips {
+                    let s_tag = strip.strip_tag.clone();
+                    let mut strip_card = column![
+                        row![
+                            text(format!("Régua {}", strip.strip_tag))
+                                .size(12.5)
+                                .font(Font {
+                                    weight: iced::font::Weight::Bold,
+                                    ..MONO
+                                })
+                                .color(t.primary),
+                            container(text(strip.kind.badge_label()).size(9.5).color(t.primary))
+                                .style(theme::card)
+                                .padding(Padding::from([1.0, 5.0])),
+                            horizontal_space(),
+                            button(
+                                row![
+                                    crate::icons::view_icon(
+                                        crate::icons::Icon::Bolt,
+                                        10,
+                                        t.primary
+                                    ),
+                                    text("Renumerar").size(10.0).font(UI),
+                                ]
+                                .spacing(3)
+                                .align_y(Alignment::Center)
+                            )
+                            .style(theme::tool)
+                            .padding(Padding::from([2.0, 6.0]))
+                            .on_press(Message::RenumberTerminalStrip(s_tag)),
+                        ]
+                        .align_y(Alignment::Center),
+                        row![
+                            text(strip.kind.display_name()).size(10.0).color(t.text2),
+                            horizontal_space(),
+                            text(format!("{} bornes", strip.terminals.len()))
+                                .size(10.0)
+                                .color(t.text2),
+                        ]
+                        .align_y(Alignment::Center),
+                    ]
+                    .spacing(4);
+
+                    if strip.has_duplicates {
+                        strip_card = strip_card.push(
+                            row![
+                                crate::icons::view_icon(crate::icons::Icon::Warning, 11, t.amber),
+                                text("Aviso: Existem bornes com numeração repetida nesta régua.")
+                                    .size(10.0)
+                                    .color(t.amber),
+                            ]
+                            .spacing(4)
+                            .align_y(Alignment::Center),
+                        );
+                    }
+
+                    // Tabela de bornes da régua
+                    for term in &strip.terminals {
+                        let t_page = term.page_index;
+                        let t_id = term.item_id;
+                        let dup_badge = if term.is_duplicate {
+                            container(text("Repetido").size(9.0).color(t.amber))
+                                .style(theme::card)
+                                .padding(Padding::from([1.0, 3.0]))
+                        } else {
+                            container(Space::with_width(0))
+                        };
+
+                        let conn_info = if term.connected_targets.is_empty() {
+                            String::new()
+                        } else {
+                            format!(" -> {}", term.connected_targets.join(", "))
+                        };
+
+                        strip_card = strip_card.push(
+                            row![
+                                text(format!("• Borne {}", term.terminal_number))
+                                    .size(10.5)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..MONO
+                                    }),
+                                dup_badge,
+                                text(format!(
+                                    "Folha {} ({}){}",
+                                    term.page_index + 1,
+                                    term.grid_ref,
+                                    conn_info
+                                ))
+                                .size(10.0)
+                                .font(MONO)
+                                .color(t.text2),
+                                horizontal_space(),
+                                button(text("Ir").size(9.5).font(UI))
+                                    .style(theme::tool)
+                                    .padding(Padding::from([1.0, 5.0]))
+                                    .on_press(Message::NavigateToElement {
+                                        page_index: t_page,
+                                        item_id: t_id,
+                                    }),
+                            ]
+                            .spacing(4)
+                            .align_y(Alignment::Center),
+                        );
+                    }
+
+                    bornes_col = bornes_col.push(
+                        container(strip_card)
+                            .style(theme::card)
+                            .padding(Padding::from([6.0, 8.0]))
+                            .width(Length::Fill),
+                    );
+                }
+            }
+
+            container(scrollable(bornes_col))
+                .height(Length::Fill)
+                .into()
         }
         _ => {
             // Aba Geral

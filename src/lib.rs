@@ -13,9 +13,11 @@ pub mod svg_symbol;
 pub mod symbols;
 pub mod theme;
 pub mod ui;
+pub mod xref;
 
 pub use app::{
     ActiveMenu, CadeSimuApp, ExportFormat, ExportPageOption, ExportScope, Message,
     PinSequenceOption, SaveFormat,
 };
 pub use canvas_view::EditorTool;
+pub use xref::TerminalStripKind;

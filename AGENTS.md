@@ -150,9 +150,10 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
 6. **Decisão D3 (Implementada e Validada): Isolamento de Blocos Visuais de Montagem:**
    * Elementos gráficos de montagem visual (painéis 2D, trilhos DIN, canaletas, bornes mecânicos e módulos de CLP) são classificados como `kind: CanonicalKind::Block`.
    * Não possuem terminais elétricos funcionais (`!is_wireable()`) e são **completamente ignorados pelo motor de simulação** em `src/sim/graph.rs`, preservando alta performance de simulação.
-7. **P2-#15 e P3-#17 (Bornes e Referência Cruzada):**
+7. **P2-#15 e P3-#17 (Bornes, Réguas e Referência Cruzada):**
    * A simulação elétrica gráfica conecta condutores via **coordenadas geométricas espaciais `(x, y)` e índices ordinais de pinos**, operando 100% mesmo na ausência de tags nos bornes.
    * **P3-#17 (Concluído):** 100% dos 5.700 elementos ligáveis da biblioteca canônica possuem bornes não-vazios e estritamente únicos normalizados segundo IEC 60947-1, EN 50005 e IEC 60204-1 (ex.: bobinas `A1`/`A2`, lâmpadas `X1`/`X2`, contatos térmicos `95`/`96` e `97`/`98`, disjuntores `1`/`2`, `3`/`4`, motores `U1`/`V1`/`W1` etc.), desbloqueando integralmente as réguas de bornes e a netlist de P2-#15.
+   * **P2-#15 (Concluído):** Sistema global de Referência Cruzada (XRef) e Réguas de Bornes IEC 81346 em `src/xref.rs`, com mapeamento de coordenadas de grade (ex.: `1.C6`), agrupamento bobina-contatos, detecção de contatos órfãos, análise de ramais elétricos (paralelo/série/direto), gerenciamento de réguas de bornes (`XP`, `XC`, `XT`, `X1..Xn`) com renomeação sequencial determinística e navegação inter-folhas na UI.
 
 ---
 
@@ -167,7 +168,7 @@ Toda e qualquer alteração deve respeitar rigorosamente as diretrizes abaixo de
      cargo clippy --all-targets -- -D warnings
      cargo test --all-targets
      ```
-   * Todos os 78 testes devem passar com 100% de sucesso e zero advertências do compilador.
+   * Todos os 86 testes devem passar com 100% de sucesso e zero advertências do compilador.
 3. **Padrão de Commits:**
    * Use Conventional Commits em Português do Brasil (ex.: `feat(ui): ...`, `fix(sim): ...`, `refactor(core): ...`, `test(integration): ...`).
    * É estritamente **proibido** o uso de `git push --force`.

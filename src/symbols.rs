@@ -3120,6 +3120,8 @@ pub enum ApparatusRole {
     TimedContact,
     /// Contato auxiliar de relé térmico (95-96 / 97-98, vinculado a um relé térmico -F)
     ThermalAuxContact,
+    /// Borne de ligação / passagem em régua de bornes (ex: -X1, -XP, -XC, -XT)
+    Terminal,
     /// Alimentação ou outro componente passivo
     Other,
 }
@@ -3137,6 +3139,7 @@ impl ApparatusRole {
                 | ApparatusRole::Motor
                 | ApparatusRole::SwitchOrButton
                 | ApparatusRole::Signaling
+                | ApparatusRole::Terminal
         )
     }
 
@@ -3174,6 +3177,26 @@ impl ApparatusRole {
             _ => "aparelho pai",
         }
     }
+
+    /// Nome amigável de exibição do papel funcional do aparelho.
+    pub fn display_name(self) -> &'static str {
+        match self {
+            ApparatusRole::Coil => "Bobina de Comando (-KM)",
+            ApparatusRole::Timer => "Relé Temporizador (-KT)",
+            ApparatusRole::ThermalRelay => "Relé Térmico (-F)",
+            ApparatusRole::Breaker => "Disjuntor (-Q)",
+            ApparatusRole::Fuse => "Fusível (-F)",
+            ApparatusRole::Motor => "Motor Elétrico (-M)",
+            ApparatusRole::SwitchOrButton => "Botoeira / Chave (-S)",
+            ApparatusRole::Signaling => "Sinalizador (-H)",
+            ApparatusRole::PowerContactorPoles => "Polos de Potência",
+            ApparatusRole::AuxiliaryContact => "Contato Auxiliar",
+            ApparatusRole::TimedContact => "Contato Temporizado",
+            ApparatusRole::ThermalAuxContact => "Contato de Sobrecarga",
+            ApparatusRole::Terminal => "Borne de Régua (-X)",
+            ApparatusRole::Other => "Dispositivo",
+        }
+    }
 }
 
 pub fn classify_apparatus_role(tipo: i32) -> ApparatusRole {
@@ -3192,6 +3215,65 @@ pub fn classify_apparatus_role(tipo: i32) -> ApparatusRole {
         8016..=8019 => ApparatusRole::ThermalAuxContact,
         _ => ApparatusRole::Other,
     }
+}
+
+/// Classifica o papel funcional do elemento no circuito (suportando símbolos nativos CADe e canônicos QET).
+pub fn classify_item_role(item: &SchematicItem) -> ApparatusRole {
+    if let Some(slug) = item.symbol_id_or_slug() {
+        if let Some(dict) = crate::canonical::global_dictionary() {
+            if let Some(el) = dict.get(slug) {
+                match el.kind {
+                    crate::canonical::CanonicalKind::RelayCoil => return ApparatusRole::Coil,
+                    crate::canonical::CanonicalKind::CircuitBreaker => {
+                        return ApparatusRole::Breaker
+                    }
+                    crate::canonical::CanonicalKind::Fuse => return ApparatusRole::Fuse,
+                    crate::canonical::CanonicalKind::Motor => return ApparatusRole::Motor,
+                    crate::canonical::CanonicalKind::Lamp => return ApparatusRole::Signaling,
+                    crate::canonical::CanonicalKind::MomentaryButton
+                    | crate::canonical::CanonicalKind::LatchingSwitch
+                    | crate::canonical::CanonicalKind::LimitSwitch
+                    | crate::canonical::CanonicalKind::EmergencyStop
+                    | crate::canonical::CanonicalKind::SelectorSwitch => {
+                        return ApparatusRole::SwitchOrButton;
+                    }
+                    crate::canonical::CanonicalKind::ContactorContact => {
+                        return if el.terminals.len() >= 6 {
+                            ApparatusRole::PowerContactorPoles
+                        } else {
+                            ApparatusRole::AuxiliaryContact
+                        };
+                    }
+                    crate::canonical::CanonicalKind::ThermalContact => {
+                        return ApparatusRole::ThermalAuxContact;
+                    }
+                    crate::canonical::CanonicalKind::Terminal
+                    | crate::canonical::CanonicalKind::Connector => {
+                        return ApparatusRole::Terminal;
+                    }
+                    _ => {}
+                }
+            }
+        }
+    }
+
+    let role = classify_apparatus_role(item.tipo);
+    if role == ApparatusRole::Other {
+        let tag = item.tag.trim().to_uppercase();
+        if (tag.starts_with("-X") || tag.starts_with('X')) && !(3000..=3009).contains(&item.tipo) {
+            return ApparatusRole::Terminal;
+        }
+    }
+    role
+}
+
+/// Verifica se o elemento é um borne de passagem ou conector de régua de bornes (IEC 81346).
+pub fn is_terminal_item(item: &SchematicItem) -> bool {
+    if classify_item_role(item) == ApparatusRole::Terminal {
+        return true;
+    }
+    let tag = item.tag.trim().to_uppercase();
+    (tag.starts_with("-X") || tag.starts_with('X')) && !(3000..=3009).contains(&item.tipo)
 }
 
 /// Extrai o prefixo literal de uma tag (ex: "-KM" de "-KM1", "-S" de "-S2", "-B" de "-B1").
