@@ -20,9 +20,9 @@ RJ45</text>
 RJ45</text>
     <rect x="-48.00" y="228.00" width="96.00" height="48.00" stroke="black" fill="none" />
     <line x1="0.00" y1="228.00" x2="0.00" y2="276.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="84.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-81.60" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="273.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-24.00" cy="273.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="84.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="X4" data-orientation="n" />
+    <circle class="qet-terminal" cx="-81.60" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="X1" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="273.60" r="4.0" fill="red" stroke="none" data-name="X3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="273.60" r="4.0" fill="red" stroke="none" data-name="X2" data-orientation="s" />
   </g>
 </svg>

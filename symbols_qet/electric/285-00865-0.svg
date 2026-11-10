@@ -124,9 +124,9 @@
     <text x="180.00" y="45.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">QA0</text>
     <text x="936.00" y="100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">TB8</text>
     <text x="768.00" y="100.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">TB7</text>
-    <circle class="qet-terminal" cx="636.00" cy="-328.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="50.40" cy="-489.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="636.00" cy="-480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="50.40" cy="-444.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="636.00" cy="-328.80" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="50.40" cy="-489.60" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="636.00" cy="-480.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="50.40" cy="-444.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
   </g>
 </svg>

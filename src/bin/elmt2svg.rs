@@ -466,20 +466,29 @@ pub fn convert_elmt_file(
                     let orientation = child.attribute("orientation").unwrap_or("n").to_string();
 
                     terminals.push(TerminalMetadata {
-                        name: name.clone(),
+                        name,
                         x,
                         y,
-                        orientation: orientation.clone(),
+                        orientation,
                     });
-
-                    svg.push_str(&format!(
-                        "    <circle class=\"qet-terminal\" cx=\"{:.2}\" cy=\"{:.2}\" r=\"4.0\" fill=\"red\" stroke=\"none\" data-name=\"{}\" data-orientation=\"{}\" />\n",
-                        x, y, name, orientation
-                    ));
                 }
                 _ => {}
             }
         }
+    }
+
+    // Normaliza nomes de bornes conforme IEC 60947-1 / EN 50005 (P3-#17)
+    let kind = classify_element_kind(&unique_stem, category, &final_name_en, terminals.len());
+    if kind.is_wireable() && !terminals.is_empty() {
+        let pt_str = name_pt.as_deref().unwrap_or("");
+        normalize_canonical_terminals(kind, &unique_stem, pt_str, &final_name_en, &mut terminals);
+    }
+
+    for term in &terminals {
+        svg.push_str(&format!(
+            "    <circle class=\"qet-terminal\" cx=\"{:.2}\" cy=\"{:.2}\" r=\"4.0\" fill=\"red\" stroke=\"none\" data-name=\"{}\" data-orientation=\"{}\" />\n",
+            term.x, term.y, term.name, term.orientation
+        ));
     }
 
     svg.push_str("  </g>\n");

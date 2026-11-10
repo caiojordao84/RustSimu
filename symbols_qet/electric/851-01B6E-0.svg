@@ -28,9 +28,9 @@
     <path d="M 25.41 0.00 A 25.41 25.41 0 1 0 -0.00 25.41" stroke="white" fill="none" />
     <polygon points="0.00,22.59 0.00,28.24 5.65,25.41" stroke="none" fill="white" />
     <text x="-90.35" y="96.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">NF</text>
-    <circle class="qet-terminal" cx="-104.47" cy="115.76" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="64.94" cy="115.76" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="112.94" cy="115.76" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-56.47" cy="115.76" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-104.47" cy="115.76" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="64.94" cy="115.76" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="112.94" cy="115.76" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-56.47" cy="115.76" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

@@ -521,6 +521,377 @@ pub fn determine_overlays(kind: CanonicalKind) -> Vec<String> {
     }
 }
 
+/// Normaliza e garante a unicidade e preenchimento de nomes de terminais em elementos canônicos (P3-#17).
+/// Segue as normas IEC 60947-1, IEC 60204-1, EN 50005 e IEC 81346:
+/// - Bobinas (relay_coil): A1, A2 (e B1, B2 se dupla)
+/// - Sinalizadores (lamp): X1, X2...
+/// - Contatos térmicos (thermal_contact): 95, 96 (NF) ou 97, 98 (NA)
+/// - Aparelhos de proteção e polos (circuit_breaker, fuse, disconnector, contactor_contact):
+///   Polo 1: 1, 2; Polo 2: 3, 4; Polo 3: 5, 6; Polo 4: 7, 8
+/// - Motores (motor): U, V, W, PE ou U1, V1, W1, U2, V2, W2
+/// - Botoeiras e chaves: 11, 12 (NF) ou 13, 14 (NA)
+/// - Fontes (source): L1, L2, L3, N, PE ou +, -
+/// - Passivos, bornes e conectores: numeração sequencial 1, 2, 3...
+/// - Desduplicação: qualquer duplicata restante recebe sufixo _2, _3...
+pub fn normalize_canonical_terminals(
+    kind: CanonicalKind,
+    slug: &str,
+    name_pt: &str,
+    name_en: &str,
+    terminals: &mut [TerminalMetadata],
+) {
+    if terminals.is_empty() || !kind.is_wireable() {
+        return;
+    }
+
+    // Se todos os terminais já possuem nomes não-vazios e todos são mutuamente exclusivos, preserva.
+    let all_non_empty = terminals.iter().all(|t| !t.name.trim().is_empty());
+    if all_non_empty {
+        let mut set = HashSet::new();
+        let all_unique = terminals
+            .iter()
+            .all(|t| set.insert(t.name.trim().to_string()));
+        if all_unique {
+            return;
+        }
+    }
+
+    let n = terminals.len();
+    let name_l = format!("{} {} {}", slug, name_pt, name_en).to_ascii_lowercase();
+
+    let is_nc = name_l.contains("nc")
+        || name_l.contains("nf")
+        || name_l.contains("fechado")
+        || name_l.contains("ferme")
+        || name_l.contains("geschlossen")
+        || name_l.contains("break")
+        || name_l.contains("emergency")
+        || name_l.contains("parada")
+        || name_l.contains("desarme");
+
+    let is_no = name_l.contains("no")
+        || name_l.contains("na")
+        || name_l.contains("aberto")
+        || name_l.contains("ouvert")
+        || name_l.contains("schliesser")
+        || name_l.contains("make")
+        || name_l.contains("partida");
+
+    let mut assigned: Vec<Option<String>> = vec![None; n];
+
+    // Helper: índices ordenados por (y, x)
+    let mut by_y_x: Vec<usize> = (0..n).collect();
+    by_y_x.sort_by(|&a, &b| {
+        terminals[a]
+            .y
+            .partial_cmp(&terminals[b].y)
+            .unwrap_or(std::cmp::Ordering::Equal)
+            .then_with(|| {
+                terminals[a]
+                    .x
+                    .partial_cmp(&terminals[b].x)
+                    .unwrap_or(std::cmp::Ordering::Equal)
+            })
+    });
+
+    // Helper: índices ordenados por (x, y)
+    let mut by_x_y: Vec<usize> = (0..n).collect();
+    by_x_y.sort_by(|&a, &b| {
+        terminals[a]
+            .x
+            .partial_cmp(&terminals[b].x)
+            .unwrap_or(std::cmp::Ordering::Equal)
+            .then_with(|| {
+                terminals[a]
+                    .y
+                    .partial_cmp(&terminals[b].y)
+                    .unwrap_or(std::cmp::Ordering::Equal)
+            })
+    });
+
+    match kind {
+        CanonicalKind::RelayCoil => {
+            if n == 2 {
+                assigned[by_y_x[0]] = Some("A1".to_string());
+                assigned[by_y_x[1]] = Some("A2".to_string());
+            } else if n == 3 {
+                assigned[by_y_x[0]] = Some("A1".to_string());
+                assigned[by_y_x[1]] = Some("A2".to_string());
+                assigned[by_y_x[2]] = Some("A3".to_string());
+            } else if n == 4 {
+                assigned[by_x_y[0]] = Some("A1".to_string());
+                assigned[by_x_y[1]] = Some("A2".to_string());
+                assigned[by_x_y[2]] = Some("B1".to_string());
+                assigned[by_x_y[3]] = Some("B2".to_string());
+            }
+        }
+        CanonicalKind::Lamp => {
+            if n == 2 {
+                assigned[by_y_x[0]] = Some("X1".to_string());
+                assigned[by_y_x[1]] = Some("X2".to_string());
+            } else {
+                for (r, &idx) in by_x_y.iter().enumerate() {
+                    assigned[idx] = Some(format!("X{}", r + 1));
+                }
+            }
+        }
+        CanonicalKind::ThermalContact => {
+            if n == 2 {
+                if is_no && !is_nc {
+                    assigned[by_y_x[0]] = Some("97".to_string());
+                    assigned[by_y_x[1]] = Some("98".to_string());
+                } else {
+                    assigned[by_y_x[0]] = Some("95".to_string());
+                    assigned[by_y_x[1]] = Some("96".to_string());
+                }
+            } else if n == 3 {
+                assigned[by_y_x[0]] = Some("95".to_string());
+                assigned[by_y_x[1]] = Some("96".to_string());
+                assigned[by_y_x[2]] = Some("98".to_string());
+            } else if n == 4 {
+                assigned[by_x_y[0]] = Some("95".to_string());
+                assigned[by_x_y[1]] = Some("96".to_string());
+                assigned[by_x_y[2]] = Some("97".to_string());
+                assigned[by_x_y[3]] = Some("98".to_string());
+            }
+        }
+        CanonicalKind::Motor => {
+            if n == 2 {
+                assigned[by_y_x[0]] = Some("U1".to_string());
+                assigned[by_y_x[1]] = Some("U2".to_string());
+            } else if n == 3 {
+                assigned[by_x_y[0]] = Some("U".to_string());
+                assigned[by_x_y[1]] = Some("V".to_string());
+                assigned[by_x_y[2]] = Some("W".to_string());
+            } else if n == 4 {
+                assigned[by_x_y[0]] = Some("U".to_string());
+                assigned[by_x_y[1]] = Some("V".to_string());
+                assigned[by_x_y[2]] = Some("W".to_string());
+                assigned[by_x_y[3]] = Some("PE".to_string());
+            } else if n == 6 {
+                let mut top: Vec<usize> = by_y_x[..3].to_vec();
+                let mut bot: Vec<usize> = by_y_x[3..].to_vec();
+                top.sort_by(|&a, &b| terminals[a].x.partial_cmp(&terminals[b].x).unwrap());
+                bot.sort_by(|&a, &b| terminals[a].x.partial_cmp(&terminals[b].x).unwrap());
+                assigned[top[0]] = Some("U1".to_string());
+                assigned[top[1]] = Some("V1".to_string());
+                assigned[top[2]] = Some("W1".to_string());
+                assigned[bot[0]] = Some("U2".to_string());
+                assigned[bot[1]] = Some("V2".to_string());
+                assigned[bot[2]] = Some("W2".to_string());
+            }
+        }
+        CanonicalKind::MomentaryButton
+        | CanonicalKind::LatchingSwitch
+        | CanonicalKind::LimitSwitch
+        | CanonicalKind::EmergencyStop
+        | CanonicalKind::SelectorSwitch => {
+            if n == 2 {
+                if kind == CanonicalKind::EmergencyStop || (is_nc && !is_no) {
+                    assigned[by_y_x[0]] = Some("11".to_string());
+                    assigned[by_y_x[1]] = Some("12".to_string());
+                } else {
+                    assigned[by_y_x[0]] = Some("13".to_string());
+                    assigned[by_y_x[1]] = Some("14".to_string());
+                }
+            } else if n == 3 {
+                assigned[by_y_x[0]] = Some("11".to_string());
+                assigned[by_y_x[1]] = Some("12".to_string());
+                assigned[by_y_x[2]] = Some("14".to_string());
+            } else if n == 4 {
+                assigned[by_x_y[0]] = Some("13".to_string());
+                assigned[by_x_y[1]] = Some("14".to_string());
+                assigned[by_x_y[2]] = Some("21".to_string());
+                assigned[by_x_y[3]] = Some("22".to_string());
+            }
+        }
+        CanonicalKind::CircuitBreaker
+        | CanonicalKind::Fuse
+        | CanonicalKind::Disconnector
+        | CanonicalKind::ContactorContact => {
+            if n.is_multiple_of(2) {
+                let num_poles = n / 2;
+                let mut ys: Vec<f64> = terminals.iter().map(|t| t.y).collect();
+                ys.sort_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal));
+                let median_y = ys[n / 2];
+
+                let mut top_half: Vec<usize> =
+                    (0..n).filter(|&i| terminals[i].y < median_y).collect();
+                let mut bot_half: Vec<usize> =
+                    (0..n).filter(|&i| terminals[i].y >= median_y).collect();
+
+                if top_half.len() == num_poles && bot_half.len() == num_poles {
+                    top_half.sort_by(|&a, &b| {
+                        terminals[a]
+                            .x
+                            .partial_cmp(&terminals[b].x)
+                            .unwrap_or(std::cmp::Ordering::Equal)
+                    });
+                    bot_half.sort_by(|&a, &b| {
+                        terminals[a]
+                            .x
+                            .partial_cmp(&terminals[b].x)
+                            .unwrap_or(std::cmp::Ordering::Equal)
+                    });
+
+                    for p in 0..num_poles {
+                        let in_pin = format!("{}", 2 * p + 1);
+                        let out_pin = format!("{}", 2 * p + 2);
+                        assigned[top_half[p]] = Some(in_pin);
+                        assigned[bot_half[p]] = Some(out_pin);
+                    }
+                } else {
+                    // Disposição horizontal (partição por x)
+                    let mut xs: Vec<f64> = terminals.iter().map(|t| t.x).collect();
+                    xs.sort_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal));
+                    let median_x = xs[n / 2];
+
+                    let mut left_half: Vec<usize> =
+                        (0..n).filter(|&i| terminals[i].x < median_x).collect();
+                    let mut right_half: Vec<usize> =
+                        (0..n).filter(|&i| terminals[i].x >= median_x).collect();
+
+                    if left_half.len() == num_poles && right_half.len() == num_poles {
+                        left_half.sort_by(|&a, &b| {
+                            terminals[a]
+                                .y
+                                .partial_cmp(&terminals[b].y)
+                                .unwrap_or(std::cmp::Ordering::Equal)
+                        });
+                        right_half.sort_by(|&a, &b| {
+                            terminals[a]
+                                .y
+                                .partial_cmp(&terminals[b].y)
+                                .unwrap_or(std::cmp::Ordering::Equal)
+                        });
+
+                        for p in 0..num_poles {
+                            let in_pin = format!("{}", 2 * p + 1);
+                            let out_pin = format!("{}", 2 * p + 2);
+                            assigned[left_half[p]] = Some(in_pin);
+                            assigned[right_half[p]] = Some(out_pin);
+                        }
+                    }
+                }
+            }
+        }
+        CanonicalKind::Source => {
+            if n == 1 {
+                if name_l.contains("pe") || name_l.contains("terra") || name_l.contains("earth") {
+                    assigned[0] = Some("PE".to_string());
+                } else if name_l.contains("neutro") || name_l.contains("neutral") {
+                    assigned[0] = Some("N".to_string());
+                } else if name_l.contains('-') || name_l.contains("negativo") {
+                    assigned[0] = Some("-".to_string());
+                } else if name_l.contains('+') || name_l.contains("positivo") {
+                    assigned[0] = Some("+".to_string());
+                } else {
+                    assigned[0] = Some("L".to_string());
+                }
+            } else if n == 2 {
+                if name_l.contains('+')
+                    || name_l.contains('-')
+                    || name_l.contains("cc")
+                    || name_l.contains("dc")
+                {
+                    assigned[by_x_y[0]] = Some("+".to_string());
+                    assigned[by_x_y[1]] = Some("-".to_string());
+                } else {
+                    assigned[by_x_y[0]] = Some("L".to_string());
+                    assigned[by_x_y[1]] = Some("N".to_string());
+                }
+            } else if n == 3 {
+                assigned[by_x_y[0]] = Some("L1".to_string());
+                assigned[by_x_y[1]] = Some("L2".to_string());
+                assigned[by_x_y[2]] = Some("L3".to_string());
+            } else if n == 4 {
+                assigned[by_x_y[0]] = Some("L1".to_string());
+                assigned[by_x_y[1]] = Some("L2".to_string());
+                assigned[by_x_y[2]] = Some("L3".to_string());
+                if name_l.contains("pe") || name_l.contains("terra") || name_l.contains("earth") {
+                    assigned[by_x_y[3]] = Some("PE".to_string());
+                } else {
+                    assigned[by_x_y[3]] = Some("N".to_string());
+                }
+            } else if n == 5 {
+                assigned[by_x_y[0]] = Some("L1".to_string());
+                assigned[by_x_y[1]] = Some("L2".to_string());
+                assigned[by_x_y[2]] = Some("L3".to_string());
+                assigned[by_x_y[3]] = Some("N".to_string());
+                assigned[by_x_y[4]] = Some("PE".to_string());
+            }
+        }
+        CanonicalKind::Terminal => {
+            if n == 2 {
+                assigned[by_y_x[0]] = Some("1".to_string());
+                assigned[by_y_x[1]] = Some("2".to_string());
+            } else {
+                for (r, &idx) in by_y_x.iter().enumerate() {
+                    assigned[idx] = Some(format!("{}", r + 1));
+                }
+            }
+        }
+        _ => {}
+    }
+
+    // Preserva e desambigua nomes existentes válidos (não vazios)
+    let mut used_names = HashSet::new();
+    for name in assigned.iter().flatten() {
+        used_names.insert(name.clone());
+    }
+
+    let mut seen_existing: HashMap<String, usize> = HashMap::new();
+    for idx in 0..n {
+        let curr = terminals[idx].name.trim().to_string();
+        if assigned[idx].is_none() && !curr.is_empty() {
+            let count = seen_existing.entry(curr.clone()).or_insert(0);
+            *count += 1;
+            let cand = if *count == 1 && !used_names.contains(&curr) {
+                curr
+            } else {
+                let mut suffix = *count;
+                let mut disambiguated = format!("{}_{}", curr, suffix);
+                while used_names.contains(&disambiguated) {
+                    suffix += 1;
+                    disambiguated = format!("{}_{}", curr, suffix);
+                }
+                disambiguated
+            };
+            used_names.insert(cand.clone());
+            assigned[idx] = Some(cand);
+        }
+    }
+
+    // Para qualquer terminal ainda não preenchido, atribui numeração sequencial 1, 2, 3...
+    let mut counter = 1;
+    for &idx in &by_y_x {
+        if assigned[idx].is_none() {
+            while used_names.contains(&format!("{counter}")) {
+                counter += 1;
+            }
+            let cand = format!("{counter}");
+            used_names.insert(cand.clone());
+            assigned[idx] = Some(cand);
+            counter += 1;
+        }
+    }
+
+    // Passo final de garantia estrita de unicidade: disambigua duplicatas com _2, _3...
+    let mut seen_counts: HashMap<String, usize> = HashMap::new();
+    for idx in 0..n {
+        let base_name = assigned[idx]
+            .take()
+            .unwrap_or_else(|| format!("{}", idx + 1));
+        let count = seen_counts.entry(base_name.clone()).or_insert(0);
+        *count += 1;
+        if *count > 1 {
+            terminals[idx].name = format!("{}_{}", base_name, *count);
+        } else {
+            terminals[idx].name = base_name;
+        }
+    }
+}
+
 fn collect_svg_paths(dir: &Path, out: &mut Vec<PathBuf>) -> std::io::Result<()> {
     for entry in fs::read_dir(dir)?.flatten() {
         let path = entry.path();
@@ -643,12 +1014,15 @@ pub fn migrate_to_canonical(
         let name_en = meta.name_en.clone();
         let name_pt = meta.name_pt.clone().unwrap_or_else(|| name_en.clone());
         let is_plc = is_plc_element(&meta.id, &meta.category, &name_en);
-        let terminals = if is_plc {
+        let mut terminals = if is_plc {
             Vec::new()
         } else {
             meta.terminals.clone()
         };
         let kind = classify_element_kind(&meta.id, &meta.category, &name_en, terminals.len());
+        if kind.is_wireable() && !terminals.is_empty() {
+            normalize_canonical_terminals(kind, &meta.id, &name_pt, &name_en, &mut terminals);
+        }
         let tags = extract_tags(&meta.id, &name_en, &name_pt, kind, &meta.category);
         let overlays = determine_overlays(kind);
 
@@ -847,6 +1221,25 @@ pub fn check_canonical_catalog(target_base: &Path) -> Result<CanonicalCheckSumma
                 "Elemento {} ({}) com bbox não-positiva: {}x{}",
                 el.id, el.slug, el.bbox.w, el.bbox.h
             ));
+        }
+
+        // Valida invariantes de bornes P3-#17 para elementos cabáveis
+        if el.kind.is_wireable() {
+            let mut names_set = HashSet::new();
+            for term in &el.terminals {
+                if term.name.trim().is_empty() {
+                    errors.push(format!(
+                        "Elemento {} ({}) possui borne com nome vazio",
+                        el.id, el.slug
+                    ));
+                }
+                if !names_set.insert(term.name.trim().to_string()) {
+                    errors.push(format!(
+                        "Elemento {} ({}) possui borne duplicado: {:?}",
+                        el.id, el.slug, term.name
+                    ));
+                }
+            }
         }
     }
 

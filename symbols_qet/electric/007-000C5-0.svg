@@ -8,7 +8,7 @@
     <line x1="0.00" y1="-16.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
     <path d="M -0.50 0.03 A 4.80 4.80 0 0 0 -4.80 4.80" stroke="black" fill="none" />
     <path d="M 4.80 4.88 A 4.80 4.80 0 0 0 0.59 0.03" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

@@ -11,7 +11,7 @@
     <line x1="6.40" y1="9.60" x2="16.00" y2="-1.60" stroke="black" fill="none" />
     <polyline points="9.60,-4.80 16.00,-1.60 9.60,16.00" stroke="black" fill="none" />
     <ellipse cx="0.00" cy="-9.60" rx="3.20" ry="1.60" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

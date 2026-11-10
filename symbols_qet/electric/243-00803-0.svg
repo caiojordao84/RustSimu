@@ -287,11 +287,11 @@ Link</text>
     <text x="-81.60" y="-40.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Digital Outputs (Relays) max 16A</text>
     <text x="-48.00" y="-1.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
     <text x="-21.60" y="39.12" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Relay</text>
-    <circle class="qet-terminal" cx="-156.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-112.80" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-170.40" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-98.40" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-141.60" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-127.20" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-156.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-112.80" cy="120.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="-170.40" cy="120.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-98.40" cy="120.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="-141.60" cy="120.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-127.20" cy="120.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

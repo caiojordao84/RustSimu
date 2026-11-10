@@ -51,9 +51,9 @@
     <rect x="57.60" y="99.60" width="30.00" height="10.80" stroke="black" fill="#00aa00" />
     <rect x="0.00" y="60.00" width="96.00" height="36.00" stroke="black" fill="cyan" />
     <text x="64.80" y="106.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">O.OFF</text>
-    <circle class="qet-terminal" cx="24.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
   </g>
 </svg>

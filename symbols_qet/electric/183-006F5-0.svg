@@ -16,9 +16,9 @@
     <rect x="-84.00" y="-180.00" width="12.00" height="12.00" stroke="black" fill="none" />
     <rect x="96.00" y="12.00" width="12.00" height="12.00" stroke="black" fill="none" />
     <text x="69.60" y="2.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">GCE Electronics</text>
-    <circle class="qet-terminal" cx="40.80" cy="-134.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.80" cy="-112.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.80" cy="-86.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="40.80" cy="-62.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.80" cy="-134.40" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.80" cy="-112.80" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.80" cy="-86.40" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="40.80" cy="-62.40" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
   </g>
 </svg>

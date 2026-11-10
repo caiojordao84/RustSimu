@@ -22,8 +22,8 @@
     <text x="-74.21" y="-11.98" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">Δ P</text>
     <text x="-93.98" y="21.63" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">E</text>
     <polygon points="-104.00,-64.00 48.00,-64.00 48.00,112.00 -128.00,112.00 -128.00,-64.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <circle class="qet-terminal" cx="48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="48.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="48.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="48.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="48.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
   </g>
 </svg>

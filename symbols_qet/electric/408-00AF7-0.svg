@@ -28,9 +28,9 @@
     <text x="12.00" y="28.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">n.c.</text>
     <circle cx="-97.20" cy="-29.86" r="2.40" stroke="black" fill="none" />
     <path d="M -86.33 -23.52 A 12.00 15.00 0 0 0 -86.33 -36.19" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

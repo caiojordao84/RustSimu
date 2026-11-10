@@ -17,8 +17,8 @@
     <rect x="-4.67" y="-6.67" width="1.33" height="13.33" stroke="black" fill="black" />
     <rect x="-2.00" y="-10.00" width="14.67" height="1.33" stroke="black" fill="black" />
     <rect x="14.67" y="-6.67" width="1.33" height="13.33" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-18.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="5.33" cy="-22.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="30.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-18.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="5.33" cy="-22.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="30.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
   </g>
 </svg>

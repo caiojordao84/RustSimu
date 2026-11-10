@@ -23,10 +23,10 @@
     <line x1="22.67" y1="-41.33" x2="17.33" y2="17.33" stroke="black" fill="none" />
     <rect x="-24.00" y="-28.00" width="1.33" height="2.67" stroke="black" fill="none" />
     <polyline points="-12.00,-28.00 -9.33,-32.00 -9.33,-28.00 -5.33,-32.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-25.33" cy="-26.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-25.33" cy="26.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-12.00" cy="-37.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="22.67" cy="-26.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="22.67" cy="26.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-25.33" cy="-26.67" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-25.33" cy="26.67" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="w" />
+    <circle class="qet-terminal" cx="-12.00" cy="-37.33" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="22.67" cy="-26.67" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="22.67" cy="26.67" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="e" />
   </g>
 </svg>

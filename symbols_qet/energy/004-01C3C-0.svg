@@ -21,8 +21,8 @@
     <line x1="-96.00" y1="-60.00" x2="-96.00" y2="72.00" stroke="black" fill="none" />
     <polyline points="-35.47,-81.60 -35.47,-60.00 -28.08,-52.80 -5.93,-48.00 8.86,-48.00 31.01,-52.80 38.40,-60.00 38.40,-81.60" stroke="black" fill="none" />
     <polygon points="-115.20,21.60 -112.80,38.40 -110.40,48.00 -108.00,55.20 -105.60,62.40 -103.20,67.20 -98.40,69.60 194.40,69.60 199.20,69.60 204.00,64.80 208.80,50.40 211.20,38.40 213.60,21.60" stroke="black" fill="brun" />
-    <circle class="qet-terminal" cx="24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

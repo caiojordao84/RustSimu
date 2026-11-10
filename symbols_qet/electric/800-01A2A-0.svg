@@ -59,9 +59,9 @@
     <path d="M 64.32 414.00 A 0.00 9.60 0 0 0 64.32 404.40" stroke="black" fill="none" />
     <path d="M 77.52 414.00 A 13.20 0.00 0 0 0 64.32 414.00" stroke="black" fill="none" />
     <path d="M 78.72 404.40 A 0.00 9.60 0 0 0 78.72 414.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="72.00" cy="420.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="72.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="420.00" r="4.0" fill="red" stroke="none" data-name="B1" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="B2" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="s" />
   </g>
 </svg>

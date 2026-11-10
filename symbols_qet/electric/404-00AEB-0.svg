@@ -54,9 +54,9 @@
     <line x1="-19.20" y1="-50.40" x2="-26.40" y2="-38.40" stroke="black" fill="none" />
     <text x="33.60" y="12.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">WL, WTB</text>
     <rect x="-50.40" y="-60.00" width="156.00" height="4.80" stroke="#d40000" fill="#d40000" />
-    <circle class="qet-terminal" cx="0.00" cy="103.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="48.00" cy="103.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="96.00" cy="103.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-48.00" cy="103.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="103.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="103.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="96.00" cy="103.20" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-48.00" cy="103.20" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
   </g>
 </svg>

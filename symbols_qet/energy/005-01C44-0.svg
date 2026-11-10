@@ -49,10 +49,10 @@
     <ellipse cx="7.95" cy="-82.56" rx="6.35" ry="6.96" stroke="black" fill="none" stroke-dasharray="4,3" />
     <line x1="13.04" y1="-70.96" x2="14.29" y2="-80.24" stroke="black" fill="none" stroke-dasharray="4,3" />
     <line x1="1.63" y1="-80.61" x2="1.63" y2="-0.85" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="-24.00" cy="26.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="53.33" cy="26.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="26.67" cy="-10.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-21.33" cy="-53.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="26.67" cy="-53.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="26.67" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="w" />
+    <circle class="qet-terminal" cx="53.33" cy="26.67" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="e" />
+    <circle class="qet-terminal" cx="26.67" cy="-10.67" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-21.33" cy="-53.33" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="26.67" cy="-53.33" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

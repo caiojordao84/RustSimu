@@ -9,7 +9,7 @@
     <ellipse cx="1.38" cy="-23.92" rx="10.26" ry="9.51" stroke="black" fill="none" />
     <text x="-7.50" y="-21.00" font-size="13.5" font-family="sans-serif" fill="black" stroke="none">TCE</text>
     <polyline points="5.08,0.93 -0.26,7.50 -3.82,0.93" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="27.00" cy="-3.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-21.00" cy="-3.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="27.00" cy="-3.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-21.00" cy="-3.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

@@ -15,9 +15,9 @@
     <text x="-36.00" y="60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0VAC</text>
     <text x="72.00" y="60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">IN</text>
     <text x="108.00" y="60.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Out</text>
-    <circle class="qet-terminal" cx="96.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-96.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-48.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="U" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="W" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="V" data-orientation="n" />
   </g>
 </svg>

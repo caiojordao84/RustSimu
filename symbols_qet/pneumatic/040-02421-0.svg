@@ -14,7 +14,7 @@
     <line x1="16.00" y1="4.80" x2="35.20" y2="4.80" stroke="black" fill="none" />
     <ellipse cx="0.00" cy="8.00" rx="16.00" ry="16.00" stroke="black" fill="none" />
     <polygon points="-4.70,23.33 4.05,23.42 -0.11,14.11 -4.61,23.15" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="U1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="U2" data-orientation="s" />
   </g>
 </svg>

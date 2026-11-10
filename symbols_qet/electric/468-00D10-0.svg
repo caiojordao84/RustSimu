@@ -7,7 +7,7 @@
     <text x="-28.80" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">-</text>
     <text x="12.00" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
     <text x="-28.80" y="21.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BUS</text>
-    <circle class="qet-terminal" cx="-24.00" cy="81.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="81.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="81.60" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="81.60" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

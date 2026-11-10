@@ -11,7 +11,7 @@
     <line x1="-24.00" y1="-16.00" x2="-16.00" y2="-16.00" stroke="black" fill="none" />
     <text x="-4.00" y="-16.00" font-size="7.2" font-family="sans-serif" fill="black" stroke="none">Hg</text>
     <line x1="-4.80" y1="-1.60" x2="4.80" y2="-1.60" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="24.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-24.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

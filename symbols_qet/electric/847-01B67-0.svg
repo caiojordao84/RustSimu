@@ -74,9 +74,9 @@
     <text x="-32.00" y="-192.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LACROIX</text>
     <text x="-352.00" y="-361.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SOFREL</text>
     <text x="-1212.00" y="331.55" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">LACROIX</text>
-    <circle class="qet-terminal" cx="547.20" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="547.20" cy="-144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="544.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="547.20" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="547.20" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="547.20" cy="-144.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="544.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="547.20" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

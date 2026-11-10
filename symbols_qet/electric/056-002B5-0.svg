@@ -17,8 +17,8 @@
     <line x1="-48.00" y1="-48.00" x2="-48.00" y2="48.00" stroke="black" fill="none" />
     <ellipse cx="24.00" cy="-48.00" rx="6.00" ry="6.00" stroke="black" fill="none" />
     <text x="-33.60" y="-14.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">rd</text>
-    <circle class="qet-terminal" cx="-24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="72.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
   </g>
 </svg>

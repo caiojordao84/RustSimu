@@ -34,9 +34,9 @@
     <line x1="192.00" y1="-384.00" x2="192.00" y2="-374.40" stroke="black" fill="none" />
     <line x1="192.00" y1="-374.40" x2="163.20" y2="-345.60" stroke="black" fill="none" />
     <line x1="144.00" y1="-384.00" x2="144.00" y2="-345.60" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="96.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="192.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="144.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="144.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="U" data-orientation="n" />
+    <circle class="qet-terminal" cx="192.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="n" />
+    <circle class="qet-terminal" cx="144.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="W" data-orientation="s" />
+    <circle class="qet-terminal" cx="144.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="V" data-orientation="n" />
   </g>
 </svg>

@@ -26,8 +26,8 @@
     <line x1="14.40" y1="-9.60" x2="0.00" y2="0.00" stroke="HTMLOrangeTomato" fill="none" />
     <line x1="-9.60" y1="-4.80" x2="0.00" y2="0.00" stroke="HTMLOrangeTomato" fill="none" />
     <circle cx="0.00" cy="0.00" r="2.40" stroke="HTMLOrangeTomato" fill="black" stroke-width="1.2" />
-    <circle class="qet-terminal" cx="-24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

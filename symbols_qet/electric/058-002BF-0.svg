@@ -8,7 +8,7 @@
     <ellipse cx="0.00" cy="-18.00" rx="28.80" ry="42.00" stroke="black" fill="none" />
     <rect x="-10.80" y="24.00" width="21.60" height="19.20" stroke="black" fill="none" />
     <path d="M 9.50 4.78 A 4.80 7.92 0 1 0 0.00 3.12" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="X2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="X1" data-orientation="s" />
   </g>
 </svg>

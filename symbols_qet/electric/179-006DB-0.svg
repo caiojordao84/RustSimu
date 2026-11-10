@@ -28,8 +28,8 @@
     <rect x="-50.40" y="-55.20" width="4.80" height="14.40" stroke="black" fill="black" />
     <line x1="-48.00" y1="-71.52" x2="-48.00" y2="-61.92" stroke="black" fill="none" />
     <polygon points="-45.60,43.20 -45.60,52.80 -21.60,52.80 -21.60,43.20 -16.80,43.20 -16.80,57.60 -50.40,57.60 -50.40,43.20" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-48.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
   </g>
 </svg>

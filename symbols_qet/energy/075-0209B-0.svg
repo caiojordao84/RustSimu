@@ -34,7 +34,7 @@
     <ellipse cx="96.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
     <ellipse cx="216.00" cy="-72.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
     <polygon points="120.00,120.00 120.00,-62.40 225.60,-72.00 225.60,110.40" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="216.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-120.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="216.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="-120.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

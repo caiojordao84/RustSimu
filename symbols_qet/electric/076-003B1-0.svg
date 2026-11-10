@@ -30,8 +30,8 @@
     <path d="M 206.40 -331.20 A 4.80 4.80 0 0 0 201.60 -336.00" stroke="black" fill="none" />
     <polyline points="120.00,-379.20 120.00,-360.00 124.80,-345.60" stroke="black" fill="none" />
     <polyline points="168.00,-384.00 168.00,-360.00 163.20,-345.60" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="144.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="120.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="168.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="144.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="V" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="U" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="W" data-orientation="n" />
   </g>
 </svg>

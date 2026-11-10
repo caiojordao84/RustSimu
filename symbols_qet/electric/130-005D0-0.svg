@@ -161,8 +161,8 @@
     <text x="-15.00" y="298.38" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">BECKHOFF</text>
     <text x="-31.20" y="277.38" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">EtherCAT P</text>
     <text x="-15.60" y="7.80" font-size="5.4" font-family="sans-serif" fill="black" stroke="none">IN</text>
-    <circle class="qet-terminal" cx="22.28" cy="199.51" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="22.28" cy="99.06" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="22.28" cy="199.51" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="22.28" cy="99.06" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
     <circle class="qet-terminal" cx="-24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="X50" data-orientation="w" />
     <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="X51" data-orientation="e" />
   </g>

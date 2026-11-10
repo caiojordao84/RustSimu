@@ -31,8 +31,8 @@
     <text x="-38.40" y="124.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
     <text x="60.80" y="124.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
     <text x="12.80" y="124.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <circle class="qet-terminal" cx="-51.20" cy="131.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="48.00" cy="131.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="131.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-51.20" cy="131.20" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="131.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="131.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

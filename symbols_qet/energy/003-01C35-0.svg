@@ -25,9 +25,9 @@
     <ellipse cx="-8.40" cy="15.60" rx="13.20" ry="10.80" stroke="black" fill="none" />
     <rect x="-48.00" y="0.00" width="84.00" height="31.20" stroke="black" fill="none" />
     <polyline points="9.60,-115.20 19.20,-120.00 16.80,-115.20 28.80,-120.00 26.40,-120.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-69.60" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-69.60" cy="-67.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-9.60" cy="21.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="-129.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-69.60" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-69.60" cy="-67.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="-9.60" cy="21.60" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-129.60" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

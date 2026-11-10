@@ -21,7 +21,7 @@
     <line x1="-5.17" y1="10.76" x2="5.17" y2="10.76" stroke="black" fill="none" />
     <line x1="-5.17" y1="-15.21" x2="5.17" y2="-15.21" stroke="black" fill="none" />
     <rect x="-23.08" y="-12.92" width="11.08" height="25.85" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

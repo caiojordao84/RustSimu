@@ -10,7 +10,7 @@
     <polygon points="5.60,18.40 6.40,16.80 5.60,15.20 7.20,15.20 8.00,13.60 8.80,15.20 10.40,15.20 9.60,16.80 10.40,18.40 8.00,17.60" stroke="black" fill="black" />
     <polygon points="16.00,0.00 0.00,0.00 8.00,-16.00" stroke="black" fill="none" />
     <line x1="8.00" y1="8.00" x2="8.00" y2="-32.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="32.00" cy="40.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-16.00" cy="40.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="32.00" cy="40.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-16.00" cy="40.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

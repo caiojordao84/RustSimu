@@ -45,9 +45,9 @@
     <line x1="-40.00" y1="56.00" x2="-40.00" y2="64.00" stroke="black" fill="none" />
     <path d="M -60.58 8.51 A 32.00 32.00 0 0 0 -56.00 11.71" data-arc="-72.00,-48.00,64.00,64.00,230.00,10.00" stroke="black" fill="none" />
     <polyline points="-59.20,9.60 -59.20,30.40 -40.00,30.40" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="56.00" cy="64.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="56.00" cy="-64.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="8.00" cy="64.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-40.00" cy="64.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="56.00" cy="64.00" r="4.0" fill="red" stroke="none" data-name="22" data-orientation="s" />
+    <circle class="qet-terminal" cx="56.00" cy="-64.00" r="4.0" fill="red" stroke="none" data-name="21" data-orientation="n" />
+    <circle class="qet-terminal" cx="8.00" cy="64.00" r="4.0" fill="red" stroke="none" data-name="14" data-orientation="s" />
+    <circle class="qet-terminal" cx="-40.00" cy="64.00" r="4.0" fill="red" stroke="none" data-name="13" data-orientation="s" />
   </g>
 </svg>

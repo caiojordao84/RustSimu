@@ -10,9 +10,9 @@
     <line x1="-60.29" y1="-24.77" x2="55.20" y2="-24.77" stroke="black" fill="none" />
     <ellipse cx="-3.36" cy="-10.63" rx="6.72" ry="2.50" stroke="black" fill="none" />
     <line x1="-67.20" y1="-4.80" x2="62.16" y2="-4.80" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-40.80" cy="9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="55.20" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-40.80" cy="9.60" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="55.20" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
   </g>
 </svg>

@@ -38,9 +38,9 @@
     <path d="M 41.28 -45.12 A 2.88 2.88 0 0 0 35.52 -45.12" data-arc="35.52,-48.00,5.76,5.76,0.00,180.00" stroke="black" fill="none" />
     <rect x="37.44" y="-46.08" width="1.92" height="5.76" stroke="black" fill="black" />
     <line x1="38.40" y1="-51.84" x2="38.40" y2="-48.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="38.40" cy="-51.84" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="57.60" cy="51.84" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-67.20" cy="51.84" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="9.60" cy="51.84" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="38.40" cy="-51.84" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="57.60" cy="51.84" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-67.20" cy="51.84" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="9.60" cy="51.84" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

@@ -45,8 +45,8 @@
     <ellipse cx="41.60" cy="-116.80" rx="19.20" ry="4.80" stroke="black" fill="none" stroke-dasharray="4,3" />
     <rect x="60.80" y="-121.60" width="9.60" height="9.60" stroke="black" fill="none" stroke-dasharray="4,3" />
     <polyline points="-115.20,-73.60 -105.60,-83.20 -105.60,-76.80 -99.20,-86.40" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-112.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-160.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-160.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-112.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-160.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="-160.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
   </g>
 </svg>

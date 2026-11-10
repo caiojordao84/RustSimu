@@ -24,8 +24,8 @@
     <line x1="-2.40" y1="-24.00" x2="-16.80" y2="-24.00" stroke="black" fill="none" />
     <text x="-156.00" y="-16.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">M</text>
     <text x="-48.00" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BS</text>
-    <circle class="qet-terminal" cx="19.20" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="19.20" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="19.20" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="19.20" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="e" />
+    <circle class="qet-terminal" cx="19.20" cy="24.00" r="4.0" fill="red" stroke="none" data-name="A3" data-orientation="e" />
+    <circle class="qet-terminal" cx="19.20" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="e" />
   </g>
 </svg>

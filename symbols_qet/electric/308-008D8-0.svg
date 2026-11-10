@@ -83,12 +83,12 @@ Supply</text>
     <rect x="-228.00" y="-48.00" width="24.00" height="120.00" stroke="#0055d4" fill="white" />
     <text x="-211.20" y="62.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">  Modul Interface</text>
     <polyline points="-122.40,52.80 -110.40,52.80 -110.40,31.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-96.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-48.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="s" />
   </g>
 </svg>

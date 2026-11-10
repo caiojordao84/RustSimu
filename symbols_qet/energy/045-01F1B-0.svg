@@ -30,9 +30,9 @@
     <line x1="84.00" y1="-7.20" x2="88.80" y2="-12.00" stroke="black" fill="none" />
     <rect x="-65.64" y="-23.47" width="3.70" height="21.60" stroke="black" fill="none" />
     <rect x="-67.20" y="-36.00" width="7.20" height="9.60" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="100.80" cy="-16.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-33.60" cy="-52.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="w" />
+    <circle class="qet-terminal" cx="100.80" cy="-16.80" r="4.0" fill="red" stroke="none" data-name="B2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-33.60" cy="-52.80" r="4.0" fill="red" stroke="none" data-name="B1" data-orientation="w" />
   </g>
 </svg>

@@ -28,8 +28,8 @@
     <text x="139.20" y="-4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
     <ellipse cx="120.00" cy="-408.00" rx="4.80" ry="4.80" stroke="black" fill="black" />
     <line x1="120.00" y1="-408.00" x2="120.00" y2="-376.80" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="144.00" cy="-228.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="120.00" cy="-408.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="168.00" cy="-408.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="144.00" cy="-228.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="-408.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="-408.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
   </g>
 </svg>

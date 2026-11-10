@@ -28,7 +28,7 @@
     <text x="168.00" y="-84.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">2</text>
     <text x="264.00" y="-84.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
     <text x="360.00" y="-84.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0</text>
-    <circle class="qet-terminal" cx="-96.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

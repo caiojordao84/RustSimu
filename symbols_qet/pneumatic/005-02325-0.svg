@@ -5,7 +5,7 @@
     <polygon points="12.48,-25.92 12.48,-22.08 17.28,-24.00" stroke="black" fill="none" />
     <line x1="-9.60" y1="-9.60" x2="38.40" y2="-9.60" stroke="black" fill="none" />
     <ellipse cx="17.81" cy="-9.60" rx="14.40" ry="14.40" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-9.60" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="38.40" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-9.60" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="38.40" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

@@ -50,9 +50,9 @@
     <rect x="-36.00" y="-360.00" width="168.00" height="72.00" stroke="black" fill="none" />
     <ellipse cx="0.00" cy="-216.00" rx="14.40" ry="14.40" stroke="black" fill="none" />
     <text x="-7.20" y="-208.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">+</text>
-    <circle class="qet-terminal" cx="384.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="384.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="384.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="384.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="384.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="384.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="384.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="384.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
   </g>
 </svg>

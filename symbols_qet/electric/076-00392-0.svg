@@ -25,8 +25,8 @@
     <text x="158.40" y="-72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">A</text>
     <path d="M 152.50 -337.20 A 7.78 11.71 0 0 0 152.50 -360.60" stroke="black" fill="none" />
     <text x="139.20" y="-4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none"> mm²</text>
-    <circle class="qet-terminal" cx="144.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="192.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="168.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="144.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="192.00" cy="-384.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="-264.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

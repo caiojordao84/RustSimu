@@ -31,8 +31,8 @@
     <line x1="0.69" y1="2.40" x2="6.17" y2="2.40" stroke="black" fill="none" />
     <rect x="-3.43" y="-15.43" width="41.14" height="22.29" stroke="black" fill="none" stroke-dasharray="4,2,1.5,2" />
     <polygon points="2.06,2.40 3.43,3.77 4.80,2.40" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="41.14" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="3.43" cy="10.29" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-6.86" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="41.14" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="3.43" cy="10.29" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-6.86" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

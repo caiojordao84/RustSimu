@@ -35,12 +35,12 @@
     <rect x="-4.80" y="23.40" width="9.60" height="12.00" stroke="black" fill="none" />
     <line x1="3.00" y1="-60.60" x2="-6.60" y2="-75.00" stroke="black" fill="none" />
     <ellipse cx="0.00" cy="-65.40" rx="16.80" ry="16.80" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="72.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="e" />
+    <circle class="qet-terminal" cx="48.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
   </g>
 </svg>

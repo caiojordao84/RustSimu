@@ -9,7 +9,7 @@
     <line x1="-8.90" y1="-0.06" x2="0.70" y2="-0.06" stroke="black" fill="none" />
     <polygon points="0.7,-1.68 0.7,1.57 3.9,-0.06" stroke="black" fill="black" />
     <rect x="-18.50" y="-4.93" width="8.00" height="10.56" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-19.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="11.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

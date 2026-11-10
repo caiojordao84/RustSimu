@@ -106,9 +106,9 @@ Icu</text>
     <polyline points="150.00,108.00 178.80,108.00 178.80,88.80" stroke="black" fill="none" />
     <rect x="176.40" y="93.60" width="4.80" height="7.20" stroke="black" fill="white" />
     <polyline points="154.80,69.60 159.60,79.20 159.60,91.20 140.40,91.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="72.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

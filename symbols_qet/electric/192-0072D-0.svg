@@ -16,8 +16,8 @@
     <ellipse cx="-49.41" cy="-122.82" rx="9.88" ry="9.88" stroke="black" fill="none" />
     <line x1="-62.12" y1="-141.18" x2="-36.71" y2="-141.18" stroke="black" fill="none" />
     <text x="-62.12" y="-2.82" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">250k Ohms</text>
-    <circle class="qet-terminal" cx="0.00" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-50.82" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-50.82" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-152.47" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
   </g>
 </svg>

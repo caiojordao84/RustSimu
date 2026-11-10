@@ -29,12 +29,12 @@
     <text x="-12.00" y="-67.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1~</text>
     <text x="-21.60" y="36.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Ue=150/500VCA</text>
     <text x="-24.00" y="4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BMK 1.5</text>
-    <circle class="qet-terminal" cx="-48.00" cy="-103.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="127.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-96.00" cy="-103.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-103.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="127.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="48.00" cy="-103.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-72.00" cy="127.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-48.00" cy="-103.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="127.20" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="-103.20" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-103.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="127.20" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="-103.20" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="127.20" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
   </g>
 </svg>

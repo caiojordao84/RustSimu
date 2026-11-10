@@ -9,8 +9,8 @@
     <line x1="43.20" y1="12.00" x2="52.80" y2="12.00" stroke="black" fill="none" />
     <line x1="-0.12" y1="24.19" x2="-0.12" y2="-35.83" stroke="black" fill="none" />
     <polygon points="0.00,-47.71 -4.80,-35.71 4.80,-35.71" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

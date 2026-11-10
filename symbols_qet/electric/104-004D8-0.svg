@@ -7,7 +7,7 @@
     <line x1="-2.40" y1="-4.80" x2="-2.40" y2="48.00" stroke="black" fill="none" />
     <line x1="0.00" y1="-4.80" x2="0.00" y2="48.00" stroke="black" fill="none" />
     <polygon points="-24.00,48.00 19.20,48.00 31.20,52.80 -36.00,52.80" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-12.00" cy="4.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-12.00" cy="4.80" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

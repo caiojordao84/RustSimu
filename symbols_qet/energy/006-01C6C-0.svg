@@ -3,7 +3,7 @@
   <title>Underfloor heating</title>
   <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="120.00,-72.00 -12.00,-72.00 -12.00,24.00 84.00,24.00 84.00,-52.80 14.40,-52.80 14.40,2.40 60.00,2.40 60.00,-24.00 45.60,-24.00 45.60,-9.60 33.60,-9.60 33.60,-36.00 72.00,-36.00 72.00,14.40 0.00,14.40 0.00,-60.00 100.80,-60.00 100.80,-24.00 120.00,-24.00 108.00,-24.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="120.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="120.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="120.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="120.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

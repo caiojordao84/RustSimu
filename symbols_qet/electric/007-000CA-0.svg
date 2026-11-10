@@ -53,8 +53,8 @@
     <text x="-45.17" y="177.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">L</text>
     <text x="2.83" y="177.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">N</text>
     <text x="50.40" y="177.84" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">PE</text>
-    <circle class="qet-terminal" cx="-48.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
   </g>
 </svg>

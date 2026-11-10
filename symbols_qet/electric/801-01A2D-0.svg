@@ -66,9 +66,9 @@
     <ellipse cx="79.80" cy="319.20" rx="1.20" ry="1.20" stroke="black" fill="white" />
     <text x="5.26" y="90.12" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">50Hz
 12V~</text>
-    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="84.00" cy="408.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="B1" data-orientation="s" />
+    <circle class="qet-terminal" cx="84.00" cy="408.00" r="4.0" fill="red" stroke="none" data-name="B2" data-orientation="e" />
   </g>
 </svg>

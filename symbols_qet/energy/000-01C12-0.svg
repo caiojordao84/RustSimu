@@ -8,9 +8,9 @@
     <line x1="-1.80" y1="-104.50" x2="7.92" y2="-87.34" stroke="black" fill="none" />
     <rect x="-9.72" y="-24.00" width="12.14" height="6.86" stroke="black" fill="none" />
     <text x="-36.00" y="-26.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Cal</text>
-    <circle class="qet-terminal" cx="-38.40" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-21.60" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="12.00" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="28.80" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-38.40" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-21.60" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="12.00" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="28.80" cy="-2.40" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

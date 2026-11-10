@@ -50,13 +50,13 @@
     <line x1="-22.78" y1="-116.47" x2="98.23" y2="-116.47" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
     <path d="M 102.36 -101.93 A 9.07 7.27 0 0 0 102.36 -116.47" stroke="#d40000" fill="none" />
     <line x1="-47.35" y1="-208.66" x2="-26.93" y2="-177.12" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="28.80" cy="-244.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="28.80" cy="160.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="28.80" cy="-33.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="28.80" cy="-139.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-81.60" cy="-208.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-81.60" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-81.60" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-81.60" cy="115.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="28.80" cy="-244.80" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="28.80" cy="160.80" r="4.0" fill="red" stroke="none" data-name="8" data-orientation="s" />
+    <circle class="qet-terminal" cx="28.80" cy="-33.60" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="e" />
+    <circle class="qet-terminal" cx="28.80" cy="-139.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="-81.60" cy="-208.80" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-81.60" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="w" />
+    <circle class="qet-terminal" cx="-81.60" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="w" />
+    <circle class="qet-terminal" cx="-81.60" cy="115.20" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="w" />
   </g>
 </svg>

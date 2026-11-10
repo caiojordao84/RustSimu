@@ -110,9 +110,9 @@
     <text x="51.05" y="113.46" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">⋀</text>
     <text x="47.45" y="136.26" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">0-Off</text>
     <text x="47.45" y="108.66" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">1-On</text>
-    <circle class="qet-terminal" cx="120.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="120.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="168.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="168.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="120.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="168.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="168.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

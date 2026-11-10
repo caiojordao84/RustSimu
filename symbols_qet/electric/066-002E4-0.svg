@@ -44,12 +44,12 @@
     <line x1="24.00" y1="-24.00" x2="24.00" y2="-38.40" stroke="black" fill="none" />
     <polyline points="31.20,-72.00 96.00,-72.00 96.00,-7.20" stroke="black" fill="none" />
     <polyline points="31.20,72.00 96.00,72.00 96.00,7.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.00" cy="-79.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-72.00" cy="-79.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-72.00" cy="79.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-24.00" cy="79.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="-79.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="79.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="103.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-79.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="-79.20" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="79.20" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="79.20" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-79.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="79.20" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="s" />
+    <circle class="qet-terminal" cx="103.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
   </g>
 </svg>

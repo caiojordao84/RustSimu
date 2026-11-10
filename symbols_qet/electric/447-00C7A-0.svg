@@ -452,10 +452,10 @@
     <rect x="-168.00" y="-120.00" width="372.00" height="288.00" stroke="black" fill="none" />
     <text x="204.00" y="-108.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">TOUCH</text>
     <text x="84.00" y="-132.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SIMATIC HMI</text>
-    <circle class="qet-terminal" cx="-120.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="216.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="240.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-192.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-24.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-120.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="216.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="240.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="-192.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="196.80" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

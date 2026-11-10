@@ -51,12 +51,12 @@
     <polyline points="-4.80,0.00 -1.80,0.00 4.80,-4.80" stroke="black" fill="none" />
     <polyline points="-4.20,12.00 -1.20,12.00 4.80,7.20" stroke="black" fill="none" />
     <polyline points="-4.20,24.00 -1.20,24.00 4.80,19.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="36.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="36.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-12.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="36.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="36.00" cy="18.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="36.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="36.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="36.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="36.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="e" />
+    <circle class="qet-terminal" cx="-12.00" cy="6.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="36.00" cy="-6.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="36.00" cy="18.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="e" />
+    <circle class="qet-terminal" cx="36.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="36.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="e" />
   </g>
 </svg>

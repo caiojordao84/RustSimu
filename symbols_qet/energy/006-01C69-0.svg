@@ -12,9 +12,9 @@
     <rect x="22.77" y="23.67" width="3.08" height="3.34" stroke="black" fill="none" />
     <rect x="-25.23" y="-12.71" width="3.08" height="3.79" stroke="black" fill="none" />
     <polygon points="-20.92,-7.80 -22.15,-7.80 -22.15,-14.22 -14.77,-14.22 -14.77,-7.80 -16.00,-7.80 -16.00,21.70 -14.77,21.70 -14.77,28.11 -22.15,28.11 -22.15,21.70 -20.92,21.70" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.62" cy="-12.31" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.62" cy="-12.31" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="24.62" cy="24.62" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-23.38" cy="24.62" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.62" cy="-12.31" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.62" cy="-12.31" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.62" cy="24.62" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="-23.38" cy="24.62" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
   </g>
 </svg>

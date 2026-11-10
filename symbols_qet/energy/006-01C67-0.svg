@@ -16,9 +16,9 @@
     <rect x="7.45" y="-13.32" width="2.07" height="44.69" stroke="black" fill="none" />
     <rect x="-4.97" y="-13.32" width="2.07" height="44.69" stroke="black" fill="none" />
     <rect x="-17.38" y="-16.45" width="9.10" height="4.97" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-14.90" cy="-16.55" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="33.10" cy="-16.55" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="33.10" cy="33.10" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-16.55" cy="33.10" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-14.90" cy="-16.55" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="33.10" cy="-16.55" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="33.10" cy="33.10" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="-16.55" cy="33.10" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
   </g>
 </svg>

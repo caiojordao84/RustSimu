@@ -5308,3 +5308,308 @@ fn test_rigid_grid_module_and_terminal_spacing_standard() {
         "Exportação SVG deve desenhar bornes com raio 4.0 px (diâmetro 8.0 px a 300 DPI)"
     );
 }
+
+#[test]
+fn test_canonical_catalog_all_wireable_terminals_non_empty_and_unique() {
+    let manifest_dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let catalog_path = manifest_dir.join("symbols_qet").join("catalog.json");
+    let content =
+        std::fs::read_to_string(&catalog_path).expect("symbols_qet/catalog.json deve ser legível");
+    let catalog: CanonicalCatalog =
+        serde_json::from_str(&content).expect("catalog.json deve ter schema válido");
+
+    let mut total_wireable = 0;
+    let mut empty_term_count = 0;
+    let mut dup_term_count = 0;
+
+    for el in &catalog.elements {
+        if !el.kind.is_wireable() {
+            continue;
+        }
+        total_wireable += 1;
+        let mut seen = std::collections::HashSet::new();
+        for t in &el.terminals {
+            if t.name.trim().is_empty() {
+                empty_term_count += 1;
+            }
+            if !seen.insert(t.name.trim().to_string()) {
+                dup_term_count += 1;
+            }
+        }
+    }
+
+    assert_eq!(
+        total_wireable, 5700,
+        "Devem existir 5.700 elementos cabáveis"
+    );
+    assert_eq!(
+        empty_term_count, 0,
+        "Zero elementos cabáveis devem possuir bornes vazios após P3-#17"
+    );
+    assert_eq!(
+        dup_term_count, 0,
+        "Zero elementos cabáveis devem possuir bornes duplicados após P3-#17"
+    );
+}
+
+#[test]
+fn test_canonical_terminal_normalization_rules() {
+    // 1. Bobina (relay_coil): A1 no topo, A2 na base
+    let mut coil_terms = vec![
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: 24.0,
+            orientation: "s".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: -24.0,
+            orientation: "n".to_string(),
+        },
+    ];
+    normalize_canonical_terminals(
+        CanonicalKind::RelayCoil,
+        "contactor_coil",
+        "Bobina",
+        "Coil",
+        &mut coil_terms,
+    );
+    assert_eq!(coil_terms[0].name, "A2"); // y = 24.0 (base)
+    assert_eq!(coil_terms[1].name, "A1"); // y = -24.0 (topo)
+
+    // 2. Sinalizador luminoso (lamp): X1 no topo, X2 na base
+    let mut lamp_terms = vec![
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: -20.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: 20.0,
+            orientation: "s".to_string(),
+        },
+    ];
+    normalize_canonical_terminals(
+        CanonicalKind::Lamp,
+        "pilot_lamp",
+        "Lâmpada piloto",
+        "Pilot lamp",
+        &mut lamp_terms,
+    );
+    assert_eq!(lamp_terms[0].name, "X1");
+    assert_eq!(lamp_terms[1].name, "X2");
+
+    // 3. Contato térmico NA (97-98) e NF (95-96)
+    let mut th_no = vec![
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: -20.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: 20.0,
+            orientation: "s".to_string(),
+        },
+    ];
+    normalize_canonical_terminals(
+        CanonicalKind::ThermalContact,
+        "thermal_no",
+        "Contato NA térmico",
+        "Thermal contact NO",
+        &mut th_no,
+    );
+    assert_eq!(th_no[0].name, "97");
+    assert_eq!(th_no[1].name, "98");
+
+    let mut th_nc = vec![
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: -20.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: 20.0,
+            orientation: "s".to_string(),
+        },
+    ];
+    normalize_canonical_terminals(
+        CanonicalKind::ThermalContact,
+        "thermal_nc",
+        "Contato NF térmico",
+        "Thermal contact NC",
+        &mut th_nc,
+    );
+    assert_eq!(th_nc[0].name, "95");
+    assert_eq!(th_nc[1].name, "96");
+
+    // 4. Disjuntor tripolar (circuit_breaker): 3 polos -> 1-2, 3-4, 5-6
+    let mut cb_terms = vec![
+        TerminalMetadata {
+            name: String::new(),
+            x: 48.0,
+            y: -48.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 48.0,
+            y: 48.0,
+            orientation: "s".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: -48.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: 48.0,
+            orientation: "s".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 24.0,
+            y: -48.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 24.0,
+            y: 48.0,
+            orientation: "s".to_string(),
+        },
+    ];
+    normalize_canonical_terminals(
+        CanonicalKind::CircuitBreaker,
+        "circuit_breaker_3p",
+        "Disjuntor 3P",
+        "Circuit breaker 3P",
+        &mut cb_terms,
+    );
+    // Polo 1 (x=0): in 1, out 2
+    assert_eq!(cb_terms[2].name, "1");
+    assert_eq!(cb_terms[3].name, "2");
+    // Polo 2 (x=24): in 3, out 4
+    assert_eq!(cb_terms[4].name, "3");
+    assert_eq!(cb_terms[5].name, "4");
+    // Polo 3 (x=48): in 5, out 6
+    assert_eq!(cb_terms[0].name, "5");
+    assert_eq!(cb_terms[1].name, "6");
+
+    // 5. Motor trifásico (motor): U, V, W
+    let mut motor_terms = vec![
+        TerminalMetadata {
+            name: String::new(),
+            x: 0.0,
+            y: -30.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 24.0,
+            y: -30.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: String::new(),
+            x: 48.0,
+            y: -30.0,
+            orientation: "n".to_string(),
+        },
+    ];
+    normalize_canonical_terminals(
+        CanonicalKind::Motor,
+        "motor_3p",
+        "Motor trifásico",
+        "Three-phase motor",
+        &mut motor_terms,
+    );
+    assert_eq!(motor_terms[0].name, "U");
+    assert_eq!(motor_terms[1].name, "V");
+    assert_eq!(motor_terms[2].name, "W");
+
+    // 6. Desduplicação estrita: múltiplos GND -> GND e GND_2
+    let mut dup_terms = vec![
+        TerminalMetadata {
+            name: "GND".to_string(),
+            x: 0.0,
+            y: 0.0,
+            orientation: "n".to_string(),
+        },
+        TerminalMetadata {
+            name: "GND".to_string(),
+            x: 10.0,
+            y: 0.0,
+            orientation: "n".to_string(),
+        },
+    ];
+    normalize_canonical_terminals(
+        CanonicalKind::Passive,
+        "module",
+        "Módulo",
+        "Module",
+        &mut dup_terms,
+    );
+    assert_eq!(dup_terms[0].name, "GND");
+    assert_eq!(dup_terms[1].name, "GND_2");
+}
+
+#[test]
+fn test_canvas_placement_canonical_pins_populated_and_editable() {
+    let (mut app, _) = CadeSimuApp::new();
+    let dict = global_dictionary().expect("Dicionário global deve estar carregado");
+
+    // Encontra um elemento canônico cabável com terminais normalizados (bobina)
+    let coil_el = dict
+        .catalog
+        .elements
+        .iter()
+        .find(|e| e.kind == CanonicalKind::RelayCoil && e.terminals.len() == 2)
+        .expect("Deve haver uma bobina canônica com 2 terminais");
+
+    // Coloca o componente canônico no canvas
+    let initial_count = app.doc.items.len();
+    let _ = app.update(Message::Canvas(CanvasMessage::PlaceCanonicalComponent {
+        symbol_id: coil_el.id.clone(),
+        x: 150,
+        y: 100,
+    }));
+    assert_eq!(app.doc.items.len(), initial_count + 1);
+
+    // Verifica que o item foi inserido no documento com os bornes preenchidos
+    let placed_item = app.doc.items.last().unwrap();
+    assert_eq!(
+        placed_item.pins[0], coil_el.terminals[0].name,
+        "Borne 1 do item deve herdar nome normalizado da bobina"
+    );
+    assert_eq!(
+        placed_item.pins[1], coil_el.terminals[1].name,
+        "Borne 2 do item deve herdar nome normalizado da bobina"
+    );
+    assert_eq!(placed_item.pins[0], "A1");
+    assert_eq!(placed_item.pins[1], "A2");
+
+    // Edita o Borne 0 via mensagem do painel de propriedades
+    let sel_id = placed_item.id;
+    app.selected_id = Some(sel_id);
+    let _ = app.update(Message::EditPin(0, "A1_CUSTOM".to_string()));
+
+    let updated_item = app.doc.items.iter().find(|i| i.id == sel_id).unwrap();
+    assert_eq!(
+        updated_item.pins[0], "A1_CUSTOM",
+        "Edição de borne deve ser persistida no item selecionado"
+    );
+}

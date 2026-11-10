@@ -13,8 +13,8 @@
     <line x1="3.12" y1="2.40" x2="-3.12" y2="2.40" stroke="black" fill="none" />
     <line x1="-5.52" y1="6.00" x2="5.52" y2="6.00" stroke="black" fill="none" />
     <line x1="-1.44" y1="-1.20" x2="1.44" y2="-1.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="14.40" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-14.40" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="40.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="14.40" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-14.40" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="40.80" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

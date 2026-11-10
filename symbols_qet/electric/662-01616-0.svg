@@ -8,8 +8,8 @@
     <line x1="4.80" y1="-19.20" x2="4.80" y2="-4.80" stroke="black" fill="none" />
     <polygon points="2.88,-8.64 6.72,-8.64 4.80,-4.80" stroke="black" fill="black" />
     <line x1="19.20" y1="0.00" x2="28.80" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="19.20" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="28.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-19.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="19.20" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="28.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="-19.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
   </g>
 </svg>

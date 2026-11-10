@@ -303,11 +303,11 @@
     <polygon points="-292.44,93.29 -292.44,135.14 -251.74,118.87 -249.48,74.69" stroke="black" fill="white" />
     <polygon points="-352.80,76.20 -352.80,116.06 -293.90,133.78 -293.90,96.12" stroke="black" fill="white" />
     <text x="-121.68" y="163.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Gas Engine Generator</text>
-    <circle class="qet-terminal" cx="74.40" cy="-177.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="86.40" cy="-182.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="98.40" cy="-187.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="199.20" cy="-136.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="199.20" cy="-127.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="199.20" cy="-117.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="74.40" cy="-177.60" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="86.40" cy="-182.40" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="98.40" cy="-187.20" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="199.20" cy="-136.80" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="199.20" cy="-127.20" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="e" />
+    <circle class="qet-terminal" cx="199.20" cy="-117.60" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="e" />
   </g>
 </svg>

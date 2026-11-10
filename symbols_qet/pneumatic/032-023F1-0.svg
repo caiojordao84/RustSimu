@@ -16,8 +16,8 @@
     <path d="M 8.66 25.46 A 36.00 36.00 0 0 0 8.66 -25.46" stroke="black" fill="none" />
     <polygon points="-28.80,58.80 -19.20,58.80 -24.00,70.80" stroke="black" fill="black" />
     <path d="M -39.34 25.46 A 36.00 36.00 0 0 0 -39.34 -25.46" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

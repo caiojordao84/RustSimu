@@ -101,13 +101,13 @@ Ast</text>
     <text x="-45.60" y="-1.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
     <text x="-19.20" y="31.92" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Tree</text>
     <text x="-24.00" y="-57.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">weiß</text>
-    <circle class="qet-terminal" cx="36.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-26.40" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-26.40" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="21.60" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="36.00" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-12.00" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-12.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="21.60" cy="120.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="36.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="8" data-orientation="s" />
+    <circle class="qet-terminal" cx="-26.40" cy="120.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="-26.40" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="21.60" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="36.00" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="-12.00" cy="-88.80" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-12.00" cy="120.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="21.60" cy="120.00" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="s" />
   </g>
 </svg>

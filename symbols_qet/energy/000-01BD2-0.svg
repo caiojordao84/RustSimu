@@ -8,8 +8,8 @@
     <rect x="27.69" y="-22.15" width="20.31" height="38.77" stroke="black" fill="none" />
     <polyline points="36.92,-29.54 36.92,-18.46 46.15,-16.62 29.54,-9.23 46.15,-5.54 27.69,1.85 48.00,5.54 29.54,11.08 38.77,12.92 38.77,22.15" stroke="black" fill="none" />
     <rect x="-16.62" y="-22.15" width="77.54" height="38.77" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-3.69" cy="-18.46" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="36.92" cy="-27.69" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="38.77" cy="20.31" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-3.69" cy="-18.46" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="w" />
+    <circle class="qet-terminal" cx="36.92" cy="-27.69" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="38.77" cy="20.31" r="4.0" fill="red" stroke="none" data-name="A3" data-orientation="s" />
   </g>
 </svg>

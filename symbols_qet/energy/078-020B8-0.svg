@@ -9,9 +9,9 @@
     <polygon points="0.00,0.00 24.00,-14.40 24.00,14.40" stroke="black" fill="none" />
     <polygon points="0.00,0.00 -24.00,-14.40 -24.00,14.40" stroke="black" fill="none" />
     <path d="M 24.00 -43.20 A 24.00 4.80 0 0 0 -24.00 -43.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="U" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="W" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="V" data-orientation="n" />
   </g>
 </svg>

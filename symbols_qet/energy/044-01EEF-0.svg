@@ -3,9 +3,9 @@
   <title>canaleta</title>
   <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <rect x="-18.35" y="-4.71" width="47.53" height="4.71" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-18.35" cy="-3.29" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="29.65" cy="-3.76" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="29.65" cy="-0.94" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-18.35" cy="-0.94" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-18.35" cy="-3.29" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="29.65" cy="-3.76" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="29.65" cy="-0.94" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="-18.35" cy="-0.94" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
   </g>
 </svg>

@@ -18,7 +18,7 @@
     <polyline points="14.40,-16.80 31.20,-24.00 43.20,-24.00" stroke="black" fill="none" />
     <line x1="7.20" y1="-24.00" x2="14.40" y2="-24.00" stroke="black" fill="none" />
     <polygon points="-19.20,-31.20 -43.20,-7.20 -19.20,16.80 4.80,-7.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

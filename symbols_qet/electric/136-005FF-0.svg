@@ -39,7 +39,7 @@
     <rect x="-7.20" y="-31.20" width="14.40" height="62.40" stroke="black" fill="none" />
     <path d="M -6.00 16.32 A 0.48 0.48 0 0 0 -6.48 16.80" stroke="black" fill="none" />
     <path d="M 6.48 16.80 A 0.48 0.48 0 0 0 6.00 16.32" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

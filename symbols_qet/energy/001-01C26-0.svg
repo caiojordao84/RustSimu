@@ -19,8 +19,8 @@
     <line x1="-9.36" y1="6.44" x2="10.44" y2="6.44" stroke="black" fill="none" />
     <rect x="21.00" y="7.85" width="1.32" height="7.80" stroke="black" fill="none" />
     <polyline points="-7.20,-2.40 -4.80,-4.80 -4.80,-2.40 -2.40,-6.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-12.00" cy="-12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="-12.00" cy="-12.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

@@ -27,8 +27,8 @@
     <text x="-16.80" y="-132.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">EXT</text>
     <text x="-45.60" y="-50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">IPX 800 V3</text>
     <polygon points="2.40,-96.00 -4.80,-81.60 9.60,-81.60" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="26.40" cy="175.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-21.60" cy="175.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="2.40" cy="-170.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="26.40" cy="175.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-21.60" cy="175.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="2.40" cy="-170.40" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

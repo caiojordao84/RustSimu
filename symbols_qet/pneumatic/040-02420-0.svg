@@ -12,7 +12,7 @@
     <line x1="16.00" y1="-11.20" x2="35.20" y2="-11.20" stroke="black" fill="none" />
     <ellipse cx="0.00" cy="-8.00" rx="16.00" ry="16.00" stroke="black" fill="none" />
     <polygon points="-4.58,7.22 4.16,7.30 0.00,-2.00 -4.50,7.04" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-32.00" r="4.0" fill="red" stroke="none" data-name="U1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="U2" data-orientation="s" />
   </g>
 </svg>

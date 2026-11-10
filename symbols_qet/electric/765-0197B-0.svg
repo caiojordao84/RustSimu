@@ -34,10 +34,10 @@ BUS 27V⎓           1A              BAT 400mA
 T=5÷40°C     F1=F5AL</text>
     <rect x="139.20" y="163.20" width="21.60" height="21.60" stroke="black" fill="none" />
     <rect x="132.00" y="156.00" width="36.00" height="36.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-360.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="367.20" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="312.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-336.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="350.40" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-360.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="367.20" cy="288.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="312.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-336.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="350.40" cy="288.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

@@ -8,7 +8,7 @@
     <line x1="0.00" y1="-24.00" x2="0.00" y2="-12.00" stroke="black" fill="none" />
     <line x1="-8.40" y1="-6.00" x2="-12.00" y2="-6.00" stroke="black" fill="none" />
     <ellipse cx="-15.60" cy="2.40" rx="1.20" ry="1.20" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

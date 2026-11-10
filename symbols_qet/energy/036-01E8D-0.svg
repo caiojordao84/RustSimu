@@ -45,8 +45,8 @@
     <line x1="-4.67" y1="-16.78" x2="-4.67" y2="-24.83" stroke="black" fill="none" />
     <path d="M -9.62 -17.78 A 2.48 1.13 0 0 0 -4.66 -17.78" stroke="black" fill="none" />
     <path d="M -4.67 -17.78 A 6.21 1.13 0 0 0 7.75 -17.78" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-23.17" cy="0.83" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.83" cy="-24.83" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.83" cy="0.83" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-23.17" cy="0.83" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.83" cy="-24.83" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.83" cy="0.83" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
   </g>
 </svg>

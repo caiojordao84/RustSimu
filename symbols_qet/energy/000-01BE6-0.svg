@@ -7,9 +7,9 @@
     <path d="M -48.00 50.40 A 48.00 12.00 0 0 0 48.00 50.40" stroke="black" fill="none" />
     <line x1="-48.00" y1="-72.00" x2="-48.00" y2="50.40" stroke="black" fill="none" />
     <polyline points="-57.60,-14.40 24.00,-14.40 -24.00,0.00 24.00,14.40 -57.60,14.40" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="64.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-86.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-60.00" cy="-14.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-60.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="64.80" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-86.40" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-60.00" cy="-14.40" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-60.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
   </g>
 </svg>

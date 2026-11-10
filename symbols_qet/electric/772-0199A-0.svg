@@ -28,8 +28,8 @@
     <path d="M -72.00 45.60 A 8.40 2.40 0 0 0 -63.60 48.00" stroke="black" fill="none" />
     <path d="M 63.60 48.00 A 8.40 2.40 0 0 0 72.00 45.60" stroke="black" fill="none" />
     <ellipse cx="0.00" cy="-60.00" rx="32.40" ry="32.40" stroke="black" fill="gray" />
-    <circle class="qet-terminal" cx="0.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-48.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="48.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-48.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="144.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

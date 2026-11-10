@@ -24,7 +24,7 @@
     <line x1="21.07" y1="-0.55" x2="21.07" y2="-3.31" stroke="black" fill="none" />
     <line x1="-19.20" y1="-45.60" x2="-19.20" y2="-0.36" stroke="black" fill="none" />
     <text x="-4.80" y="-19.78" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">bar</text>
-    <circle class="qet-terminal" cx="0.00" cy="26.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="31.20" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="26.40" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="31.20" cy="-19.20" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
   </g>
 </svg>

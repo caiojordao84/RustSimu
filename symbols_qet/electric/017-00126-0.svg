@@ -20,9 +20,9 @@
     <line x1="-60.00" y1="-24.00" x2="-60.00" y2="60.00" stroke="black" fill="none" stroke-dasharray="4,3" />
     <line x1="-60.00" y1="60.00" x2="-48.00" y2="60.00" stroke="black" fill="none" />
     <line x1="-60.00" y1="-24.00" x2="-36.00" y2="-24.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="21" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="22" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="-72.00" r="4.0" fill="red" stroke="none" data-name="13" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="14" data-orientation="s" />
   </g>
 </svg>

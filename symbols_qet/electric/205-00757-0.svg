@@ -38,9 +38,9 @@
     <ellipse cx="-72.00" cy="-48.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
     <ellipse cx="72.00" cy="-48.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
     <polygon points="-120.00,-216.00 120.00,-216.00 120.00,48.00 -120.00,48.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <circle class="qet-terminal" cx="-72.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="72.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-72.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
   </g>
 </svg>

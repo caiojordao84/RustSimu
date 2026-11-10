@@ -11,8 +11,8 @@
     <line x1="0.00" y1="14.77" x2="0.00" y2="18.46" stroke="black" fill="none" />
     <text x="-3.69" y="-16.62" font-size="16.6" font-family="sans-serif" fill="black" stroke="none">T</text>
     <polyline points="9.23,-18.46 27.23,-18.46 27.23,0.00" stroke="black" fill="none" stroke-dasharray="1.5,2" />
-    <circle class="qet-terminal" cx="-16.62" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="31.38" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="0.00" cy="18.46" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-16.62" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="31.38" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="18.46" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

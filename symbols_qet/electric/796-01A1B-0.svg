@@ -18,7 +18,7 @@ Ethernet</text>
     <polygon points="2.88,29.28 4.32,29.28 4.32,30.24 4.08,30.24 4.08,30.48 3.84,30.48 3.84,30.72 3.36,30.72 3.36,30.48 3.12,30.48 3.12,30.24 2.88,30.24" stroke="black" fill="none" />
     <text x="3.12" y="1.92" font-size="2.2" font-family="sans-serif" fill="black" stroke="none"> Ethernet
 Prise RJ45</text>
-    <circle class="qet-terminal" cx="4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="4.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="4.80" cy="48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="4.80" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

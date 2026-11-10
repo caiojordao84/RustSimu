@@ -30,12 +30,12 @@
     <text x="38.40" y="158.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Control Electronics</text>
     <line x1="10.32" y1="139.20" x2="32.26" y2="139.20" stroke="black" fill="none" />
     <line x1="8.76" y1="163.20" x2="32.40" y2="163.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="213.60" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="213.60" cy="-7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="213.60" cy="9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="9.60" cy="163.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="33.60" cy="-57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="33.60" cy="57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="14.40" cy="139.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="213.60" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="213.60" cy="-7.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="213.60" cy="9.60" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="9.60" cy="163.20" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="w" />
+    <circle class="qet-terminal" cx="33.60" cy="-57.60" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="33.60" cy="57.60" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="w" />
+    <circle class="qet-terminal" cx="14.40" cy="139.20" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="w" />
   </g>
 </svg>

@@ -30,11 +30,11 @@
     <text x="-89.14" y="153.14" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">BUS V3</text>
     <rect x="-118.86" y="132.57" width="125.71" height="22.86" stroke="black" fill="none" />
     <rect x="-118.86" y="-73.14" width="242.29" height="182.86" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-70.86" cy="-187.43" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-22.86" cy="-187.43" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="25.14" cy="-187.43" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="73.14" cy="-187.43" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-86.86" cy="224.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-22.86" cy="224.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-70.86" cy="-187.43" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-22.86" cy="-187.43" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="25.14" cy="-187.43" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="73.14" cy="-187.43" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="-86.86" cy="224.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="-22.86" cy="224.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
   </g>
 </svg>

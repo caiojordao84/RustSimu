@@ -17,7 +17,7 @@
     <path d="M -0.37 5.73 A 1.25 4.93 0 0 0 -0.38 15.60" stroke="black" fill="none" />
     <rect x="-8.20" y="6.00" width="3.60" height="7.00" stroke="#d40000" fill="none" stroke-dasharray="4,3" />
     <line x1="-3.40" y1="4.00" x2="-3.40" y2="15.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="12.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="12.00" cy="10.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

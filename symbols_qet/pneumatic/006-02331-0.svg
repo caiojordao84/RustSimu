@@ -9,8 +9,8 @@
     <polyline points="3.20,4.00 7.20,0.00 3.20,-4.00" stroke="black" fill="none" />
     <ellipse cx="2.40" cy="0.00" rx="2.40" ry="2.40" stroke="black" fill="none" />
     <polyline points="16.00,-4.80 24.00,-4.80 24.00,-8.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="-8.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="X1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-8.00" r="4.0" fill="red" stroke="none" data-name="X2" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="X3" data-orientation="e" />
   </g>
 </svg>

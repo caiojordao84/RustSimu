@@ -9,7 +9,7 @@
     <line x1="-12.30" y1="-2.40" x2="-12.30" y2="0.00" stroke="black" fill="none" />
     <line x1="-15.90" y1="-6.00" x2="-15.90" y2="6.00" stroke="black" fill="none" />
     <line x1="-15.90" y1="0.00" x2="-3.90" y2="0.00" stroke="black" fill="none" stroke-dasharray="4,3" />
-    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

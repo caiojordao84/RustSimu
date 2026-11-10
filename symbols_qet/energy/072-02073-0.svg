@@ -14,9 +14,9 @@
     <polyline points="24.00,-36.00 12.00,-36.00 -6.00,-24.00 12.00,-12.00 -6.00,0.00 12.00,12.00 -6.00,24.00 12.00,36.00 24.00,36.00" stroke="black" fill="none" />
     <polyline points="-24.00,-36.00 6.00,-36.00 -12.00,-24.00 6.00,-12.00 -12.00,0.00 6.00,12.00 -12.00,24.00 6.00,36.00 -24.00,36.00" stroke="black" fill="none" stroke-dasharray="4,3" />
     <text x="21.60" y="10.80" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">Plaques</text>
-    <circle class="qet-terminal" cx="24.00" cy="36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-24.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-24.00" cy="36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="36.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="36.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
   </g>
 </svg>

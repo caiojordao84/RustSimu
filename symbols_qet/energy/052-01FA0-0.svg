@@ -33,9 +33,9 @@
     <polygon points="17.68,-25.26 17.68,-7.58 30.32,-12.63 30.32,-30.32" stroke="black" fill="none" />
     <line x1="-27.79" y1="-45.47" x2="-27.79" y2="-35.37" stroke="black" fill="none" />
     <polyline points="20.21,-15.16 22.74,-22.74 25.26,-17.68 27.79,-22.74" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="40.42" cy="-12.63" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-25.26" cy="-50.53" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-22.74" cy="70.74" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="22.74" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="40.42" cy="-12.63" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="-25.26" cy="-50.53" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-22.74" cy="70.74" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="22.74" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
   </g>
 </svg>

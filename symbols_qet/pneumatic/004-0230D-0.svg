@@ -25,8 +25,8 @@
     <polygon points="-2.18,0.00 4.36,-6.55 10.91,0.00 4.36,6.55" stroke="black" fill="none" />
     <line x1="0.87" y1="3.05" x2="7.85" y2="3.05" stroke="black" fill="none" />
     <rect x="-4.36" y="-19.64" width="39.27" height="28.36" stroke="black" fill="none" stroke-dasharray="4,2,1.5,2" />
-    <circle class="qet-terminal" cx="4.36" cy="13.09" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="39.27" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-8.73" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="4.36" cy="13.09" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="39.27" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-8.73" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

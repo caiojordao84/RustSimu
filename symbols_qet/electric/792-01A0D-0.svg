@@ -97,9 +97,9 @@
     <line x1="66.00" y1="55.20" x2="66.00" y2="57.60" stroke="black" fill="none" />
     <ellipse cx="66.00" cy="55.20" rx="0.60" ry="0.60" stroke="black" fill="black" />
     <polygon points="45.31,34.80 46.20,33.60 55.80,33.60 55.80,45.60 54.60,45.60 43.80,34.80 43.80,44.40 52.99,44.40 52.20,45.60 42.60,45.60 42.60,33.60 43.80,33.60 54.60,44.40 54.60,34.80" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

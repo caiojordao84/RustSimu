@@ -44,14 +44,14 @@
     <text x="-29.80" y="33.10" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">12-48V</text>
     <rect x="-5.00" y="24.00" width="40.00" height="13.00" stroke="black" fill="#dcdcdc" />
     <text x="3.20" y="32.10" font-size="9.0" font-family="sans-serif" fill="black" stroke="none">LED Output</text>
-    <circle class="qet-terminal" cx="-10.00" cy="-67.00" r="1.8" fill="red" stroke="none" data-name="N" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-67.00" r="1.8" fill="red" stroke="none" data-name="DA1" data-orientation="n" />
-    <circle class="qet-terminal" cx="10.00" cy="-67.00" r="1.8" fill="red" stroke="none" data-name="DA2" data-orientation="n" />
-    <circle class="qet-terminal" cx="-30.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="V+" data-orientation="s" />
-    <circle class="qet-terminal" cx="-20.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="V-" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="LED+" data-orientation="s" />
-    <circle class="qet-terminal" cx="10.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="Ch1-" data-orientation="s" />
-    <circle class="qet-terminal" cx="20.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="LED+" data-orientation="s" />
-    <circle class="qet-terminal" cx="30.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="Ch2-" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.00" cy="-67.00" r="1.8" fill="red" stroke="none" data-name="X3" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-67.00" r="1.8" fill="red" stroke="none" data-name="X4" data-orientation="n" />
+    <circle class="qet-terminal" cx="10.00" cy="-67.00" r="1.8" fill="red" stroke="none" data-name="X6" data-orientation="n" />
+    <circle class="qet-terminal" cx="-30.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="X1" data-orientation="s" />
+    <circle class="qet-terminal" cx="-20.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="X2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="X5" data-orientation="s" />
+    <circle class="qet-terminal" cx="10.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="X7" data-orientation="s" />
+    <circle class="qet-terminal" cx="20.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="X8" data-orientation="s" />
+    <circle class="qet-terminal" cx="30.00" cy="67.00" r="1.8" fill="red" stroke="none" data-name="X9" data-orientation="s" />
   </g>
 </svg>

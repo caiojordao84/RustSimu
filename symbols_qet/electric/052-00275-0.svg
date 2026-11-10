@@ -14,8 +14,8 @@
     <text x="41.60" y="-27.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">L+</text>
     <line x1="-27.20" y1="0.00" x2="-40.00" y2="-12.80" stroke="black" fill="none" />
     <polyline points="0.00,16.00 14.40,16.00 14.40,0.00 17.60,0.00 17.60,16.00 30.40,16.00 30.40,0.00 33.60,0.00 33.60,16.00 46.40,16.00 46.40,0.00 49.60,0.00 49.60,16.00 62.40,16.00 62.40,0.00 65.60,0.00 65.60,16.00 78.40,16.00 78.40,0.00 81.60,0.00 81.60,16.00 92.80,16.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-44.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-44.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="96.00" cy="-44.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-44.80" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-44.80" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="-44.80" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
   </g>
 </svg>

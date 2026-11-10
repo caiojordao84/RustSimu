@@ -16,7 +16,7 @@
     <line x1="6.00" y1="-27.00" x2="3.00" y2="-28.50" stroke="black" fill="none" />
     <polygon points="3.00,-9.00 9.00,-9.00 6.00,-13.50" stroke="black" fill="none" />
     <text x="4.50" y="-16.50" font-size="2.7" font-family="sans-serif" fill="black" stroke="none">3</text>
-    <circle class="qet-terminal" cx="-9.00" cy="-45.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-9.00" cy="3.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-9.00" cy="-45.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-9.00" cy="3.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

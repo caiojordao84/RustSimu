@@ -13,8 +13,8 @@
     <line x1="7.20" y1="-8.40" x2="7.20" y2="8.40" stroke="black" fill="none" />
     <line x1="-6.00" y1="0.00" x2="6.00" y2="0.00" stroke="black" fill="none" />
     <text x="-21.60" y="-14.40" font-size="10.8" font-family="sans-serif" fill="black" stroke="none">disconnecteur</text>
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="0.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="12.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

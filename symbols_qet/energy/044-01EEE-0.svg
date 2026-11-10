@@ -12,9 +12,9 @@
     <line x1="-22.32" y1="13.92" x2="17.28" y2="13.92" stroke="black" fill="none" />
     <line x1="-22.32" y1="0.94" x2="17.28" y2="0.94" stroke="black" fill="none" />
     <path d="M 17.64 13.92 A 4.68 6.50 0 0 0 17.64 0.94" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-26.40" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-24.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="24.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-26.40" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
   </g>
 </svg>

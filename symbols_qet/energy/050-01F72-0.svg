@@ -144,8 +144,8 @@
     <line x1="191.52" y1="-91.92" x2="191.52" y2="-6.67" stroke="black" fill="none" />
     <text x="24.00" y="-72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Baja</text>
     <text x="-84.00" y="-72.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Alta</text>
-    <circle class="qet-terminal" cx="-93.60" cy="-76.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="4.80" cy="-84.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="189.60" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-93.60" cy="-76.80" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="4.80" cy="-84.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="189.60" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

@@ -7,7 +7,7 @@
     <text x="-25.37" y="-51.43" font-size="3.1" font-family="sans-serif" fill="black" stroke="none">Form 1 / Forme 1</text>
     <ellipse cx="-10.29" cy="-17.14" rx="10.29" ry="10.29" stroke="black" fill="none" />
     <line x1="-10.29" y1="-6.86" x2="-10.29" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-10.29" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-10.29" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-10.29" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-10.29" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

@@ -6,7 +6,7 @@
     <rect x="-7.94" y="-2.65" width="15.88" height="5.29" stroke="black" fill="#dcdcdc" />
     <line x1="-11.47" y1="-0.18" x2="-23.82" y2="-0.18" stroke="black" fill="none" />
     <line x1="11.47" y1="-0.18" x2="23.82" y2="-0.18" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.00" cy="-0.35" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="-0.35" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="-0.35" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="-0.35" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

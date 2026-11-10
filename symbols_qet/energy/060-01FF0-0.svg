@@ -6,9 +6,9 @@
     <rect x="-23.49" y="-9.19" width="40.85" height="17.36" stroke="black" fill="none" />
     <line x1="-26.87" y1="0.00" x2="19.74" y2="0.00" stroke="black" fill="none" />
     <line x1="-19.40" y1="-13.56" x2="-19.40" y2="-8.87" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-19.40" cy="-14.30" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="12.26" cy="13.28" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-27.57" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="20.43" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-19.40" cy="-14.30" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="12.26" cy="13.28" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-27.57" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="20.43" cy="0.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
   </g>
 </svg>

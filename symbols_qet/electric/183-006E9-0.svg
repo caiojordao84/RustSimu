@@ -47,11 +47,11 @@
     <rect x="-213.60" y="-48.00" width="72.00" height="60.00" stroke="none" fill="#d40000" />
     <text x="-206.40" y="-19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MW</text>
     <text x="-208.80" y="19.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Mean Well</text>
-    <circle class="qet-terminal" cx="98.40" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="146.40" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="194.40" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-141.60" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-189.60" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="50.40" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="98.40" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="146.40" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="n" />
+    <circle class="qet-terminal" cx="194.40" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="n" />
+    <circle class="qet-terminal" cx="-141.60" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-189.60" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="50.40" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
   </g>
 </svg>

@@ -5,7 +5,7 @@
     <line x1="-48.00" y1="-9.60" x2="0.00" y2="-9.60" stroke="black" fill="none" />
     <line x1="-26.40" y1="0.00" x2="-21.60" y2="-19.20" stroke="black" fill="black" />
     <ellipse cx="-21.60" cy="-18.72" rx="0.72" ry="0.72" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-48.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-48.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

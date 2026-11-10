@@ -47,10 +47,10 @@
     <ellipse cx="-72.00" cy="-192.00" rx="12.00" ry="12.00" stroke="black" fill="orange" />
     <ellipse cx="-72.00" cy="-192.00" rx="2.40" ry="2.40" stroke="black" fill="black" />
     <text x="-103.20" y="-151.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ANT</text>
-    <circle class="qet-terminal" cx="-72.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="55.20" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="7.20" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="45.60" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-50.40" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="-216.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="55.20" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="7.20" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="45.60" cy="216.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="-50.40" cy="216.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

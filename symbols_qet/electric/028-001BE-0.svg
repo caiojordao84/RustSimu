@@ -50,12 +50,12 @@
     <line x1="-194.23" y1="139.20" x2="-156.17" y2="139.20" stroke="black" fill="none" />
     <line x1="-201.14" y1="163.20" x2="-156.50" y2="163.20" stroke="black" fill="none" />
     <line x1="-201.60" y1="139.20" x2="-192.00" y2="139.20" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-192.00" cy="4.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-201.60" cy="139.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-199.20" cy="163.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="62.40" cy="-57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="60.00" cy="57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-192.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-192.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-192.00" cy="4.80" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="w" />
+    <circle class="qet-terminal" cx="-201.60" cy="139.20" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="w" />
+    <circle class="qet-terminal" cx="-199.20" cy="163.20" r="4.0" fill="red" stroke="none" data-name="7" data-orientation="w" />
+    <circle class="qet-terminal" cx="62.40" cy="-57.60" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="60.00" cy="57.60" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="e" />
+    <circle class="qet-terminal" cx="-192.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-192.00" cy="-9.60" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
   </g>
 </svg>

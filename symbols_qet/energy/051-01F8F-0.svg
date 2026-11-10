@@ -14,8 +14,8 @@
     <rect x="-2.67" y="25.33" width="6.67" height="1.33" stroke="black" fill="none" />
     <rect x="17.33" y="0.00" width="1.33" height="8.00" stroke="black" fill="none" />
     <ellipse cx="11.33" cy="10.00" rx="2.00" ry="2.00" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="0.00" cy="28.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="22.67" cy="5.33" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="28.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="22.67" cy="5.33" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="-20.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

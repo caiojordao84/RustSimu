@@ -8,7 +8,7 @@
     <rect x="-16.00" y="-16.00" width="4.80" height="32.00" stroke="black" fill="black" />
     <line x1="-16.00" y1="-20.80" x2="1.60" y2="-20.80" stroke="black" fill="none" />
     <line x1="-8.00" y1="-19.20" x2="-8.00" y2="20.80" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-32.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="16.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-32.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="16.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

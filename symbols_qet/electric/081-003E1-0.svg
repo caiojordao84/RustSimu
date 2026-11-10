@@ -21,7 +21,7 @@ L1</text>
     <polyline points="0.00,25.20 -12.00,25.20 -12.00,-12.00" stroke="black" fill="none" stroke-dasharray="4,3" />
     <line x1="0.00" y1="8.40" x2="-12.00" y2="8.40" stroke="black" fill="none" stroke-dasharray="4,3" />
     <line x1="-12.00" y1="-12.00" x2="-12.00" y2="-26.40" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="12.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="12.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="12.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="12.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

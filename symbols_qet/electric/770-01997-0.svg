@@ -43,10 +43,10 @@ web  )(  net</text>
     <rect x="-8.48" y="-20.61" width="4.85" height="2.42" stroke="black" fill="none" />
     <rect x="-8.48" y="-15.76" width="4.85" height="2.42" stroke="black" fill="none" />
     <text x="-7.27" y="-16.97" font-size="2.2" font-family="sans-serif" fill="black" stroke="none">USB</text>
-    <circle class="qet-terminal" cx="12.85" cy="29.09" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-21.82" cy="-29.09" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-6.06" cy="-19.39" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-6.06" cy="-14.55" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-35.15" cy="29.09" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="12.85" cy="29.09" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="-21.82" cy="-29.09" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-6.06" cy="-19.39" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="-6.06" cy="-14.55" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="-35.15" cy="29.09" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

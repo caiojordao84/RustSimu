@@ -6,7 +6,7 @@
     <line x1="-7.60" y1="8.00" x2="25.49" y2="8.00" stroke="black" fill="none" />
     <line x1="-8.00" y1="-8.43" x2="26.56" y2="-8.43" stroke="black" fill="none" />
     <path d="M 26.88 7.97 A 4.48 8.19 0 0 0 26.88 -8.43" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-16.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="32.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-16.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="32.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

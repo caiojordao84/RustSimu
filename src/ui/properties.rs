@@ -487,6 +487,45 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                     }
                                 }
                             }
+                        } else if let Some(id_or_slug) = item.symbol_id_or_slug() {
+                            let canonical_terms = crate::canonical::global_dictionary()
+                                .and_then(|dict| dict.get(id_or_slug))
+                                .map(|el| el.terminals.clone())
+                                .unwrap_or_default();
+
+                            let pin_count = canonical_terms.len().min(9);
+                            if pin_count > 0 {
+                                body_col = body_col.push(horizontal_rule(1));
+                                body_col = body_col.push(
+                                    text("Numeração dos Bornes:").size(12).font(Font {
+                                        weight: iced::font::Weight::Semibold,
+                                        ..UI
+                                    }),
+                                );
+                                for p_idx in 0..pin_count {
+                                    let default_label = canonical_terms
+                                        .get(p_idx)
+                                        .map(|t| t.name.as_str())
+                                        .unwrap_or("");
+                                    let current_pin_val =
+                                        item.pins.get(p_idx).cloned().unwrap_or_default();
+                                    body_col = body_col.push(
+                                        row![
+                                            text(format!("Borne {}:", p_idx + 1))
+                                                .size(11)
+                                                .font(MONO)
+                                                .width(Length::Fixed(65.0)),
+                                            text_input(default_label, &current_pin_val)
+                                                .on_input(move |v| Message::EditPin(p_idx, v))
+                                                .padding(Padding::from([3.0, 6.0]))
+                                                .size(11.5)
+                                                .style(theme::field),
+                                        ]
+                                        .spacing(6)
+                                        .align_y(Alignment::Center),
+                                    );
+                                }
+                            }
                         }
 
                         // Controles para Sinalizadores Luminosos / Lâmpadas

@@ -14,9 +14,9 @@
     <line x1="0.00" y1="-4.00" x2="0.00" y2="4.00" stroke="black" fill="none" />
     <line x1="0.00" y1="-1.60" x2="8.00" y2="-4.00" stroke="black" fill="none" />
     <line x1="0.00" y1="1.60" x2="8.00" y2="4.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="48.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="s" />
+    <circle class="qet-terminal" cx="48.00" cy="16.00" r="4.0" fill="red" stroke="none" data-name="B2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="B1" data-orientation="n" />
   </g>
 </svg>

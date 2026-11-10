@@ -120,9 +120,9 @@ L</text>
     <path d="M 72.00 94.00 A 1.00 0.50 0 0 0 74.00 94.00" stroke="black" fill="none" />
     <path d="M 72.00 94.00 A 1.00 0.50 0 0 0 70.00 94.00" stroke="black" fill="none" />
     <line x1="71.42" y1="96.00" x2="72.57" y2="96.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="110.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="20.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="90.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="110.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="4" data-orientation="n" />
+    <circle class="qet-terminal" cx="60.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="n" />
   </g>
 </svg>

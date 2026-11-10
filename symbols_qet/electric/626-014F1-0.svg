@@ -51,11 +51,11 @@
     <text x="26.56" y="24.23" font-size="4.2" font-family="sans-serif" fill="black" stroke="none">Weidmüller Wavefilter 10A</text>
     <ellipse cx="18.64" cy="21.44" rx="0.47" ry="0.47" stroke="black" fill="black" />
     <ellipse cx="24.70" cy="21.44" rx="0.47" ry="0.47" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="45.67" cy="8.39" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-2.33" cy="1.86" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-2.33" cy="-4.66" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="45.67" cy="-4.66" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="45.67" cy="1.86" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-2.33" cy="8.39" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="45.67" cy="8.39" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="e" />
+    <circle class="qet-terminal" cx="-2.33" cy="1.86" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="-2.33" cy="-4.66" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="45.67" cy="-4.66" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="45.67" cy="1.86" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="-2.33" cy="8.39" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="w" />
   </g>
 </svg>

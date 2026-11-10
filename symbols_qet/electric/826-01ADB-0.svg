@@ -6,7 +6,7 @@
     <ellipse cx="15.60" cy="-24.00" rx="7.20" ry="7.20" stroke="black" fill="#dcdcdc" />
     <ellipse cx="15.60" cy="24.00" rx="7.20" ry="7.20" stroke="black" fill="#dcdcdc" />
     <rect x="10.80" y="-9.60" width="9.60" height="19.20" stroke="black" fill="#dcdcdc" />
-    <circle class="qet-terminal" cx="16.80" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="16.80" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="16.80" cy="24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="16.80" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

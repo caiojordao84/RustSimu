@@ -52,9 +52,9 @@
     <ellipse cx="52.80" cy="134.40" rx="14.40" ry="7.20" stroke="black" fill="none" />
     <text x="50.40" y="156.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">T</text>
     <text x="100.80" y="211.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">ID'clic XP</text>
-    <circle class="qet-terminal" cx="48.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="144.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="144.00" cy="480.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

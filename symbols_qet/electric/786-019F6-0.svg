@@ -73,9 +73,9 @@ Converter</text>
     <polygon points="297.12,573.12 306.72,563.52 307.92,564.72 298.32,574.32" stroke="black" fill="gray" />
     <polygon points="273.12,573.12 282.72,563.52 283.92,564.72 274.32,574.32" stroke="black" fill="gray" />
     <text x="84.00" y="480.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">1</text>
-    <circle class="qet-terminal" cx="278.40" cy="604.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="134.40" cy="604.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="196.80" cy="-62.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="302.40" cy="604.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="278.40" cy="604.80" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="134.40" cy="604.80" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="196.80" cy="-62.40" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="302.40" cy="604.80" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

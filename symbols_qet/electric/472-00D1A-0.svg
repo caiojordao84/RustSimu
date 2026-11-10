@@ -25,10 +25,10 @@
     <line x1="72.00" y1="-60.00" x2="-72.00" y2="60.00" stroke="black" fill="none" />
     <text x="24.00" y="50.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Bat</text>
     <text x="-36.00" y="-74.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">MPPT</text>
-    <circle class="qet-terminal" cx="-24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="84.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="84.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-84.00" cy="-16.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-84.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="72.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="84.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="84.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="-84.00" cy="-16.80" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="-84.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
   </g>
 </svg>

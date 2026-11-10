@@ -12,7 +12,7 @@
     <line x1="-12.00" y1="-96.00" x2="33.60" y2="-96.00" stroke="black" fill="none" />
     <polygon points="19.20,-96.00 19.20,-100.80 38.40,-96.00 19.20,-91.20" stroke="black" fill="black" />
     <text x="43.20" y="-86.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">0</text>
-    <circle class="qet-terminal" cx="-96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-96.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-96.00" cy="-96.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-96.00" cy="48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

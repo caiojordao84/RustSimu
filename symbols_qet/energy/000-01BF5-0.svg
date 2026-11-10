@@ -4,7 +4,7 @@
   <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <rect x="-21.82" y="-3.68" width="43.64" height="6.95" stroke="black" fill="none" />
     <polyline points="-20.73,-3.68 -16.36,3.27 -9.82,-3.68 -3.27,3.27 4.36,-3.68 12.00,3.27 19.64,-3.68" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

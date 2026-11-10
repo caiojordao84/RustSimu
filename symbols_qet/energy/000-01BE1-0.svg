@@ -6,9 +6,9 @@
     <path d="M 19.07 12.49 A 5.26 11.84 0 0 0 19.07 -11.18" stroke="black" fill="none" />
     <line x1="-16.44" y1="-11.18" x2="19.07" y2="-11.18" stroke="black" fill="none" />
     <line x1="-16.44" y1="12.49" x2="18.41" y2="12.49" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="24.99" cy="0.66" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-23.01" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="-12.49" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-0.66" cy="13.81" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.99" cy="0.66" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="-23.01" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="-12.49" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-0.66" cy="13.81" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
   </g>
 </svg>

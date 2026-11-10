@@ -19,7 +19,7 @@
     <text x="108.80" y="-19.20" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">+</text>
     <text x="112.00" y="36.80" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">-</text>
     <text x="-17.60" y="-54.40" font-size="14.4" font-family="sans-serif" fill="black" stroke="none">2 Wire</text>
-    <circle class="qet-terminal" cx="128.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="128.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="128.00" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="128.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="n" />
   </g>
 </svg>

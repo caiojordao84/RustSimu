@@ -30,9 +30,9 @@
     <line x1="165.60" y1="-91.20" x2="172.80" y2="-91.20" stroke="black" fill="none" />
     <line x1="156.00" y1="-91.20" x2="148.80" y2="-91.20" stroke="black" fill="none" />
     <polygon points="165.60,-91.20 156.00,-81.60 156.00,-100.80" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="96.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-48.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="96.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="PE" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="V" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="W" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-132.00" r="4.0" fill="red" stroke="none" data-name="U" data-orientation="n" />
   </g>
 </svg>

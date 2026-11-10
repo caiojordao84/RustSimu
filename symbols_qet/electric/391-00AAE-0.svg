@@ -27,9 +27,9 @@
     <line x1="-34.29" y1="-6.86" x2="-43.89" y2="-6.86" stroke="black" fill="none" />
     <line x1="-26.74" y1="-20.57" x2="-18.51" y2="-20.57" stroke="black" fill="none" />
     <text x="-61.71" y="-36.34" font-size="6.2" font-family="sans-serif" fill="black" stroke="none">BN/WH</text>
-    <circle class="qet-terminal" cx="3.43" cy="-6.86" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="3.43" cy="-34.29" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-44.57" cy="-6.86" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-44.57" cy="-34.29" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="3.43" cy="-6.86" r="4.0" fill="red" stroke="none" data-name="B2" data-orientation="e" />
+    <circle class="qet-terminal" cx="3.43" cy="-34.29" r="4.0" fill="red" stroke="none" data-name="B1" data-orientation="e" />
+    <circle class="qet-terminal" cx="-44.57" cy="-6.86" r="4.0" fill="red" stroke="none" data-name="A2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-44.57" cy="-34.29" r="4.0" fill="red" stroke="none" data-name="A1" data-orientation="w" />
   </g>
 </svg>

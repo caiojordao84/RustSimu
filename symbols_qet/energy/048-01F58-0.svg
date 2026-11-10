@@ -27,8 +27,8 @@
     <line x1="-27.36" y1="12.00" x2="-20.16" y2="9.60" stroke="black" fill="none" />
     <ellipse cx="24.00" cy="0.00" rx="2.88" ry="2.88" stroke="black" fill="none" />
     <ellipse cx="-24.00" cy="0.00" rx="2.88" ry="2.88" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-24.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="14.40" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
   </g>
 </svg>

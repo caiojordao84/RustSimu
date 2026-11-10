@@ -16,7 +16,7 @@
     <text x="-21.60" y="-43.20" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">TEST</text>
     <text x="-26.40" y="38.40" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DTI</text>
     <rect x="-72.00" y="-84.00" width="144.00" height="144.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-84.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="57.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-84.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="57.60" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

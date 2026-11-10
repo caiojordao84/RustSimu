@@ -23,9 +23,9 @@
     <line x1="6.34" y1="13.57" x2="6.34" y2="-9.06" stroke="black" fill="none" />
     <line x1="11.38" y1="13.57" x2="11.38" y2="-9.06" stroke="black" fill="none" />
     <rect x="21.81" y="-10.59" width="2.02" height="2.14" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.25" cy="14.35" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="23.75" cy="14.35" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-24.25" cy="-10.39" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="23.75" cy="-9.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.25" cy="14.35" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="23.75" cy="14.35" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.25" cy="-10.39" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="23.75" cy="-9.40" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

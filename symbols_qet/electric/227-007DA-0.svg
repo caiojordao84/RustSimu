@@ -48,9 +48,9 @@ Link</text>
     <text x="-45.60" y="-47.52" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Loxone</text>
     <text x="-28.80" y="-13.68" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Nano DI
 Tree</text>
-    <circle class="qet-terminal" cx="-12.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-26.40" cy="74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="36.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="21.60" cy="74.40" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-12.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="-26.40" cy="74.40" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="s" />
+    <circle class="qet-terminal" cx="36.00" cy="74.40" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="21.60" cy="74.40" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
   </g>
 </svg>

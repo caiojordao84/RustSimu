@@ -22,8 +22,8 @@
     <line x1="84.00" y1="-84.00" x2="84.00" y2="60.00" stroke="black" fill="none" />
     <line x1="-84.00" y1="60.00" x2="84.00" y2="60.00" stroke="black" fill="none" />
     <text x="-55.20" y="-45.60" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">208...440V 50/60Hz</text>
-    <circle class="qet-terminal" cx="-48.00" cy="-91.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="48.00" cy="-91.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="0.00" cy="-91.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-48.00" cy="-91.20" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="48.00" cy="-91.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="-91.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
   </g>
 </svg>

@@ -8,7 +8,7 @@
     <line x1="14.77" y1="-7.38" x2="14.77" y2="7.38" stroke="black" fill="none" />
     <polygon points="-5.54,9.23 -5.54,-9.23 9.23,0.00" stroke="black" fill="none" />
     <ellipse cx="0.00" cy="0.00" rx="13.31" ry="13.31" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

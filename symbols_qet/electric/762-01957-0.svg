@@ -35,10 +35,10 @@
     <text x="24.00" y="156.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">Legrand</text>
     <line x1="12.00" y1="81.41" x2="12.00" y2="156.00" stroke="#d40000" fill="none" />
     <text x="24.00" y="120.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">230V /24V</text>
-    <circle class="qet-terminal" cx="60.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="67.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="115.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="91.20" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="120.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="60.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="67.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="115.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
+    <circle class="qet-terminal" cx="91.20" cy="216.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="216.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
   </g>
 </svg>

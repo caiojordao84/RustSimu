@@ -32,9 +32,9 @@
     <rect x="-51.99" y="-176.38" width="34.29" height="34.29" stroke="black" fill="none" />
     <rect x="-56.14" y="-168.00" width="3.00" height="6.00" stroke="black" fill="none" />
     <text x="-42.86" y="-120.00" font-size="15.4" font-family="sans-serif" fill="black" stroke="none">P1</text>
-    <circle class="qet-terminal" cx="-34.29" cy="-174.86" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-65.14" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-17.14" cy="168.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="41.14" cy="-174.86" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-34.29" cy="-174.86" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-65.14" cy="168.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-17.14" cy="168.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="41.14" cy="-174.86" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
   </g>
 </svg>

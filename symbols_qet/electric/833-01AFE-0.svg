@@ -18,7 +18,7 @@
     <ellipse cx="6.86" cy="40.46" rx="1.71" ry="1.71" stroke="black" fill="none" />
     <rect x="0.00" y="0.00" width="12.34" height="10.29" stroke="black" fill="none" />
     <text x="8.57" y="16.46" font-size="3.1" font-family="sans-serif" fill="black" stroke="none">N</text>
-    <circle class="qet-terminal" cx="6.86" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="6.86" cy="48.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="6.86" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="6.86" cy="48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

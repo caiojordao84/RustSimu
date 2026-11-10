@@ -32,9 +32,9 @@
     <path d="M -60.00 -19.20 A 2.40 3.60 0 0 0 -60.00 -26.40" stroke="black" fill="none" />
     <rect x="-2.40" y="28.80" width="7.20" height="4.80" stroke="black" fill="none" />
     <polygon points="-45.60,-28.80 -26.40,-28.80 -26.40,-14.40 -45.60,-14.40" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-69.60" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-69.60" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="2.40" cy="33.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-36.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-69.60" cy="-24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="-69.60" cy="7.20" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="2.40" cy="33.60" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="-36.00" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

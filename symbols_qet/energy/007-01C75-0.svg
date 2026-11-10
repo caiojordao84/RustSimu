@@ -49,9 +49,9 @@
     <ellipse cx="-4.00" cy="-26.00" rx="2.00" ry="2.00" stroke="black" fill="none" />
     <polyline points="-4.00,-28.00 6.00,-32.00 -2.00,-26.00" stroke="black" fill="none" />
     <path d="M 10.00 -30.00 A 8.00 8.00 0 0 0 2.00 -38.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="24.00" cy="2.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="0.00" cy="20.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="22.00" cy="-40.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="2.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="0.00" cy="20.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="22.00" cy="-40.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

@@ -43,9 +43,9 @@
     <ellipse cx="24.00" cy="2.67" rx="0.53" ry="0.53" stroke="black" fill="white" />
     <ellipse cx="-8.00" cy="-2.67" rx="0.40" ry="0.40" stroke="black" fill="black" />
     <ellipse cx="8.00" cy="2.67" rx="0.40" ry="0.40" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-24.00" cy="2.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-24.00" cy="-2.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="2.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="24.00" cy="-2.67" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="2.67" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="-2.67" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="2.67" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="24.00" cy="-2.67" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

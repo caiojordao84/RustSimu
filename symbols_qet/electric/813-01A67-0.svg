@@ -95,9 +95,9 @@
     <ellipse cx="55.93" cy="31.26" rx="1.12" ry="1.12" stroke="black" fill="white" />
     <rect x="58.16" y="30.14" width="5.58" height="2.23" stroke="black" fill="white" />
     <line x1="89.08" y1="18.98" x2="0.00" y2="18.98" stroke="#888888" fill="none" stroke-dasharray="4,2,1.5,2" />
-    <circle class="qet-terminal" cx="21.99" cy="31.26" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="69.99" cy="31.26" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="21.99" cy="62.51" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="69.99" cy="62.51" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="21.99" cy="31.26" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="69.99" cy="31.26" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="w" />
+    <circle class="qet-terminal" cx="21.99" cy="62.51" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="69.99" cy="62.51" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="w" />
   </g>
 </svg>

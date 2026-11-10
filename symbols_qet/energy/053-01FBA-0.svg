@@ -20,7 +20,7 @@
     <path d="M 21.60 7.20 A 4.80 2.40 0 0 0 12.00 7.20" stroke="black" fill="none" />
     <polygon points="64.80,-12.00 64.80,16.80 98.40,2.40 98.40,-2.40" stroke="black" fill="none" stroke-dasharray="4,3" />
     <rect x="12.00" y="24.00" width="19.20" height="4.80" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-36.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="21.60" cy="31.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-36.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="21.60" cy="31.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

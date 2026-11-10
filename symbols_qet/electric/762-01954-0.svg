@@ -47,9 +47,9 @@
     <polyline points="9.60,49.04 9.60,108.88 21.60,108.88" stroke="#d40000" fill="none" />
     <line x1="62.40" y1="108.88" x2="74.40" y2="108.88" stroke="#d40000" fill="none" />
     <text x="21.60" y="56.21" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">DNX3</text>
-    <circle class="qet-terminal" cx="74.67" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="21.33" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="74.67" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="n" />
+    <circle class="qet-terminal" cx="24.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="21.33" cy="-240.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>

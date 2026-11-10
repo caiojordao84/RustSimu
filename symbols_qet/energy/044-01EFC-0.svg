@@ -41,11 +41,11 @@
     <path d="M -16.01 18.12 A 10.20 4.15 0 0 0 -36.43 18.12" stroke="black" fill="none" stroke-dasharray="4,3" />
     <polygon points="4.39,22.27 -45.60,-29.66 -47.78,-21.36 2.14,28.51" stroke="black" fill="none" stroke-dasharray="4,3" />
     <ellipse cx="-45.00" cy="-22.44" rx="2.52" ry="2.54" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-38.40" cy="69.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-2.40" cy="60.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="38.40" cy="19.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="38.40" cy="-28.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-45.60" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-28.80" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="-38.40" cy="69.60" r="4.0" fill="red" stroke="none" data-name="6" data-orientation="s" />
+    <circle class="qet-terminal" cx="-2.40" cy="60.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="38.40" cy="19.20" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="e" />
+    <circle class="qet-terminal" cx="38.40" cy="-28.80" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="e" />
+    <circle class="qet-terminal" cx="-45.60" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-28.80" cy="-36.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
   </g>
 </svg>

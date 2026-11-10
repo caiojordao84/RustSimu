@@ -38,7 +38,7 @@
     <ellipse cx="6.86" cy="-13.71" rx="1.71" ry="1.71" stroke="black" fill="none" />
     <path d="M 5.14 -25.71 A 5.14 1.71 0 0 0 -5.14 -25.71" stroke="black" fill="none" />
     <path d="M 10.29 -27.43 A 5.14 1.71 0 0 0 5.14 -25.71" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
   </g>
 </svg>

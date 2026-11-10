@@ -8,7 +8,7 @@
     <polyline points="-11,-8 -15,-2 -5,-2 -9,-8" stroke="black" fill="none" />
     <ellipse cx="-10.01" cy="-10.01" rx="2.23" ry="2.23" stroke="black" fill="none" />
     <ellipse cx="-10.00" cy="-10.00" rx="1.00" ry="1.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-10.00" r="1.8" fill="red" stroke="none" data-name="1" data-orientation="e" />
+    <circle class="qet-terminal" cx="-10.00" cy="0.00" r="1.8" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

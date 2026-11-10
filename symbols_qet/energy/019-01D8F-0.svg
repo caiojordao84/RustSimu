@@ -54,7 +54,7 @@
     <line x1="-5.33" y1="9.33" x2="-5.33" y2="-9.33" stroke="black" fill="none" />
     <line x1="5.33" y1="9.33" x2="6.67" y2="9.33" stroke="black" fill="none" />
     <path d="M 4.00 -21.33 A 1.33 1.33 0 0 0 2.67 -22.67" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
-    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
+    <circle class="qet-terminal" cx="24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="e" />
+    <circle class="qet-terminal" cx="-24.00" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="w" />
   </g>
 </svg>

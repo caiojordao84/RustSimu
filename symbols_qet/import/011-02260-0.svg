@@ -38,9 +38,9 @@
     <polyline points="-19.20,-9.60 -158.40,-9.60 -165.60,4.80 -172.80,-9.60 -192.00,-9.60" stroke="black" fill="none" stroke-dasharray="4,3" />
     <polyline points="-151.20,0.00 -141.60,-19.20 -132.00,0.00" stroke="black" fill="none" />
     <circle cx="-24.00" cy="48.00" r="4.80" stroke="black" fill="black" />
-    <circle class="qet-terminal" cx="-72.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-24.00" cy="-105.60" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="72.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-72.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="13" data-orientation="s" />
+    <circle class="qet-terminal" cx="-24.00" cy="-105.60" r="4.0" fill="red" stroke="none" data-name="14" data-orientation="n" />
+    <circle class="qet-terminal" cx="-24.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="21" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="96.00" r="4.0" fill="red" stroke="none" data-name="22" data-orientation="s" />
   </g>
 </svg>

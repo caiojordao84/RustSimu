@@ -11,7 +11,7 @@
     <line x1="-16.80" y1="55.20" x2="16.80" y2="55.20" stroke="black" fill="none" />
     <ellipse cx="0.00" cy="0.00" rx="16.80" ry="16.80" stroke="black" fill="white" />
     <rect x="-14.40" y="0.00" width="28.80" height="48.00" stroke="white" fill="white" />
-    <circle class="qet-terminal" cx="0.00" cy="55.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="19.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="e" />
+    <circle class="qet-terminal" cx="0.00" cy="55.20" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="19.20" cy="0.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="e" />
   </g>
 </svg>

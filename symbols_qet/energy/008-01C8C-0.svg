@@ -4,8 +4,8 @@
   <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
     <polyline points="40.80,16.80 -55.20,16.80 -55.20,-7.20 -31.20,-7.20 -31.20,-31.20 19.20,-31.20 19.20,-38.40 40.80,-38.40 40.80,14.40" stroke="black" fill="none" />
     <polyline points="-24.00,24.00 -24.00,9.60 -24.00,2.40 -14.40,9.60 -4.80,2.40 4.80,9.60 16.80,2.40 24.00,9.60 24.00,21.60 24.00,24.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="-60.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="" data-orientation="w" />
-    <circle class="qet-terminal" cx="-24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-60.00" cy="7.20" r="4.0" fill="red" stroke="none" data-name="U" data-orientation="w" />
+    <circle class="qet-terminal" cx="-24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="V" data-orientation="s" />
+    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="W" data-orientation="s" />
   </g>
 </svg>

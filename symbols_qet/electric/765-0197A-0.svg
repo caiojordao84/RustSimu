@@ -27,8 +27,8 @@
 uscita 27V⎓        1,2A
 T=5÷40°C</text>
     <text x="192.00" y="192.00" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">IP30</text>
-    <circle class="qet-terminal" cx="-336.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="312.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-360.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="-336.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="L2" data-orientation="s" />
+    <circle class="qet-terminal" cx="312.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="L3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-360.00" cy="288.00" r="4.0" fill="red" stroke="none" data-name="L1" data-orientation="s" />
   </g>
 </svg>

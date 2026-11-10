@@ -45,10 +45,10 @@
     <text x="-110.40" y="-4.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">X Devices</text>
     <polygon points="-120.00,-184.80 -96.00,-208.80 -48.00,-208.80 -48.00,-112.80 -120.00,-112.80" stroke="none" fill="#dcdcdc" />
     <text x="-100.80" y="-136.80" font-size="20.0" font-family="sans-serif" fill="black" stroke="none">SIM</text>
-    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="120.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="136.80" cy="-208.80" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
-    <circle class="qet-terminal" cx="-21.60" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="-93.60" cy="216.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
+    <circle class="qet-terminal" cx="72.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
+    <circle class="qet-terminal" cx="120.00" cy="240.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
+    <circle class="qet-terminal" cx="136.80" cy="-208.80" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+    <circle class="qet-terminal" cx="-21.60" cy="216.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+    <circle class="qet-terminal" cx="-93.60" cy="216.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
   </g>
 </svg>

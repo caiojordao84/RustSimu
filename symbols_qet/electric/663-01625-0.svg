@@ -10,7 +10,7 @@
     <line x1="0.00" y1="10.67" x2="0.00" y2="32.00" stroke="black" fill="none" />
     <line x1="0.00" y1="5.33" x2="0.00" y2="-16.00" stroke="black" fill="none" />
     <polyline points="21.33,-12.80 -12.80,21.33 -25.60,21.33" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.00" cy="32.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
+    <circle class="qet-terminal" cx="0.00" cy="-16.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
   </g>
 </svg>
