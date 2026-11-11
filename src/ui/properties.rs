@@ -145,6 +145,127 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                         );
                     }
 
+                    let selected_groups: std::collections::HashSet<u32> = app
+                        .doc
+                        .items
+                        .iter()
+                        .filter(|i| app.selected_ids.contains(&i.id))
+                        .filter_map(|i| i.group_id)
+                        .collect();
+
+                    if !selected_groups.is_empty() {
+                        let member_count = app
+                            .doc
+                            .items
+                            .iter()
+                            .filter(|i| {
+                                i.group_id.is_some_and(|gid| selected_groups.contains(&gid))
+                            })
+                            .count();
+                        let group_label = if selected_groups.len() == 1 {
+                            format!(
+                                "Grupo #{} ({} elementos)",
+                                selected_groups.iter().next().unwrap(),
+                                member_count
+                            )
+                        } else {
+                            format!(
+                                "{} Grupos ({} elementos)",
+                                selected_groups.len(),
+                                member_count
+                            )
+                        };
+                        let mut group_row = row![
+                            container(crate::icons::view_icon(
+                                crate::icons::Icon::Group,
+                                14,
+                                t.primary
+                            ))
+                            .width(16)
+                            .height(16),
+                            text(group_label).size(11.5).color(t.text),
+                            horizontal_space(),
+                            button(
+                                row![
+                                    crate::icons::view_icon(
+                                        crate::icons::Icon::Ungroup,
+                                        12,
+                                        t.danger
+                                    ),
+                                    text("Desagrupar").size(10.5).font(UI).color(t.danger),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center)
+                            )
+                            .style(theme::tool)
+                            .padding(Padding::from([2.0, 6.0]))
+                            .on_press(Message::UngroupSelected),
+                        ]
+                        .spacing(6)
+                        .align_y(Alignment::Center);
+
+                        if app.selected_ids.len() >= 2
+                            && (selected_groups.len() > 1 || app.selected_ids.len() > member_count)
+                        {
+                            group_row = group_row.push(
+                                button(
+                                    row![
+                                        crate::icons::view_icon(
+                                            crate::icons::Icon::Group,
+                                            12,
+                                            t.primary
+                                        ),
+                                        text("Re-Agrupar").size(10.5).font(UI).color(t.primary),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center),
+                                )
+                                .style(theme::tool_active)
+                                .padding(Padding::from([2.0, 6.0]))
+                                .on_press(Message::GroupSelected),
+                            );
+                        }
+
+                        body_col = body_col.push(
+                            container(group_row)
+                                .style(theme::card)
+                                .padding(Padding::from([4.0, 8.0]))
+                                .width(Length::Fill),
+                        );
+                    } else if app.selected_ids.len() >= 2 {
+                        body_col = body_col.push(
+                            container(
+                                row![
+                                    text("Elementos independentes").size(11.0).color(t.text2),
+                                    horizontal_space(),
+                                    button(
+                                        row![
+                                            crate::icons::view_icon(
+                                                crate::icons::Icon::Group,
+                                                12,
+                                                t.primary
+                                            ),
+                                            text("Agrupar (Ctrl+G)")
+                                                .size(10.5)
+                                                .font(UI)
+                                                .color(t.primary),
+                                        ]
+                                        .spacing(4)
+                                        .align_y(Alignment::Center)
+                                    )
+                                    .style(theme::tool_active)
+                                    .padding(Padding::from([2.0, 6.0]))
+                                    .on_press(Message::GroupSelected),
+                                ]
+                                .spacing(6)
+                                .align_y(Alignment::Center),
+                            )
+                            .style(theme::card)
+                            .padding(Padding::from([4.0, 8.0]))
+                            .width(Length::Fill),
+                        );
+                    }
+
                     body_col = body_col.push(
                         text(format!("#{sel_id} · {title} · {grid_ref}"))
                             .size(13)

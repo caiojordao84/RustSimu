@@ -224,6 +224,8 @@ pub enum Message {
     SelectAll,
     DeselectAll,
     InvertSelection,
+    GroupSelected,
+    UngroupSelected,
     InsertLastElement,
     CopyElementInfo,
     PasteElementInfo,
@@ -475,32 +477,82 @@ impl CadeSimuApp {
         }
     }
 
-    /// Seleciona um único elemento exclusivamente.
+    /// Seleciona um único elemento exclusivamente. Se pertencer a um grupo,
+    /// todos os membros do grupo são selecionados em conjunto.
     pub fn select_single(&mut self, id: Option<i32>) {
         self.selected_ids.clear();
         if let Some(i) = id {
-            self.selected_ids.insert(i);
+            if let Some(item) = self.doc.items.iter().find(|it| it.id == i) {
+                if let Some(gid) = item.group_id {
+                    for it in &self.doc.items {
+                        if it.group_id == Some(gid) {
+                            self.selected_ids.insert(it.id);
+                        }
+                    }
+                } else {
+                    self.selected_ids.insert(i);
+                }
+            } else {
+                self.selected_ids.insert(i);
+            }
         }
         self.selected_id = id;
     }
 
     /// Seleciona múltiplos elementos (substitui ou adiciona conforme `additive`).
+    /// Se qualquer elemento pertencer a um grupo, expande para incluir todos os membros do grupo.
     pub fn select_multiple(&mut self, ids: impl IntoIterator<Item = i32>, additive: bool) {
         if !additive {
             self.selected_ids.clear();
         }
-        for id in ids {
-            self.selected_ids.insert(id);
+        let input_ids: Vec<i32> = ids.into_iter().collect();
+        let mut group_ids = std::collections::HashSet::new();
+        for id in &input_ids {
+            self.selected_ids.insert(*id);
+            if let Some(item) = self.doc.items.iter().find(|i| i.id == *id) {
+                if let Some(gid) = item.group_id {
+                    group_ids.insert(gid);
+                }
+            }
+        }
+        if !group_ids.is_empty() {
+            for item in &self.doc.items {
+                if let Some(gid) = item.group_id {
+                    if group_ids.contains(&gid) {
+                        self.selected_ids.insert(item.id);
+                    }
+                }
+            }
         }
         self.sync_primary_selected_id();
     }
 
     /// Alterna a presença de um item na seleção (Shift-click ou Ctrl-click).
+    /// Se o item pertencer a um grupo, todos os elementos do grupo são alternados em conjunto.
     pub fn toggle_selection(&mut self, id: i32) {
-        if self.selected_ids.contains(&id) {
-            self.selected_ids.remove(&id);
+        let group_members: Vec<i32> = if let Some(item) = self.doc.items.iter().find(|i| i.id == id)
+        {
+            if let Some(gid) = item.group_id {
+                self.doc
+                    .items
+                    .iter()
+                    .filter(|i| i.group_id == Some(gid))
+                    .map(|i| i.id)
+                    .collect()
+            } else {
+                vec![id]
+            }
         } else {
-            self.selected_ids.insert(id);
+            vec![id]
+        };
+
+        let should_remove = self.selected_ids.contains(&id);
+        for member_id in group_members {
+            if should_remove {
+                self.selected_ids.remove(&member_id);
+            } else {
+                self.selected_ids.insert(member_id);
+            }
         }
         self.sync_primary_selected_id();
     }
@@ -595,6 +647,8 @@ impl CadeSimuApp {
                         "t" if ctrl && shift => Some(Message::CycleTheme),
                         "t" if ctrl => Some(Message::AddPageAfter(usize::MAX)),
                         "g" if ctrl && shift => Some(Message::ToggleSnap),
+                        "g" if ctrl && !shift => Some(Message::GroupSelected),
+                        "u" if ctrl && !shift => Some(Message::UngroupSelected),
                         "8" if ctrl => Some(Message::ZoomContent),
                         "9" if ctrl => Some(Message::FitToPage),
                         "0" if ctrl => Some(Message::ZoomReset),
@@ -683,6 +737,8 @@ impl CadeSimuApp {
             | Message::SelectAll
             | Message::DeselectAll
             | Message::InvertSelection
+            | Message::GroupSelected
+            | Message::UngroupSelected
             | Message::PasteAtOriginalPos
             | Message::CopyElementInfo
             | Message::PasteElementInfo
@@ -1709,6 +1765,61 @@ impl CadeSimuApp {
                 self.sync_primary_selected_id();
                 self.status_msg =
                     format!("Seleção invertida ({} elementos).", self.selected_ids.len());
+            }
+            Message::GroupSelected => {
+                if self.selected_ids.len() < 2 {
+                    self.status_msg =
+                        "Selecione ao menos 2 elementos para agrupar (Ctrl+G).".to_string();
+                } else {
+                    self.push_undo();
+                    let max_gid = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter_map(|i| i.group_id)
+                        .max()
+                        .unwrap_or(0);
+                    let new_gid = max_gid + 1;
+                    let mut count = 0;
+                    for item in &mut self.doc.items {
+                        if self.selected_ids.contains(&item.id) {
+                            item.group_id = Some(new_gid);
+                            count += 1;
+                        }
+                    }
+                    self.is_modified = true;
+                    self.status_msg = format!("{count} elementos agrupados no Grupo #{new_gid}.");
+                }
+            }
+            Message::UngroupSelected => {
+                let groups_to_dissolve: std::collections::HashSet<u32> = self
+                    .doc
+                    .items
+                    .iter()
+                    .filter(|i| self.selected_ids.contains(&i.id))
+                    .filter_map(|i| i.group_id)
+                    .collect();
+
+                if groups_to_dissolve.is_empty() {
+                    self.status_msg =
+                        "Nenhum grupo encontrado na seleção atual para desagrupar (Ctrl+U)."
+                            .to_string();
+                } else {
+                    self.push_undo();
+                    let mut count = 0;
+                    for item in &mut self.doc.items {
+                        if let Some(gid) = item.group_id {
+                            if groups_to_dissolve.contains(&gid) {
+                                item.group_id = None;
+                                count += 1;
+                            }
+                        }
+                    }
+                    self.is_modified = true;
+                    self.status_msg = format!(
+                        "Grupo(s) desagrupado(s) ({count} elementos tornaram-se independentes)."
+                    );
+                }
             }
             Message::InsertLastElement => {
                 if let Some(sym) = self.last_placed_sym.or(self.selected_collection_sym) {

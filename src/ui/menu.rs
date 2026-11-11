@@ -263,6 +263,19 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
                 "Ctrl+I",
                 Message::InvertSelection
             ),
+            horizontal_rule(1),
+            menu_item_btn(
+                Some(crate::icons::Icon::Group),
+                "Agrupar",
+                "Ctrl+G",
+                Message::GroupSelected
+            ),
+            menu_item_btn(
+                Some(crate::icons::Icon::Ungroup),
+                "Desagrupar",
+                "Ctrl+U",
+                Message::UngroupSelected
+            ),
             menu_item_btn(
                 Some(crate::icons::Icon::Copy),
                 "Copiar Info do Elemento",

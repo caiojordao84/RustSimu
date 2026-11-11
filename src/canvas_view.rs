@@ -1750,6 +1750,79 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
             }
         }
 
+        // Caixas delimitadoras de grupos selecionados
+        let mut rendered_groups = std::collections::HashSet::new();
+        for item_id in self.selected_ids {
+            if let Some(item) = self.doc.items.iter().find(|i| i.id == *item_id) {
+                if let Some(gid) = item.group_id {
+                    if rendered_groups.insert(gid) {
+                        let group_items: Vec<&SchematicItem> = self
+                            .doc
+                            .items
+                            .iter()
+                            .filter(|i| i.group_id == Some(gid))
+                            .collect();
+                        if !group_items.is_empty() {
+                            let mut min_x = i32::MAX;
+                            let mut min_y = i32::MAX;
+                            let mut max_x = i32::MIN;
+                            let mut max_y = i32::MIN;
+                            for gi in group_items {
+                                let (ix1, iy1, ix2, iy2) = Self::item_bounds(gi);
+                                min_x = min_x.min(ix1);
+                                min_y = min_y.min(iy1);
+                                max_x = max_x.max(ix2);
+                                max_y = max_y.max(iy2);
+                            }
+                            if min_x <= max_x && min_y <= max_y {
+                                let p1 = self.world_to_screen(min_x as f32, min_y as f32);
+                                let p2 = self.world_to_screen(max_x as f32, max_y as f32);
+                                let pad = 6.0;
+                                let gx = p1.x.min(p2.x) - pad;
+                                let gy = p1.y.min(p2.y) - pad;
+                                let gw = (p1.x - p2.x).abs() + pad * 2.0;
+                                let gh = (p1.y - p2.y).abs() + pad * 2.0;
+
+                                frame.fill_rectangle(
+                                    Point::new(gx, gy),
+                                    Size::new(gw, gh),
+                                    Color {
+                                        a: 0.04,
+                                        ..tok.primary
+                                    },
+                                );
+                                let mut group_stroke = Stroke::default()
+                                    .with_color(Color {
+                                        a: 0.65,
+                                        ..tok.primary
+                                    })
+                                    .with_width(1.2);
+                                group_stroke.line_dash = iced::widget::canvas::stroke::LineDash {
+                                    segments: &[4.0, 3.0],
+                                    offset: 0,
+                                };
+                                frame.stroke(
+                                    &Path::rectangle(Point::new(gx, gy), Size::new(gw, gh)),
+                                    group_stroke,
+                                );
+
+                                frame.fill_text(Text {
+                                    content: format!("Grupo #{gid}"),
+                                    position: Point::new(gx + 4.0, (gy - 12.0).max(4.0)),
+                                    color: Color {
+                                        a: 0.85,
+                                        ..tok.primary
+                                    },
+                                    size: (2.8 * self.zoom).clamp(8.0, 12.0).into(),
+                                    ..Text::default()
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         // Retângulo elástico de seleção em caixa (Marquee selection)
         if let (Some(m_start), Some(m_curr)) = (state.marquee_start, state.marquee_current) {
             let x = m_start.x.min(m_curr.x);

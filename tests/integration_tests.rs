@@ -1714,6 +1714,8 @@ fn test_all_icons_render_valid_svg() {
         Icon::Info,
         Icon::Warning,
         Icon::Check,
+        Icon::Group,
+        Icon::Ungroup,
     ];
     for icon in all_icons {
         let bytes = icon.bytes();
@@ -6061,4 +6063,190 @@ fn test_marquee_box_selection_bounds_and_canvas_messages() {
     assert!(app.selected_ids.contains(&1));
     assert!(app.selected_ids.contains(&2));
     assert!(app.selected_ids.contains(&3));
+}
+
+#[test]
+fn test_group_and_ungroup_commands_with_undo_redo() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    let it2 = SchematicItem::new_symbol(2, 9000, 50, 30, "-KM2");
+    let it3 = SchematicItem::new_symbol(3, 9000, 70, 30, "-KM3");
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+    app.doc.items.push(it3);
+
+    // Seleciona it1 e it2
+    app.select_multiple([1, 2], false);
+    assert_eq!(app.selected_ids.len(), 2);
+
+    // Executa comando Agrupar (Ctrl+G)
+    let _ = app.update(Message::GroupSelected);
+
+    let g1 = app.doc.items.iter().find(|i| i.id == 1).unwrap().group_id;
+    let g2 = app.doc.items.iter().find(|i| i.id == 2).unwrap().group_id;
+    let g3 = app.doc.items.iter().find(|i| i.id == 3).unwrap().group_id;
+
+    assert!(g1.is_some(), "it1 deve possuir group_id atribuído");
+    assert_eq!(g1, g2, "it1 e it2 devem pertencer ao mesmo grupo");
+    assert_eq!(g3, None, "it3 não deve pertencer a nenhum grupo");
+    assert!(
+        app.is_modified,
+        "Documento deve ser marcado como modificado"
+    );
+
+    // Desfaz o agrupamento (Undo / Ctrl+Z)
+    let _ = app.update(Message::Undo);
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 1).unwrap().group_id,
+        None
+    );
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 2).unwrap().group_id,
+        None
+    );
+
+    // Refaz o agrupamento (Redo / Ctrl+Shift+Z)
+    let _ = app.update(Message::Redo);
+    let g1_after_redo = app.doc.items.iter().find(|i| i.id == 1).unwrap().group_id;
+    let g2_after_redo = app.doc.items.iter().find(|i| i.id == 2).unwrap().group_id;
+    assert_eq!(g1_after_redo, g1);
+    assert_eq!(g2_after_redo, g2);
+
+    // Agora seleciona o grupo e executa Desagrupar (Ctrl+U)
+    app.select_single(Some(1));
+    assert_eq!(app.selected_ids.len(), 2);
+    let _ = app.update(Message::UngroupSelected);
+
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 1).unwrap().group_id,
+        None
+    );
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 2).unwrap().group_id,
+        None
+    );
+
+    // Desfaz o desagrupamento -> volta a ser grupo
+    let _ = app.update(Message::Undo);
+    assert!(app
+        .doc
+        .items
+        .iter()
+        .find(|i| i.id == 1)
+        .unwrap()
+        .group_id
+        .is_some());
+    assert!(app
+        .doc
+        .items
+        .iter()
+        .find(|i| i.id == 2)
+        .unwrap()
+        .group_id
+        .is_some());
+}
+
+#[test]
+fn test_smart_group_selection_propagation() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let mut it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    it1.group_id = Some(10);
+    let mut it2 = SchematicItem::new_symbol(2, 9000, 50, 30, "-KM2");
+    it2.group_id = Some(10);
+    let it3 = SchematicItem::new_symbol(3, 9000, 70, 30, "-KM3");
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+    app.doc.items.push(it3);
+
+    // 1. Clicar em it1 deve selecionar automaticamente todos os membros do grupo 10 (it1 e it2)
+    app.select_single(Some(1));
+    assert_eq!(app.selected_ids.len(), 2);
+    assert!(app.selected_ids.contains(&1));
+    assert!(app.selected_ids.contains(&2));
+    assert!(!app.selected_ids.contains(&3));
+    assert_eq!(app.selected_id, Some(1));
+
+    // 2. Clicar em it3 (independente) limpa a seleção do grupo e seleciona apenas it3
+    app.select_single(Some(3));
+    assert_eq!(app.selected_ids.len(), 1);
+    assert!(app.selected_ids.contains(&3));
+    assert_eq!(app.selected_id, Some(3));
+
+    // 3. Shift-clique (toggle_selection) em it2 com it3 selecionado:
+    // Deve adicionar o grupo 10 inteiro (it1 e it2) à seleção, resultando em 3 itens selecionados
+    app.toggle_selection(2);
+    assert_eq!(app.selected_ids.len(), 3);
+    assert!(app.selected_ids.contains(&1));
+    assert!(app.selected_ids.contains(&2));
+    assert!(app.selected_ids.contains(&3));
+
+    // 4. Shift-clique novamente em it1:
+    // Deve remover o grupo 10 inteiro da seleção, mantendo apenas it3
+    app.toggle_selection(1);
+    assert_eq!(app.selected_ids.len(), 1);
+    assert!(app.selected_ids.contains(&3));
+    assert!(!app.selected_ids.contains(&1));
+    assert!(!app.selected_ids.contains(&2));
+}
+
+#[test]
+fn test_marquee_group_expansion() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let mut it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    it1.group_id = Some(7);
+    let mut it2 = SchematicItem::new_symbol(2, 9000, 60, 30, "-KM2");
+    it2.group_id = Some(7);
+    let it3 = SchematicItem::new_symbol(3, 9000, 90, 30, "-KM3");
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+    app.doc.items.push(it3);
+
+    // Marquee seleciona apenas o id 1, mas como id 1 pertence ao grupo 7,
+    // a seleção deve expandir automaticamente para conter id 1 e id 2
+    app.select_multiple([1], false);
+    assert_eq!(app.selected_ids.len(), 2);
+    assert!(app.selected_ids.contains(&1));
+    assert!(app.selected_ids.contains(&2));
+    assert!(!app.selected_ids.contains(&3));
+
+    // Marquee cumulativo com id 3
+    app.select_multiple([3], true);
+    assert_eq!(app.selected_ids.len(), 3);
+    assert!(app.selected_ids.contains(&1));
+    assert!(app.selected_ids.contains(&2));
+    assert!(app.selected_ids.contains(&3));
+}
+
+#[test]
+fn test_group_minimum_elements_requirement() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    app.doc.items.push(it1);
+
+    // Tentativa de agrupar com 0 elementos selecionados
+    app.deselect_all();
+    let _ = app.update(Message::GroupSelected);
+    assert!(app.status_msg.contains("ao menos 2 elementos"));
+    assert_eq!(app.doc.items[0].group_id, None);
+
+    // Tentativa de agrupar com 1 único elemento selecionado
+    app.select_single(Some(1));
+    let _ = app.update(Message::GroupSelected);
+    assert!(app.status_msg.contains("ao menos 2 elementos"));
+    assert_eq!(app.doc.items[0].group_id, None);
+
+    // Tentativa de desagrupar quando nenhum grupo existe na seleção
+    let _ = app.update(Message::UngroupSelected);
+    assert!(app.status_msg.contains("Nenhum grupo encontrado"));
 }
