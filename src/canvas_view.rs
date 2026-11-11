@@ -1537,18 +1537,14 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             }
                             if self.selected_ids.contains(&id) {
                                 if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
-                                    if !item.is_wire() {
-                                        state.dragging_item =
-                                            Some((id, snapped_x - item.x1, snapped_y - item.y1));
-                                    }
+                                    state.dragging_item =
+                                        Some((id, snapped_x - item.x1, snapped_y - item.y1));
                                 }
                                 (canvas::event::Status::Captured, None)
                             } else {
                                 if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
-                                    if !item.is_wire() {
-                                        state.dragging_item =
-                                            Some((id, snapped_x - item.x1, snapped_y - item.y1));
-                                    }
+                                    state.dragging_item =
+                                        Some((id, snapped_x - item.x1, snapped_y - item.y1));
                                 }
                                 (
                                     canvas::event::Status::Captured,

@@ -144,6 +144,16 @@ pub fn view_toolbar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 Message::MirrorVertical
             ),
             icon_btn(
+                crate::icons::Icon::Group,
+                "Agrupar (Ctrl+G)",
+                Message::GroupSelected
+            ),
+            icon_btn(
+                crate::icons::Icon::Ungroup,
+                "Desagrupar (Ctrl+U)",
+                Message::UngroupSelected
+            ),
+            icon_btn(
                 crate::icons::Icon::Palette,
                 "Colorir Elemento",
                 Message::ColorElement

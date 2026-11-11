@@ -6250,3 +6250,254 @@ fn test_group_minimum_elements_requirement() {
     let _ = app.update(Message::UngroupSelected);
     assert!(app.status_msg.contains("Nenhum grupo encontrado"));
 }
+
+#[test]
+fn test_group_atomic_move_and_wire_tracking() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let mut it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    it1.group_id = Some(1);
+    let mut it2 = SchematicItem::new_symbol(2, 9000, 50, 30, "-KM2");
+    it2.group_id = Some(1);
+    let mut wire_int = SchematicItem::new_wire(3, 4000, 30, 30, 50, 30);
+    wire_int.group_id = Some(1);
+    let wire_ext = SchematicItem::new_wire(4, 4000, 10, 30, 30, 30); // Fio externo conectado em (30, 30)
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+    app.doc.items.push(wire_int);
+    app.doc.items.push(wire_ext);
+
+    // Clicar em it1 seleciona todo o grupo (itens 1, 2 e 3)
+    app.select_single(Some(1));
+    assert_eq!(app.selected_ids.len(), 3);
+    assert!(app.selected_ids.contains(&1));
+    assert!(app.selected_ids.contains(&2));
+    assert!(app.selected_ids.contains(&3));
+    assert!(!app.selected_ids.contains(&4));
+
+    // Move o grupo arrastando it1 de (30, 30) para (40, 40) (dx = +10, dy = +10)
+    let _ = app.update(Message::Canvas(CanvasMessage::MoveItem {
+        id: 1,
+        x1: 40,
+        y1: 40,
+    }));
+    let _ = app.update(Message::Canvas(CanvasMessage::EndMoveItem { id: 1 }));
+
+    // Verifica que it1 foi para (40, 40)
+    let item1 = app.doc.items.iter().find(|i| i.id == 1).unwrap();
+    assert_eq!(item1.x1, 40);
+    assert_eq!(item1.y1, 40);
+
+    // Verifica que it2 acompanhou para (60, 40)
+    let item2 = app.doc.items.iter().find(|i| i.id == 2).unwrap();
+    assert_eq!(item2.x1, 60);
+    assert_eq!(item2.y1, 40);
+
+    // Verifica que o fio interno acompanhou o grupo para (40, 40) -> (60, 40)
+    let w_int = app.doc.items.iter().find(|i| i.id == 3).unwrap();
+    assert_eq!(w_int.x1, 40);
+    assert_eq!(w_int.y1, 40);
+    assert_eq!(w_int.x2, 60);
+    assert_eq!(w_int.y2, 40);
+
+    // Verifica que o fio externo esticou mantendo conexão com it1 em (40, 40)
+    let w_ext = app.doc.items.iter().find(|i| i.id == 4).unwrap();
+    assert_eq!(w_ext.x1, 10);
+    assert_eq!(w_ext.y1, 30);
+    assert_eq!(w_ext.x2, 40);
+    assert_eq!(w_ext.y2, 40);
+
+    // Desfaz o movimento via Undo
+    let _ = app.update(Message::Undo);
+    let item1_undo = app.doc.items.iter().find(|i| i.id == 1).unwrap();
+    assert_eq!(item1_undo.x1, 30);
+    assert_eq!(item1_undo.y1, 30);
+    let item2_undo = app.doc.items.iter().find(|i| i.id == 2).unwrap();
+    assert_eq!(item2_undo.x1, 50);
+    assert_eq!(item2_undo.y1, 30);
+}
+
+#[test]
+fn test_group_atomic_rotation_around_centroid() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let mut it1 = SchematicItem::new_symbol(1, 9000, 100, 100, "-KM1");
+    it1.group_id = Some(1);
+    let mut it2 = SchematicItem::new_symbol(2, 9000, 120, 100, "-KM2");
+    it2.group_id = Some(1);
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+
+    app.select_single(Some(1));
+    assert_eq!(app.selected_ids.len(), 2);
+
+    // Rotaciona 90 graus no sentido horário em torno do baricentro (110, 100)
+    let _ = app.update(Message::RotateClockwise);
+
+    let item1 = app.doc.items.iter().find(|i| i.id == 1).unwrap();
+    let item2 = app.doc.items.iter().find(|i| i.id == 2).unwrap();
+
+    assert_eq!(item1.x1, 110);
+    assert_eq!(item1.y1, 90);
+    assert_eq!(item1.orientation, 1);
+
+    assert_eq!(item2.x1, 110);
+    assert_eq!(item2.y1, 110);
+    assert_eq!(item2.orientation, 1);
+
+    // Rotaciona 90 graus no sentido anti-horário -> retorna à posição inicial
+    let _ = app.update(Message::RotateCounterClockwise);
+
+    let item1_rev = app.doc.items.iter().find(|i| i.id == 1).unwrap();
+    let item2_rev = app.doc.items.iter().find(|i| i.id == 2).unwrap();
+
+    assert_eq!(item1_rev.x1, 100);
+    assert_eq!(item1_rev.y1, 100);
+    assert_eq!(item1_rev.orientation, 0);
+
+    assert_eq!(item2_rev.x1, 120);
+    assert_eq!(item2_rev.y1, 100);
+    assert_eq!(item2_rev.orientation, 0);
+}
+
+#[test]
+fn test_group_atomic_mirror_horizontal_and_vertical() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let mut it1 = SchematicItem::new_symbol(1, 9000, 100, 100, "-KM1");
+    it1.group_id = Some(2);
+    let mut it2 = SchematicItem::new_symbol(2, 9000, 120, 100, "-KM2");
+    it2.group_id = Some(2);
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+
+    app.select_single(Some(1));
+
+    // Espelha horizontalmente em torno de cx = 110
+    let _ = app.update(Message::MirrorHorizontal);
+
+    let item1 = app.doc.items.iter().find(|i| i.id == 1).unwrap();
+    let item2 = app.doc.items.iter().find(|i| i.id == 2).unwrap();
+
+    assert_eq!(item1.x1, 120);
+    assert_eq!(item1.orientation, 4);
+
+    assert_eq!(item2.x1, 100);
+    assert_eq!(item2.orientation, 4);
+
+    // Espelha horizontalmente novamente -> volta para 100 e 120 com orientação 0
+    let _ = app.update(Message::MirrorHorizontal);
+    let item1_orig = app.doc.items.iter().find(|i| i.id == 1).unwrap();
+    let item2_orig = app.doc.items.iter().find(|i| i.id == 2).unwrap();
+
+    assert_eq!(item1_orig.x1, 100);
+    assert_eq!(item1_orig.orientation, 0);
+
+    assert_eq!(item2_orig.x1, 120);
+    assert_eq!(item2_orig.orientation, 0);
+}
+
+#[test]
+fn test_group_atomic_duplicate_creates_new_group() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let mut it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    it1.group_id = Some(5);
+    let mut it2 = SchematicItem::new_symbol(2, 9000, 50, 30, "-KM2");
+    it2.group_id = Some(5);
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+
+    app.select_single(Some(1));
+    assert_eq!(app.selected_ids.len(), 2);
+
+    // Executa Duplicar (Ctrl+D)
+    let _ = app.update(Message::Duplicate);
+
+    assert_eq!(app.doc.items.len(), 4);
+    assert_eq!(app.selected_ids.len(), 2);
+
+    // Os itens selecionados agora devem ser as duplicatas
+    let orig_g1 = app.doc.items.iter().find(|i| i.id == 1).unwrap().group_id;
+    let orig_g2 = app.doc.items.iter().find(|i| i.id == 2).unwrap().group_id;
+    assert_eq!(orig_g1, Some(5));
+    assert_eq!(orig_g2, Some(5));
+
+    let dup_ids: Vec<i32> = app.selected_ids.iter().copied().collect();
+    assert!(!dup_ids.contains(&1));
+    assert!(!dup_ids.contains(&2));
+
+    let dup_g1 = app
+        .doc
+        .items
+        .iter()
+        .find(|i| i.id == dup_ids[0])
+        .unwrap()
+        .group_id;
+    let dup_g2 = app
+        .doc
+        .items
+        .iter()
+        .find(|i| i.id == dup_ids[1])
+        .unwrap()
+        .group_id;
+
+    assert!(dup_g1.is_some());
+    assert_eq!(
+        dup_g1, dup_g2,
+        "As duplicatas devem compartilhar o mesmo novo grupo"
+    );
+    assert_ne!(
+        dup_g1,
+        Some(5),
+        "O novo grupo deve ser diferente do grupo original"
+    );
+
+    // Desfaz a duplicação
+    let _ = app.update(Message::Undo);
+    assert_eq!(app.doc.items.len(), 2);
+}
+
+#[test]
+fn test_group_atomic_cut_copy_paste_roundtrip() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let mut it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    it1.group_id = Some(3);
+    let mut it2 = SchematicItem::new_symbol(2, 9000, 50, 30, "-KM2");
+    it2.group_id = Some(3);
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+
+    app.select_single(Some(1));
+    assert_eq!(app.selected_ids.len(), 2);
+
+    // Copiar
+    let _ = app.update(Message::Copy);
+    assert!(app.clipboard.is_some());
+    assert_eq!(app.clipboard.as_ref().unwrap().len(), 2);
+
+    // Colar
+    let _ = app.update(Message::Paste);
+    assert_eq!(app.doc.items.len(), 4);
+    assert_eq!(app.selected_ids.len(), 2);
+
+    // Recortar as cópias recém-coladas
+    let _ = app.update(Message::Cut);
+    assert_eq!(app.doc.items.len(), 2);
+    assert_eq!(app.clipboard.as_ref().unwrap().len(), 2);
+
+    // Desfaz o recorte
+    let _ = app.update(Message::Undo);
+    assert_eq!(app.doc.items.len(), 4);
+}

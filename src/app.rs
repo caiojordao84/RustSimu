@@ -310,7 +310,7 @@ pub struct CadeSimuApp {
     pub undo_stack: Vec<SchematicDocument>,
     pub redo_stack: Vec<SchematicDocument>,
     pub drag_undo_snapshot: Option<SchematicDocument>,
-    pub clipboard: Option<SchematicItem>,
+    pub clipboard: Option<Vec<SchematicItem>>,
     pub copied_info: Option<(String, String, [String; 9])>,
 }
 
@@ -465,7 +465,12 @@ impl CadeSimuApp {
                 self.undo_stack.push(snapshot);
                 self.redo_stack.clear();
                 self.is_modified = true;
-                self.status_msg = "Elemento movido.".to_string();
+                let count = self.selected_ids.len();
+                self.status_msg = if count > 1 {
+                    format!("{count} elementos movidos.")
+                } else {
+                    "Elemento movido.".to_string()
+                };
             }
         }
     }
@@ -1496,49 +1501,27 @@ impl CadeSimuApp {
     fn update_edit(&mut self, message: Message) -> iced::Task<Message> {
         match message {
             Message::RotateSelectedOrTool => {
-                if let Some(id) = self.selected_id {
-                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
-                        item.orientation = (item.orientation + 1) % 4;
-                        self.is_modified = true;
-                        self.status_msg = format!(
-                            "Item {} rotacionado para orientação {}.",
-                            item.tag, item.orientation
-                        );
-                        return iced::Task::none();
-                    }
-                }
-                self.placement_orientation = (self.placement_orientation + 1) % 4;
-                self.status_msg = format!(
-                    "Orientação de inserção ajustada para {} ({}°).",
-                    self.placement_orientation,
-                    self.placement_orientation * 90
-                );
+                return self.update_edit(Message::RotateClockwise);
             }
             Message::MirrorSelectedOrTool => {
-                if let Some(id) = self.selected_id {
-                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
-                        item.orientation = (item.orientation + 4) % 8;
-                        self.is_modified = true;
-                        return iced::Task::none();
-                    }
-                }
-                self.placement_orientation = (self.placement_orientation + 4) % 8;
+                return self.update_edit(Message::MirrorHorizontal);
             }
             Message::DeleteSelected => {
-                if !self.selected_ids.is_empty() {
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if !target_ids.is_empty() {
                     self.push_undo();
-                    let count = self.selected_ids.len();
-                    self.doc
-                        .items
-                        .retain(|i| !self.selected_ids.contains(&i.id));
+                    let count = target_ids.len();
+                    self.doc.items.retain(|i| !target_ids.contains(&i.id));
                     self.deselect_all();
                     self.is_modified = true;
                     self.status_msg = format!("{count} elemento(s) excluído(s).");
-                } else if let Some(id) = self.selected_id.take() {
-                    self.push_undo();
-                    self.doc.items.retain(|i| i.id != id);
-                    self.is_modified = true;
-                    self.status_msg = format!("Item #{id} excluído.");
                 }
             }
             Message::CancelAction => {
@@ -1589,52 +1572,152 @@ impl CadeSimuApp {
                 }
             }
             Message::Cut => {
-                if let Some(id) = self.selected_id {
-                    if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
-                        self.clipboard = Some(item.clone());
-                    }
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if !target_ids.is_empty() {
+                    let cut_items: Vec<SchematicItem> = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter(|i| target_ids.contains(&i.id))
+                        .cloned()
+                        .collect();
+                    let count = cut_items.len();
+                    self.clipboard = Some(cut_items);
                     self.push_undo();
-                    self.doc.items.retain(|i| i.id != id);
-                    self.selected_id = None;
+                    self.doc.items.retain(|i| !target_ids.contains(&i.id));
+                    self.deselect_all();
                     self.is_modified = true;
-                    self.status_msg = "Recortado para área de transferência.".to_string();
+                    self.status_msg = format!("{count} elemento(s) recortado(s).");
                 }
             }
             Message::Copy => {
-                if let Some(id) = self.selected_id {
-                    if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
-                        self.clipboard = Some(item.clone());
-                        self.status_msg = format!("Copiado: {}", item.tag);
-                    }
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if !target_ids.is_empty() {
+                    let copied_items: Vec<SchematicItem> = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter(|i| target_ids.contains(&i.id))
+                        .cloned()
+                        .collect();
+                    let count = copied_items.len();
+                    self.clipboard = Some(copied_items);
+                    self.status_msg = format!("{count} elemento(s) copiado(s).");
                 }
             }
             Message::Paste => {
-                let clip = self.clipboard.clone();
-                if let Some(item) = clip {
-                    self.push_undo();
-                    let mut new_item = item;
-                    new_item.id = self.doc.next_id();
-                    new_item.x1 += 12;
-                    new_item.y1 += 12;
-                    new_item.x2 += 12;
-                    new_item.y2 += 12;
-                    let new_id = new_item.id;
-                    self.doc.items.push(new_item);
-                    self.selected_id = Some(new_id);
-                    self.is_modified = true;
-                    self.status_msg = "Elemento colado.".to_string();
+                if let Some(items) = self.clipboard.clone() {
+                    if !items.is_empty() {
+                        self.push_undo();
+                        let max_gid = self
+                            .doc
+                            .items
+                            .iter()
+                            .filter_map(|i| i.group_id)
+                            .max()
+                            .unwrap_or(0);
+                        let mut gid_map: std::collections::HashMap<u32, u32> =
+                            std::collections::HashMap::new();
+                        let mut next_gid = max_gid + 1;
+
+                        let mut new_ids = Vec::new();
+                        for (new_id, item) in (self.doc.next_id()..).zip(items) {
+                            let mut new_item = item;
+                            new_item.id = new_id;
+                            new_item.x1 += 10;
+                            new_item.y1 += 10;
+                            new_item.x2 += 10;
+                            new_item.y2 += 10;
+
+                            if let Some(old_gid) = new_item.group_id {
+                                let mapped_gid = *gid_map.entry(old_gid).or_insert_with(|| {
+                                    let g = next_gid;
+                                    next_gid += 1;
+                                    g
+                                });
+                                new_item.group_id = Some(mapped_gid);
+                            }
+
+                            let role = classify_apparatus_role(new_item.tipo);
+                            if role.is_independent_apparatus() {
+                                let prefix = extract_tag_prefix(&new_item.tag);
+                                new_item.tag =
+                                    next_sequential_tag_for_role(&self.doc.items, role, prefix);
+                            }
+
+                            self.doc.items.push(new_item);
+                            new_ids.push(new_id);
+                        }
+
+                        self.selected_ids = new_ids.into_iter().collect();
+                        self.sync_primary_selected_id();
+                        self.is_modified = true;
+                        self.status_msg =
+                            format!("{} elemento(s) colado(s).", self.selected_ids.len());
+                    }
                 }
             }
             Message::Duplicate => {
-                if let Some(id) = self.selected_id {
-                    if let Some(item) = self.doc.items.iter().find(|i| i.id == id).cloned() {
-                        self.push_undo();
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if !target_ids.is_empty() {
+                    self.push_undo();
+                    let items_to_dup: Vec<SchematicItem> = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter(|i| target_ids.contains(&i.id))
+                        .cloned()
+                        .collect();
+
+                    let max_gid = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter_map(|i| i.group_id)
+                        .max()
+                        .unwrap_or(0);
+                    let mut gid_map: std::collections::HashMap<u32, u32> =
+                        std::collections::HashMap::new();
+                    let mut next_gid = max_gid + 1;
+
+                    let mut new_ids = Vec::new();
+                    for (new_id, item) in (self.doc.next_id()..).zip(items_to_dup) {
                         let mut new_item = item;
-                        new_item.id = self.doc.next_id();
-                        new_item.x1 += 12;
-                        new_item.y1 += 12;
-                        new_item.x2 += 12;
-                        new_item.y2 += 12;
+                        new_item.id = new_id;
+                        new_item.x1 += 10;
+                        new_item.y1 += 10;
+                        new_item.x2 += 10;
+                        new_item.y2 += 10;
+
+                        if let Some(old_gid) = new_item.group_id {
+                            let mapped_gid = *gid_map.entry(old_gid).or_insert_with(|| {
+                                let g = next_gid;
+                                next_gid += 1;
+                                g
+                            });
+                            new_item.group_id = Some(mapped_gid);
+                        }
 
                         let role = classify_apparatus_role(new_item.tipo);
                         if role.is_independent_apparatus() {
@@ -1658,17 +1741,29 @@ impl CadeSimuApp {
                             }
                         }
 
-                        let new_id = new_item.id;
                         self.doc.items.push(new_item);
-                        self.selected_id = Some(new_id);
-                        self.is_modified = true;
-                        self.status_msg = "Elemento duplicado.".to_string();
+                        new_ids.push(new_id);
                     }
+
+                    self.selected_ids = new_ids.into_iter().collect();
+                    self.sync_primary_selected_id();
+                    self.is_modified = true;
+                    self.status_msg =
+                        format!("{} elemento(s) duplicado(s).", self.selected_ids.len());
                 }
             }
             Message::RotateClockwise => {
                 self.placement_orientation = (self.placement_orientation + 1) % 8;
-                if let Some(id) = self.selected_id {
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if target_ids.len() == 1 {
+                    let id = target_ids[0];
                     self.push_undo();
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.orientation = (item.orientation + 1) % 8;
@@ -1678,11 +1773,71 @@ impl CadeSimuApp {
                             id, item.orientation
                         );
                     }
+                } else if target_ids.len() > 1 {
+                    self.push_undo();
+                    let selected_items: Vec<&SchematicItem> = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter(|i| target_ids.contains(&i.id))
+                        .collect();
+                    let mut min_x = i32::MAX;
+                    let mut min_y = i32::MAX;
+                    let mut max_x = i32::MIN;
+                    let mut max_y = i32::MIN;
+                    for it in &selected_items {
+                        min_x = min_x.min(it.x1);
+                        min_y = min_y.min(it.y1);
+                        max_x = max_x.max(it.x1);
+                        max_y = max_y.max(it.y1);
+                        if it.is_wire() {
+                            min_x = min_x.min(it.x2);
+                            min_y = min_y.min(it.y2);
+                            max_x = max_x.max(it.x2);
+                            max_y = max_y.max(it.y2);
+                        }
+                    }
+                    let cx = (min_x + max_x) / 2;
+                    let cy = (min_y + max_y) / 2;
+
+                    for item in &mut self.doc.items {
+                        if target_ids.contains(&item.id) {
+                            let rel_x = item.x1 - cx;
+                            let rel_y = item.y1 - cy;
+                            item.x1 = cx - rel_y;
+                            item.y1 = cy + rel_x;
+
+                            if item.is_wire() {
+                                let rel_x2 = item.x2 - cx;
+                                let rel_y2 = item.y2 - cy;
+                                item.x2 = cx - rel_y2;
+                                item.y2 = cy + rel_x2;
+                            } else {
+                                item.x2 = item.x1;
+                                item.y2 = item.y1;
+                                item.orientation = (item.orientation + 1) % 8;
+                            }
+                            self.is_modified = true;
+                        }
+                    }
+                    self.status_msg = format!(
+                        "{} elementos rotacionados como grupo (horário).",
+                        target_ids.len()
+                    );
                 }
             }
             Message::RotateCounterClockwise => {
                 self.placement_orientation = (self.placement_orientation + 7) % 8;
-                if let Some(id) = self.selected_id {
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if target_ids.len() == 1 {
+                    let id = target_ids[0];
                     self.push_undo();
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.orientation = (item.orientation + 7) % 8;
@@ -1692,40 +1847,217 @@ impl CadeSimuApp {
                             id, item.orientation
                         );
                     }
+                } else if target_ids.len() > 1 {
+                    self.push_undo();
+                    let selected_items: Vec<&SchematicItem> = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter(|i| target_ids.contains(&i.id))
+                        .collect();
+                    let mut min_x = i32::MAX;
+                    let mut min_y = i32::MAX;
+                    let mut max_x = i32::MIN;
+                    let mut max_y = i32::MIN;
+                    for it in &selected_items {
+                        min_x = min_x.min(it.x1);
+                        min_y = min_y.min(it.y1);
+                        max_x = max_x.max(it.x1);
+                        max_y = max_y.max(it.y1);
+                        if it.is_wire() {
+                            min_x = min_x.min(it.x2);
+                            min_y = min_y.min(it.y2);
+                            max_x = max_x.max(it.x2);
+                            max_y = max_y.max(it.y2);
+                        }
+                    }
+                    let cx = (min_x + max_x) / 2;
+                    let cy = (min_y + max_y) / 2;
+
+                    for item in &mut self.doc.items {
+                        if target_ids.contains(&item.id) {
+                            let rel_x = item.x1 - cx;
+                            let rel_y = item.y1 - cy;
+                            item.x1 = cx + rel_y;
+                            item.y1 = cy - rel_x;
+
+                            if item.is_wire() {
+                                let rel_x2 = item.x2 - cx;
+                                let rel_y2 = item.y2 - cy;
+                                item.x2 = cx + rel_y2;
+                                item.y2 = cy - rel_x2;
+                            } else {
+                                item.x2 = item.x1;
+                                item.y2 = item.y1;
+                                item.orientation = (item.orientation + 7) % 8;
+                            }
+                            self.is_modified = true;
+                        }
+                    }
+                    self.status_msg = format!(
+                        "{} elementos rotacionados como grupo (anti-horário).",
+                        target_ids.len()
+                    );
                 }
             }
             Message::MirrorHorizontal => {
-                if let Some(id) = self.selected_id {
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if target_ids.len() == 1 {
+                    let id = target_ids[0];
                     self.push_undo();
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.orientation ^= 4;
                         self.is_modified = true;
                         self.status_msg = format!("Elemento #{} espelhado horizontalmente.", id);
                     }
+                } else if target_ids.len() > 1 {
+                    self.push_undo();
+                    let selected_items: Vec<&SchematicItem> = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter(|i| target_ids.contains(&i.id))
+                        .collect();
+                    let mut min_x = i32::MAX;
+                    let mut max_x = i32::MIN;
+                    for it in &selected_items {
+                        min_x = min_x.min(it.x1);
+                        max_x = max_x.max(it.x1);
+                        if it.is_wire() {
+                            min_x = min_x.min(it.x2);
+                            max_x = max_x.max(it.x2);
+                        }
+                    }
+                    let cx = (min_x + max_x) / 2;
+
+                    for item in &mut self.doc.items {
+                        if target_ids.contains(&item.id) {
+                            item.x1 = 2 * cx - item.x1;
+                            if item.is_wire() {
+                                item.x2 = 2 * cx - item.x2;
+                            } else {
+                                item.x2 = item.x1;
+                                item.orientation ^= 4;
+                            }
+                            self.is_modified = true;
+                        }
+                    }
+                    self.status_msg = format!(
+                        "{} elementos espelhados horizontalmente como grupo.",
+                        target_ids.len()
+                    );
                 }
             }
             Message::MirrorVertical => {
-                if let Some(id) = self.selected_id {
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if target_ids.len() == 1 {
+                    let id = target_ids[0];
                     self.push_undo();
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.orientation ^= 2;
                         self.is_modified = true;
                         self.status_msg = format!("Elemento #{} espelhado verticalmente.", id);
                     }
+                } else if target_ids.len() > 1 {
+                    self.push_undo();
+                    let selected_items: Vec<&SchematicItem> = self
+                        .doc
+                        .items
+                        .iter()
+                        .filter(|i| target_ids.contains(&i.id))
+                        .collect();
+                    let mut min_y = i32::MAX;
+                    let mut max_y = i32::MIN;
+                    for it in &selected_items {
+                        min_y = min_y.min(it.y1);
+                        max_y = max_y.max(it.y1);
+                        if it.is_wire() {
+                            min_y = min_y.min(it.y2);
+                            max_y = max_y.max(it.y2);
+                        }
+                    }
+                    let cy = (min_y + max_y) / 2;
+
+                    for item in &mut self.doc.items {
+                        if target_ids.contains(&item.id) {
+                            item.y1 = 2 * cy - item.y1;
+                            if item.is_wire() {
+                                item.y2 = 2 * cy - item.y2;
+                            } else {
+                                item.y2 = item.y1;
+                                item.orientation ^= 2;
+                            }
+                            self.is_modified = true;
+                        }
+                    }
+                    self.status_msg = format!(
+                        "{} elementos espelhados verticalmente como grupo.",
+                        target_ids.len()
+                    );
                 }
             }
             Message::AlignToGrid => {
-                if let Some(id) = self.selected_id {
-                    let step = self.grid_density.step();
+                let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                let step = self.grid_density.step();
+                if target_ids.len() == 1 {
+                    let id = target_ids[0];
                     self.push_undo();
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.x1 = ((item.x1 as f32 / step as f32).round() as i32) * step;
                         item.y1 = ((item.y1 as f32 / step as f32).round() as i32) * step;
+                        item.x2 = item.x1;
+                        item.y2 = item.y1;
                         self.is_modified = true;
                         self.status_msg = format!(
                             "Elemento #{} alinhado à grade ({}, {}).",
                             id, item.x1, item.y1
                         );
+                    }
+                } else if target_ids.len() > 1 {
+                    if let Some(ref_item) =
+                        self.doc.items.iter().find(|i| target_ids.contains(&i.id))
+                    {
+                        let target_x = ((ref_item.x1 as f32 / step as f32).round() as i32) * step;
+                        let target_y = ((ref_item.y1 as f32 / step as f32).round() as i32) * step;
+                        let dx = target_x - ref_item.x1;
+                        let dy = target_y - ref_item.y1;
+                        if dx != 0 || dy != 0 {
+                            self.push_undo();
+                            for item in &mut self.doc.items {
+                                if target_ids.contains(&item.id) {
+                                    item.x1 += dx;
+                                    item.y1 += dy;
+                                    item.x2 += dx;
+                                    item.y2 += dy;
+                                    self.is_modified = true;
+                                }
+                            }
+                            self.status_msg = format!(
+                                "{} elementos alinhados à grade em conjunto.",
+                                target_ids.len()
+                            );
+                        }
                     }
                 }
             }
@@ -1735,15 +2067,53 @@ impl CadeSimuApp {
                 self.status_msg = "Visualização ajustada à página.".to_string();
             }
             Message::PasteAtOriginalPos => {
-                let clip_opt = self.clipboard.clone();
-                if let Some(mut new_item) = clip_opt {
-                    self.push_undo();
-                    let next_id = self.doc.items.iter().map(|i| i.id).max().unwrap_or(0) + 1;
-                    new_item.id = next_id;
-                    self.doc.items.push(new_item);
-                    self.selected_id = Some(next_id);
-                    self.is_modified = true;
-                    self.status_msg = "Elemento colado na posição original.".to_string();
+                if let Some(items) = self.clipboard.clone() {
+                    if !items.is_empty() {
+                        self.push_undo();
+                        let max_gid = self
+                            .doc
+                            .items
+                            .iter()
+                            .filter_map(|i| i.group_id)
+                            .max()
+                            .unwrap_or(0);
+                        let mut gid_map: std::collections::HashMap<u32, u32> =
+                            std::collections::HashMap::new();
+                        let mut next_gid = max_gid + 1;
+
+                        let mut new_ids = Vec::new();
+                        for (new_id, item) in (self.doc.next_id()..).zip(items) {
+                            let mut new_item = item;
+                            new_item.id = new_id;
+
+                            if let Some(old_gid) = new_item.group_id {
+                                let mapped_gid = *gid_map.entry(old_gid).or_insert_with(|| {
+                                    let g = next_gid;
+                                    next_gid += 1;
+                                    g
+                                });
+                                new_item.group_id = Some(mapped_gid);
+                            }
+
+                            let role = classify_apparatus_role(new_item.tipo);
+                            if role.is_independent_apparatus() {
+                                let prefix = extract_tag_prefix(&new_item.tag);
+                                new_item.tag =
+                                    next_sequential_tag_for_role(&self.doc.items, role, prefix);
+                            }
+
+                            self.doc.items.push(new_item);
+                            new_ids.push(new_id);
+                        }
+
+                        self.selected_ids = new_ids.into_iter().collect();
+                        self.sync_primary_selected_id();
+                        self.is_modified = true;
+                        self.status_msg = format!(
+                            "{} elemento(s) colado(s) na posição original.",
+                            self.selected_ids.len()
+                        );
+                    }
                 }
             }
             Message::SelectAll => {
@@ -2511,33 +2881,84 @@ impl CadeSimuApp {
                             if self.drag_undo_snapshot.is_none() {
                                 self.drag_undo_snapshot = Some(self.doc.clone());
                             }
-                            if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
-                                item.x1 = x1;
-                                item.y1 = y1;
-                                item.x2 = x1;
-                                item.y2 = y1;
-                                self.is_modified = true;
-                            }
-                            if self.auto_disconnect {
-                                // Remove fios conectados ao ponto anterior
-                                self.doc.items.retain(|i| {
-                                    if i.is_wire() {
-                                        !((i.x1 == ox && i.y1 == oy) || (i.x2 == ox && i.y2 == oy))
-                                    } else {
-                                        true
+                            let is_multi =
+                                self.selected_ids.contains(&id) && self.selected_ids.len() > 1;
+                            if is_multi {
+                                let old_origins: Vec<(i32, i32)> = self
+                                    .doc
+                                    .items
+                                    .iter()
+                                    .filter(|i| self.selected_ids.contains(&i.id))
+                                    .map(|i| (i.x1, i.y1))
+                                    .collect();
+
+                                for item in &mut self.doc.items {
+                                    if self.selected_ids.contains(&item.id) {
+                                        item.x1 += dx;
+                                        item.y1 += dy;
+                                        item.x2 += dx;
+                                        item.y2 += dy;
+                                        self.is_modified = true;
                                     }
-                                });
-                            } else {
-                                // Padrão: move pontas de cabos conectados para manter o circuito integrado
-                                for w in self.doc.items.iter_mut() {
-                                    if w.is_wire() && w.id != id {
-                                        if w.x1 == ox && w.y1 == oy {
-                                            w.x1 += dx;
-                                            w.y1 += dy;
+                                }
+
+                                if self.auto_disconnect {
+                                    self.doc.items.retain(|i| {
+                                        if i.is_wire() && !self.selected_ids.contains(&i.id) {
+                                            !old_origins.iter().any(|&(cx, cy)| {
+                                                (i.x1 == cx && i.y1 == cy)
+                                                    || (i.x2 == cx && i.y2 == cy)
+                                            })
+                                        } else {
+                                            true
                                         }
-                                        if w.x2 == ox && w.y2 == oy {
-                                            w.x2 += dx;
-                                            w.y2 += dy;
+                                    });
+                                } else {
+                                    for w in self.doc.items.iter_mut() {
+                                        if w.is_wire() && !self.selected_ids.contains(&w.id) {
+                                            for &(cx, cy) in &old_origins {
+                                                if w.x1 == cx && w.y1 == cy {
+                                                    w.x1 += dx;
+                                                    w.y1 += dy;
+                                                }
+                                                if w.x2 == cx && w.y2 == cy {
+                                                    w.x2 += dx;
+                                                    w.y2 += dy;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                                    item.x1 = x1;
+                                    item.y1 = y1;
+                                    item.x2 = x1;
+                                    item.y2 = y1;
+                                    self.is_modified = true;
+                                }
+                                if self.auto_disconnect {
+                                    // Remove fios conectados ao ponto anterior
+                                    self.doc.items.retain(|i| {
+                                        if i.is_wire() {
+                                            !((i.x1 == ox && i.y1 == oy)
+                                                || (i.x2 == ox && i.y2 == oy))
+                                        } else {
+                                            true
+                                        }
+                                    });
+                                } else {
+                                    // Padrão: move pontas de cabos conectados para manter o circuito integrado
+                                    for w in self.doc.items.iter_mut() {
+                                        if w.is_wire() && w.id != id {
+                                            if w.x1 == ox && w.y1 == oy {
+                                                w.x1 += dx;
+                                                w.y1 += dy;
+                                            }
+                                            if w.x2 == ox && w.y2 == oy {
+                                                w.x2 += dx;
+                                                w.y2 += dy;
+                                            }
                                         }
                                     }
                                 }
