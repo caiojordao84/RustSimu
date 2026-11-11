@@ -4,11 +4,12 @@ use iced::widget::{
 };
 use iced::{Alignment, Element, Font, Length, Padding};
 
-use crate::app::{CadeSimuApp, Message, PinSequenceOption};
+use crate::app::{CadeSimuApp, CoilPattern, Message, PinSequenceOption};
 use crate::symbols::{
     classify_apparatus_role, detect_contact_kind, detect_current_sequence, extract_tag_prefix,
     find_duplicate_apparatus, find_occupied_sequences_for_tag, find_parent_apparatus, find_symbol,
-    list_available_parent_tags, next_sequential_tag_for_role,
+    is_coil_or_timer_apparatus, is_power_apparatus, is_terminal_item, list_available_parent_tags,
+    next_sequential_tag_for_role,
 };
 use crate::theme::{self, tokens, MONO, UI};
 
@@ -72,13 +73,9 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
     };
 
     let tabs_bar = container(
-        row![
-            tab_btn(0, "Propriedades"),
-            tab_btn(1, "Ref. Cruzada"),
-            tab_btn(2, "Réguas de Bornes"),
-        ]
-        .spacing(4)
-        .width(Length::Fill),
+        row![tab_btn(0, "Propriedades"), tab_btn(1, "Referência Cruzada"),]
+            .spacing(4)
+            .width(Length::Fill),
     )
     .style(theme::bar)
     .width(Length::Fill);
@@ -303,18 +300,16 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                     }
 
                     if !item.is_wire() && !item.is_junction() {
-                        // Tag / Etiqueta
+                        // 1. Nome do Elemento (Tag)
                         body_col = body_col.push(
                             column![
-                                text("Etiqueta / Tag (ex: -KM1, -Q1):")
-                                    .size(11)
-                                    .color(t.text2),
-                                text_input("Tag", &item.tag)
+                                text("Nome:").size(11).color(t.text2),
+                                text_input("Nome / Tag (ex: -KM1, -Q1)", &item.tag)
                                     .on_input(Message::EditTag)
                                     .padding(Padding::from([5.0, 8.0]))
                                     .size(12)
                                     .style(theme::field),
-                                checkbox("Exibir Tag no esquema", item.show_tag == 1)
+                                checkbox("Exibir no esquema", item.show_tag == 1)
                                     .on_toggle(Message::ToggleShowTag)
                                     .text_size(11.5),
                             ]
@@ -407,46 +402,46 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                     next_sequential_tag_for_role(&app.doc.items, role, prefix);
                                 let suggested_tag_clone = suggested_tag.clone();
                                 body_col = body_col.push(
-                                        container(
-                                            column![
-                                                row![
-                                                    crate::icons::view_icon(
-                                                        crate::icons::Icon::Warning,
-                                                        12,
-                                                        t.amber
-                                                    ),
-                                                    text(format!(
-                                                        "Tag duplicada: já existe outro aparelho primário com a tag '{}'",
-                                                        item.tag
-                                                    ))
-                                                    .size(10.5)
-                                                    .color(t.amber),
-                                                ]
-                                                .spacing(4)
-                                                .align_y(Alignment::Center),
-                                                button(
-                                                    row![
-                                                        crate::icons::view_icon(
-                                                            crate::icons::Icon::Bolt,
-                                                            12,
-                                                            t.primary
-                                                        ),
-                                                        text(format!("Renomear para {suggested_tag}"))
-                                                            .size(10.5)
-                                                            .font(UI),
-                                                    ]
-                                                    .spacing(4)
-                                                    .align_y(Alignment::Center)
-                                                )
-                                                .style(theme::tool_active)
-                                                .padding(Padding::from([2.0, 6.0]))
-                                                .on_press(Message::EditTag(suggested_tag_clone)),
+                                    container(
+                                        column![
+                                            row![
+                                                crate::icons::view_icon(
+                                                    crate::icons::Icon::Warning,
+                                                    12,
+                                                    t.amber
+                                                ),
+                                                text(format!(
+                                                    "Tag duplicada: já existe outro aparelho primário com a tag '{}'",
+                                                    item.tag
+                                                ))
+                                                .size(10.5)
+                                                .color(t.amber),
                                             ]
                                             .spacing(4)
-                                        )
-                                        .padding(Padding::from([4.0, 6.0]))
-                                        .style(theme::card)
-                                    );
+                                            .align_y(Alignment::Center),
+                                            button(
+                                                row![
+                                                    crate::icons::view_icon(
+                                                        crate::icons::Icon::Bolt,
+                                                        12,
+                                                        t.primary
+                                                    ),
+                                                    text(format!("Renomear para {suggested_tag}"))
+                                                        .size(10.5)
+                                                        .font(UI),
+                                                ]
+                                                .spacing(4)
+                                                .align_y(Alignment::Center)
+                                            )
+                                            .style(theme::tool_active)
+                                            .padding(Padding::from([2.0, 6.0]))
+                                            .on_press(Message::EditTag(suggested_tag_clone)),
+                                        ]
+                                        .spacing(4),
+                                    )
+                                    .padding(Padding::from([4.0, 6.0]))
+                                    .style(theme::card),
+                                );
                             } else {
                                 let sub_contacts_count = app
                                     .doc
@@ -482,34 +477,218 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                             }
                         }
 
-                        // Valor / Temporização
+                        // 2. Função do Elemento
+                        let func_str =
+                            item.function
+                                .as_deref()
+                                .unwrap_or(if item.value.is_empty() {
+                                    ""
+                                } else {
+                                    &item.value
+                                });
                         body_col = body_col.push(
                             column![
-                                text("Valor / Temporização / Referência:")
-                                    .size(11)
-                                    .color(t.text2),
-                                text_input("Valor", &item.value)
-                                    .on_input(Message::EditValue)
-                                    .padding(Padding::from([5.0, 8.0]))
-                                    .size(12)
-                                    .style(theme::field),
-                                checkbox("Exibir Valor no esquema", item.show_value == 1)
+                                text("Função:").size(11).color(t.text2),
+                                text_input(
+                                    "Função descritiva (ex: Alimentação Motor Principal)",
+                                    func_str,
+                                )
+                                .on_input(Message::EditFunction)
+                                .padding(Padding::from([5.0, 8.0]))
+                                .size(12)
+                                .style(theme::field),
+                                checkbox("Exibir no esquema", item.show_value == 1)
                                     .on_toggle(Message::ToggleShowValue)
                                     .text_size(11.5),
                             ]
                             .spacing(4),
                         );
 
-                        // Bornes / Terminais
-                        if let Some(sym) = find_symbol(item.tipo) {
-                            if !sym.pins.is_empty() {
-                                body_col = body_col.push(horizontal_rule(1));
-                                body_col = body_col.push(
-                                    text("Numeração dos Bornes:").size(12).font(Font {
+                        // 3. Padrões de Bobinas Especiais (IEC / EN 50012)
+                        let is_coil_timer = is_coil_or_timer_apparatus(item);
+                        if is_coil_timer {
+                            body_col = body_col.push(horizontal_rule(1));
+                            let pattern = CoilPattern::from_item(item);
+                            let coil_options = CoilPattern::ALL.to_vec();
+                            let pick =
+                                pick_list(coil_options, Some(pattern), Message::SetCoilPattern)
+                                    .text_size(11.0)
+                                    .padding(Padding::from([3.0, 6.0]))
+                                    .width(Length::Fill);
+
+                            let mut coil_box = column![
+                                text("Padrões de Bobinas Especiais (IEC / EN 50012):")
+                                    .size(11.5)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    }),
+                                pick,
+                            ]
+                            .spacing(4);
+
+                            if pattern != CoilPattern::Standard && pattern != CoilPattern::Latching
+                            {
+                                coil_box = coil_box.push(
+                                    row![
+                                        text("Temporização (s):").size(11.0).color(t.text2),
+                                        text_input("ex: 3", &item.value)
+                                            .on_input(Message::EditValue)
+                                            .padding(Padding::from([3.0, 6.0]))
+                                            .size(11.5)
+                                            .width(80)
+                                            .style(theme::field),
+                                    ]
+                                    .spacing(6)
+                                    .align_y(Alignment::Center),
+                                );
+                            }
+
+                            coil_box = coil_box.push(
+                                row![
+                                    text("Preset Bornes:").size(10.0).color(t.text2),
+                                    button(text("A1-A2 (IEC)").size(9.5).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([2.0, 5.0]))
+                                        .on_press(Message::ApplyIecNumberingPreset("coil")),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center),
+                            );
+
+                            body_col = body_col.push(
+                                container(coil_box)
+                                    .style(theme::card)
+                                    .padding(Padding::from([6.0, 8.0]))
+                                    .width(Length::Fill),
+                            );
+                        } else if !item.is_lamp_or_signaling() && !is_terminal_item(item) {
+                            // Valor / Referência técnica para outros aparelhos (motores, disjuntores, etc.)
+                            body_col = body_col.push(
+                                column![
+                                    text("Valor Técnico / Referência:").size(11).color(t.text2),
+                                    text_input("Valor", &item.value)
+                                        .on_input(Message::EditValue)
+                                        .padding(Padding::from([5.0, 8.0]))
+                                        .size(12)
+                                        .style(theme::field),
+                                ]
+                                .spacing(4),
+                            );
+                        }
+
+                        // 4. Sinalizadores Luminosos e Pulsantes (IEC / EN 60073)
+                        let is_lamp = item.is_lamp_or_signaling();
+                        if is_lamp {
+                            body_col = body_col.push(horizontal_rule(1));
+                            let mut lamp_box =
+                                column![text("Sinalizador Luminoso (IEC / EN 60073):")
+                                    .size(11.5)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    }),]
+                                .spacing(4);
+
+                            let color_btn = |code: i32, label: &'static str| {
+                                let is_sel = item.color == code;
+                                button(
+                                    row![
+                                        container(Space::with_width(8).height(8))
+                                            .style(theme::lamp_swatch(t.lamp_color(code))),
+                                        text(label).size(10.0).font(UI),
+                                    ]
+                                    .spacing(3)
+                                    .align_y(Alignment::Center),
+                                )
+                                .style(if is_sel {
+                                    theme::tool_active
+                                } else {
+                                    theme::tool
+                                })
+                                .padding(Padding::from([2.0, 4.0]))
+                                .on_press(Message::SetLampColor(code))
+                            };
+
+                            let colors_row = row![
+                                color_btn(1, "Verde"),
+                                color_btn(2, "Vermelho"),
+                                color_btn(3, "Amarelo"),
+                                color_btn(4, "Azul"),
+                                color_btn(0, "Branco"),
+                                color_btn(5, "Laranja"),
+                            ]
+                            .spacing(3);
+
+                            lamp_box = lamp_box.push(colors_row);
+
+                            let is_pulsing = item.extra_int1 == 1;
+                            lamp_box = lamp_box.push(
+                                checkbox("Sinalizador Pulsante (Intermitente)", is_pulsing)
+                                    .on_toggle(Message::TogglePulsingSignaling)
+                                    .text_size(11.0),
+                            );
+
+                            if is_pulsing {
+                                lamp_box = lamp_box.push(
+                                    row![
+                                        text("Tempo de Pulso (s):").size(11.0).color(t.text2),
+                                        text_input("ex: 0.5", &item.value)
+                                            .on_input(Message::SetPulseDuration)
+                                            .padding(Padding::from([3.0, 6.0]))
+                                            .size(11.5)
+                                            .width(80)
+                                            .style(theme::field),
+                                    ]
+                                    .spacing(6)
+                                    .align_y(Alignment::Center),
+                                );
+                            }
+
+                            lamp_box = lamp_box.push(
+                                row![
+                                    text("Preset Bornes:").size(10.0).color(t.text2),
+                                    button(text("X1-X2 (IEC)").size(9.5).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([2.0, 5.0]))
+                                        .on_press(Message::ApplyIecNumberingPreset("lamp")),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center),
+                            );
+
+                            body_col = body_col.push(
+                                container(lamp_box)
+                                    .style(theme::card)
+                                    .padding(Padding::from([6.0, 8.0]))
+                                    .width(Length::Fill),
+                            );
+                        }
+
+                        // 5. Borne N (Identificação estruturada IEC 60947-1 e IEC 81346)
+                        let has_pins = if let Some(sym) = find_symbol(item.tipo) {
+                            !sym.pins.is_empty()
+                        } else if let Some(id_or_slug) = item.symbol_id_or_slug() {
+                            crate::canonical::global_dictionary()
+                                .and_then(|dict| dict.get(id_or_slug))
+                                .map(|el| !el.terminals.is_empty())
+                                .unwrap_or(false)
+                        } else {
+                            false
+                        };
+
+                        if has_pins {
+                            body_col = body_col.push(horizontal_rule(1));
+                            body_col = body_col.push(
+                                text("Numeração dos Bornes (IEC 60947-1 / IEC 81346):")
+                                    .size(12)
+                                    .font(Font {
                                         weight: iced::font::Weight::Semibold,
                                         ..UI
                                     }),
-                                );
+                            );
+
+                            if let Some(sym) = find_symbol(item.tipo) {
                                 for (p_idx, p_def) in sym.pins.iter().enumerate() {
                                     let current_pin_val =
                                         item.pins.get(p_idx).cloned().unwrap_or_default();
@@ -530,7 +709,52 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                     );
                                 }
 
-                                // Dropdown sequencial inteligente IEC 60947 (1 a 9)
+                                // Circuitos de Potência (Força - IEC 60947-1): Presets e regras
+                                if is_power_apparatus(item) {
+                                    let power_box = column![
+                                        text("Circuitos de Potência (Força - IEC 60947-1):")
+                                            .size(11.0)
+                                            .font(Font {
+                                                weight: iced::font::Weight::Bold,
+                                                ..UI
+                                            })
+                                            .color(t.primary),
+                                        text("• Ímpares (1, 3, 5 / L1, L2, L3): Entrada de alimentação\n• Pares (2, 4, 6 / T1, T2, T3): Saída para carga/motor")
+                                            .size(10.0)
+                                            .color(t.text2),
+                                        row![
+                                            text("Presets:").size(10.0).color(t.text2),
+                                            button(text("1-2, 3-4, 5-6").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyIecNumberingPreset("power_3p")),
+                                            button(text("L1-T1, L2-T2, L3-T3").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyIecNumberingPreset("power_3p_phases")),
+                                            button(text("1-2").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyIecNumberingPreset("power_1p")),
+                                            button(text("L1-T1").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyIecNumberingPreset("power_1p_phases")),
+                                        ]
+                                        .spacing(4)
+                                        .align_y(Alignment::Center),
+                                    ]
+                                    .spacing(4);
+
+                                    body_col = body_col.push(
+                                        container(power_box)
+                                            .style(theme::card)
+                                            .padding(Padding::from([5.0, 7.0]))
+                                            .width(Length::Fill),
+                                    );
+                                }
+
+                                // Dropdown sequencial inteligente IEC 60947 (1 a 9) para Contatos de Comando
                                 if let Some(kind) = detect_contact_kind(item.tipo, &sym.pins) {
                                     let occupied = find_occupied_sequences_for_tag(
                                         &app.doc.items,
@@ -572,69 +796,83 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                     .padding(Padding::from([3.0, 6.0]))
                                     .width(Length::Fill);
 
-                                    body_col = body_col.push(
-                                        column![
-                                            text("Sequência de Bornes (IEC 60947):")
-                                                .size(11)
-                                                .color(t.text2)
-                                                .font(Font {
-                                                    weight: iced::font::Weight::Medium,
-                                                    ..UI
-                                                }),
-                                            seq_pick,
+                                    let mut cmd_box = column![
+                                        text("Circuitos de Comando (Contatos - IEC 60947-1):")
+                                            .size(11.0)
+                                            .font(Font {
+                                                weight: iced::font::Weight::Bold,
+                                                ..UI
+                                            })
+                                            .color(t.primary),
+                                        text("• 1º Dígito: Sequência (1..9)\n• 2º Dígito: Função (1-2: NF, 3-4: NA, 5-6: NF esp., 7-8: NA esp.)")
+                                            .size(10.0)
+                                            .color(t.text2),
+                                        row![
+                                            text("Presets:").size(10.0).color(t.text2),
+                                            button(text("13-14 (NA)").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyIecNumberingPreset("aux_no")),
+                                            button(text("21-22 (NF)").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyIecNumberingPreset("aux_nc")),
+                                            button(text("95-98 (Térmico)").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyIecNumberingPreset("thermal")),
                                         ]
-                                        .spacing(4),
-                                    );
+                                        .spacing(4)
+                                        .align_y(Alignment::Center),
+                                        seq_pick,
+                                    ]
+                                    .spacing(4);
 
                                     if let Some(cur_seq) = current_seq {
                                         if occupied.contains(&cur_seq) {
-                                            body_col = body_col.push(
-                                                    container(
-                                                        column![
-                                                            row![
-                                                                crate::icons::view_icon(
-                                                                    crate::icons::Icon::Warning,
-                                                                    12,
-                                                                    t.amber
-                                                                ),
-                                                                text(format!(
-                                                                    "Sequência {} já em uso por outro contato de '{}'",
-                                                                    cur_seq, item.tag
-                                                                ))
-                                                                .size(10.5)
-                                                                .color(t.amber),
-                                                            ]
-                                                            .spacing(4)
-                                                            .align_y(Alignment::Center),
-                                                            button(
-                                                                row![
-                                                                    crate::icons::view_icon(
-                                                                        crate::icons::Icon::Bolt,
-                                                                        12,
-                                                                        t.primary
-                                                                    ),
-                                                                    text(format!(
-                                                                        "Usar Sequência {} recomendada ({})",
-                                                                        suggested_digit,
-                                                                        kind.generate_pins(suggested_digit).join("-")
-                                                                    ))
-                                                                    .size(10.5)
-                                                                    .font(UI),
-                                                                ]
-                                                                .spacing(4)
-                                                                .align_y(Alignment::Center)
-                                                            )
-                                                            .style(theme::tool_active)
-                                                            .padding(Padding::from([2.0, 6.0]))
-                                                            .on_press(Message::SelectPinSequence(suggested_digit)),
+                                            cmd_box = cmd_box.push(
+                                                column![
+                                                    row![
+                                                        crate::icons::view_icon(
+                                                            crate::icons::Icon::Warning,
+                                                            12,
+                                                            t.amber
+                                                        ),
+                                                        text(format!(
+                                                            "Sequência {} já em uso por outro contato de '{}'",
+                                                            cur_seq, item.tag
+                                                        ))
+                                                        .size(10.5)
+                                                        .color(t.amber),
+                                                    ]
+                                                    .spacing(4)
+                                                    .align_y(Alignment::Center),
+                                                    button(
+                                                        row![
+                                                            crate::icons::view_icon(
+                                                                crate::icons::Icon::Bolt,
+                                                                12,
+                                                                t.primary
+                                                            ),
+                                                            text(format!(
+                                                                "Usar Sequência {} recomendada ({})",
+                                                                suggested_digit,
+                                                                kind.generate_pins(suggested_digit).join("-")
+                                                            ))
+                                                            .size(10.5)
+                                                            .font(UI),
                                                         ]
                                                         .spacing(4)
+                                                        .align_y(Alignment::Center)
                                                     )
-                                                    .padding(Padding::from([4.0, 6.0]))
-                                                    .style(theme::card)
-                                                );
+                                                    .style(theme::tool_active)
+                                                    .padding(Padding::from([2.0, 6.0]))
+                                                    .on_press(Message::SelectPinSequence(suggested_digit)),
+                                                ]
+                                                .spacing(4),
+                                            );
                                         } else {
-                                            body_col = body_col.push(
+                                            cmd_box = cmd_box.push(
                                                 row![
                                                     crate::icons::view_icon(
                                                         crate::icons::Icon::Check,
@@ -653,29 +891,27 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                             );
                                         }
                                     } else {
-                                        body_col = body_col.push(
+                                        cmd_box = cmd_box.push(
                                             text("Bornes com numeração personalizada.")
                                                 .size(10.0)
                                                 .color(t.text2),
                                         );
                                     }
-                                }
-                            }
-                        } else if let Some(id_or_slug) = item.symbol_id_or_slug() {
-                            let canonical_terms = crate::canonical::global_dictionary()
-                                .and_then(|dict| dict.get(id_or_slug))
-                                .map(|el| el.terminals.clone())
-                                .unwrap_or_default();
 
-                            let pin_count = canonical_terms.len().min(9);
-                            if pin_count > 0 {
-                                body_col = body_col.push(horizontal_rule(1));
-                                body_col = body_col.push(
-                                    text("Numeração dos Bornes:").size(12).font(Font {
-                                        weight: iced::font::Weight::Semibold,
-                                        ..UI
-                                    }),
-                                );
+                                    body_col = body_col.push(
+                                        container(cmd_box)
+                                            .style(theme::card)
+                                            .padding(Padding::from([5.0, 7.0]))
+                                            .width(Length::Fill),
+                                    );
+                                }
+                            } else if let Some(id_or_slug) = item.symbol_id_or_slug() {
+                                let canonical_terms = crate::canonical::global_dictionary()
+                                    .and_then(|dict| dict.get(id_or_slug))
+                                    .map(|el| el.terminals.clone())
+                                    .unwrap_or_default();
+
+                                let pin_count = canonical_terms.len().min(9);
                                 for p_idx in 0..pin_count {
                                     let default_label = canonical_terms
                                         .get(p_idx)
@@ -702,111 +938,78 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                             }
                         }
 
-                        // Controles para Sinalizadores Luminosos / Lâmpadas
-                        let is_lamp = item.is_lamp_or_signaling();
-
-                        if is_lamp {
-                            body_col = body_col.push(horizontal_rule(1));
-                            body_col = body_col.push(
-                                text("Cor e Pulso do Sinaleiro Luminoso:")
-                                    .size(11.5)
-                                    .font(Font {
-                                        weight: iced::font::Weight::Bold,
-                                        ..UI
-                                    }),
-                            );
-
-                            let color_btn = |code: i32, label: &'static str| {
-                                let is_sel = item.color == code;
-                                button(
-                                    row![
-                                        container(Space::with_width(8).height(8))
-                                            .style(theme::lamp_swatch(t.lamp_color(code))),
-                                        text(label).size(10.0).font(UI),
-                                    ]
-                                    .spacing(3)
-                                    .align_y(Alignment::Center),
-                                )
-                                .style(if is_sel {
-                                    theme::tool_active
-                                } else {
-                                    theme::tool
-                                })
-                                .padding(Padding::from([2.0, 4.0]))
-                                .on_press(Message::SetLampColor(code))
-                            };
-
-                            let colors_row = row![
-                                color_btn(1, "Verde"),
-                                color_btn(2, "Vermelho"),
-                                color_btn(3, "Amarelo"),
-                                color_btn(4, "Azul"),
-                                color_btn(0, "Branco"),
-                            ]
-                            .spacing(3);
-
-                            let pulse_row = row![
-                                text("Pulso (s):").size(11).color(t.text2),
-                                text_input("ex: 0.5", &item.value)
-                                    .on_input(Message::SetPulseDuration)
-                                    .padding(Padding::from([3.0, 6.0]))
-                                    .size(11.5)
-                                    .width(80)
-                                    .style(theme::field),
-                            ]
-                            .spacing(6)
-                            .align_y(Alignment::Center);
-
-                            body_col = body_col.push(colors_row).push(pulse_row);
-                        }
-
-                        if crate::symbols::is_terminal_item(item) {
+                        // 6. Réguas de Bornes em Painéis (IEC 81346 - Letra X)
+                        if is_terminal_item(item) {
                             let strip_kind = crate::xref::TerminalStripKind::from_tag(&item.tag);
                             let strip_tag_for_btn = item.tag.trim().to_string();
                             body_col = body_col.push(horizontal_rule(1));
                             body_col = body_col.push(
-                                column![
-                                    row![
-                                        text("Régua de Bornes (IEC 81346):").size(11.5).font(
-                                            Font {
-                                                weight: iced::font::Weight::Bold,
-                                                ..UI
-                                            }
-                                        ),
-                                        horizontal_space(),
-                                        container(
-                                            text(strip_kind.badge_label())
-                                                .size(10.0)
-                                                .color(t.primary)
-                                        )
-                                        .style(theme::card)
-                                        .padding(Padding::from([2.0, 6.0])),
-                                    ]
-                                    .align_y(Alignment::Center),
-                                    row![
-                                        text("Tipo:").size(10.5).color(t.text2),
-                                        text(strip_kind.display_name()).size(10.5).color(t.text),
-                                    ]
-                                    .spacing(4),
-                                    button(
+                                container(
+                                    column![
                                         row![
-                                            crate::icons::view_icon(
-                                                crate::icons::Icon::Bolt,
-                                                11,
-                                                t.primary
+                                            text("Régua de Bornes em Painéis (IEC 81346):").size(11.5).font(
+                                                Font {
+                                                    weight: iced::font::Weight::Bold,
+                                                    ..UI
+                                                }
                                             ),
-                                            text(format!("Renumerar régua '{}'", item.tag.trim()))
-                                                .size(10.5)
-                                                .font(UI),
+                                            horizontal_space(),
+                                            container(
+                                                text(strip_kind.badge_label())
+                                                    .size(10.0)
+                                                    .color(t.primary)
+                                            )
+                                            .style(theme::card)
+                                            .padding(Padding::from([2.0, 6.0])),
+                                        ]
+                                        .align_y(Alignment::Center),
+                                        text("Tabela de Subdivisão Funcional:\n• XP (ou X0): Força (Alimentação geral e motores)\n• XC: Comando (Botoeiras, sensores e lógicas)\n• XT: Medição (Transformadores e instrumentos)")
+                                            .size(10.0)
+                                            .color(t.text2),
+                                        row![
+                                            text("Classificar:").size(10.0).color(t.text2),
+                                            button(text("XP (Força)").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyTerminalStripTagPreset("-XP")),
+                                            button(text("XC (Comando)").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyTerminalStripTagPreset("-XC")),
+                                            button(text("XT (Medição)").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyTerminalStripTagPreset("-XT")),
+                                            button(text("X1 (Geral)").size(9.5).font(UI))
+                                                .style(theme::tool)
+                                                .padding(Padding::from([2.0, 5.0]))
+                                                .on_press(Message::ApplyTerminalStripTagPreset("-X1")),
                                         ]
                                         .spacing(4)
-                                        .align_y(Alignment::Center)
-                                    )
-                                    .style(theme::tool)
-                                    .padding(Padding::from([2.0, 6.0]))
-                                    .on_press(Message::RenumberTerminalStrip(strip_tag_for_btn)),
-                                ]
-                                .spacing(4),
+                                        .align_y(Alignment::Center),
+                                        button(
+                                            row![
+                                                crate::icons::view_icon(
+                                                    crate::icons::Icon::Bolt,
+                                                    11,
+                                                    t.primary
+                                                ),
+                                                text(format!("Renumerar régua '{}'", item.tag.trim()))
+                                                    .size(10.5)
+                                                    .font(UI),
+                                            ]
+                                            .spacing(4)
+                                            .align_y(Alignment::Center)
+                                        )
+                                        .style(theme::tool)
+                                        .padding(Padding::from([2.0, 6.0]))
+                                        .on_press(Message::RenumberTerminalStrip(strip_tag_for_btn)),
+                                    ]
+                                    .spacing(4),
+                                )
+                                .style(theme::card)
+                                .padding(Padding::from([6.0, 8.0]))
+                                .width(Length::Fill),
                             );
                         }
                     }
@@ -1362,6 +1565,69 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
 
                         xref_col = xref_col.push(
                             container(card_col)
+                                .style(theme::card)
+                                .padding(Padding::from([6.0, 8.0]))
+                                .width(Length::Fill),
+                        );
+                    }
+
+                    if !directory.terminal_strips.is_empty() {
+                        let mut strips_box = column![row![
+                            text("Réguas de Bornes do Projeto (IEC 81346)")
+                                .size(11.5)
+                                .font(Font {
+                                    weight: iced::font::Weight::Bold,
+                                    ..UI
+                                }),
+                            horizontal_space(),
+                            button(
+                                row![
+                                    crate::icons::view_icon(
+                                        crate::icons::Icon::Bolt,
+                                        11,
+                                        t.primary
+                                    ),
+                                    text("Renumerar Todas").size(10.0).font(UI),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center),
+                            )
+                            .style(theme::tool)
+                            .padding(Padding::from([2.0, 6.0]))
+                            .on_press(Message::RenumberAllTerminalStrips),
+                        ]
+                        .align_y(Alignment::Center),]
+                        .spacing(4);
+
+                        for strip in &directory.terminal_strips {
+                            let s_tag = strip.strip_tag.clone();
+                            strips_box = strips_box.push(
+                                row![
+                                    text(format!("• Régua {}", strip.strip_tag))
+                                        .size(10.5)
+                                        .font(MONO)
+                                        .color(t.primary),
+                                    container(
+                                        text(strip.kind.badge_label()).size(9.0).color(t.primary)
+                                    )
+                                    .style(theme::card)
+                                    .padding(Padding::from([1.0, 4.0])),
+                                    text(format!("({} bornes)", strip.terminals.len()))
+                                        .size(10.0)
+                                        .color(t.text2),
+                                    horizontal_space(),
+                                    button(text("Renumerar").size(9.5).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 5.0]))
+                                        .on_press(Message::RenumberTerminalStrip(s_tag)),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center),
+                            );
+                        }
+
+                        xref_col = xref_col.push(
+                            container(strips_box)
                                 .style(theme::card)
                                 .padding(Padding::from([6.0, 8.0]))
                                 .width(Length::Fill),

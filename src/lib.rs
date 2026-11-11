@@ -16,7 +16,7 @@ pub mod ui;
 pub mod xref;
 
 pub use app::{
-    ActiveMenu, CadeSimuApp, ExportFormat, ExportPageOption, ExportScope, Message,
+    ActiveMenu, CadeSimuApp, CoilPattern, ExportFormat, ExportPageOption, ExportScope, Message,
     PinSequenceOption, SaveFormat,
 };
 pub use canvas_view::EditorTool;

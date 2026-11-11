@@ -9,6 +9,7 @@ use cade_simu_rs::model::*;
 use cade_simu_rs::sim::*;
 use cade_simu_rs::symbols::*;
 use cade_simu_rs::theme::{self, *};
+use cade_simu_rs::xref::TerminalStripKind;
 
 #[test]
 fn test_cad_roundtrip_dol_starter() {
@@ -6808,4 +6809,304 @@ fn test_left_dock_elements_default_and_collapse_expand() {
 
     let _ = app.update(Message::ToggleLeftDockCollapse);
     assert!(!app.left_dock_collapsed);
+}
+
+#[test]
+fn test_properties_element_name_and_function_editing() {
+    let (mut app, _) = CadeSimuApp::new();
+    let item = SchematicItem::new_symbol(101, 1000, 100, 100, "-M1");
+    app.doc.items.push(item);
+    app.selected_id = Some(101);
+
+    // 1. Edição do Nome (Tag) e visibilidade no esquema
+    let _ = app.update(Message::EditTag("-M_BOMBA".to_string()));
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 101).unwrap().tag,
+        "-M_BOMBA"
+    );
+
+    let _ = app.update(Message::ToggleShowTag(false));
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 101).unwrap().show_tag,
+        0
+    );
+
+    let _ = app.update(Message::ToggleShowTag(true));
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 101).unwrap().show_tag,
+        1
+    );
+
+    // 2. Edição da Função e visibilidade no esquema
+    let _ = app.update(Message::EditFunction("Bomba de Recalque 5CV".to_string()));
+    let item_after = app.doc.items.iter().find(|i| i.id == 101).unwrap();
+    assert_eq!(
+        item_after.function.as_deref(),
+        Some("Bomba de Recalque 5CV")
+    );
+    assert_eq!(item_after.function_or_value(), "Bomba de Recalque 5CV");
+
+    let _ = app.update(Message::ToggleShowValue(true));
+    assert_eq!(
+        app.doc
+            .items
+            .iter()
+            .find(|i| i.id == 101)
+            .unwrap()
+            .show_value,
+        1
+    );
+
+    // Fallback para valor se função for esvaziada
+    let _ = app.update(Message::EditValue("5kW".to_string()));
+    let _ = app.update(Message::EditFunction("".to_string()));
+    let item_fallback = app.doc.items.iter().find(|i| i.id == 101).unwrap();
+    assert_eq!(item_fallback.function, None);
+    assert_eq!(item_fallback.function_or_value(), "5kW");
+}
+
+#[test]
+fn test_properties_special_coil_patterns_and_timers() {
+    let (mut app, _) = CadeSimuApp::new();
+    let mut item = SchematicItem::new_symbol(201, 9000, 200, 200, "-KM1");
+    item.pins[0] = "A1".to_string();
+    item.pins[1] = "A2".to_string();
+    app.doc.items.push(item);
+    app.selected_id = Some(201);
+
+    let item_init = app.doc.items.iter().find(|i| i.id == 201).unwrap();
+    assert!(is_coil_or_timer_apparatus(item_init));
+    assert_eq!(CoilPattern::from_item(item_init), CoilPattern::Standard);
+
+    // 1. Mudança para On-Delay (TON)
+    let _ = app.update(Message::SetCoilPattern(CoilPattern::OnDelay));
+    let item_ton = app.doc.items.iter().find(|i| i.id == 201).unwrap();
+    assert_eq!(item_ton.tipo, 9004);
+    assert_eq!(item_ton.subvariant, 0);
+    assert_eq!(item_ton.value, "3");
+    assert_eq!(CoilPattern::from_item(item_ton), CoilPattern::OnDelay);
+
+    // Edição do tempo de temporização
+    let _ = app.update(Message::EditValue("7.5".to_string()));
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 201).unwrap().value,
+        "7.5"
+    );
+
+    // 2. Mudança para Off-Delay (TOF)
+    let _ = app.update(Message::SetCoilPattern(CoilPattern::OffDelay));
+    let item_tof = app.doc.items.iter().find(|i| i.id == 201).unwrap();
+    assert_eq!(item_tof.tipo, 9005);
+    assert_eq!(item_tof.subvariant, 0);
+    assert_eq!(CoilPattern::from_item(item_tof), CoilPattern::OffDelay);
+
+    // 3. Mudança para Cíclico / Intermitente
+    let _ = app.update(Message::SetCoilPattern(CoilPattern::Cyclic));
+    let item_cyc = app.doc.items.iter().find(|i| i.id == 201).unwrap();
+    assert_eq!(item_cyc.subvariant, 2);
+    assert_eq!(CoilPattern::from_item(item_cyc), CoilPattern::Cyclic);
+
+    // 4. Mudança para Retenção / Biestável (Latching)
+    let _ = app.update(Message::SetCoilPattern(CoilPattern::Latching));
+    let item_latch = app.doc.items.iter().find(|i| i.id == 201).unwrap();
+    assert_eq!(item_latch.tipo, 9000);
+    assert_eq!(item_latch.subvariant, 1);
+    assert_eq!(CoilPattern::from_item(item_latch), CoilPattern::Latching);
+
+    // 5. Retorno para Padrão Instantânea e Preset de Bornes A1-A2
+    let _ = app.update(Message::SetCoilPattern(CoilPattern::Standard));
+    let _ = app.update(Message::ApplyIecNumberingPreset("coil"));
+    let item_std = app.doc.items.iter().find(|i| i.id == 201).unwrap();
+    assert_eq!(item_std.tipo, 9000);
+    assert_eq!(item_std.subvariant, 0);
+    assert_eq!(item_std.pins[0], "A1");
+    assert_eq!(item_std.pins[1], "A2");
+}
+
+#[test]
+fn test_properties_signaling_colors_and_pulsing_duration() {
+    let (mut app, _) = CadeSimuApp::new();
+    let item = SchematicItem::new_symbol(301, 9008, 300, 300, "-H1");
+    app.doc.items.push(item);
+    app.selected_id = Some(301);
+
+    let item_init = app.doc.items.iter().find(|i| i.id == 301).unwrap();
+    assert!(item_init.is_lamp_or_signaling());
+
+    // 1. Cores industriais: Verde(1), Vermelho(2), Amarelo(3), Azul(4), Branco(0), Laranja(5)
+    let colors = [
+        (1, "Verde"),
+        (2, "Vermelho"),
+        (3, "Amarelo"),
+        (4, "Azul"),
+        (0, "Branco"),
+        (5, "Laranja"),
+    ];
+
+    for (c_code, _) in colors {
+        let _ = app.update(Message::SetLampColor(c_code));
+        assert_eq!(
+            app.doc.items.iter().find(|i| i.id == 301).unwrap().color,
+            c_code
+        );
+    }
+
+    // Verifica que a cor laranja (5) é suportada pelos tokens
+    let tok = theme::tokens(&app.theme());
+    assert_eq!(tok.lamp_color(5), tok.lamp_orange);
+
+    // 2. Modo Pulsante e tempo de pulso
+    let _ = app.update(Message::TogglePulsingSignaling(true));
+    let item_pulsing = app.doc.items.iter().find(|i| i.id == 301).unwrap();
+    assert_eq!(item_pulsing.extra_int1, 1);
+    assert_eq!(item_pulsing.value, "0.5");
+
+    let _ = app.update(Message::SetPulseDuration("1.25".to_string()));
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 301).unwrap().value,
+        "1.25"
+    );
+
+    // 3. Preset de Bornes X1-X2
+    let _ = app.update(Message::ApplyIecNumberingPreset("lamp"));
+    let item_lamp_pins = app.doc.items.iter().find(|i| i.id == 301).unwrap();
+    assert_eq!(item_lamp_pins.pins[0], "X1");
+    assert_eq!(item_lamp_pins.pins[1], "X2");
+}
+
+#[test]
+fn test_properties_iec60947_power_and_command_terminal_editing() {
+    let (mut app, _) = CadeSimuApp::new();
+
+    // 1. Circuito de Potência (Força - Contator 3P)
+    let p_item = SchematicItem::new_symbol(401, 2001, 150, 150, "-KM1");
+    app.doc.items.push(p_item);
+    app.selected_id = Some(401);
+
+    assert!(is_power_apparatus(
+        app.doc.items.iter().find(|i| i.id == 401).unwrap()
+    ));
+
+    // Presets de Potência IEC 60947-1: 1-2, 3-4, 5-6 e L1-T1, L2-T2, L3-T3
+    let _ = app.update(Message::ApplyIecNumberingPreset("power_3p"));
+    let p_num = app.doc.items.iter().find(|i| i.id == 401).unwrap();
+    assert_eq!(p_num.pins[0..6], ["1", "3", "5", "2", "4", "6"]);
+
+    let _ = app.update(Message::ApplyIecNumberingPreset("power_3p_phases"));
+    let p_pha = app.doc.items.iter().find(|i| i.id == 401).unwrap();
+    assert_eq!(p_pha.pins[0..6], ["L1", "L2", "L3", "T1", "T2", "T3"]);
+
+    // 2. Circuito de Comando (Contatos Auxiliares 2 dígitos - NA 7000)
+    let c_item = SchematicItem::new_symbol(402, 7000, 250, 150, "-KM1");
+    app.doc.items.push(c_item);
+    app.selected_id = Some(402);
+
+    // Dropdown sequencial IEC 60947: Sequência 4 -> 43-44
+    let _ = app.update(Message::SelectPinSequence(4));
+    let c_seq4 = app.doc.items.iter().find(|i| i.id == 402).unwrap();
+    assert_eq!(c_seq4.pins[0..2], ["43", "44"]);
+
+    // Presets rápidos: aux_no (13-14), aux_nc (21-22), thermal (95-98)
+    let _ = app.update(Message::ApplyIecNumberingPreset("aux_no"));
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 402).unwrap().pins[0..2],
+        ["13", "14"]
+    );
+
+    let _ = app.update(Message::ApplyIecNumberingPreset("aux_nc"));
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 402).unwrap().pins[0..2],
+        ["21", "22"]
+    );
+
+    let _ = app.update(Message::ApplyIecNumberingPreset("thermal"));
+    assert_eq!(
+        app.doc.items.iter().find(|i| i.id == 402).unwrap().pins[0..4],
+        ["95", "96", "97", "98"]
+    );
+}
+
+#[test]
+fn test_properties_terminal_strips_iec81346_classification() {
+    let (mut app, _) = CadeSimuApp::new();
+    let term = SchematicItem::new_symbol(501, 7001, 100, 200, "-X1");
+    app.doc.items.push(term);
+    app.selected_id = Some(501);
+
+    assert!(is_terminal_item(
+        app.doc.items.iter().find(|i| i.id == 501).unwrap()
+    ));
+
+    // XP: Potência / Força
+    let _ = app.update(Message::ApplyTerminalStripTagPreset("-XP"));
+    let term_xp = app.doc.items.iter().find(|i| i.id == 501).unwrap();
+    assert_eq!(term_xp.tag, "-XP");
+    assert_eq!(
+        TerminalStripKind::from_tag(&term_xp.tag),
+        TerminalStripKind::Power
+    );
+
+    // XC: Comando / Auxiliar
+    let _ = app.update(Message::ApplyTerminalStripTagPreset("-XC"));
+    let term_xc = app.doc.items.iter().find(|i| i.id == 501).unwrap();
+    assert_eq!(term_xc.tag, "-XC");
+    assert_eq!(
+        TerminalStripKind::from_tag(&term_xc.tag),
+        TerminalStripKind::Control
+    );
+
+    // XT: Medição / Transformadores
+    let _ = app.update(Message::ApplyTerminalStripTagPreset("-XT"));
+    let term_xt = app.doc.items.iter().find(|i| i.id == 501).unwrap();
+    assert_eq!(term_xt.tag, "-XT");
+    assert_eq!(
+        TerminalStripKind::from_tag(&term_xt.tag),
+        TerminalStripKind::Measurement
+    );
+
+    // X1: Geral
+    let _ = app.update(Message::ApplyTerminalStripTagPreset("-X1"));
+    let term_x1 = app.doc.items.iter().find(|i| i.id == 501).unwrap();
+    assert_eq!(term_x1.tag, "-X1");
+    assert_eq!(
+        TerminalStripKind::from_tag(&term_x1.tag),
+        TerminalStripKind::General
+    );
+}
+
+#[test]
+fn test_properties_cross_reference_selected_vs_global_modes() {
+    let (mut app, _) = CadeSimuApp::new();
+
+    // 1. Sem elemento selecionado: Aba 0 mostra Cajetín, Aba 1 mostra Diretório Global
+    app.selected_id = None;
+    let _ = app.update(Message::SelectPropTab(0));
+    assert_eq!(app.prop_tab, 0);
+    let _ = app.view();
+
+    let _ = app.update(Message::SelectPropTab(1));
+    assert_eq!(app.prop_tab, 1);
+    let _ = app.view();
+
+    // 2. Com elemento selecionado: Aba 0 mostra Propriedades do elemento, Aba 1 mostra Referência Cruzada específica
+    let coil = SchematicItem::new_symbol(601, 9000, 100, 100, "-KM1");
+    let contact = SchematicItem::new_symbol(602, 7000, 200, 100, "-KM1");
+    app.doc.items.push(coil);
+    app.doc.items.push(contact);
+
+    app.selected_id = Some(601);
+    let _ = app.update(Message::SelectPropTab(0));
+    let _ = app.view();
+
+    let _ = app.update(Message::SelectPropTab(1));
+    let _ = app.view();
+
+    // 3. Navegação para outro elemento via XRef
+    let _ = app.update(Message::NavigateToElement {
+        page_index: 0,
+        item_id: 602,
+    });
+    assert_eq!(app.selected_id, Some(602));
+    assert_eq!(app.active_page_index, 0);
+    let _ = app.view();
 }

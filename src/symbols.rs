@@ -214,6 +214,7 @@ impl SymbolDef {
             symbol_id: None,
             symbol_state: None,
             group_id: None,
+            function: None,
         }
     }
 
@@ -3155,6 +3156,18 @@ impl ApparatusRole {
         )
     }
 
+    /// Indica se o aparelho pertence ao circuito de potência/força (1 dígito por polo: 1-2, 3-4, 5-6).
+    pub fn is_power_circuit(self) -> bool {
+        matches!(
+            self,
+            ApparatusRole::PowerContactorPoles
+                | ApparatusRole::Breaker
+                | ApparatusRole::ThermalRelay
+                | ApparatusRole::Fuse
+                | ApparatusRole::Motor
+        )
+    }
+
     /// Papel do aparelho pai necessário para acionar este contato.
     pub fn required_parent_role(self) -> Option<ApparatusRole> {
         match self {
@@ -3275,6 +3288,38 @@ pub fn is_terminal_item(item: &SchematicItem) -> bool {
     }
     let tag = item.tag.trim().to_uppercase();
     (tag.starts_with("-X") || tag.starts_with('X')) && !(3000..=3009).contains(&item.tipo)
+}
+
+/// Verifica se o elemento pertence a um circuito de potência/força (IEC 60947-1).
+pub fn is_power_apparatus(item: &SchematicItem) -> bool {
+    let role = classify_item_role(item);
+    if role.is_power_circuit() {
+        return true;
+    }
+    matches!(
+        item.tipo,
+        1000..=1002
+            | 2000
+            | 2001
+            | 2006
+            | 2008
+            | 5000
+            | 5003
+            | 5008
+            | 6000
+            | 6003
+            | 6004
+            | 6007
+            | 6008
+            | 6009
+    )
+}
+
+/// Verifica se o elemento é uma bobina ou relé temporizador (IEC 60947 / EN 50012).
+pub fn is_coil_or_timer_apparatus(item: &SchematicItem) -> bool {
+    let role = classify_item_role(item);
+    matches!(role, ApparatusRole::Coil | ApparatusRole::Timer)
+        || matches!(item.tipo, 9000 | 9004 | 9005)
 }
 
 /// Extrai o prefixo literal de uma tag (ex: "-KM" de "-KM1", "-S" de "-S2", "-B" de "-B1").

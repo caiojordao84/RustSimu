@@ -30,6 +30,56 @@ impl std::fmt::Display for PinSequenceOption {
     }
 }
 
+/// Padrão funcional de bobinas e temporizadores (IEC 60947 / EN 50012).
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum CoilPattern {
+    Standard, // Instantânea (Contator / Relé auxiliar) - tipo 9000
+    OnDelay,  // Temporizador ao Trabalho (TON) - tipo 9004
+    OffDelay, // Temporizador ao Repouso (TOF) - tipo 9005
+    Cyclic,   // Temporizador Cíclico / Intermitente - subvariant 2
+    Latching, // Bobina com Retenção (Biestável / Latch) - subvariant 1
+}
+
+impl CoilPattern {
+    pub const ALL: [CoilPattern; 5] = [
+        CoilPattern::Standard,
+        CoilPattern::OnDelay,
+        CoilPattern::OffDelay,
+        CoilPattern::Cyclic,
+        CoilPattern::Latching,
+    ];
+
+    pub fn from_item(item: &crate::model::SchematicItem) -> Self {
+        if item.subvariant == 1 {
+            CoilPattern::Latching
+        } else if item.subvariant == 2 {
+            CoilPattern::Cyclic
+        } else if item.tipo == 9004 {
+            CoilPattern::OnDelay
+        } else if item.tipo == 9005 {
+            CoilPattern::OffDelay
+        } else {
+            CoilPattern::Standard
+        }
+    }
+
+    pub fn label(self) -> &'static str {
+        match self {
+            CoilPattern::Standard => "Padrão Instantânea (Contator)",
+            CoilPattern::OnDelay => "Ao Trabalho (TON / On-Delay)",
+            CoilPattern::OffDelay => "Ao Repouso (TOF / Off-Delay)",
+            CoilPattern::Cyclic => "Cíclico / Pulso Intermitente",
+            CoilPattern::Latching => "Retenção / Biestável (Latching)",
+        }
+    }
+}
+
+impl std::fmt::Display for CoilPattern {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.label())
+    }
+}
+
 /// Formato de arquivo para salvamento nativo do projeto (Decisão D1: JSON padrão, TOML ou QET).
 /// O formato legado `.cad` é monofolha e foi reclassificado exclusivamente para Exportação e Importação.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -179,6 +229,7 @@ pub enum Message {
     SaveAsJson,
     SaveAsToml,
     EditTag(String),
+    EditFunction(String),
     EditValue(String),
     EditPin(usize, String),
     ToggleShowTag(bool),
@@ -260,6 +311,9 @@ pub enum Message {
     DeleteRecentProject(String),
     SetLampColor(i32),
     SetPulseDuration(String),
+    TogglePulsingSignaling(bool),
+    SetCoilPattern(CoilPattern),
+    ApplyTerminalStripTagPreset(&'static str),
     ApplyIecNumberingPreset(&'static str),
     SelectPinSequence(u8),
     PasteAtOriginalPos,
@@ -862,6 +916,7 @@ impl CadeSimuApp {
             | Message::InsertSelectedCanonicalSymbol => self.update_library(message),
 
             Message::EditTag(_)
+            | Message::EditFunction(_)
             | Message::EditValue(_)
             | Message::EditPin(..)
             | Message::ToggleShowTag(_)
@@ -872,6 +927,9 @@ impl CadeSimuApp {
             | Message::SelectPropTab(_)
             | Message::SetLampColor(_)
             | Message::SetPulseDuration(_)
+            | Message::TogglePulsingSignaling(_)
+            | Message::SetCoilPattern(_)
+            | Message::ApplyTerminalStripTagPreset(_)
             | Message::ApplyIecNumberingPreset(_)
             | Message::SelectPinSequence(_)
             | Message::NavigateToElement { .. }
@@ -2836,6 +2894,18 @@ impl CadeSimuApp {
                     }
                 }
             }
+            Message::EditFunction(new_fn) => {
+                if let Some(id) = self.selected_id {
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        item.function = if new_fn.trim().is_empty() {
+                            None
+                        } else {
+                            Some(new_fn)
+                        };
+                        self.is_modified = true;
+                    }
+                }
+            }
             Message::EditValue(new_val) => {
                 if let Some(id) = self.selected_id {
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
@@ -2905,6 +2975,75 @@ impl CadeSimuApp {
                     }
                 }
             }
+            Message::TogglePulsingSignaling(pulsing) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        item.extra_int1 = if pulsing { 1 } else { 0 };
+                        if pulsing && item.value.trim().is_empty() {
+                            item.value = "0.5".to_string();
+                        }
+                        self.is_modified = true;
+                        self.status_msg = if pulsing {
+                            "Sinalizador configurado para modo pulsante.".to_string()
+                        } else {
+                            "Sinalizador configurado para modo contínuo.".to_string()
+                        };
+                    }
+                }
+            }
+            Message::SetCoilPattern(pat) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        match pat {
+                            CoilPattern::Standard => {
+                                item.tipo = 9000;
+                                item.subvariant = 0;
+                            }
+                            CoilPattern::OnDelay => {
+                                item.tipo = 9004;
+                                item.subvariant = 0;
+                                if item.value.trim().is_empty() {
+                                    item.value = "3".to_string();
+                                }
+                            }
+                            CoilPattern::OffDelay => {
+                                item.tipo = 9005;
+                                item.subvariant = 0;
+                                if item.value.trim().is_empty() {
+                                    item.value = "3".to_string();
+                                }
+                            }
+                            CoilPattern::Cyclic => {
+                                item.tipo = 9004;
+                                item.subvariant = 2;
+                                if item.value.trim().is_empty() {
+                                    item.value = "1.0".to_string();
+                                }
+                            }
+                            CoilPattern::Latching => {
+                                item.tipo = 9000;
+                                item.subvariant = 1;
+                            }
+                        }
+                        self.is_modified = true;
+                        self.status_msg =
+                            format!("Padrão da bobina alterado para '{}'.", pat.label());
+                    }
+                }
+            }
+            Message::ApplyTerminalStripTagPreset(strip_tag) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        item.tag = strip_tag.to_string();
+                        self.is_modified = true;
+                        self.status_msg =
+                            format!("Régua de bornes classificada como '{}'.", strip_tag);
+                    }
+                }
+            }
             Message::ApplyIecNumberingPreset(preset) => {
                 if let Some(id) = self.selected_id {
                     self.push_undo();
@@ -2917,6 +3056,22 @@ impl CadeSimuApp {
                                 item.pins[3] = "2".to_string();
                                 item.pins[4] = "4".to_string();
                                 item.pins[5] = "6".to_string();
+                            }
+                            "power_3p_phases" => {
+                                item.pins[0] = "L1".to_string();
+                                item.pins[1] = "L2".to_string();
+                                item.pins[2] = "L3".to_string();
+                                item.pins[3] = "T1".to_string();
+                                item.pins[4] = "T2".to_string();
+                                item.pins[5] = "T3".to_string();
+                            }
+                            "power_1p" => {
+                                item.pins[0] = "1".to_string();
+                                item.pins[1] = "2".to_string();
+                            }
+                            "power_1p_phases" => {
+                                item.pins[0] = "L1".to_string();
+                                item.pins[1] = "T1".to_string();
                             }
                             "aux_no" => {
                                 item.pins[0] = "13".to_string();
@@ -3354,6 +3509,7 @@ impl CadeSimuApp {
                                 symbol_id: Some(el.id.clone()),
                                 symbol_state: Some('0'),
                                 group_id: None,
+                                function: None,
                             };
 
                             self.doc.items.push(item);

@@ -368,9 +368,17 @@ pub struct SchematicItem {
     /// Identificador opcional do grupo ao qual o elemento pertence (Ctrl+G).
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub group_id: Option<u32>,
+    /// Função descritiva do elemento (ex: "Alimentação Principal", "Comando Bomba").
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub function: Option<String>,
 }
 
 impl SchematicItem {
+    /// Retorna a função descritiva do elemento ou seu valor como fallback.
+    pub fn function_or_value(&self) -> &str {
+        self.function.as_deref().unwrap_or(&self.value)
+    }
+
     /// Retorna o identificador de símbolo canônico ou slug/tipo legado.
     pub fn symbol_id_or_slug(&self) -> Option<&str> {
         self.symbol_id.as_deref().or(self.qet_type.as_deref())
@@ -488,6 +496,7 @@ impl SchematicItem {
             symbol_id: None,
             symbol_state: None,
             group_id: None,
+            function: None,
         }
     }
 
@@ -528,6 +537,7 @@ impl SchematicItem {
             symbol_id: None,
             symbol_state: None,
             group_id: None,
+            function: None,
         }
     }
 }

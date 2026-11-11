@@ -223,6 +223,7 @@ pub struct Tokens {
     pub lamp_yellow: Color,
     pub lamp_blue: Color,
     pub lamp_white: Color,
+    pub lamp_orange: Color,
     pub potential_l1: Color,
     pub potential_l2: Color,
     pub potential_l3: Color,
@@ -284,6 +285,7 @@ impl Tokens {
             lamp_yellow: rgb(0xCA8A04),
             lamp_blue: rgb(0x2563EB),
             lamp_white: rgb(0xF1F5F9),
+            lamp_orange: rgb(0xEA580C),
             potential_l1: rgb_f(0.92, 0.15, 0.12),
             potential_l2: rgb_f(0.90, 0.52, 0.05),
             potential_l3: rgb_f(0.65, 0.18, 0.85),
@@ -335,6 +337,7 @@ impl Tokens {
             lamp_yellow: rgb(0xCA8A04),
             lamp_blue: rgb(0x2563EB),
             lamp_white: rgb(0xE2E8F0),
+            lamp_orange: rgb(0xEA580C),
             potential_l1: rgb_f(0.92, 0.15, 0.12),
             potential_l2: rgb_f(0.90, 0.52, 0.05),
             potential_l3: rgb_f(0.65, 0.18, 0.85),
@@ -344,7 +347,7 @@ impl Tokens {
         }
     }
 
-    /// Retorna a cor correspondente ao código numérico do sinaleiro luminoso (0..=4).
+    /// Retorna a cor correspondente ao código numérico do sinaleiro luminoso (0..=5).
     pub fn lamp_color(&self, code: i32) -> Color {
         match code {
             1 => self.lamp_green,
@@ -352,6 +355,7 @@ impl Tokens {
             3 => self.lamp_yellow,
             4 => self.lamp_blue,
             0 => self.lamp_white,
+            5 => self.lamp_orange,
             _ => self.lamp_green,
         }
     }

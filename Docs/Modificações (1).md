@@ -152,40 +152,36 @@ Exibe os últimos projetos trabalhados pelo usuário:
 
 A barra lateral deve possuir um ícone chevron para colapso. Quando recolhida, o ícone permanece visível para possibilitar a restauração da barra. [CONCLUÍDO]
 
-# 4\. Propriedades do Elemento
+# 4\. Propriedades do Elemento — [100% CONCLUÍDO]
 
-A barra lateral direita mantém o nome **Propriedades do Elemento** e disponibiliza dois seletores principais: **Propriedades** (anteriormente "Informações") e **Referência Cruzada**.
+A barra lateral direita mantém o nome **Propriedades do Elemento** e disponibiliza dois seletores principais: **Propriedades** (anteriormente "Informações") e **Referência Cruzada**. [CONCLUÍDO]
 
-## 4.1 Seletor: Propriedades
+## 4.1 Seletor: Propriedades — [100% CONCLUÍDO]
 
 Quando um elemento está selecionado, exibe os campos editáveis abaixo:
 
-- Nome:  
-- Função:  
-- **Borne N**: Identificação de cada borne do elemento, seguindo as normas **IEC 60947-1** e **IEC 81346** para designação estruturada:  
-  -   
-  - 1\. Circuitos de Potência (Força)  
-  -   
-  - **Circuitos de Potência (Força)** (Contatores, disjuntores-motores, relés térmicos – 1 dígito):  
-    - **Números Ímpares (1, 3, 5 ou L1, L2, L3)**: Bornes de entrada (alimentação das fases).  
-  - **Números Pares (2, 4, 6 ou T1, T2, T3)**: Bornes de saída (carga/motor).  
-  -   
-  - **Circuitos de Comando** (Contatos auxiliares – 2 dígitos):  
-  -   
-  - Nos contactos auxiliares de comando, os bornes utilizam dois dígitos:  
-    - **1º Dígito**: Número de sequência do contato no aparelho (1º, 2º, etc.).  
-    - **2º Dígito**: Função elétrica do contato:  
-      - **1 e 2**: Normal Fechado (NF / NC) (Ex: 11-12, 21-22).  
-      - **3 e 4**: Normal Aberto (NA / NO) (Ex: 13-14, 23-24).  
-      - **5 e 6**: NF especial (temporizadores, sobrecarga).  
-  - **7 e 8**: NA especial (Ex: 97-98 no relé térmico para sinalização de falha).  
-  -   
-  - **Bobinas e Sinalizadores**:  
-  -   
-    - **A1 e A2**: Bobinas de comando (Contatores/Relés).  
-    - **X1 e X2**: Sinalizadores luminosos / Lâmpadas.  
-  - **Identificação de Réguas de Bornes em Painéis (IEC 81346\)**: Designadas pela letra **X**:  
-  - Tabela de subdivisão de funções de réguas de bornes:
+- **Nome**: Campo editável para `item.tag` com checkbox "Exibir no esquema" (`item.show_tag`) e validação inteligente de vínculo pai/contatos e anti-duplicidade. [CONCLUÍDO]  
+- **Função**: Campo editável para `item.function` (com fallback para `item.value`) com checkbox "Exibir no esquema" (`item.show_value`). [CONCLUÍDO]  
+- **Borne N**: Identificação de cada borne do elemento, seguindo as normas **IEC 60947-1** e **IEC 81346** para designação estruturada: [CONCLUÍDO]  
+  - **Circuitos de Potência (Força)** (Contatores, disjuntores-motores, relés térmicos – 1 dígito): [CONCLUÍDO]  
+    - **Números Ímpares (1, 3, 5 ou L1, L2, L3)**: Bornes de entrada (alimentação das fases). [CONCLUÍDO]  
+    - **Números Pares (2, 4, 6 ou T1, T2, T3)**: Bornes de saída (carga/motor). [CONCLUÍDO]  
+    - Presets rápidos para 3P e 1P numérico e fases industriais (`1-2, 3-4, 5-6`, `L1-T1, L2-T2, L3-T3`, `1-2`, `L1-T1`). [CONCLUÍDO]  
+  - **Circuitos de Comando** (Contatos auxiliares – 2 dígitos): [CONCLUÍDO]  
+    - Nos contactos auxiliares de comando, os bornes utilizam dois dígitos: [CONCLUÍDO]  
+      - **1º Dígito**: Número de sequência do contato no aparelho (1º, 2º, etc., 1..9). [CONCLUÍDO]  
+      - **2º Dígito**: Função elétrica do contato: [CONCLUÍDO]  
+        - **1 e 2**: Normal Fechado (NF / NC) (Ex: 11-12, 21-22). [CONCLUÍDO]  
+        - **3 e 4**: Normal Aberto (NA / NO) (Ex: 13-14, 23-24). [CONCLUÍDO]  
+        - **5 e 6**: NF especial (temporizadores, sobrecarga). [CONCLUÍDO]  
+        - **7 e 8**: NA especial (Ex: 97-98 no relé térmico para sinalização de falha). [CONCLUÍDO]  
+      - Dropdown sequencial inteligente IEC 60947 (1 a 9) com sugestão de dígito livre e detecção de colisões. [CONCLUÍDO]  
+  - **Bobinas e Sinalizadores**: [CONCLUÍDO]  
+    - **A1 e A2**: Bobinas de comando (Contatores/Relés). [CONCLUÍDO]  
+    - **X1 e X2**: Sinalizadores luminosos / Lâmpadas. [CONCLUÍDO]  
+    - Presets rápidos de atribuição A1-A2 e X1-X2. [CONCLUÍDO]  
+  - **Identificação de Réguas de Bornes em Painéis (IEC 81346)**: Designadas pela letra **X**: [CONCLUÍDO]  
+  - Tabela de subdivisão de funções de réguas de bornes: [CONCLUÍDO]  
 
 | Identificação da Régua | Função Principal | Tipo de Circuito |
 | :---- | :---- | :---- |
@@ -193,14 +189,15 @@ Quando um elemento está selecionado, exibe os campos editáveis abaixo:
 | XC | Bornes para interligação de botoeiras, sensores e lógicas | Comando / Auxiliar |
 | XT | Bornes dedicados a transformadores e medição | Auxiliar |
 
-- Bobinas com padrões especiais devem apresentar esses padrões para edição.  
-- Sinalizadores devem apresentar a cor para escolher  
-- Sinalizadores Pulsantes devem escolher o tempo de pulso
+  - Botões de classificação rápida da régua (-XP, -XC, -XT, -X1) e renumeração sequencial. [CONCLUÍDO]  
+- **Bobinas com padrões especiais**: Seletor funcional de padrões (Padrão Instantânea, Ao Trabalho TON, Ao Repouso TOF, Cíclico/Intermitente, Retenção Biestável Latching) e ajuste de tempo de temporização. [CONCLUÍDO]  
+- **Sinalizadores**: Apresentação de 6 cores industriais padronizadas (Verde, Vermelho, Amarelo, Azul, Branco, Laranja). [CONCLUÍDO]  
+- **Sinalizadores Pulsantes**: Alternador de modo pulsante e campo editável para tempo de pulso em segundos. [CONCLUÍDO]  
 
-## 4.2 Seletor: Referência Cruzada
+## 4.2 Seletor: Referência Cruzada — [100% CONCLUÍDO]
 
-- **Nenhum elemento selecionado**: Exibe a referência cruzada baseada em nomes de todo o projeto.  
-- **Elemento selecionado**: Exibe apenas as referências cruzadas do elemento selecionado, considerando nome e ligação de bornes (em série e em paralelo).
+- **Nenhum elemento selecionado**: Exibe a referência cruzada baseada em nomes de todo o projeto (busca/filtro, contagem total de tags e folhas, agrupamento hierárquico pai-contatos, instâncias, alertas de contatos órfãos / bobinas duplicadas, navegação "Ir" e resumo das réguas de bornes com renumeração global). [CONCLUÍDO]  
+- **Elemento selecionado**: Exibe apenas as referências cruzadas do elemento selecionado, considerando nome, vínculo pai/irmãos com navegação "Ir", e ligação elétrica detalhada de bornes (em série, em paralelo e direta com badges coloridos e botões "Ir"), além das propriedades da régua de bornes e atalho para XRef Global. [CONCLUÍDO]
 
 # 5\. Janela Principal (Canvas de Trabalho)
 
