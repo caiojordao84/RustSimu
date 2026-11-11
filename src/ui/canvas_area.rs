@@ -33,7 +33,11 @@ pub fn view_sheet_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         placement_orientation: app.placement_orientation,
         dragging_symbol: app.dragging_symbol,
         dragging_canonical_symbol: app.dragging_canonical_id.as_deref(),
-        is_blocked: app.open_menu.is_some() || app.show_about_modal || app.show_export_modal,
+        is_blocked: app.open_menu.is_some()
+            || app.show_about_modal
+            || app.show_export_modal
+            || app.show_color_modal
+            || app.show_confirm_delete_modal,
     }
     .view()
     .map(Message::Canvas);

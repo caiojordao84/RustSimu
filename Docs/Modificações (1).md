@@ -18,15 +18,15 @@ Especificações de Modificações e Interface
 
 ## 1.2 Editar
 
-- **Desfazer**: *Ctrl \+ Z*  
-- **Refazer**: *Ctrl \+ Shift \+ Z*  
-- **Cortar**: *Ctrl \+ X*  
-- **Copiar**: *Ctrl \+ C*  
-- **Colar**: *Ctrl \+ V* (Cola na posição do ponteiro do mouse e confirma o local com clique).  
-- **Colar na Posição Original**: *Ctrl \+ Shift \+ V*  
-- **Duplicar**: *Ctrl \+ D*  
-- **Inserir o Último Elemento**: *A*  
-- **Colorir Elemento** (Abre janela de seleção de cor para o elemento; substitui a cor preta em tema light ou branca em tema dark pela cor escolhida).  
+- **Desfazer**: *Ctrl \+ Z* [CONCLUÍDO]  
+- **Refazer**: *Ctrl \+ Shift \+ Z* [CONCLUÍDO]  
+- **Cortar**: *Ctrl \+ X* [CONCLUÍDO]  
+- **Copiar**: *Ctrl \+ C* [CONCLUÍDO]  
+- **Colar**: *Ctrl \+ V* (Cola na posição do ponteiro do mouse e confirma o local com clique). [CONCLUÍDO]  
+- **Colar na Posição Original**: *Ctrl \+ Shift \+ V* [CONCLUÍDO]  
+- **Duplicar**: *Ctrl \+ D* [CONCLUÍDO]  
+- **Inserir o Último Elemento**: *A* [CONCLUÍDO]  
+- **Colorir Elemento** (Abre janela de seleção de cor para o elemento; substitui a cor preta em tema light ou branca em tema dark pela cor escolhida). [CONCLUÍDO]  
 - **Adicionar**  
   - Adicionar Texto em Linha  
   - Adicionar Campo de Texto  
@@ -37,42 +37,42 @@ Especificações de Modificações e Interface
   - Adicionar Arco  
   - *(Outros itens serão adicionados no futuro)*  
 - **Seleção**  
-  - Selecionar Tudo	Ctrl \+ A  
-  - Anular a Seleção	Ctrl \+ Shift \+ A  
-  - Inverter Seleção	Ctrl \+ I  
-- **Copiar Informação do Elemento**: *Ctrl \+ Alt \+ C*  
-- **Colar Informação do Elemento**: *Ctrl \+ Alt \+ V*  
-- **Deletar**: *Del*  
-- **Rotacionar**: *R* (Incrementos de 90°: 0°, 90°, 180°, 270°).  
-- **Rotacionar como Grupo**: *Shift \+ R*  
-- **Espelhar Horizontalmente**: *M*  
-- **Espelhar Verticalmente**: *F*  
+  - Selecionar Tudo	Ctrl \+ A [CONCLUÍDO]  
+  - Anular a Seleção	Ctrl \+ Shift \+ A [CONCLUÍDO]  
+  - Inverter Seleção	Ctrl \+ I [CONCLUÍDO]  
+- **Copiar Informação do Elemento**: *Ctrl \+ Alt \+ C* [CONCLUÍDO]  
+- **Colar Informação do Elemento**: *Ctrl \+ Alt \+ V* [CONCLUÍDO]  
+- **Deletar**: *Del* [CONCLUÍDO]  
+- **Rotacionar**: *R* (Incrementos de 90°: 0°, 90°, 180°, 270°). [CONCLUÍDO]  
+- **Rotacionar como Grupo**: *Shift \+ R* [CONCLUÍDO]  
+- **Espelhar Horizontalmente**: *M* [CONCLUÍDO]  
+- **Espelhar Verticalmente**: *F* [CONCLUÍDO]  
 - **Agrupar**  
-  - Agrupar	Ctrl \+ G  
-  - Desagrupar	Ctrl \+ U  
+  - Agrupar	Ctrl \+ G [CONCLUÍDO]  
+  - Desagrupar	Ctrl \+ U [CONCLUÍDO]  
 - **Linhas e Colunas**  
   - Adicionar uma Linha  
   - Apagar uma Linha  
   - Adicionar uma Coluna  
   - Apagar uma Coluna  
-- **Propriedades da Página**: *Ctrl \+ Shift \+ Enter*
+- **Propriedades da Página**: *Ctrl \+ Shift \+ Enter* [CONCLUÍDO]
 
 ## 1.3 Projeto
 
 - **Propriedades do Projeto** *(A definir)*  
-- **Criação Automática de Condutores** (Traça e conecta automaticamente condutores aos elementos quando os bornes estão alinhados vertical ou horizontalmente. **Ligado por padrão**).  
-- **Desconexão Automática de Condutores** (Mantém o condutor estático ao mover o elemento, desligando-o dos bornes. **Desligado por padrão**).  
-- **Adicionar uma Página**: *Ctrl \+ T*  
-- **Deletar esta Página**: *Ctrl \+ Shift \+ BackSpace*  
+- **Criação Automática de Condutores** (Traça e conecta automaticamente condutores aos elementos quando os bornes estão alinhados vertical ou horizontalmente. **Ligado por padrão**). [CONCLUÍDO]  
+- **Desconexão Automática de Condutores** (Mantém o condutor estático ao mover o elemento, desligando-o dos bornes. **Desligado por padrão**). [CONCLUÍDO]  
+- **Adicionar uma Página**: *Ctrl \+ T* [CONCLUÍDO]  
+- **Deletar esta Página**: *Ctrl \+ Shift \+ BackSpace* [CONCLUÍDO]  
 - *(Definições de exportação do projeto como CSV, numeração de conectores, BOM, etc., serão tratadas futuramente).*
 
 ## 1.4 Display (Exibição)
 
 - **Mostrar Projetos**  
-- **Selecionar** (Habilita/Desabilita a Seleção de Elementos. Ligado por padrão; mutuamente exclusivo com "Mover").  
-- **Mover** (Move o Canvas de Trabalho livremente mantendo o botão direito do mouse pressionado).  
-- **Mostrar a Grelha**  
-- **Ajustar à Grelha**: *Ctrl \+ Shift \+ G*  
+- **Selecionar** (Habilita/Desabilita a Seleção de Elementos. Ligado por padrão; mutuamente exclusivo com "Mover"). [CONCLUÍDO]  
+- **Mover** (Move o Canvas de Trabalho livremente mantendo o botão direito do mouse pressionado). [CONCLUÍDO]  
+- **Mostrar a Grelha** [CONCLUÍDO]  
+- **Ajustar à Grelha**: *Ctrl \+ Shift \+ G* [CONCLUÍDO]  
 - **Passo da Grelha**  
 - **Mira em Todo o Fólio**  
 - **Grelha de Texto**  
@@ -81,11 +81,11 @@ Especificações de Modificações e Interface
 - **Mostrar Limites das Células**  
 - **Mostrar**  
 - **Cor de Fundo da Folha**  
-- **Ampliar (Zoom In)**: *Ctrl \+ \+*  
-- **Reduzir (Zoom Out)**: *Ctrl \+ \-*  
-- **Zoom do Conteúdo**: *Ctrl \+ 8*  
-- **Ajustar à Vista**: *Ctrl \+ 9*  
-- **Repor Zoom**: *Ctrl \+ 0*  
+- **Ampliar (Zoom In)**: *Ctrl \+ \+* [CONCLUÍDO]  
+- **Reduzir (Zoom Out)**: *Ctrl \+ \-* [CONCLUÍDO]  
+- **Zoom do Conteúdo**: *Ctrl \+ 8* [CONCLUÍDO]  
+- **Ajustar à Vista**: *Ctrl \+ 9* [CONCLUÍDO]  
+- **Repor Zoom**: *Ctrl \+ 0* [CONCLUÍDO]  
 - **Centrar no Cursor**
 
 ## 1.5 Outros Menus
@@ -94,63 +94,63 @@ Especificações de Modificações e Interface
 
 *A Barra de Ferramentas (Toolbar) contém apenas ícones; os rótulos de texto são exibidos via hover (passagem do mouse).*
 
-# 2\. Barra de Ferramentas (Toolbar)
+# 2\. Barra de Ferramentas (Toolbar) — [100% CONCLUÍDO - Opção A]
 
-- Novo  
-- Abrir  
-- Salvar  
-- Salvar Como  
-- Fechar  
-- Imprimir  
-- Exportar em PDF  
-- Desfazer  
-- Refazer  
-- Cortar  
-- Copiar  
-- Colar  
-- Duplicar  
-- Deletar  
-- Rotacionar  
-- Espelhar Horizontalmente  
-- Espelhar Verticalmente  
-- Colorir Elemento  
-- Selecionar  
-- Mover  
-- **Mostrar a Grelha** (Ligado por padrão)  
-- **Snap à Grelha** (Ligado por padrão)  
-- **Seleção de Densidade da Grelha** (Menu Dropdown):  
+- Novo [CONCLUÍDO]  
+- Abrir [CONCLUÍDO]  
+- Salvar [CONCLUÍDO]  
+- Salvar Como [CONCLUÍDO]  
+- Fechar [CONCLUÍDO]  
+- Imprimir [CONCLUÍDO]  
+- Exportar em PDF [CONCLUÍDO]  
+- Desfazer [CONCLUÍDO]  
+- Refazer [CONCLUÍDO]  
+- Cortar [CONCLUÍDO]  
+- Copiar [CONCLUÍDO]  
+- Colar [CONCLUÍDO]  
+- Duplicar [CONCLUÍDO]  
+- Deletar [CONCLUÍDO]  
+- Rotacionar [CONCLUÍDO]  
+- Espelhar Horizontalmente [CONCLUÍDO]  
+- Espelhar Verticalmente [CONCLUÍDO]  
+- Colorir Elemento [CONCLUÍDO - Janela modal com paleta industrial de 12 cores, entrada hex e visualização]  
+- Selecionar [CONCLUÍDO - Ferramenta de seleção com exclusividade mútua frente ao pan]  
+- Mover [CONCLUÍDO - Ferramenta de pan no canvas com cursor grab/grabbing e arrasto com botão direito]  
+- **Mostrar a Grelha** (Ligado por padrão) [CONCLUÍDO]  
+- **Snap à Grelha** (Ligado por padrão) [CONCLUÍDO]  
+- **Seleção de Densidade da Grelha** (Menu Dropdown): [CONCLUÍDO]  
   - Fina (10 pts por cm)  
   - Média (5 pts por cm)  
   - Larga (2.5 pts por cm)  
-- **Textos** (Menu Dropdown):  
+- **Textos** (Menu Dropdown): [CONCLUÍDO]  
   - Ligado  
   - Desligado  
-- **Tema**: Modo Claro, Escuro e Sistema
+- **Tema**: Modo Claro, Escuro e Sistema [CONCLUÍDO]
 
-# 3\. Elementos e Projetos
+# 3\. Elementos e Projetos — [100% CONCLUÍDO - Opção B]
 
-A barra lateral esquerda, anteriormente denominada "Coleções/Projetos", passa a se chamar **Elementos e Projetos**.  
-Na parte inferior da barra, devem estar presentes dois seletores de aba: **Elementos** e **Projetos**.
+A barra lateral esquerda, anteriormente denominada "Coleções/Projetos", passa a se chamar **Elementos e Projetos**. [CONCLUÍDO]  
+Na parte inferior da barra, devem estar presentes dois seletores de aba: **Elementos** e **Projetos**. [CONCLUÍDO]
 
-## 3.1 Aba "Elementos"
+## 3.1 Aba "Elementos" — [100% CONCLUÍDO]
 
 Esta aba fica selecionada por padrão. Exibe a estrutura de símbolos utilitários atual. O comportamento de inserção no Canvas de Trabalho é o seguinte:
 
-- **Clique duplo no nome do símbolo, ou clique em "Inserir no Esquema"**: Habilita o símbolo no ponteiro do mouse; no próximo clique, ele é posicionado no local desejado.  
-- **Arrastar o nome do símbolo**: O símbolo é colocado diretamente no Canvas de Trabalho na posição de soltura.  
-- **Cancelamento**: Um clique com o botão direito ou a tecla *ESC* cancela a ação e retorna o ponteiro ao modo de seleção.
+- **Clique duplo no nome do símbolo, ou clique em "Inserir no Esquema"**: Habilita o símbolo no ponteiro do mouse; no próximo clique, ele é posicionado no local desejado. [CONCLUÍDO]  
+- **Arrastar o nome do símbolo**: O símbolo é colocado diretamente no Canvas de Trabalho na posição de soltura. [CONCLUÍDO]  
+- **Cancelamento**: Um clique com o botão direito ou a tecla *ESC* cancela a ação e retorna o ponteiro ao modo de seleção. [CONCLUÍDO]
 
-## 3.2 Aba "Projetos"
+## 3.2 Aba "Projetos" — [100% CONCLUÍDO]
 
 Exibe os últimos projetos trabalhados pelo usuário:
 
-- **Abertura**: Clique duplo sobre o projeto ou clique no botão "Abrir".  
-- **Exclusão**: Pressionar a tecla *Delete* ou clicar no botão "Apagar". Exibe janela de confirmação antes de apagar.  
-- **Navegação de Páginas**: Exibe menu dropdown com as páginas no formato: *Nome do Projeto \-\> (Nº da Página / Total de Páginas) Nome da Página*.
+- **Abertura**: Clique duplo sobre o projeto ou clique no botão "Abrir". [CONCLUÍDO]  
+- **Exclusão**: Pressionar a tecla *Delete* ou clicar no botão "Apagar". Exibe janela de confirmação antes de apagar. [CONCLUÍDO]  
+- **Navegação de Páginas**: Exibe menu dropdown com as páginas no formato: *Nome do Projeto \-\> (Nº da Página / Total de Páginas) Nome da Página*. [CONCLUÍDO]
 
-## 3.3 Recolhimento da Barra
+## 3.3 Recolhimento da Barra — [100% CONCLUÍDO]
 
-A barra lateral deve possuir um ícone chevron para colapso. Quando recolhida, o ícone permanece visível para possibilitar a restauração da barra.
+A barra lateral deve possuir um ícone chevron para colapso. Quando recolhida, o ícone permanece visível para possibilitar a restauração da barra. [CONCLUÍDO]
 
 # 4\. Propriedades do Elemento
 

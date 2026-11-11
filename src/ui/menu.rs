@@ -127,67 +127,105 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
     };
 
     let items: Element<'_, Message> = match menu {
-        ActiveMenu::Arquivo => column![
-            menu_item_btn(
-                Some(crate::icons::Icon::New),
-                "Novo Esquema",
-                "Ctrl+N",
-                Message::NewDocument
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Open),
-                "Abrir Esquema...",
-                "Ctrl+O",
-                Message::OpenFileDialog
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Save),
-                "Salvar",
-                "Ctrl+S",
-                Message::SaveDocument
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::SaveAs),
-                "Salvar Como...",
-                "Ctrl+Shift+S",
-                Message::SaveFileDialog
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Duplicate),
-                "Salvar Cópia...",
-                "Ctrl+Alt+S",
-                Message::SaveAll
-            ),
-            horizontal_rule(1),
-            menu_item_btn(
-                Some(crate::icons::Icon::Close),
-                "Fechar Esquema",
-                "Ctrl+W",
-                Message::CloseDocument
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::ExportPdf),
-                "Exportar (PDF, SVG, CAD)...",
-                "Ctrl+Shift+E",
-                Message::OpenExportModal
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Print),
-                "Imprimir...",
-                "Ctrl+P",
-                Message::PrintDocument
-            ),
-            horizontal_rule(1),
-            menu_item_btn(
+        ActiveMenu::Arquivo => {
+            let mut col = column![
+                menu_item_btn(
+                    Some(crate::icons::Icon::New),
+                    "Novo Esquema",
+                    "Ctrl+N",
+                    Message::NewDocument
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Open),
+                    "Abrir Esquema...",
+                    "Ctrl+O",
+                    Message::OpenFileDialog
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Save),
+                    "Salvar",
+                    "Ctrl+S",
+                    Message::SaveDocument
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::SaveAs),
+                    "Salvar Como...",
+                    "Ctrl+Shift+S",
+                    Message::SaveFileDialog
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Duplicate),
+                    "Salvar Cópia...",
+                    "Ctrl+Alt+S",
+                    Message::SaveAll
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Close),
+                    "Fechar Esquema",
+                    "Ctrl+W",
+                    Message::CloseDocument
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::ExportPdf),
+                    "Exportar (PDF, SVG, CAD)...",
+                    "Ctrl+Shift+E",
+                    Message::OpenExportModal
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Print),
+                    "Imprimir...",
+                    "Ctrl+P",
+                    Message::PrintDocument
+                ),
+            ];
+
+            if !app.recent_files.is_empty() {
+                col = col.push(horizontal_rule(1));
+                col = col.push(
+                    container(
+                        text("Últimos Arquivos:")
+                            .size(10.5)
+                            .font(Font {
+                                weight: iced::font::Weight::Bold,
+                                ..UI
+                            })
+                            .color(t.primary),
+                    )
+                    .padding(Padding::from([3.0, 12.0])),
+                );
+                for path_str in app.recent_files.iter().take(5) {
+                    let file_name = std::path::Path::new(path_str)
+                        .file_name()
+                        .map(|n| n.to_string_lossy().to_string())
+                        .unwrap_or_else(|| path_str.clone());
+                    col = col.push(
+                        button(
+                            row![
+                                crate::icons::view_icon(crate::icons::Icon::Open, 12, t.text2),
+                                text(file_name).size(11.0).font(UI).width(Length::Fill),
+                            ]
+                            .spacing(6)
+                            .align_y(Alignment::Center),
+                        )
+                        .style(theme::menu_item)
+                        .padding(Padding::from([4.0, 12.0]))
+                        .width(Length::Fill)
+                        .on_press(Message::RecentProjectSelected(path_str.clone())),
+                    );
+                }
+            }
+
+            col = col.push(horizontal_rule(1));
+            col = col.push(menu_item_btn(
                 Some(crate::icons::Icon::Close),
                 "Fechar Menu",
                 "ESC",
-                Message::CloseMenu
-            ),
-        ]
-        .spacing(2)
-        .width(280)
-        .into(),
+                Message::CloseMenu,
+            ));
+
+            col.spacing(2).width(280).into()
+        }
         ActiveMenu::Editar => column![
             menu_item_btn(
                 Some(crate::icons::Icon::Undo),
