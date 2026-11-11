@@ -399,10 +399,25 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
             .into()
         }
         ActiveMenu::Exibicao => {
+            let select_str = if app.tool == EditorTool::Select {
+                "[X] Selecionar (Ponteiro)"
+            } else {
+                "[  ] Selecionar (Ponteiro)"
+            };
+            let pan_str = if app.tool == EditorTool::Pan {
+                "[X] Mover (Pan)"
+            } else {
+                "[  ] Mover (Pan)"
+            };
             let snap_str = if app.snap_to_grid {
                 "[X] Ajustar à Grelha (Snap)"
             } else {
                 "[  ] Ajustar à Grelha (Snap)"
+            };
+            let text_str = if app.show_texts {
+                "[X] Textos: Ligado"
+            } else {
+                "[  ] Textos: Desligado"
             };
             column![
                 menu_item_btn(
@@ -413,13 +428,13 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
                 ),
                 menu_item_btn(
                     Some(crate::icons::Icon::Select),
-                    "Selecionar (Ponteiro)",
+                    select_str,
                     "",
                     Message::SelectTool(EditorTool::Select)
                 ),
                 menu_item_btn(
                     Some(crate::icons::Icon::Pan),
-                    "Mover (Pan)",
+                    pan_str,
                     "",
                     Message::SelectTool(EditorTool::Pan)
                 ),
@@ -438,7 +453,7 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
                 ),
                 menu_item_btn(
                     Some(crate::icons::Icon::Text),
-                    "Visibilidade dos Textos",
+                    text_str,
                     "",
                     Message::ToggleShowTexts
                 ),

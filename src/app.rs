@@ -93,6 +93,31 @@ impl std::fmt::Display for ExportPageOption {
     }
 }
 
+/// Opções do dropdown de visibilidade de textos e tags do esquema.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum TextVisibility {
+    #[default]
+    On,
+    Off,
+}
+
+impl TextVisibility {
+    pub const ALL: [Self; 2] = [Self::On, Self::Off];
+
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::On => "Textos: Ligado",
+            Self::Off => "Textos: Desligado",
+        }
+    }
+}
+
+impl std::fmt::Display for TextVisibility {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.label())
+    }
+}
+
 #[derive(Debug, Clone)]
 pub enum Message {
     Canvas(CanvasMessage),
@@ -233,6 +258,12 @@ pub enum Message {
     ExportDialog,
     ToggleSnap,
     ColorElement,
+    SetTextVisibility(TextVisibility),
+    CloseColorModal,
+    SelectColor(i32),
+    InputColorHex(String),
+    ConfirmColorModal,
+    ApplyColor(i32),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -301,6 +332,9 @@ pub struct CadeSimuApp {
     pub open_menu: Option<ActiveMenu>,
     pub show_about_modal: bool,
     pub show_export_modal: bool,
+    pub show_color_modal: bool,
+    pub pending_color_hex: String,
+    pub pending_color_int: i32,
     pub export_format: ExportFormat,
     pub export_scope: ExportScope,
     pub export_page_index: usize,
@@ -429,6 +463,9 @@ impl CadeSimuApp {
                 open_menu: None,
                 show_about_modal: false,
                 show_export_modal: false,
+                show_color_modal: false,
+                pending_color_hex: "#000000".to_string(),
+                pending_color_int: 0,
                 export_format: ExportFormat::Cad,
                 export_scope: ExportScope::Page,
                 export_page_index: 0,
@@ -757,6 +794,11 @@ impl CadeSimuApp {
             | Message::FitToPage
             | Message::InsertLastElement
             | Message::ColorElement
+            | Message::CloseColorModal
+            | Message::SelectColor(_)
+            | Message::InputColorHex(_)
+            | Message::ConfirmColorModal
+            | Message::ApplyColor(_)
             | Message::CancelAction
             | Message::GlobalMouseReleased => self.update_edit(message),
 
@@ -819,6 +861,7 @@ impl CadeSimuApp {
             | Message::ZoomReset
             | Message::ZoomContent
             | Message::ToggleShowTexts
+            | Message::SetTextVisibility(_)
             | Message::ToggleAutoConnect
             | Message::ToggleAutoDisconnect
             | Message::SetGridDensity(_)
@@ -1525,6 +1568,10 @@ impl CadeSimuApp {
                 }
             }
             Message::CancelAction => {
+                if self.show_color_modal {
+                    self.show_color_modal = false;
+                    return iced::Task::none();
+                }
                 if self.show_export_modal {
                     self.show_export_modal = false;
                     return iced::Task::none();
@@ -2223,14 +2270,115 @@ impl CadeSimuApp {
                 }
             }
             Message::ColorElement => {
-                if let Some(id) = self.selected_id {
-                    self.push_undo();
-                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
-                        item.color = (item.color + 1) % 5;
-                        self.is_modified = true;
-                        self.status_msg = format!("Cor do elemento #{} alterada.", id);
+                let targets = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect::<Vec<_>>()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if targets.is_empty() {
+                    self.status_msg = "Selecione ao menos um elemento para colorir.".to_string();
+                } else {
+                    let initial_color = targets
+                        .iter()
+                        .find_map(|id| self.doc.items.iter().find(|i| i.id == *id).map(|i| i.color))
+                        .unwrap_or(0);
+                    self.pending_color_int = initial_color;
+                    self.pending_color_hex = if initial_color != 0 {
+                        format!("#{:06X}", initial_color & 0xFFFFFF)
+                    } else {
+                        "#000000".to_string()
+                    };
+                    self.show_color_modal = true;
+                }
+            }
+            Message::CloseColorModal => {
+                self.show_color_modal = false;
+            }
+            Message::SelectColor(color_code) => {
+                self.pending_color_int = color_code;
+                self.pending_color_hex = if color_code != 0 {
+                    format!("#{:06X}", color_code & 0xFFFFFF)
+                } else {
+                    "#000000".to_string()
+                };
+            }
+            Message::InputColorHex(hex) => {
+                let clean = hex.trim().trim_start_matches('#').to_string();
+                if clean.len() <= 6 {
+                    self.pending_color_hex = if hex.starts_with('#') {
+                        hex
+                    } else {
+                        format!("#{clean}")
+                    };
+                    if clean.len() == 6 {
+                        if let Ok(val) = i32::from_str_radix(&clean, 16) {
+                            self.pending_color_int = val;
+                        }
                     }
                 }
+            }
+            Message::ApplyColor(color_code) => {
+                self.pending_color_int = color_code;
+                let targets = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect::<Vec<_>>()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if !targets.is_empty() {
+                    self.push_undo();
+                    for item in &mut self.doc.items {
+                        if targets.contains(&item.id) {
+                            item.color = color_code;
+                        }
+                    }
+                    self.is_modified = true;
+                    self.status_msg = if color_code == 0 {
+                        format!("Cor padrão restaurada para {} elemento(s).", targets.len())
+                    } else {
+                        format!(
+                            "Cor #{:06X} aplicada a {} elemento(s).",
+                            color_code & 0xFFFFFF,
+                            targets.len()
+                        )
+                    };
+                }
+                self.show_color_modal = false;
+            }
+            Message::ConfirmColorModal => {
+                let color_code = self.pending_color_int;
+                let targets = if !self.selected_ids.is_empty() {
+                    self.selected_ids.iter().copied().collect::<Vec<_>>()
+                } else if let Some(id) = self.selected_id {
+                    vec![id]
+                } else {
+                    Vec::new()
+                };
+
+                if !targets.is_empty() {
+                    self.push_undo();
+                    for item in &mut self.doc.items {
+                        if targets.contains(&item.id) {
+                            item.color = color_code;
+                        }
+                    }
+                    self.is_modified = true;
+                    self.status_msg = if color_code == 0 {
+                        format!("Cor padrão restaurada para {} elemento(s).", targets.len())
+                    } else {
+                        format!(
+                            "Cor #{:06X} aplicada a {} elemento(s).",
+                            color_code & 0xFFFFFF,
+                            targets.len()
+                        )
+                    };
+                }
+                self.show_color_modal = false;
             }
             _ => {}
         }
@@ -2829,12 +2977,25 @@ impl CadeSimuApp {
     fn update_view_layout(&mut self, message: Message) -> iced::Task<Message> {
         match message {
             Message::SelectTool(tool) => {
-                if self.sim_running && !matches!(tool, EditorTool::Select) {
+                if self.sim_running && !matches!(tool, EditorTool::Select | EditorTool::Pan) {
                     self.sim_running = false;
                     self.doc.reset_simulation_state();
                     self.status_msg = "Simulação encerrada para edição.".to_string();
                 }
                 self.tool = tool;
+                match self.tool {
+                    EditorTool::Select => {
+                        self.status_msg =
+                            "Modo Seleção: clique para selecionar ou arraste para seleção múltipla."
+                                .to_string();
+                    }
+                    EditorTool::Pan => {
+                        self.status_msg =
+                            "Modo Mover: arraste o canvas livremente com o botão do mouse."
+                                .to_string();
+                    }
+                    _ => {}
+                }
             }
             Message::ToggleGrid(v) => {
                 self.show_grid = v;
@@ -3259,6 +3420,14 @@ impl CadeSimuApp {
                 self.open_menu = None;
                 self.tool = EditorTool::Select;
             }
+            Message::SetTextVisibility(vis) => {
+                self.show_texts = matches!(vis, TextVisibility::On);
+                self.status_msg = if self.show_texts {
+                    "Visibilidade de textos ativada.".to_string()
+                } else {
+                    "Visibilidade de textos desativada.".to_string()
+                };
+            }
             Message::ToggleShowTexts => {
                 self.show_texts = !self.show_texts;
                 self.status_msg = if self.show_texts {
@@ -3396,6 +3565,11 @@ impl CadeSimuApp {
         // Modal de Exportação Universal (Decisão D1)
         if self.show_export_modal {
             layers.push(crate::ui::view_export_modal(self));
+        }
+
+        // Modal de Seleção de Cor do Elemento
+        if self.show_color_modal {
+            layers.push(crate::ui::view_color_modal(self));
         }
 
         Stack::with_children(layers)

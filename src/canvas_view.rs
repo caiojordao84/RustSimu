@@ -888,7 +888,16 @@ impl<'a> SchematicCanvas<'a> {
         if item.tipo == 1 {
             let a = self.world_to_screen(item.x1 as f32, item.y1 as f32);
             let b = self.world_to_screen(item.x2 as f32, item.y2 as f32);
-            let line_color = tok.sheet_line;
+            let line_color = if is_selected {
+                tok.focus
+            } else if item.color != 0 {
+                let r = ((item.color >> 16) & 0xFF) as f32 / 255.0;
+                let g = ((item.color >> 8) & 0xFF) as f32 / 255.0;
+                let b = (item.color & 0xFF) as f32 / 255.0;
+                Color::from_rgb(r, g, b)
+            } else {
+                tok.sheet_line
+            };
             frame.stroke(
                 &Path::line(a, b),
                 Stroke::default().with_color(line_color).with_width(1.2),
@@ -904,7 +913,16 @@ impl<'a> SchematicCanvas<'a> {
             let h = (item.y2 - item.y1).abs() as f32;
             let tl = self.world_to_screen(min_x, min_y);
             let sz = Size::new(w * self.zoom, h * self.zoom);
-            let rect_color = tok.sheet_line;
+            let rect_color = if is_selected {
+                tok.focus
+            } else if item.color != 0 {
+                let r = ((item.color >> 16) & 0xFF) as f32 / 255.0;
+                let g = ((item.color >> 8) & 0xFF) as f32 / 255.0;
+                let b = (item.color & 0xFF) as f32 / 255.0;
+                Color::from_rgb(r, g, b)
+            } else {
+                tok.sheet_line
+            };
             frame.stroke(
                 &Path::rectangle(tl, sz),
                 Stroke::default().with_color(rect_color).with_width(1.3),
@@ -922,6 +940,11 @@ impl<'a> SchematicCanvas<'a> {
                 tok.danger
             } else if active_in_sim {
                 tok.success
+            } else if item.color != 0 {
+                let r = ((item.color >> 16) & 0xFF) as f32 / 255.0;
+                let g = ((item.color >> 8) & 0xFF) as f32 / 255.0;
+                let b = (item.color & 0xFF) as f32 / 255.0;
+                Color::from_rgb(r, g, b)
             } else {
                 tok.ink
             };
@@ -1110,6 +1133,11 @@ impl<'a> SchematicCanvas<'a> {
                     _ => tok.danger,
                 }
             }
+        } else if item.color != 0 && !is_lamp {
+            let r = ((item.color >> 16) & 0xFF) as f32 / 255.0;
+            let g = ((item.color >> 8) & 0xFF) as f32 / 255.0;
+            let b = (item.color & 0xFF) as f32 / 255.0;
+            Color::from_rgb(r, g, b)
         } else {
             tok.ink
         };
@@ -1470,7 +1498,9 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         Some(CanvasMessage::CancelAction),
                     );
                 }
-                if self.tool != EditorTool::Select || self.dragging_symbol.is_some() {
+                if (!matches!(self.tool, EditorTool::Select | EditorTool::Pan))
+                    || self.dragging_symbol.is_some()
+                {
                     return (
                         canvas::event::Status::Captured,
                         Some(CanvasMessage::CancelAction),
@@ -1842,5 +1872,24 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         }
 
         vec![frame.into_geometry()]
+    }
+
+    fn mouse_interaction(
+        &self,
+        state: &Self::State,
+        _bounds: Rectangle,
+        _cursor: mouse::Cursor,
+    ) -> mouse::Interaction {
+        if state.panning_from.is_some() {
+            mouse::Interaction::Grabbing
+        } else if matches!(self.tool, EditorTool::Pan) {
+            mouse::Interaction::Grab
+        } else if state.dragging_item.is_some() {
+            mouse::Interaction::Grabbing
+        } else if state.marquee_start.is_some() {
+            mouse::Interaction::Crosshair
+        } else {
+            mouse::Interaction::default()
+        }
     }
 }

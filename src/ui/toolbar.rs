@@ -189,7 +189,7 @@ pub fn view_toolbar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         )
     };
 
-    let draw_group = container(
+    let nav_group = container(
         row![
             tool_btn(
                 EditorTool::Select,
@@ -197,6 +197,15 @@ pub fn view_toolbar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 "Selecionar (Ponteiro)"
             ),
             tool_btn(EditorTool::Pan, crate::icons::Icon::Pan, "Mover (Pan)"),
+        ]
+        .spacing(2)
+        .align_y(Alignment::Center),
+    )
+    .style(theme::tool_group)
+    .padding(Padding::from([2.0, 4.0]));
+
+    let draw_group = container(
+        row![
             tool_btn(
                 EditorTool::DrawWire(4000),
                 crate::icons::Icon::WireL,
@@ -275,12 +284,17 @@ pub fn view_toolbar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
             )
             .text_size(11)
             .padding(Padding::from([3.0, 6.0])),
-            icon_toggle(
-                crate::icons::Icon::Text,
-                "Textos (Ligado / Desligado)",
-                app.show_texts,
-                Message::ToggleShowTexts
-            ),
+            pick_list(
+                &crate::app::TextVisibility::ALL[..],
+                Some(if app.show_texts {
+                    crate::app::TextVisibility::On
+                } else {
+                    crate::app::TextVisibility::Off
+                }),
+                Message::SetTextVisibility,
+            )
+            .text_size(11)
+            .padding(Padding::from([3.0, 6.0])),
         ]
         .spacing(3)
         .align_y(Alignment::Center),
@@ -381,6 +395,7 @@ pub fn view_toolbar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
             file_group,
             edit_group,
             transform_group,
+            nav_group,
             draw_group,
             view_group,
             theme_group,

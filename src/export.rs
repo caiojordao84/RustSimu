@@ -986,17 +986,23 @@ pub fn export_to_svg(
         let by = item.y2 as f32 * scale;
 
         let (stroke_color, stroke_w) = if opts.monochrome {
-            ("#000000", 1.4)
+            ("#000000".to_string(), 1.4)
+        } else if item.color != 0 {
+            let r_col = ((item.color >> 16) & 0xFF) as u8;
+            let g_col = ((item.color >> 8) & 0xFF) as u8;
+            let b_col = (item.color & 0xFF) as u8;
+            (format!("#{r_col:02x}{g_col:02x}{b_col:02x}"), 1.6)
         } else {
-            match item.tipo {
-                30..=39 => ("#1b2230", 1.6),
-                40..=49 => ("#15803d", 1.6),
-                50..=59 => ("#2563eb", 1.6),
-                60..=69 => ("#b45309", 1.6),
-                70..=79 => ("#b91c1c", 1.8),
-                80..=89 => ("#0284c7", 1.6),
-                _ => ("#1b2230", 1.4),
-            }
+            let col = match item.tipo {
+                30..=39 => "#1b2230",
+                40..=49 => "#15803d",
+                50..=59 => "#2563eb",
+                60..=69 => "#b45309",
+                70..=79 => "#b91c1c",
+                80..=89 => "#0284c7",
+                _ => "#1b2230",
+            };
+            (col.to_string(), 1.6)
         };
 
         out.push_str(&format!(
@@ -1078,9 +1084,14 @@ pub fn export_to_svg(
             let bx = item.x2 as f32 * scale;
             let by = item.y2 as f32 * scale;
             let stroke_col = if opts.monochrome {
-                "#000000"
+                "#000000".to_string()
+            } else if item.color != 0 {
+                let r_col = ((item.color >> 16) & 0xFF) as u8;
+                let g_col = ((item.color >> 8) & 0xFF) as u8;
+                let b_col = (item.color & 0xFF) as u8;
+                format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
             } else {
-                "#1b2230"
+                "#1b2230".to_string()
             };
             out.push_str(&format!(
                 r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" stroke="{stroke_col}" stroke-width="1.2"/>"###
@@ -1096,9 +1107,14 @@ pub fn export_to_svg(
             let w = (item.x2 - item.x1).abs() as f32 * scale;
             let h = (item.y2 - item.y1).abs() as f32 * scale;
             let stroke_col = if opts.monochrome {
-                "#000000"
+                "#000000".to_string()
+            } else if item.color != 0 {
+                let r_col = ((item.color >> 16) & 0xFF) as u8;
+                let g_col = ((item.color >> 8) & 0xFF) as u8;
+                let b_col = (item.color & 0xFF) as u8;
+                format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
             } else {
-                "#1b2230"
+                "#1b2230".to_string()
             };
             out.push_str(&format!(
                 r###"  <rect x="{min_x:.1}" y="{min_y:.1}" width="{w:.1}" height="{h:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
@@ -1110,9 +1126,14 @@ pub fn export_to_svg(
         // Símbolos QET ou gerados pelo cade2svg
         if let Some(qet_path) = item.symbol_id_or_slug() {
             let stroke_col = if opts.monochrome {
-                "#000000"
+                "#000000".to_string()
+            } else if item.color != 0 {
+                let r_col = ((item.color >> 16) & 0xFF) as u8;
+                let g_col = ((item.color >> 8) & 0xFF) as u8;
+                let b_col = (item.color & 0xFF) as u8;
+                format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
             } else {
-                "#111827"
+                "#111827".to_string()
             };
             render_svg_symbol_to_svg(
                 &mut out,
@@ -1120,7 +1141,7 @@ pub fn export_to_svg(
                 item.y1,
                 item.orientation,
                 qet_path,
-                stroke_col,
+                &stroke_col,
                 1.5,
                 None,
                 1.0,
@@ -1162,9 +1183,14 @@ pub fn export_to_svg(
         };
 
         let stroke_color = if opts.monochrome {
-            "#000000"
+            "#000000".to_string()
+        } else if item.color != 0 && !item.is_lamp_or_signaling() {
+            let r_col = ((item.color >> 16) & 0xFF) as u8;
+            let g_col = ((item.color >> 8) & 0xFF) as u8;
+            let b_col = (item.color & 0xFF) as u8;
+            format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
         } else {
-            "#111827"
+            "#111827".to_string()
         };
         let mut drew_svg = false;
         if let Some((svg_idle, _)) = sym.svg_paths() {
@@ -1176,7 +1202,7 @@ pub fn export_to_svg(
                 item.y1,
                 item.orientation,
                 svg_idle,
-                stroke_color,
+                &stroke_color,
                 1.8,
                 None,
                 target_span,
@@ -1190,7 +1216,7 @@ pub fn export_to_svg(
                 item.y1,
                 item.orientation,
                 sym.idle_cmds,
-                stroke_color,
+                &stroke_color,
                 None,
                 1.6,
                 scale,

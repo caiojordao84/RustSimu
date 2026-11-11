@@ -1,6 +1,6 @@
 use iced::widget::{
     button, checkbox, column, container, horizontal_rule, horizontal_space, mouse_area, pick_list,
-    row, stack, text, vertical_space, Space,
+    row, stack, text, text_input, vertical_space, Space,
 };
 use iced::{Alignment, Element, Font, Length, Padding};
 
@@ -409,6 +409,223 @@ pub fn view_export_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 vertical_space(),
                 row![horizontal_space(), export_card, horizontal_space()]
                     .align_y(Alignment::Center),
+                vertical_space(),
+            ]
+            .width(Length::Fill)
+            .height(Length::Fill)
+        )
+        .width(Length::Fill)
+        .height(Length::Fill),
+    ]
+    .width(Length::Fill)
+    .height(Length::Fill)
+    .into()
+}
+
+/// Renderiza o modal de seleção e personalização de cor do elemento.
+pub fn view_color_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
+    let t = tokens(&app.theme());
+
+    let targets_count = app
+        .selected_ids
+        .len()
+        .max(if app.selected_id.is_some() { 1 } else { 0 });
+
+    let presets: [(i32, &'static str, &'static str); 12] = [
+        (0x00000000, "Padrão", "Dinâmico"),
+        (0x00E53935, "Vermelho", "Comando"),
+        (0x001E88E5, "Azul", "Neutro/CC"),
+        (0x0000ACC1, "Ciano", "Instrumento"),
+        (0x0043A047, "Verde", "Terra PE"),
+        (0x00FDD835, "Amarelo", "Alerta"),
+        (0x00FB8C00, "Laranja", "Força"),
+        (0x008E24AA, "Violeta", "Controle"),
+        (0x006D4C41, "Marrom", "Fase L1"),
+        (0x00212121, "Preto", "Potência"),
+        (0x00757575, "Cinza", "Fase L2"),
+        (0x00FFFFFF, "Branco", "Sinal"),
+    ];
+
+    let swatch_btn = |code: i32, name: &'static str, sub: &'static str| {
+        let is_sel = app.pending_color_int == code;
+        let swatch_col = if code != 0 {
+            let r = ((code >> 16) & 0xFF) as f32 / 255.0;
+            let g = ((code >> 8) & 0xFF) as f32 / 255.0;
+            let b = (code & 0xFF) as f32 / 255.0;
+            iced::Color::from_rgb(r, g, b)
+        } else {
+            t.ink
+        };
+
+        button(
+            row![
+                container(Space::with_width(14).height(14)).style(theme::lamp_swatch(swatch_col)),
+                column![
+                    text(name).size(10.5).font(Font {
+                        weight: if is_sel {
+                            iced::font::Weight::Bold
+                        } else {
+                            iced::font::Weight::Normal
+                        },
+                        ..UI
+                    }),
+                    text(sub).size(9.0).color(t.text2).font(UI),
+                ]
+                .spacing(1),
+            ]
+            .spacing(6)
+            .align_y(Alignment::Center),
+        )
+        .style(if is_sel {
+            theme::tool_active
+        } else {
+            theme::tool
+        })
+        .padding(Padding::from([4.0, 6.0]))
+        .width(Length::Fill)
+        .on_press(Message::SelectColor(code))
+    };
+
+    let mut row1 = row![].spacing(6).align_y(Alignment::Center);
+    for &(code, name, sub) in &presets[0..4] {
+        row1 = row1.push(swatch_btn(code, name, sub));
+    }
+
+    let mut row2 = row![].spacing(6).align_y(Alignment::Center);
+    for &(code, name, sub) in &presets[4..8] {
+        row2 = row2.push(swatch_btn(code, name, sub));
+    }
+
+    let mut row3 = row![].spacing(6).align_y(Alignment::Center);
+    for &(code, name, sub) in &presets[8..12] {
+        row3 = row3.push(swatch_btn(code, name, sub));
+    }
+
+    let preview_color = if app.pending_color_int != 0 {
+        let r = ((app.pending_color_int >> 16) & 0xFF) as f32 / 255.0;
+        let g = ((app.pending_color_int >> 8) & 0xFF) as f32 / 255.0;
+        let b = (app.pending_color_int & 0xFF) as f32 / 255.0;
+        iced::Color::from_rgb(r, g, b)
+    } else {
+        t.ink
+    };
+
+    let preview_card = container(
+        row![
+            container(Space::with_width(26).height(26)).style(theme::lamp_swatch(preview_color)),
+            column![
+                text("Pré-visualização da Cor:")
+                    .size(10.5)
+                    .color(t.text2)
+                    .font(UI),
+                text(if app.pending_color_int == 0 {
+                    "Cor Dinâmica do Tema".to_string()
+                } else {
+                    format!("#{:06X}", app.pending_color_int & 0xFFFFFF)
+                })
+                .size(12.0)
+                .font(Font {
+                    weight: iced::font::Weight::Bold,
+                    ..UI
+                }),
+            ]
+            .spacing(1),
+            horizontal_space(),
+            row![
+                text("Código Hex:").size(11.0).font(UI).color(t.text),
+                container(
+                    text_input("#000000", &app.pending_color_hex)
+                        .on_input(Message::InputColorHex)
+                        .size(11.5)
+                        .padding(Padding::from([3.0, 6.0]))
+                        .width(90)
+                ),
+            ]
+            .spacing(6)
+            .align_y(Alignment::Center),
+        ]
+        .spacing(8)
+        .align_y(Alignment::Center),
+    )
+    .style(theme::card)
+    .padding(Padding::from([8.0, 12.0]))
+    .width(Length::Fill);
+
+    let modal_content = column![
+        row![
+            crate::icons::view_icon(crate::icons::Icon::Palette, 20, t.primary),
+            column![
+                text("Colorir Elemento(s)").size(15).font(Font {
+                    weight: iced::font::Weight::Bold,
+                    ..UI
+                }),
+                text(format!(
+                    "Substitui a cor de traço de {targets_count} elemento(s) no esquema elétrico."
+                ))
+                .size(11.0)
+                .color(t.text2),
+            ]
+            .spacing(1),
+            horizontal_space(),
+            button(crate::icons::view_icon(
+                crate::icons::Icon::Close,
+                12,
+                t.text2
+            ))
+            .style(theme::tool)
+            .padding(Padding::from([4.0, 6.0]))
+            .on_press(Message::CloseColorModal),
+        ]
+        .align_y(Alignment::Center),
+        horizontal_rule(1),
+        text("Paleta Padrão Industrial e de Controle:")
+            .size(11.5)
+            .font(Font {
+                weight: iced::font::Weight::Semibold,
+                ..UI
+            }),
+        column![row1, row2, row3].spacing(6),
+        preview_card,
+        horizontal_rule(1),
+        row![
+            button(text("Restaurar Padrão").size(11.5).font(UI))
+                .style(theme::tool)
+                .padding(Padding::from([6.0, 12.0]))
+                .on_press(Message::ApplyColor(0)),
+            horizontal_space(),
+            button(text("Cancelar").size(11.5).font(UI))
+                .style(theme::tool)
+                .padding(Padding::from([6.0, 12.0]))
+                .on_press(Message::CloseColorModal),
+            button(text("Aplicar Cor").size(11.5).font(UI))
+                .style(theme::primary)
+                .padding(Padding::from([6.0, 16.0]))
+                .on_press(Message::ConfirmColorModal),
+        ]
+        .spacing(8)
+        .align_y(Alignment::Center),
+    ]
+    .spacing(10)
+    .width(520);
+
+    let color_card = container(modal_content)
+        .style(theme::dropdown_menu)
+        .padding(Padding::from([16.0, 20.0]));
+
+    let modal_backdrop = mouse_area(
+        container(Space::new(Length::Fill, Length::Fill))
+            .style(theme::modal_backdrop)
+            .width(Length::Fill)
+            .height(Length::Fill),
+    )
+    .on_press(Message::CloseColorModal);
+
+    stack![
+        modal_backdrop,
+        container(
+            column![
+                vertical_space(),
+                row![horizontal_space(), color_card, horizontal_space()].align_y(Alignment::Center),
                 vertical_space(),
             ]
             .width(Length::Fill)

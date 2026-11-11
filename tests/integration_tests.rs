@@ -6501,3 +6501,140 @@ fn test_group_atomic_cut_copy_paste_roundtrip() {
     let _ = app.update(Message::Undo);
     assert_eq!(app.doc.items.len(), 4);
 }
+
+#[test]
+fn test_toolbar_select_and_pan_tools_exclusivity() {
+    let (mut app, _) = CadeSimuApp::new();
+    assert_eq!(app.tool, EditorTool::Select);
+
+    // 1. Mudar para o modo Mover (Pan)
+    let _ = app.update(Message::SelectTool(EditorTool::Pan));
+    assert_eq!(app.tool, EditorTool::Pan);
+    assert!(app.status_msg.contains("Modo Mover"));
+
+    // 2. Mudar de volta para o modo Seleção
+    let _ = app.update(Message::SelectTool(EditorTool::Select));
+    assert_eq!(app.tool, EditorTool::Select);
+    assert!(app.status_msg.contains("Modo Seleção"));
+
+    // 3. Em modo simulação, selecionar Pan não deve parar a simulação
+    let _ = app.update(Message::ToggleSimulation);
+    assert!(app.sim_running);
+    let _ = app.update(Message::SelectTool(EditorTool::Pan));
+    assert!(
+        app.sim_running,
+        "Pan não deve cancelar simulação em execução"
+    );
+
+    // 4. Mudar para ferramenta de desenho deve encerrar simulação
+    let _ = app.update(Message::SelectTool(EditorTool::DrawWire(4000)));
+    assert!(!app.sim_running);
+}
+
+#[test]
+fn test_toolbar_text_visibility_dropdown() {
+    let (mut app, _) = CadeSimuApp::new();
+    assert!(app.show_texts);
+
+    // 1. Desativar exibição de textos via dropdown
+    let _ = app.update(Message::SetTextVisibility(TextVisibility::Off));
+    assert!(!app.show_texts);
+    assert!(app.status_msg.contains("desativada"));
+
+    // 2. Reativar via dropdown
+    let _ = app.update(Message::SetTextVisibility(TextVisibility::On));
+    assert!(app.show_texts);
+    assert!(app.status_msg.contains("ativada"));
+
+    // 3. Alternar via atalho/toggle
+    let _ = app.update(Message::ToggleShowTexts);
+    assert!(!app.show_texts);
+}
+
+#[test]
+fn test_color_element_modal_and_application() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    let it2 = SchematicItem::new_symbol(2, 9000, 50, 30, "-KM2");
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+
+    // 1. Abrir sem seleção avisa para selecionar
+    let _ = app.update(Message::ColorElement);
+    assert!(!app.show_color_modal);
+    assert!(app.status_msg.contains("Selecione"));
+
+    // 2. Selecionar it1 e abrir modal de cor
+    app.select_single(Some(1));
+    let _ = app.update(Message::ColorElement);
+    assert!(app.show_color_modal);
+
+    // 3. Escolher Vermelho (0x00E53935)
+    let _ = app.update(Message::SelectColor(0x00E53935));
+    assert_eq!(app.pending_color_int, 0x00E53935);
+    assert_eq!(app.pending_color_hex, "#E53935");
+
+    // 4. Confirmar aplicação
+    let _ = app.update(Message::ConfirmColorModal);
+    assert!(!app.show_color_modal);
+    assert_eq!(app.doc.items[0].color, 0x00E53935);
+    assert_eq!(app.doc.items[1].color, 0);
+
+    // 5. Desfazer restaura a cor anterior (0)
+    let _ = app.update(Message::Undo);
+    assert_eq!(app.doc.items[0].color, 0);
+
+    // 6. Refazer reaplica a cor
+    let _ = app.update(Message::Redo);
+    assert_eq!(app.doc.items[0].color, 0x00E53935);
+
+    // 7. Selecionar múltiplos elementos e aplicar cor customizada via hex
+    let _ = app.update(Message::SelectAll);
+    let _ = app.update(Message::ColorElement);
+    assert!(app.show_color_modal);
+    let _ = app.update(Message::InputColorHex("#1E88E5".to_string()));
+    assert_eq!(app.pending_color_int, 0x001E88E5);
+    let _ = app.update(Message::ConfirmColorModal);
+    assert_eq!(app.doc.items[0].color, 0x001E88E5);
+    assert_eq!(app.doc.items[1].color, 0x001E88E5);
+
+    // 8. Restaurar cor padrão (0)
+    let _ = app.update(Message::ApplyColor(0));
+    assert_eq!(app.doc.items[0].color, 0);
+    assert_eq!(app.doc.items[1].color, 0);
+}
+
+#[test]
+fn test_colored_element_export_to_svg() {
+    let mut doc = SchematicDocument::default();
+    doc.items.clear();
+
+    let mut wire = SchematicItem::new_wire(1, 4000, 10, 10, 20, 10);
+    wire.color = 0x00E53935; // Vermelho
+    doc.items.push(wire);
+
+    let mut sym = SchematicItem::new_symbol(2, 9000, 30, 30, "-KM1");
+    sym.color = 0x001E88E5; // Azul
+    doc.items.push(sym);
+
+    let opts = ExportOptions {
+        monochrome: false,
+        show_terminals: false,
+        include_cajetin: false,
+    };
+    let svg = export_to_svg(&doc, None, opts);
+    assert!(svg.contains(r##"stroke="#e53935""##));
+    assert!(svg.contains(r##"stroke="#1e88e5""##));
+
+    // Modo monocromático deve forçar preto #000000
+    let mono_opts = ExportOptions {
+        monochrome: true,
+        show_terminals: false,
+        include_cajetin: false,
+    };
+    let mono_svg = export_to_svg(&doc, None, mono_opts);
+    assert!(!mono_svg.contains(r##"stroke="#e53935""##));
+    assert!(!mono_svg.contains(r##"stroke="#1e88e5""##));
+}
