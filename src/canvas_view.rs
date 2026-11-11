@@ -25,6 +25,11 @@ pub enum EditorTool {
 #[derive(Debug, Clone)]
 pub enum CanvasMessage {
     SelectItem(Option<i32>),
+    ToggleItemSelection(i32),
+    SelectItems {
+        ids: Vec<i32>,
+        additive: bool,
+    },
     MoveItem {
         id: i32,
         x1: i32,
@@ -75,12 +80,19 @@ pub struct CanvasInteraction {
     pub panning_from: Option<Point>,
     pub hover_world: (i32, i32),
     pub sim_pressed_id: Option<i32>,
+    pub marquee_start: Option<Point>,
+    pub marquee_current: Option<Point>,
+    pub is_shift_pressed: bool,
+    pub is_ctrl_pressed: bool,
 }
 
 pub struct SchematicCanvas<'a> {
     pub doc: &'a SchematicDocument,
     pub tool: EditorTool,
     pub selected_id: Option<i32>,
+    pub selected_ids: &'a std::collections::HashSet<i32>,
+    pub is_shift_pressed: bool,
+    pub is_ctrl_pressed: bool,
     pub sim_running: bool,
     pub show_grid: bool,
     pub grid_density: crate::model::GridDensity,
@@ -126,6 +138,54 @@ impl<'a> SchematicCanvas<'a> {
 
     fn world_to_screen(&self, wx: f32, wy: f32) -> Point {
         Point::new(wx * self.zoom + self.pan.x, wy * self.zoom + self.pan.y)
+    }
+
+    /// Retorna os limites da caixa delimitadora do elemento no espaço do mundo `(min_x, min_y, max_x, max_y)`.
+    pub fn item_bounds(item: &SchematicItem) -> (i32, i32, i32, i32) {
+        if item.is_wire() {
+            let min_x = item.x1.min(item.x2) - 2;
+            let max_x = item.x1.max(item.x2) + 2;
+            let min_y = item.y1.min(item.y2) - 2;
+            let max_y = item.y1.max(item.y2) + 2;
+            (min_x, min_y, max_x, max_y)
+        } else if let Some(sym) = find_symbol_ref(item.tipo) {
+            let (bx1, by1, bx2, by2) = (
+                sym.bounds.0 / 5,
+                sym.bounds.1 / 5,
+                sym.bounds.2 / 5,
+                sym.bounds.3 / 5,
+            );
+            let (p1x, p1y) = transform_offset(bx1, by1, item.orientation);
+            let (p2x, p2y) = transform_offset(bx2, by2, item.orientation);
+            let min_x = item.x1 + p1x.min(p2x) - 2;
+            let max_x = item.x1 + p1x.max(p2x) + 2;
+            let min_y = item.y1 + p1y.min(p2y) - 2;
+            let max_y = item.y1 + p1y.max(p2y) + 2;
+            (min_x, min_y, max_x, max_y)
+        } else if let Some(qet_type) = item.symbol_id_or_slug() {
+            if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
+                let (vx, vy, vw, vh) = parsed.view_box;
+                let s = parsed.scale_factor();
+                let (scale_vx, scale_vy, scale_vw, scale_vh) = (vx * s, vy * s, vw * s, vh * s);
+                let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
+                let (p2x, p2y) = transform_offset_f32(
+                    scale_vx + scale_vw,
+                    scale_vy + scale_vh,
+                    item.orientation,
+                );
+                let min_x = item.x1 + p1x.min(p2x).round() as i32 - 3;
+                let max_x = item.x1 + p1x.max(p2x).round() as i32 + 3;
+                let min_y = item.y1 + p1y.min(p2y).round() as i32 - 3;
+                let max_y = item.y1 + p1y.max(p2y).round() as i32 + 3;
+                (min_x, min_y, max_x, max_y)
+            } else {
+                (item.x1 - 6, item.y1 - 6, item.x1 + 6, item.y1 + 6)
+            }
+        } else if item.is_junction() {
+            (item.x1 - 3, item.y1 - 3, item.x1 + 3, item.y1 + 3)
+        } else {
+            (item.x1 - 6, item.y1 - 6, item.x1 + 6, item.y1 + 6)
+        }
     }
 
     /// Encontra o componente ou cabo sob a coordenada `(wx, wy)` do mundo (escala `.cad`).
@@ -782,7 +842,7 @@ impl<'a> SchematicCanvas<'a> {
     }
 
     fn draw_item(&self, frame: &mut Frame, item: &SchematicItem) {
-        let is_selected = self.selected_id == Some(item.id);
+        let is_selected = self.selected_ids.contains(&item.id) || self.selected_id == Some(item.id);
         let tok = self.tokens();
 
         if item.is_wire() {
@@ -1246,6 +1306,44 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         Some(CanvasMessage::SimReleaseComponent(pressed_id)),
                     );
                 }
+                if let Some(start_pos) = state.marquee_start.take() {
+                    let curr_pos = state.marquee_current.take().unwrap_or(start_pos);
+                    let dist = (start_pos.x - curr_pos.x).hypot(start_pos.y - curr_pos.y);
+                    let is_additive = self.is_shift_pressed
+                        || self.is_ctrl_pressed
+                        || state.is_shift_pressed
+                        || state.is_ctrl_pressed;
+                    if dist < 4.0 {
+                        if !is_additive {
+                            return (
+                                canvas::event::Status::Captured,
+                                Some(CanvasMessage::SelectItem(None)),
+                            );
+                        }
+                    } else {
+                        let (wx1, wy1) = self.screen_to_world(start_pos);
+                        let (wx2, wy2) = self.screen_to_world(curr_pos);
+                        let min_wx = wx1.min(wx2).round() as i32;
+                        let max_wx = wx1.max(wx2).round() as i32;
+                        let min_wy = wy1.min(wy2).round() as i32;
+                        let max_wy = wy1.max(wy2).round() as i32;
+
+                        let mut hit_ids = Vec::new();
+                        for item in &self.doc.items {
+                            let (ix1, iy1, ix2, iy2) = Self::item_bounds(item);
+                            if ix1 <= max_wx && ix2 >= min_wx && iy1 <= max_wy && iy2 >= min_wy {
+                                hit_ids.push(item.id);
+                            }
+                        }
+                        return (
+                            canvas::event::Status::Captured,
+                            Some(CanvasMessage::SelectItems {
+                                ids: hit_ids,
+                                additive: is_additive,
+                            }),
+                        );
+                    }
+                }
                 if let Some(drag_tipo) = self.dragging_symbol {
                     if let Some(cursor_pos) = cursor.position_in(bounds) {
                         let (wx_f, wy_f) = self.screen_to_world(cursor_pos);
@@ -1299,8 +1397,29 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         let (snapped_x, snapped_y) = Self::snap_to_grid(wx_f, wy_f);
 
         match event {
+            Event::Keyboard(iced::keyboard::Event::ModifiersChanged(m)) => {
+                state.is_shift_pressed = m.shift();
+                state.is_ctrl_pressed = m.control() || m.command();
+                (canvas::event::Status::Ignored, None)
+            }
+            Event::Keyboard(iced::keyboard::Event::KeyPressed { modifiers, .. }) => {
+                state.is_shift_pressed = modifiers.shift();
+                state.is_ctrl_pressed = modifiers.control() || modifiers.command();
+                (canvas::event::Status::Ignored, None)
+            }
+            Event::Keyboard(iced::keyboard::Event::KeyReleased { modifiers, .. }) => {
+                state.is_shift_pressed = modifiers.shift();
+                state.is_ctrl_pressed = modifiers.control() || modifiers.command();
+                (canvas::event::Status::Ignored, None)
+            }
+
             Event::Mouse(mouse::Event::CursorMoved { .. }) => {
                 state.hover_world = (snapped_x, snapped_y);
+
+                if state.marquee_start.is_some() {
+                    state.marquee_current = Some(cursor_pos);
+                    return (canvas::event::Status::Captured, None);
+                }
 
                 if let Some(prev_pt) = state.panning_from {
                     let dx = cursor_pos.x - prev_pt.x;
@@ -1342,6 +1461,8 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
             }
 
             Event::Mouse(mouse::Event::ButtonPressed(mouse::Button::Right)) => {
+                state.marquee_start = None;
+                state.marquee_current = None;
                 if state.wire_start.is_some() {
                     state.wire_start = None;
                     return (
@@ -1402,22 +1523,42 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         (canvas::event::Status::Captured, None)
                     }
                     EditorTool::Select => {
+                        let is_additive = self.is_shift_pressed
+                            || self.is_ctrl_pressed
+                            || state.is_shift_pressed
+                            || state.is_ctrl_pressed;
+
                         if let Some(id) = hit {
-                            if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
-                                if !item.is_wire() {
-                                    state.dragging_item =
-                                        Some((id, snapped_x - item.x1, snapped_y - item.y1));
-                                }
+                            if is_additive {
+                                return (
+                                    canvas::event::Status::Captured,
+                                    Some(CanvasMessage::ToggleItemSelection(id)),
+                                );
                             }
-                            (
-                                canvas::event::Status::Captured,
-                                Some(CanvasMessage::SelectItem(Some(id))),
-                            )
+                            if self.selected_ids.contains(&id) {
+                                if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
+                                    if !item.is_wire() {
+                                        state.dragging_item =
+                                            Some((id, snapped_x - item.x1, snapped_y - item.y1));
+                                    }
+                                }
+                                (canvas::event::Status::Captured, None)
+                            } else {
+                                if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
+                                    if !item.is_wire() {
+                                        state.dragging_item =
+                                            Some((id, snapped_x - item.x1, snapped_y - item.y1));
+                                    }
+                                }
+                                (
+                                    canvas::event::Status::Captured,
+                                    Some(CanvasMessage::SelectItem(Some(id))),
+                                )
+                            }
                         } else {
-                            (
-                                canvas::event::Status::Captured,
-                                Some(CanvasMessage::SelectItem(None)),
-                            )
+                            state.marquee_start = Some(cursor_pos);
+                            state.marquee_current = Some(cursor_pos);
+                            (canvas::event::Status::Captured, None)
                         }
                     }
                     EditorTool::PlaceSymbol(tipo) => (
@@ -1606,6 +1747,28 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                     );
                 }
                 _ => {}
+            }
+        }
+
+        // Retângulo elástico de seleção em caixa (Marquee selection)
+        if let (Some(m_start), Some(m_curr)) = (state.marquee_start, state.marquee_current) {
+            let x = m_start.x.min(m_curr.x);
+            let y = m_start.y.min(m_curr.y);
+            let w = (m_start.x - m_curr.x).abs();
+            let h = (m_start.y - m_curr.y).abs();
+            if w > 2.0 && h > 2.0 {
+                frame.fill_rectangle(
+                    Point::new(x, y),
+                    Size::new(w, h),
+                    Color {
+                        a: 0.15,
+                        ..tok.primary
+                    },
+                );
+                frame.stroke(
+                    &Path::rectangle(Point::new(x, y), Size::new(w, h)),
+                    Stroke::default().with_color(tok.primary).with_width(1.5),
+                );
             }
         }
 

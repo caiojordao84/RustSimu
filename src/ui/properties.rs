@@ -118,6 +118,33 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                         sheet_h,
                     );
 
+                    if app.selected_ids.len() > 1 {
+                        body_col = body_col.push(
+                            container(
+                                row![
+                                    container(crate::icons::view_icon(
+                                        crate::icons::Icon::Select,
+                                        13,
+                                        t.primary
+                                    ))
+                                    .width(14)
+                                    .height(14),
+                                    text(format!(
+                                        "Seleção múltipla: {} elementos selecionados",
+                                        app.selected_ids.len()
+                                    ))
+                                    .size(11.5)
+                                    .color(t.primary),
+                                ]
+                                .spacing(6)
+                                .align_y(Alignment::Center),
+                            )
+                            .style(theme::card)
+                            .padding(Padding::from([4.0, 8.0]))
+                            .width(Length::Fill),
+                        );
+                    }
+
                     body_col = body_col.push(
                         text(format!("#{sel_id} · {title} · {grid_ref}"))
                             .size(13)

@@ -365,6 +365,9 @@ pub struct SchematicItem {
     /// Estado dinâmico do símbolo D2 (1 hex maiúsculo, ex: '0', '1').
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub symbol_state: Option<char>,
+    /// Identificador opcional do grupo ao qual o elemento pertence (Ctrl+G).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub group_id: Option<u32>,
 }
 
 impl SchematicItem {
@@ -484,6 +487,7 @@ impl SchematicItem {
             qet_uuid: None,
             symbol_id: None,
             symbol_state: None,
+            group_id: None,
         }
     }
 
@@ -523,6 +527,7 @@ impl SchematicItem {
             qet_uuid: None,
             symbol_id: None,
             symbol_state: None,
+            group_id: None,
         }
     }
 }

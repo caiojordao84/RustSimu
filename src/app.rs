@@ -155,6 +155,7 @@ pub enum Message {
     RenumberTerminalStrip(String),
     RenumberAllTerminalStrips,
     XrefSearchChanged(String),
+    ModifiersChanged(iced::keyboard::Modifiers),
     PrevFolio,
     NextFolio,
     SelectFolio(usize),
@@ -253,6 +254,9 @@ pub struct CadeSimuApp {
     pub active_category: SymbolCategory,
     pub tool: EditorTool,
     pub selected_id: Option<i32>,
+    pub selected_ids: std::collections::HashSet<i32>,
+    pub is_shift_pressed: bool,
+    pub is_ctrl_pressed: bool,
     pub sim_running: bool,
     pub show_grid: bool,
     pub snap_to_grid: bool,
@@ -379,6 +383,9 @@ impl CadeSimuApp {
                 active_category: SymbolCategory::BreakersRelays,
                 tool: EditorTool::Select,
                 selected_id: None,
+                selected_ids: std::collections::HashSet::new(),
+                is_shift_pressed: false,
+                is_ctrl_pressed: false,
                 sim_running: false,
                 show_grid: true,
                 snap_to_grid: true,
@@ -465,6 +472,53 @@ impl CadeSimuApp {
         match self.theme_mode.resolve(self.system_is_dark) {
             crate::theme::AppTheme::Dark => true,
             crate::theme::AppTheme::Light => false,
+        }
+    }
+
+    /// Seleciona um único elemento exclusivamente.
+    pub fn select_single(&mut self, id: Option<i32>) {
+        self.selected_ids.clear();
+        if let Some(i) = id {
+            self.selected_ids.insert(i);
+        }
+        self.selected_id = id;
+    }
+
+    /// Seleciona múltiplos elementos (substitui ou adiciona conforme `additive`).
+    pub fn select_multiple(&mut self, ids: impl IntoIterator<Item = i32>, additive: bool) {
+        if !additive {
+            self.selected_ids.clear();
+        }
+        for id in ids {
+            self.selected_ids.insert(id);
+        }
+        self.sync_primary_selected_id();
+    }
+
+    /// Alterna a presença de um item na seleção (Shift-click ou Ctrl-click).
+    pub fn toggle_selection(&mut self, id: i32) {
+        if self.selected_ids.contains(&id) {
+            self.selected_ids.remove(&id);
+        } else {
+            self.selected_ids.insert(id);
+        }
+        self.sync_primary_selected_id();
+    }
+
+    /// Anula completamente a seleção atual.
+    pub fn deselect_all(&mut self) {
+        self.selected_ids.clear();
+        self.selected_id = None;
+    }
+
+    /// Sincroniza o item principal em foco (`selected_id`) com o conjunto `selected_ids`.
+    pub fn sync_primary_selected_id(&mut self) {
+        if let Some(cur) = self.selected_id {
+            if !self.selected_ids.contains(&cur) {
+                self.selected_id = self.selected_ids.iter().next().copied();
+            }
+        } else {
+            self.selected_id = self.selected_ids.iter().next().copied();
         }
     }
 
@@ -558,6 +612,9 @@ impl CadeSimuApp {
         }));
         subs.push(iced::event::listen_with(
             |event, status, _window| match event {
+                iced::Event::Keyboard(iced::keyboard::Event::ModifiersChanged(modifiers)) => {
+                    Some(Message::ModifiersChanged(modifiers))
+                }
                 iced::Event::Mouse(iced::mouse::Event::ButtonReleased(
                     iced::mouse::Button::Left,
                 )) if status == iced::event::Status::Ignored => Some(Message::GlobalMouseReleased),
@@ -574,12 +631,18 @@ impl CadeSimuApp {
             Message::ToggleMenu(_)
                 | Message::CloseMenu
                 | Message::SimTick
+                | Message::ModifiersChanged(_)
                 | Message::Canvas(CanvasMessage::CursorMoved(_, _))
         ) {
             self.open_menu = None;
         }
 
         match message {
+            Message::ModifiersChanged(modifiers) => {
+                self.is_shift_pressed = modifiers.shift();
+                self.is_ctrl_pressed = modifiers.control() || modifiers.command();
+                iced::Task::none()
+            }
             Message::NewDocument
             | Message::LoadPresetDol
             | Message::OpenFileDialog
@@ -1406,7 +1469,17 @@ impl CadeSimuApp {
                 self.placement_orientation = (self.placement_orientation + 4) % 8;
             }
             Message::DeleteSelected => {
-                if let Some(id) = self.selected_id.take() {
+                if !self.selected_ids.is_empty() {
+                    self.push_undo();
+                    let count = self.selected_ids.len();
+                    self.doc
+                        .items
+                        .retain(|i| !self.selected_ids.contains(&i.id));
+                    self.deselect_all();
+                    self.is_modified = true;
+                    self.status_msg = format!("{count} elemento(s) excluído(s).");
+                } else if let Some(id) = self.selected_id.take() {
+                    self.push_undo();
                     self.doc.items.retain(|i| i.id != id);
                     self.is_modified = true;
                     self.status_msg = format!("Item #{id} excluído.");
@@ -1618,26 +1691,24 @@ impl CadeSimuApp {
                 }
             }
             Message::SelectAll => {
-                if let Some(first) = self.doc.items.first() {
-                    self.selected_id = Some(first.id);
-                    self.status_msg = format!(
-                        "Todos os elementos selecionados (total: {}).",
-                        self.doc.items.len()
-                    );
-                }
+                self.selected_ids = self.doc.items.iter().map(|i| i.id).collect();
+                self.selected_id = self.selected_ids.iter().next().copied();
+                self.status_msg = format!(
+                    "Todos os elementos selecionados (total: {}).",
+                    self.selected_ids.len()
+                );
             }
             Message::DeselectAll => {
-                self.selected_id = None;
+                self.deselect_all();
                 self.status_msg = "Seleção anulada.".to_string();
             }
             Message::InvertSelection => {
-                if let Some(cur_id) = self.selected_id {
-                    let next = self.doc.items.iter().find(|i| i.id != cur_id).map(|i| i.id);
-                    self.selected_id = next;
-                } else if let Some(first) = self.doc.items.first() {
-                    self.selected_id = Some(first.id);
-                }
-                self.status_msg = "Seleção invertida.".to_string();
+                let all_ids: std::collections::HashSet<i32> =
+                    self.doc.items.iter().map(|i| i.id).collect();
+                self.selected_ids = all_ids.difference(&self.selected_ids).copied().collect();
+                self.sync_primary_selected_id();
+                self.status_msg =
+                    format!("Seleção invertida ({} elementos).", self.selected_ids.len());
             }
             Message::InsertLastElement => {
                 if let Some(sym) = self.last_placed_sym.or(self.selected_collection_sym) {
@@ -2198,7 +2269,7 @@ impl CadeSimuApp {
                     self.active_page_index = page_index;
                     self.doc = self.pages[page_index].doc.clone();
                 }
-                self.selected_id = Some(item_id);
+                self.select_single(Some(item_id));
                 if let Some(item) = self.doc.items.iter().find(|i| i.id == item_id) {
                     let (sheet_w, sheet_h) = crate::xref::sheet_dimensions(&self.doc);
                     let cell = crate::xref::calculate_grid_cell(
@@ -2303,7 +2374,17 @@ impl CadeSimuApp {
             }
             Message::Canvas(cmsg) => match cmsg {
                 CanvasMessage::SelectItem(sel) => {
-                    self.selected_id = sel;
+                    self.select_single(sel);
+                }
+                CanvasMessage::ToggleItemSelection(id) => {
+                    self.toggle_selection(id);
+                }
+                CanvasMessage::SelectItems { ids, additive } => {
+                    self.select_multiple(ids, additive);
+                    let count = self.selected_ids.len();
+                    if count > 1 {
+                        self.status_msg = format!("{count} elementos selecionados.");
+                    }
                 }
                 CanvasMessage::MoveItem { id, x1, y1 } => {
                     let old_pos = self
@@ -2496,6 +2577,7 @@ impl CadeSimuApp {
                                 qet_uuid: None,
                                 symbol_id: Some(el.id.clone()),
                                 symbol_state: Some('0'),
+                                group_id: None,
                             };
 
                             self.doc.items.push(item);

@@ -213,6 +213,7 @@ impl SymbolDef {
             qet_uuid: None,
             symbol_id: None,
             symbol_state: None,
+            group_id: None,
         }
     }
 

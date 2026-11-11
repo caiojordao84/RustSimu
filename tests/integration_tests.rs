@@ -1746,10 +1746,15 @@ fn test_canvas_theme_adaptation_light_dark_system() {
     let wire_dneg = SchematicItem::new_wire(3, 4004, 10, 30, 20, 30);
     let wire_generic = SchematicItem::new_wire(4, 4001, 10, 40, 20, 40);
 
+    let dummy_selected_ids = std::collections::HashSet::new();
+
     let canvas_light = SchematicCanvas {
         doc: &app.doc,
         tool: app.tool.clone(),
         selected_id: None,
+        selected_ids: &dummy_selected_ids,
+        is_shift_pressed: false,
+        is_ctrl_pressed: false,
         sim_running: false,
         show_grid: true,
         grid_density: app.grid_density,
@@ -1769,6 +1774,9 @@ fn test_canvas_theme_adaptation_light_dark_system() {
         doc: &app.doc,
         tool: app.tool.clone(),
         selected_id: None,
+        selected_ids: &dummy_selected_ids,
+        is_shift_pressed: false,
+        is_ctrl_pressed: false,
         sim_running: false,
         show_grid: true,
         grid_density: app.grid_density,
@@ -2937,10 +2945,14 @@ fn test_canvas_selection_prioritizes_symbols_over_wires() {
     doc.items.push(wire3);
     doc.items.push(item_dj);
 
+    let dummy_selected_ids = std::collections::HashSet::new();
     let canvas = SchematicCanvas {
         doc: &doc,
         tool: cade_simu_rs::EditorTool::Select,
         selected_id: None,
+        selected_ids: &dummy_selected_ids,
+        is_shift_pressed: false,
+        is_ctrl_pressed: false,
         sim_running: false,
         show_grid: true,
         grid_density: cade_simu_rs::model::GridDensity::Medium,
@@ -3365,10 +3377,14 @@ fn test_menu_overlay_stays_open_over_canvas() {
     // 3. Renderiza a interface com o menu aberto e verifica que o canvas fica bloqueado
     let _ = app.view();
 
+    let dummy_selected_ids = std::collections::HashSet::new();
     let canvas_blocked = cade_simu_rs::canvas_view::SchematicCanvas {
         doc: &app.doc,
         tool: app.tool.clone(),
         selected_id: None,
+        selected_ids: &dummy_selected_ids,
+        is_shift_pressed: false,
+        is_ctrl_pressed: false,
         sim_running: false,
         show_grid: true,
         grid_density: app.grid_density,
@@ -5907,4 +5923,142 @@ fn test_p2_15_xref_navigation_message_switches_page_and_selects_item() {
         app.status_msg.contains("Navegado para elemento #42"),
         "Mensagem de status deve confirmar navegação"
     );
+}
+
+#[test]
+fn test_multiple_selection_model_and_app_actions() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    // Adiciona 3 itens no documento
+    let it1 = SchematicItem::new_symbol(101, 9000, 30, 30, "-KM1");
+    let it2 = SchematicItem::new_symbol(102, 9000, 60, 30, "-KM2");
+    let it3 = SchematicItem::new_symbol(103, 9000, 90, 30, "-KM3");
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+    app.doc.items.push(it3);
+
+    // 1. Seleção individual inicial
+    app.select_single(Some(101));
+    assert_eq!(app.selected_id, Some(101));
+    assert_eq!(app.selected_ids.len(), 1);
+    assert!(app.selected_ids.contains(&101));
+
+    // 2. Toggle selection (Shift-click simulado no item 102)
+    app.toggle_selection(102);
+    assert_eq!(app.selected_ids.len(), 2);
+    assert!(app.selected_ids.contains(&101));
+    assert!(app.selected_ids.contains(&102));
+
+    // 3. Toggle selection no item 101 (remove 101)
+    app.toggle_selection(101);
+    assert_eq!(app.selected_ids.len(), 1);
+    assert!(!app.selected_ids.contains(&101));
+    assert!(app.selected_ids.contains(&102));
+    assert_eq!(app.selected_id, Some(102));
+
+    // 4. SelectAll via Message::SelectAll
+    let _ = app.update(Message::SelectAll);
+    assert_eq!(app.selected_ids.len(), 3);
+    assert!(app.selected_ids.contains(&101));
+    assert!(app.selected_ids.contains(&102));
+    assert!(app.selected_ids.contains(&103));
+
+    // 5. InvertSelection via Message::InvertSelection (deve ficar vazio se todos estavam selecionados)
+    let _ = app.update(Message::InvertSelection);
+    assert_eq!(app.selected_ids.len(), 0);
+    assert_eq!(app.selected_id, None);
+
+    // 6. Seleciona 101 e 103 e inverte (deve selecionar 102)
+    app.select_multiple(vec![101, 103], false);
+    assert_eq!(app.selected_ids.len(), 2);
+    let _ = app.update(Message::InvertSelection);
+    assert_eq!(app.selected_ids.len(), 1);
+    assert!(app.selected_ids.contains(&102));
+
+    // 7. DeleteSelected com múltiplos itens
+    app.select_multiple(vec![101, 102], false);
+    assert_eq!(app.selected_ids.len(), 2);
+    let _ = app.update(Message::DeleteSelected);
+    assert_eq!(app.selected_ids.len(), 0);
+    assert_eq!(app.selected_id, None);
+    assert_eq!(app.doc.items.len(), 1);
+    assert_eq!(app.doc.items[0].id, 103);
+}
+
+#[test]
+fn test_group_id_persistence_in_json_and_toml() {
+    let mut doc = SchematicDocument::default();
+    let mut it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    let mut it2 = SchematicItem::new_symbol(2, 9000, 60, 30, "-KM2");
+    let it3 = SchematicItem::new_symbol(3, 9000, 90, 30, "-KM3");
+
+    // it1 e it2 pertencem ao grupo 42; it3 não tem grupo
+    it1.group_id = Some(42);
+    it2.group_id = Some(42);
+
+    doc.items.push(it1);
+    doc.items.push(it2);
+    doc.items.push(it3);
+
+    // Teste Roundtrip JSON
+    let json_str = serde_json::to_string_pretty(&doc).expect("Serialização JSON falhou");
+    assert!(json_str.contains("\"group_id\": 42"));
+
+    let doc_json: SchematicDocument =
+        serde_json::from_str(&json_str).expect("Deserialização JSON falhou");
+    assert_eq!(doc_json.items[0].group_id, Some(42));
+    assert_eq!(doc_json.items[1].group_id, Some(42));
+    assert_eq!(doc_json.items[2].group_id, None);
+
+    // Teste Roundtrip TOML
+    let toml_str = toml::to_string_pretty(&doc).expect("Serialização TOML falhou");
+    assert!(toml_str.contains("group_id = 42"));
+
+    let doc_toml: SchematicDocument =
+        toml::from_str(&toml_str).expect("Deserialização TOML falhou");
+    assert_eq!(doc_toml.items[0].group_id, Some(42));
+    assert_eq!(doc_toml.items[1].group_id, Some(42));
+    assert_eq!(doc_toml.items[2].group_id, None);
+}
+
+#[test]
+fn test_marquee_box_selection_bounds_and_canvas_messages() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    let it1 = SchematicItem::new_symbol(1, 9000, 30, 30, "-KM1");
+    let it2 = SchematicItem::new_symbol(2, 9000, 150, 150, "-KM2");
+    let wire = SchematicItem::new_wire(3, 4000, 20, 20, 40, 20);
+
+    app.doc.items.push(it1);
+    app.doc.items.push(it2);
+    app.doc.items.push(wire);
+
+    // Verifica limites dos elementos
+    let (min_x, min_y, max_x, max_y) = SchematicCanvas::item_bounds(&app.doc.items[0]);
+    assert!(min_x <= 30 && max_x >= 30);
+    assert!(min_y <= 30 && max_y >= 30);
+
+    // Emite mensagem de seleção por caixa de arraste (marquee) cobrindo a região (10, 10) até (50, 50)
+    let _ = app.update(Message::Canvas(CanvasMessage::SelectItems {
+        ids: vec![1, 3],
+        additive: false,
+    }));
+
+    assert_eq!(app.selected_ids.len(), 2);
+    assert!(app.selected_ids.contains(&1));
+    assert!(app.selected_ids.contains(&3));
+    assert!(!app.selected_ids.contains(&2));
+
+    // Agora adiciona it2 de forma cumulativa (Shift-marquee)
+    let _ = app.update(Message::Canvas(CanvasMessage::SelectItems {
+        ids: vec![2],
+        additive: true,
+    }));
+
+    assert_eq!(app.selected_ids.len(), 3);
+    assert!(app.selected_ids.contains(&1));
+    assert!(app.selected_ids.contains(&2));
+    assert!(app.selected_ids.contains(&3));
 }
