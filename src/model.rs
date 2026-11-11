@@ -278,6 +278,14 @@ impl Default for TitleBlock {
     }
 }
 
+fn default_grid_cols() -> i32 {
+    8
+}
+
+fn default_grid_rows() -> i32 {
+    6
+}
+
 /// Configurações da folha e visualização do documento (serializadas entre `$$$` e `&&&`).
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(default)]
@@ -294,6 +302,12 @@ pub struct DocumentSettings {
     pub custom_height_mm: i32,
     pub custom_width_mm: i32,
     pub view_flags: [i32; 14],
+    #[serde(default = "default_grid_cols")]
+    pub grid_cols: i32,
+    #[serde(default = "default_grid_rows")]
+    pub grid_rows: i32,
+    #[serde(default)]
+    pub sheet_bg_color: Option<i32>,
 }
 
 impl Default for DocumentSettings {
@@ -311,6 +325,29 @@ impl Default for DocumentSettings {
             custom_height_mm: 279,
             custom_width_mm: 210,
             view_flags: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            grid_cols: default_grid_cols(),
+            grid_rows: default_grid_rows(),
+            sheet_bg_color: None,
+        }
+    }
+}
+
+impl DocumentSettings {
+    /// Número efetivo de colunas na régua da folha (padrão 8, intervalo 4..=24).
+    pub fn effective_grid_cols(&self) -> i32 {
+        if self.grid_cols > 0 {
+            self.grid_cols.clamp(4, 24)
+        } else {
+            8
+        }
+    }
+
+    /// Número efetivo de linhas na régua da folha (padrão 6, intervalo 4..=16).
+    pub fn effective_grid_rows(&self) -> i32 {
+        if self.grid_rows > 0 {
+            self.grid_rows.clamp(4, 16)
+        } else {
+            6
         }
     }
 }
@@ -533,6 +570,15 @@ impl SchematicItem {
 
     pub fn new_junction(id: i32, x: i32, y: i32) -> Self {
         Self::new_wire(id, 4001, x, y, x, y)
+    }
+
+    pub fn new_graphic(id: i32, tipo: i32, x1: i32, y1: i32, x2: i32, y2: i32) -> Self {
+        Self::new_wire(id, tipo, x1, y1, x2, y2)
+    }
+
+    #[inline]
+    pub fn is_graphic(&self) -> bool {
+        matches!(self.tipo, 1 | 2 | 3 | 4 | 5 | 8)
     }
 
     pub fn new_symbol(id: i32, tipo: i32, x: i32, y: i32, tag: impl Into<String>) -> Self {

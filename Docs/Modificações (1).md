@@ -2,19 +2,19 @@ Especificações de Modificações e Interface
 
 *Nota: Tudo o que estiver entre parênteses é um comentário explicativo/orientação interna e não deve entrar no projeto final.*
 
-# 1\. Barra de Menus
+# 1\. Barra de Menus — [100% CONCLUÍDO]
 
 ## 1.1 Arquivo
 
-- **Últimos Arquivos**  
-- **Novo**: *Ctrl \+ N*  
-- **Abrir**: *Ctrl \+ O*  
-- **Salvar**: *Ctrl \+ S* (Caso seja a primeira vez salvando, solicitará o formato. Por padrão, salva em JSON).  
-- **Salvar Como**: *Ctrl \+ Shift \+ S* (Comportamento padrão com os formatos suportados: JSON, TOML, QET).  
-- **Salvar Cópia**: *Ctrl \+ Alt \+ S*  
-- **Fechar**: *Ctrl \+ W*  
-- **Exportar**: *Ctrl \+ X* (Formatos: PNG, JPG, BMP, SVG, DXF, CAD, PDF. Opções: Toda página ou seleção; para o formato CAD, devido à limitação de não suportar múltiplas páginas, permite selecionar uma página específica para exportação).  
-- **Imprimir**: *Ctrl \+ P*
+- **Últimos Arquivos** [CONCLUÍDO]  
+- **Novo**: *Ctrl \+ N* [CONCLUÍDO]  
+- **Abrir**: *Ctrl \+ O* [CONCLUÍDO]  
+- **Salvar**: *Ctrl \+ S* (Caso seja a primeira vez salvando, solicitará o formato. Por padrão, salva em JSON). [CONCLUÍDO]  
+- **Salvar Como**: *Ctrl \+ Shift \+ S* (Comportamento padrão com os formatos suportados: JSON, TOML, QET). [CONCLUÍDO]  
+- **Salvar Cópia**: *Ctrl \+ Alt \+ S* [CONCLUÍDO]  
+- **Fechar**: *Ctrl \+ W* [CONCLUÍDO]  
+- **Exportar**: *Ctrl \+ E* (Formatos: PNG, JPG, BMP, SVG, DXF, CAD, PDF. Opções: Toda página ou seleção; para o formato CAD, devido à limitação de não suportar múltiplas páginas, permite selecionar uma página específica para exportação). [CONCLUÍDO]  
+- **Imprimir**: *Ctrl \+ P* [CONCLUÍDO]
 
 ## 1.2 Editar
 
@@ -27,14 +27,14 @@ Especificações de Modificações e Interface
 - **Duplicar**: *Ctrl \+ D* [CONCLUÍDO]  
 - **Inserir o Último Elemento**: *A* [CONCLUÍDO]  
 - **Colorir Elemento** (Abre janela de seleção de cor para o elemento; substitui a cor preta em tema light ou branca em tema dark pela cor escolhida). [CONCLUÍDO]  
-- **Adicionar**  
-  - Adicionar Texto em Linha  
-  - Adicionar Campo de Texto  
-  - Adicionar Imagem  
-  - Adicionar Linha  
-  - Adicionar Retângulo  
-  - Adicionar Círculo  
-  - Adicionar Arco  
+- **Adicionar** [CONCLUÍDO]  
+  - Adicionar Texto em Linha [CONCLUÍDO]  
+  - Adicionar Campo de Texto [CONCLUÍDO]  
+  - Adicionar Imagem [CONCLUÍDO]  
+  - Adicionar Linha [CONCLUÍDO]  
+  - Adicionar Retângulo [CONCLUÍDO]  
+  - Adicionar Círculo [CONCLUÍDO]  
+  - Adicionar Arco [CONCLUÍDO]  
   - *(Outros itens serão adicionados no futuro)*  
 - **Seleção**  
   - Selecionar Tudo	Ctrl \+ A [CONCLUÍDO]  
@@ -50,16 +50,16 @@ Especificações de Modificações e Interface
 - **Agrupar**  
   - Agrupar	Ctrl \+ G [CONCLUÍDO]  
   - Desagrupar	Ctrl \+ U [CONCLUÍDO]  
-- **Linhas e Colunas**  
-  - Adicionar uma Linha  
-  - Apagar uma Linha  
-  - Adicionar uma Coluna  
-  - Apagar uma Coluna  
+- **Linhas e Colunas** [CONCLUÍDO]  
+  - Adicionar uma Linha [CONCLUÍDO]  
+  - Apagar uma Linha [CONCLUÍDO]  
+  - Adicionar uma Coluna [CONCLUÍDO]  
+  - Apagar uma Coluna [CONCLUÍDO]  
 - **Propriedades da Página**: *Ctrl \+ Shift \+ Enter* [CONCLUÍDO]
 
 ## 1.3 Projeto
 
-- **Propriedades do Projeto** *(A definir)*  
+- **Propriedades do Projeto** [CONCLUÍDO]  
 - **Criação Automática de Condutores** (Traça e conecta automaticamente condutores aos elementos quando os bornes estão alinhados vertical ou horizontalmente. **Ligado por padrão**). [CONCLUÍDO]  
 - **Desconexão Automática de Condutores** (Mantém o condutor estático ao mover o elemento, desligando-o dos bornes. **Desligado por padrão**). [CONCLUÍDO]  
 - **Adicionar uma Página**: *Ctrl \+ T* [CONCLUÍDO]  
@@ -68,29 +68,29 @@ Especificações de Modificações e Interface
 
 ## 1.4 Display (Exibição)
 
-- **Mostrar Projetos**  
+- **Mostrar Projetos** [CONCLUÍDO]  
 - **Selecionar** (Habilita/Desabilita a Seleção de Elementos. Ligado por padrão; mutuamente exclusivo com "Mover"). [CONCLUÍDO]  
 - **Mover** (Move o Canvas de Trabalho livremente mantendo o botão direito do mouse pressionado). [CONCLUÍDO]  
 - **Mostrar a Grelha** [CONCLUÍDO]  
 - **Ajustar à Grelha**: *Ctrl \+ Shift \+ G* [CONCLUÍDO]  
-- **Passo da Grelha**  
-- **Mira em Todo o Fólio**  
-- **Grelha de Texto**  
-- **Ver os Guias**  
-- **Manter Cabeçalhos Visíveis**  
-- **Mostrar Limites das Células**  
-- **Mostrar**  
-- **Cor de Fundo da Folha**  
+- **Passo da Grelha** [CONCLUÍDO]  
+- **Mira em Todo o Fólio** [CONCLUÍDO]  
+- **Grelha de Texto** [CONCLUÍDO]  
+- **Ver os Guias** [CONCLUÍDO]  
+- **Manter Cabeçalhos Visíveis** [CONCLUÍDO]  
+- **Mostrar Limites das Células** [CONCLUÍDO]  
+- **Mostrar** [CONCLUÍDO]  
+- **Cor de Fundo da Folha** [CONCLUÍDO]  
 - **Ampliar (Zoom In)**: *Ctrl \+ \+* [CONCLUÍDO]  
 - **Reduzir (Zoom Out)**: *Ctrl \+ \-* [CONCLUÍDO]  
 - **Zoom do Conteúdo**: *Ctrl \+ 8* [CONCLUÍDO]  
 - **Ajustar à Vista**: *Ctrl \+ 9* [CONCLUÍDO]  
 - **Repor Zoom**: *Ctrl \+ 0* [CONCLUÍDO]  
-- **Centrar no Cursor**
+- **Centrar no Cursor** [CONCLUÍDO]
 
 ## 1.5 Outros Menus
 
-*Ainda a incluir: Configurações (Settings), Janela (Window) e Ajuda (Help).*
+- **Configurações**, **Janela** e **Ajuda** [CONCLUÍDO]
 
 *A Barra de Ferramentas (Toolbar) contém apenas ícones; os rótulos de texto são exibidos via hover (passagem do mouse).*
 

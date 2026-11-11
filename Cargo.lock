@@ -446,6 +446,7 @@ version = "0.4.0"
 dependencies = [
  "flate2",
  "iced",
+ "image",
  "pdf-writer",
  "resvg",
  "rfd",

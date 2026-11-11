@@ -62,6 +62,14 @@ pub enum Icon {
     Check,
     Group,
     Ungroup,
+    Image,
+    DrawLine,
+    DrawRect,
+    DrawCircle,
+    DrawArc,
+    Settings,
+    Keyboard,
+    Window,
 }
 
 impl Icon {
@@ -433,6 +441,64 @@ impl Icon {
                 r#"<path d="M19 15v4h-4"/>"#,
                 r#"<rect x="6" y="9" width="5" height="5" rx="1"/>"#,
                 r#"<rect x="13" y="9" width="5" height="5" rx="1"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::Image => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<rect x="3" y="3" width="18" height="18" rx="2"/>"#,
+                r#"<circle cx="8.5" cy="8.5" r="1.5"/>"#,
+                r#"<path d="M21 15l-5-5L5 21"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::DrawLine => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<line x1="5" y1="19" x2="19" y2="5"/>"#,
+                r#"<circle cx="5" cy="19" r="2"/>"#,
+                r#"<circle cx="19" cy="5" r="2"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::DrawRect => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<rect x="4" y="6" width="16" height="12" rx="1"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::DrawCircle => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<circle cx="12" cy="12" r="8"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::DrawArc => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<path d="M4 18a8 8 0 0 1 16-12"/>"#,
+                r#"<circle cx="4" cy="18" r="1.5"/>"#,
+                r#"<circle cx="20" cy="6" r="1.5"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::Settings => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<circle cx="12" cy="12" r="3"/>"#,
+                r#"<path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::Keyboard => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<rect x="2" y="6" width="20" height="12" rx="2"/>"#,
+                r#"<path d="M6 10h2M10 10h2M14 10h2M18 10h0M8 14h8"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::Window => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<rect x="3" y="4" width="18" height="16" rx="2"/>"#,
+                r#"<line x1="3" y1="9" x2="21" y2="9"/>"#,
+                r#"<line x1="9" y1="9" x2="9" y2="20"/>"#,
                 r#"</svg>"#
             ).as_bytes(),
         }

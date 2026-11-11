@@ -8,6 +8,7 @@ description = "Reescrita nativa em Rust (iced) do CADe_SIMU 4.0 — Editor CAD E
 [dependencies]
 flate2 = "1.0"
 iced = { version = "0.13", features = ["canvas", "tokio", "svg"] }
+image = { version = "0.25", default-features = false, features = ["jpeg", "bmp", "png"] }
 pdf-writer = "0.10"
 resvg = "0.42"
 rfd = "0.15"

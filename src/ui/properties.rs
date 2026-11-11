@@ -100,19 +100,28 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                         } else {
                             "Elemento QET".to_string()
                         }
+                    } else if item.is_graphic() {
+                        match (item.tipo, item.subvariant) {
+                            (8, 0) => "Texto em Linha".to_string(),
+                            (8, _) => "Campo de Texto".to_string(),
+                            (5, _) => "Imagem".to_string(),
+                            (1, _) => "Linha Gráfica".to_string(),
+                            (2, _) => "Retângulo Gráfico".to_string(),
+                            (3, _) => "Círculo / Elipse".to_string(),
+                            (4, _) => "Arco Gráfico".to_string(),
+                            _ => "Elemento Gráfico".to_string(),
+                        }
                     } else if item.is_wire() {
                         "Cabo Condutor".to_string()
                     } else {
                         "Elemento".to_string()
                     };
 
-                    let (sheet_w, sheet_h) = crate::xref::sheet_dimensions(&app.doc);
-                    let grid_ref = crate::xref::format_grid_ref(
+                    let grid_ref = crate::xref::format_grid_ref_doc(
                         app.active_page_index,
                         item.x1 as f32,
                         item.y1 as f32,
-                        sheet_w,
-                        sheet_h,
+                        &app.doc,
                     );
 
                     if app.selected_ids.len() > 1 {
@@ -299,7 +308,107 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                         }
                     }
 
-                    if !item.is_wire() && !item.is_junction() {
+                    if item.is_graphic() {
+                        if item.tipo == 8 {
+                            body_col = body_col.push(
+                                column![
+                                    text(if item.subvariant == 0 {
+                                        "Texto em Linha:"
+                                    } else {
+                                        "Conteúdo do Campo de Texto:"
+                                    })
+                                    .size(11)
+                                    .color(t.text2),
+                                    text_input("Digite o texto ou anotação...", &item.trailing_str)
+                                        .on_input(Message::EditItemTrailingText)
+                                        .padding(Padding::from([5.0, 8.0]))
+                                        .size(12)
+                                        .style(theme::field),
+                                ]
+                                .spacing(4),
+                            );
+                        } else if item.tipo == 5 {
+                            let img_label = if item.trailing_str.trim().is_empty() {
+                                "Nenhuma imagem vinculada".to_string()
+                            } else {
+                                std::path::Path::new(&item.trailing_str)
+                                    .file_name()
+                                    .map(|n| n.to_string_lossy().into_owned())
+                                    .unwrap_or_else(|| item.trailing_str.clone())
+                            };
+                            body_col = body_col.push(
+                                column![
+                                    text("Arquivo da Imagem:").size(11).color(t.text2),
+                                    text(img_label).size(11.5).color(t.text).font(MONO),
+                                    button(text("Substituir Imagem...").size(11.5).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([5.0, 10.0]))
+                                        .on_press(Message::InsertImageDialog),
+                                ]
+                                .spacing(4),
+                            );
+                        } else if item.tipo == 4 {
+                            let (start_deg, sweep_deg) =
+                                if item.aux_coords[0] == 0 && item.aux_coords[1] == 0 {
+                                    (0, 180)
+                                } else {
+                                    (item.aux_coords[0], item.aux_coords[1])
+                                };
+                            body_col = body_col.push(
+                                row![
+                                    column![
+                                        text("Ângulo Inicial (graus):").size(11).color(t.text2),
+                                        text_input("0", &start_deg.to_string())
+                                            .on_input(Message::EditItemArcStart)
+                                            .padding(Padding::from([5.0, 8.0]))
+                                            .size(12)
+                                            .style(theme::field),
+                                    ]
+                                    .spacing(4)
+                                    .width(Length::Fill),
+                                    column![
+                                        text("Varredura (graus):").size(11).color(t.text2),
+                                        text_input("180", &sweep_deg.to_string())
+                                            .on_input(Message::EditItemArcSweep)
+                                            .padding(Padding::from([5.0, 8.0]))
+                                            .size(12)
+                                            .style(theme::field),
+                                    ]
+                                    .spacing(4)
+                                    .width(Length::Fill),
+                                ]
+                                .spacing(6),
+                            );
+                        }
+
+                        body_col = body_col.push(
+                            column![
+                                text(format!(
+                                    "Geometria: ({}, {}) -> ({}, {})",
+                                    item.x1, item.y1, item.x2, item.y2
+                                ))
+                                .size(11)
+                                .font(MONO)
+                                .color(t.text2),
+                                button(
+                                    row![
+                                        crate::icons::view_icon(
+                                            crate::icons::Icon::Palette,
+                                            13,
+                                            t.text
+                                        ),
+                                        text("Alterar Cor...").size(11.5).font(UI),
+                                    ]
+                                    .spacing(6)
+                                    .align_y(Alignment::Center),
+                                )
+                                .style(theme::tool)
+                                .padding(Padding::from([5.0, 10.0]))
+                                .on_press(Message::ColorElement),
+                            ]
+                            .spacing(6),
+                        );
+                    } else if !item.is_wire() && !item.is_junction() {
                         // 1. Nome do Elemento (Tag)
                         body_col = body_col.push(
                             column![

@@ -1,9 +1,10 @@
-//! Módulo de Exportação Real (Folha → SVG / PNG / PDF / CAD).
+//! Módulo de Exportação Real (Folha → SVG / PNG / JPG / BMP / DXF / PDF / CAD).
 //!
-//! Implementa os requisitos de exportação vetorial de alta resolução:
+//! Implementa os requisitos de exportação vetorial e raster de alta resolução:
 //! - **SVG**: Exporta folha ou seleção em SVG vetorial padrão, com Inter embutida, linecap/linejoin arredondados,
 //!   arcos matematicamente exatos e elipses não facetadas.
-//! - **PNG**: Renderização raster de impressão em 300 DPI (~3508 px para A4 paisagem) via `resvg`/`tiny-skia`.
+//! - **PNG / JPG / BMP**: Renderização raster de impressão em 300 DPI (~3508 px para A4 paisagem) via `resvg`/`tiny-skia`.
+//! - **DXF**: Exportação AutoCAD R12 ASCII vetorial (`LINE`, `CIRCLE`, `ARC`, `TEXT`) por camadas.
 //! - **PDF**: PDF vetorial puro e multipágina via `svg2pdf` e `pdf-writer`, com texto selecionável e curvas perfeitas.
 //! - **CAD**: Exportação byte-exata no formato CP-1252 original do CADe_SIMU 4.0.
 //! - **Cajetín Estruturado**: Moldura de legenda dividida em células (Entidade, Data, Título, Autor, Arquivo, Folha)
@@ -41,38 +42,50 @@ pub fn create_usvg_options() -> resvg::usvg::Options<'static> {
     opt
 }
 
-/// Formatos de exportação suportados pelo CADe_SIMU.
+/// Formatos de exportação suportados pelo CADe_SIMU / RustSimu.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ExportFormat {
+    Png,
+    Jpg,
+    Bmp,
+    Svg,
+    Dxf,
     Cad,
     Pdf,
-    Svg,
-    Png,
 }
 
 impl ExportFormat {
-    pub const ALL: [ExportFormat; 4] = [
+    pub const ALL: [ExportFormat; 7] = [
+        ExportFormat::Png,
+        ExportFormat::Jpg,
+        ExportFormat::Bmp,
+        ExportFormat::Svg,
+        ExportFormat::Dxf,
         ExportFormat::Cad,
         ExportFormat::Pdf,
-        ExportFormat::Svg,
-        ExportFormat::Png,
     ];
 
     pub fn extension(&self) -> &'static str {
         match self {
+            ExportFormat::Png => "png",
+            ExportFormat::Jpg => "jpg",
+            ExportFormat::Bmp => "bmp",
+            ExportFormat::Svg => "svg",
+            ExportFormat::Dxf => "dxf",
             ExportFormat::Cad => "cad",
             ExportFormat::Pdf => "pdf",
-            ExportFormat::Svg => "svg",
-            ExportFormat::Png => "png",
         }
     }
 
     pub fn filter_label(&self) -> &'static str {
         match self {
+            ExportFormat::Png => "Imagem PNG 300 DPI (*.png)",
+            ExportFormat::Jpg => "Imagem JPEG (*.jpg)",
+            ExportFormat::Bmp => "Imagem Bitmap (*.bmp)",
+            ExportFormat::Svg => "Gráfico Vetorial SVG (*.svg)",
+            ExportFormat::Dxf => "Desenho AutoCAD DXF (*.dxf)",
             ExportFormat::Cad => "CADe_SIMU Original (*.cad)",
             ExportFormat::Pdf => "Documento PDF Vetorial (*.pdf)",
-            ExportFormat::Svg => "Gráfico Vetorial SVG (*.svg)",
-            ExportFormat::Png => "Imagem PNG 300 DPI (*.png)",
         }
     }
 }
@@ -80,10 +93,13 @@ impl ExportFormat {
 impl fmt::Display for ExportFormat {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
+            ExportFormat::Png => write!(f, "Imagem PNG (.png)"),
+            ExportFormat::Jpg => write!(f, "Imagem JPEG (.jpg)"),
+            ExportFormat::Bmp => write!(f, "Imagem Bitmap (.bmp)"),
+            ExportFormat::Svg => write!(f, "Gráfico Vetorial (.svg)"),
+            ExportFormat::Dxf => write!(f, "AutoCAD DXF (.dxf)"),
             ExportFormat::Cad => write!(f, "CADe_SIMU Original (.cad)"),
             ExportFormat::Pdf => write!(f, "Documento PDF (.pdf)"),
-            ExportFormat::Svg => write!(f, "Gráfico Vetorial (.svg)"),
-            ExportFormat::Png => write!(f, "Imagem PNG (.png)"),
         }
     }
 }
@@ -112,7 +128,11 @@ impl ExportScope {
     pub fn valid_scopes(format: ExportFormat, is_multipage: bool) -> Vec<ExportScope> {
         match format {
             ExportFormat::Cad => vec![ExportScope::Page],
-            ExportFormat::Svg | ExportFormat::Png => {
+            ExportFormat::Png
+            | ExportFormat::Jpg
+            | ExportFormat::Bmp
+            | ExportFormat::Svg
+            | ExportFormat::Dxf => {
                 vec![ExportScope::Page, ExportScope::Selection]
             }
             ExportFormat::Pdf => {
@@ -184,6 +204,149 @@ fn truncate_str(s: &str, max_chars: usize) -> String {
     } else {
         let truncated: String = s.chars().take(max_chars.saturating_sub(3)).collect();
         format!("{truncated}...")
+    }
+}
+
+/// Resolve a cor de traço hexadecimal de um item considerando modo monocromático e fallback padrão.
+fn resolve_item_stroke_color(color: i32, monochrome: bool, default_hex: &str) -> String {
+    if monochrome {
+        "#000000".to_string()
+    } else if color != 0 {
+        let r_col = ((color >> 16) & 0xFF) as u8;
+        let g_col = ((color >> 8) & 0xFF) as u8;
+        let b_col = (color & 0xFF) as u8;
+        format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
+    } else {
+        default_hex.to_string()
+    }
+}
+
+/// Retorna as dimensões da folha em unidades CADe_SIMU (`sheet_w`, `sheet_h`).
+pub(crate) fn sheet_dimensions_cad(doc: &SchematicDocument) -> (f32, f32) {
+    if doc.settings.custom_width_mm > 0 && doc.settings.custom_height_mm > 0 {
+        let w_mm = doc.settings.custom_width_mm as f32;
+        let h_mm = doc.settings.custom_height_mm as f32;
+        let w_cad = (w_mm * (330.0 / 297.0)).max(100.0);
+        let h_cad = (h_mm * (330.0 / 297.0)).max(100.0);
+        (w_cad, h_cad)
+    } else {
+        (330.0, 330.0 * (210.0 / 297.0))
+    }
+}
+
+/// Calcula centro, raios e ângulos (em graus) de um arco gráfico (`tipo == 4`).
+pub(crate) fn graphic_arc_params(item: &SchematicItem) -> (f32, f32, f32, f32, f32, f32) {
+    let cx = (item.x1 + item.x2) as f32 * 0.5;
+    let cy = (item.y1 + item.y2) as f32 * 0.5;
+    let rx = ((item.x2 - item.x1).abs() as f32 * 0.5).max(1.5);
+    let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(1.5);
+    let start_deg = item.aux_coords[0] as f32;
+    let sweep_deg = if item.aux_coords[1] == 0 {
+        90.0
+    } else {
+        item.aux_coords[1] as f32
+    };
+    (cx, cy, rx, ry, start_deg, sweep_deg)
+}
+
+fn encode_base64(bytes: &[u8]) -> String {
+    const TABLE: &[u8; 64] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    let mut out = String::with_capacity(bytes.len().div_ceil(3) * 4);
+    for chunk in bytes.chunks(3) {
+        let b0 = chunk[0] as usize;
+        let b1 = if chunk.len() > 1 {
+            chunk[1] as usize
+        } else {
+            0
+        };
+        let b2 = if chunk.len() > 2 {
+            chunk[2] as usize
+        } else {
+            0
+        };
+        let n = (b0 << 16) | (b1 << 8) | b2;
+        out.push(TABLE[(n >> 18) & 0x3F] as char);
+        out.push(TABLE[(n >> 12) & 0x3F] as char);
+        out.push(if chunk.len() > 1 {
+            TABLE[(n >> 6) & 0x3F] as char
+        } else {
+            '='
+        });
+        out.push(if chunk.len() > 2 {
+            TABLE[n & 0x3F] as char
+        } else {
+            '='
+        });
+    }
+    out
+}
+
+fn image_data_uri_for_svg(path_str: &str) -> Option<String> {
+    let trimmed = path_str.trim();
+    if trimmed.is_empty() {
+        return None;
+    }
+    if trimmed.starts_with("data:image/") {
+        return Some(trimmed.to_string());
+    }
+    let path = std::path::Path::new(trimmed);
+    let bytes = std::fs::read(path).ok()?;
+    let ext = path
+        .extension()
+        .and_then(|e| e.to_str())
+        .unwrap_or("")
+        .to_ascii_lowercase();
+    match ext.as_str() {
+        "png" => Some(format!("data:image/png;base64,{}", encode_base64(&bytes))),
+        "jpg" | "jpeg" => Some(format!("data:image/jpeg;base64,{}", encode_base64(&bytes))),
+        "svg" => Some(format!(
+            "data:image/svg+xml;base64,{}",
+            encode_base64(&bytes)
+        )),
+        _ => {
+            // Decodifica BMP ou outros formatos raster e re-codifica em PNG embutível em SVG
+            let dyn_img = image::load_from_memory(&bytes).ok()?;
+            let mut png_buf = std::io::Cursor::new(Vec::new());
+            dyn_img
+                .write_to(&mut png_buf, image::ImageFormat::Png)
+                .ok()?;
+            Some(format!(
+                "data:image/png;base64,{}",
+                encode_base64(png_buf.get_ref())
+            ))
+        }
+    }
+}
+
+fn emit_svg_text_lines(
+    out: &mut String,
+    px: f32,
+    first_baseline: f32,
+    font_sz: f32,
+    fill: &str,
+    content: &str,
+) {
+    let mut lines = content.split('\n');
+    let first = lines.next().unwrap_or("");
+    let line_step = font_sz * 1.25;
+    if content.contains('\n') {
+        out.push_str(&format!(
+            r###"  <text x="{px:.1}" y="{first_baseline:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{fill}">{}"###,
+            xml_escape(first.trim_end_matches('\r'))
+        ));
+        for line in lines {
+            out.push_str(&format!(
+                r###"<tspan x="{px:.1}" dy="{line_step:.1}">{}</tspan>"###,
+                xml_escape(line.trim_end_matches('\r'))
+            ));
+        }
+        out.push_str("</text>\n");
+    } else {
+        out.push_str(&format!(
+            r###"  <text x="{px:.1}" y="{first_baseline:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{fill}">{}</text>"###,
+            xml_escape(first.trim_end_matches('\r'))
+        ));
+        out.push('\n');
     }
 }
 
@@ -597,16 +760,7 @@ pub fn export_to_svg(
     let scale = SVG_SCALE;
 
     // Folha A4 padrão em escala CADe (330 x 233.35) preservando rigorosamente a razão de aspecto √2 (~1.4142):
-    let (sheet_w, sheet_h) =
-        if doc.settings.custom_width_mm > 0 && doc.settings.custom_height_mm > 0 {
-            let w_mm = doc.settings.custom_width_mm as f32;
-            let h_mm = doc.settings.custom_height_mm as f32;
-            let w_cad = (w_mm * (330.0 / 297.0)).max(100.0);
-            let h_cad = (h_mm * (330.0 / 297.0)).max(100.0);
-            (w_cad, h_cad)
-        } else {
-            (330.0, 330.0 * (210.0 / 297.0))
-        };
+    let (sheet_w, sheet_h) = sheet_dimensions_cad(doc);
 
     let is_selection = items_filter.is_some();
     let (view_x, view_y, view_w, view_h) = if let Some(filter) = items_filter {
@@ -680,6 +834,27 @@ pub fn export_to_svg(
                             max_y = max_y.max((item.y1 + ly) as f32 + 3.0);
                         }
                     }
+                } else if matches!(item.tipo, 1..=5) {
+                    min_x = min_x.min(item.x1.min(item.x2) as f32 - 2.0);
+                    max_x = max_x.max(item.x1.max(item.x2) as f32 + 2.0);
+                    min_y = min_y.min(item.y1.min(item.y2) as f32 - 2.0);
+                    max_y = max_y.max(item.y1.max(item.y2) as f32 + 2.0);
+                } else if item.tipo == 8 {
+                    let text_w = (item.trailing_str.chars().count().max(4) as f32) * 2.2;
+                    let w_span = if item.subvariant == 1 && item.x2 != item.x1 {
+                        (item.x2 - item.x1).abs() as f32
+                    } else {
+                        text_w
+                    };
+                    let h_span = if item.subvariant == 1 && item.y2 != item.y1 {
+                        (item.y2 - item.y1).abs() as f32
+                    } else {
+                        6.0
+                    };
+                    min_x = min_x.min(item.x1 as f32 - 2.0);
+                    max_x = max_x.max(item.x1 as f32 + w_span + 2.0);
+                    min_y = min_y.min(item.y1 as f32 - 2.0);
+                    max_y = max_y.max(item.y1 as f32 + h_span + 2.0);
                 } else {
                     min_x = min_x.min(item.x1 as f32 - 2.0);
                     max_x = max_x.max(item.x1 as f32 + 10.0);
@@ -733,9 +908,22 @@ pub fn export_to_svg(
 "###,
     );
 
-    // Fundo branco do papel
+    // Fundo do papel (personalizável quando não monocromático)
+    let paper_bg = if !opts.monochrome {
+        doc.settings
+            .sheet_bg_color
+            .map(|c| {
+                let r = ((c >> 16) & 0xFF) as u8;
+                let g = ((c >> 8) & 0xFF) as u8;
+                let b = (c & 0xFF) as u8;
+                format!("#{r:02x}{g:02x}{b:02x}")
+            })
+            .unwrap_or_else(|| "#ffffff".to_string())
+    } else {
+        "#ffffff".to_string()
+    };
     out.push_str(&format!(
-        r###"  <rect x="{view_x:.1}" y="{view_y:.1}" width="{view_w:.1}" height="{view_h:.1}" fill="#ffffff"/>"###
+        r###"  <rect x="{view_x:.1}" y="{view_y:.1}" width="{view_w:.1}" height="{view_h:.1}" fill="{paper_bg}"/>"###
     ));
     out.push('\n');
 
@@ -771,11 +959,13 @@ pub fn export_to_svg(
         ));
         out.push('\n');
 
-        // Referências numéricas de colunas (1..8)
+        // Referências numéricas de colunas dinâmicas (1..cols)
+        let grid_cols = doc.settings.effective_grid_cols();
+        let grid_rows = doc.settings.effective_grid_rows();
         let font_label_sz = (3.2 * scale).clamp(8.0, 14.0);
         let label_baseline_offset = font_label_sz * 0.78;
-        for col in 0..8 {
-            let cx = (6.0 + (col as f32 + 0.5) * ((sheet_w - 12.0) / 8.0)) * scale;
+        for col in 0..grid_cols {
+            let cx = (6.0 + (col as f32 + 0.5) * ((sheet_w - 12.0) / grid_cols as f32)) * scale;
             let y_top = 1.2 * scale + label_baseline_offset;
             let y_bot = (sheet_h - 4.5) * scale + label_baseline_offset;
             out.push_str(&format!(
@@ -790,9 +980,10 @@ pub fn export_to_svg(
             out.push('\n');
         }
 
-        // Referências alfabéticas de linhas (A..F)
-        for (row, ch) in ['A', 'B', 'C', 'D', 'E', 'F'].iter().enumerate() {
-            let ry = (6.0 + (row as f32 + 0.5) * ((sheet_h - 12.0) / 6.0)) * scale
+        // Referências alfabéticas de linhas dinâmicas (A..rows)
+        for row in 0..grid_rows {
+            let ch = char::from(b'A' + row as u8);
+            let ry = (6.0 + (row as f32 + 0.5) * ((sheet_h - 12.0) / grid_rows as f32)) * scale
                 + label_baseline_offset;
             out.push_str(&format!(
                 r###"  <text x="{:.1}" y="{ry:.1}" text-anchor="middle" font-size="{font_label_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{guide_text_col}">{}</text>"###,
@@ -1056,23 +1247,50 @@ pub fn export_to_svg(
             continue;
         }
 
-        // Texto livre (tipo == 3)
-        if item.tipo == 3 {
+        // Texto em linha ou Campo de texto gráfico (tipo == 8)
+        if item.tipo == 8 {
             let px = item.x1 as f32 * scale;
             let py = item.y1 as f32 * scale;
-            if !item.trailing_str.is_empty() {
-                let font_sz = (3.2 * scale).clamp(8.5, 15.0);
-                let text_baseline = py + font_sz * 0.78;
-                let text_col = if opts.monochrome {
-                    "#000000"
+            let font_sz = (3.2 * scale).clamp(8.5, 15.0);
+            let text_col = resolve_item_stroke_color(item.color, opts.monochrome, "#0f141c");
+
+            if item.subvariant == 1 {
+                let bx = item.x1.min(item.x2) as f32 * scale;
+                let by = item.y1.min(item.y2) as f32 * scale;
+                let bw = ((item.x2 - item.x1).abs().max(24) as f32) * scale;
+                let bh = ((item.y2 - item.y1).abs().max(8) as f32) * scale;
+                let box_stroke = resolve_item_stroke_color(item.color, opts.monochrome, "#475569");
+                let box_fill = if opts.monochrome {
+                    "#ffffff"
                 } else {
-                    "#0f141c"
+                    "#f8fafc"
                 };
                 out.push_str(&format!(
-                    r###"  <text x="{px:.1}" y="{text_baseline:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{text_col}">{}</text>"###,
-                    xml_escape(&item.trailing_str)
+                    r###"  <rect x="{bx:.1}" y="{by:.1}" width="{bw:.1}" height="{bh:.1}" rx="2" fill="{box_fill}" stroke="{box_stroke}" stroke-width="1.0"/>"###
                 ));
                 out.push('\n');
+                if !item.trailing_str.is_empty() {
+                    let tx = bx + 1.5 * scale;
+                    let text_baseline = by + 1.2 * scale + font_sz * 0.78;
+                    emit_svg_text_lines(
+                        &mut out,
+                        tx,
+                        text_baseline,
+                        font_sz,
+                        &text_col,
+                        &item.trailing_str,
+                    );
+                }
+            } else if !item.trailing_str.is_empty() {
+                let text_baseline = py + font_sz * 0.78;
+                emit_svg_text_lines(
+                    &mut out,
+                    px,
+                    text_baseline,
+                    font_sz,
+                    &text_col,
+                    &item.trailing_str,
+                );
             }
             continue;
         }
@@ -1083,16 +1301,7 @@ pub fn export_to_svg(
             let ay = item.y1 as f32 * scale;
             let bx = item.x2 as f32 * scale;
             let by = item.y2 as f32 * scale;
-            let stroke_col = if opts.monochrome {
-                "#000000".to_string()
-            } else if item.color != 0 {
-                let r_col = ((item.color >> 16) & 0xFF) as u8;
-                let g_col = ((item.color >> 8) & 0xFF) as u8;
-                let b_col = (item.color & 0xFF) as u8;
-                format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
-            } else {
-                "#1b2230".to_string()
-            };
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
             out.push_str(&format!(
                 r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" stroke="{stroke_col}" stroke-width="1.2"/>"###
             ));
@@ -1104,18 +1313,9 @@ pub fn export_to_svg(
         if item.tipo == 2 {
             let min_x = item.x1.min(item.x2) as f32 * scale;
             let min_y = item.y1.min(item.y2) as f32 * scale;
-            let w = (item.x2 - item.x1).abs() as f32 * scale;
-            let h = (item.y2 - item.y1).abs() as f32 * scale;
-            let stroke_col = if opts.monochrome {
-                "#000000".to_string()
-            } else if item.color != 0 {
-                let r_col = ((item.color >> 16) & 0xFF) as u8;
-                let g_col = ((item.color >> 8) & 0xFF) as u8;
-                let b_col = (item.color & 0xFF) as u8;
-                format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
-            } else {
-                "#1b2230".to_string()
-            };
+            let w = (item.x2 - item.x1).abs().max(2) as f32 * scale;
+            let h = (item.y2 - item.y1).abs().max(2) as f32 * scale;
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
             out.push_str(&format!(
                 r###"  <rect x="{min_x:.1}" y="{min_y:.1}" width="{w:.1}" height="{h:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
             ));
@@ -1123,24 +1323,100 @@ pub fn export_to_svg(
             continue;
         }
 
-        // Símbolos QET ou gerados pelo cade2svg
-        if let Some(qet_path) = item.symbol_id_or_slug() {
-            let stroke_col = if opts.monochrome {
-                "#000000".to_string()
-            } else if item.color != 0 {
-                let r_col = ((item.color >> 16) & 0xFF) as u8;
-                let g_col = ((item.color >> 8) & 0xFF) as u8;
-                let b_col = (item.color & 0xFF) as u8;
-                format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
+        // Círculo / Elipse gráfica (tipo == 3)
+        if item.tipo == 3 {
+            let cx = ((item.x1 + item.x2) as f32 * 0.5) * scale;
+            let cy = ((item.y1 + item.y2) as f32 * 0.5) * scale;
+            let rx = ((item.x2 - item.x1).abs() as f32 * 0.5).max(2.0) * scale;
+            let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(2.0) * scale;
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            if (rx - ry).abs() < 0.05 {
+                out.push_str(&format!(
+                    r###"  <circle cx="{cx:.1}" cy="{cy:.1}" r="{rx:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                ));
             } else {
-                "#111827".to_string()
-            };
+                out.push_str(&format!(
+                    r###"  <ellipse cx="{cx:.1}" cy="{cy:.1}" rx="{rx:.1}" ry="{ry:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                ));
+            }
+            out.push('\n');
+            continue;
+        }
+
+        // Arco gráfico (tipo == 4)
+        if item.tipo == 4 {
+            let (cx, cy, rx, ry, start_deg, sweep_deg) = graphic_arc_params(item);
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            if sweep_deg.abs() >= 360.0 {
+                let scx = cx * scale;
+                let scy = cy * scale;
+                let srx = rx * scale;
+                let sry = ry * scale;
+                out.push_str(&format!(
+                    r###"  <ellipse cx="{scx:.1}" cy="{scy:.1}" rx="{srx:.1}" ry="{sry:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                ));
+            } else {
+                let start_rad = start_deg.to_radians();
+                let end_rad = (start_deg + sweep_deg).to_radians();
+                let sx = (cx + rx * start_rad.cos()) * scale;
+                let sy = (cy - ry * start_rad.sin()) * scale;
+                let ex = (cx + rx * end_rad.cos()) * scale;
+                let ey = (cy - ry * end_rad.sin()) * scale;
+                let rad_x = rx * scale;
+                let rad_y = ry * scale;
+                let large_arc = if sweep_deg.abs() > 180.0 { 1 } else { 0 };
+                let sweep_flag = if sweep_deg >= 0.0 { 0 } else { 1 };
+                out.push_str(&format!(
+                    r###"  <path d="M {sx:.2} {sy:.2} A {rad_x:.2} {rad_y:.2} 0 {large_arc} {sweep_flag} {ex:.2} {ey:.2}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                ));
+            }
+            out.push('\n');
+            continue;
+        }
+
+        // Imagem gráfica (tipo == 5)
+        if item.tipo == 5 {
+            let bx = item.x1.min(item.x2) as f32 * scale;
+            let by = item.y1.min(item.y2) as f32 * scale;
+            let bw = ((item.x2 - item.x1).abs().max(12) as f32) * scale;
+            let bh = ((item.y2 - item.y1).abs().max(12) as f32) * scale;
+            if let Some(data_uri) = image_data_uri_for_svg(&item.trailing_str) {
+                out.push_str(&format!(
+                    r###"  <image x="{bx:.1}" y="{by:.1}" width="{bw:.1}" height="{bh:.1}" href="{data_uri}" preserveAspectRatio="none"/>"###
+                ));
+                out.push('\n');
+            } else {
+                let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#64748b");
+                out.push_str(&format!(
+                    r###"  <rect x="{bx:.1}" y="{by:.1}" width="{bw:.1}" height="{bh:.1}" fill="#f1f5f9" stroke="{stroke_col}" stroke-width="1.0" stroke-dasharray="4,3"/>"###
+                ));
+                out.push('\n');
+                let label = std::path::Path::new(&item.trailing_str)
+                    .file_name()
+                    .and_then(|n| n.to_str())
+                    .filter(|s| !s.is_empty())
+                    .unwrap_or("Imagem");
+                let font_sz = (2.6 * scale).clamp(7.5, 12.0);
+                let tx = bx + bw * 0.5;
+                let ty = by + bh * 0.5 + font_sz * 0.35;
+                out.push_str(&format!(
+                    r###"  <text x="{tx:.1}" y="{ty:.1}" text-anchor="middle" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_col}">[IMG: {}]</text>"###,
+                    xml_escape(&truncate_str(label, 24))
+                ));
+                out.push('\n');
+            }
+            continue;
+        }
+
+        // Símbolos QET ou gerados pelo cade2svg
+        if let Some(qet_type) = item.symbol_id_or_slug() {
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#111827");
             render_svg_symbol_to_svg(
                 &mut out,
                 item.x1,
                 item.y1,
                 item.orientation,
-                qet_path,
+                qet_type,
                 &stroke_col,
                 1.5,
                 None,
@@ -1148,7 +1424,7 @@ pub fn export_to_svg(
                 scale,
             );
             if opts.show_terminals {
-                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_path) {
+                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     let pin_rad = (crate::model::TERMINAL_RADIUS_UNITS * scale).max(1.2);
                     let pin_col = if opts.monochrome {
                         "#000000"
@@ -1182,16 +1458,15 @@ pub fn export_to_svg(
             continue;
         };
 
-        let stroke_color = if opts.monochrome {
-            "#000000".to_string()
-        } else if item.color != 0 && !item.is_lamp_or_signaling() {
-            let r_col = ((item.color >> 16) & 0xFF) as u8;
-            let g_col = ((item.color >> 8) & 0xFF) as u8;
-            let b_col = (item.color & 0xFF) as u8;
-            format!("#{r_col:02x}{g_col:02x}{b_col:02x}")
-        } else {
-            "#111827".to_string()
-        };
+        let stroke_color = resolve_item_stroke_color(
+            if item.is_lamp_or_signaling() {
+                0
+            } else {
+                item.color
+            },
+            opts.monochrome,
+            "#111827",
+        );
         let mut drew_svg = false;
         if let Some((svg_idle, _)) = sym.svg_paths() {
             let max_pin_y = sym.pins.iter().map(|p| p.conn_pos.1).fold(0, i32::max) as f32;
@@ -1314,25 +1589,64 @@ pub fn export_to_svg(
     out
 }
 
-/// Renderiza uma representação SVG para bytes de imagem PNG com suporte a escala de DPI.
-pub fn render_svg_to_png(svg_str: &str, scale: f32) -> Result<Vec<u8>, String> {
+/// Renderiza uma representação SVG para um buffer `tiny_skia::Pixmap` com suporte a escala de DPI.
+pub fn render_svg_to_pixmap(svg_str: &str, scale: f32) -> Result<tiny_skia::Pixmap, String> {
     let opt = create_usvg_options();
     let tree = resvg::usvg::Tree::from_str(svg_str, &opt)
         .map_err(|e| format!("Falha ao analisar SVG: {e}"))?;
 
     let size = tree.size().to_int_size();
-    let target_w = ((size.width() as f32) * scale).round() as u32;
-    let target_h = ((size.height() as f32) * scale).round() as u32;
+    let target_w = ((size.width() as f32) * scale).round().max(1.0) as u32;
+    let target_h = ((size.height() as f32) * scale).round().max(1.0) as u32;
 
     let mut pixmap = tiny_skia::Pixmap::new(target_w, target_h)
-        .ok_or_else(|| "Falha ao alocar buffer para renderizar PNG".to_string())?;
+        .ok_or_else(|| "Falha ao alocar buffer para renderizar imagem".to_string())?;
 
     let transform = tiny_skia::Transform::from_scale(scale, scale);
     resvg::render(&tree, transform, &mut pixmap.as_mut());
 
-    pixmap
+    Ok(pixmap)
+}
+
+/// Renderiza uma representação SVG para bytes de imagem PNG com suporte a escala de DPI.
+pub fn render_svg_to_png(svg_str: &str, scale: f32) -> Result<Vec<u8>, String> {
+    render_svg_to_pixmap(svg_str, scale)?
         .encode_png()
         .map_err(|e| format!("Erro ao codificar bytes PNG: {e}"))
+}
+
+fn export_to_pixmap(
+    doc: &SchematicDocument,
+    items_filter: Option<&[i32]>,
+    options: impl Into<ExportOptions>,
+    scale: impl Into<Option<f32>>,
+) -> Result<tiny_skia::Pixmap, String> {
+    let opts = options.into();
+    let svg = export_to_svg(doc, items_filter, opts);
+
+    let opt = create_usvg_options();
+    let tree = resvg::usvg::Tree::from_str(&svg, &opt)
+        .map_err(|e| format!("Falha ao analisar SVG para imagem raster: {e}"))?;
+
+    let size = tree.size().to_int_size();
+    let eff_scale = scale.into().unwrap_or_else(|| {
+        // Padrão 300 DPI para A4 horizontal: ~3508 px de largura
+        (3508.0 / size.width() as f32).max(2.0)
+    });
+
+    render_svg_to_pixmap(&svg, eff_scale)
+}
+
+fn pixmap_to_rgb24(pixmap: &tiny_skia::Pixmap) -> Vec<u8> {
+    let data = pixmap.data();
+    let mut rgb = Vec::with_capacity((data.len() / 4) * 3);
+    for px in data.as_chunks::<4>().0 {
+        let alpha_inv = 255u8.saturating_sub(px[3]);
+        rgb.push(px[0].saturating_add(alpha_inv));
+        rgb.push(px[1].saturating_add(alpha_inv));
+        rgb.push(px[2].saturating_add(alpha_inv));
+    }
+    rgb
 }
 
 /// Exporta uma folha ou seleção para PNG em alta resolução (300 DPI por padrão para folha inteira ~3508 px).
@@ -1342,20 +1656,569 @@ pub fn export_to_png(
     options: impl Into<ExportOptions>,
     scale: impl Into<Option<f32>>,
 ) -> Result<Vec<u8>, String> {
+    let pixmap = export_to_pixmap(doc, items_filter, options, scale)?;
+    pixmap
+        .encode_png()
+        .map_err(|e| format!("Erro ao codificar bytes PNG: {e}"))
+}
+
+/// Exporta uma folha ou seleção para JPEG em alta resolução (qualidade 92).
+pub fn export_to_jpg(
+    doc: &SchematicDocument,
+    items_filter: Option<&[i32]>,
+    options: impl Into<ExportOptions>,
+    scale: impl Into<Option<f32>>,
+) -> Result<Vec<u8>, String> {
+    let pixmap = export_to_pixmap(doc, items_filter, options, scale)?;
+    let rgb = pixmap_to_rgb24(&pixmap);
+    let mut buf = Vec::new();
+    let mut encoder = image::codecs::jpeg::JpegEncoder::new_with_quality(&mut buf, 92);
+    encoder
+        .encode(
+            &rgb,
+            pixmap.width(),
+            pixmap.height(),
+            image::ExtendedColorType::Rgb8,
+        )
+        .map_err(|e| format!("Erro ao codificar JPEG: {e}"))?;
+    Ok(buf)
+}
+
+/// Exporta uma folha ou seleção para BMP (RGB 24-bit sem compressão).
+pub fn export_to_bmp(
+    doc: &SchematicDocument,
+    items_filter: Option<&[i32]>,
+    options: impl Into<ExportOptions>,
+    scale: impl Into<Option<f32>>,
+) -> Result<Vec<u8>, String> {
+    let pixmap = export_to_pixmap(doc, items_filter, options, scale)?;
+    let rgb = pixmap_to_rgb24(&pixmap);
+    let mut buf = Vec::new();
+    let mut encoder = image::codecs::bmp::BmpEncoder::new(&mut buf);
+    encoder
+        .encode(
+            &rgb,
+            pixmap.width(),
+            pixmap.height(),
+            image::ExtendedColorType::Rgb8,
+        )
+        .map_err(|e| format!("Erro ao codificar BMP: {e}"))?;
+    Ok(buf)
+}
+
+struct DxfWriter {
+    buf: String,
+    sheet_h: f32,
+}
+
+impl DxfWriter {
+    fn new(sheet_h: f32) -> Self {
+        let mut buf = String::with_capacity(16_384);
+        buf.push_str(
+            "0\nSECTION\n2\nHEADER\n9\n$ACADVER\n1\nAC1009\n9\n$INSUNITS\n70\n4\n0\nENDSEC\n",
+        );
+        buf.push_str("0\nSECTION\n2\nTABLES\n0\nTABLE\n2\nLAYER\n70\n5\n");
+        for (name, color) in [
+            ("BORDER", 7),
+            ("WIRES", 7),
+            ("SYMBOLS", 7),
+            ("GRAPHICS", 7),
+            ("TEXT", 7),
+        ] {
+            buf.push_str(&format!(
+                "0\nLAYER\n2\n{name}\n70\n0\n62\n{color}\n6\nCONTINUOUS\n"
+            ));
+        }
+        buf.push_str("0\nENDTAB\n0\nENDSEC\n0\nSECTION\n2\nENTITIES\n");
+        Self { buf, sheet_h }
+    }
+
+    #[inline]
+    fn dy(&self, y: f32) -> f32 {
+        self.sheet_h - y
+    }
+
+    fn line(&mut self, layer: &str, aci: u8, x1: f32, y1: f32, x2: f32, y2: f32) {
+        let ay = self.dy(y1);
+        let by = self.dy(y2);
+        self.buf.push_str(&format!(
+            "0\nLINE\n8\n{layer}\n62\n{aci}\n10\n{x1:.3}\n20\n{ay:.3}\n30\n0.0\n11\n{x2:.3}\n21\n{by:.3}\n31\n0.0\n"
+        ));
+    }
+
+    fn rect(&mut self, layer: &str, aci: u8, x: f32, y: f32, w: f32, h: f32) {
+        self.line(layer, aci, x, y, x + w, y);
+        self.line(layer, aci, x + w, y, x + w, y + h);
+        self.line(layer, aci, x + w, y + h, x, y + h);
+        self.line(layer, aci, x, y + h, x, y);
+    }
+
+    fn circle(&mut self, layer: &str, aci: u8, cx: f32, cy: f32, r: f32) {
+        let y = self.dy(cy);
+        self.buf.push_str(&format!(
+            "0\nCIRCLE\n8\n{layer}\n62\n{aci}\n10\n{cx:.3}\n20\n{y:.3}\n30\n0.0\n40\n{r:.3}\n"
+        ));
+    }
+
+    fn arc(
+        &mut self,
+        layer: &str,
+        aci: u8,
+        center: (f32, f32),
+        r: f32,
+        start_deg: f32,
+        end_deg: f32,
+    ) {
+        let (cx, cy) = center;
+        let y = self.dy(cy);
+        let a0 = start_deg.rem_euclid(360.0);
+        let a1 = end_deg.rem_euclid(360.0);
+        self.buf.push_str(&format!(
+            "0\nARC\n8\n{layer}\n62\n{aci}\n10\n{cx:.3}\n20\n{y:.3}\n30\n0.0\n40\n{r:.3}\n50\n{a0:.2}\n51\n{a1:.2}\n"
+        ));
+    }
+
+    fn ellipse_approx(&mut self, layer: &str, aci: u8, cx: f32, cy: f32, rx: f32, ry: f32) {
+        if (rx - ry).abs() < 0.05 {
+            self.circle(layer, aci, cx, cy, rx);
+            return;
+        }
+        let steps = 24;
+        for i in 0..steps {
+            let a0 = (i as f32 / steps as f32) * std::f32::consts::TAU;
+            let a1 = ((i + 1) as f32 / steps as f32) * std::f32::consts::TAU;
+            self.line(
+                layer,
+                aci,
+                cx + rx * a0.cos(),
+                cy - ry * a0.sin(),
+                cx + rx * a1.cos(),
+                cy - ry * a1.sin(),
+            );
+        }
+    }
+
+    fn text(&mut self, layer: &str, aci: u8, x: f32, y: f32, height: f32, content: &str) {
+        let sanitized: String = content
+            .chars()
+            .map(|c| if c == '\n' || c == '\r' { ' ' } else { c })
+            .collect();
+        if sanitized.trim().is_empty() {
+            return;
+        }
+        let dy = self.dy(y);
+        self.buf.push_str(&format!(
+            "0\nTEXT\n8\n{layer}\n62\n{aci}\n10\n{x:.3}\n20\n{dy:.3}\n30\n0.0\n40\n{height:.2}\n1\n{sanitized}\n"
+        ));
+    }
+
+    fn finish(mut self) -> Vec<u8> {
+        self.buf.push_str("0\nENDSEC\n0\nEOF\n");
+        self.buf.into_bytes()
+    }
+}
+
+fn wire_tipo_to_dxf_aci(tipo: i32, color: i32, monochrome: bool) -> u8 {
+    if monochrome {
+        return 7;
+    }
+    if color != 0 {
+        let r = (color >> 16) & 0xFF;
+        let g = (color >> 8) & 0xFF;
+        let b = color & 0xFF;
+        if r > 170 && g < 90 && b < 90 {
+            return 1;
+        }
+        if g > 140 && r < 90 && b < 90 {
+            return 3;
+        }
+        if b > 150 && r < 90 {
+            return 5;
+        }
+        if r > 170 && g > 140 && b < 90 {
+            return 2;
+        }
+    }
+    match tipo {
+        40..=49 => 3,
+        50..=59 => 5,
+        60..=69 => 2,
+        70..=79 => 1,
+        80..=89 => 4,
+        _ => 7,
+    }
+}
+
+/// Exporta uma folha ou seleção em formato AutoCAD DXF R12 ASCII vetorial.
+pub fn export_to_dxf(
+    doc: &SchematicDocument,
+    items_filter: Option<&[i32]>,
+    options: impl Into<ExportOptions>,
+) -> Vec<u8> {
     let opts = options.into();
-    let svg = export_to_svg(doc, items_filter, opts);
+    let (sheet_w, sheet_h) = sheet_dimensions_cad(doc);
+    let mut dxf = DxfWriter::new(sheet_h);
 
-    let opt = create_usvg_options();
-    let tree = resvg::usvg::Tree::from_str(&svg, &opt)
-        .map_err(|e| format!("Falha ao analisar SVG para PNG: {e}"))?;
+    if items_filter.is_none() && opts.include_cajetin {
+        dxf.rect("BORDER", 7, 0.0, 0.0, sheet_w, sheet_h);
+        dxf.rect("BORDER", 7, 6.0, 6.0, sheet_w - 12.0, sheet_h - 12.0);
+        let caj_y = sheet_h - 32.0;
+        dxf.rect("BORDER", 7, 6.0, caj_y, sheet_w - 12.0, 26.0);
+        let tb = &doc.title_block;
+        if !tb.title.is_empty() {
+            dxf.text("TEXT", 7, 130.0, caj_y + 12.0, 3.6, &tb.title);
+        }
+        if !tb.entity.is_empty() {
+            dxf.text("TEXT", 7, 65.0, caj_y + 20.0, 3.0, &tb.entity);
+        }
+        if !tb.sheet.is_empty() {
+            dxf.text("TEXT", 7, sheet_w - 30.0, caj_y + 20.0, 3.0, &tb.sheet);
+        }
+    }
 
-    let size = tree.size().to_int_size();
-    let eff_scale = scale.into().unwrap_or_else(|| {
-        // Padrão 300 DPI para A4 horizontal: ~3508 px de largura
-        (3508.0 / size.width() as f32).max(2.0)
-    });
+    for item in &doc.items {
+        if let Some(filter) = items_filter {
+            if !filter.contains(&item.id) {
+                continue;
+            }
+        }
+        if item.is_wire() {
+            let aci = wire_tipo_to_dxf_aci(item.tipo, item.color, opts.monochrome);
+            dxf.line(
+                "WIRES",
+                aci,
+                item.x1 as f32,
+                item.y1 as f32,
+                item.x2 as f32,
+                item.y2 as f32,
+            );
+            continue;
+        }
+        if item.is_junction() {
+            let aci = wire_tipo_to_dxf_aci(item.tipo, item.color, opts.monochrome);
+            dxf.circle("WIRES", aci, item.x1 as f32, item.y1 as f32, 0.9);
+            continue;
+        }
 
-    render_svg_to_png(&svg, eff_scale)
+        let aci = wire_tipo_to_dxf_aci(item.tipo, item.color, opts.monochrome);
+        match item.tipo {
+            1 => {
+                dxf.line(
+                    "GRAPHICS",
+                    aci,
+                    item.x1 as f32,
+                    item.y1 as f32,
+                    item.x2 as f32,
+                    item.y2 as f32,
+                );
+            }
+            2 => {
+                let x = item.x1.min(item.x2) as f32;
+                let y = item.y1.min(item.y2) as f32;
+                let w = (item.x2 - item.x1).abs().max(2) as f32;
+                let h = (item.y2 - item.y1).abs().max(2) as f32;
+                dxf.rect("GRAPHICS", aci, x, y, w, h);
+            }
+            3 => {
+                let cx = (item.x1 + item.x2) as f32 * 0.5;
+                let cy = (item.y1 + item.y2) as f32 * 0.5;
+                let rx = ((item.x2 - item.x1).abs() as f32 * 0.5).max(2.0);
+                let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(2.0);
+                dxf.ellipse_approx("GRAPHICS", aci, cx, cy, rx, ry);
+            }
+            4 => {
+                let (cx, cy, rx, ry, start_deg, sweep_deg) = graphic_arc_params(item);
+                if (rx - ry).abs() < 0.05 && sweep_deg.abs() < 360.0 {
+                    let (a0, a1) = if sweep_deg >= 0.0 {
+                        (start_deg, start_deg + sweep_deg)
+                    } else {
+                        (start_deg + sweep_deg, start_deg)
+                    };
+                    dxf.arc("GRAPHICS", aci, (cx, cy), rx, a0, a1);
+                } else {
+                    let steps = 16;
+                    for i in 0..steps {
+                        let t0 = (start_deg + sweep_deg * (i as f32 / steps as f32)).to_radians();
+                        let t1 =
+                            (start_deg + sweep_deg * ((i + 1) as f32 / steps as f32)).to_radians();
+                        dxf.line(
+                            "GRAPHICS",
+                            aci,
+                            cx + rx * t0.cos(),
+                            cy - ry * t0.sin(),
+                            cx + rx * t1.cos(),
+                            cy - ry * t1.sin(),
+                        );
+                    }
+                }
+            }
+            5 => {
+                let x = item.x1.min(item.x2) as f32;
+                let y = item.y1.min(item.y2) as f32;
+                let w = (item.x2 - item.x1).abs().max(12) as f32;
+                let h = (item.y2 - item.y1).abs().max(12) as f32;
+                dxf.rect("GRAPHICS", aci, x, y, w, h);
+                dxf.text("TEXT", aci, x + 2.0, y + h * 0.5, 2.5, &item.trailing_str);
+            }
+            8 => {
+                if item.subvariant == 1 {
+                    let x = item.x1.min(item.x2) as f32;
+                    let y = item.y1.min(item.y2) as f32;
+                    let w = (item.x2 - item.x1).abs().max(24) as f32;
+                    let h = (item.y2 - item.y1).abs().max(8) as f32;
+                    dxf.rect("GRAPHICS", aci, x, y, w, h);
+                    dxf.text("TEXT", aci, x + 1.5, y + 5.0, 2.8, &item.trailing_str);
+                } else {
+                    dxf.text(
+                        "TEXT",
+                        aci,
+                        item.x1 as f32,
+                        item.y1 as f32 + 3.0,
+                        3.0,
+                        &item.trailing_str,
+                    );
+                }
+            }
+            _ => {
+                let ox = item.x1 as f32;
+                let oy = item.y1 as f32;
+                if let Some(qet_path) = item.symbol_id_or_slug() {
+                    if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_path) {
+                        emit_dxf_qet_shapes(
+                            &mut dxf,
+                            &parsed,
+                            ox,
+                            oy,
+                            item.orientation,
+                            aci,
+                            opts.show_terminals,
+                        );
+                    }
+                } else if let Some(sym) = find_symbol_ref(item.tipo) {
+                    emit_dxf_symbol_primitives(
+                        &mut dxf,
+                        sym.idle_cmds,
+                        ox,
+                        oy,
+                        item.orientation,
+                        aci,
+                    );
+                    if opts.show_terminals {
+                        for (_, _, (wx, wy)) in sym.world_pins(item) {
+                            dxf.circle("SYMBOLS", 1, wx as f32, wy as f32, 0.7);
+                        }
+                    }
+                    if item.show_tag == 1 && !item.tag.is_empty() {
+                        let (tx, ty) = match item.tipo {
+                            3000..=3009 => (item.x1 - 5, item.y1 - 5),
+                            1000..=1012 => (item.x1 - 8, item.y1 + 9),
+                            _ => (item.x1 - 8, item.y1 + 3),
+                        };
+                        let tag_aci = if opts.monochrome { 7 } else { 1 };
+                        dxf.text("TEXT", tag_aci, tx as f32, ty as f32 + 3.0, 2.8, &item.tag);
+                    }
+                    if item.show_value == 1 && !item.value.is_empty() {
+                        dxf.text(
+                            "TEXT",
+                            7,
+                            (item.x1 + 5) as f32,
+                            (item.y1 + 8) as f32,
+                            2.5,
+                            &format!("{}s", item.value),
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    dxf.finish()
+}
+
+fn emit_dxf_qet_shapes(
+    dxf: &mut DxfWriter,
+    parsed: &crate::svg_symbol::ParsedSvgSymbol,
+    ox: f32,
+    oy: f32,
+    orientation: i32,
+    aci: u8,
+    show_terminals: bool,
+) {
+    for shape in &parsed.shapes {
+        match shape {
+            crate::svg_symbol::SvgShape::Line { x1, y1, x2, y2, .. } => {
+                let (lx1, ly1) = parsed.map_point(*x1, *y1, 1.0);
+                let (lx2, ly2) = parsed.map_point(*x2, *y2, 1.0);
+                let (rx1, ry1) = transform_offset_f32(lx1, ly1, orientation);
+                let (rx2, ry2) = transform_offset_f32(lx2, ly2, orientation);
+                dxf.line("SYMBOLS", aci, ox + rx1, oy + ry1, ox + rx2, oy + ry2);
+            }
+            crate::svg_symbol::SvgShape::Polyline { points }
+            | crate::svg_symbol::SvgShape::Polygon { points, .. } => {
+                if points.len() < 2 {
+                    continue;
+                }
+                let mapped: Vec<(f32, f32)> = points
+                    .iter()
+                    .map(|&(px, py)| {
+                        let (lx, ly) = parsed.map_point(px, py, 1.0);
+                        let (rx, ry) = transform_offset_f32(lx, ly, orientation);
+                        (ox + rx, oy + ry)
+                    })
+                    .collect();
+                for pair in mapped.windows(2) {
+                    dxf.line("SYMBOLS", aci, pair[0].0, pair[0].1, pair[1].0, pair[1].1);
+                }
+                if matches!(shape, crate::svg_symbol::SvgShape::Polygon { .. }) && mapped.len() > 2
+                {
+                    let last = mapped[mapped.len() - 1];
+                    dxf.line("SYMBOLS", aci, last.0, last.1, mapped[0].0, mapped[0].1);
+                }
+            }
+            crate::svg_symbol::SvgShape::Circle {
+                cx,
+                cy,
+                r,
+                is_terminal,
+                ..
+            } => {
+                if *is_terminal && !show_terminals {
+                    continue;
+                }
+                let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
+                let (rx, ry) = transform_offset_f32(lx, ly, orientation);
+                let scale_r = if parsed.is_cade_svg {
+                    *r / 5.0
+                } else {
+                    *r * parsed.scale_factor()
+                }
+                .max(0.6);
+                dxf.circle("SYMBOLS", aci, ox + rx, oy + ry, scale_r);
+            }
+            crate::svg_symbol::SvgShape::Ellipse { cx, cy, rx, ry, .. } => {
+                let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
+                let (rot_x, rot_y) = transform_offset_f32(lx, ly, orientation);
+                let sf = if parsed.is_cade_svg {
+                    0.2
+                } else {
+                    parsed.scale_factor()
+                };
+                let (m_rx, m_ry) = if orientation.rem_euclid(2) == 1 {
+                    (*ry * sf, *rx * sf)
+                } else {
+                    (*rx * sf, *ry * sf)
+                };
+                dxf.ellipse_approx("SYMBOLS", aci, ox + rot_x, oy + rot_y, m_rx, m_ry);
+            }
+            crate::svg_symbol::SvgShape::Rect { x, y, w, h, .. } => {
+                let corners = [
+                    parsed.map_point(*x, *y, 1.0),
+                    parsed.map_point(*x + *w, *y, 1.0),
+                    parsed.map_point(*x + *w, *y + *h, 1.0),
+                    parsed.map_point(*x, *y + *h, 1.0),
+                ];
+                let mapped: Vec<(f32, f32)> = corners
+                    .iter()
+                    .map(|&(lx, ly)| {
+                        let (rx, ry) = transform_offset_f32(lx, ly, orientation);
+                        (ox + rx, oy + ry)
+                    })
+                    .collect();
+                for i in 0..4 {
+                    let a = mapped[i];
+                    let b = mapped[(i + 1) % 4];
+                    dxf.line("SYMBOLS", aci, a.0, a.1, b.0, b.1);
+                }
+            }
+            crate::svg_symbol::SvgShape::Text { x, y, text, .. } => {
+                let (lx, ly) = parsed.map_point(*x, *y, 1.0);
+                let (rx, ry) = transform_offset_f32(lx, ly, orientation);
+                dxf.text("TEXT", aci, ox + rx, oy + ry + 2.0, 2.5, text);
+            }
+        }
+    }
+}
+
+fn emit_dxf_symbol_primitives(
+    dxf: &mut DxfWriter,
+    cmds: &[&str],
+    ox: f32,
+    oy: f32,
+    orientation: i32,
+    aci: u8,
+) {
+    for &cmd in cmds {
+        let Some(prim) = crate::symbols::parse_vector_cmd(cmd) else {
+            continue;
+        };
+        match prim {
+            crate::symbols::VectorPrimitive::Line { x1, y1, x2, y2 } => {
+                let (rx1, ry1) =
+                    transform_offset_f32(x1 as f32 / 5.0, y1 as f32 / 5.0, orientation);
+                let (rx2, ry2) =
+                    transform_offset_f32(x2 as f32 / 5.0, y2 as f32 / 5.0, orientation);
+                dxf.line("SYMBOLS", aci, ox + rx1, oy + ry1, ox + rx2, oy + ry2);
+            }
+            crate::symbols::VectorPrimitive::Ellipse { x1, y1, x2, y2 } => {
+                let cx = (x1 + x2) as f32 / 10.0;
+                let cy = (y1 + y2) as f32 / 10.0;
+                let rx = ((x2 - x1).abs() as f32 / 10.0).max(0.2);
+                let ry = ((y2 - y1).abs() as f32 / 10.0).max(0.2);
+                let (rot_cx, rot_cy) = transform_offset_f32(cx, cy, orientation);
+                let (m_rx, m_ry) = if orientation.rem_euclid(2) == 1 {
+                    (ry, rx)
+                } else {
+                    (rx, ry)
+                };
+                dxf.ellipse_approx("SYMBOLS", aci, ox + rot_cx, oy + rot_cy, m_rx, m_ry);
+            }
+            crate::symbols::VectorPrimitive::Arc {
+                x1,
+                y1,
+                x2,
+                y2,
+                x3,
+                y3,
+                x4,
+                y4,
+            } => {
+                let geom =
+                    crate::symbols::VectorPrimitive::arc_geometry(x1, y1, x2, y2, x3, y3, x4, y4);
+                let (rot_sx, rot_sy) =
+                    transform_offset_f32(geom.start_x, geom.start_y, orientation);
+                let (rot_ex, rot_ey) = transform_offset_f32(geom.end_x, geom.end_y, orientation);
+                dxf.line(
+                    "SYMBOLS",
+                    aci,
+                    ox + rot_sx,
+                    oy + rot_sy,
+                    ox + rot_ex,
+                    oy + rot_ey,
+                );
+            }
+            crate::symbols::VectorPrimitive::Polygon { pts } => {
+                let mapped: Vec<(f32, f32)> = pts
+                    .iter()
+                    .map(|&(px, py)| {
+                        let (rx, ry) =
+                            transform_offset_f32(px as f32 / 5.0, py as f32 / 5.0, orientation);
+                        (ox + rx, oy + ry)
+                    })
+                    .collect();
+                for pair in mapped.windows(2) {
+                    dxf.line("SYMBOLS", aci, pair[0].0, pair[0].1, pair[1].0, pair[1].1);
+                }
+                if mapped.len() > 2 {
+                    let last = mapped[mapped.len() - 1];
+                    dxf.line("SYMBOLS", aci, last.0, last.1, mapped[0].0, mapped[0].1);
+                }
+            }
+            crate::symbols::VectorPrimitive::Text { x, y, text } => {
+                let (rx, ry) = transform_offset_f32(x as f32 / 5.0, y as f32 / 5.0, orientation);
+                dxf.text("TEXT", aci, ox + rx - 1.2, oy + ry + 1.0, 2.5, &text);
+            }
+        }
+    }
 }
 
 /// Exporta uma folha ou seleção de elementos para documento PDF vetorial puro (via `svg2pdf`).
@@ -1636,5 +2499,72 @@ mod tests {
         assert!(svg.contains("<ellipse "));
         assert!(svg.contains("rx=\""));
         assert!(svg.contains("ry=\""));
+    }
+
+    #[test]
+    fn test_export_to_jpg_and_bmp_produce_valid_raster_bytes() {
+        let doc = build_dol_starter_preset();
+        let jpg = export_to_jpg(&doc, None, true, 0.5).expect("Render JPG");
+        // Assinatura SOI do JPEG: FF D8 FF
+        assert!(jpg.len() > 200);
+        assert_eq!(&jpg[0..3], &[0xFF, 0xD8, 0xFF]);
+
+        let bmp = export_to_bmp(&doc, None, true, 0.5).expect("Render BMP");
+        // Assinatura mágica BMP: 'BM'
+        assert!(bmp.len() > 200);
+        assert_eq!(&bmp[0..2], b"BM");
+    }
+
+    #[test]
+    fn test_export_to_dxf_contains_entities_and_layers() {
+        let doc = build_dol_starter_preset();
+        let dxf_bytes = export_to_dxf(&doc, None, true);
+        let dxf = String::from_utf8(dxf_bytes).expect("DXF ASCII válido");
+        assert!(dxf.contains("AC1009"));
+        assert!(dxf.contains("ENTITIES"));
+        assert!(dxf.contains("LINE"));
+        assert!(dxf.contains("-KM1"));
+        assert!(dxf.contains("EOF"));
+    }
+
+    #[test]
+    fn test_export_graphic_primitives_svg_and_dxf() {
+        use crate::model::{SchematicDocument, SchematicItem};
+
+        let mut doc = SchematicDocument::default();
+        let mut t_inline = SchematicItem::new_symbol(1, 8, 20, 20, "");
+        t_inline.trailing_str = "LinhaLivre".to_string();
+        doc.items.push(t_inline);
+
+        let mut t_box = SchematicItem::new_symbol(2, 8, 20, 35, "");
+        t_box.subvariant = 1;
+        t_box.x2 = 80;
+        t_box.y2 = 55;
+        t_box.trailing_str = "CampoCaixa".to_string();
+        doc.items.push(t_box);
+
+        let mut circle = SchematicItem::new_symbol(3, 3, 100, 40, "");
+        circle.x2 = 120;
+        circle.y2 = 60;
+        doc.items.push(circle);
+
+        let mut arc = SchematicItem::new_symbol(4, 4, 140, 40, "");
+        arc.x2 = 160;
+        arc.y2 = 60;
+        arc.aux_coords[0] = 0;
+        arc.aux_coords[1] = 120;
+        doc.items.push(arc);
+
+        let svg = export_to_svg(&doc, None, false);
+        assert!(svg.contains("LinhaLivre"));
+        assert!(svg.contains("CampoCaixa"));
+        assert!(svg.contains("<circle "));
+        assert!(svg.contains("<path d=\"M "));
+
+        let dxf = String::from_utf8(export_to_dxf(&doc, None, false)).expect("DXF texto");
+        assert!(dxf.contains("LinhaLivre"));
+        assert!(dxf.contains("CampoCaixa"));
+        assert!(dxf.contains("CIRCLE"));
+        assert!(dxf.contains("ARC"));
     }
 }

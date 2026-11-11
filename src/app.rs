@@ -298,7 +298,18 @@ pub enum Message {
     ToggleAutoDisconnect,
     SetGridDensity(crate::model::GridDensity),
     SaveAll,
+    SaveCopyDialog,
+    FileCopySaved(Option<PathBuf>),
+    ClearRecentFiles,
     PrintDocument,
+    OpenPrintModal,
+    ClosePrintModal,
+    SelectPrintScope(ExportScope),
+    SelectPrintPage(usize),
+    TogglePrintCajetin(bool),
+    TogglePrintMonochrome(bool),
+    ConfirmPrint,
+    SavePrintPdf,
     ShowAbout,
     CloseAbout,
     ToggleLeftDockCollapse,
@@ -344,6 +355,52 @@ pub enum Message {
     InputColorHex(String),
     ConfirmColorModal,
     ApplyColor(i32),
+    InsertImageDialog,
+    ImageFileSelected(Option<PathBuf>),
+    AddGridRow,
+    RemoveGridRow,
+    AddGridCol,
+    RemoveGridCol,
+    OpenPagePropertiesModal,
+    ClosePagePropertiesModal,
+    EditPagePropName(String),
+    EditPagePropTitle(String),
+    EditPagePropSubtitle(String),
+    EditPagePropEntity(String),
+    EditPagePropAuthor(String),
+    EditPagePropWidthMm(String),
+    EditPagePropHeightMm(String),
+    ApplyPageProperties,
+    EditItemTrailingText(String),
+    EditItemArcStart(String),
+    EditItemArcSweep(String),
+    ToggleSubmenu(&'static str),
+    ShowProjectsDock,
+    ToggleFullCrosshair,
+    ToggleTextGrid,
+    ToggleAlignmentGuides,
+    ToggleKeepHeadersVisible,
+    ToggleCellBounds,
+    ToggleShowTerminals,
+    ToggleShowCajetin,
+    SetSheetBgPreset(Option<i32>),
+    ZoomFit,
+    CenterOnCursor,
+    OpenProjectPropertiesModal,
+    CloseProjectPropertiesModal,
+    EditProjectPropTitle(String),
+    EditProjectPropEntity(String),
+    EditProjectPropAuthor(String),
+    EditProjectPropVersion(String),
+    ToggleProjectAutoSave(bool),
+    ApplyProjectProperties,
+    OpenSettingsModal,
+    CloseSettingsModal,
+    SetThemeMode(ThemeMode),
+    OpenShortcutsModal,
+    CloseShortcutsModal,
+    ToggleFocusCanvas,
+    ExitApplication,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -353,6 +410,7 @@ pub enum ActiveMenu {
     Projeto,
     Exibicao,
     Configuracoes,
+    Janela,
     Ajuda,
 }
 
@@ -416,7 +474,16 @@ pub struct CadeSimuApp {
     pub open_menu: Option<ActiveMenu>,
     pub show_about_modal: bool,
     pub show_export_modal: bool,
+    pub show_print_modal: bool,
+    pub show_page_properties_modal: bool,
     pub show_color_modal: bool,
+    pub page_prop_name: String,
+    pub page_prop_title: String,
+    pub page_prop_subtitle: String,
+    pub page_prop_entity: String,
+    pub page_prop_author: String,
+    pub page_prop_width_mm: String,
+    pub page_prop_height_mm: String,
     pub pending_color_hex: String,
     pub pending_color_int: i32,
     pub export_format: ExportFormat,
@@ -425,6 +492,27 @@ pub struct CadeSimuApp {
     pub export_include_cajetin: bool,
     pub export_show_terminals: bool,
     pub export_monochrome: bool,
+    pub print_scope: ExportScope,
+    pub print_page_index: usize,
+    pub print_include_cajetin: bool,
+    pub print_monochrome: bool,
+    pub open_submenu: Option<&'static str>,
+    pub show_full_crosshair: bool,
+    pub show_text_grid: bool,
+    pub show_alignment_guides: bool,
+    pub keep_headers_visible: bool,
+    pub show_cell_bounds: bool,
+    pub show_terminals: bool,
+    pub show_cajetin: bool,
+    pub show_project_properties_modal: bool,
+    pub show_settings_modal: bool,
+    pub show_shortcuts_modal: bool,
+    pub proj_prop_title: String,
+    pub proj_prop_entity: String,
+    pub proj_prop_author: String,
+    pub proj_prop_version: String,
+    pub proj_prop_auto_save: bool,
+    pub focus_canvas: bool,
     pub undo_stack: Vec<SchematicDocument>,
     pub redo_stack: Vec<SchematicDocument>,
     pub drag_undo_snapshot: Option<SchematicDocument>,
@@ -477,6 +565,30 @@ fn default_projects_dir() -> PathBuf {
         return cwd;
     }
     PathBuf::from(".")
+}
+
+async fn pick_save_project_path(
+    title: String,
+    start_dir: PathBuf,
+    default_name: String,
+    preferred_fmt: SaveFormat,
+) -> Option<PathBuf> {
+    let mut dialog = rfd::AsyncFileDialog::new()
+        .set_title(&title)
+        .set_directory(&start_dir)
+        .set_file_name(&default_name);
+
+    let mut order = vec![preferred_fmt];
+    for fmt in SaveFormat::ALL {
+        if fmt != preferred_fmt {
+            order.push(fmt);
+        }
+    }
+    for fmt in order {
+        dialog = dialog.add_filter(fmt.filter_label(), &[fmt.extension()]);
+    }
+
+    dialog.save_file().await.map(|h| h.path().to_path_buf())
 }
 
 impl CadeSimuApp {
@@ -551,7 +663,16 @@ impl CadeSimuApp {
                 open_menu: None,
                 show_about_modal: false,
                 show_export_modal: false,
+                show_print_modal: false,
+                show_page_properties_modal: false,
                 show_color_modal: false,
+                page_prop_name: "Potência e Comando".to_string(),
+                page_prop_title: String::new(),
+                page_prop_subtitle: String::new(),
+                page_prop_entity: String::new(),
+                page_prop_author: String::new(),
+                page_prop_width_mm: "210".to_string(),
+                page_prop_height_mm: "279".to_string(),
                 pending_color_hex: "#000000".to_string(),
                 pending_color_int: 0,
                 export_format: ExportFormat::Cad,
@@ -560,6 +681,27 @@ impl CadeSimuApp {
                 export_include_cajetin: true,
                 export_show_terminals: false,
                 export_monochrome: false,
+                print_scope: ExportScope::Page,
+                print_page_index: 0,
+                print_include_cajetin: true,
+                print_monochrome: false,
+                open_submenu: None,
+                show_full_crosshair: false,
+                show_text_grid: false,
+                show_alignment_guides: false,
+                keep_headers_visible: false,
+                show_cell_bounds: false,
+                show_terminals: true,
+                show_cajetin: true,
+                show_project_properties_modal: false,
+                show_settings_modal: false,
+                show_shortcuts_modal: false,
+                proj_prop_title: String::new(),
+                proj_prop_entity: String::new(),
+                proj_prop_author: String::new(),
+                proj_prop_version: "Rev 1.0".to_string(),
+                proj_prop_auto_save: false,
+                focus_canvas: false,
                 undo_stack: Vec::new(),
                 redo_stack: Vec::new(),
                 drag_undo_snapshot: None,
@@ -704,6 +846,73 @@ impl CadeSimuApp {
         }
     }
 
+    /// Sincroniza o documento em edição com a página ativa na lista de páginas.
+    pub fn sync_active_page(&mut self) {
+        if self.active_page_index < self.pages.len() {
+            self.pages[self.active_page_index].doc = self.doc.clone();
+        }
+    }
+
+    /// Registra um arquivo no topo da lista dinâmica de "Últimos Arquivos".
+    pub fn push_recent_file(&mut self, path: &std::path::Path) {
+        let p_str = path.to_string_lossy().to_string();
+        if p_str.is_empty() {
+            return;
+        }
+        self.recent_files.retain(|x| x != &p_str);
+        self.recent_files.insert(0, p_str);
+        if self.recent_files.len() > 25 {
+            self.recent_files.truncate(25);
+        }
+    }
+
+    fn write_project_to_path(&mut self, path: &std::path::Path) -> Result<(), String> {
+        self.sync_active_page();
+        let ext = path
+            .extension()
+            .and_then(|e| e.to_str())
+            .map(|s| s.to_ascii_lowercase())
+            .unwrap_or_default();
+        if ext == "qet" {
+            crate::qet::export_pages_to_qet(
+                &self.pages,
+                self.active_page_index,
+                path,
+                self.qet_project.as_ref(),
+            )
+        } else {
+            crate::io::save_project(path, &self.pages, self.active_page_index)
+        }
+    }
+
+    /// Gera os bytes PDF vetoriais prontos para impressão conforme as opções do modal de impressão.
+    pub fn build_print_pdf_bytes(&self) -> Result<Vec<u8>, String> {
+        let opts = crate::export::ExportOptions {
+            include_cajetin: self.print_include_cajetin,
+            show_terminals: false,
+            monochrome: self.print_monochrome,
+        };
+        if self.print_scope == ExportScope::Project && self.pages.len() > 1 {
+            let mut snapshot = self.pages.clone();
+            if self.active_page_index < snapshot.len() {
+                snapshot[self.active_page_index].doc = self.doc.clone();
+            }
+            crate::export::export_project_to_pdf(&snapshot, opts)
+        } else {
+            let page_idx = self
+                .print_page_index
+                .min(self.pages.len().saturating_sub(1));
+            let doc_ref = if page_idx == self.active_page_index {
+                &self.doc
+            } else if page_idx < self.pages.len() {
+                &self.pages[page_idx].doc
+            } else {
+                &self.doc
+            };
+            crate::export::export_doc_to_pdf(doc_ref, None, opts)
+        }
+    }
+
     pub fn theme(&self) -> Theme {
         self.theme_mode.resolve(self.system_is_dark).theme()
     }
@@ -741,8 +950,9 @@ impl CadeSimuApp {
 
             match key {
                 Key::Named(Named::Escape) => Some(Message::CancelAction),
+                Key::Named(Named::F1) => Some(Message::OpenShortcutsModal),
                 Key::Named(Named::Delete) => Some(Message::DeleteSelected),
-                Key::Named(Named::Enter) if ctrl && shift => Some(Message::SelectPropTab(0)),
+                Key::Named(Named::Enter) if ctrl && shift => Some(Message::OpenPagePropertiesModal),
                 Key::Named(Named::PageDown) if ctrl => Some(Message::NextFolio),
                 Key::Named(Named::PageUp) if ctrl => Some(Message::PrevFolio),
                 Key::Named(Named::Backspace) if ctrl && shift => {
@@ -754,10 +964,10 @@ impl CadeSimuApp {
                         "n" if ctrl => Some(Message::NewDocument),
                         "o" if ctrl => Some(Message::OpenFileDialog),
                         "s" if ctrl && shift => Some(Message::SaveFileDialog),
-                        "s" if ctrl && alt => Some(Message::SaveAll),
+                        "s" if ctrl && alt => Some(Message::SaveCopyDialog),
                         "s" if ctrl => Some(Message::SaveDocument),
                         "w" if ctrl => Some(Message::CloseDocument),
-                        "p" if ctrl => Some(Message::PrintDocument),
+                        "p" if ctrl => Some(Message::OpenPrintModal),
                         "e" if ctrl && shift => Some(Message::OpenExportModal),
                         "e" if ctrl => Some(Message::OpenExportModal),
                         "z" if ctrl && shift => Some(Message::Redo),
@@ -852,7 +1062,18 @@ impl CadeSimuApp {
             | Message::SaveAsToml
             | Message::CloseDocument
             | Message::SaveAll
+            | Message::SaveCopyDialog
+            | Message::FileCopySaved(_)
+            | Message::ClearRecentFiles
             | Message::PrintDocument
+            | Message::OpenPrintModal
+            | Message::ClosePrintModal
+            | Message::SelectPrintScope(_)
+            | Message::SelectPrintPage(_)
+            | Message::TogglePrintCajetin(_)
+            | Message::TogglePrintMonochrome(_)
+            | Message::ConfirmPrint
+            | Message::SavePrintPdf
             | Message::RecentProjectSelected(_)
             | Message::SelectRecentProject(_)
             | Message::RequestDeleteRecentProject(_)
@@ -891,6 +1112,12 @@ impl CadeSimuApp {
             | Message::InputColorHex(_)
             | Message::ConfirmColorModal
             | Message::ApplyColor(_)
+            | Message::InsertImageDialog
+            | Message::ImageFileSelected(_)
+            | Message::AddGridRow
+            | Message::RemoveGridRow
+            | Message::AddGridCol
+            | Message::RemoveGridCol
             | Message::CancelAction
             | Message::GlobalMouseReleased => self.update_edit(message),
 
@@ -906,7 +1133,25 @@ impl CadeSimuApp {
             | Message::ClosePageContextMenu
             | Message::PrevFolio
             | Message::NextFolio
-            | Message::SelectFolio(_) => self.update_pages(message),
+            | Message::SelectFolio(_)
+            | Message::OpenPagePropertiesModal
+            | Message::ClosePagePropertiesModal
+            | Message::EditPagePropName(_)
+            | Message::EditPagePropTitle(_)
+            | Message::EditPagePropSubtitle(_)
+            | Message::EditPagePropEntity(_)
+            | Message::EditPagePropAuthor(_)
+            | Message::EditPagePropWidthMm(_)
+            | Message::EditPagePropHeightMm(_)
+            | Message::ApplyPageProperties
+            | Message::OpenProjectPropertiesModal
+            | Message::CloseProjectPropertiesModal
+            | Message::EditProjectPropTitle(_)
+            | Message::EditProjectPropEntity(_)
+            | Message::EditProjectPropAuthor(_)
+            | Message::EditProjectPropVersion(_)
+            | Message::ToggleProjectAutoSave(_)
+            | Message::ApplyProjectProperties => self.update_pages(message),
 
             Message::SelectCategory(_)
             | Message::CollectionSearchChanged(_)
@@ -952,7 +1197,10 @@ impl CadeSimuApp {
             | Message::NavigateToElement { .. }
             | Message::RenumberTerminalStrip(_)
             | Message::RenumberAllTerminalStrips
-            | Message::XrefSearchChanged(_) => self.update_properties(message),
+            | Message::XrefSearchChanged(_)
+            | Message::EditItemTrailingText(_)
+            | Message::EditItemArcStart(_)
+            | Message::EditItemArcSweep(_) => self.update_properties(message),
 
             Message::ToggleSimulation | Message::StopSimulation | Message::SimTick => {
                 self.update_simulation(message)
@@ -963,22 +1211,41 @@ impl CadeSimuApp {
             | Message::ZoomIn
             | Message::ZoomOut
             | Message::ZoomReset
+            | Message::ZoomFit
             | Message::ZoomContent
+            | Message::CenterOnCursor
             | Message::ToggleShowTexts
             | Message::SetTextVisibility(_)
             | Message::ToggleAutoConnect
             | Message::ToggleAutoDisconnect
             | Message::SetGridDensity(_)
             | Message::ToggleSnap
+            | Message::ToggleFullCrosshair
+            | Message::ToggleTextGrid
+            | Message::ToggleAlignmentGuides
+            | Message::ToggleKeepHeadersVisible
+            | Message::ToggleCellBounds
+            | Message::ToggleShowTerminals
+            | Message::ToggleShowCajetin
+            | Message::SetSheetBgPreset(_)
             | Message::CycleTheme
+            | Message::SetThemeMode(_)
             | Message::LayoutMsg(_)
             | Message::ToggleLeftDockCollapse
             | Message::ToggleRightDockCollapse
             | Message::SelectLeftDockTab(_)
+            | Message::ShowProjectsDock
+            | Message::ToggleFocusCanvas
             | Message::ToggleMenu(_)
+            | Message::ToggleSubmenu(_)
             | Message::CloseMenu
+            | Message::OpenSettingsModal
+            | Message::CloseSettingsModal
+            | Message::OpenShortcutsModal
+            | Message::CloseShortcutsModal
             | Message::ShowAbout
             | Message::CloseAbout
+            | Message::ExitApplication
             | Message::Canvas(_) => self.update_view_layout(message),
         }
     }
@@ -1100,6 +1367,7 @@ impl CadeSimuApp {
                             let count = self.doc.items.len();
                             let total_pages = self.pages.len();
                             let page_title = self.pages[active_idx].name.clone();
+                            self.push_recent_file(&path);
                             self.status_msg = format!(
                                 "Projeto QET '{}' aberto ({total_pages} folhas). Folha {}/{}: {} ({count} elementos).",
                                 path.file_name()
@@ -1140,6 +1408,7 @@ impl CadeSimuApp {
                                 .get(self.active_page_index)
                                 .map(|p| p.name.clone())
                                 .unwrap_or_else(|| "Principal".to_string());
+                            self.push_recent_file(&path);
                             self.status_msg = if total_pages > 1 {
                                 format!(
                                     "Projeto '{}' aberto ({total_pages} folhas). Folha {}/{}: {} ({count} elementos).",
@@ -1181,28 +1450,11 @@ impl CadeSimuApp {
                         .map(|s| s.to_ascii_lowercase())
                         .unwrap_or_default();
                     if ext == "json" || ext == "toml" || ext == "qet" {
-                        if self.active_page_index < self.pages.len() {
-                            self.pages[self.active_page_index].doc = self.doc.clone();
-                        }
                         let path_clone = path.clone();
-                        let res = if ext == "qet" {
-                            crate::qet::export_pages_to_qet(
-                                &self.pages,
-                                self.active_page_index,
-                                &path_clone,
-                                self.qet_project.as_ref(),
-                            )
-                        } else {
-                            crate::io::save_project(
-                                &path_clone,
-                                &self.pages,
-                                self.active_page_index,
-                            )
-                        };
-
-                        match res {
+                        match self.write_project_to_path(&path_clone) {
                             Ok(()) => {
                                 self.is_modified = false;
+                                self.push_recent_file(&path_clone);
                                 self.status_msg = format!(
                                     "Projeto salvo com sucesso em '{}'.",
                                     path_clone.display()
@@ -1236,36 +1488,21 @@ impl CadeSimuApp {
                         .to_string();
 
                 return iced::Task::perform(
-                    async move {
-                        let mut dialog = rfd::AsyncFileDialog::new()
-                            .set_title("Salvar Projeto (.json, .toml, .qet)")
-                            .set_directory(&start_dir)
-                            .set_file_name(&default_name);
-
-                        // Coloca o formato selecionado atualmente como filtro principal e lista os demais
-                        let mut order = vec![preferred_fmt];
-                        for fmt in SaveFormat::ALL {
-                            if fmt != preferred_fmt {
-                                order.push(fmt);
-                            }
-                        }
-                        for fmt in order {
-                            dialog = dialog.add_filter(fmt.filter_label(), &[fmt.extension()]);
-                        }
-
-                        dialog.save_file().await.map(|h| h.path().to_path_buf())
-                    },
+                    pick_save_project_path(
+                        "Salvar Projeto (.json, .toml, .qet)".to_string(),
+                        start_dir,
+                        default_name,
+                        preferred_fmt,
+                    ),
                     Message::FileSaved,
                 );
             }
             Message::OpenExportModal => {
-                if self.active_page_index < self.pages.len() {
-                    self.pages[self.active_page_index].doc = self.doc.clone();
-                }
+                self.sync_active_page();
                 self.show_export_modal = true;
                 self.export_page_index = self.active_page_index;
                 self.status_msg =
-                    "Exportação: Escolha o formato desejado (.cad, .pdf, .svg ou .png) e a folha a exportar."
+                    "Exportação: Escolha o formato desejado (.png, .jpg, .bmp, .svg, .dxf, .cad ou .pdf) e a folha a exportar."
                         .to_string();
             }
             Message::CloseExportModal => {
@@ -1422,8 +1659,20 @@ impl CadeSimuApp {
                         let svg = crate::export::export_to_svg(&doc, items_filter, export_options);
                         crate::io::atomic_write(&path, svg.as_bytes())
                     }
+                    ExportFormat::Dxf => {
+                        let dxf = crate::export::export_to_dxf(&doc, items_filter, export_options);
+                        crate::io::atomic_write(&path, dxf)
+                    }
                     ExportFormat::Png => {
                         crate::export::export_to_png(&doc, items_filter, export_options, None)
+                            .and_then(|bytes| crate::io::atomic_write(&path, bytes))
+                    }
+                    ExportFormat::Jpg => {
+                        crate::export::export_to_jpg(&doc, items_filter, export_options, None)
+                            .and_then(|bytes| crate::io::atomic_write(&path, bytes))
+                    }
+                    ExportFormat::Bmp => {
+                        crate::export::export_to_bmp(&doc, items_filter, export_options, None)
                             .and_then(|bytes| crate::io::atomic_write(&path, bytes))
                     }
                     ExportFormat::Pdf => {
@@ -1467,30 +1716,10 @@ impl CadeSimuApp {
                 self.file_path = path.to_string_lossy().to_string();
                 self.current_file = Some(path.clone());
 
-                if self.active_page_index < self.pages.len() {
-                    self.pages[self.active_page_index].doc = self.doc.clone();
-                }
-
-                let ext = path
-                    .extension()
-                    .and_then(|e| e.to_str())
-                    .map(|s| s.to_ascii_lowercase())
-                    .unwrap_or_default();
-
-                let res = if ext == "qet" {
-                    crate::qet::export_pages_to_qet(
-                        &self.pages,
-                        self.active_page_index,
-                        &path,
-                        self.qet_project.as_ref(),
-                    )
-                } else {
-                    crate::io::save_project(&path, &self.pages, self.active_page_index)
-                };
-
-                match res {
+                match self.write_project_to_path(&path) {
                     Ok(()) => {
                         self.is_modified = false;
+                        self.push_recent_file(&path);
                         self.status_msg = format!(
                             "Projeto salvo com sucesso em '{}' ({}).",
                             path.display(),
@@ -1543,6 +1772,7 @@ impl CadeSimuApp {
                             self.doc = doc;
                             self.qet_project = Some(project);
                             self.selected_id = None;
+                            self.push_recent_file(&path);
                             self.status_msg = format!(
                                 "Projeto QET '{}' aberto ({total_pages} folhas). Folha {}/{}: {} ({count} elementos).",
                                 path.file_name()
@@ -1565,6 +1795,7 @@ impl CadeSimuApp {
                             let count = loaded.items.len();
                             self.doc = loaded;
                             self.selected_id = None;
+                            self.push_recent_file(&path);
                             self.status_msg = format!(
                                 "Arquivo '{}' carregado com sucesso ({count} elementos).",
                                 path.display()
@@ -1622,12 +1853,145 @@ impl CadeSimuApp {
                 self.status_msg = "Esquema fechado.".to_string();
             }
             Message::SaveAll => {
-                self.pages[self.active_page_index].doc = self.doc.clone();
+                self.sync_active_page();
                 self.is_modified = false;
                 self.status_msg = "Todas as folhas salvas com sucesso.".to_string();
             }
-            Message::PrintDocument => {
-                self.status_msg = "Preparando esquema para impressão...".to_string();
+            Message::SaveCopyDialog => {
+                self.sync_active_page();
+                let start_dir = self.last_dir.clone();
+                let preferred_fmt = self.save_format;
+                let stem = self
+                    .current_file
+                    .as_ref()
+                    .and_then(|p| p.file_stem())
+                    .and_then(|s| s.to_str())
+                    .filter(|s| !s.is_empty())
+                    .unwrap_or("projeto_cadesimu");
+                let default_name = format!("{}_copia.{}", stem, preferred_fmt.extension());
+                self.status_msg = "Escolha onde salvar uma cópia do projeto...".to_string();
+                return iced::Task::perform(
+                    pick_save_project_path(
+                        "Salvar Cópia do Projeto (.json, .toml, .qet)".to_string(),
+                        start_dir,
+                        default_name,
+                        preferred_fmt,
+                    ),
+                    Message::FileCopySaved,
+                );
+            }
+            Message::FileCopySaved(maybe_path) => {
+                let Some(mut path) = maybe_path else {
+                    self.status_msg = "Salvamento de cópia cancelado.".to_string();
+                    return iced::Task::none();
+                };
+                if path.extension().is_none() {
+                    path.set_extension(self.save_format.extension());
+                }
+                match self.write_project_to_path(&path) {
+                    Ok(()) => {
+                        self.push_recent_file(&path);
+                        self.status_msg = format!(
+                            "Cópia salva com sucesso em '{}' (arquivo original mantido).",
+                            path.display()
+                        );
+                    }
+                    Err(err) => {
+                        self.status_msg =
+                            format!("Erro ao salvar cópia '{}': {err}", path.display());
+                    }
+                }
+            }
+            Message::ClearRecentFiles => {
+                self.recent_files.clear();
+                self.selected_recent_project = None;
+                self.status_msg = "Lista de últimos arquivos limpa.".to_string();
+            }
+            Message::PrintDocument | Message::OpenPrintModal => {
+                self.sync_active_page();
+                self.show_print_modal = true;
+                self.print_page_index = self.active_page_index;
+                self.status_msg =
+                    "Impressão: Ajuste o escopo e as opções vetoriais antes de imprimir."
+                        .to_string();
+            }
+            Message::ClosePrintModal => {
+                self.show_print_modal = false;
+            }
+            Message::SelectPrintScope(scope) => {
+                self.print_scope = scope;
+            }
+            Message::SelectPrintPage(idx) => {
+                self.print_page_index = idx;
+            }
+            Message::TogglePrintCajetin(v) => {
+                self.print_include_cajetin = v;
+            }
+            Message::TogglePrintMonochrome(v) => {
+                self.print_monochrome = v;
+            }
+            Message::ConfirmPrint => {
+                self.show_print_modal = false;
+                match self.build_print_pdf_bytes() {
+                    Ok(pdf_bytes) => {
+                        let tmp_pdf = std::env::temp_dir().join("rustsimu_impressao.pdf");
+                        if let Err(err) = crate::io::atomic_write(&tmp_pdf, &pdf_bytes) {
+                            self.status_msg = format!("Erro ao preparar PDF de impressão: {err}");
+                            return iced::Task::none();
+                        }
+                        #[cfg(target_os = "linux")]
+                        let launch_res =
+                            std::process::Command::new("xdg-open").arg(&tmp_pdf).spawn();
+                        #[cfg(target_os = "macos")]
+                        let launch_res = std::process::Command::new("open").arg(&tmp_pdf).spawn();
+                        #[cfg(target_os = "windows")]
+                        let launch_res = std::process::Command::new("cmd")
+                            .args(["/C", "start", ""])
+                            .arg(&tmp_pdf)
+                            .spawn();
+                        #[cfg(not(any(
+                            target_os = "linux",
+                            target_os = "macos",
+                            target_os = "windows"
+                        )))]
+                        let launch_res: Result<
+                            std::process::Child,
+                            std::io::Error,
+                        > = Err(std::io::Error::new(
+                            std::io::ErrorKind::Unsupported,
+                            "OS não suportado",
+                        ));
+
+                        match launch_res {
+                            Ok(_) => {
+                                self.status_msg = format!(
+                                    "PDF de impressão gerado em '{}' e enviado ao visualizador do sistema.",
+                                    tmp_pdf.display()
+                                );
+                            }
+                            Err(_) => {
+                                self.status_msg = format!(
+                                    "PDF de impressão gerado em '{}' ({} bytes).",
+                                    tmp_pdf.display(),
+                                    pdf_bytes.len()
+                                );
+                            }
+                        }
+                    }
+                    Err(err) => {
+                        self.status_msg = format!("Erro ao gerar impressão PDF: {err}");
+                    }
+                }
+            }
+            Message::SavePrintPdf => {
+                self.show_print_modal = false;
+                self.export_format = ExportFormat::Pdf;
+                self.export_scope = self.print_scope;
+                self.export_page_index = self.print_page_index;
+                self.export_include_cajetin = self.print_include_cajetin;
+                self.export_monochrome = self.print_monochrome;
+                self.export_show_terminals = false;
+                return self.update(Message::ConfirmExport);
             }
             Message::RecentProjectSelected(path_str) => {
                 let p = PathBuf::from(&path_str);
@@ -1734,9 +2098,32 @@ impl CadeSimuApp {
                     self.show_export_modal = false;
                     return iced::Task::none();
                 }
+                if self.show_page_properties_modal {
+                    self.show_page_properties_modal = false;
+                    return iced::Task::none();
+                }
+                if self.show_project_properties_modal {
+                    self.show_project_properties_modal = false;
+                    return iced::Task::none();
+                }
+                if self.show_settings_modal {
+                    self.show_settings_modal = false;
+                    return iced::Task::none();
+                }
+                if self.show_shortcuts_modal {
+                    self.show_shortcuts_modal = false;
+                    return iced::Task::none();
+                }
+                if self.show_print_modal {
+                    self.show_print_modal = false;
+                    return iced::Task::none();
+                }
                 if self.show_about_modal {
                     self.show_about_modal = false;
                     return iced::Task::none();
+                }
+                if self.focus_canvas {
+                    self.focus_canvas = false;
                 }
                 if let Some(snapshot) = self.drag_undo_snapshot.take() {
                     self.doc = snapshot;
@@ -1745,6 +2132,7 @@ impl CadeSimuApp {
                     self.status_msg = "Ação cancelada. Modo de seleção ativado.".to_string();
                 }
                 self.open_menu = None;
+                self.open_submenu = None;
                 self.tool = EditorTool::Select;
                 self.dragging_symbol = None;
                 self.dragging_canonical_id = None;
@@ -2538,6 +2926,123 @@ impl CadeSimuApp {
                 }
                 self.show_color_modal = false;
             }
+            Message::InsertImageDialog => {
+                let start_dir = self.last_dir.clone();
+                self.status_msg =
+                    "Selecione uma imagem (PNG, JPG, BMP ou SVG) para inserir na folha..."
+                        .to_string();
+                return iced::Task::perform(
+                    async move {
+                        rfd::AsyncFileDialog::new()
+                            .set_title("Inserir Imagem no Esquema")
+                            .set_directory(&start_dir)
+                            .add_filter(
+                                "Imagens (*.png, *.jpg, *.jpeg, *.bmp, *.svg)",
+                                &[
+                                    "png", "PNG", "jpg", "JPG", "jpeg", "JPEG", "bmp", "BMP",
+                                    "svg", "SVG",
+                                ],
+                            )
+                            .pick_file()
+                            .await
+                            .map(|h| h.path().to_path_buf())
+                    },
+                    Message::ImageFileSelected,
+                );
+            }
+            Message::ImageFileSelected(maybe_path) => {
+                let Some(path) = maybe_path else {
+                    self.status_msg = "Inserção de imagem cancelada.".to_string();
+                    return iced::Task::none();
+                };
+                if let Some(parent) = path.parent() {
+                    self.last_dir = parent.to_path_buf();
+                }
+                self.push_undo();
+                let new_id = self.doc.next_id();
+                let (cx, cy) = if self.cursor_world != (0, 0) {
+                    self.cursor_world
+                } else {
+                    (60, 48)
+                };
+                let (w_cad, h_cad) = if let Ok(bytes) = std::fs::read(&path) {
+                    if let Ok(dyn_img) = image::load_from_memory(&bytes) {
+                        let w = dyn_img.width().max(1) as f32;
+                        let h = dyn_img.height().max(1) as f32;
+                        let target_w = 48.0_f32;
+                        let target_h = (target_w * (h / w)).clamp(18.0, 96.0);
+                        (target_w.round() as i32, target_h.round() as i32)
+                    } else {
+                        (48, 36)
+                    }
+                } else {
+                    (48, 36)
+                };
+                let mut item =
+                    SchematicItem::new_graphic(new_id, 5, cx, cy, cx + w_cad, cy + h_cad);
+                item.trailing_str = path.to_string_lossy().to_string();
+                self.doc.items.push(item);
+                self.select_single(Some(new_id));
+                self.tool = EditorTool::Select;
+                self.is_modified = true;
+                self.status_msg = format!("Imagem '{}' inserida na folha.", path.display());
+            }
+            Message::AddGridRow => {
+                let cur = self.doc.settings.effective_grid_rows();
+                if cur < 16 {
+                    self.push_undo();
+                    self.doc.settings.grid_rows = cur + 1;
+                    self.is_modified = true;
+                    self.status_msg = format!(
+                        "Linha adicionada à grade: {} linhas.",
+                        self.doc.settings.grid_rows
+                    );
+                } else {
+                    self.status_msg = "Limite máximo de 16 linhas (A-P) atingido.".to_string();
+                }
+            }
+            Message::RemoveGridRow => {
+                let cur = self.doc.settings.effective_grid_rows();
+                if cur > 4 {
+                    self.push_undo();
+                    self.doc.settings.grid_rows = cur - 1;
+                    self.is_modified = true;
+                    self.status_msg = format!(
+                        "Linha removida da grade: {} linhas.",
+                        self.doc.settings.grid_rows
+                    );
+                } else {
+                    self.status_msg = "Limite mínimo de 4 linhas na folha atingido.".to_string();
+                }
+            }
+            Message::AddGridCol => {
+                let cur = self.doc.settings.effective_grid_cols();
+                if cur < 24 {
+                    self.push_undo();
+                    self.doc.settings.grid_cols = cur + 1;
+                    self.is_modified = true;
+                    self.status_msg = format!(
+                        "Coluna adicionada à grade: {} colunas.",
+                        self.doc.settings.grid_cols
+                    );
+                } else {
+                    self.status_msg = "Limite máximo de 24 colunas atingido.".to_string();
+                }
+            }
+            Message::RemoveGridCol => {
+                let cur = self.doc.settings.effective_grid_cols();
+                if cur > 4 {
+                    self.push_undo();
+                    self.doc.settings.grid_cols = cur - 1;
+                    self.is_modified = true;
+                    self.status_msg = format!(
+                        "Coluna removida da grade: {} colunas.",
+                        self.doc.settings.grid_cols
+                    );
+                } else {
+                    self.status_msg = "Limite mínimo de 4 colunas na folha atingido.".to_string();
+                }
+            }
             _ => {}
         }
         iced::Task::none()
@@ -2745,6 +3250,118 @@ impl CadeSimuApp {
             }
             Message::ClosePageContextMenu => {
                 self.page_context_menu = None;
+            }
+            Message::OpenPagePropertiesModal => {
+                let page_name = self
+                    .pages
+                    .get(self.active_page_index)
+                    .map(|p| p.name.clone())
+                    .unwrap_or_else(|| "Folha 1".to_string());
+                self.page_prop_name = page_name;
+                self.page_prop_title = self.doc.title_block.title.clone();
+                self.page_prop_subtitle = self.doc.title_block.subtitle.clone();
+                self.page_prop_entity = self.doc.title_block.entity.clone();
+                self.page_prop_author = self.doc.title_block.drawn_by.clone();
+                self.page_prop_width_mm = self.doc.settings.custom_width_mm.to_string();
+                self.page_prop_height_mm = self.doc.settings.custom_height_mm.to_string();
+                self.show_page_properties_modal = true;
+            }
+            Message::ClosePagePropertiesModal => {
+                self.show_page_properties_modal = false;
+            }
+            Message::EditPagePropName(v) => {
+                self.page_prop_name = v;
+            }
+            Message::EditPagePropTitle(v) => {
+                self.page_prop_title = v;
+            }
+            Message::EditPagePropSubtitle(v) => {
+                self.page_prop_subtitle = v;
+            }
+            Message::EditPagePropEntity(v) => {
+                self.page_prop_entity = v;
+            }
+            Message::EditPagePropAuthor(v) => {
+                self.page_prop_author = v;
+            }
+            Message::EditPagePropWidthMm(v) => {
+                self.page_prop_width_mm = v;
+            }
+            Message::EditPagePropHeightMm(v) => {
+                self.page_prop_height_mm = v;
+            }
+            Message::ApplyPageProperties => {
+                self.push_undo();
+                let new_name = self.page_prop_name.trim().to_string();
+                if !new_name.is_empty() && self.active_page_index < self.pages.len() {
+                    self.pages[self.active_page_index].name = new_name.clone();
+                    self.doc.title_block.sheet = new_name;
+                }
+                self.doc.title_block.title = self.page_prop_title.clone();
+                self.doc.title_block.subtitle = self.page_prop_subtitle.clone();
+                self.doc.title_block.entity = self.page_prop_entity.clone();
+                self.doc.title_block.drawn_by = self.page_prop_author.clone();
+                if let Ok(w_mm) = self.page_prop_width_mm.trim().parse::<i32>() {
+                    self.doc.settings.custom_width_mm = w_mm.clamp(100, 2000);
+                }
+                if let Ok(h_mm) = self.page_prop_height_mm.trim().parse::<i32>() {
+                    self.doc.settings.custom_height_mm = h_mm.clamp(100, 2000);
+                }
+                self.sync_active_page();
+                self.is_modified = true;
+                self.show_page_properties_modal = false;
+                self.status_msg = "Propriedades da folha e cajetín atualizadas.".to_string();
+            }
+            Message::OpenProjectPropertiesModal => {
+                self.proj_prop_title = self.doc.title_block.title.clone();
+                self.proj_prop_entity = self.doc.title_block.entity.clone();
+                self.proj_prop_author = self.doc.title_block.drawn_by.clone();
+                self.proj_prop_version = if self.doc.title_block.signature.trim().is_empty() {
+                    "Rev 1.0".to_string()
+                } else {
+                    self.doc.title_block.signature.clone()
+                };
+                self.show_project_properties_modal = true;
+                self.open_menu = None;
+                self.open_submenu = None;
+            }
+            Message::CloseProjectPropertiesModal => {
+                self.show_project_properties_modal = false;
+            }
+            Message::EditProjectPropTitle(v) => {
+                self.proj_prop_title = v;
+            }
+            Message::EditProjectPropEntity(v) => {
+                self.proj_prop_entity = v;
+            }
+            Message::EditProjectPropAuthor(v) => {
+                self.proj_prop_author = v;
+            }
+            Message::EditProjectPropVersion(v) => {
+                self.proj_prop_version = v;
+            }
+            Message::ToggleProjectAutoSave(v) => {
+                self.proj_prop_auto_save = v;
+            }
+            Message::ApplyProjectProperties => {
+                self.push_undo();
+                self.doc.title_block.title = self.proj_prop_title.clone();
+                self.doc.title_block.entity = self.proj_prop_entity.clone();
+                self.doc.title_block.drawn_by = self.proj_prop_author.clone();
+                self.doc.title_block.signature = self.proj_prop_version.clone();
+                for page in &mut self.pages {
+                    page.doc.title_block.title = self.proj_prop_title.clone();
+                    page.doc.title_block.entity = self.proj_prop_entity.clone();
+                    page.doc.title_block.drawn_by = self.proj_prop_author.clone();
+                    page.doc.title_block.signature = self.proj_prop_version.clone();
+                }
+                self.sync_active_page();
+                self.is_modified = true;
+                self.show_project_properties_modal = false;
+                self.status_msg = format!(
+                    "Propriedades globais aplicadas a todas as {} folhas do projeto.",
+                    self.pages.len()
+                );
             }
             _ => {}
         }
@@ -3351,6 +3968,34 @@ impl CadeSimuApp {
                     "Todas as réguas de bornes do projeto foram renumeradas sequencialmente."
                         .to_string();
             }
+            Message::EditItemTrailingText(txt) => {
+                if let Some(id) = self.selected_id {
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        item.trailing_str = txt;
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::EditItemArcStart(val) => {
+                if let Some(id) = self.selected_id {
+                    if let Ok(deg) = val.trim().parse::<i32>() {
+                        if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                            item.aux_coords[0] = deg.clamp(-360, 360);
+                            self.is_modified = true;
+                        }
+                    }
+                }
+            }
+            Message::EditItemArcSweep(val) => {
+                if let Some(id) = self.selected_id {
+                    if let Ok(deg) = val.trim().parse::<i32>() {
+                        if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                            item.aux_coords[1] = deg.clamp(-360, 360);
+                            self.is_modified = true;
+                        }
+                    }
+                }
+            }
             _ => {}
         }
         iced::Task::none()
@@ -3423,6 +4068,61 @@ impl CadeSimuApp {
                     3.2
                 };
                 self.pan = Vector::new(35.0, 20.0);
+            }
+            Message::ZoomFit => {
+                let (sheet_w, sheet_h) = crate::xref::sheet_dimensions(&self.doc);
+                let left_w = if self.focus_canvas {
+                    0.0
+                } else if self.left_dock_collapsed {
+                    28.0
+                } else {
+                    self.layout.left_width
+                };
+                let right_w = if self.focus_canvas {
+                    0.0
+                } else if self.right_dock_collapsed {
+                    28.0
+                } else {
+                    self.layout.right_width
+                };
+                let avail_w = (self.layout.window_w - left_w - right_w - 40.0).max(240.0);
+                let avail_h = 620.0_f32;
+                let zx = avail_w / sheet_w.max(100.0);
+                let zy = avail_h / sheet_h.max(100.0);
+                self.zoom = zx.min(zy).clamp(0.6, 6.0);
+                self.pan = Vector::new((avail_w - sheet_w * self.zoom) * 0.5 + 20.0, 20.0);
+                self.status_msg = "Zoom ajustado às dimensões da folha.".to_string();
+            }
+            Message::CenterOnCursor => {
+                let (tx, ty) = if self.cursor_world != (0, 0) {
+                    (self.cursor_world.0 as f32, self.cursor_world.1 as f32)
+                } else if let Some(sel) = self
+                    .selected_id
+                    .and_then(|id| self.doc.items.iter().find(|i| i.id == id))
+                {
+                    (sel.x1 as f32, sel.y1 as f32)
+                } else {
+                    let (sw, sh) = crate::xref::sheet_dimensions(&self.doc);
+                    (sw * 0.5, sh * 0.5)
+                };
+                let left_w = if self.focus_canvas {
+                    0.0
+                } else if self.left_dock_collapsed {
+                    28.0
+                } else {
+                    self.layout.left_width
+                };
+                let right_w = if self.focus_canvas {
+                    0.0
+                } else if self.right_dock_collapsed {
+                    28.0
+                } else {
+                    self.layout.right_width
+                };
+                let cx_px = ((self.layout.window_w - left_w - right_w) * 0.5).max(160.0);
+                let cy_px = 320.0;
+                self.pan = Vector::new(cx_px - tx * self.zoom, cy_px - ty * self.zoom);
+                self.status_msg = format!("Visualização centralizada em ({tx:.0}, {ty:.0}).");
             }
             Message::Canvas(cmsg) => match cmsg {
                 CanvasMessage::SelectItem(sel) => {
@@ -3502,10 +4202,17 @@ impl CadeSimuApp {
                                 }
                             } else {
                                 if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
-                                    item.x1 = x1;
-                                    item.y1 = y1;
-                                    item.x2 = x1;
-                                    item.y2 = y1;
+                                    if item.is_wire() || item.is_graphic() {
+                                        item.x1 += dx;
+                                        item.y1 += dy;
+                                        item.x2 += dx;
+                                        item.y2 += dy;
+                                    } else {
+                                        item.x1 = x1;
+                                        item.y1 = y1;
+                                        item.x2 = x1;
+                                        item.y2 = y1;
+                                    }
                                     self.is_modified = true;
                                 }
                                 if self.auto_disconnect {
@@ -3718,6 +4425,46 @@ impl CadeSimuApp {
                     self.is_modified = true;
                     self.status_msg = format!("Conexão (nó) adicionada em ({x}, {y}).");
                 }
+                CanvasMessage::AddGraphicItem {
+                    tipo,
+                    subvariant,
+                    x1,
+                    y1,
+                    x2,
+                    y2,
+                } => {
+                    self.push_undo();
+                    let new_id = self.doc.next_id();
+                    let mut item = SchematicItem::new_graphic(new_id, tipo, x1, y1, x2, y2);
+                    item.subvariant = subvariant;
+                    if tipo == 8 {
+                        item.trailing_str = if subvariant == 1 {
+                            "Campo de texto".to_string()
+                        } else {
+                            "Texto".to_string()
+                        };
+                    } else if tipo == 4 {
+                        item.aux_coords[0] = 0;
+                        item.aux_coords[1] = 90;
+                    }
+                    self.doc.items.push(item);
+                    self.select_single(Some(new_id));
+                    self.tool = EditorTool::Select;
+                    if tipo == 8 {
+                        self.prop_tab = 0;
+                    }
+                    self.is_modified = true;
+                    let kind_name = match (tipo, subvariant) {
+                        (8, 1) => "Campo de Texto",
+                        (8, _) => "Texto em Linha",
+                        (1, _) => "Linha Gráfica",
+                        (2, _) => "Retângulo",
+                        (3, _) => "Círculo / Elipse",
+                        (4, _) => "Arco",
+                        _ => "Objeto Gráfico",
+                    };
+                    self.status_msg = format!("{kind_name} inserido em ({x1}, {y1}).");
+                }
                 CanvasMessage::DeleteItem(id) => {
                     self.push_undo();
                     self.doc.items.retain(|i| i.id != id);
@@ -3817,6 +4564,14 @@ impl CadeSimuApp {
             Message::CycleTheme => {
                 self.theme_mode = self.theme_mode.next();
             }
+            Message::SetThemeMode(mode) => {
+                self.theme_mode = mode;
+                self.status_msg = match mode {
+                    ThemeMode::System => "Tema da interface: Automático (Sistema).".to_string(),
+                    ThemeMode::Light => "Tema da interface: Claro.".to_string(),
+                    ThemeMode::Dark => "Tema da interface: Escuro.".to_string(),
+                };
+            }
             Message::LayoutMsg(msg) => {
                 self.layout.update(msg);
             }
@@ -3826,10 +4581,122 @@ impl CadeSimuApp {
                 } else {
                     self.open_menu = menu;
                 }
+                self.open_submenu = None;
+            }
+            Message::ToggleSubmenu(key) => {
+                if self.open_submenu == Some(key) {
+                    self.open_submenu = None;
+                } else {
+                    self.open_submenu = Some(key);
+                }
             }
             Message::CloseMenu => {
                 self.open_menu = None;
+                self.open_submenu = None;
                 self.tool = EditorTool::Select;
+            }
+            Message::ShowProjectsDock => {
+                self.left_dock_collapsed = false;
+                self.left_dock_tab = 1;
+                self.focus_canvas = false;
+                self.open_menu = None;
+                self.open_submenu = None;
+                self.status_msg = "Painel de Projetos exibido no dock esquerdo.".to_string();
+            }
+            Message::ToggleFullCrosshair => {
+                self.show_full_crosshair = !self.show_full_crosshair;
+                self.status_msg = if self.show_full_crosshair {
+                    "Mira em todo o fólio ativada.".to_string()
+                } else {
+                    "Mira em todo o fólio desativada.".to_string()
+                };
+            }
+            Message::ToggleTextGrid => {
+                self.show_text_grid = !self.show_text_grid;
+                self.status_msg = if self.show_text_grid {
+                    "Grelha de alinhamento de texto exibida.".to_string()
+                } else {
+                    "Grelha de alinhamento de texto oculta.".to_string()
+                };
+            }
+            Message::ToggleAlignmentGuides => {
+                self.show_alignment_guides = !self.show_alignment_guides;
+                self.status_msg = if self.show_alignment_guides {
+                    "Guias de alinhamento entre elementos ativadas.".to_string()
+                } else {
+                    "Guias de alinhamento desativadas.".to_string()
+                };
+            }
+            Message::ToggleKeepHeadersVisible => {
+                self.keep_headers_visible = !self.keep_headers_visible;
+                self.status_msg = if self.keep_headers_visible {
+                    "Cabeçalhos da grade mantidos visíveis ao rolar.".to_string()
+                } else {
+                    "Cabeçalhos fixos da grade desativados.".to_string()
+                };
+            }
+            Message::ToggleCellBounds => {
+                self.show_cell_bounds = !self.show_cell_bounds;
+                self.status_msg = if self.show_cell_bounds {
+                    "Limites internos das células da grade visíveis.".to_string()
+                } else {
+                    "Limites das células da grade ocultos.".to_string()
+                };
+            }
+            Message::ToggleShowTerminals => {
+                self.show_terminals = !self.show_terminals;
+                self.status_msg = if self.show_terminals {
+                    "Indicadores de bornes/terminais visíveis.".to_string()
+                } else {
+                    "Indicadores de bornes/terminais ocultos.".to_string()
+                };
+            }
+            Message::ToggleShowCajetin => {
+                self.show_cajetin = !self.show_cajetin;
+                self.status_msg = if self.show_cajetin {
+                    "Cajetín (legenda da folha) visível.".to_string()
+                } else {
+                    "Cajetín (legenda da folha) oculto.".to_string()
+                };
+            }
+            Message::SetSheetBgPreset(preset) => {
+                self.push_undo();
+                self.doc.settings.sheet_bg_color = preset;
+                self.sync_active_page();
+                self.is_modified = true;
+                self.status_msg = match preset {
+                    None => "Cor de fundo da folha restaurada para o padrão do tema.".to_string(),
+                    Some(rgb) => format!("Cor de fundo da folha alterada para #{:06X}.", rgb),
+                };
+            }
+            Message::OpenSettingsModal => {
+                self.show_settings_modal = true;
+                self.open_menu = None;
+                self.open_submenu = None;
+            }
+            Message::CloseSettingsModal => {
+                self.show_settings_modal = false;
+            }
+            Message::OpenShortcutsModal => {
+                self.show_shortcuts_modal = true;
+                self.open_menu = None;
+                self.open_submenu = None;
+            }
+            Message::CloseShortcutsModal => {
+                self.show_shortcuts_modal = false;
+            }
+            Message::ToggleFocusCanvas => {
+                self.focus_canvas = !self.focus_canvas;
+                self.open_menu = None;
+                self.open_submenu = None;
+                self.status_msg = if self.focus_canvas {
+                    "Modo foco do fólio ativado (Esc para restaurar painéis).".to_string()
+                } else {
+                    "Painéis laterais restaurados.".to_string()
+                };
+            }
+            Message::ExitApplication => {
+                return iced::exit();
             }
             Message::SetTextVisibility(vis) => {
                 self.show_texts = matches!(vis, TextVisibility::On);
@@ -3925,9 +4792,13 @@ impl CadeSimuApp {
     }
 
     pub fn view(&self) -> Element<'_, Message> {
-        let main_ui = column![
-            crate::ui::view_menubar(self),
-            crate::ui::view_toolbar(self),
+        let workspace_body: Element<'_, Message> = if self.focus_canvas {
+            iced::widget::container(crate::ui::view_sheet_panel(self))
+                .width(Length::Fill)
+                .height(Length::Fill)
+                .style(crate::theme::workspace)
+                .into()
+        } else {
             self.layout.view(
                 self.left_dock_collapsed,
                 self.right_dock_collapsed,
@@ -3937,7 +4808,13 @@ impl CadeSimuApp {
                     Kind::Sheet => crate::ui::view_sheet_panel(self),
                     Kind::Properties => crate::ui::view_properties_panel(self),
                 },
-            ),
+            )
+        };
+
+        let main_ui = column![
+            crate::ui::view_menubar(self),
+            crate::ui::view_toolbar(self),
+            workspace_body,
             crate::ui::view_statusbar(self),
         ]
         .width(Length::Fill)
@@ -3976,6 +4853,31 @@ impl CadeSimuApp {
         // Modal de Exportação Universal (Decisão D1)
         if self.show_export_modal {
             layers.push(crate::ui::view_export_modal(self));
+        }
+
+        // Modal de Impressão Vetorial
+        if self.show_print_modal {
+            layers.push(crate::ui::view_print_modal(self));
+        }
+
+        // Modal de Propriedades da Página
+        if self.show_page_properties_modal {
+            layers.push(crate::ui::view_page_properties_modal(self));
+        }
+
+        // Modal de Propriedades do Projeto
+        if self.show_project_properties_modal {
+            layers.push(crate::ui::view_project_properties_modal(self));
+        }
+
+        // Modal de Configurações Gerais
+        if self.show_settings_modal {
+            layers.push(crate::ui::view_settings_modal(self));
+        }
+
+        // Modal de Atalhos de Teclado
+        if self.show_shortcuts_modal {
+            layers.push(crate::ui::view_shortcuts_modal(self));
         }
 
         // Modal de Seleção de Cor do Elemento

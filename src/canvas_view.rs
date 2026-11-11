@@ -18,6 +18,12 @@ pub enum EditorTool {
     PlaceCanonicalSymbol(String),
     DrawWire(i32), // 4000=Fase, 4001=Neutro, 4002=PE, 4003=DC+, 4004=DC-
     PlaceJunction,
+    PlaceText,
+    PlaceTextField,
+    DrawGraphicLine,
+    DrawGraphicRect,
+    DrawGraphicCircle,
+    DrawGraphicArc,
     Delete,
 }
 
@@ -59,6 +65,14 @@ pub enum CanvasMessage {
         x: i32,
         y: i32,
     },
+    AddGraphicItem {
+        tipo: i32,
+        subvariant: i32,
+        x1: i32,
+        y1: i32,
+        x2: i32,
+        y2: i32,
+    },
     DeleteItem(i32),
     SimPressComponent(i32),
     SimReleaseComponent(i32),
@@ -95,8 +109,16 @@ pub struct SchematicCanvas<'a> {
     pub is_ctrl_pressed: bool,
     pub sim_running: bool,
     pub show_grid: bool,
+    pub snap_to_grid: bool,
     pub grid_density: crate::model::GridDensity,
     pub show_texts: bool,
+    pub show_terminals: bool,
+    pub show_cajetin: bool,
+    pub show_full_crosshair: bool,
+    pub show_text_grid: bool,
+    pub show_alignment_guides: bool,
+    pub keep_headers_visible: bool,
+    pub show_cell_bounds: bool,
     pub is_dark: bool,
     pub auto_connect: bool,
     pub auto_disconnect: bool,
@@ -136,8 +158,87 @@ impl<'a> SchematicCanvas<'a> {
         (sx, sy)
     }
 
+    fn snap_world(&self, wx: f32, wy: f32) -> (i32, i32) {
+        if self.snap_to_grid {
+            Self::snap_to_grid(wx, wy)
+        } else {
+            (wx.round() as i32, wy.round() as i32)
+        }
+    }
+
     fn world_to_screen(&self, wx: f32, wy: f32) -> Point {
         Point::new(wx * self.zoom + self.pan.x, wy * self.zoom + self.pan.y)
+    }
+
+    fn resolve_graphic_color(
+        item: &SchematicItem,
+        is_selected: bool,
+        focus: Color,
+        default: Color,
+    ) -> Color {
+        if is_selected {
+            focus
+        } else if item.color != 0 {
+            let r = ((item.color >> 16) & 0xFF) as f32 / 255.0;
+            let g = ((item.color >> 8) & 0xFF) as f32 / 255.0;
+            let b = (item.color & 0xFF) as f32 / 255.0;
+            Color::from_rgb(r, g, b)
+        } else {
+            default
+        }
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn stroke_graphic_arc_world(
+        &self,
+        frame: &mut Frame,
+        cx: f32,
+        cy: f32,
+        rx: f32,
+        ry: f32,
+        start_deg: f32,
+        sweep_deg: f32,
+        stroke: Stroke,
+    ) {
+        let steps = 32;
+        let path = Path::new(|builder| {
+            for i in 0..=steps {
+                let frac = i as f32 / steps as f32;
+                let ang = (start_deg + sweep_deg * frac).to_radians();
+                let pt = self.world_to_screen(cx + rx * ang.cos(), cy - ry * ang.sin());
+                if i == 0 {
+                    builder.move_to(pt);
+                } else {
+                    builder.line_to(pt);
+                }
+            }
+        });
+        frame.stroke(&path, stroke);
+    }
+
+    fn stroke_graphic_ellipse_world(
+        &self,
+        frame: &mut Frame,
+        cx: f32,
+        cy: f32,
+        rx: f32,
+        ry: f32,
+        stroke: Stroke,
+    ) {
+        let steps = 48;
+        let path = Path::new(|builder| {
+            for i in 0..steps {
+                let ang = (i as f32 / steps as f32) * std::f32::consts::TAU;
+                let pt = self.world_to_screen(cx + rx * ang.cos(), cy - ry * ang.sin());
+                if i == 0 {
+                    builder.move_to(pt);
+                } else {
+                    builder.line_to(pt);
+                }
+            }
+            builder.close();
+        });
+        frame.stroke(&path, stroke);
     }
 
     /// Retorna os limites da caixa delimitadora do elemento no espaço do mundo `(min_x, min_y, max_x, max_y)`.
@@ -148,6 +249,23 @@ impl<'a> SchematicCanvas<'a> {
             let min_y = item.y1.min(item.y2) - 2;
             let max_y = item.y1.max(item.y2) + 2;
             (min_x, min_y, max_x, max_y)
+        } else if matches!(item.tipo, 1..=5) {
+            let min_x = item.x1.min(item.x2) - 2;
+            let max_x = item.x1.max(item.x2).max(min_x + 4) + 2;
+            let min_y = item.y1.min(item.y2) - 2;
+            let max_y = item.y1.max(item.y2).max(min_y + 4) + 2;
+            (min_x, min_y, max_x, max_y)
+        } else if item.tipo == 8 {
+            if item.subvariant == 1 {
+                let min_x = item.x1.min(item.x2);
+                let min_y = item.y1.min(item.y2);
+                let max_x = item.x1.max(item.x2).max(min_x + 24);
+                let max_y = item.y1.max(item.y2).max(min_y + 8);
+                (min_x, min_y, max_x, max_y)
+            } else {
+                let w = (item.trailing_str.chars().count().max(4) as i32) * 3;
+                (item.x1 - 2, item.y1 - 2, item.x1 + w + 2, item.y1 + 8)
+            }
         } else if let Some(sym) = find_symbol_ref(item.tipo) {
             let (bx1, by1, bx2, by2) = (
                 sym.bounds.0 / 5,
@@ -236,10 +354,29 @@ impl<'a> SchematicCanvas<'a> {
                 if (wx - item.x1).abs() <= 3 && (wy - item.y1).abs() <= 3 {
                     return Some(item.id);
                 }
-            } else if !matches!(item.tipo, 1 | 2 | 8)
-                && (wx - item.x1).abs() <= 6
-                && (wy - item.y1).abs() <= 6
-            {
+            } else if item.tipo == 1 {
+                let dx = (item.x2 - item.x1) as f32;
+                let dy = (item.y2 - item.y1) as f32;
+                let len_sq = dx * dx + dy * dy;
+                if len_sq >= 1.0 {
+                    let t = (((wx - item.x1) as f32) * dx + ((wy - item.y1) as f32) * dy) / len_sq;
+                    if (0.0..=1.0).contains(&t) {
+                        let px = item.x1 as f32 + t * dx;
+                        let py = item.y1 as f32 + t * dy;
+                        let dist = ((wx as f32 - px).powi(2) + (wy as f32 - py).powi(2)).sqrt();
+                        if dist <= 3.0 {
+                            return Some(item.id);
+                        }
+                    }
+                } else if (wx - item.x1).abs() <= 3 && (wy - item.y1).abs() <= 3 {
+                    return Some(item.id);
+                }
+            } else if matches!(item.tipo, 2 | 3 | 4 | 5 | 8) {
+                let (min_x, min_y, max_x, max_y) = Self::item_bounds(item);
+                if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
+                    return Some(item.id);
+                }
+            } else if (wx - item.x1).abs() <= 6 && (wy - item.y1).abs() <= 6 {
                 return Some(item.id);
             }
         }
@@ -266,22 +403,23 @@ impl<'a> SchematicCanvas<'a> {
     }
 
     fn draw_sheet_and_cajetin(&self, frame: &mut Frame) {
-        // Folha A4 na escala nativa `.cad` (ex: 330 x 240) ou dimensões estendidas de diagrama QET
-        let sheet_w = if self.doc.settings.custom_height_mm > 420 {
-            self.doc.settings.custom_height_mm as f32 + 30.0
-        } else {
-            (self.doc.settings.custom_height_mm.clamp(279, 420) as f32) + 45.0
-        };
-        let sheet_h = if self.doc.settings.custom_width_mm > 320 {
-            self.doc.settings.custom_width_mm as f32 + 30.0
-        } else {
-            (self.doc.settings.custom_width_mm.clamp(210, 320) as f32) + 30.0
-        };
+        // Folha A4 na escala nativa `.cad` (ex: 330 x 240) ou dimensões personalizadas / QET
+        let (sheet_w, sheet_h) = crate::xref::sheet_dimensions(self.doc);
         let p0 = self.world_to_screen(0.0, 0.0);
         let size = Size::new(sheet_w * self.zoom, sheet_h * self.zoom);
 
         let tok = self.tokens();
-        let paper_color = tok.sheet;
+        let paper_color = self
+            .doc
+            .settings
+            .sheet_bg_color
+            .map(|c| {
+                let r = ((c >> 16) & 0xFF) as u8;
+                let g = ((c >> 8) & 0xFF) as u8;
+                let b = (c & 0xFF) as u8;
+                Color::from_rgb8(r, g, b)
+            })
+            .unwrap_or(tok.sheet);
         let grid_color = tok.grid;
         let border_color = tok.sheet_line;
         let text_color = tok.text2;
@@ -329,6 +467,29 @@ impl<'a> SchematicCanvas<'a> {
             }
         }
 
+        // Grelha fina adicional para alinhamento de textos e legendas
+        if self.show_text_grid {
+            let txt_grid_color = Color {
+                a: 0.16,
+                ..tok.primary
+            };
+            let txt_stroke = Stroke::default().with_color(txt_grid_color).with_width(0.6);
+            let mut tx = 8.0_f32;
+            while tx < sheet_w - 6.0 {
+                let a = self.world_to_screen(tx, 6.0);
+                let b = self.world_to_screen(tx, sheet_h - 6.0);
+                frame.stroke(&Path::line(a, b), txt_stroke);
+                tx += 2.0;
+            }
+            let mut ty = 8.0_f32;
+            while ty < sheet_h - 6.0 {
+                let a = self.world_to_screen(6.0, ty);
+                let b = self.world_to_screen(sheet_w - 6.0, ty);
+                frame.stroke(&Path::line(a, b), txt_stroke);
+                ty += 2.0;
+            }
+        }
+
         // Moldura externa e interna da folha A4
         let border_stroke = Stroke::default().with_color(border_color).with_width(1.5);
         frame.stroke(&Path::rectangle(p0, size), border_stroke);
@@ -337,9 +498,39 @@ impl<'a> SchematicCanvas<'a> {
         let inner_size = Size::new((sheet_w - 12.0) * self.zoom, (sheet_h - 12.0) * self.zoom);
         frame.stroke(&Path::rectangle(inner_p0, inner_size), border_stroke);
 
-        // Referências de colunas (1..8) e linhas (A..F)
-        for col in 0..8 {
-            let cx = 6.0 + (col as f32 + 0.5) * ((sheet_w - 12.0) / 8.0);
+        // Referências dinâmicas de colunas (1..cols) e linhas (A..rows)
+        let grid_cols = self.doc.settings.effective_grid_cols();
+        let grid_rows = self.doc.settings.effective_grid_rows();
+        let col_w = (sheet_w - 12.0) / grid_cols as f32;
+        let row_h = (sheet_h - 12.0) / grid_rows as f32;
+
+        if self.show_cell_bounds {
+            let mut cell_stroke = Stroke::default()
+                .with_color(Color {
+                    a: 0.28,
+                    ..border_color
+                })
+                .with_width(0.8);
+            cell_stroke.line_dash = iced::widget::canvas::stroke::LineDash {
+                segments: &[3.0, 3.0],
+                offset: 0,
+            };
+            for col in 1..grid_cols {
+                let x = 6.0 + col as f32 * col_w;
+                let a = self.world_to_screen(x, 6.0);
+                let b = self.world_to_screen(x, sheet_h - 6.0);
+                frame.stroke(&Path::line(a, b), cell_stroke);
+            }
+            for row in 1..grid_rows {
+                let y = 6.0 + row as f32 * row_h;
+                let a = self.world_to_screen(6.0, y);
+                let b = self.world_to_screen(sheet_w - 6.0, y);
+                frame.stroke(&Path::line(a, b), cell_stroke);
+            }
+        }
+
+        for col in 0..grid_cols {
+            let cx = 6.0 + (col as f32 + 0.5) * col_w;
             let pos = self.world_to_screen(cx, 1.2);
             frame.fill_text(Text {
                 content: format!("{}", col + 1),
@@ -349,8 +540,9 @@ impl<'a> SchematicCanvas<'a> {
                 ..Text::default()
             });
         }
-        for (row, ch) in ['A', 'B', 'C', 'D', 'E', 'F'].iter().enumerate() {
-            let ry = 6.0 + (row as f32 + 0.5) * ((sheet_h - 12.0) / 6.0);
+        for row in 0..grid_rows {
+            let ch = char::from(b'A' + row as u8);
+            let ry = 6.0 + (row as f32 + 0.5) * row_h;
             let pos = self.world_to_screen(1.5, ry);
             frame.fill_text(Text {
                 content: ch.to_string(),
@@ -362,45 +554,47 @@ impl<'a> SchematicCanvas<'a> {
         }
 
         // Cajetín (Bloco de legenda no canto inferior direito)
-        let caj_w = 115.0;
-        let caj_h = 22.0;
-        let caj_x = sheet_w - caj_w - 6.0;
-        let caj_y = sheet_h - caj_h - 6.0;
-        let cp = self.world_to_screen(caj_x, caj_y);
-        let cs = Size::new(caj_w * self.zoom, caj_h * self.zoom);
-        let caj_bg = tok.s1;
-        frame.fill_rectangle(cp, cs, caj_bg);
-        frame.stroke(&Path::rectangle(cp, cs), border_stroke);
+        if self.show_cajetin {
+            let caj_w = 115.0;
+            let caj_h = 22.0;
+            let caj_x = sheet_w - caj_w - 6.0;
+            let caj_y = sheet_h - caj_h - 6.0;
+            let cp = self.world_to_screen(caj_x, caj_y);
+            let cs = Size::new(caj_w * self.zoom, caj_h * self.zoom);
+            let caj_bg = tok.s1;
+            frame.fill_rectangle(cp, cs, caj_bg);
+            frame.stroke(&Path::rectangle(cp, cs), border_stroke);
 
-        let tb = &self.doc.title_block;
-        let font_sz = (3.0 * self.zoom).clamp(7.0, 13.0);
-        let caj_text1 = tok.text2;
-        let caj_text2 = tok.text;
-        let caj_text3 = tok.text2;
-        frame.fill_text(Text {
-            content: format!("Entidade: {}  |  Data: {}", tb.entity, tb.drawn_date),
-            position: self.world_to_screen(caj_x + 3.0, caj_y + 2.5),
-            color: caj_text1,
-            size: font_sz.into(),
-            ..Text::default()
-        });
-        frame.fill_text(Text {
-            content: format!("Título: {} - {}", tb.title, tb.subtitle),
-            position: self.world_to_screen(caj_x + 3.0, caj_y + 8.5),
-            color: caj_text2,
-            size: (font_sz * 1.08).into(),
-            ..Text::default()
-        });
-        frame.fill_text(Text {
-            content: format!(
-                "Autor: {}  |  Arquivo: {}  |  Folha: {}",
-                tb.drawn_by, tb.file_ref, tb.sheet
-            ),
-            position: self.world_to_screen(caj_x + 3.0, caj_y + 15.0),
-            color: caj_text3,
-            size: font_sz.into(),
-            ..Text::default()
-        });
+            let tb = &self.doc.title_block;
+            let font_sz = (3.0 * self.zoom).clamp(7.0, 13.0);
+            let caj_text1 = tok.text2;
+            let caj_text2 = tok.text;
+            let caj_text3 = tok.text2;
+            frame.fill_text(Text {
+                content: format!("Entidade: {}  |  Data: {}", tb.entity, tb.drawn_date),
+                position: self.world_to_screen(caj_x + 3.0, caj_y + 2.5),
+                color: caj_text1,
+                size: font_sz.into(),
+                ..Text::default()
+            });
+            frame.fill_text(Text {
+                content: format!("Título: {} - {}", tb.title, tb.subtitle),
+                position: self.world_to_screen(caj_x + 3.0, caj_y + 8.5),
+                color: caj_text2,
+                size: (font_sz * 1.08).into(),
+                ..Text::default()
+            });
+            frame.fill_text(Text {
+                content: format!(
+                    "Autor: {}  |  Arquivo: {}  |  Folha: {}",
+                    tb.drawn_by, tb.file_ref, tb.sheet
+                ),
+                position: self.world_to_screen(caj_x + 3.0, caj_y + 15.0),
+                color: caj_text3,
+                size: font_sz.into(),
+                ..Text::default()
+            });
+        }
     }
 
     pub fn wire_color(&self, item: &SchematicItem) -> (Color, f32) {
@@ -868,18 +1062,57 @@ impl<'a> SchematicCanvas<'a> {
             return;
         }
 
-        // Texto gráfico (tipo == 8)
+        // Texto em linha ou Campo de texto gráfico (tipo == 8)
         if item.tipo == 8 {
-            if !item.trailing_str.is_empty() {
-                let pos = self.world_to_screen(item.x1 as f32, item.y1 as f32);
-                let text_color = tok.text;
-                frame.fill_text(Text {
-                    content: item.trailing_str.clone(),
-                    position: pos,
-                    color: text_color,
-                    size: (3.2 * self.zoom).clamp(8.5, 15.0).into(),
-                    ..Text::default()
-                });
+            let font_sz = (3.2 * self.zoom).clamp(8.5, 15.0);
+            let text_color = Self::resolve_graphic_color(item, is_selected, tok.focus, tok.text);
+            if item.subvariant == 1 {
+                let min_x = item.x1.min(item.x2) as f32;
+                let min_y = item.y1.min(item.y2) as f32;
+                let w = (item.x2 - item.x1).abs().max(24) as f32;
+                let h = (item.y2 - item.y1).abs().max(8) as f32;
+                let tl = self.world_to_screen(min_x, min_y);
+                let sz = Size::new(w * self.zoom, h * self.zoom);
+                frame.fill_rectangle(tl, sz, Color { a: 0.08, ..tok.s2 });
+                frame.stroke(
+                    &Path::rectangle(tl, sz),
+                    Stroke::default()
+                        .with_color(if is_selected { tok.focus } else { tok.text2 })
+                        .with_width(if is_selected { 1.6 } else { 1.1 }),
+                );
+                if !item.trailing_str.is_empty() {
+                    let pos = self.world_to_screen(min_x + 1.5, min_y + 1.5);
+                    frame.fill_text(Text {
+                        content: item.trailing_str.clone(),
+                        position: pos,
+                        color: text_color,
+                        size: font_sz.into(),
+                        ..Text::default()
+                    });
+                }
+            } else {
+                if is_selected {
+                    let (bx1, by1, bx2, by2) = Self::item_bounds(item);
+                    let tl = self.world_to_screen(bx1 as f32, by1 as f32);
+                    let sz = Size::new(
+                        (bx2 - bx1) as f32 * self.zoom,
+                        (by2 - by1) as f32 * self.zoom,
+                    );
+                    frame.stroke(
+                        &Path::rectangle(tl, sz),
+                        Stroke::default().with_color(tok.focus).with_width(1.1),
+                    );
+                }
+                if !item.trailing_str.is_empty() {
+                    let pos = self.world_to_screen(item.x1 as f32, item.y1 as f32);
+                    frame.fill_text(Text {
+                        content: item.trailing_str.clone(),
+                        position: pos,
+                        color: text_color,
+                        size: font_sz.into(),
+                        ..Text::default()
+                    });
+                }
             }
             return;
         }
@@ -888,19 +1121,13 @@ impl<'a> SchematicCanvas<'a> {
         if item.tipo == 1 {
             let a = self.world_to_screen(item.x1 as f32, item.y1 as f32);
             let b = self.world_to_screen(item.x2 as f32, item.y2 as f32);
-            let line_color = if is_selected {
-                tok.focus
-            } else if item.color != 0 {
-                let r = ((item.color >> 16) & 0xFF) as f32 / 255.0;
-                let g = ((item.color >> 8) & 0xFF) as f32 / 255.0;
-                let b = (item.color & 0xFF) as f32 / 255.0;
-                Color::from_rgb(r, g, b)
-            } else {
-                tok.sheet_line
-            };
+            let line_color =
+                Self::resolve_graphic_color(item, is_selected, tok.focus, tok.sheet_line);
             frame.stroke(
                 &Path::line(a, b),
-                Stroke::default().with_color(line_color).with_width(1.2),
+                Stroke::default()
+                    .with_color(line_color)
+                    .with_width(if is_selected { 2.0 } else { 1.2 }),
             );
             return;
         }
@@ -909,24 +1136,105 @@ impl<'a> SchematicCanvas<'a> {
         if item.tipo == 2 {
             let min_x = item.x1.min(item.x2) as f32;
             let min_y = item.y1.min(item.y2) as f32;
-            let w = (item.x2 - item.x1).abs() as f32;
-            let h = (item.y2 - item.y1).abs() as f32;
+            let w = (item.x2 - item.x1).abs().max(2) as f32;
+            let h = (item.y2 - item.y1).abs().max(2) as f32;
             let tl = self.world_to_screen(min_x, min_y);
             let sz = Size::new(w * self.zoom, h * self.zoom);
-            let rect_color = if is_selected {
-                tok.focus
-            } else if item.color != 0 {
-                let r = ((item.color >> 16) & 0xFF) as f32 / 255.0;
-                let g = ((item.color >> 8) & 0xFF) as f32 / 255.0;
-                let b = (item.color & 0xFF) as f32 / 255.0;
-                Color::from_rgb(r, g, b)
-            } else {
-                tok.sheet_line
-            };
+            let rect_color =
+                Self::resolve_graphic_color(item, is_selected, tok.focus, tok.sheet_line);
             frame.stroke(
                 &Path::rectangle(tl, sz),
-                Stroke::default().with_color(rect_color).with_width(1.3),
+                Stroke::default()
+                    .with_color(rect_color)
+                    .with_width(if is_selected { 2.0 } else { 1.3 }),
             );
+            return;
+        }
+
+        // Círculo / Elipse gráfica (tipo == 3)
+        if item.tipo == 3 {
+            let cx = (item.x1 + item.x2) as f32 * 0.5;
+            let cy = (item.y1 + item.y2) as f32 * 0.5;
+            let rx = ((item.x2 - item.x1).abs() as f32 * 0.5).max(2.0);
+            let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(2.0);
+            let stroke_col =
+                Self::resolve_graphic_color(item, is_selected, tok.focus, tok.sheet_line);
+            self.stroke_graphic_ellipse_world(
+                frame,
+                cx,
+                cy,
+                rx,
+                ry,
+                Stroke::default()
+                    .with_color(stroke_col)
+                    .with_width(if is_selected { 2.0 } else { 1.3 }),
+            );
+            return;
+        }
+
+        // Arco gráfico (tipo == 4)
+        if item.tipo == 4 {
+            let (cx, cy, rx, ry, start_deg, sweep_deg) = crate::export::graphic_arc_params(item);
+            let stroke_col =
+                Self::resolve_graphic_color(item, is_selected, tok.focus, tok.sheet_line);
+            let stroke = Stroke::default()
+                .with_color(stroke_col)
+                .with_width(if is_selected { 2.0 } else { 1.3 });
+            if sweep_deg.abs() >= 360.0 {
+                self.stroke_graphic_ellipse_world(frame, cx, cy, rx, ry, stroke);
+            } else {
+                self.stroke_graphic_arc_world(frame, cx, cy, rx, ry, start_deg, sweep_deg, stroke);
+            }
+            return;
+        }
+
+        // Imagem gráfica (tipo == 5)
+        if item.tipo == 5 {
+            let min_x = item.x1.min(item.x2) as f32;
+            let min_y = item.y1.min(item.y2) as f32;
+            let w = (item.x2 - item.x1).abs().max(12) as f32;
+            let h = (item.y2 - item.y1).abs().max(12) as f32;
+            let tl = self.world_to_screen(min_x, min_y);
+            let sz = Size::new(w * self.zoom, h * self.zoom);
+            let border_col = Self::resolve_graphic_color(item, is_selected, tok.focus, tok.primary);
+            frame.fill_rectangle(
+                tl,
+                sz,
+                Color {
+                    a: 0.10,
+                    ..border_col
+                },
+            );
+            frame.stroke(
+                &Path::rectangle(tl, sz),
+                Stroke::default()
+                    .with_color(border_col)
+                    .with_width(if is_selected { 2.0 } else { 1.2 }),
+            );
+            // X diagonal leve + rótulo do arquivo (renderização real de pixels ocorre em Exportação PNG/JPG/BMP/SVG/PDF)
+            let br = Point::new(tl.x + sz.width, tl.y + sz.height);
+            let tr = Point::new(tl.x + sz.width, tl.y);
+            let bl = Point::new(tl.x, tl.y + sz.height);
+            let diag_stroke = Stroke::default()
+                .with_color(Color {
+                    a: 0.35,
+                    ..border_col
+                })
+                .with_width(0.8);
+            frame.stroke(&Path::line(tl, br), diag_stroke);
+            frame.stroke(&Path::line(tr, bl), diag_stroke);
+            let label = std::path::Path::new(&item.trailing_str)
+                .file_name()
+                .and_then(|n| n.to_str())
+                .filter(|s| !s.is_empty())
+                .unwrap_or("Imagem");
+            frame.fill_text(Text {
+                content: format!("[IMG] {label}"),
+                position: self.world_to_screen(min_x + 2.0, min_y + (h * 0.45)),
+                color: if is_selected { tok.focus } else { tok.text },
+                size: (2.8 * self.zoom).clamp(8.5, 13.5).into(),
+                ..Text::default()
+            });
             return;
         }
 
@@ -1009,7 +1317,7 @@ impl<'a> SchematicCanvas<'a> {
                 true
             };
 
-            if is_wireable {
+            if self.show_terminals && is_wireable {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                     for shape in &parsed.shapes {
                         if let crate::svg_symbol::SvgShape::Circle {
@@ -1035,7 +1343,7 @@ impl<'a> SchematicCanvas<'a> {
             }
 
             // Desenha tag do elemento
-            if !item.tag.is_empty() {
+            if self.show_texts && item.show_tag == 1 && !item.tag.is_empty() {
                 let tpos = self.world_to_screen((item.x1 - 6) as f32, (item.y1 - 6) as f32);
                 let tag_color = tok.w_cmd;
                 frame.fill_text(Text {
@@ -1208,12 +1516,14 @@ impl<'a> SchematicCanvas<'a> {
 
         // Desenha bornes (pinos) e seus números/nomes
         for (idx, pin_label, (wx, wy)) in sym.world_pins(item) {
-            let pt = self.world_to_screen(wx as f32, wy as f32);
-            let pin_rad = (crate::model::TERMINAL_RADIUS_UNITS * self.zoom).clamp(1.2, 4.0);
-            frame.stroke(
-                &Path::circle(pt, pin_rad),
-                Stroke::default().with_color(tok.danger).with_width(1.0),
-            );
+            if self.show_terminals {
+                let pt = self.world_to_screen(wx as f32, wy as f32);
+                let pin_rad = (crate::model::TERMINAL_RADIUS_UNITS * self.zoom).clamp(1.2, 4.0);
+                frame.stroke(
+                    &Path::circle(pt, pin_rad),
+                    Stroke::default().with_color(tok.danger).with_width(1.0),
+                );
+            }
             if self.show_texts
                 && self.doc.settings.show_pin_refs >= 1
                 && item.pin_visibility[idx] == 1
@@ -1393,7 +1703,7 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 if let Some(drag_tipo) = self.dragging_symbol {
                     if let Some(cursor_pos) = cursor.position_in(bounds) {
                         let (wx_f, wy_f) = self.screen_to_world(cursor_pos);
-                        let (snapped_x, snapped_y) = Self::snap_to_grid(wx_f, wy_f);
+                        let (snapped_x, snapped_y) = self.snap_world(wx_f, wy_f);
                         return (
                             canvas::event::Status::Captured,
                             Some(CanvasMessage::PlaceComponent {
@@ -1407,7 +1717,7 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 if let Some(drag_sym_id) = self.dragging_canonical_symbol {
                     if let Some(cursor_pos) = cursor.position_in(bounds) {
                         let (wx_f, wy_f) = self.screen_to_world(cursor_pos);
-                        let (snapped_x, snapped_y) = Self::snap_to_grid(wx_f, wy_f);
+                        let (snapped_x, snapped_y) = self.snap_world(wx_f, wy_f);
                         return (
                             canvas::event::Status::Captured,
                             Some(CanvasMessage::PlaceCanonicalComponent {
@@ -1440,7 +1750,7 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         };
 
         let (wx_f, wy_f) = self.screen_to_world(cursor_pos);
-        let (snapped_x, snapped_y) = Self::snap_to_grid(wx_f, wy_f);
+        let (snapped_x, snapped_y) = self.snap_world(wx_f, wy_f);
 
         match event {
             Event::Keyboard(iced::keyboard::Event::ModifiersChanged(m)) => {
@@ -1649,6 +1959,49 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         }
                         (canvas::event::Status::Captured, None)
                     }
+                    EditorTool::PlaceText => (
+                        canvas::event::Status::Captured,
+                        Some(CanvasMessage::AddGraphicItem {
+                            tipo: 8,
+                            subvariant: 0,
+                            x1: snapped_x,
+                            y1: snapped_y,
+                            x2: snapped_x + 30,
+                            y2: snapped_y + 8,
+                        }),
+                    ),
+                    EditorTool::PlaceTextField
+                    | EditorTool::DrawGraphicLine
+                    | EditorTool::DrawGraphicRect
+                    | EditorTool::DrawGraphicCircle
+                    | EditorTool::DrawGraphicArc => {
+                        let (tipo, subvariant) = match self.tool {
+                            EditorTool::PlaceTextField => (8, 1),
+                            EditorTool::DrawGraphicLine => (1, 0),
+                            EditorTool::DrawGraphicRect => (2, 0),
+                            EditorTool::DrawGraphicCircle => (3, 0),
+                            EditorTool::DrawGraphicArc => (4, 0),
+                            _ => (1, 0),
+                        };
+                        if let Some((sx, sy)) = state.wire_start.take() {
+                            if (sx, sy) != (snapped_x, snapped_y) {
+                                return (
+                                    canvas::event::Status::Captured,
+                                    Some(CanvasMessage::AddGraphicItem {
+                                        tipo,
+                                        subvariant,
+                                        x1: sx,
+                                        y1: sy,
+                                        x2: snapped_x,
+                                        y2: snapped_y,
+                                    }),
+                                );
+                            }
+                        } else {
+                            state.wire_start = Some((snapped_x, snapped_y));
+                        }
+                        (canvas::event::Status::Captured, None)
+                    }
                     EditorTool::Delete => {
                         if let Some(id) = hit {
                             return (
@@ -1671,7 +2024,7 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         renderer: &Renderer,
         _theme: &Theme,
         bounds: Rectangle,
-        _cursor: mouse::Cursor,
+        cursor: mouse::Cursor,
     ) -> Vec<Geometry> {
         let tok = self.tokens();
         let mut frame = Frame::new(renderer, bounds.size());
@@ -1790,6 +2143,81 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         },
                     );
                 }
+                EditorTool::PlaceText => {
+                    let hpt = self.world_to_screen(hx as f32, hy as f32);
+                    frame.fill_text(Text {
+                        content: "Texto".to_string(),
+                        position: hpt,
+                        color: Color {
+                            a: 0.70,
+                            ..tok.focus
+                        },
+                        size: (3.2 * self.zoom).clamp(8.5, 15.0).into(),
+                        ..Text::default()
+                    });
+                }
+                EditorTool::PlaceTextField
+                | EditorTool::DrawGraphicLine
+                | EditorTool::DrawGraphicRect
+                | EditorTool::DrawGraphicCircle
+                | EditorTool::DrawGraphicArc => {
+                    let hpt = self.world_to_screen(hx as f32, hy as f32);
+                    let preview_stroke = Stroke::default()
+                        .with_color(Color {
+                            a: 0.80,
+                            ..tok.focus
+                        })
+                        .with_width(1.6);
+                    frame.stroke(&Path::circle(hpt, 2.5 * self.zoom), preview_stroke);
+                    if let Some((sx, sy)) = state.wire_start {
+                        match self.tool {
+                            EditorTool::DrawGraphicLine => {
+                                let spt = self.world_to_screen(sx as f32, sy as f32);
+                                frame.stroke(&Path::line(spt, hpt), preview_stroke);
+                            }
+                            EditorTool::PlaceTextField | EditorTool::DrawGraphicRect => {
+                                let min_x = sx.min(hx) as f32;
+                                let min_y = sy.min(hy) as f32;
+                                let w = (hx - sx).abs().max(2) as f32;
+                                let h = (hy - sy).abs().max(2) as f32;
+                                let tl = self.world_to_screen(min_x, min_y);
+                                let sz = Size::new(w * self.zoom, h * self.zoom);
+                                frame.stroke(&Path::rectangle(tl, sz), preview_stroke);
+                            }
+                            EditorTool::DrawGraphicCircle => {
+                                let cx = (sx + hx) as f32 * 0.5;
+                                let cy = (sy + hy) as f32 * 0.5;
+                                let rx = ((hx - sx).abs() as f32 * 0.5).max(2.0);
+                                let ry = ((hy - sy).abs() as f32 * 0.5).max(2.0);
+                                self.stroke_graphic_ellipse_world(
+                                    &mut frame,
+                                    cx,
+                                    cy,
+                                    rx,
+                                    ry,
+                                    preview_stroke,
+                                );
+                            }
+                            EditorTool::DrawGraphicArc => {
+                                let cx = (sx + hx) as f32 * 0.5;
+                                let cy = (sy + hy) as f32 * 0.5;
+                                let rx = ((hx - sx).abs() as f32 * 0.5).max(2.0);
+                                let ry = ((hy - sy).abs() as f32 * 0.5).max(2.0);
+                                self.stroke_graphic_arc_world(
+                                    &mut frame,
+                                    cx,
+                                    cy,
+                                    rx,
+                                    ry,
+                                    0.0,
+                                    90.0,
+                                    preview_stroke,
+                                );
+                            }
+                            _ => {}
+                        }
+                    }
+                }
                 _ => {}
             }
         }
@@ -1885,6 +2313,122 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 frame.stroke(
                     &Path::rectangle(Point::new(x, y), Size::new(w, h)),
                     Stroke::default().with_color(tok.primary).with_width(1.5),
+                );
+            }
+        }
+
+        // Guias de alinhamento X/Y com elementos existentes
+        if self.show_alignment_guides && !self.sim_running {
+            let (hx, hy) = state.hover_world;
+            let dragged_id = state.dragging_item.map(|(id, _, _)| id);
+            let mut guide_stroke = Stroke::default()
+                .with_color(Color {
+                    a: 0.72,
+                    ..tok.amber
+                })
+                .with_width(1.1);
+            guide_stroke.line_dash = iced::widget::canvas::stroke::LineDash {
+                segments: &[4.0, 3.0],
+                offset: 0,
+            };
+            let h_scr = self.world_to_screen(hx as f32, hy as f32);
+            for item in &self.doc.items {
+                if Some(item.id) == dragged_id {
+                    continue;
+                }
+                if item.x1 == hx {
+                    let t_scr = self.world_to_screen(item.x1 as f32, item.y1 as f32);
+                    frame.stroke(
+                        &Path::line(Point::new(h_scr.x, h_scr.y), Point::new(t_scr.x, t_scr.y)),
+                        guide_stroke,
+                    );
+                }
+                if item.y1 == hy {
+                    let t_scr = self.world_to_screen(item.x1 as f32, item.y1 as f32);
+                    frame.stroke(
+                        &Path::line(Point::new(h_scr.x, h_scr.y), Point::new(t_scr.x, t_scr.y)),
+                        guide_stroke,
+                    );
+                }
+            }
+        }
+
+        // Cabeçalhos fixos de colunas (1..N) e linhas (A..Z) quando a folha é rolada para fora da tela
+        if self.keep_headers_visible {
+            let (sheet_w, sheet_h) = crate::xref::sheet_dimensions(self.doc);
+            let p0 = self.world_to_screen(0.0, 0.0);
+            let grid_cols = self.doc.settings.effective_grid_cols();
+            let grid_rows = self.doc.settings.effective_grid_rows();
+            let col_w = (sheet_w - 12.0) / grid_cols as f32;
+            let row_h = (sheet_h - 12.0) / grid_rows as f32;
+            let bar_bg = Color { a: 0.88, ..tok.s1 };
+
+            if p0.y < 0.0 {
+                frame.fill_rectangle(Point::new(0.0, 0.0), Size::new(bounds.width, 18.0), bar_bg);
+                frame.stroke(
+                    &Path::line(Point::new(0.0, 18.0), Point::new(bounds.width, 18.0)),
+                    Stroke::default().with_color(tok.border).with_width(1.0),
+                );
+                for col in 0..grid_cols {
+                    let cx = self
+                        .world_to_screen(6.0 + (col as f32 + 0.5) * col_w, 0.0)
+                        .x;
+                    if cx >= 18.0 && cx <= bounds.width - 8.0 {
+                        frame.fill_text(Text {
+                            content: format!("{}", col + 1),
+                            position: Point::new(cx, 3.0),
+                            color: tok.text,
+                            size: 11.0.into(),
+                            ..Text::default()
+                        });
+                    }
+                }
+            }
+
+            if p0.x < 0.0 {
+                frame.fill_rectangle(Point::new(0.0, 0.0), Size::new(20.0, bounds.height), bar_bg);
+                frame.stroke(
+                    &Path::line(Point::new(20.0, 0.0), Point::new(20.0, bounds.height)),
+                    Stroke::default().with_color(tok.border).with_width(1.0),
+                );
+                for row in 0..grid_rows {
+                    let ch = char::from(b'A' + row as u8);
+                    let ry = self
+                        .world_to_screen(0.0, 6.0 + (row as f32 + 0.5) * row_h)
+                        .y;
+                    if ry >= 18.0 && ry <= bounds.height - 8.0 {
+                        frame.fill_text(Text {
+                            content: ch.to_string(),
+                            position: Point::new(5.0, ry),
+                            color: tok.text,
+                            size: 11.0.into(),
+                            ..Text::default()
+                        });
+                    }
+                }
+            }
+        }
+
+        // Mira em todo o fólio (Full-viewport cursor crosshair)
+        if self.show_full_crosshair && !self.sim_running && !self.is_blocked {
+            if let Some(cp) = cursor.position_in(bounds) {
+                let mut cross_stroke = Stroke::default()
+                    .with_color(Color {
+                        a: 0.45,
+                        ..tok.focus
+                    })
+                    .with_width(0.9);
+                cross_stroke.line_dash = iced::widget::canvas::stroke::LineDash {
+                    segments: &[6.0, 4.0],
+                    offset: 0,
+                };
+                frame.stroke(
+                    &Path::line(Point::new(0.0, cp.y), Point::new(bounds.width, cp.y)),
+                    cross_stroke,
+                );
+                frame.stroke(
+                    &Path::line(Point::new(cp.x, 0.0), Point::new(cp.x, bounds.height)),
+                    cross_stroke,
                 );
             }
         }

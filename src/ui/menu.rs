@@ -5,7 +5,8 @@ use iced::{Alignment, Element, Font, Length, Padding};
 
 use crate::app::{CadeSimuApp, Message};
 use crate::canvas_view::EditorTool;
-use crate::theme::{self, tokens, MENU_H, MONO, UI};
+use crate::model::GridDensity;
+use crate::theme::{self, tokens, ThemeMode, MENU_H, MONO, UI};
 
 pub use crate::app::ActiveMenu;
 
@@ -41,6 +42,7 @@ pub fn view_menubar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         menu_btn(ActiveMenu::Projeto, "Projeto"),
         menu_btn(ActiveMenu::Exibicao, "Exibição"),
         menu_btn(ActiveMenu::Configuracoes, "Configurações"),
+        menu_btn(ActiveMenu::Janela, "Janela"),
         menu_btn(ActiveMenu::Ajuda, "Ajuda"),
     ]
     .spacing(2)
@@ -126,6 +128,57 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
         .on_press(msg)
     };
 
+    let toggle_item_btn = |checked: bool,
+                           icon_opt: Option<crate::icons::Icon>,
+                           label: &'static str,
+                           shortcut: &'static str,
+                           msg: Message| {
+        let mark_el: Element<'_, Message> = if checked {
+            container(crate::icons::view_icon(
+                crate::icons::Icon::Check,
+                13,
+                t.primary,
+            ))
+            .width(16)
+            .height(16)
+            .center_x(16)
+            .center_y(16)
+            .into()
+        } else if let Some(ic) = icon_opt {
+            container(crate::icons::view_icon(ic, 13, t.text2))
+                .width(16)
+                .height(16)
+                .center_x(16)
+                .center_y(16)
+                .into()
+        } else {
+            container(Space::with_width(16).height(16)).into()
+        };
+
+        button(
+            row![
+                mark_el,
+                text(label).size(12).font(UI),
+                horizontal_space(),
+                text(shortcut).size(11).font(MONO).color(t.text2),
+            ]
+            .spacing(8)
+            .width(Length::Fill)
+            .align_y(Alignment::Center),
+        )
+        .style(theme::menu_item)
+        .padding(Padding::from([5.0, 12.0]))
+        .width(Length::Fill)
+        .on_press(msg)
+    };
+
+    let submenu_trigger_btn =
+        |icon_opt: Option<crate::icons::Icon>, label: &'static str, key: &'static str| {
+            let is_open = app.open_submenu == Some(key);
+            let arrow = if is_open { "v" } else { ">" };
+            menu_item_btn(icon_opt, label, arrow, Message::ToggleSubmenu(key))
+        };
+
     let items: Element<'_, Message> = match menu {
         ActiveMenu::Arquivo => {
             let mut col = column![
@@ -141,437 +194,867 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
                     "Ctrl+O",
                     Message::OpenFileDialog
                 ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::Save),
-                    "Salvar",
-                    "Ctrl+S",
-                    Message::SaveDocument
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::SaveAs),
-                    "Salvar Como...",
-                    "Ctrl+Shift+S",
-                    Message::SaveFileDialog
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::Duplicate),
-                    "Salvar Cópia...",
-                    "Ctrl+Alt+S",
-                    Message::SaveAll
-                ),
-                horizontal_rule(1),
-                menu_item_btn(
-                    Some(crate::icons::Icon::Close),
-                    "Fechar Esquema",
-                    "Ctrl+W",
-                    Message::CloseDocument
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::ExportPdf),
-                    "Exportar (PDF, SVG, CAD)...",
-                    "Ctrl+Shift+E",
-                    Message::OpenExportModal
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::Print),
-                    "Imprimir...",
-                    "Ctrl+P",
-                    Message::PrintDocument
+                submenu_trigger_btn(
+                    Some(crate::icons::Icon::Folder),
+                    "Últimos Arquivos",
+                    "arquivo_recentes"
                 ),
             ];
 
-            if !app.recent_files.is_empty() {
-                col = col.push(horizontal_rule(1));
-                col = col.push(
-                    container(
-                        text("Últimos Arquivos:")
-                            .size(10.5)
-                            .font(Font {
-                                weight: iced::font::Weight::Bold,
-                                ..UI
-                            })
-                            .color(t.primary),
-                    )
-                    .padding(Padding::from([3.0, 12.0])),
-                );
-                for path_str in app.recent_files.iter().take(5) {
-                    let file_name = std::path::Path::new(path_str)
-                        .file_name()
-                        .map(|n| n.to_string_lossy().to_string())
-                        .unwrap_or_else(|| path_str.clone());
-                    col = col.push(
-                        button(
-                            row![
-                                crate::icons::view_icon(crate::icons::Icon::Open, 12, t.text2),
-                                text(file_name).size(11.0).font(UI).width(Length::Fill),
-                            ]
-                            .spacing(6)
-                            .align_y(Alignment::Center),
-                        )
-                        .style(theme::menu_item)
-                        .padding(Padding::from([4.0, 12.0]))
-                        .width(Length::Fill)
-                        .on_press(Message::RecentProjectSelected(path_str.clone())),
+            if app.open_submenu == Some("arquivo_recentes") {
+                let mut sub = column![].spacing(2);
+                if app.recent_files.is_empty() {
+                    sub = sub.push(
+                        container(text("(Nenhum arquivo recente)").size(11).color(t.text2))
+                            .padding(Padding::from([4.0, 10.0])),
                     );
+                } else {
+                    for path_str in app.recent_files.iter().take(8) {
+                        let file_name = std::path::Path::new(path_str)
+                            .file_name()
+                            .map(|n| n.to_string_lossy().into_owned())
+                            .unwrap_or_else(|| path_str.clone());
+                        sub = sub.push(
+                            button(
+                                row![
+                                    crate::icons::view_icon(crate::icons::Icon::Open, 12, t.text2),
+                                    text(file_name).size(11.5).font(UI).width(Length::Fill),
+                                ]
+                                .spacing(6)
+                                .align_y(Alignment::Center),
+                            )
+                            .style(theme::menu_item)
+                            .padding(Padding::from([4.0, 10.0]))
+                            .width(Length::Fill)
+                            .on_press(Message::RecentProjectSelected(path_str.clone())),
+                        );
+                    }
+                    sub = sub.push(horizontal_rule(1));
+                    sub = sub.push(menu_item_btn(
+                        Some(crate::icons::Icon::Delete),
+                        "Limpar Lista de Recentes",
+                        "",
+                        Message::ClearRecentFiles,
+                    ));
                 }
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
             }
 
-            col = col.push(horizontal_rule(1));
-            col = col.push(menu_item_btn(
-                Some(crate::icons::Icon::Close),
-                "Fechar Menu",
-                "ESC",
-                Message::CloseMenu,
-            ));
+            col = col
+                .push(horizontal_rule(1))
+                .push(menu_item_btn(
+                    Some(crate::icons::Icon::Save),
+                    "Salvar",
+                    "Ctrl+S",
+                    Message::SaveDocument,
+                ))
+                .push(menu_item_btn(
+                    Some(crate::icons::Icon::SaveAs),
+                    "Salvar Como...",
+                    "Ctrl+Shift+S",
+                    Message::SaveFileDialog,
+                ))
+                .push(menu_item_btn(
+                    Some(crate::icons::Icon::Duplicate),
+                    "Salvar Cópia...",
+                    "Ctrl+Alt+S",
+                    Message::SaveCopyDialog,
+                ))
+                .push(menu_item_btn(
+                    Some(crate::icons::Icon::Save),
+                    "Salvar Tudo",
+                    "",
+                    Message::SaveAll,
+                ))
+                .push(menu_item_btn(
+                    Some(crate::icons::Icon::Close),
+                    "Fechar Projeto",
+                    "Ctrl+W",
+                    Message::CloseDocument,
+                ))
+                .push(horizontal_rule(1))
+                .push(menu_item_btn(
+                    Some(crate::icons::Icon::ExportPdf),
+                    "Exportar (PNG, JPG, BMP, SVG, DXF, CAD, PDF)...",
+                    "Ctrl+E",
+                    Message::OpenExportModal,
+                ))
+                .push(menu_item_btn(
+                    Some(crate::icons::Icon::Print),
+                    "Imprimir...",
+                    "Ctrl+P",
+                    Message::OpenPrintModal,
+                ))
+                .push(horizontal_rule(1))
+                .push(menu_item_btn(
+                    Some(crate::icons::Icon::Close),
+                    "Sair do RustSimu",
+                    "Alt+F4",
+                    Message::ExitApplication,
+                ));
 
-            col.spacing(2).width(280).into()
+            col.spacing(2).width(340).into()
         }
-        ActiveMenu::Editar => column![
-            menu_item_btn(
-                Some(crate::icons::Icon::Undo),
-                "Desfazer",
-                "Ctrl+Z",
-                Message::Undo
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Redo),
-                "Refazer",
-                "Ctrl+Shift+Z",
-                Message::Redo
-            ),
-            horizontal_rule(1),
-            menu_item_btn(
-                Some(crate::icons::Icon::Cut),
-                "Cortar",
-                "Ctrl+X",
-                Message::Cut
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Copy),
-                "Copiar",
-                "Ctrl+C",
-                Message::Copy
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Paste),
-                "Colar",
-                "Ctrl+V",
-                Message::Paste
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Paste),
-                "Colar na Posição Original",
-                "Ctrl+Shift+V",
-                Message::PasteAtOriginalPos
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Duplicate),
-                "Duplicar",
-                "Ctrl+D",
-                Message::Duplicate
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Bolt),
-                "Inserir o Último Elemento",
-                "A",
-                Message::InsertLastElement
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Palette),
-                "Colorir Elemento...",
-                "",
-                Message::ColorElement
-            ),
-            horizontal_rule(1),
-            menu_item_btn(
-                Some(crate::icons::Icon::Select),
-                "Selecionar Tudo",
-                "Ctrl+A",
-                Message::SelectAll
-            ),
-            menu_item_btn(
-                None,
-                "Anular a Seleção",
-                "Ctrl+Shift+A",
-                Message::DeselectAll
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::MirrorH),
-                "Inverter Seleção",
-                "Ctrl+I",
-                Message::InvertSelection
-            ),
-            horizontal_rule(1),
-            menu_item_btn(
-                Some(crate::icons::Icon::Group),
-                "Agrupar",
-                "Ctrl+G",
-                Message::GroupSelected
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Ungroup),
-                "Desagrupar",
-                "Ctrl+U",
-                Message::UngroupSelected
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Copy),
-                "Copiar Info do Elemento",
-                "Ctrl+Alt+C",
-                Message::CopyElementInfo
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Paste),
-                "Colar Info do Elemento",
-                "Ctrl+Alt+V",
-                Message::PasteElementInfo
-            ),
-            horizontal_rule(1),
-            menu_item_btn(
-                Some(crate::icons::Icon::Delete),
-                "Deletar",
-                "Del",
-                Message::DeleteSelected
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::RotateCw),
-                "Rotacionar 90°",
-                "R",
-                Message::RotateClockwise
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::RotateCcw),
-                "Rotacionar como Grupo",
-                "Shift+R",
-                Message::RotateCounterClockwise
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::MirrorH),
-                "Espelhar Horizontal",
-                "M",
-                Message::MirrorHorizontal
-            ),
-            menu_item_btn(
-                Some(crate::icons::Icon::MirrorV),
-                "Espelhar Vertical",
-                "F",
-                Message::MirrorVertical
-            ),
-            horizontal_rule(1),
-            menu_item_btn(
-                Some(crate::icons::Icon::New),
-                "Propriedades da Página",
-                "Ctrl+Shift+Enter",
-                Message::SelectPropTab(0)
-            ),
-        ]
-        .spacing(2)
-        .width(290)
-        .into(),
-        ActiveMenu::Projeto => {
-            let autoconn_str = if app.auto_connect {
-                "[X] Criação Automática de Condutores"
-            } else {
-                "[  ] Criação Automática de Condutores"
-            };
-            let autodisc_str = if app.auto_disconnect {
-                "[X] Desconexão Automática de Condutores"
-            } else {
-                "[  ] Desconexão Automática de Condutores"
-            };
-            column![
+        ActiveMenu::Editar => {
+            let mut col = column![
+                menu_item_btn(
+                    Some(crate::icons::Icon::Undo),
+                    "Desfazer",
+                    "Ctrl+Z",
+                    Message::Undo
+                ),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Redo),
+                    "Refazer",
+                    "Ctrl+Y",
+                    Message::Redo
+                ),
+                horizontal_rule(1),
+                menu_item_btn(
+                    Some(crate::icons::Icon::Cut),
+                    "Cortar",
+                    "Ctrl+X",
+                    Message::Cut
+                ),
                 menu_item_btn(
                     Some(crate::icons::Icon::Copy),
-                    "Propriedades do Projeto",
-                    "",
-                    Message::SelectPropTab(0)
-                ),
-                horizontal_rule(1),
-                menu_item_btn(
-                    Some(crate::icons::Icon::WireL),
-                    autoconn_str,
-                    "",
-                    Message::ToggleAutoConnect
+                    "Copiar",
+                    "Ctrl+C",
+                    Message::Copy
                 ),
                 menu_item_btn(
-                    Some(crate::icons::Icon::DeleteWire),
-                    autodisc_str,
-                    "",
-                    Message::ToggleAutoDisconnect
+                    Some(crate::icons::Icon::Paste),
+                    "Colar",
+                    "Ctrl+V",
+                    Message::Paste
                 ),
-                horizontal_rule(1),
                 menu_item_btn(
-                    Some(crate::icons::Icon::AddAfter),
-                    "Adicionar Página",
-                    "Ctrl+T",
-                    Message::AddPageAfter(app.active_page_index)
+                    Some(crate::icons::Icon::Duplicate),
+                    "Duplicar",
+                    "Ctrl+D",
+                    Message::Duplicate
                 ),
                 menu_item_btn(
                     Some(crate::icons::Icon::Delete),
-                    "Deletar esta Página",
-                    "Ctrl+Shift+Bksp",
-                    Message::DeletePage(app.active_page_index)
+                    "Excluir",
+                    "Del",
+                    Message::DeleteSelected
                 ),
                 horizontal_rule(1),
-                menu_item_btn(
-                    Some(crate::icons::Icon::ChevronRight),
-                    "Próxima Folha",
-                    "Ctrl+PgDn",
-                    Message::SelectPage(app.active_page_index + 1)
+                submenu_trigger_btn(
+                    Some(crate::icons::Icon::Select),
+                    "Seleção, Grupos e Clipe",
+                    "editar_selecao"
                 ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::ChevronLeft),
-                    "Folha Anterior",
-                    "Ctrl+PgUp",
-                    Message::SelectPage(app.active_page_index.saturating_sub(1))
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::Pencil),
-                    "Renomear Folha Atual",
-                    "",
-                    Message::StartEditingPageName(app.active_page_index)
-                ),
-            ]
-            .spacing(2)
-            .width(310)
-            .into()
+            ];
+
+            if app.open_submenu == Some("editar_selecao") {
+                let sub = column![
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Paste),
+                        "Colar na Posição Original",
+                        "Ctrl+Shift+V",
+                        Message::PasteAtOriginalPos
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Bolt),
+                        "Inserir Último Elemento",
+                        "A",
+                        Message::InsertLastElement
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Copy),
+                        "Copiar Info Elétrica",
+                        "Ctrl+Alt+C",
+                        Message::CopyElementInfo
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Paste),
+                        "Colar Info Elétrica",
+                        "Ctrl+Alt+V",
+                        Message::PasteElementInfo
+                    ),
+                    horizontal_rule(1),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Select),
+                        "Selecionar Tudo",
+                        "Ctrl+A",
+                        Message::SelectAll
+                    ),
+                    menu_item_btn(None, "Anular Seleção", "Ctrl+Shift+A", Message::DeselectAll),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::MirrorH),
+                        "Inverter Seleção",
+                        "Ctrl+I",
+                        Message::InvertSelection
+                    ),
+                    horizontal_rule(1),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Group),
+                        "Agrupar Selecionados",
+                        "Ctrl+G",
+                        Message::GroupSelected
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Ungroup),
+                        "Desagrupar",
+                        "Ctrl+U",
+                        Message::UngroupSelected
+                    ),
+                ]
+                .spacing(2);
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
+            }
+
+            col = col.push(submenu_trigger_btn(
+                Some(crate::icons::Icon::Text),
+                "Adicionar (Texto, Imagem, Formas)",
+                "editar_adicionar",
+            ));
+            if app.open_submenu == Some("editar_adicionar") {
+                let sub = column![
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Text),
+                        "Texto em Linha",
+                        "",
+                        Message::SelectTool(EditorTool::PlaceText)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Text),
+                        "Campo de Texto",
+                        "",
+                        Message::SelectTool(EditorTool::PlaceTextField)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Image),
+                        "Imagem...",
+                        "",
+                        Message::InsertImageDialog
+                    ),
+                    horizontal_rule(1),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::DrawLine),
+                        "Linha",
+                        "",
+                        Message::SelectTool(EditorTool::DrawGraphicLine)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::DrawRect),
+                        "Retângulo",
+                        "",
+                        Message::SelectTool(EditorTool::DrawGraphicRect)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::DrawCircle),
+                        "Círculo / Elipse",
+                        "",
+                        Message::SelectTool(EditorTool::DrawGraphicCircle)
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::DrawArc),
+                        "Arco",
+                        "",
+                        Message::SelectTool(EditorTool::DrawGraphicArc)
+                    ),
+                ]
+                .spacing(2);
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
+            }
+
+            col = col.push(submenu_trigger_btn(
+                Some(crate::icons::Icon::Grid),
+                "Linhas e Colunas",
+                "editar_grade",
+            ));
+            if app.open_submenu == Some("editar_grade") {
+                let sub = column![
+                    menu_item_btn(
+                        Some(crate::icons::Icon::AddAfter),
+                        "Adicionar Coluna",
+                        "",
+                        Message::AddGridCol
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Delete),
+                        "Remover Coluna",
+                        "",
+                        Message::RemoveGridCol
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::AddAfter),
+                        "Adicionar Linha",
+                        "",
+                        Message::AddGridRow
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Delete),
+                        "Remover Linha",
+                        "",
+                        Message::RemoveGridRow
+                    ),
+                ]
+                .spacing(2);
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
+            }
+
+            col = col.push(submenu_trigger_btn(
+                Some(crate::icons::Icon::RotateCw),
+                "Transformar, Alinhar e Cor",
+                "editar_transform",
+            ));
+            if app.open_submenu == Some("editar_transform") {
+                let sub = column![
+                    menu_item_btn(
+                        Some(crate::icons::Icon::RotateCw),
+                        "Rotacionar 90° Horário",
+                        "R",
+                        Message::RotateClockwise
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::RotateCcw),
+                        "Rotacionar Anti-horário",
+                        "Shift+R",
+                        Message::RotateCounterClockwise
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::MirrorH),
+                        "Espelhar Horizontal",
+                        "M",
+                        Message::MirrorHorizontal
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::MirrorV),
+                        "Espelhar Vertical",
+                        "F",
+                        Message::MirrorVertical
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Magnet),
+                        "Alinhar à Grelha",
+                        "",
+                        Message::AlignToGrid
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Palette),
+                        "Colorir Elemento...",
+                        "",
+                        Message::ColorElement
+                    ),
+                ]
+                .spacing(2);
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
+            }
+
+            col = col.push(horizontal_rule(1)).push(menu_item_btn(
+                Some(crate::icons::Icon::Settings),
+                "Propriedades da Página...",
+                "Ctrl+Shift+Enter",
+                Message::OpenPagePropertiesModal,
+            ));
+
+            col.spacing(2).width(325).into()
         }
+        ActiveMenu::Projeto => column![
+            menu_item_btn(
+                Some(crate::icons::Icon::Folder),
+                "Propriedades do Projeto...",
+                "",
+                Message::OpenProjectPropertiesModal
+            ),
+            horizontal_rule(1),
+            toggle_item_btn(
+                app.auto_connect,
+                Some(crate::icons::Icon::WireL),
+                "Autoconectar Condutores",
+                "",
+                Message::ToggleAutoConnect
+            ),
+            toggle_item_btn(
+                app.auto_disconnect,
+                Some(crate::icons::Icon::DeleteWire),
+                "Desconectar Automaticamente ao Mover",
+                "",
+                Message::ToggleAutoDisconnect
+            ),
+            horizontal_rule(1),
+            menu_item_btn(
+                Some(crate::icons::Icon::AddAfter),
+                "Adicionar Página",
+                "Ctrl+T",
+                Message::AddPageAfter(app.active_page_index)
+            ),
+            menu_item_btn(
+                Some(crate::icons::Icon::Delete),
+                "Deletar esta Página",
+                "Ctrl+Shift+Bksp",
+                Message::DeletePage(app.active_page_index)
+            ),
+            horizontal_rule(1),
+            menu_item_btn(
+                Some(crate::icons::Icon::ChevronLeft),
+                "Folha Anterior",
+                "Ctrl+PgUp",
+                Message::PrevFolio
+            ),
+            menu_item_btn(
+                Some(crate::icons::Icon::ChevronRight),
+                "Próxima Folha",
+                "Ctrl+PgDn",
+                Message::NextFolio
+            ),
+            menu_item_btn(
+                Some(crate::icons::Icon::Pencil),
+                "Renomear Folha Atual",
+                "",
+                Message::StartEditingPageName(app.active_page_index)
+            ),
+        ]
+        .spacing(2)
+        .width(330)
+        .into(),
         ActiveMenu::Exibicao => {
-            let select_str = if app.tool == EditorTool::Select {
-                "[X] Selecionar (Ponteiro)"
-            } else {
-                "[  ] Selecionar (Ponteiro)"
-            };
-            let pan_str = if app.tool == EditorTool::Pan {
-                "[X] Mover (Pan)"
-            } else {
-                "[  ] Mover (Pan)"
-            };
-            let snap_str = if app.snap_to_grid {
-                "[X] Ajustar à Grelha (Snap)"
-            } else {
-                "[  ] Ajustar à Grelha (Snap)"
-            };
-            let text_str = if app.show_texts {
-                "[X] Textos: Ligado"
-            } else {
-                "[  ] Textos: Desligado"
-            };
-            column![
+            let mut col = column![
                 menu_item_btn(
                     Some(crate::icons::Icon::Folder),
                     "Mostrar Projetos",
                     "",
-                    Message::SelectLeftDockTab(1)
+                    Message::ShowProjectsDock
                 ),
-                menu_item_btn(
+                toggle_item_btn(
+                    app.tool == EditorTool::Select,
                     Some(crate::icons::Icon::Select),
-                    select_str,
+                    "Selecionar (Ponteiro)",
                     "",
                     Message::SelectTool(EditorTool::Select)
                 ),
-                menu_item_btn(
+                toggle_item_btn(
+                    app.tool == EditorTool::Pan,
                     Some(crate::icons::Icon::Pan),
-                    pan_str,
+                    "Mover (Pan)",
                     "",
                     Message::SelectTool(EditorTool::Pan)
                 ),
                 horizontal_rule(1),
-                menu_item_btn(
+                toggle_item_btn(
+                    app.show_grid,
                     Some(crate::icons::Icon::Grid),
                     "Mostrar a Grelha",
                     "",
                     Message::ToggleGrid(!app.show_grid)
                 ),
-                menu_item_btn(
+                toggle_item_btn(
+                    app.snap_to_grid,
                     Some(crate::icons::Icon::Magnet),
-                    snap_str,
+                    "Ajustar à Grelha (Snap)",
                     "Ctrl+Shift+G",
                     Message::ToggleSnap
                 ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::Text),
-                    text_str,
+                submenu_trigger_btn(
+                    Some(crate::icons::Icon::Grid),
+                    "Passo da Grelha",
+                    "exibicao_passo"
+                ),
+            ];
+
+            if app.open_submenu == Some("exibicao_passo") {
+                let sub = column![
+                    toggle_item_btn(
+                        app.grid_density == GridDensity::Fine,
+                        None,
+                        "Fina (10 pts/cm - 2 mm)",
+                        "",
+                        Message::SetGridDensity(GridDensity::Fine)
+                    ),
+                    toggle_item_btn(
+                        app.grid_density == GridDensity::Medium,
+                        None,
+                        "Média (5 pts/cm - 4 mm)",
+                        "",
+                        Message::SetGridDensity(GridDensity::Medium)
+                    ),
+                    toggle_item_btn(
+                        app.grid_density == GridDensity::Coarse,
+                        None,
+                        "Larga (2.5 pts/cm - 8 mm)",
+                        "",
+                        Message::SetGridDensity(GridDensity::Coarse)
+                    ),
+                ]
+                .spacing(2);
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
+            }
+
+            col = col
+                .push(toggle_item_btn(
+                    app.show_full_crosshair,
+                    None,
+                    "Mira em Todo o Fólio",
                     "",
-                    Message::ToggleShowTexts
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::Theme),
-                    "Alternar Tema",
-                    "Ctrl+Shift+T",
-                    Message::CycleTheme
-                ),
-                horizontal_rule(1),
-                menu_item_btn(
-                    Some(crate::icons::Icon::ZoomIn),
-                    "Ampliar (Zoom In)",
-                    "Ctrl++",
-                    Message::ZoomIn
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::ZoomOut),
-                    "Reduzir (Zoom Out)",
-                    "Ctrl+-",
-                    Message::ZoomOut
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::ZoomReset),
-                    "Zoom do Conteúdo",
-                    "Ctrl+8",
-                    Message::ZoomContent
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::FitToPage),
-                    "Ajustar à Vista",
-                    "Ctrl+9",
-                    Message::FitToPage
-                ),
-                menu_item_btn(
-                    Some(crate::icons::Icon::ZoomReset),
-                    "Repor Zoom (100%)",
-                    "Ctrl+0",
-                    Message::ZoomReset
-                ),
-            ]
-            .spacing(2)
-            .width(290)
-            .into()
+                    Message::ToggleFullCrosshair,
+                ))
+                .push(toggle_item_btn(
+                    app.show_text_grid,
+                    None,
+                    "Grelha de Texto",
+                    "",
+                    Message::ToggleTextGrid,
+                ))
+                .push(toggle_item_btn(
+                    app.show_alignment_guides,
+                    None,
+                    "Ver os Guias de Alinhamento",
+                    "",
+                    Message::ToggleAlignmentGuides,
+                ))
+                .push(toggle_item_btn(
+                    app.keep_headers_visible,
+                    None,
+                    "Manter Cabeçalhos Visíveis",
+                    "",
+                    Message::ToggleKeepHeadersVisible,
+                ))
+                .push(toggle_item_btn(
+                    app.show_cell_bounds,
+                    None,
+                    "Mostrar Limites das Células",
+                    "",
+                    Message::ToggleCellBounds,
+                ))
+                .push(submenu_trigger_btn(
+                    Some(crate::icons::Icon::Text),
+                    "Mostrar (Textos, Terminais, Cajetín)",
+                    "exibicao_mostrar",
+                ));
+
+            if app.open_submenu == Some("exibicao_mostrar") {
+                let sub = column![
+                    toggle_item_btn(
+                        app.show_texts,
+                        None,
+                        "Textos e Identificações",
+                        "",
+                        Message::ToggleShowTexts
+                    ),
+                    toggle_item_btn(
+                        app.show_terminals,
+                        None,
+                        "Terminais (Bornes)",
+                        "",
+                        Message::ToggleShowTerminals
+                    ),
+                    toggle_item_btn(
+                        app.show_cajetin,
+                        None,
+                        "Cajetín (Bloco de Legenda)",
+                        "",
+                        Message::ToggleShowCajetin
+                    ),
+                ]
+                .spacing(2);
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
+            }
+
+            col = col.push(submenu_trigger_btn(
+                Some(crate::icons::Icon::Palette),
+                "Cor de Fundo da Folha",
+                "exibicao_bg",
+            ));
+            if app.open_submenu == Some("exibicao_bg") {
+                let sub = column![
+                    toggle_item_btn(
+                        app.doc.settings.sheet_bg_color.is_none(),
+                        None,
+                        "Padrão do Tema",
+                        "",
+                        Message::SetSheetBgPreset(None)
+                    ),
+                    toggle_item_btn(
+                        app.doc.settings.sheet_bg_color == Some(0xFFFFFF),
+                        None,
+                        "Branco Puro",
+                        "",
+                        Message::SetSheetBgPreset(Some(0xFFFFFF))
+                    ),
+                    toggle_item_btn(
+                        app.doc.settings.sheet_bg_color == Some(0xFAF5E4),
+                        None,
+                        "Papel Creme",
+                        "",
+                        Message::SetSheetBgPreset(Some(0xFAF5E4))
+                    ),
+                    toggle_item_btn(
+                        app.doc.settings.sheet_bg_color == Some(0xEAF2FA),
+                        None,
+                        "Azul Técnico",
+                        "",
+                        Message::SetSheetBgPreset(Some(0xEAF2FA))
+                    ),
+                ]
+                .spacing(2);
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
+            }
+
+            col = col.push(submenu_trigger_btn(
+                Some(crate::icons::Icon::ZoomIn),
+                "Zoom e Enquadramento",
+                "exibicao_zoom",
+            ));
+            if app.open_submenu == Some("exibicao_zoom") {
+                let sub = column![
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ZoomIn),
+                        "Ampliar (Zoom In)",
+                        "Ctrl++",
+                        Message::ZoomIn
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ZoomOut),
+                        "Reduzir (Zoom Out)",
+                        "Ctrl+-",
+                        Message::ZoomOut
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::FitToPage),
+                        "Ajustar à Folha",
+                        "Ctrl+9",
+                        Message::ZoomFit
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ZoomReset),
+                        "Zoom do Conteúdo",
+                        "Ctrl+8",
+                        Message::ZoomContent
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::ZoomReset),
+                        "Repor Zoom (100%)",
+                        "Ctrl+0",
+                        Message::ZoomReset
+                    ),
+                    menu_item_btn(
+                        Some(crate::icons::Icon::Select),
+                        "Centrar no Cursor",
+                        "",
+                        Message::CenterOnCursor
+                    ),
+                ]
+                .spacing(2);
+                col = col.push(
+                    container(sub)
+                        .style(theme::card)
+                        .padding(Padding::from([4.0, 4.0]))
+                        .width(Length::Fill),
+                );
+            }
+
+            col.spacing(2).width(325).into()
         }
         ActiveMenu::Configuracoes => column![
             menu_item_btn(
-                Some(crate::icons::Icon::Grid),
-                "Grade Fina (10 pts/cm)",
+                Some(crate::icons::Icon::Settings),
+                "Configurações Gerais...",
                 "",
-                Message::SetGridDensity(crate::model::GridDensity::Fine)
+                Message::OpenSettingsModal
             ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Grid),
-                "Grade Média (5 pts/cm)",
+            horizontal_rule(1),
+            toggle_item_btn(
+                app.theme_mode == ThemeMode::Dark,
+                Some(crate::icons::Icon::Theme),
+                "Tema Escuro",
                 "",
-                Message::SetGridDensity(crate::model::GridDensity::Medium)
+                Message::SetThemeMode(ThemeMode::Dark)
             ),
-            menu_item_btn(
-                Some(crate::icons::Icon::Grid),
-                "Grade Larga (2.5 pts/cm)",
+            toggle_item_btn(
+                app.theme_mode == ThemeMode::Light,
+                Some(crate::icons::Icon::Theme),
+                "Tema Claro",
                 "",
-                Message::SetGridDensity(crate::model::GridDensity::Coarse)
+                Message::SetThemeMode(ThemeMode::Light)
+            ),
+            toggle_item_btn(
+                app.theme_mode == ThemeMode::System,
+                Some(crate::icons::Icon::Theme),
+                "Tema do Sistema",
+                "",
+                Message::SetThemeMode(ThemeMode::System)
+            ),
+            horizontal_rule(1),
+            toggle_item_btn(
+                app.show_grid,
+                Some(crate::icons::Icon::Grid),
+                "Mostrar a Grelha",
+                "",
+                Message::ToggleGrid(!app.show_grid)
+            ),
+            toggle_item_btn(
+                app.snap_to_grid,
+                Some(crate::icons::Icon::Magnet),
+                "Snap (Imã à Grelha)",
+                "Ctrl+Shift+G",
+                Message::ToggleSnap
             ),
         ]
         .spacing(2)
-        .width(270)
+        .width(285)
         .into(),
+        ActiveMenu::Janela => {
+            let mut col = column![
+                toggle_item_btn(
+                    !app.left_dock_collapsed,
+                    Some(crate::icons::Icon::Window),
+                    "Dock Esquerdo (Coleções / Projetos)",
+                    "",
+                    Message::ToggleLeftDockCollapse
+                ),
+                toggle_item_btn(
+                    !app.right_dock_collapsed,
+                    Some(crate::icons::Icon::Window),
+                    "Dock Direito (Propriedades / Xref)",
+                    "",
+                    Message::ToggleRightDockCollapse
+                ),
+                toggle_item_btn(
+                    app.focus_canvas,
+                    Some(crate::icons::Icon::FitToPage),
+                    "Modo Foco do Fólio (Tela Limpa)",
+                    "Esc",
+                    Message::ToggleFocusCanvas
+                ),
+                horizontal_rule(1),
+                toggle_item_btn(
+                    app.left_dock_tab == 0 && !app.left_dock_collapsed,
+                    None,
+                    "Aba Esquerda: Coleção de Símbolos",
+                    "",
+                    Message::SelectLeftDockTab(0)
+                ),
+                toggle_item_btn(
+                    app.left_dock_tab == 1 && !app.left_dock_collapsed,
+                    None,
+                    "Aba Esquerda: Projetos",
+                    "",
+                    Message::ShowProjectsDock
+                ),
+                toggle_item_btn(
+                    app.prop_tab == 0 && !app.right_dock_collapsed,
+                    None,
+                    "Aba Direita: Propriedades",
+                    "",
+                    Message::SelectPropTab(0)
+                ),
+                toggle_item_btn(
+                    app.prop_tab == 1 && !app.right_dock_collapsed,
+                    None,
+                    "Aba Direita: Referência Cruzada",
+                    "",
+                    Message::SelectPropTab(1)
+                ),
+                horizontal_rule(1),
+                container(
+                    text("Folhas do Projeto:")
+                        .size(10.5)
+                        .font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        })
+                        .color(t.text2),
+                )
+                .padding(Padding::from([3.0, 12.0])),
+            ];
+
+            for (idx, page) in app.pages.iter().enumerate().take(12) {
+                let is_active = idx == app.active_page_index;
+                let folio_label = format!("F{}: {}", idx + 1, page.name);
+                let mark: Element<'_, Message> = if is_active {
+                    container(crate::icons::view_icon(
+                        crate::icons::Icon::Check,
+                        13,
+                        t.primary,
+                    ))
+                    .width(16)
+                    .height(16)
+                    .center_x(16)
+                    .center_y(16)
+                    .into()
+                } else {
+                    container(Space::with_width(16).height(16)).into()
+                };
+                col = col.push(
+                    button(
+                        row![
+                            mark,
+                            text(folio_label).size(11.5).font(UI).width(Length::Fill)
+                        ]
+                        .spacing(8)
+                        .align_y(Alignment::Center),
+                    )
+                    .style(theme::menu_item)
+                    .padding(Padding::from([4.0, 12.0]))
+                    .width(Length::Fill)
+                    .on_press(Message::SelectFolio(idx)),
+                );
+            }
+
+            col.spacing(2).width(310).into()
+        }
         ActiveMenu::Ajuda => column![
             menu_item_btn(
-                Some(crate::icons::Icon::Bolt),
-                "Sobre o RustSimu",
-                "",
-                Message::ShowAbout
+                Some(crate::icons::Icon::Keyboard),
+                "Atalhos de Teclado...",
+                "F1",
+                Message::OpenShortcutsModal
             ),
             menu_item_btn(
                 Some(crate::icons::Icon::Open),
                 "Carregar Exemplo: Partida Direta",
                 "",
                 Message::LoadPresetDol
+            ),
+            menu_item_btn(
+                Some(crate::icons::Icon::Bolt),
+                "Sobre o RustSimu...",
+                "",
+                Message::ShowAbout
             ),
             horizontal_rule(1),
             menu_item_btn(
@@ -582,7 +1065,7 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
             ),
         ]
         .spacing(2)
-        .width(270)
+        .width(290)
         .into(),
     };
 
@@ -592,7 +1075,8 @@ pub fn view_dropdown_menu<'a>(app: &'a CadeSimuApp, menu: ActiveMenu) -> Element
         ActiveMenu::Projeto => 195.0,
         ActiveMenu::Exibicao => 250.0,
         ActiveMenu::Configuracoes => 315.0,
-        ActiveMenu::Ajuda => 415.0,
+        ActiveMenu::Janela => 420.0,
+        ActiveMenu::Ajuda => 480.0,
     };
 
     row![

@@ -1760,8 +1760,16 @@ fn test_canvas_theme_adaptation_light_dark_system() {
         is_ctrl_pressed: false,
         sim_running: false,
         show_grid: true,
+        snap_to_grid: true,
         grid_density: app.grid_density,
         show_texts: true,
+        show_terminals: true,
+        show_cajetin: true,
+        show_full_crosshair: false,
+        show_text_grid: false,
+        show_alignment_guides: false,
+        keep_headers_visible: false,
+        show_cell_bounds: false,
         is_dark: false,
         auto_connect: true,
         auto_disconnect: true,
@@ -1782,8 +1790,16 @@ fn test_canvas_theme_adaptation_light_dark_system() {
         is_ctrl_pressed: false,
         sim_running: false,
         show_grid: true,
+        snap_to_grid: true,
         grid_density: app.grid_density,
         show_texts: true,
+        show_terminals: true,
+        show_cajetin: true,
+        show_full_crosshair: false,
+        show_text_grid: false,
+        show_alignment_guides: false,
+        keep_headers_visible: false,
+        show_cell_bounds: false,
         is_dark: true,
         auto_connect: true,
         auto_disconnect: true,
@@ -2958,8 +2974,16 @@ fn test_canvas_selection_prioritizes_symbols_over_wires() {
         is_ctrl_pressed: false,
         sim_running: false,
         show_grid: true,
+        snap_to_grid: true,
         grid_density: cade_simu_rs::model::GridDensity::Medium,
         show_texts: true,
+        show_terminals: true,
+        show_cajetin: true,
+        show_full_crosshair: false,
+        show_text_grid: false,
+        show_alignment_guides: false,
+        keep_headers_visible: false,
+        show_cell_bounds: false,
         is_dark: false,
         auto_connect: true,
         auto_disconnect: false,
@@ -3390,8 +3414,16 @@ fn test_menu_overlay_stays_open_over_canvas() {
         is_ctrl_pressed: false,
         sim_running: false,
         show_grid: true,
+        snap_to_grid: true,
         grid_density: app.grid_density,
         show_texts: true,
+        show_terminals: true,
+        show_cajetin: true,
+        show_full_crosshair: false,
+        show_text_grid: false,
+        show_alignment_guides: false,
+        keep_headers_visible: false,
+        show_cell_bounds: false,
         is_dark: true,
         auto_connect: true,
         auto_disconnect: true,
@@ -3697,15 +3729,18 @@ fn test_decision_d1_native_save_and_cad_export_with_sheet_selector() {
     );
 
     // 2. Validação de Formatos de Exportação
-    // .cad agora é formato de exportação de folha única
-    assert_eq!(ExportFormat::ALL.len(), 4);
+    // Todos os 7 formatos da Seção 1.1: PNG, JPG, BMP, SVG, DXF, CAD, PDF
+    assert_eq!(ExportFormat::ALL.len(), 7);
     assert_eq!(
         ExportFormat::ALL,
         [
+            ExportFormat::Png,
+            ExportFormat::Jpg,
+            ExportFormat::Bmp,
+            ExportFormat::Svg,
+            ExportFormat::Dxf,
             ExportFormat::Cad,
             ExportFormat::Pdf,
-            ExportFormat::Svg,
-            ExportFormat::Png
         ]
     );
 
@@ -7232,4 +7267,355 @@ fn test_properties_timer_live_simulation_monitoring_and_reset() {
     assert_eq!(app.doc.sim.get(801).timer_phase, 0);
 
     let _ = app.view();
+}
+
+#[test]
+fn test_section1_arquivo_save_copy_recent_print_and_all_7_export_formats() {
+    let (mut app, _) = CadeSimuApp::new();
+
+    let temp_dir = std::env::temp_dir();
+    let unique = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let orig_path = temp_dir.join(format!(
+        "rustsimu_orig_{}_{}.json",
+        std::process::id(),
+        unique
+    ));
+    let copy_path = temp_dir.join(format!(
+        "rustsimu_copy_{}_{}.json",
+        std::process::id(),
+        unique
+    ));
+
+    // 1. Salvamento original define current_file
+    app.doc.title_block.title = "Projeto Original".to_string();
+    let _ = app.update(Message::FileSaved(Some(orig_path.clone())));
+    assert_eq!(app.current_file.as_ref(), Some(&orig_path));
+    assert!(orig_path.exists());
+
+    // 2. Salvar Cópia escreve no destino sem sobrescrever current_file ou file_path
+    app.doc.title_block.title = "Projeto Copiado".to_string();
+    let _ = app.update(Message::FileCopySaved(Some(copy_path.clone())));
+    assert!(copy_path.exists());
+    assert_eq!(
+        app.current_file.as_ref(),
+        Some(&orig_path),
+        "Salvar Cópia não pode alterar current_file ativo"
+    );
+
+    // 3. Lista dinâmica de Últimos Arquivos + Limpar
+    app.push_recent_file(&copy_path);
+    assert_eq!(
+        app.recent_files.first().map(String::as_str),
+        Some(copy_path.to_string_lossy().as_ref())
+    );
+    let _ = app.update(Message::ClearRecentFiles);
+    assert!(app.recent_files.is_empty());
+
+    // 4. Impressão vetorial PDF
+    let _ = app.update(Message::OpenPrintModal);
+    assert!(app.show_print_modal);
+    let print_pdf = app
+        .build_print_pdf_bytes()
+        .expect("Impressão deve gerar PDF vetorial válido");
+    assert!(print_pdf.starts_with(b"%PDF-"));
+    let _ = app.update(Message::ClosePrintModal);
+    assert!(!app.show_print_modal);
+
+    // 5. Todos os 7 formatos de exportação (§1.1: PNG, JPG, BMP, SVG, DXF, CAD, PDF)
+    assert_eq!(ExportFormat::ALL.len(), 7);
+    let mut doc = build_dol_starter_preset();
+    let mut txt = SchematicItem::new_graphic(901, 8, 24, 24, 60, 32);
+    txt.subvariant = 0;
+    txt.trailing_str = "Motor 3F".to_string();
+    doc.items.push(txt);
+    doc.items
+        .push(SchematicItem::new_graphic(902, 1, 20, 40, 80, 40));
+    doc.items
+        .push(SchematicItem::new_graphic(903, 2, 20, 50, 70, 70));
+    doc.items
+        .push(SchematicItem::new_graphic(904, 3, 90, 50, 120, 80));
+    let mut arc = SchematicItem::new_graphic(905, 4, 130, 50, 160, 80);
+    arc.aux_coords = [0, 180, 0, 0];
+    doc.items.push(arc);
+
+    let opts = ExportOptions::default();
+    let png = export_to_png(&doc, None, opts, None).expect("Export PNG");
+    assert!(png.starts_with(b"\x89PNG"));
+
+    let jpg = export_to_jpg(&doc, None, opts, None).expect("Export JPG");
+    assert!(jpg.starts_with(&[0xFF, 0xD8, 0xFF]));
+
+    let bmp = export_to_bmp(&doc, None, opts, None).expect("Export BMP");
+    assert!(bmp.starts_with(b"BM"));
+
+    let svg = export_to_svg(&doc, None, opts);
+    assert!(svg.contains("<svg") && svg.contains("Motor 3F"));
+
+    let dxf = String::from_utf8(export_to_dxf(&doc, None, opts)).expect("DXF ASCII");
+    assert!(dxf.contains("ENTITIES"));
+    assert!(dxf.contains("LINE"));
+    assert!(dxf.contains("CIRCLE"));
+    assert!(dxf.contains("ARC"));
+
+    let cad = export_to_cad(&doc, true);
+    let parsed_cad = parse_cad_bytes(&cad).expect("CAD roundtrip");
+    assert!(!parsed_cad.items.is_empty());
+
+    let pdf = export_project_to_pdf(&[ProjectPage::new(1, "F1", doc)], opts).expect("Export PDF");
+    assert!(pdf.starts_with(b"%PDF-"));
+
+    let _ = std::fs::remove_file(orig_path);
+    let _ = std::fs::remove_file(copy_path);
+}
+
+#[test]
+fn test_section1_editar_graphic_primitives_grid_rows_cols_and_page_properties() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.items.clear();
+
+    // 1. Inserção de primitivas (§1.2 Adicionar)
+    let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+        tipo: 8,
+        subvariant: 0,
+        x1: 30,
+        y1: 30,
+        x2: 60,
+        y2: 38,
+    }));
+    let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+        tipo: 8,
+        subvariant: 1,
+        x1: 30,
+        y1: 48,
+        x2: 80,
+        y2: 62,
+    }));
+    let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+        tipo: 1,
+        subvariant: 0,
+        x1: 20,
+        y1: 80,
+        x2: 90,
+        y2: 80,
+    }));
+    let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+        tipo: 2,
+        subvariant: 0,
+        x1: 100,
+        y1: 30,
+        x2: 140,
+        y2: 60,
+    }));
+    let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+        tipo: 3,
+        subvariant: 0,
+        x1: 150,
+        y1: 30,
+        x2: 180,
+        y2: 60,
+    }));
+    let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+        tipo: 4,
+        subvariant: 0,
+        x1: 190,
+        y1: 30,
+        x2: 220,
+        y2: 60,
+    }));
+    assert_eq!(app.doc.items.len(), 6);
+
+    // Edição de texto e ângulos de arco via painel de propriedades
+    let txt_id = app.doc.items[0].id;
+    app.selected_id = Some(txt_id);
+    let _ = app.update(Message::EditItemTrailingText("Nota Técnica".to_string()));
+    assert_eq!(app.doc.items[0].trailing_str, "Nota Técnica");
+
+    let arc_id = app.doc.items[5].id;
+    app.selected_id = Some(arc_id);
+    let _ = app.update(Message::EditItemArcStart("45".to_string()));
+    let _ = app.update(Message::EditItemArcSweep("135".to_string()));
+    assert_eq!(app.doc.items[5].aux_coords[0], 45);
+    assert_eq!(app.doc.items[5].aux_coords[1], 135);
+
+    // Mover item gráfico único preserva geometria (dx, dy) sem colapsar x2/y2
+    let rect_id = app.doc.items[3].id;
+    let _ = app.update(Message::Canvas(CanvasMessage::MoveItem {
+        id: rect_id,
+        x1: 112,
+        y1: 42,
+    }));
+    let moved_rect = app.doc.items.iter().find(|i| i.id == rect_id).unwrap();
+    assert_eq!(
+        (moved_rect.x1, moved_rect.y1, moved_rect.x2, moved_rect.y2),
+        (112, 42, 152, 72)
+    );
+
+    // Hit-test no canvas acerta primitivas gráficas
+    let dummy_sel = std::collections::HashSet::new();
+    let canvas = SchematicCanvas {
+        doc: &app.doc,
+        tool: EditorTool::Select,
+        selected_id: None,
+        selected_ids: &dummy_sel,
+        is_shift_pressed: false,
+        is_ctrl_pressed: false,
+        sim_running: false,
+        show_grid: true,
+        snap_to_grid: true,
+        grid_density: app.grid_density,
+        show_texts: true,
+        show_terminals: true,
+        show_cajetin: true,
+        show_full_crosshair: false,
+        show_text_grid: false,
+        show_alignment_guides: false,
+        keep_headers_visible: false,
+        show_cell_bounds: false,
+        is_dark: false,
+        auto_connect: true,
+        auto_disconnect: false,
+        zoom: 1.0,
+        pan: iced::Vector::ZERO,
+        placement_orientation: 0,
+        dragging_symbol: None,
+        dragging_canonical_symbol: None,
+        is_blocked: false,
+    };
+    assert_eq!(canvas.hit_test(112, 55), Some(rect_id));
+    assert_eq!(canvas.hit_test(165, 45), Some(app.doc.items[4].id));
+
+    // 2. Linhas e Colunas dinâmicas da grade + sincronia com Xref e SVG
+    let base_cols = app.doc.settings.effective_grid_cols();
+    let base_rows = app.doc.settings.effective_grid_rows();
+    let _ = app.update(Message::AddGridCol);
+    let _ = app.update(Message::AddGridRow);
+    assert_eq!(app.doc.settings.effective_grid_cols(), base_cols + 1);
+    assert_eq!(app.doc.settings.effective_grid_rows(), base_rows + 1);
+    let xref_ref = cade_simu_rs::xref::format_grid_ref_doc(0, 310.0, 220.0, &app.doc);
+    assert!(xref_ref.starts_with("1."));
+    let _ = app.update(Message::RemoveGridCol);
+    let _ = app.update(Message::RemoveGridRow);
+    assert_eq!(app.doc.settings.effective_grid_cols(), base_cols);
+    assert_eq!(app.doc.settings.effective_grid_rows(), base_rows);
+
+    // 3. Modal Propriedades da Página (Ctrl+Shift+Enter)
+    let _ = app.update(Message::OpenPagePropertiesModal);
+    assert!(app.show_page_properties_modal);
+    let _ = app.update(Message::EditPagePropName("Painel Principal".to_string()));
+    let _ = app.update(Message::EditPagePropTitle("Bomba Centrífuga".to_string()));
+    let _ = app.update(Message::EditPagePropSubtitle(
+        "Partida Estrela-Triângulo".to_string(),
+    ));
+    let _ = app.update(Message::EditPagePropEntity(
+        "Engenharia Industrial".to_string(),
+    ));
+    let _ = app.update(Message::EditPagePropAuthor("Eng. Carlos".to_string()));
+    let _ = app.update(Message::EditPagePropWidthMm("420".to_string()));
+    let _ = app.update(Message::EditPagePropHeightMm("297".to_string()));
+    let _ = app.view();
+    let _ = app.update(Message::ApplyPageProperties);
+    assert!(!app.show_page_properties_modal);
+    assert_eq!(app.pages[0].name, "Painel Principal");
+    assert_eq!(app.doc.title_block.title, "Bomba Centrífuga");
+    assert_eq!(app.doc.settings.custom_width_mm, 420);
+}
+
+#[test]
+fn test_section1_projeto_exibicao_configuracoes_janela_ajuda_and_submenus() {
+    let (mut app, _) = CadeSimuApp::new();
+
+    // 1. Propriedades do Projeto em múltiplas folhas (§1.3)
+    let _ = app.update(Message::AddPageAfter(0));
+    assert_eq!(app.pages.len(), 2);
+    let _ = app.update(Message::OpenProjectPropertiesModal);
+    assert!(app.show_project_properties_modal);
+    let _ = app.update(Message::EditProjectPropTitle(
+        "Subestação Norte".to_string(),
+    ));
+    let _ = app.update(Message::EditProjectPropEntity("Cia Elétrica".to_string()));
+    let _ = app.update(Message::EditProjectPropAuthor("Ana Souza".to_string()));
+    let _ = app.update(Message::EditProjectPropVersion("Rev 2.4".to_string()));
+    let _ = app.update(Message::ToggleProjectAutoSave(true));
+    let _ = app.view();
+    let _ = app.update(Message::ApplyProjectProperties);
+    assert!(!app.show_project_properties_modal);
+    assert!(app.proj_prop_auto_save);
+    for page in &app.pages {
+        assert_eq!(page.doc.title_block.title, "Subestação Norte");
+        assert_eq!(page.doc.title_block.entity, "Cia Elétrica");
+        assert_eq!(page.doc.title_block.drawn_by, "Ana Souza");
+        assert_eq!(page.doc.title_block.signature, "Rev 2.4");
+    }
+
+    // 2. Display / Exibição (§1.4)
+    let _ = app.update(Message::ToggleLeftDockCollapse);
+    assert!(app.left_dock_collapsed);
+    let _ = app.update(Message::ShowProjectsDock);
+    assert!(!app.left_dock_collapsed);
+    assert_eq!(app.left_dock_tab, 1);
+
+    let _ = app.update(Message::ToggleFullCrosshair);
+    let _ = app.update(Message::ToggleTextGrid);
+    let _ = app.update(Message::ToggleAlignmentGuides);
+    let _ = app.update(Message::ToggleKeepHeadersVisible);
+    let _ = app.update(Message::ToggleCellBounds);
+    let _ = app.update(Message::ToggleShowTerminals);
+    let _ = app.update(Message::ToggleShowCajetin);
+    assert!(app.show_full_crosshair);
+    assert!(app.show_text_grid);
+    assert!(app.show_alignment_guides);
+    assert!(app.keep_headers_visible);
+    assert!(app.show_cell_bounds);
+    assert!(!app.show_terminals);
+    assert!(!app.show_cajetin);
+
+    let _ = app.update(Message::SetSheetBgPreset(Some(0xFAF5E4)));
+    assert_eq!(app.doc.settings.sheet_bg_color, Some(0xFAF5E4));
+    let _ = app.update(Message::ZoomFit);
+    let _ = app.update(Message::CenterOnCursor);
+
+    // 3. Menus, Submenus inline, Configurações, Janela e Ajuda (§1.5)
+    for menu in [
+        ActiveMenu::Arquivo,
+        ActiveMenu::Editar,
+        ActiveMenu::Projeto,
+        ActiveMenu::Exibicao,
+        ActiveMenu::Configuracoes,
+        ActiveMenu::Janela,
+        ActiveMenu::Ajuda,
+    ] {
+        let _ = app.update(Message::ToggleMenu(Some(menu)));
+        assert_eq!(app.open_menu, Some(menu));
+        if menu == ActiveMenu::Editar {
+            let _ = app.update(Message::ToggleSubmenu("editar_adicionar"));
+            assert_eq!(app.open_submenu, Some("editar_adicionar"));
+        } else if menu == ActiveMenu::Exibicao {
+            let _ = app.update(Message::ToggleSubmenu("exibicao_bg"));
+            assert_eq!(app.open_submenu, Some("exibicao_bg"));
+        }
+        let _ = app.view();
+    }
+
+    let _ = app.update(Message::OpenSettingsModal);
+    assert!(app.show_settings_modal);
+    let _ = app.update(Message::SetThemeMode(ThemeMode::Light));
+    assert_eq!(app.theme_mode, ThemeMode::Light);
+    let _ = app.view();
+    let _ = app.update(Message::CancelAction);
+    assert!(!app.show_settings_modal);
+
+    let _ = app.update(Message::OpenShortcutsModal);
+    assert!(app.show_shortcuts_modal);
+    let _ = app.view();
+    let _ = app.update(Message::CloseShortcutsModal);
+    assert!(!app.show_shortcuts_modal);
+
+    let _ = app.update(Message::ToggleFocusCanvas);
+    assert!(app.focus_canvas);
+    let _ = app.view();
+    let _ = app.update(Message::CancelAction);
+    assert!(!app.focus_canvas);
 }

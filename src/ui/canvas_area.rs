@@ -23,8 +23,16 @@ pub fn view_sheet_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         is_ctrl_pressed: app.is_ctrl_pressed,
         sim_running: app.sim_running,
         show_grid: app.show_grid,
+        snap_to_grid: app.snap_to_grid,
         grid_density: app.grid_density,
         show_texts: app.show_texts,
+        show_terminals: app.show_terminals,
+        show_cajetin: app.show_cajetin,
+        show_full_crosshair: app.show_full_crosshair,
+        show_text_grid: app.show_text_grid,
+        show_alignment_guides: app.show_alignment_guides,
+        keep_headers_visible: app.keep_headers_visible,
+        show_cell_bounds: app.show_cell_bounds,
         is_dark,
         auto_connect: app.auto_connect,
         auto_disconnect: app.auto_disconnect,
@@ -36,6 +44,11 @@ pub fn view_sheet_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         is_blocked: app.open_menu.is_some()
             || app.show_about_modal
             || app.show_export_modal
+            || app.show_print_modal
+            || app.show_page_properties_modal
+            || app.show_project_properties_modal
+            || app.show_settings_modal
+            || app.show_shortcuts_modal
             || app.show_color_modal
             || app.show_confirm_delete_modal,
     }

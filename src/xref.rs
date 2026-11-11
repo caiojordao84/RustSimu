@@ -65,20 +65,48 @@ pub fn sheet_dimensions(doc: &SchematicDocument) -> (f32, f32) {
     (sheet_w, sheet_h)
 }
 
-/// Calcula a coordenada de grade industrial da folha (ex: "C6", "B2").
-/// Colunas: 1..8 (esquerda para direita); Linhas: A..F (superior para inferior).
-pub fn calculate_grid_cell(x: f32, y: f32, sheet_w: f32, sheet_h: f32) -> String {
+/// Calcula a coordenada de grade industrial da folha considerando o número de colunas e linhas configuradas.
+pub fn calculate_grid_cell_with_grid(
+    x: f32,
+    y: f32,
+    sheet_w: f32,
+    sheet_h: f32,
+    cols: i32,
+    rows: i32,
+) -> String {
+    let eff_cols = cols.clamp(4, 24);
+    let eff_rows = rows.clamp(4, 16);
     let w = (sheet_w - 12.0).max(10.0);
     let h = (sheet_h - 12.0).max(10.0);
-    let col = (((x - 6.0) / (w / 8.0)).floor() as i32).clamp(0, 7) + 1;
-    let row_idx = (((y - 6.0) / (h / 6.0)).floor() as usize).clamp(0, 5);
-    let row_char = ['A', 'B', 'C', 'D', 'E', 'F'][row_idx];
+    let col = (((x - 6.0) / (w / eff_cols as f32)).floor() as i32).clamp(0, eff_cols - 1) + 1;
+    let row_idx = (((y - 6.0) / (h / eff_rows as f32)).floor() as i32).clamp(0, eff_rows - 1);
+    let row_char = char::from(b'A' + row_idx as u8);
     format!("{row_char}{col}")
 }
 
-/// Formata a localização de referência cruzada completa (ex: "1.C6" ou "Folha 1 · C6").
+/// Calcula a coordenada de grade industrial da folha (padrão 8x6: "C6", "B2").
+/// Colunas: 1..8 (esquerda para direita); Linhas: A..F (superior para inferior).
+pub fn calculate_grid_cell(x: f32, y: f32, sheet_w: f32, sheet_h: f32) -> String {
+    calculate_grid_cell_with_grid(x, y, sheet_w, sheet_h, 8, 6)
+}
+
+/// Formata a localização de referência cruzada completa (ex: "1.C6").
 pub fn format_grid_ref(page_index: usize, x: f32, y: f32, sheet_w: f32, sheet_h: f32) -> String {
     let cell = calculate_grid_cell(x, y, sheet_w, sheet_h);
+    format!("{}.{}", page_index + 1, cell)
+}
+
+/// Formata a localização de referência cruzada respeitando a grade dinâmica do documento.
+pub fn format_grid_ref_doc(page_index: usize, x: f32, y: f32, doc: &SchematicDocument) -> String {
+    let (sheet_w, sheet_h) = sheet_dimensions(doc);
+    let cell = calculate_grid_cell_with_grid(
+        x,
+        y,
+        sheet_w,
+        sheet_h,
+        doc.settings.effective_grid_cols(),
+        doc.settings.effective_grid_rows(),
+    );
     format!("{}.{}", page_index + 1, cell)
 }
 
@@ -326,8 +354,7 @@ pub fn collect_project_xrefs(
     for (p_idx, p_name, item, doc) in all_items {
         let clean_tag = item.tag.trim().to_string();
         let role = classify_item_role(item);
-        let (sheet_w, sheet_h) = sheet_dimensions(doc);
-        let grid_ref = format_grid_ref(p_idx, item.x1 as f32, item.y1 as f32, sheet_w, sheet_h);
+        let grid_ref = format_grid_ref_doc(p_idx, item.x1 as f32, item.y1 as f32, doc);
         let symbol_name = resolve_symbol_name(item);
 
         let pins: Vec<String> = item
@@ -427,8 +454,7 @@ pub fn collect_project_xrefs(
             });
 
         let numeric_seq = term_num.parse::<u32>().ok();
-        let (sheet_w, sheet_h) = sheet_dimensions(doc);
-        let grid_ref = format_grid_ref(p_idx, item.x1 as f32, item.y1 as f32, sheet_w, sheet_h);
+        let grid_ref = format_grid_ref_doc(p_idx, item.x1 as f32, item.y1 as f32, doc);
 
         let connected_targets = find_immediate_terminal_connections(item, doc);
 
@@ -501,13 +527,11 @@ pub fn analyze_element_xref(
     let directory = collect_project_xrefs(pages, active_page_index, active_doc);
     let sel_item = active_doc.items.iter().find(|i| i.id == item_id)?;
 
-    let (sheet_w, sheet_h) = sheet_dimensions(active_doc);
-    let grid_ref = format_grid_ref(
+    let grid_ref = format_grid_ref_doc(
         active_page_index,
         sel_item.x1 as f32,
         sel_item.y1 as f32,
-        sheet_w,
-        sheet_h,
+        active_doc,
     );
     let symbol_name = resolve_symbol_name(sel_item);
     let role = classify_item_role(sel_item);
@@ -597,7 +621,6 @@ pub fn analyze_pin_connections(
     };
 
     let comp_ids = compute_connected_components(&graph);
-    let (sheet_w, sheet_h) = sheet_dimensions(doc);
 
     let mut summaries = Vec::new();
 
@@ -666,12 +689,11 @@ pub fn analyze_pin_connections(
                         .filter(|s| !s.is_empty())
                         .cloned()
                         .unwrap_or_else(|| format!("{}", q_idx + 1));
-                    let target_grid = format_grid_ref(
+                    let target_grid = format_grid_ref_doc(
                         page_index,
                         other_item.x1 as f32,
                         other_item.y1 as f32,
-                        sheet_w,
-                        sheet_h,
+                        doc,
                     );
                     let sym_name = resolve_symbol_name(other_item);
 
