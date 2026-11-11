@@ -119,6 +119,7 @@ pub struct ItemSimState {
     pub active: bool,
     pub manual_latched: bool,
     pub timer_elapsed_ms: u64,
+    pub timer_phase: u8, // 0 = TON (ativo/pulso), 1 = TOFF (repouso no ciclo)
     pub fault: bool,
     pub motor_dir: i8, // 0 = parado, 1 = horário (CW), -1 = anti-horário (CCW)
     pub motor_mode: MotorMode,
@@ -397,6 +398,36 @@ impl SchematicItem {
     /// Retorna o estado dinâmico de simulação deste item a partir de um `SimState`.
     pub fn sim(&self, sim: &SimState) -> ItemSimState {
         sim.get(self.id)
+    }
+
+    /// Retorna o valor base configurado para temporização (`pins[3]` ou fallback em `value`).
+    pub fn timer_base_value(&self) -> f64 {
+        crate::sim::timers::timer_base_value(&self.pins, &self.value)
+    }
+
+    /// Retorna a escala multiplicadora de tempo configurada (`pins[2]`).
+    pub fn timer_scale_multiplier(&self) -> crate::sim::timers::TimerScaleMultiplier {
+        crate::sim::timers::timer_scale_multiplier(&self.pins)
+    }
+
+    /// Retorna o tempo efetivo total em segundos (base * multiplicador).
+    pub fn timer_effective_seconds(&self) -> f64 {
+        self.timer_base_value() * self.timer_scale_multiplier().factor()
+    }
+
+    /// Retorna o valor base de tempo desligado para temporizador cíclico (`pins[5]`).
+    pub fn timer_off_base_value(&self) -> f64 {
+        crate::sim::timers::timer_off_base_value(&self.pins)
+    }
+
+    /// Retorna a escala multiplicadora de tempo desligado para temporizador cíclico (`pins[4]`).
+    pub fn timer_off_scale_multiplier(&self) -> crate::sim::timers::TimerScaleMultiplier {
+        crate::sim::timers::timer_off_scale_multiplier(&self.pins)
+    }
+
+    /// Retorna o tempo desligado efetivo total em segundos (base * multiplicador).
+    pub fn timer_off_effective_seconds(&self) -> f64 {
+        self.timer_off_base_value() * self.timer_off_scale_multiplier().factor()
     }
 
     /// Verifica se este `tipo` utiliza o formato estendido (11 strings + 24 inteiros) no `.cad`

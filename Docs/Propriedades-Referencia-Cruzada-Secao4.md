@@ -31,15 +31,26 @@ Ambas as abas oferecem suporte completo ao recolhimento e restauração lateral 
   - Método utilitário `item.function_or_value()` para visualização com fallback gracioso para o valor técnico caso a função não seja explicitamente informada.
   - Caixa de seleção (checkbox) "Exibir no esquema", vinculada a `item.show_value == 1`.
 
-### 2.2 Padrões de Bobinas Especiais (IEC / EN 50012)
+### 2.2 Padrões de Bobinas Especiais e Controle de Tempo (IEC / EN 50012)
 Para bobinas de comando e temporizadores (`tipo: 9000`, `9004`, `9005` ou papéis funcionais `ApparatusRole::Coil` e `ApparatusRole::Timer`), o sistema apresenta um seletor dropdown (`pick_list`) com o enum `CoilPattern`:
 - **Padrão Instantânea (Contator)**: `tipo: 9000`, `subvariant: 0`.
-- **Ao Trabalho (TON / On-Delay)**: `tipo: 9004`, `subvariant: 0` (com valor padrão inicial de temporização "3" s).
-- **Ao Repouso (TOF / Off-Delay)**: `tipo: 9005`, `subvariant: 0` (com valor padrão inicial de temporização "3" s).
-- **Cíclico / Pulso Intermitente**: `subvariant: 2` (com valor padrão inicial "1.0" s).
+- **Ao Trabalho (TON / On-Delay)**: `tipo: 9004`, `subvariant: 0` (valor inicial "3" s).
+- **Ao Repouso (TOF / Off-Delay)**: `tipo: 9005`, `subvariant: 0` (valor inicial "3" s).
+- **Cíclico / Pulso Intermitente**: `tipo: 9004`, `subvariant: 2` (T_ON e T_OFF independentes, iniciais de "1" s cada).
 - **Retenção / Biestável (Latching)**: `tipo: 9000`, `subvariant: 1`.
 
-Quando um padrão com contagem de tempo é selecionado, exibe campo numérico para temporização em segundos (`item.value`), além do botão de preset rápido para bornes de bobina `A1-A2`.
+Quando um padrão temporizado (`OnDelay`, `OffDelay`, `Cyclic`) está ativo, o painel exibe o módulo **Controle de Tempo**:
+- **Tempo Base + Steppers**: Campo numérico editável acompanhado dos botões de ajuste incremental `[-]`, `[+]` (+/- 1 s) e chips de ajuste fino/amplo (`-5s`, `-0.5s`, `+0.5s`, `+5s`).
+- **Escala Multiplicadora (`TimerScaleMultiplier`)**: Dropdown compatível com a codificação original `.cad` em `pins[2]` (e `pins[4]` para `T_OFF`):
+  - `x 0.1 Seg (Décimos)` — código `"3"`, fator `0.1`.
+  - `x 1 Seg (Segundos)` — código `"0"`, fator `1.0`.
+  - `x 10 Seg (Dezenas)` — código `"1"`, fator `10.0`.
+  - `x 60 Seg (Minutos)` — código `"2"`, fator `60.0`.
+- **Duração Efetiva Calculada**: Badge de leitura direta exibindo o tempo efetivo em segundos e milissegundos (`Tempo Efetivo: X s (Y ms)`), mantendo `pins[3]` (e `item.value`) sincronizados com precisão adaptativa (`format_timer_seconds`).
+- **Atalhos Rápidos (Quick Presets)**: Botões de um clique (`0.5s`, `1s`, `2s`, `3s`, `5s`, `10s`, `30s`, `60s`) que configuram automaticamente o multiplicador ideal e o valor efetivo.
+- **Temporizador Cíclico Independente (`T_ON` / `T_OFF`)**: Controles dedicados para `Tempo Ligado (T_ON)` (`pins[2]`/`pins[3]`) e `Tempo Desligado (T_OFF)` (`pins[4]`/`pins[5]`), com cartão resumo exibindo período `T`, frequência `f` (Hz) e ciclo de trabalho `D` (%).
+- **Monitoramento ao Vivo na Simulação**: Durante `sim_running`, exibe estado em tempo real (`Em Repouso`, `Contando`, `Disparado / Concluído` ou `T_ON (Pulso)` / `T_OFF (Pausa)`), barra de progresso proporcional com porcentagem e botão **Reiniciar Temporizador** (`Message::ResetTimerSimulation`) além de overlay dinâmico no canvas.
+- **Preset de Bornes**: Botão rápido `A1-A2 (IEC)`.
 
 ### 2.3 Sinalizadores Luminosos e Pulsantes (IEC / EN 60073)
 Identificados automaticamente por `item.is_lamp_or_signaling()`:
@@ -118,7 +129,7 @@ Quando nenhum elemento está selecionado, o painel exibe:
 
 ## 4. Testes de Integração e Garantia de Qualidade
 
-Foram adicionados 6 testes de integração cobrindo 100% dos cenários normativos da Seção 4 em `tests/integration_tests.rs`:
+Foram desenvolvidos 8 testes de integração dedicados cobrindo 100% dos cenários normativos da Seção 4 em `tests/integration_tests.rs`:
 
 1. `test_properties_element_name_and_function_editing`: Edição de tag, exibição de nome no esquema, persistência de função, método `function_or_value()` e fallback seguro.
 2. `test_properties_special_coil_patterns_and_timers`: Ciclo de vida de bobinas especiais (Instantânea, On-Delay, Off-Delay, Cíclico, Retenção), ajuste de temporização e presets A1-A2.
@@ -126,5 +137,7 @@ Foram adicionados 6 testes de integração cobrindo 100% dos cenários normativo
 4. `test_properties_iec60947_power_and_command_terminal_editing`: Presets de força (3P e 1P numérico e fases industriais), contatos de comando com dropdown inteligente IEC 60947 e presets `aux_no`, `aux_nc` e `thermal`.
 5. `test_properties_terminal_strips_iec81346_classification`: Atribuição rápida de réguas XP (força), XC (comando), XT (medição) e X1 (geral).
 6. `test_properties_cross_reference_selected_vs_global_modes`: Renderização sem panics nos estados selecionado e desmarcado, alternância de abas 0 e 1, e navegação direta inter-folhas via XRef.
+7. `test_properties_timer_time_control_and_cyclic_parameters`: Controle de tempo para temporizadores (valores base, botões +/- e chips de passo, multiplicadores de escala x0.1/x1/x10/x60, presets rápidos de tempo e configuração cíclica independente T_ON / T_OFF).
+8. `test_properties_timer_live_simulation_monitoring_and_reset`: Monitoramento ao vivo do tempo decorrido, barra de progresso proporcional e comando de reinício manual durante simulação.
 
-A suíte completa de testes passou com **112 testes verdes em ~3 segundos**, compilação estrita com zero advertências (`cargo clippy --all-targets -- -D warnings`) e formatação integral aprovada (`cargo fmt --all -- --check`).
+A suíte completa de testes passou com **117 testes verdes em ~3,7 segundos**, compilação estrita com zero advertências (`cargo clippy --all-targets -- -D warnings`) e formatação integral aprovada (`cargo fmt --all -- --check`).

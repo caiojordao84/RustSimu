@@ -7110,3 +7110,126 @@ fn test_properties_cross_reference_selected_vs_global_modes() {
     assert_eq!(app.active_page_index, 0);
     let _ = app.view();
 }
+
+#[test]
+fn test_properties_timer_time_control_and_cyclic_parameters() {
+    let (mut app, _) = CadeSimuApp::new();
+    let mut item = SchematicItem::new_symbol(701, 9000, 150, 150, "-KT1");
+    item.pins[0] = "A1".to_string();
+    item.pins[1] = "A2".to_string();
+    app.doc.items.push(item);
+    app.selected_id = Some(701);
+
+    // 1. Configura como On-Delay
+    let _ = app.update(Message::SetCoilPattern(CoilPattern::OnDelay));
+    let it = app.doc.items.iter().find(|i| i.id == 701).unwrap();
+    assert_eq!(it.tipo, 9004);
+    assert_eq!(it.timer_scale_multiplier(), TimerScaleMultiplier::X1);
+    assert_eq!(it.timer_base_value(), 3.0);
+    assert_eq!(it.timer_effective_seconds(), 3.0);
+
+    // 2. Ajuste via Stepper buttons (+1s, +5s, -0.5s)
+    let _ = app.update(Message::AdjustTimerPreset(1.0));
+    assert_eq!(
+        app.doc
+            .items
+            .iter()
+            .find(|i| i.id == 701)
+            .unwrap()
+            .timer_effective_seconds(),
+        4.0
+    );
+
+    let _ = app.update(Message::AdjustTimerPreset(5.0));
+    assert_eq!(
+        app.doc
+            .items
+            .iter()
+            .find(|i| i.id == 701)
+            .unwrap()
+            .timer_effective_seconds(),
+        9.0
+    );
+
+    let _ = app.update(Message::AdjustTimerPreset(-0.5));
+    assert_eq!(
+        app.doc
+            .items
+            .iter()
+            .find(|i| i.id == 701)
+            .unwrap()
+            .timer_effective_seconds(),
+        8.5
+    );
+
+    // 3. Multiplicadores de escala (x10s, x60s, x0.1s)
+    let _ = app.update(Message::SetTimerScaleMultiplier(TimerScaleMultiplier::X10));
+    let it_x10 = app.doc.items.iter().find(|i| i.id == 701).unwrap();
+    assert_eq!(it_x10.timer_scale_multiplier(), TimerScaleMultiplier::X10);
+    assert_eq!(it_x10.timer_effective_seconds(), 85.0);
+
+    let _ = app.update(Message::SetTimerScaleMultiplier(TimerScaleMultiplier::X0_1));
+    let it_x01 = app.doc.items.iter().find(|i| i.id == 701).unwrap();
+    assert_eq!(it_x01.timer_scale_multiplier(), TimerScaleMultiplier::X0_1);
+    assert!((it_x01.timer_effective_seconds() - 0.85).abs() < 1e-4);
+
+    // 4. Atalhos rápidos (Quick Presets)
+    let _ = app.update(Message::ApplyTimerQuickPreset(5.0));
+    let it_p5 = app.doc.items.iter().find(|i| i.id == 701).unwrap();
+    assert_eq!(it_p5.timer_scale_multiplier(), TimerScaleMultiplier::X1);
+    assert_eq!(it_p5.timer_effective_seconds(), 5.0);
+
+    let _ = app.update(Message::ApplyTimerQuickPreset(0.5));
+    let it_p05 = app.doc.items.iter().find(|i| i.id == 701).unwrap();
+    assert_eq!(it_p05.timer_scale_multiplier(), TimerScaleMultiplier::X0_1);
+    assert_eq!(it_p05.timer_effective_seconds(), 0.5);
+
+    let _ = app.update(Message::ApplyTimerQuickPreset(60.0));
+    let it_p60 = app.doc.items.iter().find(|i| i.id == 701).unwrap();
+    assert_eq!(it_p60.timer_scale_multiplier(), TimerScaleMultiplier::X60);
+    assert_eq!(it_p60.timer_effective_seconds(), 60.0);
+
+    // 5. Configuração Cíclica (T_ON e T_OFF independentes)
+    let _ = app.update(Message::SetCoilPattern(CoilPattern::Cyclic));
+    let _ = app.update(Message::SetTimerBaseValue("2".to_string()));
+    let _ = app.update(Message::SetTimerScaleMultiplier(TimerScaleMultiplier::X1));
+
+    let _ = app.update(Message::SetTimerCyclicOffBaseValue("1".to_string()));
+    let _ = app.update(Message::SetTimerCyclicOffMultiplier(
+        TimerScaleMultiplier::X1,
+    ));
+    let _ = app.update(Message::AdjustTimerCyclicOff(1.0)); // 1s + 1s = 2s
+
+    let it_cyc = app.doc.items.iter().find(|i| i.id == 701).unwrap();
+    assert_eq!(it_cyc.timer_effective_seconds(), 2.0);
+    assert_eq!(it_cyc.timer_off_effective_seconds(), 2.0);
+
+    let _ = app.view();
+}
+
+#[test]
+fn test_properties_timer_live_simulation_monitoring_and_reset() {
+    let (mut app, _) = CadeSimuApp::new();
+    let mut item = SchematicItem::new_symbol(801, 9004, 120, 120, "-KT1");
+    item.pins[0] = "A1".to_string();
+    item.pins[1] = "A2".to_string();
+    item.pins[2] = "0".to_string();
+    item.pins[3] = "5".to_string(); // 5 segundos
+    app.doc.items.push(item);
+    app.selected_id = Some(801);
+
+    // Inicia simulação e energiza bobina
+    app.sim_running = true;
+    app.doc.sim.get_mut(801).active = true;
+    app.doc.sim.get_mut(801).timer_elapsed_ms = 2500; // 50% concluído
+
+    // Renderiza interface com a barra de progresso em tempo real
+    let _ = app.view();
+
+    // Dispara reset manual durante a simulação
+    let _ = app.update(Message::ResetTimerSimulation(801));
+    assert_eq!(app.doc.sim.get(801).timer_elapsed_ms, 0);
+    assert_eq!(app.doc.sim.get(801).timer_phase, 0);
+
+    let _ = app.view();
+}

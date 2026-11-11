@@ -190,7 +190,7 @@ Quando um elemento está selecionado, exibe os campos editáveis abaixo:
 | XT | Bornes dedicados a transformadores e medição | Auxiliar |
 
   - Botões de classificação rápida da régua (-XP, -XC, -XT, -X1) e renumeração sequencial. [CONCLUÍDO]  
-- **Bobinas com padrões especiais**: Seletor funcional de padrões (Padrão Instantânea, Ao Trabalho TON, Ao Repouso TOF, Cíclico/Intermitente, Retenção Biestável Latching) e ajuste de tempo de temporização. [CONCLUÍDO]  
+- **Bobinas com padrões especiais**: Seletor funcional de padrões (Padrão Instantânea, Ao Trabalho TON, Ao Repouso TOF, Cíclico/Intermitente, Retenção Biestável Latching) e controle avançado de tempo de temporização (tempo base com steppers, escalas multiplicadoras x0.1s/x1s/x10s/x60s, presets rápidos, controle independente T_ON/T_OFF no modo cíclico, monitoramento em tempo real e reinicialização na simulação). [CONCLUÍDO]  
 - **Sinalizadores**: Apresentação de 6 cores industriais padronizadas (Verde, Vermelho, Amarelo, Azul, Branco, Laranja). [CONCLUÍDO]  
 - **Sinalizadores Pulsantes**: Alternador de modo pulsante e campo editável para tempo de pulso em segundos. [CONCLUÍDO]  
 

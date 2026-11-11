@@ -4,7 +4,7 @@ use iced::widget::{
 };
 use iced::{Alignment, Element, Font, Length, Padding};
 
-use crate::app::{CadeSimuApp, CoilPattern, Message, PinSequenceOption};
+use crate::app::{CadeSimuApp, CoilPattern, Message, PinSequenceOption, TimerScaleMultiplier};
 use crate::symbols::{
     classify_apparatus_role, detect_contact_kind, detect_current_sequence, extract_tag_prefix,
     find_duplicate_apparatus, find_occupied_sequences_for_tag, find_parent_apparatus, find_symbol,
@@ -529,19 +529,375 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
 
                             if pattern != CoilPattern::Standard && pattern != CoilPattern::Latching
                             {
-                                coil_box = coil_box.push(
+                                let base_preset = item.timer_base_value();
+                                let base_str =
+                                    crate::sim::timers::format_timer_seconds(base_preset);
+                                let scale = item.timer_scale_multiplier();
+                                let eff_sec = base_preset * scale.factor();
+                                let eff_ms = (eff_sec * 1000.0).round() as u64;
+                                let eff_sec_str = crate::sim::timers::format_timer_seconds(eff_sec);
+
+                                let base_row = row![
+                                    text(if pattern == CoilPattern::Cyclic {
+                                        "Tempo Ligado (T_ON):"
+                                    } else {
+                                        "Tempo Base:"
+                                    })
+                                    .size(10.5)
+                                    .color(t.text2),
+                                    horizontal_space(),
+                                    button(text("-").size(10.5).font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    }))
+                                    .style(theme::tool)
+                                    .padding(Padding::from([2.0, 6.0]))
+                                    .on_press(Message::AdjustTimerPreset(-1.0)),
+                                    text_input("ex: 3", &base_str)
+                                        .on_input(Message::SetTimerBaseValue)
+                                        .padding(Padding::from([2.0, 5.0]))
+                                        .size(11.0)
+                                        .width(55)
+                                        .style(theme::field),
+                                    button(text("+").size(10.5).font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    }))
+                                    .style(theme::tool)
+                                    .padding(Padding::from([2.0, 6.0]))
+                                    .on_press(Message::AdjustTimerPreset(1.0)),
+                                ]
+                                .spacing(4)
+                                .align_y(Alignment::Center);
+
+                                let step_chips = row![
+                                    text("Passo:").size(9.5).color(t.text2),
+                                    button(text("-5s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::AdjustTimerPreset(-5.0)),
+                                    button(text("-0.5s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::AdjustTimerPreset(-0.5)),
+                                    button(text("+0.5s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::AdjustTimerPreset(0.5)),
+                                    button(text("+5s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::AdjustTimerPreset(5.0)),
+                                ]
+                                .spacing(3)
+                                .align_y(Alignment::Center);
+
+                                let scale_options = TimerScaleMultiplier::ALL.to_vec();
+                                let scale_pick = pick_list(
+                                    scale_options.clone(),
+                                    Some(scale),
+                                    Message::SetTimerScaleMultiplier,
+                                )
+                                .text_size(10.5)
+                                .padding(Padding::from([2.0, 5.0]))
+                                .width(Length::Fill);
+
+                                let scale_box = column![
+                                    text("Escala Multiplicadora:").size(10.0).color(t.text2),
+                                    scale_pick,
+                                ]
+                                .spacing(2);
+
+                                let eff_badge = container(
                                     row![
-                                        text("Temporização (s):").size(11.0).color(t.text2),
-                                        text_input("ex: 3", &item.value)
-                                            .on_input(Message::EditValue)
-                                            .padding(Padding::from([3.0, 6.0]))
-                                            .size(11.5)
-                                            .width(80)
-                                            .style(theme::field),
+                                        text(if pattern == CoilPattern::Cyclic {
+                                            "T_ON Efetivo:"
+                                        } else {
+                                            "Tempo Efetivo:"
+                                        })
+                                        .size(10.0)
+                                        .color(t.text2),
+                                        horizontal_space(),
+                                        text(format!("{eff_sec_str} s ({eff_ms} ms)"))
+                                            .size(11.0)
+                                            .font(Font {
+                                                weight: iced::font::Weight::Bold,
+                                                ..MONO
+                                            })
+                                            .color(t.primary),
                                     ]
-                                    .spacing(6)
                                     .align_y(Alignment::Center),
-                                );
+                                )
+                                .style(theme::card)
+                                .padding(Padding::from([3.0, 6.0]))
+                                .width(Length::Fill);
+
+                                let presets_row1 = row![
+                                    button(text("0.5s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::ApplyTimerQuickPreset(0.5)),
+                                    button(text("1s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::ApplyTimerQuickPreset(1.0)),
+                                    button(text("2s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::ApplyTimerQuickPreset(2.0)),
+                                    button(text("3s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::ApplyTimerQuickPreset(3.0)),
+                                ]
+                                .spacing(3);
+
+                                let presets_row2 = row![
+                                    button(text("5s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::ApplyTimerQuickPreset(5.0)),
+                                    button(text("10s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::ApplyTimerQuickPreset(10.0)),
+                                    button(text("30s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::ApplyTimerQuickPreset(30.0)),
+                                    button(text("60s").size(9.0).font(UI))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([1.0, 4.0]))
+                                        .on_press(Message::ApplyTimerQuickPreset(60.0)),
+                                ]
+                                .spacing(3);
+
+                                let presets_box = column![
+                                    text("Atalhos Rápidos de Tempo:").size(10.0).color(t.text2),
+                                    presets_row1,
+                                    presets_row2,
+                                ]
+                                .spacing(3);
+
+                                let mut timer_ctrl_box = column![
+                                    text("Controle de Tempo:").size(11.0).font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    }),
+                                    base_row,
+                                    step_chips,
+                                    scale_box,
+                                    eff_badge,
+                                    presets_box,
+                                ]
+                                .spacing(5);
+
+                                // Se for temporizador cíclico, adiciona controles de T_OFF
+                                if pattern == CoilPattern::Cyclic {
+                                    let base_off = item.timer_off_base_value();
+                                    let base_off_str =
+                                        crate::sim::timers::format_timer_seconds(base_off);
+                                    let scale_off = item.timer_off_scale_multiplier();
+                                    let eff_off_sec = base_off * scale_off.factor();
+                                    let eff_off_ms = (eff_off_sec * 1000.0).round() as u64;
+                                    let eff_off_sec_str =
+                                        crate::sim::timers::format_timer_seconds(eff_off_sec);
+
+                                    let off_base_row = row![
+                                        text("Tempo Desligado (T_OFF):").size(10.5).color(t.text2),
+                                        horizontal_space(),
+                                        button(text("-").size(10.5).font(Font {
+                                            weight: iced::font::Weight::Bold,
+                                            ..UI
+                                        }))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([2.0, 6.0]))
+                                        .on_press(Message::AdjustTimerCyclicOff(-1.0)),
+                                        text_input("ex: 1", &base_off_str)
+                                            .on_input(Message::SetTimerCyclicOffBaseValue)
+                                            .padding(Padding::from([2.0, 5.0]))
+                                            .size(11.0)
+                                            .width(55)
+                                            .style(theme::field),
+                                        button(text("+").size(10.5).font(Font {
+                                            weight: iced::font::Weight::Bold,
+                                            ..UI
+                                        }))
+                                        .style(theme::tool)
+                                        .padding(Padding::from([2.0, 6.0]))
+                                        .on_press(Message::AdjustTimerCyclicOff(1.0)),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center);
+
+                                    let scale_off_pick = pick_list(
+                                        scale_options,
+                                        Some(scale_off),
+                                        Message::SetTimerCyclicOffMultiplier,
+                                    )
+                                    .text_size(10.5)
+                                    .padding(Padding::from([2.0, 5.0]))
+                                    .width(Length::Fill);
+
+                                    let eff_off_badge = container(
+                                        row![
+                                            text("T_OFF Efetivo:").size(10.0).color(t.text2),
+                                            horizontal_space(),
+                                            text(format!("{eff_off_sec_str} s ({eff_off_ms} ms)"))
+                                                .size(11.0)
+                                                .font(Font {
+                                                    weight: iced::font::Weight::Bold,
+                                                    ..MONO
+                                                })
+                                                .color(t.primary),
+                                        ]
+                                        .align_y(Alignment::Center),
+                                    )
+                                    .style(theme::card)
+                                    .padding(Padding::from([3.0, 6.0]))
+                                    .width(Length::Fill);
+
+                                    let period = (eff_sec + eff_off_sec).max(0.01);
+                                    let freq = 1.0 / period;
+                                    let duty = (eff_sec / period) * 100.0;
+
+                                    let cyclic_summary = container(
+                                        text(format!(
+                                            "Ciclo T={period:.1}s | f={freq:.2}Hz | D={duty:.0}%"
+                                        ))
+                                        .size(9.5)
+                                        .font(MONO)
+                                        .color(t.text2),
+                                    )
+                                    .style(theme::card)
+                                    .padding(Padding::from([2.0, 5.0]))
+                                    .width(Length::Fill);
+
+                                    timer_ctrl_box = timer_ctrl_box.push(horizontal_rule(1)).push(
+                                        column![
+                                            off_base_row,
+                                            scale_off_pick,
+                                            eff_off_badge,
+                                            cyclic_summary,
+                                        ]
+                                        .spacing(3),
+                                    );
+                                }
+
+                                // Monitoramento ao vivo durante a simulação
+                                if app.sim_running {
+                                    let sim_st = app.doc.sim.get(item.id);
+                                    let preset_ms = crate::sim::timers::timer_preset_ms(
+                                        &item.pins,
+                                        &item.value,
+                                    );
+                                    let elapsed_ms = sim_st.timer_elapsed_ms;
+                                    let elapsed_sec = elapsed_ms as f64 / 1000.0;
+                                    let eff_preset_sec = preset_ms as f64 / 1000.0;
+
+                                    let (status_text, status_color, pct) = if pattern
+                                        == CoilPattern::Cyclic
+                                    {
+                                        let off_preset_ms =
+                                            crate::sim::timers::timer_off_preset_ms(&item.pins);
+                                        let total_cycle_ms =
+                                            preset_ms.saturating_add(off_preset_ms).max(100);
+                                        let phase_str = if sim_st.timer_phase == 0 {
+                                            "T_ON (Pulso)"
+                                        } else {
+                                            "T_OFF (Pausa)"
+                                        };
+                                        if !sim_st.active {
+                                            ("Em Repouso / Desenergizado".to_string(), t.text2, 0.0)
+                                        } else {
+                                            let cur = (elapsed_ms % total_cycle_ms) as f64 / 1000.0;
+                                            let phase_dur = if sim_st.timer_phase == 0 {
+                                                eff_preset_sec
+                                            } else {
+                                                off_preset_ms as f64 / 1000.0
+                                            };
+                                            let phase_pct =
+                                                (cur / phase_dur.max(0.1)).clamp(0.0, 1.0);
+                                            (
+                                                format!("{phase_str}: {cur:.1}s / {phase_dur:.1}s"),
+                                                t.amber,
+                                                phase_pct,
+                                            )
+                                        }
+                                    } else if !sim_st.active {
+                                        ("Em Repouso / Desenergizado".to_string(), t.text2, 0.0)
+                                    } else if elapsed_ms >= preset_ms {
+                                        ("Disparado / Concluído".to_string(), t.success, 1.0)
+                                    } else {
+                                        let frac = (elapsed_ms as f64 / preset_ms.max(1) as f64)
+                                            .clamp(0.0, 1.0);
+                                        (
+                                            format!(
+                                                "Contando: {elapsed_sec:.1}s / {eff_preset_sec:.1}s"
+                                            ),
+                                            t.amber,
+                                            frac,
+                                        )
+                                    };
+
+                                    let bar_total_w = 190.0;
+                                    let bar_filled_w = ((bar_total_w * pct as f32)
+                                        .max(if pct > 0.0 { 3.0 } else { 0.0 }))
+                                    .min(bar_total_w);
+
+                                    let sim_monitor_box = column![
+                                        horizontal_rule(1),
+                                        row![
+                                            text("Monitoramento ao Vivo:").size(10.5).font(Font {
+                                                weight: iced::font::Weight::Bold,
+                                                ..UI
+                                            }),
+                                            horizontal_space(),
+                                            text(format!("{:.0}%", pct * 100.0))
+                                                .size(10.5)
+                                                .font(MONO)
+                                                .color(status_color),
+                                        ]
+                                        .align_y(Alignment::Center),
+                                        text(status_text).size(10.0).color(status_color),
+                                        container(row![
+                                            container(Space::with_width(Length::Fixed(
+                                                bar_filled_w
+                                            )))
+                                            .height(Length::Fixed(6.0))
+                                            .style(
+                                                move |_| iced::widget::container::Style {
+                                                    background: Some(iced::Background::Color(
+                                                        status_color
+                                                    )),
+                                                    border: iced::border::rounded(3.0),
+                                                    ..Default::default()
+                                                }
+                                            ),
+                                            Space::with_width(Length::Fill),
+                                        ])
+                                        .width(Length::Fixed(bar_total_w))
+                                        .height(Length::Fixed(6.0))
+                                        .style(
+                                            move |_| iced::widget::container::Style {
+                                                background: Some(iced::Background::Color(t.border)),
+                                                border: iced::border::rounded(3.0),
+                                                ..Default::default()
+                                            }
+                                        ),
+                                        row![button(
+                                            text("Reiniciar Temporizador").size(9.0).font(UI)
+                                        )
+                                        .style(theme::tool)
+                                        .padding(Padding::from([2.0, 5.0]))
+                                        .on_press(Message::ResetTimerSimulation(item.id)),]
+                                    ]
+                                    .spacing(3);
+
+                                    timer_ctrl_box = timer_ctrl_box.push(sim_monitor_box);
+                                }
+
+                                coil_box = coil_box.push(timer_ctrl_box);
                             }
 
                             coil_box = coil_box.push(

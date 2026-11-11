@@ -1261,9 +1261,27 @@ impl<'a> SchematicCanvas<'a> {
         if self.sim_running && (item.tipo == 9004 || item.tipo == 9005) {
             let sec = sim_st.timer_elapsed_ms as f64 / 1000.0;
             let preset = timer_preset_ms(&item.pins, &item.value) as f64 / 1000.0;
+            let display_txt = if item.subvariant == 2 {
+                let off_preset =
+                    crate::sim::timers::timer_off_preset_ms(&item.pins) as f64 / 1000.0;
+                let phase_str = if sim_st.timer_phase == 0 {
+                    "TON"
+                } else {
+                    "TOFF"
+                };
+                let cycle_total = preset + off_preset;
+                let cur = if cycle_total > 0.0 {
+                    sec % cycle_total
+                } else {
+                    0.0
+                };
+                format!("{phase_str}: {cur:.1}s")
+            } else {
+                format!("{sec:.1}s/{preset:.1}s")
+            };
             let vpos = self.world_to_screen((item.x1 + 5) as f32, (item.y1 + 4) as f32);
             frame.fill_text(Text {
-                content: format!("{sec:.1}s/{preset:.0}s"),
+                content: display_txt,
                 position: vpos,
                 color: tok.danger,
                 size: (2.7 * self.zoom).clamp(7.0, 12.5).into(),

@@ -130,6 +130,7 @@ impl std::fmt::Display for SaveFormat {
 }
 
 pub use crate::export::{ExportFormat, ExportScope};
+pub use crate::sim::timers::TimerScaleMultiplier;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct ExportPageOption {
@@ -313,6 +314,14 @@ pub enum Message {
     SetPulseDuration(String),
     TogglePulsingSignaling(bool),
     SetCoilPattern(CoilPattern),
+    SetTimerBaseValue(String),
+    SetTimerScaleMultiplier(TimerScaleMultiplier),
+    AdjustTimerPreset(f64),
+    ApplyTimerQuickPreset(f64),
+    SetTimerCyclicOffBaseValue(String),
+    SetTimerCyclicOffMultiplier(TimerScaleMultiplier),
+    AdjustTimerCyclicOff(f64),
+    ResetTimerSimulation(i32),
     ApplyTerminalStripTagPreset(&'static str),
     ApplyIecNumberingPreset(&'static str),
     SelectPinSequence(u8),
@@ -929,6 +938,14 @@ impl CadeSimuApp {
             | Message::SetPulseDuration(_)
             | Message::TogglePulsingSignaling(_)
             | Message::SetCoilPattern(_)
+            | Message::SetTimerBaseValue(_)
+            | Message::SetTimerScaleMultiplier(_)
+            | Message::AdjustTimerPreset(_)
+            | Message::ApplyTimerQuickPreset(_)
+            | Message::SetTimerCyclicOffBaseValue(_)
+            | Message::SetTimerCyclicOffMultiplier(_)
+            | Message::AdjustTimerCyclicOff(_)
+            | Message::ResetTimerSimulation(_)
             | Message::ApplyTerminalStripTagPreset(_)
             | Message::ApplyIecNumberingPreset(_)
             | Message::SelectPinSequence(_)
@@ -3004,23 +3021,53 @@ impl CadeSimuApp {
                             CoilPattern::OnDelay => {
                                 item.tipo = 9004;
                                 item.subvariant = 0;
-                                if item.value.trim().is_empty() {
-                                    item.value = "3".to_string();
+                                if item.pins[2].trim().is_empty() {
+                                    item.pins[2] = "0".to_string(); // x 1 Seg
                                 }
+                                if item.pins[3].trim().is_empty() {
+                                    item.pins[3] = if item.value.trim().is_empty() {
+                                        "3".to_string()
+                                    } else {
+                                        item.value.clone()
+                                    };
+                                }
+                                item.value = item.pins[3].clone();
                             }
                             CoilPattern::OffDelay => {
                                 item.tipo = 9005;
                                 item.subvariant = 0;
-                                if item.value.trim().is_empty() {
-                                    item.value = "3".to_string();
+                                if item.pins[2].trim().is_empty() {
+                                    item.pins[2] = "0".to_string(); // x 1 Seg
                                 }
+                                if item.pins[3].trim().is_empty() {
+                                    item.pins[3] = if item.value.trim().is_empty() {
+                                        "3".to_string()
+                                    } else {
+                                        item.value.clone()
+                                    };
+                                }
+                                item.value = item.pins[3].clone();
                             }
                             CoilPattern::Cyclic => {
                                 item.tipo = 9004;
                                 item.subvariant = 2;
-                                if item.value.trim().is_empty() {
-                                    item.value = "1.0".to_string();
+                                if item.pins[2].trim().is_empty() {
+                                    item.pins[2] = "0".to_string(); // T_ON mult x 1 Seg
                                 }
+                                if item.pins[3].trim().is_empty() {
+                                    item.pins[3] = if item.value.trim().is_empty() {
+                                        "1".to_string()
+                                    } else {
+                                        item.value.clone()
+                                    };
+                                }
+                                if item.pins[4].trim().is_empty() {
+                                    item.pins[4] = "0".to_string(); // T_OFF mult x 1 Seg
+                                }
+                                if item.pins[5].trim().is_empty() {
+                                    item.pins[5] = "1".to_string(); // T_OFF base 1s
+                                }
+                                item.value = item.pins[3].clone();
                             }
                             CoilPattern::Latching => {
                                 item.tipo = 9000;
@@ -3032,6 +3079,131 @@ impl CadeSimuApp {
                             format!("Padrão da bobina alterado para '{}'.", pat.label());
                     }
                 }
+            }
+            Message::SetTimerBaseValue(val) => {
+                if let Some(id) = self.selected_id {
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let mult = crate::sim::timers::timer_scale_multiplier(&item.pins);
+                        let base_num = val.trim().parse::<f64>().unwrap_or(1.0);
+                        let eff_sec = (base_num * mult.factor()).max(0.01);
+                        let formatted_eff = crate::sim::timers::format_timer_seconds(eff_sec);
+                        item.pins[3] = formatted_eff.clone();
+                        item.value = formatted_eff;
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::SetTimerScaleMultiplier(mult) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let cur_base =
+                            crate::sim::timers::timer_base_value(&item.pins, &item.value);
+                        item.pins[2] = mult.code().to_string();
+                        let new_eff_sec = (cur_base * mult.factor()).max(0.01);
+                        let formatted_eff = crate::sim::timers::format_timer_seconds(new_eff_sec);
+                        item.pins[3] = formatted_eff.clone();
+                        item.value = formatted_eff;
+                        self.is_modified = true;
+                        self.status_msg =
+                            format!("Escala do temporizador alterada para '{}'.", mult.label());
+                    }
+                }
+            }
+            Message::AdjustTimerPreset(delta) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let mult = crate::sim::timers::timer_scale_multiplier(&item.pins);
+                        let cur_eff = crate::sim::timers::timer_preset_ms(&item.pins, &item.value)
+                            as f64
+                            / 1000.0;
+                        let new_eff = (cur_eff + delta).max(0.01);
+                        let formatted_eff = crate::sim::timers::format_timer_seconds(new_eff);
+                        item.pins[3] = formatted_eff.clone();
+                        item.value = formatted_eff;
+                        self.is_modified = true;
+                        let base = new_eff / mult.factor();
+                        let disp_eff = crate::sim::timers::format_timer_seconds(new_eff);
+                        let disp_base = crate::sim::timers::format_timer_seconds(base);
+                        self.status_msg =
+                            format!("Temporização ajustada para {disp_eff}s (Base {disp_base}).");
+                    }
+                }
+            }
+            Message::ApplyTimerQuickPreset(target_sec) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        if target_sec < 1.0 {
+                            item.pins[2] = crate::sim::timers::TimerScaleMultiplier::X0_1
+                                .code()
+                                .to_string();
+                        } else if target_sec >= 60.0 && (target_sec % 60.0).abs() < 1e-6 {
+                            item.pins[2] = crate::sim::timers::TimerScaleMultiplier::X60
+                                .code()
+                                .to_string();
+                        } else if target_sec >= 10.0 && (target_sec % 10.0).abs() < 1e-6 {
+                            item.pins[2] = crate::sim::timers::TimerScaleMultiplier::X10
+                                .code()
+                                .to_string();
+                        } else {
+                            item.pins[2] = crate::sim::timers::TimerScaleMultiplier::X1
+                                .code()
+                                .to_string();
+                        }
+                        let formatted = crate::sim::timers::format_timer_seconds(target_sec);
+                        item.pins[3] = formatted.clone();
+                        item.value = formatted.clone();
+                        self.is_modified = true;
+                        self.status_msg = format!("Preset rápido de {formatted}s aplicado.");
+                    }
+                }
+            }
+            Message::SetTimerCyclicOffBaseValue(val) => {
+                if let Some(id) = self.selected_id {
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let mult = crate::sim::timers::timer_off_scale_multiplier(&item.pins);
+                        let base_num = val.trim().parse::<f64>().unwrap_or(1.0);
+                        let eff_sec = (base_num * mult.factor()).max(0.01);
+                        let formatted_eff = crate::sim::timers::format_timer_seconds(eff_sec);
+                        item.pins[5] = formatted_eff;
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::SetTimerCyclicOffMultiplier(mult) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let cur_base = crate::sim::timers::timer_off_base_value(&item.pins);
+                        item.pins[4] = mult.code().to_string();
+                        let new_eff_sec = (cur_base * mult.factor()).max(0.01);
+                        let formatted_eff = crate::sim::timers::format_timer_seconds(new_eff_sec);
+                        item.pins[5] = formatted_eff;
+                        self.is_modified = true;
+                        self.status_msg = format!("Escala T_OFF alterada para '{}'.", mult.label());
+                    }
+                }
+            }
+            Message::AdjustTimerCyclicOff(delta) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let cur_eff =
+                            crate::sim::timers::timer_off_preset_ms(&item.pins) as f64 / 1000.0;
+                        let new_eff = (cur_eff + delta).max(0.01);
+                        let formatted_eff = crate::sim::timers::format_timer_seconds(new_eff);
+                        item.pins[5] = formatted_eff;
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::ResetTimerSimulation(item_id) => {
+                let s = self.doc.sim.get_mut(item_id);
+                s.timer_elapsed_ms = 0;
+                s.timer_phase = 0;
+                self.status_msg = "Temporizador reiniciado para o início da contagem.".to_string();
             }
             Message::ApplyTerminalStripTagPreset(strip_tag) => {
                 if let Some(id) = self.selected_id {
