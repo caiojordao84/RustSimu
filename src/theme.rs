@@ -529,6 +529,22 @@ pub fn primary(theme: &Theme, status: button::Status) -> button::Style {
     }
 }
 
+/// Ação destrutiva de formulário ("Apagar da Lista", confirmação de exclusão).
+pub fn danger(theme: &Theme, status: button::Status) -> button::Style {
+    let t = tokens(theme);
+    let c = match status {
+        button::Status::Hovered => dim(t.danger, 0.90),
+        button::Status::Pressed => dim(t.danger, 0.80),
+        _ => t.danger,
+    };
+    button::Style {
+        background: bg(c),
+        text_color: t.on_danger,
+        border: border(Color::TRANSPARENT, 0.0, R),
+        shadow: Shadow::default(),
+    }
+}
+
 /// Linha da árvore de coleções (.t-item / .t-cat).
 pub fn tree_row(selected: bool) -> impl Fn(&Theme, button::Status) -> button::Style {
     move |theme, status| {

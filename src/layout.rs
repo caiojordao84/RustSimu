@@ -22,7 +22,7 @@ pub enum Kind {
 impl Kind {
     pub fn title(self) -> &'static str {
         match self {
-            Kind::Collections => "Coleções / Projetos",
+            Kind::Collections => "Elementos e Projetos",
             Kind::Sheet => "Folha",
             Kind::Properties => "Propriedades do Elemento",
         }

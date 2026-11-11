@@ -93,6 +93,19 @@ impl std::fmt::Display for ExportPageOption {
     }
 }
 
+/// Opções do dropdown de navegação de páginas do projeto na aba Projetos.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct ProjectPageOption {
+    pub index: usize,
+    pub label: String,
+}
+
+impl std::fmt::Display for ProjectPageOption {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.label)
+    }
+}
+
 /// Opções do dropdown de visibilidade de textos e tags do esquema.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 pub enum TextVisibility {
@@ -240,6 +253,10 @@ pub enum Message {
     ToggleRightDockCollapse,
     SelectLeftDockTab(usize),
     RecentProjectSelected(String),
+    SelectRecentProject(String),
+    RequestDeleteRecentProject(String),
+    ConfirmDeleteRecentProject,
+    CancelDeleteRecentProject,
     DeleteRecentProject(String),
     SetLampColor(i32),
     SetPulseDuration(String),
@@ -327,6 +344,10 @@ pub struct CadeSimuApp {
     pub prop_tab: usize,
     pub xref_search: String,
     pub left_dock_tab: usize,
+    pub selected_recent_project: Option<String>,
+    pub last_recent_project_click: Option<(String, std::time::Instant)>,
+    pub show_confirm_delete_modal: bool,
+    pub project_to_delete: Option<String>,
     pub left_dock_collapsed: bool,
     pub right_dock_collapsed: bool,
     pub open_menu: Option<ActiveMenu>,
@@ -458,6 +479,10 @@ impl CadeSimuApp {
                 prop_tab: 0,
                 xref_search: String::new(),
                 left_dock_tab: 0,
+                selected_recent_project: None,
+                last_recent_project_click: None,
+                show_confirm_delete_modal: false,
+                project_to_delete: None,
                 left_dock_collapsed: false,
                 right_dock_collapsed: false,
                 open_menu: None,
@@ -766,6 +791,10 @@ impl CadeSimuApp {
             | Message::SaveAll
             | Message::PrintDocument
             | Message::RecentProjectSelected(_)
+            | Message::SelectRecentProject(_)
+            | Message::RequestDeleteRecentProject(_)
+            | Message::ConfirmDeleteRecentProject
+            | Message::CancelDeleteRecentProject
             | Message::DeleteRecentProject(_)
             | Message::ExportDialog => self.update_file(message),
 
@@ -1529,8 +1558,50 @@ impl CadeSimuApp {
                 let p = PathBuf::from(&path_str);
                 return iced::Task::done(Message::FileOpened(Some(p)));
             }
+            Message::SelectRecentProject(path) => {
+                let now = std::time::Instant::now();
+                let is_double_click =
+                    if let Some((ref last_path, last_time)) = self.last_recent_project_click {
+                        last_path == &path
+                            && now.duration_since(last_time) < std::time::Duration::from_millis(400)
+                    } else {
+                        false
+                    };
+                self.last_recent_project_click = Some((path.clone(), now));
+                self.selected_recent_project = Some(path.clone());
+
+                if is_double_click {
+                    return self.update(Message::RecentProjectSelected(path));
+                }
+                self.status_msg = format!(
+                    "Projeto recente selecionado: {path}. Pressione 'Delete' ou clique 'Apagar' para remover, ou duplo clique para abrir."
+                );
+            }
+            Message::RequestDeleteRecentProject(path_str) => {
+                self.project_to_delete = Some(path_str);
+                self.show_confirm_delete_modal = true;
+                self.status_msg = "Confirmar remoção de projeto recente...".to_string();
+            }
+            Message::ConfirmDeleteRecentProject => {
+                if let Some(path_str) = self.project_to_delete.take() {
+                    self.recent_files.retain(|p| p != &path_str);
+                    if self.selected_recent_project.as_deref() == Some(&path_str) {
+                        self.selected_recent_project = None;
+                    }
+                    self.status_msg = "Projeto removido da lista recente.".to_string();
+                }
+                self.show_confirm_delete_modal = false;
+            }
+            Message::CancelDeleteRecentProject => {
+                self.project_to_delete = None;
+                self.show_confirm_delete_modal = false;
+                self.status_msg = "Exclusão de projeto recente cancelada.".to_string();
+            }
             Message::DeleteRecentProject(path_str) => {
                 self.recent_files.retain(|p| p != &path_str);
+                if self.selected_recent_project.as_deref() == Some(&path_str) {
+                    self.selected_recent_project = None;
+                }
                 self.status_msg = "Projeto removido da lista recente.".to_string();
             }
             Message::ExportDialog => {
@@ -1550,6 +1621,12 @@ impl CadeSimuApp {
                 return self.update_edit(Message::MirrorHorizontal);
             }
             Message::DeleteSelected => {
+                if self.left_dock_tab == 1 {
+                    if let Some(ref path) = self.selected_recent_project {
+                        return self.update(Message::RequestDeleteRecentProject(path.clone()));
+                    }
+                }
+
                 let target_ids: Vec<i32> = if !self.selected_ids.is_empty() {
                     self.selected_ids.iter().copied().collect()
                 } else if let Some(id) = self.selected_id {
@@ -1568,6 +1645,12 @@ impl CadeSimuApp {
                 }
             }
             Message::CancelAction => {
+                if self.show_confirm_delete_modal {
+                    self.show_confirm_delete_modal = false;
+                    self.project_to_delete = None;
+                    self.status_msg = "Exclusão cancelada.".to_string();
+                    return iced::Task::none();
+                }
                 if self.show_color_modal {
                     self.show_color_modal = false;
                     return iced::Task::none();
@@ -3570,6 +3653,11 @@ impl CadeSimuApp {
         // Modal de Seleção de Cor do Elemento
         if self.show_color_modal {
             layers.push(crate::ui::view_color_modal(self));
+        }
+
+        // Modal de Confirmação de Exclusão de Projeto Recente
+        if self.show_confirm_delete_modal {
+            layers.push(crate::ui::view_confirm_delete_project_modal(self));
         }
 
         Stack::with_children(layers)

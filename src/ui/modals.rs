@@ -638,3 +638,129 @@ pub fn view_color_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
     .height(Length::Fill)
     .into()
 }
+
+/// Renderiza o modal de confirmação para remoção de projeto recente.
+pub fn view_confirm_delete_project_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
+    let t = tokens(&app.theme());
+
+    let (project_name, project_path) = if let Some(ref path_str) = app.project_to_delete {
+        let p = std::path::Path::new(path_str);
+        let name = p
+            .file_name()
+            .map(|n| n.to_string_lossy().to_string())
+            .unwrap_or_else(|| path_str.clone());
+        (name, path_str.clone())
+    } else {
+        ("Projeto Desconhecido".to_string(), String::new())
+    };
+
+    let dialog_card = container(
+        column![
+            row![
+                crate::icons::view_icon(crate::icons::Icon::Delete, 22, t.danger),
+                column![
+                    text("Remover dos Projetos Recentes").size(16).font(Font {
+                        weight: iced::font::Weight::Bold,
+                        ..UI
+                    }),
+                    text("Confirmação de exclusão da lista de acessos rápidos")
+                        .size(11.0)
+                        .color(t.text2),
+                ]
+                .spacing(2),
+                horizontal_space(),
+                button(crate::icons::view_icon(crate::icons::Icon::Close, 13, t.text2))
+                    .style(theme::tool)
+                    .padding(Padding::from([4.0, 6.0]))
+                    .on_press(Message::CancelDeleteRecentProject),
+            ]
+            .align_y(Alignment::Center),
+            horizontal_rule(1),
+            text(format!(
+                "Deseja realmente remover o projeto \"{}\" da lista recente?",
+                project_name
+            ))
+            .size(12.5)
+            .font(Font {
+                weight: iced::font::Weight::Medium,
+                ..UI
+            }),
+            container(
+                column![
+                    row![
+                        text("Caminho:").size(10.5).color(t.text2),
+                        text(project_path)
+                            .size(10.5)
+                            .font(crate::theme::MONO)
+                            .color(t.text)
+                            .width(Length::Fill),
+                    ]
+                    .spacing(6)
+                    .align_y(Alignment::Center),
+                    text("Nota: Esta ação remove apenas o atalho recente no RustSimu. O arquivo no disco rígido permanece intacto.")
+                        .size(10.0)
+                        .color(t.text2),
+                ]
+                .spacing(4)
+            )
+            .style(theme::card)
+            .padding(Padding::from([8.0, 10.0]))
+            .width(Length::Fill),
+            horizontal_rule(1),
+            row![
+                horizontal_space(),
+                button(text("Cancelar").size(12.0).font(UI))
+                    .style(theme::tool)
+                    .padding(Padding::from([6.0, 14.0]))
+                    .on_press(Message::CancelDeleteRecentProject),
+                button(
+                    row![
+                        crate::icons::view_icon(crate::icons::Icon::Delete, 13, iced::Color::WHITE),
+                        text("Apagar da Lista").size(12.0).font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        }),
+                    ]
+                    .spacing(6)
+                    .align_y(Alignment::Center)
+                )
+                .style(theme::danger)
+                .padding(Padding::from([6.0, 14.0]))
+                .on_press(Message::ConfirmDeleteRecentProject),
+            ]
+            .spacing(8)
+            .align_y(Alignment::Center),
+        ]
+        .spacing(12)
+        .width(480),
+    )
+    .style(theme::dropdown_menu)
+    .padding(Padding::from([16.0, 18.0]));
+
+    let modal_backdrop = mouse_area(
+        container(Space::new(Length::Fill, Length::Fill))
+            .style(theme::modal_backdrop)
+            .width(Length::Fill)
+            .height(Length::Fill),
+    )
+    .on_press(Message::CancelDeleteRecentProject);
+
+    stack![
+        modal_backdrop,
+        container(
+            column![
+                vertical_space(),
+                row![horizontal_space(), dialog_card, horizontal_space()]
+                    .align_y(Alignment::Center),
+                vertical_space(),
+            ]
+            .width(Length::Fill)
+            .height(Length::Fill)
+        )
+        .width(Length::Fill)
+        .height(Length::Fill),
+    ]
+    .width(Length::Fill)
+    .height(Length::Fill)
+    .into()
+}

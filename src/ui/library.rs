@@ -1,10 +1,10 @@
 use iced::widget::{
-    button, column, container, horizontal_rule, horizontal_space, mouse_area, row, scrollable, svg,
-    text, text_input,
+    button, column, container, horizontal_rule, horizontal_space, mouse_area, pick_list, row,
+    scrollable, svg, text, text_input,
 };
 use iced::{Alignment, Element, Font, Length, Padding};
 
-use crate::app::{CadeSimuApp, Message};
+use crate::app::{CadeSimuApp, Message, ProjectPageOption};
 use crate::canvas_view::EditorTool;
 use crate::theme::{self, tokens, MONO, UI};
 
@@ -200,44 +200,64 @@ pub fn view_collections_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> 
             let mut proj_col = column![].spacing(6).padding(Padding::from([8.0, 10.0]));
 
             proj_col = proj_col.push(
-                text("Folha Ativa:")
-                    .size(11.5)
-                    .font(Font {
-                        weight: iced::font::Weight::Bold,
-                        ..UI
-                    })
-                    .color(t.primary),
+                row![
+                    text("Navegação de Páginas:")
+                        .size(11.5)
+                        .font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        })
+                        .color(t.primary),
+                    horizontal_space(),
+                    text(format!(
+                        "{}/{} pág(s)",
+                        app.active_page_index + 1,
+                        app.pages.len().max(1)
+                    ))
+                    .size(10.5)
+                    .color(t.text2),
+                ]
+                .align_y(Alignment::Center),
             );
 
-            for (idx, p) in app.pages.iter().enumerate() {
-                let is_cur = idx == app.active_page_index;
-                let p_btn = button(
-                    row![
-                        text(format!("{}. {}", idx + 1, p.name)).size(11.5).font(UI),
-                        horizontal_space(),
-                        if is_cur {
-                            row![
-                                crate::icons::view_icon(crate::icons::Icon::Check, 11, t.primary),
-                                text("Ativa").size(10.5).color(t.primary)
-                            ]
-                            .spacing(3)
-                            .align_y(Alignment::Center)
-                        } else {
-                            row![text("").size(10.5)]
-                        },
-                    ]
-                    .align_y(Alignment::Center),
-                )
-                .style(if is_cur {
-                    theme::tool_active
-                } else {
-                    theme::tool
+            // Nome do Projeto
+            let project_title = if !app.doc.title_block.title.trim().is_empty() {
+                app.doc.title_block.title.trim().to_string()
+            } else if let Some(ref path) = app.current_file {
+                path.file_stem()
+                    .map(|s| s.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "Projeto Principal".to_string())
+            } else {
+                "Projeto Principal".to_string()
+            };
+
+            let total_pages = app.pages.len().max(1);
+            let page_options: Vec<ProjectPageOption> = app
+                .pages
+                .iter()
+                .enumerate()
+                .map(|(idx, p)| ProjectPageOption {
+                    index: idx,
+                    label: format!(
+                        "{} -> ({}/{}) {}",
+                        project_title,
+                        idx + 1,
+                        total_pages,
+                        p.name
+                    ),
                 })
-                .padding(Padding::from([4.0, 8.0]))
-                .width(Length::Fill)
-                .on_press(Message::SelectPage(idx));
-                proj_col = proj_col.push(p_btn);
-            }
+                .collect();
+
+            let selected_page_option = page_options.get(app.active_page_index).cloned();
+
+            let page_dropdown = pick_list(page_options, selected_page_option, |opt| {
+                Message::SelectPage(opt.index)
+            })
+            .padding(Padding::from([5.0, 8.0]))
+            .text_size(11.0)
+            .width(Length::Fill);
+
+            proj_col = proj_col.push(page_dropdown);
 
             proj_col = proj_col.push(horizontal_rule(1));
 
@@ -251,7 +271,7 @@ pub fn view_collections_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> 
                         })
                         .color(t.primary),
                     horizontal_space(),
-                    text(format!("{} arquivos", app.recent_files.len()))
+                    text(format!("{} arquivo(s)", app.recent_files.len()))
                         .size(10.5)
                         .color(t.text2),
                 ]
@@ -262,7 +282,7 @@ pub fn view_collections_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> 
             if app.recent_files.is_empty() {
                 files_col = files_col.push(
                     text("Nenhum arquivo recente na pasta Projetos.")
-                        .size(11)
+                        .size(11.0)
                         .color(t.text2),
                 );
             } else {
@@ -278,32 +298,44 @@ pub fn view_collections_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> 
                         .unwrap_or("cad")
                         .to_uppercase();
 
-                    let open_btn = button(
+                    let is_selected =
+                        app.selected_recent_project.as_deref() == Some(path_str.as_str());
+
+                    let title_btn = button(
                         row![
                             container(text(ext).size(9.5).font(MONO))
                                 .padding(Padding::from([1.0, 4.0]))
-                                .style(theme::card),
-                            text(file_name).size(11).font(UI).width(Length::Fill),
+                                .style(theme::tag_badge),
+                            text(file_name).size(11.0).font(UI).width(Length::Fill),
                         ]
                         .spacing(6)
                         .align_y(Alignment::Center),
                     )
-                    .style(theme::tool)
+                    .style(if is_selected {
+                        theme::tool_active
+                    } else {
+                        theme::tool
+                    })
                     .padding(Padding::from([3.0, 6.0]))
                     .width(Length::Fill)
-                    .on_press(Message::RecentProjectSelected(path_str.clone()));
+                    .on_press(Message::SelectRecentProject(path_str.clone()));
+
+                    let open_btn = button(text("Abrir").size(10.0).font(UI))
+                        .style(theme::tool)
+                        .padding(Padding::from([3.0, 6.0]))
+                        .on_press(Message::RecentProjectSelected(path_str.clone()));
 
                     let del_btn = button(crate::icons::view_icon(
-                        crate::icons::Icon::Close,
+                        crate::icons::Icon::Delete,
                         11,
-                        t.text2,
+                        t.danger,
                     ))
                     .style(theme::tool)
                     .padding(Padding::from([3.0, 5.0]))
-                    .on_press(Message::DeleteRecentProject(path_str.clone()));
+                    .on_press(Message::RequestDeleteRecentProject(path_str.clone()));
 
                     files_col = files_col.push(
-                        row![open_btn, del_btn]
+                        row![title_btn, open_btn, del_btn]
                             .spacing(2)
                             .align_y(Alignment::Center),
                     );

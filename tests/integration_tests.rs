@@ -6638,3 +6638,174 @@ fn test_colored_element_export_to_svg() {
     assert!(!mono_svg.contains(r##"stroke="#e53935""##));
     assert!(!mono_svg.contains(r##"stroke="#1e88e5""##));
 }
+
+#[test]
+fn test_projects_tab_page_dropdown_navigation() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.doc.title_block.title = "Projeto Principal".to_string();
+    app.pages = vec![
+        ProjectPage::new(
+            1,
+            "Diagrama de Potência".to_string(),
+            SchematicDocument::default(),
+        ),
+        ProjectPage::new(2, "Comando 24V".to_string(), SchematicDocument::default()),
+        ProjectPage::new(
+            3,
+            "Painel Frontal".to_string(),
+            SchematicDocument::default(),
+        ),
+    ];
+
+    let project_title = if !app.doc.title_block.title.trim().is_empty() {
+        app.doc.title_block.title.trim().to_string()
+    } else {
+        "Projeto Principal".to_string()
+    };
+    let total_pages = app.pages.len().max(1);
+    let page_options: Vec<ProjectPageOption> = app
+        .pages
+        .iter()
+        .enumerate()
+        .map(|(idx, p)| ProjectPageOption {
+            index: idx,
+            label: format!(
+                "{} -> ({}/{}) {}",
+                project_title,
+                idx + 1,
+                total_pages,
+                p.name
+            ),
+        })
+        .collect();
+
+    assert_eq!(page_options.len(), 3);
+    assert_eq!(
+        page_options[0].label,
+        "Projeto Principal -> (1/3) Diagrama de Potência"
+    );
+    assert_eq!(
+        page_options[1].label,
+        "Projeto Principal -> (2/3) Comando 24V"
+    );
+    assert_eq!(
+        page_options[2].label,
+        "Projeto Principal -> (3/3) Painel Frontal"
+    );
+    assert_eq!(
+        format!("{}", page_options[0]),
+        "Projeto Principal -> (1/3) Diagrama de Potência"
+    );
+
+    // Navegação via seleção na lista suspensa
+    assert_eq!(app.active_page_index, 0);
+    let _ = app.update(Message::SelectPage(1));
+    assert_eq!(app.active_page_index, 1);
+    assert!(app.status_msg.contains("Folha 2 ativa: Comando 24V"));
+
+    let _ = app.update(Message::SelectPage(2));
+    assert_eq!(app.active_page_index, 2);
+    assert!(app.status_msg.contains("Folha 3 ativa: Painel Frontal"));
+}
+
+#[test]
+fn test_recent_projects_selection_and_double_click_open() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.recent_files = vec![
+        "/tmp/projeto_teste1.cad".to_string(),
+        "/tmp/projeto_teste2.qet".to_string(),
+    ];
+
+    // Clique único seleciona o projeto
+    let _ = app.update(Message::SelectRecentProject(
+        "/tmp/projeto_teste1.cad".to_string(),
+    ));
+    assert_eq!(
+        app.selected_recent_project.as_deref(),
+        Some("/tmp/projeto_teste1.cad")
+    );
+    assert!(app.last_recent_project_click.is_some());
+    assert!(app.status_msg.contains("Projeto recente selecionado"));
+
+    // Duplo clique (menos de 400ms) no mesmo projeto aciona abertura
+    let _ = app.update(Message::SelectRecentProject(
+        "/tmp/projeto_teste1.cad".to_string(),
+    ));
+    assert_eq!(
+        app.selected_recent_project.as_deref(),
+        Some("/tmp/projeto_teste1.cad")
+    );
+
+    // Botão explícito Abrir
+    let _ = app.update(Message::RecentProjectSelected(
+        "/tmp/projeto_teste2.qet".to_string(),
+    ));
+}
+
+#[test]
+fn test_recent_projects_delete_confirmation_modal_flow() {
+    let (mut app, _) = CadeSimuApp::new();
+    app.recent_files = vec!["/tmp/proj1.cad".to_string(), "/tmp/proj2.qet".to_string()];
+
+    // 1. Seleciona proj1 e aciona exclusão via Delete key na aba Projetos (left_dock_tab = 1)
+    app.left_dock_tab = 1;
+    let _ = app.update(Message::SelectRecentProject("/tmp/proj1.cad".to_string()));
+    assert_eq!(
+        app.selected_recent_project.as_deref(),
+        Some("/tmp/proj1.cad")
+    );
+
+    // Tecla Delete quando na aba Projetos deve abrir modal de confirmação
+    let _ = app.update(Message::DeleteSelected);
+    assert!(app.show_confirm_delete_modal);
+    assert_eq!(app.project_to_delete.as_deref(), Some("/tmp/proj1.cad"));
+    assert!(app.status_msg.contains("Confirmar remoção"));
+
+    // 2. Cancelar modal via CancelDeleteRecentProject (botão Cancelar)
+    let _ = app.update(Message::CancelDeleteRecentProject);
+    assert!(!app.show_confirm_delete_modal);
+    assert!(app.project_to_delete.is_none());
+    assert_eq!(app.recent_files.len(), 2);
+    assert!(app.recent_files.contains(&"/tmp/proj1.cad".to_string()));
+
+    // 3. Requisitar exclusão via botão "Apagar" e cancelar via ESC (CancelAction)
+    let _ = app.update(Message::RequestDeleteRecentProject(
+        "/tmp/proj2.qet".to_string(),
+    ));
+    assert!(app.show_confirm_delete_modal);
+    assert_eq!(app.project_to_delete.as_deref(), Some("/tmp/proj2.qet"));
+
+    let _ = app.update(Message::CancelAction);
+    assert!(!app.show_confirm_delete_modal);
+    assert!(app.project_to_delete.is_none());
+    assert_eq!(app.recent_files.len(), 2);
+
+    // 4. Confirmar exclusão no modal
+    let _ = app.update(Message::RequestDeleteRecentProject(
+        "/tmp/proj1.cad".to_string(),
+    ));
+    assert!(app.show_confirm_delete_modal);
+
+    let _ = app.update(Message::ConfirmDeleteRecentProject);
+    assert!(!app.show_confirm_delete_modal);
+    assert!(app.project_to_delete.is_none());
+    assert_eq!(app.recent_files.len(), 1);
+    assert!(!app.recent_files.contains(&"/tmp/proj1.cad".to_string()));
+    assert_eq!(app.selected_recent_project, None);
+    assert_eq!(app.status_msg, "Projeto removido da lista recente.");
+}
+
+#[test]
+fn test_left_dock_elements_default_and_collapse_expand() {
+    let (mut app, _) = CadeSimuApp::new();
+    // 3.1: Aba Elementos deve vir selecionada por padrão
+    assert_eq!(app.left_dock_tab, 0);
+    assert!(!app.left_dock_collapsed);
+
+    // 3.3: Recolhimento e restauração da barra com chevron
+    let _ = app.update(Message::ToggleLeftDockCollapse);
+    assert!(app.left_dock_collapsed);
+
+    let _ = app.update(Message::ToggleLeftDockCollapse);
+    assert!(!app.left_dock_collapsed);
+}
