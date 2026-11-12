@@ -310,22 +310,132 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
 
                     if item.is_graphic() {
                         if item.tipo == 8 {
+                            let world_h = item.text_world_height();
+                            let is_bold = item.text_is_bold();
+                            let rot_idx = item.orientation.rem_euclid(4);
+                            let mode_btn = |label: &'static str, target_sub: i32| {
+                                button(text(label).size(10.5).font(UI))
+                                    .style(if item.subvariant == target_sub {
+                                        theme::tool_active
+                                    } else {
+                                        theme::tool
+                                    })
+                                    .padding(Padding::from([4.0, 8.0]))
+                                    .width(Length::Fill)
+                                    .on_press(Message::SetItemTextSubvariant(target_sub))
+                            };
+                            let size_btn = |label: &'static str, preset_h: f32| {
+                                let active = (world_h - preset_h).abs() < 0.25;
+                                button(text(label).size(10.5).font(MONO))
+                                    .style(if active {
+                                        theme::tool_active
+                                    } else {
+                                        theme::tool
+                                    })
+                                    .padding(Padding::from([3.0, 6.0]))
+                                    .on_press(Message::SetItemTextSize(preset_h))
+                            };
+                            let rot_btn = |label: &'static str, idx: i32| {
+                                button(text(label).size(10.5).font(MONO))
+                                    .style(if rot_idx == idx {
+                                        theme::tool_active
+                                    } else {
+                                        theme::tool
+                                    })
+                                    .padding(Padding::from([3.0, 6.0]))
+                                    .on_press(Message::SetItemTextOrientation(idx))
+                            };
+                            let single_line_preview = item.trailing_str.replace('\n', " / ");
                             body_col = body_col.push(
                                 column![
+                                    row![mode_btn("Em Linha", 0), mode_btn("Campo (Caixa)", 1),]
+                                        .spacing(4),
                                     text(if item.subvariant == 0 {
-                                        "Texto em Linha:"
+                                        "Conteúdo do Texto:"
                                     } else {
                                         "Conteúdo do Campo de Texto:"
                                     })
                                     .size(11)
                                     .color(t.text2),
-                                    text_input("Digite o texto ou anotação...", &item.trailing_str)
-                                        .on_input(Message::EditItemTrailingText)
-                                        .padding(Padding::from([5.0, 8.0]))
-                                        .size(12)
-                                        .style(theme::field),
+                                    text_input(
+                                        "Digite o texto ou anotação...",
+                                        &single_line_preview
+                                    )
+                                    .on_input(Message::EditItemTrailingText)
+                                    .padding(Padding::from([5.0, 8.0]))
+                                    .size(12)
+                                    .style(theme::field),
+                                    button(
+                                        row![
+                                            crate::icons::view_icon(
+                                                crate::icons::Icon::Pencil,
+                                                12,
+                                                t.on_primary
+                                            ),
+                                            text("Abrir Editor Multilinha...").size(11.0).font(UI),
+                                        ]
+                                        .spacing(6)
+                                        .align_y(Alignment::Center),
+                                    )
+                                    .style(theme::primary)
+                                    .padding(Padding::from([5.0, 10.0]))
+                                    .width(Length::Fill)
+                                    .on_press(Message::OpenTextEditorModal(item.id)),
+                                    row![
+                                        text("Tamanho:").size(11).color(t.text2),
+                                        horizontal_space(),
+                                        text(format!("{world_h:.1} u"))
+                                            .size(11)
+                                            .font(MONO)
+                                            .color(t.text),
+                                    ]
+                                    .align_y(Alignment::Center),
+                                    row![
+                                        size_btn("P", 2.4),
+                                        size_btn("M", 3.2),
+                                        size_btn("G", 4.8),
+                                        size_btn("GG", 6.4),
+                                        button(text("-").size(11).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::AdjustItemTextSize(-0.4)),
+                                        button(text("+").size(11).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::AdjustItemTextSize(0.4)),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center),
+                                    row![
+                                        button(
+                                            text(if is_bold { "Negrito: Sim" } else { "Negrito" })
+                                                .size(10.5)
+                                                .font(Font {
+                                                    weight: if is_bold {
+                                                        iced::font::Weight::Bold
+                                                    } else {
+                                                        iced::font::Weight::Normal
+                                                    },
+                                                    ..UI
+                                                }),
+                                        )
+                                        .style(if is_bold {
+                                            theme::tool_active
+                                        } else {
+                                            theme::tool
+                                        })
+                                        .padding(Padding::from([4.0, 8.0]))
+                                        .on_press(Message::ToggleItemTextBold),
+                                        horizontal_space(),
+                                        rot_btn("0°", 0),
+                                        rot_btn("90°", 1),
+                                        rot_btn("180°", 2),
+                                        rot_btn("270°", 3),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center),
                                 ]
-                                .spacing(4),
+                                .spacing(6),
                             );
                         } else if item.tipo == 5 {
                             let img_label = if item.trailing_str.trim().is_empty() {

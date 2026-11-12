@@ -573,12 +573,120 @@ impl SchematicItem {
     }
 
     pub fn new_graphic(id: i32, tipo: i32, x1: i32, y1: i32, x2: i32, y2: i32) -> Self {
-        Self::new_wire(id, tipo, x1, y1, x2, y2)
+        let mut item = Self::new_wire(id, tipo, x1, y1, x2, y2);
+        if tipo == 8 {
+            // Padrão CADe_SIMU: lfHeight -16 (3.2u), lfWeight 400 (Regular)
+            item.extra_int1 = -16;
+            item.show_value = 400;
+        }
+        item
     }
 
     #[inline]
     pub fn is_graphic(&self) -> bool {
         matches!(self.tipo, 1 | 2 | 3 | 4 | 5 | 8)
+    }
+
+    /// Altura tipográfica em unidades de mundo `.cad` para anotações de texto (`tipo == 8`).
+    ///
+    /// No formato `.cad` nativo, `extra_int1` armazena `lfHeight` Win32 GDI (ex.: `-16` ≈ 3.2 u).
+    pub fn text_world_height(&self) -> f32 {
+        if self.extra_int1 == 0 {
+            3.2
+        } else {
+            ((self.extra_int1.unsigned_abs() as f32) * 0.20).clamp(2.0, 16.0)
+        }
+    }
+
+    /// Define a altura tipográfica de um item de texto (`tipo == 8`) convertendo para `lfHeight` em `extra_int1`.
+    pub fn set_text_world_height(&mut self, world_h: f32) {
+        let clamped = world_h.clamp(2.0, 16.0);
+        let lf_height = ((clamped / 0.20).round() as i32).max(10);
+        self.extra_int1 = -lf_height;
+    }
+
+    /// Indica se o texto (`tipo == 8`) está em negrito conforme `lfWeight` em `show_value` (>= 600).
+    #[inline]
+    pub fn text_is_bold(&self) -> bool {
+        self.show_value >= 600
+    }
+
+    /// Define o peso tipográfico de um item de texto (`400` normal, `700` negrito).
+    pub fn set_text_bold(&mut self, bold: bool) {
+        self.show_value = if bold { 700 } else { 400 };
+    }
+
+    /// Calcula `(largura, altura)` locais não rotacionadas do texto (`tipo == 8`) em unidades de mundo.
+    pub fn text_local_size(&self) -> (i32, i32) {
+        let world_h = self.text_world_height();
+        let line_h = world_h * 1.32;
+        let max_chars = self
+            .trailing_str
+            .split('\n')
+            .map(|l| l.chars().count())
+            .max()
+            .unwrap_or(0)
+            .max(4);
+        let line_count = self.trailing_str.split('\n').count().max(1);
+        let est_w = (max_chars as f32 * world_h * 0.62).ceil() as i32;
+        let est_h = (line_count as f32 * line_h).ceil() as i32;
+
+        if self.subvariant == 1 {
+            let box_w = if self.x2 != self.x1 {
+                (self.x2 - self.x1).abs().max(24)
+            } else {
+                est_w.max(24) + 4
+            };
+            let box_h = if self.y2 != self.y1 {
+                (self.y2 - self.y1).abs().max(8).max(est_h + 3)
+            } else {
+                est_h.max(8) + 3
+            };
+            (box_w, box_h)
+        } else {
+            (est_w.max(6), est_h.max(4))
+        }
+    }
+
+    /// Sincroniza `(x2, y2)` após edição de conteúdo/tamanho/modo em itens de texto (`tipo == 8`).
+    pub fn sync_text_bounds(&mut self) {
+        if self.tipo != 8 {
+            return;
+        }
+        let (w, h) = self.text_local_size();
+        self.x2 = self.x1 + w;
+        self.y2 = self.y1 + h;
+    }
+
+    /// Retorna `(min_x, min_y, max_x, max_y)` em coordenadas de mundo considerando fonte, múltiplas linhas e rotação.
+    pub fn text_world_bounds(&self) -> (i32, i32, i32, i32) {
+        let (w, h) = self.text_local_size();
+        let ox = if self.subvariant == 1 {
+            self.x1.min(self.x2)
+        } else {
+            self.x1
+        };
+        let oy = if self.subvariant == 1 {
+            self.y1.min(self.y2)
+        } else {
+            self.y1
+        };
+        let corners = [(0, 0), (w, 0), (0, h), (w, h)];
+        let rot = self.orientation.rem_euclid(4);
+        let mut min_x = i32::MAX;
+        let mut max_x = i32::MIN;
+        let mut min_y = i32::MAX;
+        let mut max_y = i32::MIN;
+        for (cx, cy) in corners {
+            let (rx, ry) = transform_offset(cx, cy, rot);
+            let px = ox + rx;
+            let py = oy + ry;
+            min_x = min_x.min(px);
+            max_x = max_x.max(px);
+            min_y = min_y.min(py);
+            max_y = max_y.max(py);
+        }
+        (min_x - 2, min_y - 2, max_x + 2, max_y + 2)
     }
 
     pub fn new_symbol(id: i32, tipo: i32, x: i32, y: i32, tag: impl Into<String>) -> Self {

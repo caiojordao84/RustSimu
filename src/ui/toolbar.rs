@@ -232,6 +232,16 @@ pub fn view_toolbar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 "Ponto de Junção"
             ),
             tool_btn(
+                EditorTool::PlaceText,
+                crate::icons::Icon::Text,
+                "Texto em Linha (T)"
+            ),
+            tool_btn(
+                EditorTool::PlaceTextField,
+                crate::icons::Icon::TextBox,
+                "Campo de Texto (Caixa)"
+            ),
+            tool_btn(
                 EditorTool::Delete,
                 crate::icons::Icon::DeleteWire,
                 "Apagar Conexão"

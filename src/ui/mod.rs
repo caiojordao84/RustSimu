@@ -14,6 +14,7 @@ pub use modals::{
     view_about_modal, view_close_last_page_modal, view_color_modal,
     view_confirm_delete_project_modal, view_export_modal, view_page_properties_modal,
     view_print_modal, view_project_properties_modal, view_settings_modal, view_shortcuts_modal,
+    view_text_editor_modal,
 };
 pub use properties::view_properties_panel;
 pub use statusbar::view_statusbar;

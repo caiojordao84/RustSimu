@@ -50,6 +50,7 @@ pub fn view_sheet_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
             || app.show_settings_modal
             || app.show_shortcuts_modal
             || app.show_color_modal
+            || app.show_text_editor_modal
             || app.show_confirm_delete_modal
             || app.show_close_last_page_modal,
     }

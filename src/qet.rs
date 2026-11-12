@@ -1109,7 +1109,7 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
     for inp in &diag.inputs {
         let text_clean = clean_html_text(&inp.text);
         if !text_clean.is_empty() {
-            let mut text_item = SchematicItem::new_wire(
+            let mut text_item = SchematicItem::new_graphic(
                 id_counter,
                 8,
                 inp.x.round() as i32,
@@ -1119,6 +1119,18 @@ pub fn diagram_to_document(project: &QetProject, diagram_idx: usize) -> Schemati
             );
             id_counter += 1;
             text_item.trailing_str = text_clean;
+            let font_parts: Vec<&str> = inp.font.split(',').collect();
+            if let Some(pt) = font_parts.get(1).and_then(|s| s.trim().parse::<f32>().ok()) {
+                text_item.set_text_world_height((pt * 0.355).clamp(2.0, 16.0));
+            }
+            let is_bold = font_parts
+                .get(4)
+                .and_then(|s| s.trim().parse::<i32>().ok())
+                .is_some_and(|w| w >= 65)
+                || inp.font.to_ascii_lowercase().contains("bold");
+            text_item.set_text_bold(is_bold);
+            text_item.orientation = (inp.rotation.rem_euclid(360) + 45) / 90 % 4;
+            text_item.sync_text_bounds();
             doc.items.push(text_item);
         }
     }
@@ -1366,8 +1378,13 @@ pub fn serialize_qet_xml(project: &QetProject) -> String {
         // Inputs (Textos)
         xml.push_str("    <inputs>\n");
         for inp in &diag.inputs {
+            let font_attr = if inp.font.is_empty() {
+                String::new()
+            } else {
+                format!(" font=\"{}\"", escape_xml_attr(&inp.font))
+            };
             xml.push_str(&format!(
-                "      <input x=\"{:.1}\" y=\"{:.1}\" text=\"{}\" rotation=\"{}\"/>\n",
+                "      <input x=\"{:.1}\" y=\"{:.1}\" text=\"{}\"{font_attr} rotation=\"{}\"/>\n",
                 inp.x,
                 inp.y,
                 escape_xml_attr(&inp.text),
@@ -1480,12 +1497,14 @@ pub fn document_to_diagram(
                 ..Default::default()
             });
         } else if item.tipo == 8 {
+            let pt = (item.text_world_height() / 0.355).round().clamp(6.0, 48.0) as i32;
+            let weight = if item.text_is_bold() { 75 } else { 50 };
             diagram.inputs.push(QetInput {
                 x: item.x1 as f32,
                 y: item.y1 as f32,
                 text: item.trailing_str.clone(),
-                font: "Sans Serif,9".to_string(),
-                rotation: 0,
+                font: format!("Sans Serif,{pt},-1,5,{weight},0,0,0,0,0"),
+                rotation: item.orientation.rem_euclid(4) * 90,
             });
         } else {
             let el_type = item

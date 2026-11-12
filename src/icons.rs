@@ -43,6 +43,7 @@ pub enum Icon {
     Grid,
     Magnet,
     Text,
+    TextBox,
     Theme,
     Play,
     Pause,
@@ -309,6 +310,13 @@ impl Icon {
             Icon::Text => concat!(
                 r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
                 r#"<path d="M5 6V4h14v2M12 4v16M9 20h6"/>"#,
+                r#"</svg>"#
+            ).as_bytes(),
+
+            Icon::TextBox => concat!(
+                r#"<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">"#,
+                r#"<rect x="3" y="4" width="18" height="16" rx="2"/>"#,
+                r#"<path d="M8 9h8M12 9v7"/>"#,
                 r#"</svg>"#
             ).as_bytes(),
 

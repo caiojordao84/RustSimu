@@ -84,6 +84,7 @@ pub enum CanvasMessage {
     },
     CursorMoved(i32, i32),
     CancelAction,
+    EditTextItem(i32),
 }
 
 /// Estado local de interação do mouse no Canvas (arraste de objetos, desenho de cabo, pan, botão pulsador segurado).
@@ -98,6 +99,7 @@ pub struct CanvasInteraction {
     pub marquee_current: Option<Point>,
     pub is_shift_pressed: bool,
     pub is_ctrl_pressed: bool,
+    pub last_click: Option<(std::time::Instant, i32)>,
 }
 
 pub struct SchematicCanvas<'a> {
@@ -256,16 +258,7 @@ impl<'a> SchematicCanvas<'a> {
             let max_y = item.y1.max(item.y2).max(min_y + 4) + 2;
             (min_x, min_y, max_x, max_y)
         } else if item.tipo == 8 {
-            if item.subvariant == 1 {
-                let min_x = item.x1.min(item.x2);
-                let min_y = item.y1.min(item.y2);
-                let max_x = item.x1.max(item.x2).max(min_x + 24);
-                let max_y = item.y1.max(item.y2).max(min_y + 8);
-                (min_x, min_y, max_x, max_y)
-            } else {
-                let w = (item.trailing_str.chars().count().max(4) as i32) * 3;
-                (item.x1 - 2, item.y1 - 2, item.x1 + w + 2, item.y1 + 8)
-            }
+            item.text_world_bounds()
         } else if let Some(sym) = find_symbol_ref(item.tipo) {
             let (bx1, by1, bx2, by2) = (
                 sym.bounds.0 / 5,
@@ -1064,56 +1057,87 @@ impl<'a> SchematicCanvas<'a> {
 
         // Texto em linha ou Campo de texto gráfico (tipo == 8)
         if item.tipo == 8 {
-            let font_sz = (3.2 * self.zoom).clamp(8.5, 15.0);
+            let world_h = item.text_world_height();
+            let font_sz = (world_h * self.zoom).clamp(7.0, 96.0);
+            let line_step = world_h * 1.32 * self.zoom;
             let text_color = Self::resolve_graphic_color(item, is_selected, tok.focus, tok.text);
-            if item.subvariant == 1 {
-                let min_x = item.x1.min(item.x2) as f32;
-                let min_y = item.y1.min(item.y2) as f32;
-                let w = (item.x2 - item.x1).abs().max(24) as f32;
-                let h = (item.y2 - item.y1).abs().max(8) as f32;
-                let tl = self.world_to_screen(min_x, min_y);
-                let sz = Size::new(w * self.zoom, h * self.zoom);
-                frame.fill_rectangle(tl, sz, Color { a: 0.08, ..tok.s2 });
-                frame.stroke(
-                    &Path::rectangle(tl, sz),
-                    Stroke::default()
-                        .with_color(if is_selected { tok.focus } else { tok.text2 })
-                        .with_width(if is_selected { 1.6 } else { 1.1 }),
-                );
-                if !item.trailing_str.is_empty() {
-                    let pos = self.world_to_screen(min_x + 1.5, min_y + 1.5);
-                    frame.fill_text(Text {
-                        content: item.trailing_str.clone(),
-                        position: pos,
-                        color: text_color,
-                        size: font_sz.into(),
-                        ..Text::default()
-                    });
-                }
+            let text_font = iced::Font {
+                weight: if item.text_is_bold() {
+                    iced::font::Weight::Bold
+                } else {
+                    iced::font::Weight::Normal
+                },
+                ..crate::theme::UI
+            };
+            let (local_w, local_h) = item.text_local_size();
+            let ox = if item.subvariant == 1 {
+                item.x1.min(item.x2) as f32
             } else {
-                if is_selected {
-                    let (bx1, by1, bx2, by2) = Self::item_bounds(item);
-                    let tl = self.world_to_screen(bx1 as f32, by1 as f32);
-                    let sz = Size::new(
-                        (bx2 - bx1) as f32 * self.zoom,
-                        (by2 - by1) as f32 * self.zoom,
+                item.x1 as f32
+            };
+            let oy = if item.subvariant == 1 {
+                item.y1.min(item.y2) as f32
+            } else {
+                item.y1 as f32
+            };
+            let origin = self.world_to_screen(ox, oy);
+            let angle = (item.orientation.rem_euclid(4) as f32) * std::f32::consts::FRAC_PI_2;
+
+            frame.with_save(|frame| {
+                frame.translate(Vector::new(origin.x, origin.y));
+                if angle != 0.0 {
+                    frame.rotate(angle);
+                }
+
+                let box_sz = Size::new(local_w as f32 * self.zoom, local_h as f32 * self.zoom);
+                if item.subvariant == 1 {
+                    frame.fill_rectangle(Point::ORIGIN, box_sz, Color { a: 0.08, ..tok.s2 });
+                    frame.stroke(
+                        &Path::rectangle(Point::ORIGIN, box_sz),
+                        Stroke::default()
+                            .with_color(if is_selected { tok.focus } else { tok.text2 })
+                            .with_width(if is_selected { 1.6 } else { 1.1 }),
+                    );
+                } else if is_selected {
+                    let pad = 2.0 * self.zoom * 0.5;
+                    frame.fill_rectangle(
+                        Point::new(-pad, -pad),
+                        Size::new(box_sz.width + pad * 2.0, box_sz.height + pad * 2.0),
+                        Color {
+                            a: 0.08,
+                            ..tok.focus
+                        },
                     );
                     frame.stroke(
-                        &Path::rectangle(tl, sz),
+                        &Path::rectangle(
+                            Point::new(-pad, -pad),
+                            Size::new(box_sz.width + pad * 2.0, box_sz.height + pad * 2.0),
+                        ),
                         Stroke::default().with_color(tok.focus).with_width(1.1),
                     );
                 }
+
+                let (pad_x, pad_y) = if item.subvariant == 1 {
+                    (1.5 * self.zoom, 1.2 * self.zoom)
+                } else {
+                    (0.0, 0.0)
+                };
                 if !item.trailing_str.is_empty() {
-                    let pos = self.world_to_screen(item.x1 as f32, item.y1 as f32);
-                    frame.fill_text(Text {
-                        content: item.trailing_str.clone(),
-                        position: pos,
-                        color: text_color,
-                        size: font_sz.into(),
-                        ..Text::default()
-                    });
+                    for (idx, line) in item.trailing_str.split('\n').enumerate() {
+                        if line.is_empty() {
+                            continue;
+                        }
+                        frame.fill_text(Text {
+                            content: line.to_string(),
+                            position: Point::new(pad_x, pad_y + (idx as f32) * line_step),
+                            color: text_color,
+                            size: font_sz.into(),
+                            font: text_font,
+                            ..Text::default()
+                        });
+                    }
                 }
-            }
+            });
             return;
         }
 
@@ -1888,11 +1912,30 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
 
                         if let Some(id) = hit {
                             if is_additive {
+                                state.last_click = None;
                                 return (
                                     canvas::event::Status::Captured,
                                     Some(CanvasMessage::ToggleItemSelection(id)),
                                 );
                             }
+                            let now = std::time::Instant::now();
+                            let is_double_click =
+                                state.last_click.is_some_and(|(prev_t, prev_id)| {
+                                    prev_id == id
+                                        && now.duration_since(prev_t)
+                                            <= std::time::Duration::from_millis(400)
+                                });
+                            if is_double_click
+                                && self.doc.items.iter().any(|i| i.id == id && i.tipo == 8)
+                            {
+                                state.last_click = None;
+                                state.dragging_item = None;
+                                return (
+                                    canvas::event::Status::Captured,
+                                    Some(CanvasMessage::EditTextItem(id)),
+                                );
+                            }
+                            state.last_click = Some((now, id));
                             if self.selected_ids.contains(&id) {
                                 if let Some(item) = self.doc.items.iter().find(|i| i.id == id) {
                                     state.dragging_item =
@@ -1910,6 +1953,7 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                                 )
                             }
                         } else {
+                            state.last_click = None;
                             state.marquee_start = Some(cursor_pos);
                             state.marquee_current = Some(cursor_pos);
                             (canvas::event::Status::Captured, None)
@@ -1984,6 +2028,21 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             _ => (1, 0),
                         };
                         if let Some((sx, sy)) = state.wire_start.take() {
+                            if self.tool == EditorTool::PlaceTextField
+                                && (sx, sy) == (snapped_x, snapped_y)
+                            {
+                                return (
+                                    canvas::event::Status::Captured,
+                                    Some(CanvasMessage::AddGraphicItem {
+                                        tipo,
+                                        subvariant,
+                                        x1: sx,
+                                        y1: sy,
+                                        x2: sx + 40,
+                                        y2: sy + 14,
+                                    }),
+                                );
+                            }
                             if (sx, sy) != (snapped_x, snapped_y) {
                                 return (
                                     canvas::event::Status::Captured,
@@ -2145,15 +2204,24 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 }
                 EditorTool::PlaceText => {
                     let hpt = self.world_to_screen(hx as f32, hy as f32);
-                    frame.fill_text(Text {
-                        content: "Texto".to_string(),
-                        position: hpt,
-                        color: Color {
-                            a: 0.70,
-                            ..tok.focus
-                        },
-                        size: (3.2 * self.zoom).clamp(8.5, 15.0).into(),
-                        ..Text::default()
+                    let angle = (self.placement_orientation.rem_euclid(4) as f32)
+                        * std::f32::consts::FRAC_PI_2;
+                    frame.with_save(|frame| {
+                        frame.translate(Vector::new(hpt.x, hpt.y));
+                        if angle != 0.0 {
+                            frame.rotate(angle);
+                        }
+                        frame.fill_text(Text {
+                            content: "Texto [Clique]".to_string(),
+                            position: Point::ORIGIN,
+                            color: Color {
+                                a: 0.78,
+                                ..tok.focus
+                            },
+                            size: (3.2 * self.zoom).clamp(8.5, 16.0).into(),
+                            font: crate::theme::UI,
+                            ..Text::default()
+                        });
                     });
                 }
                 EditorTool::PlaceTextField
@@ -2169,6 +2237,28 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         })
                         .with_width(1.6);
                     frame.stroke(&Path::circle(hpt, 2.5 * self.zoom), preview_stroke);
+                    if self.tool == EditorTool::PlaceTextField && state.wire_start.is_none() {
+                        let preview_sz = Size::new(36.0 * self.zoom, 12.0 * self.zoom);
+                        frame.stroke(
+                            &Path::rectangle(hpt, preview_sz),
+                            Stroke::default()
+                                .with_color(Color {
+                                    a: 0.45,
+                                    ..tok.focus
+                                })
+                                .with_width(1.1),
+                        );
+                        frame.fill_text(Text {
+                            content: "Campo de Texto".to_string(),
+                            position: Point::new(hpt.x + 1.5 * self.zoom, hpt.y + 1.2 * self.zoom),
+                            color: Color {
+                                a: 0.65,
+                                ..tok.focus
+                            },
+                            size: (3.0 * self.zoom).clamp(8.0, 14.0).into(),
+                            ..Text::default()
+                        });
+                    }
                     if let Some((sx, sy)) = state.wire_start {
                         match self.tool {
                             EditorTool::DrawGraphicLine => {

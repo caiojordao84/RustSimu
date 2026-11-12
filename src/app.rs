@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 use std::time::Duration;
 
-use iced::widget::{column, mouse_area, stack, Space, Stack};
+use iced::widget::{column, mouse_area, stack, text_editor, Space, Stack};
 use iced::{Element, Length, Subscription, Theme, Vector};
 
 use crate::canvas_view::{CanvasMessage, EditorTool};
@@ -409,6 +409,21 @@ pub enum Message {
     CloseShortcutsModal,
     ToggleFocusCanvas,
     ExitApplication,
+    OpenTextEditorModal(i32),
+    CloseTextEditorModal,
+    ConfirmTextEditorModal,
+    TextEditorAction(text_editor::Action),
+    SetTextEditorSubvariant(i32),
+    SetTextEditorSize(f32),
+    AdjustTextEditorSize(f32),
+    ToggleTextEditorBold,
+    SetTextEditorOrientation(i32),
+    SetTextEditorColor(i32),
+    SetItemTextSubvariant(i32),
+    SetItemTextSize(f32),
+    AdjustItemTextSize(f32),
+    ToggleItemTextBold,
+    SetItemTextOrientation(i32),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -520,6 +535,15 @@ pub struct CadeSimuApp {
     pub show_project_properties_modal: bool,
     pub show_settings_modal: bool,
     pub show_shortcuts_modal: bool,
+    pub show_text_editor_modal: bool,
+    pub text_editor_item_id: Option<i32>,
+    pub text_editor_is_new: bool,
+    pub text_editor_content: text_editor::Content,
+    pub text_editor_subvariant: i32,
+    pub text_editor_size_world: f32,
+    pub text_editor_bold: bool,
+    pub text_editor_orientation: i32,
+    pub text_editor_color: i32,
     pub proj_prop_title: String,
     pub proj_prop_entity: String,
     pub proj_prop_author: String,
@@ -714,6 +738,15 @@ impl CadeSimuApp {
                 show_project_properties_modal: false,
                 show_settings_modal: false,
                 show_shortcuts_modal: false,
+                show_text_editor_modal: false,
+                text_editor_item_id: None,
+                text_editor_is_new: false,
+                text_editor_content: text_editor::Content::new(),
+                text_editor_subvariant: 0,
+                text_editor_size_world: 3.2,
+                text_editor_bold: false,
+                text_editor_orientation: 0,
+                text_editor_color: 0,
                 proj_prop_title: String::new(),
                 proj_prop_entity: String::new(),
                 proj_prop_author: String::new(),
@@ -736,6 +769,89 @@ impl CadeSimuApp {
         }
         self.undo_stack.push(self.doc.clone());
         self.redo_stack.clear();
+    }
+
+    fn open_text_editor_modal(&mut self, item_id: i32, is_new: bool) {
+        let Some(item) = self
+            .doc
+            .items
+            .iter()
+            .find(|i| i.id == item_id && i.tipo == 8)
+        else {
+            return;
+        };
+        let initial_text = if is_new {
+            String::new()
+        } else {
+            item.trailing_str.clone()
+        };
+        self.show_text_editor_modal = true;
+        self.text_editor_item_id = Some(item_id);
+        self.text_editor_is_new = is_new;
+        self.text_editor_content = text_editor::Content::with_text(&initial_text);
+        self.text_editor_subvariant = item.subvariant;
+        self.text_editor_size_world = item.text_world_height();
+        self.text_editor_bold = item.text_is_bold();
+        self.text_editor_orientation = item.orientation.rem_euclid(4);
+        self.text_editor_color = item.color;
+    }
+
+    fn close_text_editor_modal(&mut self) {
+        if self.text_editor_is_new {
+            if let Some(id) = self.text_editor_item_id {
+                self.doc.items.retain(|i| i.id != id);
+                self.undo_stack.pop();
+                if self.selected_id == Some(id) {
+                    self.selected_id = None;
+                }
+                self.selected_ids.remove(&id);
+            }
+            self.status_msg = "Inserção de texto cancelada.".to_string();
+        } else {
+            self.status_msg = "Edição de texto cancelada.".to_string();
+        }
+        self.show_text_editor_modal = false;
+        self.text_editor_item_id = None;
+        self.text_editor_is_new = false;
+    }
+
+    fn confirm_text_editor_modal(&mut self) {
+        let raw = self.text_editor_content.text().replace("\r\n", "\n");
+        let trimmed_end = raw.trim_end_matches('\n').to_string();
+        let Some(id) = self.text_editor_item_id else {
+            self.show_text_editor_modal = false;
+            return;
+        };
+        if trimmed_end.trim().is_empty() && self.text_editor_is_new {
+            self.close_text_editor_modal();
+            return;
+        }
+        if !self.text_editor_is_new {
+            self.push_undo();
+        }
+        if let Some(item) = self
+            .doc
+            .items
+            .iter_mut()
+            .find(|i| i.id == id && i.tipo == 8)
+        {
+            item.trailing_str = if trimmed_end.trim().is_empty() {
+                "Texto".to_string()
+            } else {
+                trimmed_end
+            };
+            item.subvariant = self.text_editor_subvariant;
+            item.set_text_world_height(self.text_editor_size_world);
+            item.set_text_bold(self.text_editor_bold);
+            item.orientation = self.text_editor_orientation.rem_euclid(4);
+            item.color = self.text_editor_color;
+            item.sync_text_bounds();
+            self.is_modified = true;
+            self.status_msg = format!("Texto #{} atualizado.", id);
+        }
+        self.show_text_editor_modal = false;
+        self.text_editor_item_id = None;
+        self.text_editor_is_new = false;
     }
 
     /// Conclui a transação de arraste de um componente ou fio no Canvas.
@@ -1017,70 +1133,6 @@ impl CadeSimuApp {
                 Message::LayoutMsg(crate::layout::Msg::WindowResized(size.width))
             }),
         );
-        subs.push(iced::keyboard::on_key_press(|key, modifiers| {
-            use iced::keyboard::key::Named;
-            use iced::keyboard::Key;
-
-            let ctrl = modifiers.command() || modifiers.control();
-            let shift = modifiers.shift();
-            let alt = modifiers.alt();
-
-            match key {
-                Key::Named(Named::Escape) => Some(Message::CancelAction),
-                Key::Named(Named::F1) => Some(Message::OpenShortcutsModal),
-                Key::Named(Named::Delete) => Some(Message::DeleteSelected),
-                Key::Named(Named::Enter) if ctrl && shift => Some(Message::OpenPagePropertiesModal),
-                Key::Named(Named::PageDown) if ctrl => Some(Message::NextFolio),
-                Key::Named(Named::PageUp) if ctrl => Some(Message::PrevFolio),
-                Key::Named(Named::Backspace) if ctrl && shift => {
-                    Some(Message::DeletePage(usize::MAX))
-                }
-                Key::Character(ref s) => {
-                    let lower = s.to_ascii_lowercase();
-                    match lower.as_str() {
-                        "n" if ctrl => Some(Message::NewDocument),
-                        "o" if ctrl => Some(Message::OpenFileDialog),
-                        "s" if ctrl && shift => Some(Message::SaveFileDialog),
-                        "s" if ctrl && alt => Some(Message::SaveCopyDialog),
-                        "s" if ctrl => Some(Message::SaveDocument),
-                        "w" if ctrl => Some(Message::CloseDocument),
-                        "p" if ctrl => Some(Message::OpenPrintModal),
-                        "e" if ctrl && shift => Some(Message::OpenExportModal),
-                        "e" if ctrl => Some(Message::OpenExportModal),
-                        "z" if ctrl && shift => Some(Message::Redo),
-                        "y" if ctrl => Some(Message::Redo),
-                        "z" if ctrl => Some(Message::Undo),
-                        "x" if ctrl => Some(Message::Cut),
-                        "c" if ctrl && alt => Some(Message::CopyElementInfo),
-                        "c" if ctrl => Some(Message::Copy),
-                        "v" if ctrl && shift => Some(Message::PasteAtOriginalPos),
-                        "v" if ctrl && alt => Some(Message::PasteElementInfo),
-                        "v" if ctrl => Some(Message::Paste),
-                        "d" if ctrl => Some(Message::Duplicate),
-                        "a" if ctrl && shift => Some(Message::DeselectAll),
-                        "a" if ctrl => Some(Message::SelectAll),
-                        "a" if !ctrl => Some(Message::InsertLastElement),
-                        "i" if ctrl => Some(Message::InvertSelection),
-                        "t" if ctrl && shift => Some(Message::CycleTheme),
-                        "t" if ctrl => Some(Message::AddPageAfter(usize::MAX)),
-                        "g" if ctrl && shift => Some(Message::ToggleSnap),
-                        "g" if ctrl && !shift => Some(Message::GroupSelected),
-                        "u" if ctrl && !shift => Some(Message::UngroupSelected),
-                        "8" if ctrl => Some(Message::ZoomContent),
-                        "9" if ctrl => Some(Message::FitToPage),
-                        "0" if ctrl => Some(Message::ZoomReset),
-                        "+" | "=" if ctrl => Some(Message::ZoomIn),
-                        "-" if ctrl => Some(Message::ZoomOut),
-                        "r" if shift && !ctrl => Some(Message::RotateCounterClockwise),
-                        "r" if !ctrl => Some(Message::RotateClockwise),
-                        "m" if !ctrl => Some(Message::MirrorHorizontal),
-                        "f" if !ctrl => Some(Message::MirrorVertical),
-                        _ => None,
-                    }
-                }
-                _ => None,
-            }
-        }));
         subs.push(iced::event::listen_with(
             |event, status, _window| match event {
                 iced::Event::Keyboard(iced::keyboard::Event::ModifiersChanged(modifiers)) => {
@@ -1089,6 +1141,19 @@ impl CadeSimuApp {
                 iced::Event::Mouse(iced::mouse::Event::ButtonReleased(
                     iced::mouse::Button::Left,
                 )) if status == iced::event::Status::Ignored => Some(Message::GlobalMouseReleased),
+                iced::Event::Keyboard(iced::keyboard::Event::KeyPressed {
+                    key, modifiers, ..
+                }) => {
+                    let is_escape = matches!(
+                        key,
+                        iced::keyboard::Key::Named(iced::keyboard::key::Named::Escape)
+                    );
+                    if is_escape || status == iced::event::Status::Ignored {
+                        map_keyboard_shortcut(key, modifiers)
+                    } else {
+                        None
+                    }
+                }
                 _ => None,
             },
         ));
@@ -1285,7 +1350,12 @@ impl CadeSimuApp {
             | Message::XrefSearchChanged(_)
             | Message::EditItemTrailingText(_)
             | Message::EditItemArcStart(_)
-            | Message::EditItemArcSweep(_) => self.update_properties(message),
+            | Message::EditItemArcSweep(_)
+            | Message::SetItemTextSubvariant(_)
+            | Message::SetItemTextSize(_)
+            | Message::AdjustItemTextSize(_)
+            | Message::ToggleItemTextBold
+            | Message::SetItemTextOrientation(_) => self.update_properties(message),
 
             Message::ToggleSimulation | Message::StopSimulation | Message::SimTick => {
                 self.update_simulation(message)
@@ -1333,6 +1403,16 @@ impl CadeSimuApp {
             | Message::ShowAbout
             | Message::CloseAbout
             | Message::ExitApplication
+            | Message::OpenTextEditorModal(_)
+            | Message::CloseTextEditorModal
+            | Message::ConfirmTextEditorModal
+            | Message::TextEditorAction(_)
+            | Message::SetTextEditorSubvariant(_)
+            | Message::SetTextEditorSize(_)
+            | Message::AdjustTextEditorSize(_)
+            | Message::ToggleTextEditorBold
+            | Message::SetTextEditorOrientation(_)
+            | Message::SetTextEditorColor(_)
             | Message::Canvas(_) => self.update_view_layout(message),
         }
     }
@@ -2179,6 +2259,10 @@ impl CadeSimuApp {
                 }
                 if self.show_color_modal {
                     self.show_color_modal = false;
+                    return iced::Task::none();
+                }
+                if self.show_text_editor_modal {
+                    self.close_text_editor_modal();
                     return iced::Task::none();
                 }
                 if self.show_export_modal {
@@ -4180,6 +4264,83 @@ impl CadeSimuApp {
                 if let Some(id) = self.selected_id {
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
                         item.trailing_str = txt;
+                        item.sync_text_bounds();
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::SetItemTextSubvariant(sub) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self
+                        .doc
+                        .items
+                        .iter_mut()
+                        .find(|i| i.id == id && i.tipo == 8)
+                    {
+                        item.subvariant = sub;
+                        item.sync_text_bounds();
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::SetItemTextSize(world_h) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self
+                        .doc
+                        .items
+                        .iter_mut()
+                        .find(|i| i.id == id && i.tipo == 8)
+                    {
+                        item.set_text_world_height(world_h);
+                        item.sync_text_bounds();
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::AdjustItemTextSize(delta) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self
+                        .doc
+                        .items
+                        .iter_mut()
+                        .find(|i| i.id == id && i.tipo == 8)
+                    {
+                        let next_h = (item.text_world_height() + delta).clamp(2.0, 16.0);
+                        item.set_text_world_height(next_h);
+                        item.sync_text_bounds();
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::ToggleItemTextBold => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self
+                        .doc
+                        .items
+                        .iter_mut()
+                        .find(|i| i.id == id && i.tipo == 8)
+                    {
+                        let next_bold = !item.text_is_bold();
+                        item.set_text_bold(next_bold);
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::SetItemTextOrientation(rot) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self
+                        .doc
+                        .items
+                        .iter_mut()
+                        .find(|i| i.id == id && i.tipo == 8)
+                    {
+                        item.orientation = rot.rem_euclid(4);
+                        item.sync_text_bounds();
                         self.is_modified = true;
                     }
                 }
@@ -4643,14 +4804,21 @@ impl CadeSimuApp {
                 } => {
                     self.push_undo();
                     let new_id = self.doc.next_id();
-                    let mut item = SchematicItem::new_graphic(new_id, tipo, x1, y1, x2, y2);
+                    let (nx1, ny1, nx2, ny2) = if tipo == 8 {
+                        (x1.min(x2), y1.min(y2), x1.max(x2), y1.max(y2))
+                    } else {
+                        (x1, y1, x2, y2)
+                    };
+                    let mut item = SchematicItem::new_graphic(new_id, tipo, nx1, ny1, nx2, ny2);
                     item.subvariant = subvariant;
                     if tipo == 8 {
+                        item.orientation = self.placement_orientation.rem_euclid(4);
                         item.trailing_str = if subvariant == 1 {
                             "Campo de texto".to_string()
                         } else {
                             "Texto".to_string()
                         };
+                        item.sync_text_bounds();
                     } else if tipo == 4 {
                         item.aux_coords[0] = 0;
                         item.aux_coords[1] = 90;
@@ -4660,6 +4828,7 @@ impl CadeSimuApp {
                     self.tool = EditorTool::Select;
                     if tipo == 8 {
                         self.prop_tab = 0;
+                        self.open_text_editor_modal(new_id, true);
                     }
                     self.is_modified = true;
                     let kind_name = match (tipo, subvariant) {
@@ -4671,7 +4840,13 @@ impl CadeSimuApp {
                         (4, _) => "Arco",
                         _ => "Objeto Gráfico",
                     };
-                    self.status_msg = format!("{kind_name} inserido em ({x1}, {y1}).");
+                    self.status_msg = format!("{kind_name} inserido em ({nx1}, {ny1}).");
+                }
+                CanvasMessage::EditTextItem(id) => {
+                    self.select_single(Some(id));
+                    self.prop_tab = 0;
+                    self.open_text_editor_modal(id, false);
+                    self.status_msg = format!("Editando texto #{id}.");
                 }
                 CanvasMessage::DeleteItem(id) => {
                     self.push_undo();
@@ -4919,6 +5094,37 @@ impl CadeSimuApp {
             Message::CloseShortcutsModal => {
                 self.show_shortcuts_modal = false;
             }
+            Message::OpenTextEditorModal(id) => {
+                self.open_text_editor_modal(id, false);
+            }
+            Message::CloseTextEditorModal => {
+                self.close_text_editor_modal();
+            }
+            Message::ConfirmTextEditorModal => {
+                self.confirm_text_editor_modal();
+            }
+            Message::TextEditorAction(action) => {
+                self.text_editor_content.perform(action);
+            }
+            Message::SetTextEditorSubvariant(sub) => {
+                self.text_editor_subvariant = sub;
+            }
+            Message::SetTextEditorSize(sz) => {
+                self.text_editor_size_world = sz.clamp(2.0, 16.0);
+            }
+            Message::AdjustTextEditorSize(delta) => {
+                self.text_editor_size_world =
+                    (self.text_editor_size_world + delta).clamp(2.0, 16.0);
+            }
+            Message::ToggleTextEditorBold => {
+                self.text_editor_bold = !self.text_editor_bold;
+            }
+            Message::SetTextEditorOrientation(rot) => {
+                self.text_editor_orientation = rot.rem_euclid(4);
+            }
+            Message::SetTextEditorColor(rgb) => {
+                self.text_editor_color = rgb;
+            }
             Message::ToggleFocusCanvas => {
                 self.focus_canvas = !self.focus_canvas;
                 self.open_menu = None;
@@ -5119,6 +5325,11 @@ impl CadeSimuApp {
             layers.push(crate::ui::view_color_modal(self));
         }
 
+        // Modal Editor Completo de Texto (`tipo == 8`)
+        if self.show_text_editor_modal {
+            layers.push(crate::ui::view_text_editor_modal(self));
+        }
+
         // Modal de Confirmação de Exclusão de Projeto Recente
         if self.show_confirm_delete_modal {
             layers.push(crate::ui::view_confirm_delete_project_modal(self));
@@ -5137,5 +5348,71 @@ impl CadeSimuApp {
 
     pub fn view_toolbar(&self) -> Element<'_, Message> {
         crate::ui::view_toolbar(self)
+    }
+}
+
+fn map_keyboard_shortcut(
+    key: iced::keyboard::Key,
+    modifiers: iced::keyboard::Modifiers,
+) -> Option<Message> {
+    use iced::keyboard::key::Named;
+    use iced::keyboard::Key;
+
+    let ctrl = modifiers.command() || modifiers.control();
+    let shift = modifiers.shift();
+    let alt = modifiers.alt();
+
+    match key {
+        Key::Named(Named::Escape) => Some(Message::CancelAction),
+        Key::Named(Named::F1) => Some(Message::OpenShortcutsModal),
+        Key::Named(Named::Delete) => Some(Message::DeleteSelected),
+        Key::Named(Named::Enter) if ctrl && shift => Some(Message::OpenPagePropertiesModal),
+        Key::Named(Named::PageDown) if ctrl => Some(Message::NextFolio),
+        Key::Named(Named::PageUp) if ctrl => Some(Message::PrevFolio),
+        Key::Named(Named::Backspace) if ctrl && shift => Some(Message::DeletePage(usize::MAX)),
+        Key::Character(ref s) => {
+            let lower = s.to_ascii_lowercase();
+            match lower.as_str() {
+                "n" if ctrl => Some(Message::NewDocument),
+                "o" if ctrl => Some(Message::OpenFileDialog),
+                "s" if ctrl && shift => Some(Message::SaveFileDialog),
+                "s" if ctrl && alt => Some(Message::SaveCopyDialog),
+                "s" if ctrl => Some(Message::SaveDocument),
+                "w" if ctrl => Some(Message::CloseDocument),
+                "p" if ctrl => Some(Message::OpenPrintModal),
+                "e" if ctrl => Some(Message::OpenExportModal),
+                "z" if ctrl && shift => Some(Message::Redo),
+                "y" if ctrl => Some(Message::Redo),
+                "z" if ctrl => Some(Message::Undo),
+                "x" if ctrl => Some(Message::Cut),
+                "c" if ctrl && alt => Some(Message::CopyElementInfo),
+                "c" if ctrl => Some(Message::Copy),
+                "v" if ctrl && shift => Some(Message::PasteAtOriginalPos),
+                "v" if ctrl && alt => Some(Message::PasteElementInfo),
+                "v" if ctrl => Some(Message::Paste),
+                "d" if ctrl => Some(Message::Duplicate),
+                "a" if ctrl && shift => Some(Message::DeselectAll),
+                "a" if ctrl => Some(Message::SelectAll),
+                "a" if !ctrl => Some(Message::InsertLastElement),
+                "i" if ctrl => Some(Message::InvertSelection),
+                "t" if ctrl && shift => Some(Message::CycleTheme),
+                "t" if ctrl => Some(Message::AddPageAfter(usize::MAX)),
+                "t" if !ctrl && !shift && !alt => Some(Message::SelectTool(EditorTool::PlaceText)),
+                "g" if ctrl && shift => Some(Message::ToggleSnap),
+                "g" if ctrl && !shift => Some(Message::GroupSelected),
+                "u" if ctrl && !shift => Some(Message::UngroupSelected),
+                "8" if ctrl => Some(Message::ZoomContent),
+                "9" if ctrl => Some(Message::FitToPage),
+                "0" if ctrl => Some(Message::ZoomReset),
+                "+" | "=" if ctrl => Some(Message::ZoomIn),
+                "-" if ctrl => Some(Message::ZoomOut),
+                "r" if shift && !ctrl => Some(Message::RotateCounterClockwise),
+                "r" if !ctrl => Some(Message::RotateClockwise),
+                "m" if !ctrl => Some(Message::MirrorHorizontal),
+                "f" if !ctrl => Some(Message::MirrorVertical),
+                _ => None,
+            }
+        }
+        _ => None,
     }
 }

@@ -1,6 +1,6 @@
 use iced::widget::{
     button, checkbox, column, container, horizontal_rule, horizontal_space, mouse_area, pick_list,
-    row, scrollable, stack, text, text_input, vertical_space, Space,
+    row, scrollable, stack, text, text_editor, text_input, vertical_space, Space,
 };
 use iced::{Alignment, Element, Font, Length, Padding};
 
@@ -1453,6 +1453,8 @@ pub fn view_shortcuts_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                             "Selecionar Tudo / Desselecionar Tudo"
                         ),
                         ("Ctrl + G / Ctrl + Shift + G", "Agrupar / Desagrupar"),
+                        ("T", "Ferramenta Texto em Linha"),
+                        ("Duplo Clique em Texto", "Abrir Editor Completo de Texto"),
                         ("R / Shift + R", "Girar 90 graus (Horário / Anti-horário)"),
                         ("M / F", "Espelhar Horizontal / Vertical"),
                         ("Ctrl + Shift + Enter", "Propriedades da Página e Cajetín"),
@@ -1592,4 +1594,201 @@ pub fn view_close_last_page_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Messa
     .padding(Padding::from([16.0, 18.0]));
 
     wrap_modal(card, Message::CancelCloseLastPage)
+}
+
+/// Modal completo de inserção e edição de Texto em Linha / Campo de Texto (`tipo == 8`).
+pub fn view_text_editor_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
+    let t = tokens(&app.theme());
+
+    let mode_btn = |label: &'static str, target_sub: i32| {
+        button(text(label).size(11.5).font(UI))
+            .style(if app.text_editor_subvariant == target_sub {
+                theme::tool_active
+            } else {
+                theme::tool
+            })
+            .padding(Padding::from([5.0, 10.0]))
+            .on_press(Message::SetTextEditorSubvariant(target_sub))
+    };
+
+    let size_btn = |label: &'static str, preset_h: f32| {
+        let active = (app.text_editor_size_world - preset_h).abs() < 0.25;
+        button(text(label).size(11.0).font(MONO))
+            .style(if active {
+                theme::tool_active
+            } else {
+                theme::tool
+            })
+            .padding(Padding::from([4.0, 8.0]))
+            .on_press(Message::SetTextEditorSize(preset_h))
+    };
+
+    let rot_btn = |label: &'static str, idx: i32| {
+        button(text(label).size(11.0).font(MONO))
+            .style(if app.text_editor_orientation == idx {
+                theme::tool_active
+            } else {
+                theme::tool
+            })
+            .padding(Padding::from([4.0, 8.0]))
+            .on_press(Message::SetTextEditorOrientation(idx))
+    };
+
+    let color_btn = |label: &'static str, rgb: i32| {
+        let active = app.text_editor_color == rgb;
+        button(text(label).size(11.0).font(UI))
+            .style(if active {
+                theme::tool_active
+            } else {
+                theme::tool
+            })
+            .padding(Padding::from([4.0, 8.0]))
+            .on_press(Message::SetTextEditorColor(rgb))
+    };
+
+    let title_str = if app.text_editor_is_new {
+        "Novo Texto no Esquema"
+    } else {
+        "Editar Texto no Esquema"
+    };
+
+    let card = container(
+        column![
+            row![
+                crate::icons::view_icon(crate::icons::Icon::TextBox, 18, t.primary),
+                text(title_str).size(15.0).font(Font {
+                    weight: iced::font::Weight::Bold,
+                    ..UI
+                }),
+                horizontal_space(),
+                button(crate::icons::view_icon(
+                    crate::icons::Icon::Close,
+                    14,
+                    t.text2
+                ))
+                .style(theme::tool)
+                .padding(Padding::from([4.0, 6.0]))
+                .on_press(Message::CloseTextEditorModal),
+            ]
+            .spacing(8)
+            .align_y(Alignment::Center),
+            horizontal_rule(1),
+            row![
+                text("Modo:").size(11.5).color(t.text2),
+                mode_btn("Texto em Linha", 0),
+                mode_btn("Campo de Texto (Caixa)", 1),
+            ]
+            .spacing(6)
+            .align_y(Alignment::Center),
+            column![
+                text("Conteúdo (Enter para nova linha):")
+                    .size(11.5)
+                    .color(t.text2),
+                text_editor(&app.text_editor_content)
+                    .placeholder("Digite o texto, título ou legenda técnica...")
+                    .on_action(Message::TextEditorAction)
+                    .height(Length::Fixed(130.0))
+                    .padding(8),
+            ]
+            .spacing(4),
+            row![
+                text("Tamanho:").size(11.5).color(t.text2),
+                size_btn("P (2.4)", 2.4),
+                size_btn("Normal (3.2)", 3.2),
+                size_btn("Subtítulo (4.8)", 4.8),
+                size_btn("Título (6.4)", 6.4),
+                button(text("-").size(11.5).font(MONO))
+                    .style(theme::tool)
+                    .padding(Padding::from([4.0, 8.0]))
+                    .on_press(Message::AdjustTextEditorSize(-0.4)),
+                text(format!("{:.1} u", app.text_editor_size_world))
+                    .size(11.5)
+                    .font(MONO)
+                    .color(t.text),
+                button(text("+").size(11.5).font(MONO))
+                    .style(theme::tool)
+                    .padding(Padding::from([4.0, 8.0]))
+                    .on_press(Message::AdjustTextEditorSize(0.4)),
+            ]
+            .spacing(5)
+            .align_y(Alignment::Center),
+            row![
+                text("Estilo:").size(11.5).color(t.text2),
+                button(
+                    text(if app.text_editor_bold {
+                        "Negrito: Ativo"
+                    } else {
+                        "Negrito"
+                    })
+                    .size(11.5)
+                    .font(Font {
+                        weight: if app.text_editor_bold {
+                            iced::font::Weight::Bold
+                        } else {
+                            iced::font::Weight::Normal
+                        },
+                        ..UI
+                    }),
+                )
+                .style(if app.text_editor_bold {
+                    theme::tool_active
+                } else {
+                    theme::tool
+                })
+                .padding(Padding::from([4.0, 10.0]))
+                .on_press(Message::ToggleTextEditorBold),
+                horizontal_space(),
+                text("Orientação:").size(11.5).color(t.text2),
+                rot_btn("0°", 0),
+                rot_btn("90°", 1),
+                rot_btn("180°", 2),
+                rot_btn("270°", 3),
+            ]
+            .spacing(5)
+            .align_y(Alignment::Center),
+            row![
+                text("Cor:").size(11.5).color(t.text2),
+                color_btn("Padrão", 0),
+                color_btn("Vermelho", 0xDC2626),
+                color_btn("Azul", 0x2563EB),
+                color_btn("Verde", 0x16A34A),
+                color_btn("Laranja", 0xD97706),
+            ]
+            .spacing(5)
+            .align_y(Alignment::Center),
+            horizontal_rule(1),
+            row![
+                text("Dica: clique duas vezes em qualquer texto no fólio para editar.")
+                    .size(10.5)
+                    .color(t.text2),
+                horizontal_space(),
+                button(text("Cancelar").size(12.0).font(UI))
+                    .style(theme::tool)
+                    .padding(Padding::from([6.0, 14.0]))
+                    .on_press(Message::CloseTextEditorModal),
+                button(
+                    row![
+                        crate::icons::view_icon(crate::icons::Icon::Check, 13, t.on_primary),
+                        text("Aplicar Texto").size(12.0).font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        }),
+                    ]
+                    .spacing(6)
+                    .align_y(Alignment::Center),
+                )
+                .style(theme::primary)
+                .padding(Padding::from([6.0, 16.0]))
+                .on_press(Message::ConfirmTextEditorModal),
+            ]
+            .spacing(8)
+            .align_y(Alignment::Center),
+        ]
+        .spacing(10)
+        .width(580),
+    )
+    .style(theme::dropdown_menu)
+    .padding(Padding::from([16.0, 18.0]));
+
+    wrap_modal(card, Message::CloseTextEditorModal)
 }

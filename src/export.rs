@@ -324,14 +324,16 @@ fn emit_svg_text_lines(
     first_baseline: f32,
     font_sz: f32,
     fill: &str,
+    is_bold: bool,
     content: &str,
 ) {
     let mut lines = content.split('\n');
     let first = lines.next().unwrap_or("");
-    let line_step = font_sz * 1.25;
+    let line_step = font_sz * 1.32;
+    let weight_attr = if is_bold { r#" font-weight="700""# } else { "" };
     if content.contains('\n') {
         out.push_str(&format!(
-            r###"  <text x="{px:.1}" y="{first_baseline:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{fill}">{}"###,
+            r###"  <text x="{px:.1}" y="{first_baseline:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif"{weight_attr} fill="{fill}">{}"###,
             xml_escape(first.trim_end_matches('\r'))
         ));
         for line in lines {
@@ -343,7 +345,7 @@ fn emit_svg_text_lines(
         out.push_str("</text>\n");
     } else {
         out.push_str(&format!(
-            r###"  <text x="{px:.1}" y="{first_baseline:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{fill}">{}</text>"###,
+            r###"  <text x="{px:.1}" y="{first_baseline:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif"{weight_attr} fill="{fill}">{}</text>"###,
             xml_escape(first.trim_end_matches('\r'))
         ));
         out.push('\n');
@@ -840,21 +842,11 @@ pub fn export_to_svg(
                     min_y = min_y.min(item.y1.min(item.y2) as f32 - 2.0);
                     max_y = max_y.max(item.y1.max(item.y2) as f32 + 2.0);
                 } else if item.tipo == 8 {
-                    let text_w = (item.trailing_str.chars().count().max(4) as f32) * 2.2;
-                    let w_span = if item.subvariant == 1 && item.x2 != item.x1 {
-                        (item.x2 - item.x1).abs() as f32
-                    } else {
-                        text_w
-                    };
-                    let h_span = if item.subvariant == 1 && item.y2 != item.y1 {
-                        (item.y2 - item.y1).abs() as f32
-                    } else {
-                        6.0
-                    };
-                    min_x = min_x.min(item.x1 as f32 - 2.0);
-                    max_x = max_x.max(item.x1 as f32 + w_span + 2.0);
-                    min_y = min_y.min(item.y1 as f32 - 2.0);
-                    max_y = max_y.max(item.y1 as f32 + h_span + 2.0);
+                    let (b_min_x, b_min_y, b_max_x, b_max_y) = item.text_world_bounds();
+                    min_x = min_x.min(b_min_x as f32);
+                    max_x = max_x.max(b_max_x as f32);
+                    min_y = min_y.min(b_min_y as f32);
+                    max_y = max_y.max(b_max_y as f32);
                 } else {
                     min_x = min_x.min(item.x1 as f32 - 2.0);
                     max_x = max_x.max(item.x1 as f32 + 10.0);
@@ -1249,16 +1241,32 @@ pub fn export_to_svg(
 
         // Texto em linha ou Campo de texto gráfico (tipo == 8)
         if item.tipo == 8 {
-            let px = item.x1 as f32 * scale;
-            let py = item.y1 as f32 * scale;
-            let font_sz = (3.2 * scale).clamp(8.5, 15.0);
+            let world_h = item.text_world_height();
+            let font_sz = (world_h * scale).clamp(7.0, 120.0);
             let text_col = resolve_item_stroke_color(item.color, opts.monochrome, "#0f141c");
+            let is_bold = item.text_is_bold();
+            let (local_w, local_h) = item.text_local_size();
+            let ox = if item.subvariant == 1 {
+                item.x1.min(item.x2) as f32 * scale
+            } else {
+                item.x1 as f32 * scale
+            };
+            let oy = if item.subvariant == 1 {
+                item.y1.min(item.y2) as f32 * scale
+            } else {
+                item.y1 as f32 * scale
+            };
+            let rot_deg = item.orientation.rem_euclid(4) * 90;
+            if rot_deg != 0 {
+                out.push_str(&format!(
+                    r#"  <g transform="rotate({rot_deg} {ox:.1} {oy:.1})">"#
+                ));
+                out.push('\n');
+            }
 
             if item.subvariant == 1 {
-                let bx = item.x1.min(item.x2) as f32 * scale;
-                let by = item.y1.min(item.y2) as f32 * scale;
-                let bw = ((item.x2 - item.x1).abs().max(24) as f32) * scale;
-                let bh = ((item.y2 - item.y1).abs().max(8) as f32) * scale;
+                let bw = local_w as f32 * scale;
+                let bh = local_h as f32 * scale;
                 let box_stroke = resolve_item_stroke_color(item.color, opts.monochrome, "#475569");
                 let box_fill = if opts.monochrome {
                     "#ffffff"
@@ -1266,31 +1274,36 @@ pub fn export_to_svg(
                     "#f8fafc"
                 };
                 out.push_str(&format!(
-                    r###"  <rect x="{bx:.1}" y="{by:.1}" width="{bw:.1}" height="{bh:.1}" rx="2" fill="{box_fill}" stroke="{box_stroke}" stroke-width="1.0"/>"###
+                    r###"  <rect x="{ox:.1}" y="{oy:.1}" width="{bw:.1}" height="{bh:.1}" rx="2" fill="{box_fill}" stroke="{box_stroke}" stroke-width="1.0"/>"###
                 ));
                 out.push('\n');
                 if !item.trailing_str.is_empty() {
-                    let tx = bx + 1.5 * scale;
-                    let text_baseline = by + 1.2 * scale + font_sz * 0.78;
+                    let tx = ox + 1.5 * scale;
+                    let text_baseline = oy + 1.2 * scale + font_sz * 0.78;
                     emit_svg_text_lines(
                         &mut out,
                         tx,
                         text_baseline,
                         font_sz,
                         &text_col,
+                        is_bold,
                         &item.trailing_str,
                     );
                 }
             } else if !item.trailing_str.is_empty() {
-                let text_baseline = py + font_sz * 0.78;
+                let text_baseline = oy + font_sz * 0.78;
                 emit_svg_text_lines(
                     &mut out,
-                    px,
+                    ox,
                     text_baseline,
                     font_sz,
                     &text_col,
+                    is_bold,
                     &item.trailing_str,
                 );
+            }
+            if rot_deg != 0 {
+                out.push_str("  </g>\n");
             }
             continue;
         }
@@ -1799,6 +1812,20 @@ impl DxfWriter {
     }
 
     fn text(&mut self, layer: &str, aci: u8, x: f32, y: f32, height: f32, content: &str) {
+        self.text_rotated(layer, aci, x, y, height, 0.0, content);
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn text_rotated(
+        &mut self,
+        layer: &str,
+        aci: u8,
+        x: f32,
+        y: f32,
+        height: f32,
+        rot_deg: f32,
+        content: &str,
+    ) {
         let sanitized: String = content
             .chars()
             .map(|c| if c == '\n' || c == '\r' { ' ' } else { c })
@@ -1808,7 +1835,7 @@ impl DxfWriter {
         }
         let dy = self.dy(y);
         self.buf.push_str(&format!(
-            "0\nTEXT\n8\n{layer}\n62\n{aci}\n10\n{x:.3}\n20\n{dy:.3}\n30\n0.0\n40\n{height:.2}\n1\n{sanitized}\n"
+            "0\nTEXT\n8\n{layer}\n62\n{aci}\n10\n{x:.3}\n20\n{dy:.3}\n30\n0.0\n40\n{height:.2}\n50\n{rot_deg:.1}\n1\n{sanitized}\n"
         ));
     }
 
@@ -1961,22 +1988,45 @@ pub fn export_to_dxf(
                 dxf.text("TEXT", aci, x + 2.0, y + h * 0.5, 2.5, &item.trailing_str);
             }
             8 => {
-                if item.subvariant == 1 {
-                    let x = item.x1.min(item.x2) as f32;
-                    let y = item.y1.min(item.y2) as f32;
-                    let w = (item.x2 - item.x1).abs().max(24) as f32;
-                    let h = (item.y2 - item.y1).abs().max(8) as f32;
-                    dxf.rect("GRAPHICS", aci, x, y, w, h);
-                    dxf.text("TEXT", aci, x + 1.5, y + 5.0, 2.8, &item.trailing_str);
+                let world_h = item.text_world_height();
+                let line_step = world_h * 1.32;
+                let rot = item.orientation.rem_euclid(4);
+                let dxf_rot = match rot {
+                    1 => 270.0,
+                    2 => 180.0,
+                    3 => 90.0,
+                    _ => 0.0,
+                };
+                let (local_w, local_h) = item.text_local_size();
+                let ox = if item.subvariant == 1 {
+                    item.x1.min(item.x2) as f32
                 } else {
-                    dxf.text(
-                        "TEXT",
-                        aci,
-                        item.x1 as f32,
-                        item.y1 as f32 + 3.0,
-                        3.0,
-                        &item.trailing_str,
-                    );
+                    item.x1 as f32
+                };
+                let oy = if item.subvariant == 1 {
+                    item.y1.min(item.y2) as f32
+                } else {
+                    item.y1 as f32
+                };
+                if item.subvariant == 1 {
+                    let c0 = transform_offset_f32(0.0, 0.0, rot);
+                    let c1 = transform_offset_f32(local_w as f32, 0.0, rot);
+                    let c2 = transform_offset_f32(local_w as f32, local_h as f32, rot);
+                    let c3 = transform_offset_f32(0.0, local_h as f32, rot);
+                    dxf.line("GRAPHICS", aci, ox + c0.0, oy + c0.1, ox + c1.0, oy + c1.1);
+                    dxf.line("GRAPHICS", aci, ox + c1.0, oy + c1.1, ox + c2.0, oy + c2.1);
+                    dxf.line("GRAPHICS", aci, ox + c2.0, oy + c2.1, ox + c3.0, oy + c3.1);
+                    dxf.line("GRAPHICS", aci, ox + c3.0, oy + c3.1, ox + c0.0, oy + c0.1);
+                }
+                let (pad_x, pad_y) = if item.subvariant == 1 {
+                    (1.5, 1.2 + world_h)
+                } else {
+                    (0.0, world_h)
+                };
+                for (idx, line) in item.trailing_str.split('\n').enumerate() {
+                    let (lx, ly) =
+                        transform_offset_f32(pad_x, pad_y + (idx as f32) * line_step, rot);
+                    dxf.text_rotated("TEXT", aci, ox + lx, oy + ly, world_h, dxf_rot, line);
                 }
             }
             _ => {
@@ -2566,5 +2616,37 @@ mod tests {
         assert!(dxf.contains("CampoCaixa"));
         assert!(dxf.contains("CIRCLE"));
         assert!(dxf.contains("ARC"));
+    }
+
+    #[test]
+    fn test_export_styled_and_rotated_text_svg_dxf() {
+        use crate::model::{SchematicDocument, SchematicItem};
+
+        let mut doc = SchematicDocument::default();
+        let mut title = SchematicItem::new_graphic(1, 8, 30, 40, 90, 60);
+        title.subvariant = 1;
+        title.trailing_str = "Comando\nPrincipal".to_string();
+        title.extra_int1 = -32; // 6.4 u
+        title.set_text_bold(true);
+        title.orientation = 1; // 90 deg CW
+        title.color = 0x2563EB;
+        title.sync_text_bounds();
+        doc.items.push(title);
+
+        let svg = export_to_svg(&doc, None, false);
+        assert!(svg.contains("Comando"));
+        assert!(svg.contains("Principal"));
+        assert!(svg.contains("<tspan"));
+        assert!(svg.contains("font-weight=\"700\""));
+        assert!(svg.contains("rotate(90 "));
+        assert!(svg.contains("#2563eb"));
+
+        let dxf = String::from_utf8(export_to_dxf(&doc, None, false)).expect("DXF texto");
+        assert!(dxf.contains("Comando"));
+        assert!(dxf.contains("Principal"));
+        assert!(dxf.contains("50\n270.0"));
+
+        let pdf = export_doc_to_pdf(&doc, None, true).expect("PDF com texto rotacionado");
+        assert!(pdf.starts_with(b"%PDF-"));
     }
 }

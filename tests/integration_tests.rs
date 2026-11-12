@@ -7861,3 +7861,148 @@ fn test_section5_canvas_themes_light_dark_system_and_connector_colors() {
     let _ = app.update(Message::SystemThemeDetected(false));
     assert!(!app.is_dark());
 }
+
+#[test]
+fn test_section1_2_text_tool_placement_modal_cancel_edit_inspector_and_qet_roundtrip() {
+    use cade_simu_rs::qet::{
+        diagram_to_document, document_to_diagram, load_qet_from_str, serialize_qet_xml, QetProject,
+    };
+    use iced::widget::text_editor::{Action as EditorAction, Edit as EditorEdit};
+
+    let (mut app, _) = CadeSimuApp::new();
+    let _ = app.update(Message::NewDocument);
+    let initial_count = app.doc.items.len();
+
+    // 1. Ativa ferramenta Texto em Linha via atalho/seleção e insere no canvas
+    let _ = app.update(Message::SelectTool(EditorTool::PlaceText));
+    assert_eq!(app.tool, EditorTool::PlaceText);
+
+    let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+        tipo: 8,
+        subvariant: 0,
+        x1: 50,
+        y1: 60,
+        x2: 80,
+        y2: 68,
+    }));
+    assert!(app.show_text_editor_modal);
+    assert!(app.text_editor_is_new);
+    assert_eq!(app.doc.items.len(), initial_count + 1);
+
+    // Cancelar inserção nova deve descartar o item temporário
+    let _ = app.update(Message::CloseTextEditorModal);
+    assert!(!app.show_text_editor_modal);
+    assert_eq!(app.doc.items.len(), initial_count);
+
+    // 2. Nova inserção via Campo de Texto (subvariant == 1), edição multilinha e formatação no modal
+    let _ = app.update(Message::SelectTool(EditorTool::PlaceTextField));
+    let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+        tipo: 8,
+        subvariant: 1,
+        x1: 40,
+        y1: 40,
+        x2: 110,
+        y2: 65,
+    }));
+    assert!(app.show_text_editor_modal);
+
+    for ch in "Quadro Geral\n440V 60Hz".chars() {
+        let action = if ch == '\n' {
+            EditorAction::Edit(EditorEdit::Enter)
+        } else {
+            EditorAction::Edit(EditorEdit::Insert(ch))
+        };
+        let _ = app.update(Message::TextEditorAction(action));
+    }
+    let _ = app.update(Message::SetTextEditorSize(4.8));
+    let _ = app.update(Message::ToggleTextEditorBold);
+    let _ = app.update(Message::SetTextEditorOrientation(1));
+    let _ = app.update(Message::SetTextEditorColor(0x2563EB));
+    let _ = app.update(Message::ConfirmTextEditorModal);
+
+    assert!(!app.show_text_editor_modal);
+    assert_eq!(app.doc.items.len(), initial_count + 1);
+    let item_id = app.selected_id.expect("Texto deve ficar selecionado");
+    {
+        let it = app
+            .doc
+            .items
+            .iter()
+            .find(|i| i.id == item_id)
+            .expect("Item de texto");
+        assert_eq!(it.tipo, 8);
+        assert_eq!(it.subvariant, 1);
+        assert_eq!(it.trailing_str, "Quadro Geral\n440V 60Hz");
+        assert!((it.text_world_height() - 4.8).abs() < 0.05);
+        assert_eq!(it.extra_int1, -24);
+        assert!(it.text_is_bold());
+        assert_eq!(it.show_value, 700);
+        assert_eq!(it.orientation, 1);
+        assert_eq!(it.color, 0x2563EB);
+    }
+
+    // 3. Duplo clique no canvas abre o editor de item existente; cancelar preserva alterações anteriores
+    let _ = app.update(Message::Canvas(CanvasMessage::EditTextItem(item_id)));
+    assert!(app.show_text_editor_modal);
+    assert!(!app.text_editor_is_new);
+    let _ = app.update(Message::ToggleTextEditorBold);
+    let _ = app.update(Message::CloseTextEditorModal);
+    assert!(app
+        .doc
+        .items
+        .iter()
+        .find(|i| i.id == item_id)
+        .unwrap()
+        .text_is_bold());
+
+    // 4. Ajustes pelo Inspector atualizam modelo e bounding box
+    let _ = app.update(Message::SetItemTextSize(6.4));
+    let _ = app.update(Message::AdjustItemTextSize(0.4));
+    let _ = app.update(Message::ToggleItemTextBold);
+    let _ = app.update(Message::SetItemTextOrientation(3));
+    let _ = app.update(Message::SetItemTextSubvariant(0));
+    {
+        let it = app.doc.items.iter().find(|i| i.id == item_id).unwrap();
+        assert_eq!(it.subvariant, 0);
+        assert!((it.text_world_height() - 6.8).abs() < 0.05);
+        assert!(!it.text_is_bold());
+        assert_eq!(it.orientation, 3);
+    }
+
+    // 5. Roundtrip QET preserva texto, tamanho, negrito e rotação
+    let _ = app.update(Message::ToggleItemTextBold);
+    let diag = document_to_diagram(&app.doc, "Teste Texto", 1, "folio1");
+    let qet = QetProject {
+        title: "Teste Texto".to_string(),
+        version: "0.90".to_string(),
+        diagrams: vec![diag],
+        ..Default::default()
+    };
+    let xml = serialize_qet_xml(&qet);
+    let parsed_qet = load_qet_from_str(&xml).expect("Parse QET gerado");
+    let roundtrip_doc = diagram_to_document(&parsed_qet, 0);
+    let rt_text = roundtrip_doc
+        .items
+        .iter()
+        .find(|i| i.tipo == 8 && i.trailing_str.contains("Quadro Geral"))
+        .expect("Texto preservado no roundtrip QET");
+    assert!(rt_text.text_is_bold());
+    assert_eq!(rt_text.orientation, 3);
+    assert!(rt_text.text_world_height() > 5.0);
+
+    // 6. Carregamento de projeto real .json com itens tipo == 8 preserva alturas/estilos
+    let sample_path = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("Projetos")
+        .join("Partida Direta.json");
+    if sample_path.exists() {
+        let project = load_document(&sample_path).expect("Projeto real Partida Direta.json");
+        let textos: Vec<&SchematicItem> = project.items.iter().filter(|i| i.tipo == 8).collect();
+        assert!(!textos.is_empty());
+        for t in textos {
+            let h = t.text_world_height();
+            assert!((2.0..=16.0).contains(&h));
+            let (bx1, by1, bx2, by2) = SchematicCanvas::item_bounds(t);
+            assert!(bx2 > bx1 && by2 > by1);
+        }
+    }
+}
