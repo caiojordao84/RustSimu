@@ -273,6 +273,127 @@ fn svg_graphic_fill_attrs(item: &SchematicItem, opts: &ExportOptions, stroke_col
     format!(r#"fill="{fill_col}" fill-opacity="0.12""#)
 }
 
+fn emit_svg_vector_graphic(
+    out: &mut String,
+    item: &SchematicItem,
+    scale: f32,
+    opts: &ExportOptions,
+) {
+    match item.tipo {
+        1 => {
+            let ax = item.x1 as f32 * scale;
+            let ay = item.y1 as f32 * scale;
+            let bx = item.x2 as f32 * scale;
+            let by = item.y2 as f32 * scale;
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
+            out.push_str(&format!(
+                r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" {stroke_attrs}/>"###
+            ));
+            out.push('\n');
+        }
+        2 => {
+            let min_x = item.x1.min(item.x2) as f32 * scale;
+            let min_y = item.y1.min(item.y2) as f32 * scale;
+            let w = (item.x2 - item.x1).abs().max(2) as f32 * scale;
+            let h = (item.y2 - item.y1).abs().max(2) as f32 * scale;
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
+            let fill_attrs = svg_graphic_fill_attrs(item, opts, &stroke_col);
+            let rx_attr = if item.graphic_rounded_corners() {
+                let r = (4.0 * scale).min(w * 0.25).min(h * 0.25);
+                format!(r#" rx="{r:.1}""#)
+            } else {
+                String::new()
+            };
+            out.push_str(&format!(
+                r###"  <rect x="{min_x:.1}" y="{min_y:.1}" width="{w:.1}" height="{h:.1}"{rx_attr} {stroke_attrs} {fill_attrs}/>"###
+            ));
+            out.push('\n');
+        }
+        3 => {
+            let cx = ((item.x1 + item.x2) as f32 * 0.5) * scale;
+            let cy = ((item.y1 + item.y2) as f32 * 0.5) * scale;
+            let rx = ((item.x2 - item.x1).abs() as f32 * 0.5).max(2.0) * scale;
+            let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(2.0) * scale;
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
+            let fill_attrs = svg_graphic_fill_attrs(item, opts, &stroke_col);
+            if (rx - ry).abs() < 0.05 {
+                out.push_str(&format!(
+                    r###"  <circle cx="{cx:.1}" cy="{cy:.1}" r="{rx:.1}" {stroke_attrs} {fill_attrs}/>"###
+                ));
+            } else {
+                out.push_str(&format!(
+                    r###"  <ellipse cx="{cx:.1}" cy="{cy:.1}" rx="{rx:.1}" ry="{ry:.1}" {stroke_attrs} {fill_attrs}/>"###
+                ));
+            }
+            out.push('\n');
+        }
+        4 => {
+            let (cx, cy, rx, ry, start_deg, sweep_deg) = graphic_arc_params(item);
+            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
+            if sweep_deg.abs() >= 360.0 {
+                let scx = cx * scale;
+                let scy = cy * scale;
+                let srx = rx * scale;
+                let sry = ry * scale;
+                out.push_str(&format!(
+                    r###"  <ellipse cx="{scx:.1}" cy="{scy:.1}" rx="{srx:.1}" ry="{sry:.1}" {stroke_attrs} fill="none"/>"###
+                ));
+            } else {
+                let start_rad = start_deg.to_radians();
+                let end_rad = (start_deg + sweep_deg).to_radians();
+                let sx = (cx + rx * start_rad.cos()) * scale;
+                let sy = (cy - ry * start_rad.sin()) * scale;
+                let ex = (cx + rx * end_rad.cos()) * scale;
+                let ey = (cy - ry * end_rad.sin()) * scale;
+                let rad_x = rx * scale;
+                let rad_y = ry * scale;
+                let large_arc = if sweep_deg.abs() > 180.0 { 1 } else { 0 };
+                let sweep_flag = if sweep_deg >= 0.0 { 0 } else { 1 };
+                out.push_str(&format!(
+                    r###"  <path d="M {sx:.2} {sy:.2} A {rad_x:.2} {rad_y:.2} 0 {large_arc} {sweep_flag} {ex:.2} {ey:.2}" {stroke_attrs} fill="none"/>"###
+                ));
+            }
+            out.push('\n');
+        }
+        5 => {
+            let bx = item.x1.min(item.x2) as f32 * scale;
+            let by = item.y1.min(item.y2) as f32 * scale;
+            let bw = ((item.x2 - item.x1).abs().max(12) as f32) * scale;
+            let bh = ((item.y2 - item.y1).abs().max(12) as f32) * scale;
+            if let Some(data_uri) = image_data_uri_for_svg(&item.trailing_str) {
+                out.push_str(&format!(
+                    r###"  <image x="{bx:.1}" y="{by:.1}" width="{bw:.1}" height="{bh:.1}" href="{data_uri}" preserveAspectRatio="none"/>"###
+                ));
+                out.push('\n');
+            } else {
+                let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#64748b");
+                out.push_str(&format!(
+                    r###"  <rect x="{bx:.1}" y="{by:.1}" width="{bw:.1}" height="{bh:.1}" fill="#f1f5f9" stroke="{stroke_col}" stroke-width="1.0" stroke-dasharray="4,3"/>"###
+                ));
+                out.push('\n');
+                let label = std::path::Path::new(&item.trailing_str)
+                    .file_name()
+                    .and_then(|n| n.to_str())
+                    .filter(|s| !s.is_empty())
+                    .unwrap_or("Imagem");
+                let font_sz = (2.6 * scale).clamp(7.5, 12.0);
+                let tx = bx + bw * 0.5;
+                let ty = by + bh * 0.5 + font_sz * 0.35;
+                out.push_str(&format!(
+                    r###"  <text x="{tx:.1}" y="{ty:.1}" text-anchor="middle" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_col}">[IMG: {}]</text>"###,
+                    xml_escape(&truncate_str(label, 24))
+                ));
+                out.push('\n');
+            }
+        }
+        _ => {}
+    }
+}
+
 fn encode_base64(bytes: &[u8]) -> String {
     const TABLE: &[u8; 64] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     let mut out = String::with_capacity(bytes.len().div_ceil(3) * 4);
@@ -1176,7 +1297,19 @@ pub fn export_to_svg(
     // Grupo com pontas e junções arredondadas para todos os elementos gráficos
     out.push_str("  <g stroke-linecap=\"round\" stroke-linejoin=\"round\">\n");
 
-    // 1. Cabos (fios) primeiro
+    // 0. Objetos vetoriais e imagens de fundo sempre abaixo de cabos e elementos
+    for item in &doc.items {
+        if let Some(filter) = items_filter {
+            if !filter.contains(&item.id) {
+                continue;
+            }
+        }
+        if matches!(item.tipo, 1..=5) {
+            emit_svg_vector_graphic(&mut out, item, scale, &opts);
+        }
+    }
+
+    // 1. Cabos (fios)
     for item in &doc.items {
         if let Some(filter) = items_filter {
             if !filter.contains(&item.id) {
@@ -1259,7 +1392,7 @@ pub fn export_to_svg(
                 continue;
             }
         }
-        if item.is_wire() {
+        if item.is_wire() || matches!(item.tipo, 1..=5) {
             continue;
         }
 
@@ -1328,131 +1461,6 @@ pub fn export_to_svg(
             }
             if rot_deg != 0 {
                 out.push_str("  </g>\n");
-            }
-            continue;
-        }
-
-        // Linha gráfica auxiliar (tipo == 1)
-        if item.tipo == 1 {
-            let ax = item.x1 as f32 * scale;
-            let ay = item.y1 as f32 * scale;
-            let bx = item.x2 as f32 * scale;
-            let by = item.y2 as f32 * scale;
-            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
-            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
-            out.push_str(&format!(
-                r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" {stroke_attrs}/>"###
-            ));
-            out.push('\n');
-            continue;
-        }
-
-        // Retângulo gráfico (tipo == 2)
-        if item.tipo == 2 {
-            let min_x = item.x1.min(item.x2) as f32 * scale;
-            let min_y = item.y1.min(item.y2) as f32 * scale;
-            let w = (item.x2 - item.x1).abs().max(2) as f32 * scale;
-            let h = (item.y2 - item.y1).abs().max(2) as f32 * scale;
-            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
-            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
-            let fill_attrs = svg_graphic_fill_attrs(item, &opts, &stroke_col);
-            let rx_attr = if item.graphic_rounded_corners() {
-                let r = (4.0 * scale).min(w * 0.25).min(h * 0.25);
-                format!(r#" rx="{r:.1}""#)
-            } else {
-                String::new()
-            };
-            out.push_str(&format!(
-                r###"  <rect x="{min_x:.1}" y="{min_y:.1}" width="{w:.1}" height="{h:.1}"{rx_attr} {stroke_attrs} {fill_attrs}/>"###
-            ));
-            out.push('\n');
-            continue;
-        }
-
-        // Círculo / Elipse gráfica (tipo == 3)
-        if item.tipo == 3 {
-            let cx = ((item.x1 + item.x2) as f32 * 0.5) * scale;
-            let cy = ((item.y1 + item.y2) as f32 * 0.5) * scale;
-            let rx = ((item.x2 - item.x1).abs() as f32 * 0.5).max(2.0) * scale;
-            let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(2.0) * scale;
-            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
-            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
-            let fill_attrs = svg_graphic_fill_attrs(item, &opts, &stroke_col);
-            if (rx - ry).abs() < 0.05 {
-                out.push_str(&format!(
-                    r###"  <circle cx="{cx:.1}" cy="{cy:.1}" r="{rx:.1}" {stroke_attrs} {fill_attrs}/>"###
-                ));
-            } else {
-                out.push_str(&format!(
-                    r###"  <ellipse cx="{cx:.1}" cy="{cy:.1}" rx="{rx:.1}" ry="{ry:.1}" {stroke_attrs} {fill_attrs}/>"###
-                ));
-            }
-            out.push('\n');
-            continue;
-        }
-
-        // Arco gráfico (tipo == 4)
-        if item.tipo == 4 {
-            let (cx, cy, rx, ry, start_deg, sweep_deg) = graphic_arc_params(item);
-            let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
-            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
-            if sweep_deg.abs() >= 360.0 {
-                let scx = cx * scale;
-                let scy = cy * scale;
-                let srx = rx * scale;
-                let sry = ry * scale;
-                out.push_str(&format!(
-                    r###"  <ellipse cx="{scx:.1}" cy="{scy:.1}" rx="{srx:.1}" ry="{sry:.1}" {stroke_attrs} fill="none"/>"###
-                ));
-            } else {
-                let start_rad = start_deg.to_radians();
-                let end_rad = (start_deg + sweep_deg).to_radians();
-                let sx = (cx + rx * start_rad.cos()) * scale;
-                let sy = (cy - ry * start_rad.sin()) * scale;
-                let ex = (cx + rx * end_rad.cos()) * scale;
-                let ey = (cy - ry * end_rad.sin()) * scale;
-                let rad_x = rx * scale;
-                let rad_y = ry * scale;
-                let large_arc = if sweep_deg.abs() > 180.0 { 1 } else { 0 };
-                let sweep_flag = if sweep_deg >= 0.0 { 0 } else { 1 };
-                out.push_str(&format!(
-                    r###"  <path d="M {sx:.2} {sy:.2} A {rad_x:.2} {rad_y:.2} 0 {large_arc} {sweep_flag} {ex:.2} {ey:.2}" {stroke_attrs} fill="none"/>"###
-                ));
-            }
-            out.push('\n');
-            continue;
-        }
-
-        // Imagem gráfica (tipo == 5)
-        if item.tipo == 5 {
-            let bx = item.x1.min(item.x2) as f32 * scale;
-            let by = item.y1.min(item.y2) as f32 * scale;
-            let bw = ((item.x2 - item.x1).abs().max(12) as f32) * scale;
-            let bh = ((item.y2 - item.y1).abs().max(12) as f32) * scale;
-            if let Some(data_uri) = image_data_uri_for_svg(&item.trailing_str) {
-                out.push_str(&format!(
-                    r###"  <image x="{bx:.1}" y="{by:.1}" width="{bw:.1}" height="{bh:.1}" href="{data_uri}" preserveAspectRatio="none"/>"###
-                ));
-                out.push('\n');
-            } else {
-                let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#64748b");
-                out.push_str(&format!(
-                    r###"  <rect x="{bx:.1}" y="{by:.1}" width="{bw:.1}" height="{bh:.1}" fill="#f1f5f9" stroke="{stroke_col}" stroke-width="1.0" stroke-dasharray="4,3"/>"###
-                ));
-                out.push('\n');
-                let label = std::path::Path::new(&item.trailing_str)
-                    .file_name()
-                    .and_then(|n| n.to_str())
-                    .filter(|s| !s.is_empty())
-                    .unwrap_or("Imagem");
-                let font_sz = (2.6 * scale).clamp(7.5, 12.0);
-                let tx = bx + bw * 0.5;
-                let ty = by + bh * 0.5 + font_sz * 0.35;
-                out.push_str(&format!(
-                    r###"  <text x="{tx:.1}" y="{ty:.1}" text-anchor="middle" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_col}">[IMG: {}]</text>"###,
-                    xml_escape(&truncate_str(label, 24))
-                ));
-                out.push('\n');
             }
             continue;
         }

@@ -1453,6 +1453,7 @@ pub fn view_shortcuts_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                             "Selecionar Tudo / Desselecionar Tudo"
                         ),
                         ("Ctrl + G / Ctrl + Shift + G", "Agrupar / Desagrupar"),
+                        ("Alt + Clique", "Selecionar um por vez os objetos abaixo"),
                         ("T", "Ferramenta Texto em Linha"),
                         ("L / B / O", "Linha / Retângulo / Círculo vetorial"),
                         (

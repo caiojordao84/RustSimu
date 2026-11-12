@@ -462,6 +462,7 @@ pub struct CadeSimuApp {
     pub selected_ids: std::collections::HashSet<i32>,
     pub is_shift_pressed: bool,
     pub is_ctrl_pressed: bool,
+    pub is_alt_pressed: bool,
     pub sim_running: bool,
     pub show_grid: bool,
     pub snap_to_grid: bool,
@@ -666,6 +667,7 @@ impl CadeSimuApp {
                 selected_ids: std::collections::HashSet::new(),
                 is_shift_pressed: false,
                 is_ctrl_pressed: false,
+                is_alt_pressed: false,
                 sim_running: false,
                 show_grid: true,
                 snap_to_grid: true,
@@ -1200,6 +1202,7 @@ impl CadeSimuApp {
             Message::ModifiersChanged(modifiers) => {
                 self.is_shift_pressed = modifiers.shift();
                 self.is_ctrl_pressed = modifiers.control() || modifiers.command();
+                self.is_alt_pressed = modifiers.alt();
                 iced::Task::none()
             }
             Message::NewDocument

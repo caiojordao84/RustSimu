@@ -108,6 +108,7 @@ pub struct CanvasInteraction {
     pub marquee_current: Option<Point>,
     pub is_shift_pressed: bool,
     pub is_ctrl_pressed: bool,
+    pub is_alt_pressed: bool,
     pub last_click: Option<(std::time::Instant, i32)>,
 }
 
@@ -118,6 +119,7 @@ pub struct SchematicCanvas<'a> {
     pub selected_ids: &'a std::collections::HashSet<i32>,
     pub is_shift_pressed: bool,
     pub is_ctrl_pressed: bool,
+    pub is_alt_pressed: bool,
     pub sim_running: bool,
     pub show_grid: bool,
     pub snap_to_grid: bool,
@@ -378,97 +380,136 @@ impl<'a> SchematicCanvas<'a> {
         }
     }
 
-    /// Encontra o componente ou cabo sob a coordenada `(wx, wy)` do mundo (escala `.cad`).
-    pub fn hit_test(&self, wx: i32, wy: i32) -> Option<i32> {
-        // Prioriza símbolos sobre cabos
-        for item in self.doc.items.iter().rev() {
-            if item.is_wire() {
-                continue;
+    #[inline]
+    fn is_background_vector(item: &SchematicItem) -> bool {
+        matches!(item.tipo, 1..=5)
+    }
+
+    fn point_near_segment(x1: i32, y1: i32, x2: i32, y2: i32, wx: i32, wy: i32, tol: f32) -> bool {
+        let dx = (x2 - x1) as f32;
+        let dy = (y2 - y1) as f32;
+        let len_sq = dx * dx + dy * dy;
+        if len_sq >= 1.0 {
+            let t = (((wx - x1) as f32) * dx + ((wy - y1) as f32) * dy) / len_sq;
+            if (0.0..=1.0).contains(&t) {
+                let px = x1 as f32 + t * dx;
+                let py = y1 as f32 + t * dy;
+                return ((wx as f32 - px).powi(2) + (wy as f32 - py).powi(2)).sqrt() <= tol;
             }
-            if let Some(sym) = find_symbol_ref(item.tipo) {
-                let (bx1, by1, bx2, by2) = (
-                    sym.bounds.0 / 5,
-                    sym.bounds.1 / 5,
-                    sym.bounds.2 / 5,
-                    sym.bounds.3 / 5,
+            false
+        } else {
+            (wx - x1).abs() <= tol as i32 && (wy - y1).abs() <= tol as i32
+        }
+    }
+
+    fn item_hits_point(item: &SchematicItem, wx: i32, wy: i32) -> bool {
+        if item.is_wire() || item.tipo == 1 {
+            return Self::point_near_segment(item.x1, item.y1, item.x2, item.y2, wx, wy, 3.0);
+        }
+        if let Some(sym) = find_symbol_ref(item.tipo) {
+            let (bx1, by1, bx2, by2) = (
+                sym.bounds.0 / 5,
+                sym.bounds.1 / 5,
+                sym.bounds.2 / 5,
+                sym.bounds.3 / 5,
+            );
+            let (p1x, p1y) = transform_offset(bx1, by1, item.orientation);
+            let (p2x, p2y) = transform_offset(bx2, by2, item.orientation);
+            let min_x = (item.x1 + p1x.min(p2x)) - 3;
+            let max_x = (item.x1 + p1x.max(p2x)) + 3;
+            let min_y = (item.y1 + p1y.min(p2y)) - 3;
+            let max_y = (item.y1 + p1y.max(p2y)) + 3;
+            return wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y;
+        }
+        if let Some(qet_type) = item.symbol_id_or_slug() {
+            if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
+                let (vx, vy, vw, vh) = parsed.view_box;
+                let s = parsed.scale_factor();
+                let (scale_vx, scale_vy, scale_vw, scale_vh) = (vx * s, vy * s, vw * s, vh * s);
+                let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
+                let (p2x, p2y) = transform_offset_f32(
+                    scale_vx + scale_vw,
+                    scale_vy + scale_vh,
+                    item.orientation,
                 );
-                let (p1x, p1y) = transform_offset(bx1, by1, item.orientation);
-                let (p2x, p2y) = transform_offset(bx2, by2, item.orientation);
-                let min_x = (item.x1 + p1x.min(p2x)) - 3;
-                let max_x = (item.x1 + p1x.max(p2x)) + 3;
-                let min_y = (item.y1 + p1y.min(p2y)) - 3;
-                let max_y = (item.y1 + p1y.max(p2y)) + 3;
-                if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
-                    return Some(item.id);
-                }
-            } else if let Some(qet_type) = item.symbol_id_or_slug() {
-                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
-                    let (vx, vy, vw, vh) = parsed.view_box;
-                    let s = parsed.scale_factor();
-                    let (scale_vx, scale_vy, scale_vw, scale_vh) = (vx * s, vy * s, vw * s, vh * s);
-                    let (p1x, p1y) = transform_offset_f32(scale_vx, scale_vy, item.orientation);
-                    let (p2x, p2y) = transform_offset_f32(
-                        scale_vx + scale_vw,
-                        scale_vy + scale_vh,
-                        item.orientation,
-                    );
-                    let min_x = item.x1 + p1x.min(p2x).round() as i32 - 4;
-                    let max_x = item.x1 + p1x.max(p2x).round() as i32 + 4;
-                    let min_y = item.y1 + p1y.min(p2y).round() as i32 - 4;
-                    let max_y = item.y1 + p1y.max(p2y).round() as i32 + 4;
-                    if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
-                        return Some(item.id);
-                    }
-                } else if (wx - item.x1).abs() <= 6 && (wy - item.y1).abs() <= 6 {
-                    return Some(item.id);
-                }
-            } else if item.is_junction() {
-                if (wx - item.x1).abs() <= 3 && (wy - item.y1).abs() <= 3 {
-                    return Some(item.id);
-                }
-            } else if item.tipo == 1 {
-                let dx = (item.x2 - item.x1) as f32;
-                let dy = (item.y2 - item.y1) as f32;
-                let len_sq = dx * dx + dy * dy;
-                if len_sq >= 1.0 {
-                    let t = (((wx - item.x1) as f32) * dx + ((wy - item.y1) as f32) * dy) / len_sq;
-                    if (0.0..=1.0).contains(&t) {
-                        let px = item.x1 as f32 + t * dx;
-                        let py = item.y1 as f32 + t * dy;
-                        let dist = ((wx as f32 - px).powi(2) + (wy as f32 - py).powi(2)).sqrt();
-                        if dist <= 3.0 {
-                            return Some(item.id);
-                        }
-                    }
-                } else if (wx - item.x1).abs() <= 3 && (wy - item.y1).abs() <= 3 {
-                    return Some(item.id);
-                }
-            } else if matches!(item.tipo, 2 | 3 | 4 | 5 | 8) {
-                let (min_x, min_y, max_x, max_y) = Self::item_bounds(item);
-                if wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y {
-                    return Some(item.id);
-                }
-            } else if (wx - item.x1).abs() <= 6 && (wy - item.y1).abs() <= 6 {
+                let min_x = item.x1 + p1x.min(p2x).round() as i32 - 4;
+                let max_x = item.x1 + p1x.max(p2x).round() as i32 + 4;
+                let min_y = item.y1 + p1y.min(p2y).round() as i32 - 4;
+                let max_y = item.y1 + p1y.max(p2y).round() as i32 + 4;
+                return wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y;
+            }
+            return (wx - item.x1).abs() <= 6 && (wy - item.y1).abs() <= 6;
+        }
+        if item.is_junction() {
+            return (wx - item.x1).abs() <= 3 && (wy - item.y1).abs() <= 3;
+        }
+        if matches!(item.tipo, 2 | 3 | 4 | 5 | 8) {
+            let (min_x, min_y, max_x, max_y) = Self::item_bounds(item);
+            return wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y;
+        }
+        (wx - item.x1).abs() <= 6 && (wy - item.y1).abs() <= 6
+    }
+
+    /// Lista todos os itens sob `(wx, wy)` na ordem visual de cima para baixo:
+    /// elementos/textos -> cabos -> objetos vetoriais de fundo.
+    pub fn hit_test_all(&self, wx: i32, wy: i32) -> Vec<i32> {
+        let mut hits = Vec::new();
+        for item in self.doc.items.iter().rev() {
+            if !item.is_wire()
+                && !Self::is_background_vector(item)
+                && Self::item_hits_point(item, wx, wy)
+            {
+                hits.push(item.id);
+            }
+        }
+        for item in self.doc.items.iter().rev() {
+            if item.is_wire() && Self::item_hits_point(item, wx, wy) {
+                hits.push(item.id);
+            }
+        }
+        for item in self.doc.items.iter().rev() {
+            if Self::is_background_vector(item) && Self::item_hits_point(item, wx, wy) {
+                hits.push(item.id);
+            }
+        }
+        hits
+    }
+
+    /// Seleciona o próximo objeto sob `(wx, wy)` abaixo do item atualmente selecionado (Alt + Clique).
+    pub fn hit_test_cycle(&self, wx: i32, wy: i32) -> Option<i32> {
+        let hits = self.hit_test_all(wx, wy);
+        if hits.is_empty() {
+            return None;
+        }
+        if hits.len() == 1 {
+            return Some(hits[0]);
+        }
+        let next_idx = self
+            .selected_id
+            .and_then(|sel| hits.iter().position(|&id| id == sel))
+            .map(|pos| (pos + 1) % hits.len())
+            .unwrap_or(1);
+        Some(hits[next_idx])
+    }
+
+    /// Encontra o elemento, cabo ou objeto vetorial mais acima sob `(wx, wy)`.
+    pub fn hit_test(&self, wx: i32, wy: i32) -> Option<i32> {
+        for item in self.doc.items.iter().rev() {
+            if !item.is_wire()
+                && !Self::is_background_vector(item)
+                && Self::item_hits_point(item, wx, wy)
+            {
                 return Some(item.id);
             }
         }
-        // Em seguida, testa cabos
         for item in self.doc.items.iter().rev() {
-            if item.is_wire() {
-                let dx = (item.x2 - item.x1) as f32;
-                let dy = (item.y2 - item.y1) as f32;
-                let len_sq = dx * dx + dy * dy;
-                if len_sq >= 1.0 {
-                    let t = (((wx - item.x1) as f32) * dx + ((wy - item.y1) as f32) * dy) / len_sq;
-                    if (0.0..=1.0).contains(&t) {
-                        let px = item.x1 as f32 + t * dx;
-                        let py = item.y1 as f32 + t * dy;
-                        let dist = ((wx as f32 - px).powi(2) + (wy as f32 - py).powi(2)).sqrt();
-                        if dist <= 3.0 {
-                            return Some(item.id);
-                        }
-                    }
-                }
+            if item.is_wire() && Self::item_hits_point(item, wx, wy) {
+                return Some(item.id);
+            }
+        }
+        for item in self.doc.items.iter().rev() {
+            if Self::is_background_vector(item) && Self::item_hits_point(item, wx, wy) {
+                return Some(item.id);
             }
         }
         None
@@ -1906,16 +1947,19 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
             Event::Keyboard(iced::keyboard::Event::ModifiersChanged(m)) => {
                 state.is_shift_pressed = m.shift();
                 state.is_ctrl_pressed = m.control() || m.command();
+                state.is_alt_pressed = m.alt();
                 (canvas::event::Status::Ignored, None)
             }
             Event::Keyboard(iced::keyboard::Event::KeyPressed { modifiers, .. }) => {
                 state.is_shift_pressed = modifiers.shift();
                 state.is_ctrl_pressed = modifiers.control() || modifiers.command();
+                state.is_alt_pressed = modifiers.alt();
                 (canvas::event::Status::Ignored, None)
             }
             Event::Keyboard(iced::keyboard::Event::KeyReleased { modifiers, .. }) => {
                 state.is_shift_pressed = modifiers.shift();
                 state.is_ctrl_pressed = modifiers.control() || modifiers.command();
+                state.is_alt_pressed = modifiers.alt();
                 (canvas::event::Status::Ignored, None)
             }
 
@@ -2065,9 +2109,10 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             || self.is_ctrl_pressed
                             || state.is_shift_pressed
                             || state.is_ctrl_pressed;
+                        let is_alt = self.is_alt_pressed || state.is_alt_pressed;
 
                         // Verifica primeiro se clicou em alguma alça P1/P2 de um objeto gráfico selecionado
-                        if !is_additive {
+                        if !is_additive && !is_alt {
                             let handle_tol = (5.0 / self.zoom.max(0.4)).max(2.5);
                             for sel_id in self.selected_ids {
                                 if let Some(item) = self
@@ -2090,7 +2135,13 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             }
                         }
 
-                        if let Some(id) = hit {
+                        let select_hit = if is_alt {
+                            self.hit_test_cycle(wx_f.round() as i32, wy_f.round() as i32)
+                        } else {
+                            hit
+                        };
+
+                        if let Some(id) = select_hit {
                             if is_additive {
                                 state.last_click = None;
                                 return (
@@ -2099,8 +2150,8 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                                 );
                             }
                             let now = std::time::Instant::now();
-                            let is_double_click =
-                                state.last_click.is_some_and(|(prev_t, prev_id)| {
+                            let is_double_click = !is_alt
+                                && state.last_click.is_some_and(|(prev_t, prev_id)| {
                                     prev_id == id
                                         && now.duration_since(prev_t)
                                             <= std::time::Duration::from_millis(400)
@@ -2285,14 +2336,21 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         // Folha A4 + grade + Cajetín
         self.draw_sheet_and_cajetin(&mut frame);
 
-        // Desenha cabos primeiro, depois componentes e junções por cima
+        // Camada 0 (base): objetos vetoriais e imagens sempre abaixo dos cabos e elementos
+        for item in &self.doc.items {
+            if Self::is_background_vector(item) {
+                self.draw_item(&mut frame, item);
+            }
+        }
+        // Camada 1: cabos elétricos
         for item in &self.doc.items {
             if item.is_wire() {
                 self.draw_item(&mut frame, item);
             }
         }
+        // Camada 2 (topo): elementos elétricos, junções e anotações de texto
         for item in &self.doc.items {
-            if !item.is_wire() {
+            if !item.is_wire() && !Self::is_background_vector(item) {
                 self.draw_item(&mut frame, item);
             }
         }

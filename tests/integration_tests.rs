@@ -1758,6 +1758,7 @@ fn test_canvas_theme_adaptation_light_dark_system() {
         selected_ids: &dummy_selected_ids,
         is_shift_pressed: false,
         is_ctrl_pressed: false,
+        is_alt_pressed: false,
         sim_running: false,
         show_grid: true,
         snap_to_grid: true,
@@ -1788,6 +1789,7 @@ fn test_canvas_theme_adaptation_light_dark_system() {
         selected_ids: &dummy_selected_ids,
         is_shift_pressed: false,
         is_ctrl_pressed: false,
+        is_alt_pressed: false,
         sim_running: false,
         show_grid: true,
         snap_to_grid: true,
@@ -2972,6 +2974,7 @@ fn test_canvas_selection_prioritizes_symbols_over_wires() {
         selected_ids: &dummy_selected_ids,
         is_shift_pressed: false,
         is_ctrl_pressed: false,
+        is_alt_pressed: false,
         sim_running: false,
         show_grid: true,
         snap_to_grid: true,
@@ -3412,6 +3415,7 @@ fn test_menu_overlay_stays_open_over_canvas() {
         selected_ids: &dummy_selected_ids,
         is_shift_pressed: false,
         is_ctrl_pressed: false,
+        is_alt_pressed: false,
         sim_running: false,
         show_grid: true,
         snap_to_grid: true,
@@ -7462,6 +7466,7 @@ fn test_section1_editar_graphic_primitives_grid_rows_cols_and_page_properties() 
         selected_ids: &dummy_sel,
         is_shift_pressed: false,
         is_ctrl_pressed: false,
+        is_alt_pressed: false,
         sim_running: false,
         show_grid: true,
         snap_to_grid: true,
@@ -7787,6 +7792,7 @@ fn test_section5_canvas_themes_light_dark_system_and_connector_colors() {
         selected_ids: &empty_sel,
         is_shift_pressed: false,
         is_ctrl_pressed: false,
+        is_alt_pressed: false,
         sim_running: false,
         show_grid: true,
         snap_to_grid: true,
@@ -8118,4 +8124,91 @@ fn test_section1_2_vector_annotation_tools_handles_styles_and_rotation() {
             "Projeto real deve preservar retângulo com cantos arredondados (subvariant == 1)"
         );
     }
+}
+
+#[test]
+fn test_vector_z_order_under_elements_and_alt_click_cycling() {
+    use std::collections::HashSet;
+
+    let mut doc = SchematicDocument::default();
+    // 1. Símbolo elétrico (Bobina tipo 3000) em (100, 100)
+    let mut coil = SchematicItem::new_symbol(1, 3000, 100, 100, "-K1");
+    coil.id = 1;
+    doc.items.push(coil);
+
+    // 2. Cabo (tipo 4000) passando exatamente sobre (100, 100)
+    let wire = SchematicItem::new_wire(2, 4000, 60, 100, 140, 100);
+    doc.items.push(wire);
+
+    // 3. Texto acima dos demais (tipo 8) cobrindo (100, 100)
+    let mut txt = SchematicItem::new_graphic(3, 8, 92, 95, 118, 105);
+    txt.trailing_str = "K1".to_string();
+    txt.sync_text_bounds();
+    doc.items.push(txt);
+
+    // 4. Retângulo vetorial preenchido adicionado POR ÚLTIMO no Vec (tipo 2), cobrindo tudo
+    let mut rect = SchematicItem::new_graphic(4, 2, 50, 70, 160, 130);
+    rect.show_value = 1;
+    doc.items.push(rect);
+
+    let sel = HashSet::new();
+    let mk_canvas = |selected_id: Option<i32>| SchematicCanvas {
+        doc: &doc,
+        tool: EditorTool::Select,
+        selected_id,
+        selected_ids: &sel,
+        is_shift_pressed: false,
+        is_ctrl_pressed: false,
+        is_alt_pressed: false,
+        sim_running: false,
+        show_grid: true,
+        snap_to_grid: true,
+        grid_density: GridDensity::Medium,
+        show_texts: true,
+        show_terminals: true,
+        show_cajetin: true,
+        show_full_crosshair: false,
+        show_text_grid: false,
+        show_alignment_guides: false,
+        keep_headers_visible: false,
+        show_cell_bounds: false,
+        is_dark: false,
+        auto_connect: true,
+        auto_disconnect: false,
+        zoom: 1.0,
+        pan: iced::Vector::ZERO,
+        placement_orientation: 0,
+        dragging_symbol: None,
+        dragging_canonical_symbol: None,
+        is_blocked: false,
+    };
+
+    // Mesmo o retângulo tendo sido inserido por último, elementos/cabos têm prioridade no clique normal
+    let c0 = mk_canvas(None);
+    assert_eq!(c0.hit_test(100, 100), Some(3)); // Topo: texto (id 3)
+    assert_eq!(c0.hit_test(70, 100), Some(2)); // Cabo acima do retângulo (id 2)
+    assert_eq!(c0.hit_test(58, 78), Some(4)); // Região apenas do retângulo (id 4)
+
+    // Pilha de cima para baixo em (100, 100): [texto (3), símbolo (1), cabo (2), retângulo (4)]
+    assert_eq!(c0.hit_test_all(100, 100), vec![3, 1, 2, 4]);
+
+    // Alt+Clique sem nada selecionado pega o objeto logo abaixo do topo (id 1) e cicla um por vez
+    assert_eq!(c0.hit_test_cycle(100, 100), Some(1));
+    assert_eq!(mk_canvas(Some(3)).hit_test_cycle(100, 100), Some(1));
+    assert_eq!(mk_canvas(Some(1)).hit_test_cycle(100, 100), Some(2));
+    assert_eq!(mk_canvas(Some(2)).hit_test_cycle(100, 100), Some(4));
+    assert_eq!(mk_canvas(Some(4)).hit_test_cycle(100, 100), Some(3));
+    assert_eq!(c0.hit_test_cycle(58, 78), Some(4)); // Item único sob o cursor
+
+    // No SVG exportado, o <rect vetorial aparece ANTES do <line do cabo e dos elementos/textos
+    let svg = export_to_svg(&doc, None, false);
+    let body = &svg[svg
+        .find("<g stroke-linecap=\"round\"")
+        .expect("Grupo principal no SVG")..];
+    let rect_pos = body
+        .find("fill-opacity=\"0.12\"")
+        .expect("Retângulo vetorial no SVG");
+    let wire_pos = body.find("<line x1=").expect("Cabo no SVG");
+    let text_pos = body.find(">K1<").expect("Texto no SVG");
+    assert!(rect_pos < wire_pos && wire_pos < text_pos);
 }

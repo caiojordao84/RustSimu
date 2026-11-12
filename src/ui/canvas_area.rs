@@ -21,6 +21,7 @@ pub fn view_sheet_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         selected_ids: &app.selected_ids,
         is_shift_pressed: app.is_shift_pressed,
         is_ctrl_pressed: app.is_ctrl_pressed,
+        is_alt_pressed: app.is_alt_pressed,
         sim_running: app.sim_running,
         show_grid: app.show_grid,
         snap_to_grid: app.snap_to_grid,
