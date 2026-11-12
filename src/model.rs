@@ -446,6 +446,9 @@ pub struct SchematicItem {
     /// Função descritiva do elemento (ex: "Alimentação Principal", "Comando Bomba").
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub function: Option<String>,
+    /// Conceito semântico canônico unificado do RustSimu (ex: "el.act.pb.no").
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub concept_id: Option<String>,
 }
 
 impl SchematicItem {
@@ -602,6 +605,7 @@ impl SchematicItem {
             symbol_state: None,
             group_id: None,
             function: None,
+            concept_id: None,
         }
     }
 
@@ -829,6 +833,7 @@ impl SchematicItem {
             symbol_state: None,
             group_id: None,
             function: None,
+            concept_id: None,
         }
     }
 }

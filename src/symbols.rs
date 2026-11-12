@@ -215,6 +215,7 @@ impl SymbolDef {
             symbol_state: None,
             group_id: None,
             function: None,
+            concept_id: None,
         }
     }
 

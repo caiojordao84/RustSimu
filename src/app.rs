@@ -4804,7 +4804,7 @@ impl CadeSimuApp {
                                 pins[idx] = term.name.clone();
                             }
 
-                            let item = SchematicItem {
+                            let mut item = SchematicItem {
                                 id: new_id,
                                 tipo: native_tipo,
                                 tag,
@@ -4830,7 +4830,19 @@ impl CadeSimuApp {
                                 symbol_state: Some('0'),
                                 group_id: None,
                                 function: None,
+                                concept_id: None,
                             };
+                            let dict = crate::dictionary::global_concept_dictionary();
+                            item.concept_id = dict
+                                .resolve_item(&item)
+                                .or_else(|| {
+                                    dict.resolve_external_qet(
+                                        &el.slug,
+                                        Some(&el.name_en),
+                                        &item.pins,
+                                    )
+                                })
+                                .map(|r| r.concept.concept_id.clone());
 
                             self.doc.items.push(item);
                             self.selected_id = Some(new_id);

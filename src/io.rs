@@ -236,6 +236,7 @@ pub fn parse_cad_str(input: &str) -> Result<SchematicDocument, String> {
             symbol_state: None,
             group_id: None,
             function: None,
+            concept_id: None,
         });
     }
 
