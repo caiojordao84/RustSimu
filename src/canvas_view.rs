@@ -800,7 +800,7 @@ impl<'a> SchematicCanvas<'a> {
 
         let tok = self.tokens();
         let default_fill = Color { a: 0.08, ..tok.ink };
-        let white_fill = tok.s1;
+        let white_fill = tok.sheet;
         let ox = origin_x as f32;
         let oy = origin_y as f32;
 

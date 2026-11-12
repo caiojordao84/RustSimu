@@ -1493,3 +1493,103 @@ pub fn view_shortcuts_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
 
     wrap_modal(card, Message::CloseShortcutsModal)
 }
+
+/// Modal de aviso quando o utilizador tenta excluir a última página restante de um projeto.
+pub fn view_close_last_page_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
+    let t = tokens(&app.theme());
+    let page_label = app
+        .pages
+        .first()
+        .map(|p| p.name.as_str())
+        .unwrap_or("Folha 1");
+
+    let subtitle_msg = if app.is_modified {
+        format!(
+            "A folha \"{page_label}\" é a única página do projeto e há alterações não salvas. Excluir esta página fechará o projeto atual."
+        )
+    } else {
+        format!(
+            "A folha \"{page_label}\" é a única página restante do projeto. Excluir esta página fechará o projeto atual."
+        )
+    };
+
+    let card = container(
+        column![
+            row![
+                crate::icons::view_icon(crate::icons::Icon::Warning, 18, t.amber),
+                text("Excluir Última Página (Fechar Projeto)")
+                    .size(14.5)
+                    .font(Font {
+                        weight: iced::font::Weight::Bold,
+                        ..UI
+                    }),
+                horizontal_space(),
+                button(crate::icons::view_icon(
+                    crate::icons::Icon::Close,
+                    14,
+                    t.text2
+                ))
+                .style(theme::tool)
+                .padding(Padding::from([3.0, 6.0]))
+                .on_press(Message::CancelCloseLastPage),
+            ]
+            .spacing(8)
+            .align_y(Alignment::Center),
+            horizontal_rule(1),
+            text(subtitle_msg).size(12.0).color(t.text).font(UI),
+            container(
+                text("Escolha se deseja salvar o projeto antes de encerrar ou descartar e iniciar uma área vazia.")
+                    .size(11.0)
+                    .color(t.text2)
+                    .font(UI),
+            )
+            .style(theme::card)
+            .padding(Padding::from([8.0, 10.0]))
+            .width(Length::Fill),
+            horizontal_rule(1),
+            row![
+                horizontal_space(),
+                button(text("Cancelar").size(12.0).font(UI))
+                    .style(theme::tool)
+                    .padding(Padding::from([6.0, 12.0]))
+                    .on_press(Message::CancelCloseLastPage),
+                button(
+                    row![
+                        crate::icons::view_icon(crate::icons::Icon::Close, 13, t.on_danger),
+                        text("Fechar sem Salvar").size(12.0).font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        }),
+                    ]
+                    .spacing(6)
+                    .align_y(Alignment::Center),
+                )
+                .style(theme::danger)
+                .padding(Padding::from([6.0, 12.0]))
+                .on_press(Message::ConfirmCloseLastPage),
+                button(
+                    row![
+                        crate::icons::view_icon(crate::icons::Icon::Save, 13, t.on_primary),
+                        text("Salvar e Fechar").size(12.0).font(Font {
+                            weight: iced::font::Weight::Bold,
+                            ..UI
+                        }),
+                    ]
+                    .spacing(6)
+                    .align_y(Alignment::Center),
+                )
+                .style(theme::primary)
+                .padding(Padding::from([6.0, 14.0]))
+                .on_press(Message::SaveAndCloseLastPage),
+            ]
+            .spacing(8)
+            .align_y(Alignment::Center),
+        ]
+        .spacing(12)
+        .width(520),
+    )
+    .style(theme::dropdown_menu)
+    .padding(Padding::from([16.0, 18.0]));
+
+    wrap_modal(card, Message::CancelCloseLastPage)
+}

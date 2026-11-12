@@ -7619,3 +7619,245 @@ fn test_section1_projeto_exibicao_configuracoes_janela_ajuda_and_submenus() {
     let _ = app.update(Message::CancelAction);
     assert!(!app.focus_canvas);
 }
+
+#[test]
+fn test_section5_title_bar_modified_state_and_document_lifecycle() {
+    use cade_simu_rs::app::{CadeSimuApp, Message};
+
+    let (mut app, _) = CadeSimuApp::new();
+    assert!(!app.is_modified);
+    {
+        let _ = app.view();
+    }
+
+    // Adiciona item para marcar projeto como modificado e renderiza Barra de Título com [Modificado]
+    let _ = app.update(Message::Canvas(
+        cade_simu_rs::canvas_view::CanvasMessage::AddGraphicItem {
+            tipo: 2,
+            subvariant: 0,
+            x1: 30,
+            y1: 30,
+            x2: 60,
+            y2: 50,
+        },
+    ));
+    assert!(app.is_modified);
+    {
+        let _ = app.view();
+    }
+
+    // Fechar ou Novo limpa `file_path`, `current_file` e `is_modified`
+    let _ = app.update(Message::CloseDocument);
+    assert!(!app.is_modified);
+    assert!(app.current_file.is_none());
+    assert!(app.file_path.is_empty());
+    assert_eq!(app.pages.len(), 1);
+    {
+        let _ = app.view();
+    }
+
+    let _ = app.update(Message::LoadPresetDol);
+    assert!(!app.is_modified);
+    assert_eq!(app.file_path, "Partida Direta Trifásica");
+
+    let _ = app.update(Message::NewDocument);
+    assert!(!app.is_modified);
+    assert!(app.file_path.is_empty());
+    assert!(app.current_file.is_none());
+}
+
+#[test]
+fn test_section5_pages_bar_double_click_context_edit_number_and_last_page_modal() {
+    use cade_simu_rs::app::{CadeSimuApp, Message};
+
+    let (mut app, _) = CadeSimuApp::new();
+
+    // Com apenas 1 página, StartEditingPageNumber não deve ativar edição numérica
+    let _ = app.update(Message::StartEditingPageNumber(0));
+    assert!(app.editing_page_number.is_none());
+
+    // Cria páginas antes e depois (atalhos das extremidades / menu de contexto)
+    let _ = app.update(Message::AddPageAfter(0));
+    let _ = app.update(Message::AddPageBefore(1));
+    assert_eq!(app.pages.len(), 3);
+    assert_eq!(
+        app.pages.iter().map(|p| p.id).collect::<Vec<_>>(),
+        vec![1, 2, 3]
+    );
+
+    // Menu de contexto em aba inativa (botão direito) + renderização com "Editar número"
+    let _ = app.update(Message::TogglePageContextMenu(2));
+    assert_eq!(app.page_context_menu, Some(2));
+    {
+        let _ = app.view();
+    }
+
+    // Clique duplo em uma aba seleciona a página e inicia edição direta do nome
+    let _ = app.update(Message::SelectPage(2));
+    let _ = app.update(Message::SelectPage(2));
+    assert_eq!(app.active_page_index, 2);
+    assert_eq!(app.editing_page_target, Some(2));
+    assert!(app.editing_page_name.is_some());
+    {
+        let _ = app.view();
+    }
+    let _ = app.update(Message::UpdateEditingPageName("Comando Motor".to_string()));
+    let _ = app.update(Message::CommitEditingPageName);
+    assert_eq!(app.pages[2].name, "Comando Motor");
+    assert!(app.editing_page_name.is_none());
+
+    // Editar número da página (3 -> 1) reordena a página e atualiza índice ativo e IDs
+    let _ = app.update(Message::StartEditingPageNumber(2));
+    assert_eq!(app.editing_page_number, Some((2, "3".to_string())));
+    {
+        let _ = app.view();
+    }
+    let _ = app.update(Message::UpdateEditingPageNumber("1".to_string()));
+    let _ = app.update(Message::CommitEditingPageNumber);
+    assert_eq!(app.pages[0].name, "Comando Motor");
+    assert_eq!(app.active_page_index, 0);
+    assert_eq!(
+        app.pages.iter().map(|p| p.id).collect::<Vec<_>>(),
+        vec![1, 2, 3]
+    );
+
+    // Exclui até restar apenas 1 página
+    let _ = app.update(Message::DeletePage(2));
+    let _ = app.update(Message::DeletePage(1));
+    assert_eq!(app.pages.len(), 1);
+    assert!(!app.show_close_last_page_modal);
+
+    // Tentar deletar a última página exibe modal de aviso e opção de salvamento
+    let _ = app.update(Message::DeletePage(0));
+    assert!(app.show_close_last_page_modal);
+    assert_eq!(app.pages.len(), 1);
+    {
+        let _ = app.view();
+    }
+
+    // Cancelar mantém o projeto intacto
+    let _ = app.update(Message::CancelCloseLastPage);
+    assert!(!app.show_close_last_page_modal);
+    assert_eq!(app.pages[0].name, "Comando Motor");
+
+    // Salvar e Fechar grava em arquivo associado e fecha o projeto para folha em branco
+    let tmp_path = std::env::temp_dir().join("rustsimu_section5_last_page_save.json");
+    let _ = std::fs::remove_file(&tmp_path);
+    app.current_file = Some(tmp_path.clone());
+    app.file_path = tmp_path.to_string_lossy().to_string();
+
+    let _ = app.update(Message::DeletePage(0));
+    assert!(app.show_close_last_page_modal);
+    let _ = app.update(Message::SaveAndCloseLastPage);
+    assert!(tmp_path.exists());
+    assert!(!app.show_close_last_page_modal);
+    assert!(!app.is_modified);
+    assert!(app.current_file.is_none());
+    assert_eq!(app.pages[0].name, "Folha 1");
+    let _ = std::fs::remove_file(&tmp_path);
+
+    // Confirmar Fechar sem Salvar também encerra o projeto sem erro
+    let _ = app.update(Message::DeletePage(0));
+    assert!(app.show_close_last_page_modal);
+    let _ = app.update(Message::ConfirmCloseLastPage);
+    assert!(!app.show_close_last_page_modal);
+    assert!(!app.is_modified);
+}
+
+#[test]
+fn test_section5_canvas_themes_light_dark_system_and_connector_colors() {
+    use cade_simu_rs::app::{CadeSimuApp, Message};
+    use cade_simu_rs::canvas_view::{EditorTool, SchematicCanvas};
+    use cade_simu_rs::model::{GridDensity, SchematicDocument, SchematicItem};
+    use cade_simu_rs::theme::ThemeMode;
+    use std::collections::HashSet;
+
+    fn luminance(c: iced::Color) -> f32 {
+        0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b
+    }
+
+    let (mut app, _) = CadeSimuApp::new();
+    let doc = SchematicDocument::default();
+    let empty_sel = HashSet::new();
+
+    let mk_canvas = |is_dark: bool| SchematicCanvas {
+        doc: &doc,
+        tool: EditorTool::Select,
+        selected_id: None,
+        selected_ids: &empty_sel,
+        is_shift_pressed: false,
+        is_ctrl_pressed: false,
+        sim_running: false,
+        show_grid: true,
+        snap_to_grid: true,
+        grid_density: GridDensity::Medium,
+        show_texts: true,
+        show_terminals: true,
+        show_cajetin: true,
+        show_full_crosshair: false,
+        show_text_grid: false,
+        show_alignment_guides: false,
+        keep_headers_visible: false,
+        show_cell_bounds: false,
+        is_dark,
+        auto_connect: true,
+        auto_disconnect: false,
+        zoom: 1.0,
+        pan: iced::Vector::ZERO,
+        placement_orientation: 0,
+        dragging_symbol: None,
+        dragging_canonical_symbol: None,
+        is_blocked: false,
+    };
+
+    // Tema LIGHT: folha clara, traços/elementos escuros e conectores padrão escuros
+    let _ = app.update(Message::SetThemeMode(ThemeMode::Light));
+    assert!(!app.is_dark());
+    let light_canvas = mk_canvas(app.is_dark());
+    let light_tok = light_canvas.tokens();
+    assert!(luminance(light_tok.sheet) > 0.85);
+    assert!(luminance(light_tok.ink) < 0.30);
+    assert!(luminance(light_tok.sheet_line) < 0.30);
+
+    let default_wire = SchematicItem::new_wire(1, 4001, 10, 10, 40, 10);
+    let dc_neg_wire = SchematicItem::new_wire(2, 4004, 10, 20, 40, 20);
+    let mut custom_wire = SchematicItem::new_wire(3, 4000, 10, 30, 40, 30);
+    custom_wire.color = 0x12AB34;
+
+    let (light_def_col, _) = light_canvas.wire_color(&default_wire);
+    let (light_dc_neg_col, _) = light_canvas.wire_color(&dc_neg_wire);
+    let (light_custom_col, _) = light_canvas.wire_color(&custom_wire);
+    assert!(luminance(light_def_col) < 0.30);
+    assert!(luminance(light_dc_neg_col) < 0.30);
+    assert!((light_custom_col.r - (0x12 as f32 / 255.0)).abs() < 0.01);
+    assert!((light_custom_col.g - (0xAB as f32 / 255.0)).abs() < 0.01);
+    assert!((light_custom_col.b - (0x34 as f32 / 255.0)).abs() < 0.01);
+
+    // Tema DARK: folha escura, traços/elementos claros e conectores padrão claros
+    let _ = app.update(Message::SetThemeMode(ThemeMode::Dark));
+    assert!(app.is_dark());
+    let dark_canvas = mk_canvas(app.is_dark());
+    let dark_tok = dark_canvas.tokens();
+    assert!(luminance(dark_tok.sheet) < 0.10);
+    assert!(luminance(dark_tok.ink) > 0.75);
+    assert!(luminance(dark_tok.sheet_line) > 0.70);
+
+    let (dark_def_col, _) = dark_canvas.wire_color(&default_wire);
+    let (dark_dc_neg_col, _) = dark_canvas.wire_color(&dc_neg_wire);
+    let (dark_custom_col, _) = dark_canvas.wire_color(&custom_wire);
+    assert!(luminance(dark_def_col) > 0.75);
+    assert!(luminance(dark_dc_neg_col) > 0.75);
+    assert!((dark_custom_col.r - light_custom_col.r).abs() < 0.001);
+    assert!((dark_custom_col.g - light_custom_col.g).abs() < 0.001);
+    assert!((dark_custom_col.b - light_custom_col.b).abs() < 0.001);
+
+    // Tema SYSTEM acompanha mudanças do sistema operacional dinamicamente
+    let _ = app.update(Message::SetThemeMode(ThemeMode::System));
+    assert_eq!(app.theme_mode, ThemeMode::System);
+    let _ = app.update(Message::SystemThemeDetected(false));
+    assert!(!app.is_dark());
+    let _ = app.update(Message::SystemThemeDetected(true));
+    assert!(app.is_dark());
+    let _ = app.update(Message::SystemThemeDetected(false));
+    assert!(!app.is_dark());
+}

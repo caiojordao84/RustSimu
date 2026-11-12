@@ -199,33 +199,33 @@ Quando um elemento está selecionado, exibe os campos editáveis abaixo:
 - **Nenhum elemento selecionado**: Exibe a referência cruzada baseada em nomes de todo o projeto (busca/filtro, contagem total de tags e folhas, agrupamento hierárquico pai-contatos, instâncias, alertas de contatos órfãos / bobinas duplicadas, navegação "Ir" e resumo das réguas de bornes com renumeração global). [CONCLUÍDO]  
 - **Elemento selecionado**: Exibe apenas as referências cruzadas do elemento selecionado, considerando nome, vínculo pai/irmãos com navegação "Ir", e ligação elétrica detalhada de bornes (em série, em paralelo e direta com badges coloridos e botões "Ir"), além das propriedades da régua de bornes e atalho para XRef Global. [CONCLUÍDO]
 
-# 5\. Janela Principal (Canvas de Trabalho)
+# 5\. Janela Principal (Canvas de Trabalho) — [100% CONCLUÍDO]
 
 A área central do Canvas de Trabalho contém a barra de título dividida em duas linhas estruturadas:
 
-## 5.1 Primeira Linha: Barra de Título
+## 5.1 Primeira Linha: Barra de Título — [CONCLUÍDO]
 
-- **Centro**: Nome do Esquema aberto. Caso o projeto tenha sido modificado e não salvo, recebe a indicação **\[Modificado\]**.  
-- **Canto Direito**: Três ícones em formato quadrado (Novo, Abrir e Fechar), com altura equivalente à da linha.
+- **Centro**: Nome do Esquema aberto. Caso o projeto tenha sido modificado e não salvo, recebe a indicação **\[Modificado\]**. [CONCLUÍDO]  
+- **Canto Direito**: Três ícones em formato quadrado (Novo, Abrir e Fechar), com altura equivalente à da linha. [CONCLUÍDO]
 
-## 5.2 Segunda Linha: Barra de Abas de Páginas
+## 5.2 Segunda Linha: Barra de Abas de Páginas — [CONCLUÍDO]
 
-- **Estrutura das Abas**: Exibe o número da página seguido pelo nome da página.  
-- **Edição do Nome**: Clique duplo seleciona o nome da página para edição direta.  
-- **Menu de Contexto (Botão Direito)**: Apresenta as opções:  
-  - Editar nome da página;  
-  - Editar número da página (quando houver mais de uma);  
-  - Deletar página (exibe aviso de fechamento do projeto e oferece salvamento se restar apenas uma página);  
-  - Criar página antes;  
-  - Criar página depois.
+- **Estrutura das Abas**: Exibe o número da página seguido pelo nome da página. [CONCLUÍDO]  
+- **Edição do Nome**: Clique duplo seleciona o nome da página para edição direta. [CONCLUÍDO]  
+- **Menu de Contexto (Botão Direito)**: Apresenta as opções: [CONCLUÍDO]  
+  - Editar nome da página; [CONCLUÍDO]  
+  - Editar número da página (quando houver mais de uma); [CONCLUÍDO]  
+  - Deletar página (exibe aviso de fechamento do projeto e oferece salvamento se restar apenas uma página); [CONCLUÍDO]  
+  - Criar página antes; [CONCLUÍDO]  
+  - Criar página depois. [CONCLUÍDO]
 
-**Atalhos das Extremidades**: Ícone no canto esquerdo para criar página antes; ícone no canto direito para criar página depois.
+**Atalhos das Extremidades**: Ícone no canto esquerdo para criar página antes; ícone no canto direito para criar página depois. [CONCLUÍDO]
 
-## 5.3 Padrão de Exibição de Temas do Canvas
+## 5.3 Padrão de Exibição de Temas do Canvas — [CONCLUÍDO]
 
 O Canvas de Trabalho deve respeitar a seleção de temas (LIGHT, DARK e SYSTEM):
 
-- **Tema LIGHT**: Exibe a folha de trabalho clara com os elementos e traços escuros, os conectores, caso o utilizador não os tenha mudado de cor também devem seguir este padrão.  
-- **Tema DARK**: Exibe a folha de trabalho escura com os elementos e traços clarosos conectores, caso o utilizador não os tenha mudado de cor também devem seguir este padrão.
+- **Tema LIGHT**: Exibe a folha de trabalho clara com os elementos e traços escuros, os conectores, caso o utilizador não os tenha mudado de cor também devem seguir este padrão. [CONCLUÍDO]  
+- **Tema DARK**: Exibe a folha de trabalho escura com os elementos e traços claros; os conectores, caso o utilizador não os tenha mudado de cor, também devem seguir este padrão. [CONCLUÍDO]
 
-**Tema SYSTEM**: Alterna automaticamente entre os modos LIGHT e DARK acompanhando a preferência do sistema operacional.
+**Tema SYSTEM**: Alterna automaticamente entre os modos LIGHT e DARK acompanhando a preferência do sistema operacional. [CONCLUÍDO]

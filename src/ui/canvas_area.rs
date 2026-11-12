@@ -1,5 +1,5 @@
 use iced::widget::{
-    button, column, container, horizontal_space, row, scrollable, text, text_input, tooltip,
+    button, column, container, mouse_area, row, scrollable, stack, text, text_input, tooltip,
 };
 use iced::{Alignment, Element, Length, Padding};
 
@@ -50,7 +50,8 @@ pub fn view_sheet_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
             || app.show_settings_modal
             || app.show_shortcuts_modal
             || app.show_color_modal
-            || app.show_confirm_delete_modal,
+            || app.show_confirm_delete_modal
+            || app.show_close_last_page_modal,
     }
     .view()
     .map(Message::Canvas);
@@ -69,9 +70,15 @@ pub fn view_sheet_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
 }
 
 pub fn view_canvas_title_line<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
+    const TITLE_LINE_H: f32 = 30.0;
+    const TITLE_BTN_SIZE: f32 = 24.0;
     let t = tokens(&app.theme());
 
-    let doc_name = if !app.file_path.is_empty() {
+    let doc_name = if let Some(ref p) = app.current_file {
+        p.file_name()
+            .map(|n| n.to_string_lossy().to_string())
+            .unwrap_or_else(|| p.display().to_string())
+    } else if !app.file_path.is_empty() {
         std::path::Path::new(&app.file_path)
             .file_name()
             .map(|n| n.to_string_lossy().to_string())
@@ -86,51 +93,95 @@ pub fn view_canvas_title_line<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> 
         "Novo Esquema".to_string()
     };
 
-    let title_badge = row![
+    let mut title_row = row![
         crate::icons::view_icon(crate::icons::Icon::Copy, 14, t.text2),
-        text(doc_name).size(13).font(UI),
-        if app.is_modified {
-            container(text("Modificado").size(10).color(t.danger))
-                .padding(Padding::from([2.0, 6.0]))
-                .style(theme::card)
-        } else {
-            container(text("Salvo").size(10).color(t.primary)).padding(Padding::from([2.0, 6.0]))
-        }
+        text(doc_name)
+            .size(13)
+            .font(iced::font::Font {
+                weight: iced::font::Weight::Medium,
+                ..UI
+            })
+            .color(t.text),
     ]
     .spacing(8)
     .align_y(Alignment::Center);
 
-    let action_btn = |icon: crate::icons::Icon, label: &'static str, msg: Message| {
-        button(
-            row![
-                crate::icons::view_icon(icon, 13, t.text),
-                text(label).size(11).font(UI),
-            ]
-            .spacing(4)
-            .align_y(Alignment::Center),
+    if app.is_modified {
+        title_row = title_row.push(
+            container(
+                text("[Modificado]")
+                    .size(11)
+                    .font(iced::font::Font {
+                        weight: iced::font::Weight::Bold,
+                        ..UI
+                    })
+                    .color(t.amber),
+            )
+            .padding(Padding::from([1.0, 6.0]))
+            .style(theme::card),
+        );
+    }
+
+    let square_action_btn = |icon: crate::icons::Icon, tip: &'static str, msg: Message| {
+        app_tooltip(
+            button(
+                container(crate::icons::view_icon(icon, 14, t.text))
+                    .width(Length::Fill)
+                    .height(Length::Fill)
+                    .center_x(Length::Fill)
+                    .center_y(Length::Fill),
+            )
+            .style(theme::tool)
+            .padding(0)
+            .width(Length::Fixed(TITLE_BTN_SIZE))
+            .height(Length::Fixed(TITLE_BTN_SIZE))
+            .on_press(msg),
+            tip,
+            tooltip::Position::Bottom,
         )
-        .style(theme::tool)
-        .padding(Padding::from([3.0, 8.0]))
-        .on_press(msg)
     };
 
     let actions = row![
-        action_btn(crate::icons::Icon::New, "Novo", Message::NewDocument),
-        action_btn(crate::icons::Icon::Open, "Abrir", Message::OpenFileDialog),
-        action_btn(crate::icons::Icon::Close, "Fechar", Message::CloseDocument),
+        square_action_btn(
+            crate::icons::Icon::New,
+            "Novo Esquema (Ctrl+N)",
+            Message::NewDocument
+        ),
+        square_action_btn(
+            crate::icons::Icon::Open,
+            "Abrir Esquema (Ctrl+O)",
+            Message::OpenFileDialog
+        ),
+        square_action_btn(
+            crate::icons::Icon::Close,
+            "Fechar Esquema (Ctrl+W)",
+            Message::CloseDocument
+        ),
     ]
     .spacing(4)
     .align_y(Alignment::Center);
 
-    container(
-        row![title_badge, horizontal_space(), actions,]
+    let bar_content = stack![
+        container(title_row)
             .width(Length::Fill)
-            .align_y(Alignment::Center),
-    )
-    .style(theme::bar)
-    .padding(Padding::from([4.0, 10.0]))
+            .height(Length::Fill)
+            .center_x(Length::Fill)
+            .center_y(Length::Fill),
+        container(actions)
+            .width(Length::Fill)
+            .height(Length::Fill)
+            .align_x(iced::alignment::Horizontal::Right)
+            .center_y(Length::Fill),
+    ]
     .width(Length::Fill)
-    .into()
+    .height(Length::Fill);
+
+    container(bar_content)
+        .style(theme::bar)
+        .padding(Padding::from([3.0, 8.0]))
+        .width(Length::Fill)
+        .height(Length::Fixed(TITLE_LINE_H))
+        .into()
 }
 
 pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
@@ -141,12 +192,21 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
 
     for (idx, page) in app.pages.iter().enumerate() {
         let is_active = idx == app.active_page_index;
-        let is_editing = is_active && app.editing_page_name.is_some();
+        let is_editing_name =
+            app.editing_page_target == Some(idx) && app.editing_page_name.is_some();
+        let is_editing_number = app
+            .editing_page_number
+            .as_ref()
+            .is_some_and(|(target, _)| *target == idx);
 
-        let tab_content: Element<'_, Message> = if is_editing {
+        let tab_content: Element<'_, Message> = if is_editing_name {
             let current_input = app.editing_page_name.as_deref().unwrap_or(&page.name);
             row![
-                text_input("Nome da folha", current_input)
+                text(format!("{}.", idx + 1))
+                    .size(11)
+                    .font(MONO)
+                    .color(t.text2),
+                text_input("Nome da página", current_input)
                     .on_input(Message::UpdateEditingPageName)
                     .on_submit(Message::CommitEditingPageName)
                     .padding(Padding::from([2.0, 6.0]))
@@ -156,44 +216,40 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                     .padding(Padding::from([2.0, 6.0]))
                     .on_press(Message::CommitEditingPageName),
             ]
-            .spacing(2)
+            .spacing(3)
+            .align_y(Alignment::Center)
+            .into()
+        } else if is_editing_number {
+            let current_num = app
+                .editing_page_number
+                .as_ref()
+                .map(|(_, s)| s.as_str())
+                .unwrap_or("");
+            row![
+                text("Nº:").size(11).font(UI).color(t.text2),
+                text_input("1", current_num)
+                    .on_input(Message::UpdateEditingPageNumber)
+                    .on_submit(Message::CommitEditingPageNumber)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .width(42),
+                button(text("OK").size(11).font(UI))
+                    .style(theme::primary)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::CommitEditingPageNumber),
+            ]
+            .spacing(3)
             .align_y(Alignment::Center)
             .into()
         } else {
             let tab_label = format!("{}. {}", idx + 1, page.name);
             let main_btn = button(text(tab_label).size(12).font(UI))
                 .style(theme::tab(is_active))
-                .padding(Padding::from([4.0, 8.0]))
+                .padding(Padding::from([4.0, 10.0]))
                 .on_press(Message::SelectPage(idx));
 
-            let edit_btn = button(
-                container(crate::icons::view_icon(
-                    crate::icons::Icon::Pencil,
-                    11,
-                    t.text2,
-                ))
-                .width(14)
-                .height(14)
-                .center_x(14)
-                .center_y(14),
-            )
-            .style(theme::tool)
-            .padding(Padding::from([2.0, 3.0]))
-            .on_press(Message::StartEditingPageName(idx));
-
-            let menu_btn = button(text("...").size(10).font(MONO))
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 4.0]))
-                .on_press(Message::TogglePageContextMenu(idx));
-
-            if is_active {
-                row![main_btn, edit_btn, menu_btn]
-                    .spacing(1)
-                    .align_y(Alignment::Center)
-                    .into()
-            } else {
-                main_btn.into()
-            }
+            mouse_area(main_btn)
+                .on_right_press(Message::TogglePageContextMenu(idx))
+                .into()
         };
 
         let tab_box = container(tab_content)
@@ -203,7 +259,7 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         tabs_row = tabs_row.push(tab_box);
     }
 
-    // Atalhos de ponta: [<-+] e [+->]
+    // Atalho no canto esquerdo: criar página antes
     let add_before_btn = app_tooltip(
         button(
             container(crate::icons::view_icon(
@@ -211,18 +267,21 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 14,
                 t.text,
             ))
-            .width(18)
-            .height(18)
-            .center_x(18)
-            .center_y(18),
+            .width(Length::Fill)
+            .height(Length::Fill)
+            .center_x(Length::Fill)
+            .center_y(Length::Fill),
         )
         .style(theme::tool)
-        .padding(Padding::from([3.0, 5.0]))
+        .padding(0)
+        .width(Length::Fixed(24.0))
+        .height(Length::Fixed(24.0))
         .on_press(Message::AddPageBefore(app.active_page_index)),
-        "Inserir página antes da atual",
+        "Criar página antes da atual",
         tooltip::Position::Bottom,
     );
 
+    // Atalho no canto direito: criar página depois
     let add_after_btn = app_tooltip(
         button(
             container(crate::icons::view_icon(
@@ -230,62 +289,29 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 14,
                 t.text,
             ))
-            .width(18)
-            .height(18)
-            .center_x(18)
-            .center_y(18),
+            .width(Length::Fill)
+            .height(Length::Fill)
+            .center_x(Length::Fill)
+            .center_y(Length::Fill),
         )
         .style(theme::tool)
-        .padding(Padding::from([3.0, 5.0]))
+        .padding(0)
+        .width(Length::Fixed(24.0))
+        .height(Length::Fixed(24.0))
         .on_press(Message::AddPageAfter(app.active_page_index)),
-        "Inserir página depois da atual",
+        "Criar página depois da atual",
         tooltip::Position::Bottom,
     );
-
-    let nav_controls = row![add_before_btn, add_after_btn]
-        .spacing(3)
-        .align_y(Alignment::Center);
 
     let context_banner: Option<Element<'_, Message>> =
         if let Some(target_idx) = app.page_context_menu {
             if target_idx < total_pages {
                 let p_name = &app.pages[target_idx].name;
-                let move_left_btn = button(
-                    row![
-                        crate::icons::view_icon(crate::icons::Icon::ChevronLeft, 12, t.text),
-                        text("Esquerda").size(11).font(UI),
-                    ]
-                    .spacing(3)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(if target_idx > 0 {
-                    Message::MovePage(target_idx, target_idx - 1)
-                } else {
-                    Message::MovePage(target_idx, target_idx)
-                });
 
-                let move_right_btn = button(
-                    row![
-                        text("Direita").size(11).font(UI),
-                        crate::icons::view_icon(crate::icons::Icon::ChevronRight, 12, t.text),
-                    ]
-                    .spacing(3)
-                    .align_y(Alignment::Center),
-                )
-                .style(theme::tool)
-                .padding(Padding::from([2.0, 6.0]))
-                .on_press(if target_idx + 1 < total_pages {
-                    Message::MovePage(target_idx, target_idx + 1)
-                } else {
-                    Message::MovePage(target_idx, target_idx)
-                });
-
-                let rename_btn = button(
+                let edit_name_btn = button(
                     row![
                         crate::icons::view_icon(crate::icons::Icon::Pencil, 12, t.text),
-                        text("Renomear").size(11).font(UI),
+                        text("Editar nome").size(11).font(UI),
                     ]
                     .spacing(4)
                     .align_y(Alignment::Center),
@@ -297,7 +323,7 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 let add_bef = button(
                     row![
                         crate::icons::view_icon(crate::icons::Icon::AddBefore, 12, t.text),
-                        text("Add Antes").size(11).font(UI),
+                        text("Criar página antes").size(11).font(UI),
                     ]
                     .spacing(4)
                     .align_y(Alignment::Center),
@@ -309,7 +335,7 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 let add_aft = button(
                     row![
                         crate::icons::view_icon(crate::icons::Icon::AddAfter, 12, t.text),
-                        text("Add Depois").size(11).font(UI),
+                        text("Criar página depois").size(11).font(UI),
                     ]
                     .spacing(4)
                     .align_y(Alignment::Center),
@@ -321,7 +347,7 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 let del_btn = button(
                     row![
                         crate::icons::view_icon(crate::icons::Icon::Delete, 12, t.danger),
-                        text("Excluir").size(11).font(UI).color(t.danger),
+                        text("Deletar página").size(11).font(UI).color(t.danger),
                     ]
                     .spacing(4)
                     .align_y(Alignment::Center),
@@ -339,27 +365,42 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 .padding(Padding::from([3.0, 6.0]))
                 .on_press(Message::ClosePageContextMenu);
 
-                Some(
-                    container(
+                let mut ctx_row = row![
+                    text(format!("Folha {} ({}):", target_idx + 1, p_name))
+                        .size(11)
+                        .font(UI)
+                        .color(t.text2),
+                    edit_name_btn,
+                ]
+                .spacing(4)
+                .align_y(Alignment::Center);
+
+                if total_pages > 1 {
+                    let edit_num_btn = button(
                         row![
-                            text(format!("Folha {}:", p_name))
-                                .size(11)
-                                .font(UI)
-                                .color(t.text2),
-                            rename_btn,
-                            move_left_btn,
-                            move_right_btn,
-                            add_bef,
-                            add_aft,
-                            del_btn,
-                            close_btn,
+                            crate::icons::view_icon(crate::icons::Icon::Group, 12, t.text),
+                            text("Editar número").size(11).font(UI),
                         ]
                         .spacing(4)
                         .align_y(Alignment::Center),
                     )
-                    .style(theme::card)
-                    .padding(Padding::from([2.0, 8.0]))
-                    .into(),
+                    .style(theme::tool)
+                    .padding(Padding::from([2.0, 6.0]))
+                    .on_press(Message::StartEditingPageNumber(target_idx));
+                    ctx_row = ctx_row.push(edit_num_btn);
+                }
+
+                ctx_row = ctx_row
+                    .push(add_bef)
+                    .push(add_aft)
+                    .push(del_btn)
+                    .push(close_btn);
+
+                Some(
+                    container(ctx_row)
+                        .style(theme::card)
+                        .padding(Padding::from([3.0, 8.0]))
+                        .into(),
                 )
             } else {
                 None
@@ -372,9 +413,14 @@ pub fn view_canvas_pages_bar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         scrollable::Scrollbar::default(),
     ));
 
-    let main_bar = row![pages_scroll, horizontal_space(), nav_controls,]
-        .width(Length::Fill)
-        .align_y(Alignment::Center);
+    let main_bar = row![
+        add_before_btn,
+        container(pages_scroll).width(Length::Fill),
+        add_after_btn,
+    ]
+    .spacing(6)
+    .width(Length::Fill)
+    .align_y(Alignment::Center);
 
     if let Some(ctx) = context_banner {
         column![

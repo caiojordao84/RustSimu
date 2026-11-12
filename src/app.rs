@@ -277,8 +277,14 @@ pub enum Message {
     StartEditingPageName(usize),
     UpdateEditingPageName(String),
     CommitEditingPageName,
+    StartEditingPageNumber(usize),
+    UpdateEditingPageNumber(String),
+    CommitEditingPageNumber,
     TogglePageContextMenu(usize),
     ClosePageContextMenu,
+    SaveAndCloseLastPage,
+    ConfirmCloseLastPage,
+    CancelCloseLastPage,
     ToggleMenu(Option<ActiveMenu>),
     CloseMenu,
     Undo,
@@ -397,6 +403,8 @@ pub enum Message {
     OpenSettingsModal,
     CloseSettingsModal,
     SetThemeMode(ThemeMode),
+    RefreshSystemTheme,
+    SystemThemeDetected(bool),
     OpenShortcutsModal,
     CloseShortcutsModal,
     ToggleFocusCanvas,
@@ -420,7 +428,12 @@ pub struct CadeSimuApp {
     pub active_page_index: usize,
     pub is_modified: bool,
     pub editing_page_name: Option<String>,
+    pub editing_page_target: Option<usize>,
+    pub editing_page_number: Option<(usize, String)>,
+    pub last_page_tab_click: Option<(usize, std::time::Instant)>,
     pub page_context_menu: Option<usize>,
+    pub show_close_last_page_modal: bool,
+    pub pending_close_after_save: bool,
     pub qet_project: Option<crate::qet::QetProject>,
     pub active_category: SymbolCategory,
     pub tool: EditorTool,
@@ -610,7 +623,12 @@ impl CadeSimuApp {
                 active_page_index: 0,
                 is_modified: false,
                 editing_page_name: None,
+                editing_page_target: None,
+                editing_page_number: None,
+                last_page_tab_click: None,
                 page_context_menu: None,
+                show_close_last_page_modal: false,
+                pending_close_after_save: false,
                 qet_project: None,
                 active_category: SymbolCategory::BreakersRelays,
                 tool: EditorTool::Select,
@@ -747,6 +765,60 @@ impl CadeSimuApp {
             crate::theme::AppTheme::Dark => true,
             crate::theme::AppTheme::Light => false,
         }
+    }
+
+    /// Reorganiza os IDs sequenciais das folhas (1..=N) mantendo consistência visual e estrutural.
+    pub fn renumber_pages(&mut self) {
+        for (idx, page) in self.pages.iter_mut().enumerate() {
+            page.id = idx + 1;
+        }
+    }
+
+    /// Reordena uma folha de `from_idx` para `to_idx`, preservando a folha ativa e a numeração sequencial.
+    fn move_page(&mut self, from_idx: usize, to_idx: usize) -> bool {
+        if from_idx >= self.pages.len() || to_idx >= self.pages.len() || from_idx == to_idx {
+            return false;
+        }
+        self.pages[self.active_page_index].doc = self.doc.clone();
+        let moved = self.pages.remove(from_idx);
+        self.pages.insert(to_idx, moved);
+        if self.active_page_index == from_idx {
+            self.active_page_index = to_idx;
+        } else if from_idx < self.active_page_index && to_idx >= self.active_page_index {
+            self.active_page_index -= 1;
+        } else if from_idx > self.active_page_index && to_idx <= self.active_page_index {
+            self.active_page_index += 1;
+        }
+        self.doc = self.pages[self.active_page_index].doc.clone();
+        self.renumber_pages();
+        self.is_modified = true;
+        true
+    }
+
+    /// Reinicia a área de trabalho para uma única folha limpa sem arquivo vinculado.
+    fn reset_to_blank_workspace(&mut self, status_msg: String) {
+        self.sim_running = false;
+        self.doc = SchematicDocument::default();
+        self.pages = vec![crate::model::ProjectPage::new(
+            1,
+            "Folha 1",
+            SchematicDocument::default(),
+        )];
+        self.active_page_index = 0;
+        self.current_file = None;
+        self.file_path.clear();
+        self.qet_project = None;
+        self.selected_id = None;
+        self.selected_ids.clear();
+        self.is_modified = false;
+        self.editing_page_name = None;
+        self.editing_page_target = None;
+        self.editing_page_number = None;
+        self.last_page_tab_click = None;
+        self.page_context_menu = None;
+        self.show_close_last_page_modal = false;
+        self.pending_close_after_save = false;
+        self.status_msg = status_msg;
     }
 
     /// Seleciona um único elemento exclusivamente. Se pertencer a um grupo,
@@ -922,6 +994,11 @@ impl CadeSimuApp {
         if self.sim_running {
             subs.push(iced::time::every(Duration::from_millis(80)).map(|_| Message::SimTick));
         }
+        if self.theme_mode == ThemeMode::System {
+            subs.push(
+                iced::time::every(Duration::from_secs(4)).map(|_| Message::RefreshSystemTheme),
+            );
+        }
         if self.layout.drag.is_some() {
             subs.push(iced::event::listen_with(
                 |event, _status, _window| match event {
@@ -1025,6 +1102,8 @@ impl CadeSimuApp {
             Message::ToggleMenu(_)
                 | Message::CloseMenu
                 | Message::SimTick
+                | Message::RefreshSystemTheme
+                | Message::SystemThemeDetected(_)
                 | Message::ModifiersChanged(_)
                 | Message::Canvas(CanvasMessage::CursorMoved(_, _))
         ) {
@@ -1129,8 +1208,14 @@ impl CadeSimuApp {
             | Message::StartEditingPageName(_)
             | Message::UpdateEditingPageName(_)
             | Message::CommitEditingPageName
+            | Message::StartEditingPageNumber(_)
+            | Message::UpdateEditingPageNumber(_)
+            | Message::CommitEditingPageNumber
             | Message::TogglePageContextMenu(_)
             | Message::ClosePageContextMenu
+            | Message::SaveAndCloseLastPage
+            | Message::ConfirmCloseLastPage
+            | Message::CancelCloseLastPage
             | Message::PrevFolio
             | Message::NextFolio
             | Message::SelectFolio(_)
@@ -1230,6 +1315,8 @@ impl CadeSimuApp {
             | Message::SetSheetBgPreset(_)
             | Message::CycleTheme
             | Message::SetThemeMode(_)
+            | Message::RefreshSystemTheme
+            | Message::SystemThemeDetected(_)
             | Message::LayoutMsg(_)
             | Message::ToggleLeftDockCollapse
             | Message::ToggleRightDockCollapse
@@ -1253,21 +1340,7 @@ impl CadeSimuApp {
     fn update_file(&mut self, message: Message) -> iced::Task<Message> {
         match message {
             Message::NewDocument => {
-                self.sim_running = false;
-                self.doc = SchematicDocument::default();
-                self.pages = vec![crate::model::ProjectPage::new(
-                    1,
-                    "Folha 1",
-                    SchematicDocument::default(),
-                )];
-                self.active_page_index = 0;
-                self.current_file = None;
-                self.qet_project = None;
-                self.selected_id = None;
-                self.is_modified = false;
-                self.editing_page_name = None;
-                self.page_context_menu = None;
-                self.status_msg = "Novo diagrama em branco criado.".to_string();
+                self.reset_to_blank_workspace("Novo diagrama em branco criado.".to_string());
             }
             Message::LoadPresetDol => {
                 self.sim_running = false;
@@ -1279,11 +1352,17 @@ impl CadeSimuApp {
                 )];
                 self.active_page_index = 0;
                 self.current_file = None;
+                self.file_path = "Partida Direta Trifásica".to_string();
                 self.qet_project = None;
                 self.selected_id = None;
+                self.selected_ids.clear();
                 self.is_modified = false;
                 self.editing_page_name = None;
+                self.editing_page_target = None;
+                self.editing_page_number = None;
                 self.page_context_menu = None;
+                self.show_close_last_page_modal = false;
+                self.pending_close_after_save = false;
                 self.status_msg =
                     "Circuito de Partida Direta Trifásica com Selo recarregado.".to_string();
             }
@@ -1700,6 +1779,7 @@ impl CadeSimuApp {
             }
             Message::FileSaved(maybe_path) => {
                 let Some(mut path) = maybe_path else {
+                    self.pending_close_after_save = false;
                     self.status_msg = "Salvamento cancelado.".to_string();
                     return iced::Task::none();
                 };
@@ -1720,13 +1800,21 @@ impl CadeSimuApp {
                     Ok(()) => {
                         self.is_modified = false;
                         self.push_recent_file(&path);
-                        self.status_msg = format!(
-                            "Projeto salvo com sucesso em '{}' ({}).",
-                            path.display(),
-                            self.save_format
-                        );
+                        if std::mem::take(&mut self.pending_close_after_save) {
+                            self.reset_to_blank_workspace(format!(
+                                "Projeto salvo em '{}' e fechado.",
+                                path.display()
+                            ));
+                        } else {
+                            self.status_msg = format!(
+                                "Projeto salvo com sucesso em '{}' ({}).",
+                                path.display(),
+                                self.save_format
+                            );
+                        }
                     }
                     Err(err) => {
+                        self.pending_close_after_save = false;
                         self.status_msg = format!("Erro ao salvar '{}': {err}", path.display());
                     }
                 }
@@ -1836,21 +1924,7 @@ impl CadeSimuApp {
                 }
             }
             Message::CloseDocument => {
-                self.sim_running = false;
-                self.doc = SchematicDocument::default();
-                self.pages = vec![crate::model::ProjectPage::new(
-                    1,
-                    "Folha 1",
-                    SchematicDocument::default(),
-                )];
-                self.active_page_index = 0;
-                self.current_file = None;
-                self.qet_project = None;
-                self.selected_id = None;
-                self.is_modified = false;
-                self.editing_page_name = None;
-                self.page_context_menu = None;
-                self.status_msg = "Esquema fechado.".to_string();
+                self.reset_to_blank_workspace("Esquema fechado.".to_string());
             }
             Message::SaveAll => {
                 self.sync_active_page();
@@ -2084,6 +2158,19 @@ impl CadeSimuApp {
                 }
             }
             Message::CancelAction => {
+                if self.show_close_last_page_modal {
+                    self.show_close_last_page_modal = false;
+                    self.pending_close_after_save = false;
+                    self.status_msg = "Exclusão da última folha cancelada.".to_string();
+                    return iced::Task::none();
+                }
+                if self.editing_page_name.is_some() || self.editing_page_number.is_some() {
+                    self.editing_page_name = None;
+                    self.editing_page_target = None;
+                    self.editing_page_number = None;
+                    self.status_msg = "Edição da aba cancelada.".to_string();
+                    return iced::Task::none();
+                }
                 if self.show_confirm_delete_modal {
                     self.show_confirm_delete_modal = false;
                     self.project_to_delete = None;
@@ -3131,15 +3218,43 @@ impl CadeSimuApp {
                 }
             }
             Message::SelectPage(idx) => {
-                if idx < self.pages.len() && idx != self.active_page_index {
-                    self.pages[self.active_page_index].doc = self.doc.clone();
-                    self.active_page_index = idx;
-                    self.doc = self.pages[idx].doc.clone();
-                    self.selected_id = None;
-                    self.sim_running = false;
-                    self.editing_page_name = None;
-                    self.page_context_menu = None;
-                    self.status_msg = format!("Folha {} ativa: {}", idx + 1, self.pages[idx].name);
+                if idx < self.pages.len() {
+                    let now = std::time::Instant::now();
+                    let is_double_click =
+                        self.last_page_tab_click
+                            .is_some_and(|(last_idx, last_time)| {
+                                last_idx == idx
+                                    && now.duration_since(last_time)
+                                        < std::time::Duration::from_millis(400)
+                            });
+                    self.last_page_tab_click = Some((idx, now));
+
+                    if idx != self.active_page_index {
+                        self.pages[self.active_page_index].doc = self.doc.clone();
+                        self.active_page_index = idx;
+                        self.doc = self.pages[idx].doc.clone();
+                        self.deselect_all();
+                        self.sim_running = false;
+                        self.editing_page_name = None;
+                        self.editing_page_target = None;
+                        self.editing_page_number = None;
+                        self.page_context_menu = None;
+                        self.status_msg =
+                            format!("Folha {} ativa: {}", idx + 1, self.pages[idx].name);
+                    }
+
+                    if is_double_click {
+                        self.editing_page_target = Some(idx);
+                        self.editing_page_name = Some(self.pages[idx].name.clone());
+                        self.editing_page_number = None;
+                        self.page_context_menu = None;
+                        self.last_page_tab_click = None;
+                        self.status_msg = format!(
+                            "Editando nome da folha {}: '{}'.",
+                            idx + 1,
+                            self.pages[idx].name
+                        );
+                    }
                 }
             }
             Message::AddPageBefore(idx) => {
@@ -3154,9 +3269,13 @@ impl CadeSimuApp {
                 self.pages.insert(insert_idx, new_page);
                 self.active_page_index = insert_idx;
                 self.doc = self.pages[insert_idx].doc.clone();
-                self.selected_id = None;
+                self.renumber_pages();
+                self.deselect_all();
                 self.sim_running = false;
                 self.is_modified = true;
+                self.editing_page_name = None;
+                self.editing_page_target = None;
+                self.editing_page_number = None;
                 self.page_context_menu = None;
                 self.status_msg =
                     format!("Nova folha inserida antes da posição {}.", insert_idx + 1);
@@ -3178,9 +3297,13 @@ impl CadeSimuApp {
                 self.pages.insert(insert_idx, new_page);
                 self.active_page_index = insert_idx;
                 self.doc = self.pages[insert_idx].doc.clone();
-                self.selected_id = None;
+                self.renumber_pages();
+                self.deselect_all();
                 self.sim_running = false;
                 self.is_modified = true;
+                self.editing_page_name = None;
+                self.editing_page_target = None;
+                self.editing_page_number = None;
                 self.page_context_menu = None;
                 self.status_msg = format!("Nova folha inserida na posição {}.", insert_idx + 1);
             }
@@ -3191,41 +3314,83 @@ impl CadeSimuApp {
                     raw_idx
                 };
                 if self.pages.len() <= 1 {
-                    self.doc = SchematicDocument::default();
-                    self.pages[0] =
-                        crate::model::ProjectPage::new(1, "Folha 1", SchematicDocument::default());
-                    self.active_page_index = 0;
-                    self.is_modified = true;
                     self.page_context_menu = None;
-                    self.status_msg = "Última folha limpa.".to_string();
+                    self.editing_page_name = None;
+                    self.editing_page_target = None;
+                    self.editing_page_number = None;
+                    self.show_close_last_page_modal = true;
+                    self.status_msg =
+                        "Aviso: excluir a única folha fechará o projeto atual.".to_string();
                 } else if idx < self.pages.len() {
                     self.pages.remove(idx);
                     if self.active_page_index >= self.pages.len() {
                         self.active_page_index = self.pages.len() - 1;
+                    } else if idx < self.active_page_index {
+                        self.active_page_index -= 1;
                     }
                     self.doc = self.pages[self.active_page_index].doc.clone();
-                    self.selected_id = None;
+                    self.renumber_pages();
+                    self.deselect_all();
                     self.sim_running = false;
                     self.is_modified = true;
+                    self.editing_page_name = None;
+                    self.editing_page_target = None;
+                    self.editing_page_number = None;
                     self.page_context_menu = None;
                     self.status_msg = format!("Folha {} excluída.", idx + 1);
                 }
             }
+            Message::SaveAndCloseLastPage => {
+                self.show_close_last_page_modal = false;
+                self.sync_active_page();
+                if let Some(path) = self.current_file.clone() {
+                    let ext = path
+                        .extension()
+                        .and_then(|e| e.to_str())
+                        .map(|s| s.to_ascii_lowercase())
+                        .unwrap_or_default();
+                    if ext == "json" || ext == "toml" || ext == "qet" {
+                        match self.write_project_to_path(&path) {
+                            Ok(()) => {
+                                self.push_recent_file(&path);
+                                self.reset_to_blank_workspace(format!(
+                                    "Projeto salvo em '{}' e fechado.",
+                                    path.display()
+                                ));
+                            }
+                            Err(err) => {
+                                self.status_msg =
+                                    format!("Erro ao salvar '{}': {err}", path.display());
+                            }
+                        }
+                        return iced::Task::none();
+                    }
+                }
+                self.pending_close_after_save = true;
+                return self.update_file(Message::SaveFileDialog);
+            }
+            Message::ConfirmCloseLastPage => {
+                self.reset_to_blank_workspace(
+                    "Projeto fechado após excluir última folha.".to_string(),
+                );
+            }
+            Message::CancelCloseLastPage => {
+                self.show_close_last_page_modal = false;
+                self.pending_close_after_save = false;
+                self.status_msg = "Exclusão da última folha cancelada.".to_string();
+            }
             Message::MovePage(from_idx, to_idx) => {
-                if from_idx < self.pages.len() && to_idx < self.pages.len() && from_idx != to_idx {
-                    self.pages[self.active_page_index].doc = self.doc.clone();
-                    let page = self.pages.remove(from_idx);
-                    self.pages.insert(to_idx, page);
-                    self.active_page_index = to_idx;
-                    self.doc = self.pages[to_idx].doc.clone();
-                    self.is_modified = true;
+                if self.move_page(from_idx, to_idx) {
+                    self.editing_page_number = None;
                     self.page_context_menu = None;
                     self.status_msg = format!("Folha movida para a posição {}.", to_idx + 1);
                 }
             }
             Message::StartEditingPageName(idx) => {
                 if idx < self.pages.len() {
+                    self.editing_page_target = Some(idx);
                     self.editing_page_name = Some(self.pages[idx].name.clone());
+                    self.editing_page_number = None;
                     self.page_context_menu = None;
                 }
             }
@@ -3233,11 +3398,54 @@ impl CadeSimuApp {
                 self.editing_page_name = Some(new_name);
             }
             Message::CommitEditingPageName => {
+                let target_idx = self
+                    .editing_page_target
+                    .take()
+                    .unwrap_or(self.active_page_index);
                 if let Some(new_name) = self.editing_page_name.take() {
                     let trimmed = new_name.trim();
-                    if !trimmed.is_empty() && self.active_page_index < self.pages.len() {
-                        self.pages[self.active_page_index].name = trimmed.to_string();
+                    if !trimmed.is_empty() && target_idx < self.pages.len() {
+                        self.pages[target_idx].name = trimmed.to_string();
                         self.is_modified = true;
+                        self.status_msg =
+                            format!("Folha {} renomeada para '{}'.", target_idx + 1, trimmed);
+                    }
+                }
+            }
+            Message::StartEditingPageNumber(idx) => {
+                if self.pages.len() > 1 && idx < self.pages.len() {
+                    self.editing_page_number = Some((idx, (idx + 1).to_string()));
+                    self.editing_page_name = None;
+                    self.editing_page_target = None;
+                    self.page_context_menu = None;
+                    self.status_msg = format!(
+                        "Informe o novo número (1..={}) para a folha '{}'.",
+                        self.pages.len(),
+                        self.pages[idx].name
+                    );
+                }
+            }
+            Message::UpdateEditingPageNumber(val) => {
+                if let Some((idx, _)) = self.editing_page_number {
+                    let filtered: String = val.chars().filter(|c| c.is_ascii_digit()).collect();
+                    self.editing_page_number = Some((idx, filtered));
+                }
+            }
+            Message::CommitEditingPageNumber => {
+                if let Some((from_idx, raw)) = self.editing_page_number.take() {
+                    if self.pages.len() > 1 && from_idx < self.pages.len() {
+                        if let Ok(parsed) = raw.trim().parse::<usize>() {
+                            let target_num = parsed.clamp(1, self.pages.len());
+                            let to_idx = target_num - 1;
+                            if self.move_page(from_idx, to_idx) {
+                                self.status_msg = format!(
+                                    "Número da folha atualizado para posição {}.",
+                                    to_idx + 1
+                                );
+                            }
+                        } else {
+                            self.status_msg = "Número de página inválido.".to_string();
+                        }
                     }
                 }
             }
@@ -4563,14 +4771,40 @@ impl CadeSimuApp {
             },
             Message::CycleTheme => {
                 self.theme_mode = self.theme_mode.next();
+                if self.theme_mode == ThemeMode::System {
+                    self.system_is_dark = crate::theme::detect_system_dark();
+                }
             }
             Message::SetThemeMode(mode) => {
                 self.theme_mode = mode;
+                if mode == ThemeMode::System {
+                    self.system_is_dark = crate::theme::detect_system_dark();
+                }
                 self.status_msg = match mode {
                     ThemeMode::System => "Tema da interface: Automático (Sistema).".to_string(),
                     ThemeMode::Light => "Tema da interface: Claro.".to_string(),
                     ThemeMode::Dark => "Tema da interface: Escuro.".to_string(),
                 };
+            }
+            Message::RefreshSystemTheme => {
+                if self.theme_mode == ThemeMode::System {
+                    return iced::Task::perform(
+                        async { crate::theme::detect_system_dark() },
+                        Message::SystemThemeDetected,
+                    );
+                }
+            }
+            Message::SystemThemeDetected(is_dark) => {
+                if self.system_is_dark != is_dark {
+                    self.system_is_dark = is_dark;
+                    if self.theme_mode == ThemeMode::System {
+                        self.status_msg = if is_dark {
+                            "Tema do sistema alterado para Escuro.".to_string()
+                        } else {
+                            "Tema do sistema alterado para Claro.".to_string()
+                        };
+                    }
+                }
             }
             Message::LayoutMsg(msg) => {
                 self.layout.update(msg);
@@ -4888,6 +5122,11 @@ impl CadeSimuApp {
         // Modal de Confirmação de Exclusão de Projeto Recente
         if self.show_confirm_delete_modal {
             layers.push(crate::ui::view_confirm_delete_project_modal(self));
+        }
+
+        // Modal de Aviso de Fechamento ao Excluir a Última Folha
+        if self.show_close_last_page_modal {
+            layers.push(crate::ui::view_close_last_page_modal(self));
         }
 
         Stack::with_children(layers)
