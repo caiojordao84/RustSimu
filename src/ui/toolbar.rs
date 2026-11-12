@@ -242,6 +242,26 @@ pub fn view_toolbar<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 "Campo de Texto (Caixa)"
             ),
             tool_btn(
+                EditorTool::DrawGraphicLine,
+                crate::icons::Icon::DrawLine,
+                "Linha Auxiliar (L)"
+            ),
+            tool_btn(
+                EditorTool::DrawGraphicRect,
+                crate::icons::Icon::DrawRect,
+                "Retângulo / Moldura (B)"
+            ),
+            tool_btn(
+                EditorTool::DrawGraphicCircle,
+                crate::icons::Icon::DrawCircle,
+                "Círculo / Elipse (O)"
+            ),
+            tool_btn(
+                EditorTool::DrawGraphicArc,
+                crate::icons::Icon::DrawArc,
+                "Arco Vetorial"
+            ),
+            tool_btn(
                 EditorTool::Delete,
                 crate::icons::Icon::DeleteWire,
                 "Apagar Conexão"

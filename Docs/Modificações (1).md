@@ -30,11 +30,11 @@ Especificações de Modificações e Interface
 - **Adicionar** [CONCLUÍDO]  
   - Adicionar Texto em Linha (Toolbar + atalho `T`, editor completo imediato ao inserir e duplo clique para editar, tamanho, negrito, rotação e cor) [CONCLUÍDO]  
   - Adicionar Campo de Texto (Toolbar + caixa multilinha em moldura, redimensionável ao conteúdo e fiel ao padrão `.cad`/`SVG`/`DXF`/`QET`) [CONCLUÍDO]  
-  - Adicionar Imagem [CONCLUÍDO]  
-  - Adicionar Linha [CONCLUÍDO]  
-  - Adicionar Retângulo [CONCLUÍDO]  
-  - Adicionar Círculo [CONCLUÍDO]  
-  - Adicionar Arco [CONCLUÍDO]  
+  - Adicionar Imagem [CONCLUÍDO] (com alças de redimensionamento `P1`/`P2` no Canvas)  
+  - Adicionar Linha (Toolbar + atalho `L`, desenho contínuo com `Shift` H/V/45°, alças `P1`/`P2`, estilo contínuo/tracejado/pontilhado/traço-ponto, espessura e exportação Canvas/SVG/DXF/PDF) [CONCLUÍDO]  
+  - Adicionar Retângulo (Toolbar + atalho `B`, desenho contínuo com `Shift` 1:1, alças `P1`/`P2`, cantos retos ou arredondados `subvariant == 1`, preenchimento translúcido e estilos de traço) [CONCLUÍDO]  
+  - Adicionar Círculo (Toolbar + atalho `O`, círculo/elipse contínuo com `Shift` 1:1, alças `P1`/`P2`, preenchimento translúcido, estilos de traço e DXF `CIRCLE`/elipse) [CONCLUÍDO]  
+  - Adicionar Arco (Toolbar, desenho contínuo com `Shift` 1:1, alças `P1`/`P2`, presets de varredura `90°`/`180°`/`270°`, inversão/rotação `90°`, estilos de traço e SVG/DXF `ARC`) [CONCLUÍDO]  
   - *(Outros itens serão adicionados no futuro)*  
 - **Seleção**  
   - Selecionar Tudo	Ctrl \+ A [CONCLUÍDO]  

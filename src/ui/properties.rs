@@ -464,42 +464,193 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                 } else {
                                     (item.aux_coords[0], item.aux_coords[1])
                                 };
+                            let arc_preset = |label: &'static str, preset: i32| {
+                                button(text(label).size(10.5).font(MONO))
+                                    .style(if sweep_deg == preset {
+                                        theme::tool_active
+                                    } else {
+                                        theme::tool
+                                    })
+                                    .padding(Padding::from([3.0, 6.0]))
+                                    .on_press(Message::SetItemArcSweepPreset(preset))
+                            };
                             body_col = body_col.push(
-                                row![
-                                    column![
-                                        text("Ângulo Inicial (graus):").size(11).color(t.text2),
-                                        text_input("0", &start_deg.to_string())
-                                            .on_input(Message::EditItemArcStart)
-                                            .padding(Padding::from([5.0, 8.0]))
-                                            .size(12)
-                                            .style(theme::field),
+                                column![
+                                    row![
+                                        column![
+                                            text("Ângulo Inicial (graus):").size(11).color(t.text2),
+                                            text_input("0", &start_deg.to_string())
+                                                .on_input(Message::EditItemArcStart)
+                                                .padding(Padding::from([5.0, 8.0]))
+                                                .size(12)
+                                                .style(theme::field),
+                                        ]
+                                        .spacing(4)
+                                        .width(Length::Fill),
+                                        column![
+                                            text("Varredura (graus):").size(11).color(t.text2),
+                                            text_input("180", &sweep_deg.to_string())
+                                                .on_input(Message::EditItemArcSweep)
+                                                .padding(Padding::from([5.0, 8.0]))
+                                                .size(12)
+                                                .style(theme::field),
+                                        ]
+                                        .spacing(4)
+                                        .width(Length::Fill),
+                                    ]
+                                    .spacing(6),
+                                    row![
+                                        arc_preset("90°", 90),
+                                        arc_preset("180°", 180),
+                                        arc_preset("270°", 270),
+                                        button(text("Inverter").size(10.5).font(UI))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::SetItemArcSweepPreset(-sweep_deg)),
+                                        button(text("+90°").size(10.5).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 6.0]))
+                                            .on_press(Message::RotateClockwise),
                                     ]
                                     .spacing(4)
-                                    .width(Length::Fill),
-                                    column![
-                                        text("Varredura (graus):").size(11).color(t.text2),
-                                        text_input("180", &sweep_deg.to_string())
-                                            .on_input(Message::EditItemArcSweep)
-                                            .padding(Padding::from([5.0, 8.0]))
-                                            .size(12)
-                                            .style(theme::field),
-                                    ]
-                                    .spacing(4)
-                                    .width(Length::Fill),
+                                    .align_y(Alignment::Center),
                                 ]
                                 .spacing(6),
                             );
                         }
 
+                        if matches!(item.tipo, 1..=4) {
+                            let cur_style = item.graphic_line_style();
+                            let cur_width = item.graphic_stroke_width();
+                            let style_btn = |st: crate::model::GraphicLineStyle| {
+                                button(text(st.label()).size(10.5).font(UI))
+                                    .style(if cur_style == st {
+                                        theme::tool_active
+                                    } else {
+                                        theme::tool
+                                    })
+                                    .padding(Padding::from([4.0, 6.0]))
+                                    .on_press(Message::SetItemGraphicLineStyle(st))
+                            };
+                            let width_btn = |label: &'static str, w: f32| {
+                                button(text(label).size(10.5).font(MONO))
+                                    .style(if (cur_width - w).abs() < 0.15 {
+                                        theme::tool_active
+                                    } else {
+                                        theme::tool
+                                    })
+                                    .padding(Padding::from([3.0, 6.0]))
+                                    .on_press(Message::SetItemGraphicStrokeWidth(w))
+                            };
+                            body_col = body_col.push(
+                                column![
+                                    text("Estilo do Traço:").size(11).color(t.text2),
+                                    row![
+                                        style_btn(crate::model::GraphicLineStyle::Solid),
+                                        style_btn(crate::model::GraphicLineStyle::Dash),
+                                    ]
+                                    .spacing(4),
+                                    row![
+                                        style_btn(crate::model::GraphicLineStyle::Dot),
+                                        style_btn(crate::model::GraphicLineStyle::DashDot),
+                                    ]
+                                    .spacing(4),
+                                    row![
+                                        text("Espessura:").size(11).color(t.text2),
+                                        horizontal_space(),
+                                        text(format!("{cur_width:.1} px"))
+                                            .size(11)
+                                            .font(MONO)
+                                            .color(t.text),
+                                    ]
+                                    .align_y(Alignment::Center),
+                                    row![
+                                        width_btn("1.0", 1.0),
+                                        width_btn("1.5", 1.5),
+                                        width_btn("2.0", 2.0),
+                                        width_btn("3.0", 3.0),
+                                        button(text("-").size(11).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::AdjustItemGraphicStrokeWidth(-0.5)),
+                                        button(text("+").size(11).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::AdjustItemGraphicStrokeWidth(0.5)),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center),
+                                ]
+                                .spacing(5),
+                            );
+                        }
+
+                        if matches!(item.tipo, 2 | 3) {
+                            let is_filled = item.graphic_has_fill();
+                            let mut opts_row = row![button(
+                                text(if is_filled {
+                                    "Preenchimento: Sim"
+                                } else {
+                                    "Sem Preenchimento"
+                                })
+                                .size(10.5)
+                                .font(UI),
+                            )
+                            .style(if is_filled {
+                                theme::tool_active
+                            } else {
+                                theme::tool
+                            })
+                            .padding(Padding::from([4.0, 8.0]))
+                            .on_press(Message::ToggleItemGraphicFill)]
+                            .spacing(4)
+                            .align_y(Alignment::Center);
+                            if item.tipo == 2 {
+                                let is_round = item.graphic_rounded_corners();
+                                opts_row = opts_row.push(
+                                    button(
+                                        text(if is_round {
+                                            "Arredondado"
+                                        } else {
+                                            "Canto Reto"
+                                        })
+                                        .size(10.5)
+                                        .font(UI),
+                                    )
+                                    .style(if is_round {
+                                        theme::tool_active
+                                    } else {
+                                        theme::tool
+                                    })
+                                    .padding(Padding::from([4.0, 8.0]))
+                                    .on_press(Message::ToggleItemRectRounded),
+                                );
+                            }
+                            body_col = body_col.push(opts_row);
+                        }
+
+                        let dim_summary = if item.tipo == 1 {
+                            let len =
+                                ((item.x2 - item.x1) as f32).hypot((item.y2 - item.y1) as f32);
+                            format!(
+                                "P1({},{}) -> P2({},{}) | L={len:.1}",
+                                item.x1, item.y1, item.x2, item.y2
+                            )
+                        } else {
+                            format!(
+                                "({},{}) -> ({},{}) | {}x{}",
+                                item.x1,
+                                item.y1,
+                                item.x2,
+                                item.y2,
+                                (item.x2 - item.x1).abs(),
+                                (item.y2 - item.y1).abs()
+                            )
+                        };
+
                         body_col = body_col.push(
                             column![
-                                text(format!(
-                                    "Geometria: ({}, {}) -> ({}, {})",
-                                    item.x1, item.y1, item.x2, item.y2
-                                ))
-                                .size(11)
-                                .font(MONO)
-                                .color(t.text2),
+                                text(dim_summary).size(11).font(MONO).color(t.text2),
                                 button(
                                     row![
                                         crate::icons::view_icon(

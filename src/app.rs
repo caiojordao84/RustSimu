@@ -7,7 +7,7 @@ use iced::{Element, Length, Subscription, Theme, Vector};
 use crate::canvas_view::{CanvasMessage, EditorTool};
 use crate::io::{build_dol_starter_preset, load_document, save_document};
 use crate::layout::{Kind, Layout, Msg as LayoutMsg};
-use crate::model::{SchematicDocument, SchematicItem};
+use crate::model::{GraphicLineStyle, SchematicDocument, SchematicItem};
 use crate::sim::{press_component_on_sim, release_component_on_sim, step_simulation};
 use crate::symbols::{
     classify_apparatus_role, detect_contact_kind, extract_tag_prefix,
@@ -424,6 +424,12 @@ pub enum Message {
     AdjustItemTextSize(f32),
     ToggleItemTextBold,
     SetItemTextOrientation(i32),
+    SetItemGraphicLineStyle(GraphicLineStyle),
+    SetItemGraphicStrokeWidth(f32),
+    AdjustItemGraphicStrokeWidth(f32),
+    ToggleItemGraphicFill,
+    ToggleItemRectRounded,
+    SetItemArcSweepPreset(i32),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -852,6 +858,21 @@ impl CadeSimuApp {
         self.show_text_editor_modal = false;
         self.text_editor_item_id = None;
         self.text_editor_is_new = false;
+    }
+
+    fn mutate_selected_graphic(&mut self, mut f: impl FnMut(&mut SchematicItem)) {
+        if let Some(id) = self.selected_id {
+            self.push_undo();
+            if let Some(item) = self
+                .doc
+                .items
+                .iter_mut()
+                .find(|i| i.id == id && i.is_graphic())
+            {
+                f(item);
+                self.is_modified = true;
+            }
+        }
     }
 
     /// Conclui a transação de arraste de um componente ou fio no Canvas.
@@ -1355,7 +1376,13 @@ impl CadeSimuApp {
             | Message::SetItemTextSize(_)
             | Message::AdjustItemTextSize(_)
             | Message::ToggleItemTextBold
-            | Message::SetItemTextOrientation(_) => self.update_properties(message),
+            | Message::SetItemTextOrientation(_)
+            | Message::SetItemGraphicLineStyle(_)
+            | Message::SetItemGraphicStrokeWidth(_)
+            | Message::AdjustItemGraphicStrokeWidth(_)
+            | Message::ToggleItemGraphicFill
+            | Message::ToggleItemRectRounded
+            | Message::SetItemArcSweepPreset(_) => self.update_properties(message),
 
             Message::ToggleSimulation | Message::StopSimulation | Message::SimTick => {
                 self.update_simulation(message)
@@ -2530,7 +2557,11 @@ impl CadeSimuApp {
                     let id = target_ids[0];
                     self.push_undo();
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
-                        item.orientation = (item.orientation + 1) % 8;
+                        if matches!(item.tipo, 1..=4) {
+                            item.rotate_graphic_90_cw();
+                        } else {
+                            item.orientation = (item.orientation + 1) % 8;
+                        }
                         self.is_modified = true;
                         self.status_msg = format!(
                             "Elemento #{} girado para orientação {}.",
@@ -2604,7 +2635,13 @@ impl CadeSimuApp {
                     let id = target_ids[0];
                     self.push_undo();
                     if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
-                        item.orientation = (item.orientation + 7) % 8;
+                        if matches!(item.tipo, 1..=4) {
+                            for _ in 0..3 {
+                                item.rotate_graphic_90_cw();
+                            }
+                        } else {
+                            item.orientation = (item.orientation + 7) % 8;
+                        }
                         self.is_modified = true;
                         self.status_msg = format!(
                             "Elemento #{} girado anti-horário para orientação {}.",
@@ -4365,6 +4402,38 @@ impl CadeSimuApp {
                     }
                 }
             }
+            Message::SetItemGraphicLineStyle(style) => {
+                self.mutate_selected_graphic(|item| item.set_graphic_line_style(style));
+            }
+            Message::SetItemGraphicStrokeWidth(w) => {
+                self.mutate_selected_graphic(|item| item.set_graphic_stroke_width(w));
+            }
+            Message::AdjustItemGraphicStrokeWidth(delta) => {
+                self.mutate_selected_graphic(|item| {
+                    let next_w = item.graphic_stroke_width() + delta;
+                    item.set_graphic_stroke_width(next_w);
+                });
+            }
+            Message::ToggleItemGraphicFill => {
+                self.mutate_selected_graphic(|item| {
+                    let next = !item.graphic_has_fill();
+                    item.set_graphic_fill(next);
+                });
+            }
+            Message::ToggleItemRectRounded => {
+                self.mutate_selected_graphic(|item| {
+                    if item.tipo == 2 {
+                        item.subvariant = if item.subvariant == 1 { 0 } else { 1 };
+                    }
+                });
+            }
+            Message::SetItemArcSweepPreset(deg) => {
+                self.mutate_selected_graphic(|item| {
+                    if item.tipo == 4 {
+                        item.aux_coords[1] = deg.clamp(-360, 360);
+                    }
+                });
+            }
             _ => {}
         }
         iced::Task::none()
@@ -4825,8 +4894,8 @@ impl CadeSimuApp {
                     }
                     self.doc.items.push(item);
                     self.select_single(Some(new_id));
-                    self.tool = EditorTool::Select;
                     if tipo == 8 {
+                        self.tool = EditorTool::Select;
                         self.prop_tab = 0;
                         self.open_text_editor_modal(new_id, true);
                     }
@@ -4847,6 +4916,38 @@ impl CadeSimuApp {
                     self.prop_tab = 0;
                     self.open_text_editor_modal(id, false);
                     self.status_msg = format!("Editando texto #{id}.");
+                }
+                CanvasMessage::ResizeGraphicHandle { id, handle, x, y } => {
+                    if self.drag_undo_snapshot.is_none() {
+                        self.drag_undo_snapshot = Some(self.doc.clone());
+                    }
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        if handle == 0 {
+                            item.x1 = x;
+                            item.y1 = y;
+                        } else {
+                            item.x2 = x;
+                            item.y2 = y;
+                        }
+                        self.is_modified = true;
+                        if item.tipo == 1 {
+                            let len =
+                                ((item.x2 - item.x1) as f32).hypot((item.y2 - item.y1) as f32);
+                            self.status_msg = format!(
+                                "Linha #{id}: ({}, {}) -> ({}, {}) | L={len:.1}",
+                                item.x1, item.y1, item.x2, item.y2
+                            );
+                        } else {
+                            self.status_msg = format!(
+                                "Geometria #{id}: {} x {}",
+                                (item.x2 - item.x1).abs(),
+                                (item.y2 - item.y1).abs()
+                            );
+                        }
+                    }
+                }
+                CanvasMessage::EndResizeGraphicHandle => {
+                    self.commit_drag_undo();
                 }
                 CanvasMessage::DeleteItem(id) => {
                     self.push_undo();
@@ -5398,6 +5499,15 @@ fn map_keyboard_shortcut(
                 "t" if ctrl && shift => Some(Message::CycleTheme),
                 "t" if ctrl => Some(Message::AddPageAfter(usize::MAX)),
                 "t" if !ctrl && !shift && !alt => Some(Message::SelectTool(EditorTool::PlaceText)),
+                "l" if !ctrl && !shift && !alt => {
+                    Some(Message::SelectTool(EditorTool::DrawGraphicLine))
+                }
+                "b" if !ctrl && !shift && !alt => {
+                    Some(Message::SelectTool(EditorTool::DrawGraphicRect))
+                }
+                "o" if !ctrl && !shift && !alt => {
+                    Some(Message::SelectTool(EditorTool::DrawGraphicCircle))
+                }
                 "g" if ctrl && shift => Some(Message::ToggleSnap),
                 "g" if ctrl && !shift => Some(Message::GroupSelected),
                 "u" if ctrl && !shift => Some(Message::UngroupSelected),

@@ -3,7 +3,8 @@ use iced::widget::canvas::{self, Canvas, Event, Frame, Geometry, Path, Stroke, T
 use iced::{Color, Element, Length, Point, Rectangle, Renderer, Size, Theme, Vector};
 
 use crate::model::{
-    transform_offset, transform_offset_f32, Potential, SchematicDocument, SchematicItem,
+    transform_offset, transform_offset_f32, GraphicLineStyle, Potential, SchematicDocument,
+    SchematicItem,
 };
 use crate::sim::timer_preset_ms;
 use crate::symbols::{find_symbol_ref, parse_vector_cmd, VectorPrimitive};
@@ -85,12 +86,20 @@ pub enum CanvasMessage {
     CursorMoved(i32, i32),
     CancelAction,
     EditTextItem(i32),
+    ResizeGraphicHandle {
+        id: i32,
+        handle: u8,
+        x: i32,
+        y: i32,
+    },
+    EndResizeGraphicHandle,
 }
 
 /// Estado local de interação do mouse no Canvas (arraste de objetos, desenho de cabo, pan, botão pulsador segurado).
 #[derive(Debug, Default)]
 pub struct CanvasInteraction {
     pub dragging_item: Option<(i32, i32, i32)>, // (id, offset_x, offset_y)
+    pub dragging_graphic_handle: Option<(i32, u8)>, // (id, handle: 0=P1, 1=P2)
     pub wire_start: Option<(i32, i32)>,
     pub panning_from: Option<Point>,
     pub hover_world: (i32, i32),
@@ -187,6 +196,76 @@ impl<'a> SchematicCanvas<'a> {
             Color::from_rgb(r, g, b)
         } else {
             default
+        }
+    }
+
+    fn graphic_stroke(color: Color, item: &SchematicItem, is_selected: bool) -> Stroke<'static> {
+        let base_w = item.graphic_stroke_width();
+        let width = if is_selected {
+            (base_w + 0.7).max(2.0)
+        } else {
+            base_w
+        };
+        let segments: &'static [f32] = match item.graphic_line_style() {
+            GraphicLineStyle::Solid => &[],
+            GraphicLineStyle::Dash => &[6.0, 4.0],
+            GraphicLineStyle::Dot => &[2.0, 3.0],
+            GraphicLineStyle::DashDot => &[8.0, 3.0, 2.0, 3.0],
+        };
+        let mut stroke = Stroke::default().with_color(color).with_width(width);
+        if !segments.is_empty() {
+            stroke.line_dash = iced::widget::canvas::stroke::LineDash {
+                segments,
+                offset: 0,
+            };
+        }
+        stroke
+    }
+
+    fn apply_graphic_shift_constraint(
+        is_line: bool,
+        sx: i32,
+        sy: i32,
+        tx: i32,
+        ty: i32,
+        shift: bool,
+    ) -> (i32, i32) {
+        if !shift {
+            return (tx, ty);
+        }
+        let dx = tx - sx;
+        let dy = ty - sy;
+        if is_line {
+            let adx = dx.abs();
+            let ady = dy.abs();
+            if adx >= ady * 2 {
+                (tx, sy)
+            } else if ady >= adx * 2 {
+                (sx, ty)
+            } else {
+                let d = adx.max(ady);
+                (sx + dx.signum() * d, sy + dy.signum() * d)
+            }
+        } else {
+            let side = dx.abs().max(dy.abs());
+            (
+                sx + if dx >= 0 { side } else { -side },
+                sy + if dy >= 0 { side } else { -side },
+            )
+        }
+    }
+
+    fn draw_graphic_handles(&self, frame: &mut Frame, item: &SchematicItem, tok: &Tokens) {
+        for (hx, hy) in [(item.x1, item.y1), (item.x2, item.y2)] {
+            let pt = self.world_to_screen(hx as f32, hy as f32);
+            let half = 3.5;
+            let tl = Point::new(pt.x - half, pt.y - half);
+            let sz = Size::new(half * 2.0, half * 2.0);
+            frame.fill_rectangle(tl, sz, tok.sheet);
+            frame.stroke(
+                &Path::rectangle(tl, sz),
+                Stroke::default().with_color(tok.focus).with_width(1.5),
+            );
         }
     }
 
@@ -1147,12 +1226,15 @@ impl<'a> SchematicCanvas<'a> {
             let b = self.world_to_screen(item.x2 as f32, item.y2 as f32);
             let line_color =
                 Self::resolve_graphic_color(item, is_selected, tok.focus, tok.sheet_line);
-            frame.stroke(
-                &Path::line(a, b),
-                Stroke::default()
-                    .with_color(line_color)
-                    .with_width(if is_selected { 2.0 } else { 1.2 }),
-            );
+            let stroke = Self::graphic_stroke(line_color, item, is_selected);
+            if (item.x1, item.y1) == (item.x2, item.y2) {
+                frame.fill(&Path::circle(a, 1.8), line_color);
+            } else {
+                frame.stroke(&Path::line(a, b), stroke);
+            }
+            if is_selected && !self.sim_running {
+                self.draw_graphic_handles(frame, item, &tok);
+            }
             return;
         }
 
@@ -1166,12 +1248,27 @@ impl<'a> SchematicCanvas<'a> {
             let sz = Size::new(w * self.zoom, h * self.zoom);
             let rect_color =
                 Self::resolve_graphic_color(item, is_selected, tok.focus, tok.sheet_line);
-            frame.stroke(
-                &Path::rectangle(tl, sz),
-                Stroke::default()
-                    .with_color(rect_color)
-                    .with_width(if is_selected { 2.0 } else { 1.3 }),
-            );
+            let stroke = Self::graphic_stroke(rect_color, item, is_selected);
+            let path = if item.graphic_rounded_corners() {
+                let rad = (4.0 * self.zoom).min(sz.width * 0.25).min(sz.height * 0.25);
+                Path::rounded_rectangle(tl, sz, rad.into())
+            } else {
+                Path::rectangle(tl, sz)
+            };
+            if item.graphic_has_fill() {
+                let base_fill = Self::resolve_graphic_color(item, false, tok.focus, tok.primary);
+                frame.fill(
+                    &path,
+                    Color {
+                        a: 0.12,
+                        ..base_fill
+                    },
+                );
+            }
+            frame.stroke(&path, stroke);
+            if is_selected && !self.sim_running {
+                self.draw_graphic_handles(frame, item, &tok);
+            }
             return;
         }
 
@@ -1183,16 +1280,34 @@ impl<'a> SchematicCanvas<'a> {
             let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(2.0);
             let stroke_col =
                 Self::resolve_graphic_color(item, is_selected, tok.focus, tok.sheet_line);
-            self.stroke_graphic_ellipse_world(
-                frame,
-                cx,
-                cy,
-                rx,
-                ry,
-                Stroke::default()
-                    .with_color(stroke_col)
-                    .with_width(if is_selected { 2.0 } else { 1.3 }),
-            );
+            let stroke = Self::graphic_stroke(stroke_col, item, is_selected);
+            if item.graphic_has_fill() {
+                let base_fill = Self::resolve_graphic_color(item, false, tok.focus, tok.primary);
+                let fill_path = Path::new(|builder| {
+                    let steps = 48;
+                    for i in 0..steps {
+                        let ang = (i as f32 / steps as f32) * std::f32::consts::TAU;
+                        let pt = self.world_to_screen(cx + rx * ang.cos(), cy - ry * ang.sin());
+                        if i == 0 {
+                            builder.move_to(pt);
+                        } else {
+                            builder.line_to(pt);
+                        }
+                    }
+                    builder.close();
+                });
+                frame.fill(
+                    &fill_path,
+                    Color {
+                        a: 0.12,
+                        ..base_fill
+                    },
+                );
+            }
+            self.stroke_graphic_ellipse_world(frame, cx, cy, rx, ry, stroke);
+            if is_selected && !self.sim_running {
+                self.draw_graphic_handles(frame, item, &tok);
+            }
             return;
         }
 
@@ -1201,13 +1316,14 @@ impl<'a> SchematicCanvas<'a> {
             let (cx, cy, rx, ry, start_deg, sweep_deg) = crate::export::graphic_arc_params(item);
             let stroke_col =
                 Self::resolve_graphic_color(item, is_selected, tok.focus, tok.sheet_line);
-            let stroke = Stroke::default()
-                .with_color(stroke_col)
-                .with_width(if is_selected { 2.0 } else { 1.3 });
+            let stroke = Self::graphic_stroke(stroke_col, item, is_selected);
             if sweep_deg.abs() >= 360.0 {
                 self.stroke_graphic_ellipse_world(frame, cx, cy, rx, ry, stroke);
             } else {
                 self.stroke_graphic_arc_world(frame, cx, cy, rx, ry, start_deg, sweep_deg, stroke);
+            }
+            if is_selected && !self.sim_running {
+                self.draw_graphic_handles(frame, item, &tok);
             }
             return;
         }
@@ -1259,6 +1375,9 @@ impl<'a> SchematicCanvas<'a> {
                 size: (2.8 * self.zoom).clamp(8.5, 13.5).into(),
                 ..Text::default()
             });
+            if is_selected && !self.sim_running {
+                self.draw_graphic_handles(frame, item, &tok);
+            }
             return;
         }
 
@@ -1677,8 +1796,15 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
         match event {
             Event::Mouse(mouse::Event::ButtonReleased(mouse::Button::Left)) => {
                 let ended_drag = state.dragging_item.take();
+                let ended_handle = state.dragging_graphic_handle.take();
                 if matches!(self.tool, EditorTool::Pan) {
                     state.panning_from = None;
+                }
+                if ended_handle.is_some() {
+                    return (
+                        canvas::event::Status::Captured,
+                        Some(CanvasMessage::EndResizeGraphicHandle),
+                    );
                 }
                 if let Some(pressed_id) = state.sim_pressed_id.take() {
                     return (
@@ -1812,6 +1938,36 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 }
 
                 if !self.sim_running {
+                    if let Some((handle_id, handle_idx)) = state.dragging_graphic_handle {
+                        let shift = self.is_shift_pressed || state.is_shift_pressed;
+                        let (cx, cy) =
+                            if let Some(it) = self.doc.items.iter().find(|i| i.id == handle_id) {
+                                let (ax, ay) = if handle_idx == 0 {
+                                    (it.x2, it.y2)
+                                } else {
+                                    (it.x1, it.y1)
+                                };
+                                Self::apply_graphic_shift_constraint(
+                                    it.tipo == 1,
+                                    ax,
+                                    ay,
+                                    snapped_x,
+                                    snapped_y,
+                                    shift,
+                                )
+                            } else {
+                                (snapped_x, snapped_y)
+                            };
+                        return (
+                            canvas::event::Status::Captured,
+                            Some(CanvasMessage::ResizeGraphicHandle {
+                                id: handle_id,
+                                handle: handle_idx,
+                                x: cx,
+                                y: cy,
+                            }),
+                        );
+                    }
                     if let Some((drag_id, off_x, off_y)) = state.dragging_item {
                         return (
                             canvas::event::Status::Captured,
@@ -1909,6 +2065,30 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             || self.is_ctrl_pressed
                             || state.is_shift_pressed
                             || state.is_ctrl_pressed;
+
+                        // Verifica primeiro se clicou em alguma alça P1/P2 de um objeto gráfico selecionado
+                        if !is_additive {
+                            let handle_tol = (5.0 / self.zoom.max(0.4)).max(2.5);
+                            for sel_id in self.selected_ids {
+                                if let Some(item) = self
+                                    .doc
+                                    .items
+                                    .iter()
+                                    .find(|i| i.id == *sel_id && matches!(i.tipo, 1..=5))
+                                {
+                                    let d1 = (wx_f - item.x1 as f32).hypot(wy_f - item.y1 as f32);
+                                    if d1 <= handle_tol {
+                                        state.dragging_graphic_handle = Some((item.id, 0));
+                                        return (canvas::event::Status::Captured, None);
+                                    }
+                                    let d2 = (wx_f - item.x2 as f32).hypot(wy_f - item.y2 as f32);
+                                    if d2 <= handle_tol {
+                                        state.dragging_graphic_handle = Some((item.id, 1));
+                                        return (canvas::event::Status::Captured, None);
+                                    }
+                                }
+                            }
+                        }
 
                         if let Some(id) = hit {
                             if is_additive {
@@ -2044,17 +2224,28 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                                 );
                             }
                             if (sx, sy) != (snapped_x, snapped_y) {
-                                return (
-                                    canvas::event::Status::Captured,
-                                    Some(CanvasMessage::AddGraphicItem {
-                                        tipo,
-                                        subvariant,
-                                        x1: sx,
-                                        y1: sy,
-                                        x2: snapped_x,
-                                        y2: snapped_y,
-                                    }),
+                                let shift = self.is_shift_pressed || state.is_shift_pressed;
+                                let (fx, fy) = Self::apply_graphic_shift_constraint(
+                                    self.tool == EditorTool::DrawGraphicLine,
+                                    sx,
+                                    sy,
+                                    snapped_x,
+                                    snapped_y,
+                                    shift,
                                 );
+                                if (sx, sy) != (fx, fy) {
+                                    return (
+                                        canvas::event::Status::Captured,
+                                        Some(CanvasMessage::AddGraphicItem {
+                                            tipo,
+                                            subvariant,
+                                            x1: sx,
+                                            y1: sy,
+                                            x2: fx,
+                                            y2: fy,
+                                        }),
+                                    );
+                                }
                             }
                         } else {
                             state.wire_start = Some((snapped_x, snapped_y));
@@ -2260,43 +2451,60 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                         });
                     }
                     if let Some((sx, sy)) = state.wire_start {
+                        let shift = self.is_shift_pressed || state.is_shift_pressed;
+                        let (cx, cy) = Self::apply_graphic_shift_constraint(
+                            self.tool == EditorTool::DrawGraphicLine,
+                            sx,
+                            sy,
+                            hx,
+                            hy,
+                            shift,
+                        );
+                        let cpt = self.world_to_screen(cx as f32, cy as f32);
+                        let dim_label = match self.tool {
+                            EditorTool::DrawGraphicLine => {
+                                let len = ((cx - sx) as f32).hypot((cy - sy) as f32);
+                                format!("L={len:.0}")
+                            }
+                            _ => format!("{} x {}", (cx - sx).abs(), (cy - sy).abs()),
+                        };
                         match self.tool {
                             EditorTool::DrawGraphicLine => {
                                 let spt = self.world_to_screen(sx as f32, sy as f32);
-                                frame.stroke(&Path::line(spt, hpt), preview_stroke);
+                                frame.stroke(&Path::line(spt, cpt), preview_stroke);
                             }
                             EditorTool::PlaceTextField | EditorTool::DrawGraphicRect => {
-                                let min_x = sx.min(hx) as f32;
-                                let min_y = sy.min(hy) as f32;
-                                let w = (hx - sx).abs().max(2) as f32;
-                                let h = (hy - sy).abs().max(2) as f32;
+                                let min_x = sx.min(cx) as f32;
+                                let min_y = sy.min(cy) as f32;
+                                let w = (cx - sx).abs().max(2) as f32;
+                                let h = (cy - sy).abs().max(2) as f32;
                                 let tl = self.world_to_screen(min_x, min_y);
                                 let sz = Size::new(w * self.zoom, h * self.zoom);
                                 frame.stroke(&Path::rectangle(tl, sz), preview_stroke);
                             }
                             EditorTool::DrawGraphicCircle => {
-                                let cx = (sx + hx) as f32 * 0.5;
-                                let cy = (sy + hy) as f32 * 0.5;
-                                let rx = ((hx - sx).abs() as f32 * 0.5).max(2.0);
-                                let ry = ((hy - sy).abs() as f32 * 0.5).max(2.0);
+                                let mcx = (sx + cx) as f32 * 0.5;
+                                let mcy = (sy + cy) as f32 * 0.5;
+                                let rx = ((cx - sx).abs() as f32 * 0.5).max(2.0);
+                                let ry = ((cy - sy).abs() as f32 * 0.5).max(2.0);
                                 self.stroke_graphic_ellipse_world(
                                     &mut frame,
-                                    cx,
-                                    cy,
+                                    mcx,
+                                    mcy,
                                     rx,
                                     ry,
                                     preview_stroke,
                                 );
                             }
                             EditorTool::DrawGraphicArc => {
-                                let cx = (sx + hx) as f32 * 0.5;
-                                let cy = (sy + hy) as f32 * 0.5;
-                                let rx = ((hx - sx).abs() as f32 * 0.5).max(2.0);
-                                let ry = ((hy - sy).abs() as f32 * 0.5).max(2.0);
+                                let mcx = (sx + cx) as f32 * 0.5;
+                                let mcy = (sy + cy) as f32 * 0.5;
+                                let rx = ((cx - sx).abs() as f32 * 0.5).max(2.0);
+                                let ry = ((cy - sy).abs() as f32 * 0.5).max(2.0);
                                 self.stroke_graphic_arc_world(
                                     &mut frame,
-                                    cx,
-                                    cy,
+                                    mcx,
+                                    mcy,
                                     rx,
                                     ry,
                                     0.0,
@@ -2306,6 +2514,14 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                             }
                             _ => {}
                         }
+                        frame.fill_text(Text {
+                            content: dim_label,
+                            position: Point::new(cpt.x + 10.0, cpt.y - 16.0),
+                            color: tok.focus,
+                            size: 11.0.into(),
+                            font: crate::theme::MONO,
+                            ..Text::default()
+                        });
                     }
                 }
                 _ => {}

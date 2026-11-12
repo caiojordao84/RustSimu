@@ -1454,6 +1454,11 @@ pub fn view_shortcuts_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                         ),
                         ("Ctrl + G / Ctrl + Shift + G", "Agrupar / Desagrupar"),
                         ("T", "Ferramenta Texto em Linha"),
+                        ("L / B / O", "Linha / Retângulo / Círculo vetorial"),
+                        (
+                            "Shift (ao desenhar)",
+                            "Restringir linha H/V, quadrado ou círculo"
+                        ),
                         ("Duplo Clique em Texto", "Abrir Editor Completo de Texto"),
                         ("R / Shift + R", "Girar 90 graus (Horário / Anti-horário)"),
                         ("M / F", "Espelhar Horizontal / Vertical"),

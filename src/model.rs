@@ -50,6 +50,43 @@ impl GridDensity {
     }
 }
 
+/// Estilo de traço para figuras vetoriais auxiliares (`tipo == 1..=4`), mapeado em `extra_int1`.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum GraphicLineStyle {
+    #[default]
+    Solid = 0,
+    Dash = 1,
+    Dot = 2,
+    DashDot = 3,
+}
+
+impl GraphicLineStyle {
+    pub const ALL: [GraphicLineStyle; 4] = [
+        GraphicLineStyle::Solid,
+        GraphicLineStyle::Dash,
+        GraphicLineStyle::Dot,
+        GraphicLineStyle::DashDot,
+    ];
+
+    pub fn from_raw(val: i32) -> Self {
+        match val {
+            1 => GraphicLineStyle::Dash,
+            2 => GraphicLineStyle::Dot,
+            3 => GraphicLineStyle::DashDot,
+            _ => GraphicLineStyle::Solid,
+        }
+    }
+
+    pub fn label(self) -> &'static str {
+        match self {
+            GraphicLineStyle::Solid => "Contínuo",
+            GraphicLineStyle::Dash => "Tracejado",
+            GraphicLineStyle::Dot => "Pontilhado",
+            GraphicLineStyle::DashDot => "Traço-Ponto",
+        }
+    }
+}
+
 impl std::fmt::Display for GridDensity {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", self.label())
@@ -687,6 +724,75 @@ impl SchematicItem {
             max_y = max_y.max(py);
         }
         (min_x - 2, min_y - 2, max_x + 2, max_y + 2)
+    }
+
+    /// Estilo do traço para objetos vetoriais (`tipo == 1..=4`), persistido em `extra_int1`.
+    pub fn graphic_line_style(&self) -> GraphicLineStyle {
+        GraphicLineStyle::from_raw(self.extra_int1)
+    }
+
+    /// Define o estilo do traço (`extra_int1`) para objetos vetoriais (`tipo == 1..=4`).
+    pub fn set_graphic_line_style(&mut self, style: GraphicLineStyle) {
+        self.extra_int1 = style as i32;
+    }
+
+    /// Espessura do traço para objetos vetoriais (`tipo == 1..=5`), persistida em `extra_int2` (décimos de px).
+    pub fn graphic_stroke_width(&self) -> f32 {
+        if self.extra_int2 <= 0 {
+            1.3
+        } else {
+            (self.extra_int2 as f32 / 10.0).clamp(0.6, 8.0)
+        }
+    }
+
+    /// Define a espessura do traço em px base para objetos vetoriais (`extra_int2`).
+    pub fn set_graphic_stroke_width(&mut self, width: f32) {
+        self.extra_int2 = (width.clamp(0.6, 8.0) * 10.0).round() as i32;
+    }
+
+    /// Indica se retângulo/círculo (`tipo == 2 | 3`) possui preenchimento translúcido (`show_value != 0`).
+    #[inline]
+    pub fn graphic_has_fill(&self) -> bool {
+        self.show_value != 0
+    }
+
+    /// Define preenchimento translúcido em `show_value` para retângulo/círculo (`tipo == 2 | 3`).
+    pub fn set_graphic_fill(&mut self, filled: bool) {
+        self.show_value = if filled { 1 } else { 0 };
+    }
+
+    /// Indica se o retângulo (`tipo == 2`) possui cantos arredondados (`subvariant == 1`).
+    #[inline]
+    pub fn graphic_rounded_corners(&self) -> bool {
+        self.tipo == 2 && self.subvariant == 1
+    }
+
+    /// Rotaciona geometricamente um objeto vetorial (`tipo 1..=4`) em 90 graus no sentido horário ao redor do centro.
+    pub fn rotate_graphic_90_cw(&mut self) {
+        if !matches!(self.tipo, 1..=4) {
+            return;
+        }
+        let cx = (self.x1 + self.x2) as f32 * 0.5;
+        let cy = (self.y1 + self.y2) as f32 * 0.5;
+        let (dx1, dy1) = (self.x1 as f32 - cx, self.y1 as f32 - cy);
+        let (dx2, dy2) = (self.x2 as f32 - cx, self.y2 as f32 - cy);
+        // Rotação horária de +90 graus em Y-down: (dx, dy) -> (-dy, dx)
+        self.x1 = (cx - dy1).round() as i32;
+        self.y1 = (cy + dx1).round() as i32;
+        self.x2 = (cx - dy2).round() as i32;
+        self.y2 = (cy + dx2).round() as i32;
+        if self.tipo == 4 {
+            let start = if self.aux_coords[0] == 0 && self.aux_coords[1] == 0 {
+                0
+            } else {
+                self.aux_coords[0]
+            };
+            if self.aux_coords[1] == 0 {
+                self.aux_coords[1] = 90;
+            }
+            self.aux_coords[0] = (start - 90).rem_euclid(360);
+        }
+        self.orientation = (self.orientation + 1) % 4;
     }
 
     pub fn new_symbol(id: i32, tipo: i32, x: i32, y: i32, tag: impl Into<String>) -> Self {

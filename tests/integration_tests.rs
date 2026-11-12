@@ -8006,3 +8006,116 @@ fn test_section1_2_text_tool_placement_modal_cancel_edit_inspector_and_qet_round
         }
     }
 }
+
+#[test]
+fn test_section1_2_vector_annotation_tools_handles_styles_and_rotation() {
+    let (mut app, _) = CadeSimuApp::new();
+    let _ = app.update(Message::NewDocument);
+
+    // 1. Seleção contínua de ferramentas vetoriais e desenho via AddGraphicItem
+    let tools = [
+        (EditorTool::DrawGraphicLine, 1),
+        (EditorTool::DrawGraphicRect, 2),
+        (EditorTool::DrawGraphicCircle, 3),
+        (EditorTool::DrawGraphicArc, 4),
+    ];
+    for (tool, expected_tipo) in tools {
+        let _ = app.update(Message::SelectTool(tool.clone()));
+        assert_eq!(app.tool, tool);
+        let _ = app.update(Message::Canvas(CanvasMessage::AddGraphicItem {
+            tipo: expected_tipo,
+            subvariant: 0,
+            x1: 100,
+            y1: 100,
+            x2: 180,
+            y2: 160,
+        }));
+        // Ferramenta vetorial permanece ativa para desenho contínuo
+        assert_eq!(app.tool, tool);
+        let added = app.doc.items.last().expect("Item vetorial inserido");
+        assert_eq!(added.tipo, expected_tipo);
+    }
+    let _ = app.update(Message::CancelAction);
+    assert_eq!(app.tool, EditorTool::Select);
+
+    // 2. Arraste de alça de redimensionamento + Undo
+    let rect_id = app
+        .doc
+        .items
+        .iter()
+        .find(|i| i.tipo == 2)
+        .expect("Retângulo criado")
+        .id;
+    let _ = app.update(Message::Canvas(CanvasMessage::SelectItem(Some(rect_id))));
+    let _ = app.update(Message::Canvas(CanvasMessage::ResizeGraphicHandle {
+        id: rect_id,
+        handle: 1,
+        x: 240,
+        y: 200,
+    }));
+    let _ = app.update(Message::Canvas(CanvasMessage::EndResizeGraphicHandle));
+    let resized = app.doc.items.iter().find(|i| i.id == rect_id).unwrap();
+    assert_eq!((resized.x2, resized.y2), (240, 200));
+
+    let _ = app.update(Message::Undo);
+    let reverted = app.doc.items.iter().find(|i| i.id == rect_id).unwrap();
+    assert_eq!((reverted.x2, reverted.y2), (180, 160));
+
+    // 3. Estilos no Inspetor: estilo de linha, espessura, preenchimento, cantos arredondados
+    let _ = app.update(Message::SetItemGraphicLineStyle(GraphicLineStyle::Dash));
+    let _ = app.update(Message::SetItemGraphicStrokeWidth(2.0));
+    let _ = app.update(Message::AdjustItemGraphicStrokeWidth(0.5));
+    let _ = app.update(Message::ToggleItemGraphicFill);
+    let _ = app.update(Message::ToggleItemRectRounded);
+    let styled_rect = app.doc.items.iter().find(|i| i.id == rect_id).unwrap();
+    assert_eq!(styled_rect.graphic_line_style(), GraphicLineStyle::Dash);
+    assert!((styled_rect.graphic_stroke_width() - 2.5).abs() < 0.01);
+    assert!(styled_rect.graphic_has_fill());
+    assert!(styled_rect.graphic_rounded_corners());
+
+    // 4. Rotação 90 graus de arco e presets de varredura
+    let arc_id = app
+        .doc
+        .items
+        .iter()
+        .find(|i| i.tipo == 4)
+        .expect("Arco criado")
+        .id;
+    let _ = app.update(Message::Canvas(CanvasMessage::SelectItem(Some(arc_id))));
+    let _ = app.update(Message::SetItemArcSweepPreset(180));
+    let arc_after_preset = app.doc.items.iter().find(|i| i.id == arc_id).unwrap();
+    assert_eq!(arc_after_preset.aux_coords[1], 180);
+
+    let _ = app.update(Message::RotateClockwise);
+    let arc_cw = app.doc.items.iter().find(|i| i.id == arc_id).unwrap();
+    assert_eq!(arc_cw.aux_coords[0], 270);
+    assert_eq!(arc_cw.aux_coords[1], 180);
+
+    let _ = app.update(Message::RotateCounterClockwise);
+    let arc_ccw = app.doc.items.iter().find(|i| i.id == arc_id).unwrap();
+    assert_eq!(arc_ccw.aux_coords[0], 0);
+    assert_eq!(arc_ccw.aux_coords[1], 180);
+
+    // 5. Validação em projetos reais: linha tracejada e moldura arredondada
+    let proj_dir = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("Projetos");
+    let inv_path = proj_dir.join("Inversão de rotação motor trifásico.json");
+    if inv_path.exists() {
+        let doc = load_document(&inv_path).expect("Carregar Inversão de rotação");
+        assert!(
+            doc.items
+                .iter()
+                .any(|i| i.tipo == 1 && i.graphic_line_style() == GraphicLineStyle::Dash),
+            "Projeto real deve preservar linha tracejada (extra_int1 == 1)"
+        );
+    }
+    let pd_path = proj_dir.join("Partida Direta.json");
+    if pd_path.exists() {
+        let doc = load_document(&pd_path).expect("Carregar Partida Direta");
+        assert!(
+            doc.items
+                .iter()
+                .any(|i| i.tipo == 2 && i.graphic_rounded_corners()),
+            "Projeto real deve preservar retângulo com cantos arredondados (subvariant == 1)"
+        );
+    }
+}

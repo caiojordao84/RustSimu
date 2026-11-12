@@ -20,7 +20,8 @@ use flate2::Compression;
 use pdf_writer::Finish;
 
 use crate::model::{
-    transform_offset, transform_offset_f32, ProjectPage, SchematicDocument, SchematicItem,
+    transform_offset, transform_offset_f32, GraphicLineStyle, ProjectPage, SchematicDocument,
+    SchematicItem,
 };
 use crate::symbols::find_symbol_ref;
 
@@ -247,6 +248,29 @@ pub(crate) fn graphic_arc_params(item: &SchematicItem) -> (f32, f32, f32, f32, f
         item.aux_coords[1] as f32
     };
     (cx, cy, rx, ry, start_deg, sweep_deg)
+}
+
+fn svg_graphic_stroke_attrs(item: &SchematicItem, stroke_col: &str) -> String {
+    let w = item.graphic_stroke_width();
+    let dash = match item.graphic_line_style() {
+        GraphicLineStyle::Solid => "",
+        GraphicLineStyle::Dash => r#" stroke-dasharray="6,4""#,
+        GraphicLineStyle::Dot => r#" stroke-dasharray="2,3""#,
+        GraphicLineStyle::DashDot => r#" stroke-dasharray="8,3,2,3""#,
+    };
+    format!(r#"stroke="{stroke_col}" stroke-width="{w:.2}" stroke-linecap="round"{dash}"#)
+}
+
+fn svg_graphic_fill_attrs(item: &SchematicItem, opts: &ExportOptions, stroke_col: &str) -> String {
+    if !item.graphic_has_fill() {
+        return r#"fill="none""#.to_string();
+    }
+    let fill_col = if item.color != 0 || opts.monochrome {
+        stroke_col
+    } else {
+        "#2563eb"
+    };
+    format!(r#"fill="{fill_col}" fill-opacity="0.12""#)
 }
 
 fn encode_base64(bytes: &[u8]) -> String {
@@ -1315,8 +1339,9 @@ pub fn export_to_svg(
             let bx = item.x2 as f32 * scale;
             let by = item.y2 as f32 * scale;
             let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
             out.push_str(&format!(
-                r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" stroke="{stroke_col}" stroke-width="1.2"/>"###
+                r###"  <line x1="{ax:.1}" y1="{ay:.1}" x2="{bx:.1}" y2="{by:.1}" {stroke_attrs}/>"###
             ));
             out.push('\n');
             continue;
@@ -1329,8 +1354,16 @@ pub fn export_to_svg(
             let w = (item.x2 - item.x1).abs().max(2) as f32 * scale;
             let h = (item.y2 - item.y1).abs().max(2) as f32 * scale;
             let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
+            let fill_attrs = svg_graphic_fill_attrs(item, &opts, &stroke_col);
+            let rx_attr = if item.graphic_rounded_corners() {
+                let r = (4.0 * scale).min(w * 0.25).min(h * 0.25);
+                format!(r#" rx="{r:.1}""#)
+            } else {
+                String::new()
+            };
             out.push_str(&format!(
-                r###"  <rect x="{min_x:.1}" y="{min_y:.1}" width="{w:.1}" height="{h:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                r###"  <rect x="{min_x:.1}" y="{min_y:.1}" width="{w:.1}" height="{h:.1}"{rx_attr} {stroke_attrs} {fill_attrs}/>"###
             ));
             out.push('\n');
             continue;
@@ -1343,13 +1376,15 @@ pub fn export_to_svg(
             let rx = ((item.x2 - item.x1).abs() as f32 * 0.5).max(2.0) * scale;
             let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(2.0) * scale;
             let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
+            let fill_attrs = svg_graphic_fill_attrs(item, &opts, &stroke_col);
             if (rx - ry).abs() < 0.05 {
                 out.push_str(&format!(
-                    r###"  <circle cx="{cx:.1}" cy="{cy:.1}" r="{rx:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                    r###"  <circle cx="{cx:.1}" cy="{cy:.1}" r="{rx:.1}" {stroke_attrs} {fill_attrs}/>"###
                 ));
             } else {
                 out.push_str(&format!(
-                    r###"  <ellipse cx="{cx:.1}" cy="{cy:.1}" rx="{rx:.1}" ry="{ry:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                    r###"  <ellipse cx="{cx:.1}" cy="{cy:.1}" rx="{rx:.1}" ry="{ry:.1}" {stroke_attrs} {fill_attrs}/>"###
                 ));
             }
             out.push('\n');
@@ -1360,13 +1395,14 @@ pub fn export_to_svg(
         if item.tipo == 4 {
             let (cx, cy, rx, ry, start_deg, sweep_deg) = graphic_arc_params(item);
             let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#1b2230");
+            let stroke_attrs = svg_graphic_stroke_attrs(item, &stroke_col);
             if sweep_deg.abs() >= 360.0 {
                 let scx = cx * scale;
                 let scy = cy * scale;
                 let srx = rx * scale;
                 let sry = ry * scale;
                 out.push_str(&format!(
-                    r###"  <ellipse cx="{scx:.1}" cy="{scy:.1}" rx="{srx:.1}" ry="{sry:.1}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                    r###"  <ellipse cx="{scx:.1}" cy="{scy:.1}" rx="{srx:.1}" ry="{sry:.1}" {stroke_attrs} fill="none"/>"###
                 ));
             } else {
                 let start_rad = start_deg.to_radians();
@@ -1380,7 +1416,7 @@ pub fn export_to_svg(
                 let large_arc = if sweep_deg.abs() > 180.0 { 1 } else { 0 };
                 let sweep_flag = if sweep_deg >= 0.0 { 0 } else { 1 };
                 out.push_str(&format!(
-                    r###"  <path d="M {sx:.2} {sy:.2} A {rad_x:.2} {rad_y:.2} 0 {large_arc} {sweep_flag} {ex:.2} {ey:.2}" stroke="{stroke_col}" stroke-width="1.3" fill="none"/>"###
+                    r###"  <path d="M {sx:.2} {sy:.2} A {rad_x:.2} {rad_y:.2} 0 {large_arc} {sweep_flag} {ex:.2} {ey:.2}" {stroke_attrs} fill="none"/>"###
                 ));
             }
             out.push('\n');
@@ -1730,7 +1766,12 @@ impl DxfWriter {
         buf.push_str(
             "0\nSECTION\n2\nHEADER\n9\n$ACADVER\n1\nAC1009\n9\n$INSUNITS\n70\n4\n0\nENDSEC\n",
         );
-        buf.push_str("0\nSECTION\n2\nTABLES\n0\nTABLE\n2\nLAYER\n70\n5\n");
+        buf.push_str("0\nSECTION\n2\nTABLES\n0\nTABLE\n2\nLTYPE\n70\n4\n");
+        buf.push_str("0\nLTYPE\n2\nCONTINUOUS\n70\n0\n3\nSolid line\n72\n65\n73\n0\n40\n0.0\n");
+        buf.push_str("0\nLTYPE\n2\nDASHED\n70\n0\n3\nDashed __ __\n72\n65\n73\n2\n40\n6.0\n49\n4.0\n49\n-2.0\n");
+        buf.push_str("0\nLTYPE\n2\nDOTTED\n70\n0\n3\nDotted . . .\n72\n65\n73\n2\n40\n3.0\n49\n0.5\n49\n-2.5\n");
+        buf.push_str("0\nLTYPE\n2\nDASHDOT\n70\n0\n3\nDash dot _ . _\n72\n65\n73\n4\n40\n8.0\n49\n4.0\n49\n-1.5\n49\n0.5\n49\n-2.0\n");
+        buf.push_str("0\nENDTAB\n0\nTABLE\n2\nLAYER\n70\n5\n");
         for (name, color) in [
             ("BORDER", 7),
             ("WIRES", 7),
@@ -1751,32 +1792,57 @@ impl DxfWriter {
         self.sheet_h - y
     }
 
-    fn line(&mut self, layer: &str, aci: u8, x1: f32, y1: f32, x2: f32, y2: f32) {
-        let ay = self.dy(y1);
-        let by = self.dy(y2);
-        self.buf.push_str(&format!(
-            "0\nLINE\n8\n{layer}\n62\n{aci}\n10\n{x1:.3}\n20\n{ay:.3}\n30\n0.0\n11\n{x2:.3}\n21\n{by:.3}\n31\n0.0\n"
-        ));
-    }
-
-    fn rect(&mut self, layer: &str, aci: u8, x: f32, y: f32, w: f32, h: f32) {
-        self.line(layer, aci, x, y, x + w, y);
-        self.line(layer, aci, x + w, y, x + w, y + h);
-        self.line(layer, aci, x + w, y + h, x, y + h);
-        self.line(layer, aci, x, y + h, x, y);
-    }
-
-    fn circle(&mut self, layer: &str, aci: u8, cx: f32, cy: f32, r: f32) {
-        let y = self.dy(cy);
-        self.buf.push_str(&format!(
-            "0\nCIRCLE\n8\n{layer}\n62\n{aci}\n10\n{cx:.3}\n20\n{y:.3}\n30\n0.0\n40\n{r:.3}\n"
-        ));
-    }
-
-    fn arc(
+    #[allow(clippy::too_many_arguments)]
+    fn line_styled(
         &mut self,
         layer: &str,
         aci: u8,
+        ltype: &str,
+        x1: f32,
+        y1: f32,
+        x2: f32,
+        y2: f32,
+    ) {
+        let ay = self.dy(y1);
+        let by = self.dy(y2);
+        self.buf.push_str(&format!(
+            "0\nLINE\n8\n{layer}\n6\n{ltype}\n62\n{aci}\n10\n{x1:.3}\n20\n{ay:.3}\n30\n0.0\n11\n{x2:.3}\n21\n{by:.3}\n31\n0.0\n"
+        ));
+    }
+
+    fn line(&mut self, layer: &str, aci: u8, x1: f32, y1: f32, x2: f32, y2: f32) {
+        self.line_styled(layer, aci, "CONTINUOUS", x1, y1, x2, y2);
+    }
+
+    fn rect(&mut self, layer: &str, aci: u8, x: f32, y: f32, w: f32, h: f32) {
+        self.rect_styled(layer, aci, "CONTINUOUS", x, y, w, h);
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn rect_styled(&mut self, layer: &str, aci: u8, ltype: &str, x: f32, y: f32, w: f32, h: f32) {
+        self.line_styled(layer, aci, ltype, x, y, x + w, y);
+        self.line_styled(layer, aci, ltype, x + w, y, x + w, y + h);
+        self.line_styled(layer, aci, ltype, x + w, y + h, x, y + h);
+        self.line_styled(layer, aci, ltype, x, y + h, x, y);
+    }
+
+    fn circle(&mut self, layer: &str, aci: u8, cx: f32, cy: f32, r: f32) {
+        self.circle_styled(layer, aci, "CONTINUOUS", cx, cy, r);
+    }
+
+    fn circle_styled(&mut self, layer: &str, aci: u8, ltype: &str, cx: f32, cy: f32, r: f32) {
+        let y = self.dy(cy);
+        self.buf.push_str(&format!(
+            "0\nCIRCLE\n8\n{layer}\n6\n{ltype}\n62\n{aci}\n10\n{cx:.3}\n20\n{y:.3}\n30\n0.0\n40\n{r:.3}\n"
+        ));
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn arc_styled(
+        &mut self,
+        layer: &str,
+        aci: u8,
+        ltype: &str,
         center: (f32, f32),
         r: f32,
         start_deg: f32,
@@ -1787,22 +1853,37 @@ impl DxfWriter {
         let a0 = start_deg.rem_euclid(360.0);
         let a1 = end_deg.rem_euclid(360.0);
         self.buf.push_str(&format!(
-            "0\nARC\n8\n{layer}\n62\n{aci}\n10\n{cx:.3}\n20\n{y:.3}\n30\n0.0\n40\n{r:.3}\n50\n{a0:.2}\n51\n{a1:.2}\n"
+            "0\nARC\n8\n{layer}\n6\n{ltype}\n62\n{aci}\n10\n{cx:.3}\n20\n{y:.3}\n30\n0.0\n40\n{r:.3}\n50\n{a0:.2}\n51\n{a1:.2}\n"
         ));
     }
 
     fn ellipse_approx(&mut self, layer: &str, aci: u8, cx: f32, cy: f32, rx: f32, ry: f32) {
+        self.ellipse_approx_styled(layer, aci, "CONTINUOUS", cx, cy, rx, ry);
+    }
+
+    #[allow(clippy::too_many_arguments)]
+    fn ellipse_approx_styled(
+        &mut self,
+        layer: &str,
+        aci: u8,
+        ltype: &str,
+        cx: f32,
+        cy: f32,
+        rx: f32,
+        ry: f32,
+    ) {
         if (rx - ry).abs() < 0.05 {
-            self.circle(layer, aci, cx, cy, rx);
+            self.circle_styled(layer, aci, ltype, cx, cy, rx);
             return;
         }
         let steps = 24;
         for i in 0..steps {
             let a0 = (i as f32 / steps as f32) * std::f32::consts::TAU;
             let a1 = ((i + 1) as f32 / steps as f32) * std::f32::consts::TAU;
-            self.line(
+            self.line_styled(
                 layer,
                 aci,
+                ltype,
                 cx + rx * a0.cos(),
                 cy - ry * a0.sin(),
                 cx + rx * a1.cos(),
@@ -1928,11 +2009,18 @@ pub fn export_to_dxf(
         }
 
         let aci = wire_tipo_to_dxf_aci(item.tipo, item.color, opts.monochrome);
+        let ltype = match item.graphic_line_style() {
+            GraphicLineStyle::Solid => "CONTINUOUS",
+            GraphicLineStyle::Dash => "DASHED",
+            GraphicLineStyle::Dot => "DOTTED",
+            GraphicLineStyle::DashDot => "DASHDOT",
+        };
         match item.tipo {
             1 => {
-                dxf.line(
+                dxf.line_styled(
                     "GRAPHICS",
                     aci,
+                    ltype,
                     item.x1 as f32,
                     item.y1 as f32,
                     item.x2 as f32,
@@ -1944,14 +2032,14 @@ pub fn export_to_dxf(
                 let y = item.y1.min(item.y2) as f32;
                 let w = (item.x2 - item.x1).abs().max(2) as f32;
                 let h = (item.y2 - item.y1).abs().max(2) as f32;
-                dxf.rect("GRAPHICS", aci, x, y, w, h);
+                dxf.rect_styled("GRAPHICS", aci, ltype, x, y, w, h);
             }
             3 => {
                 let cx = (item.x1 + item.x2) as f32 * 0.5;
                 let cy = (item.y1 + item.y2) as f32 * 0.5;
                 let rx = ((item.x2 - item.x1).abs() as f32 * 0.5).max(2.0);
                 let ry = ((item.y2 - item.y1).abs() as f32 * 0.5).max(2.0);
-                dxf.ellipse_approx("GRAPHICS", aci, cx, cy, rx, ry);
+                dxf.ellipse_approx_styled("GRAPHICS", aci, ltype, cx, cy, rx, ry);
             }
             4 => {
                 let (cx, cy, rx, ry, start_deg, sweep_deg) = graphic_arc_params(item);
@@ -1961,16 +2049,17 @@ pub fn export_to_dxf(
                     } else {
                         (start_deg + sweep_deg, start_deg)
                     };
-                    dxf.arc("GRAPHICS", aci, (cx, cy), rx, a0, a1);
+                    dxf.arc_styled("GRAPHICS", aci, ltype, (cx, cy), rx, a0, a1);
                 } else {
                     let steps = 16;
                     for i in 0..steps {
                         let t0 = (start_deg + sweep_deg * (i as f32 / steps as f32)).to_radians();
                         let t1 =
                             (start_deg + sweep_deg * ((i + 1) as f32 / steps as f32)).to_radians();
-                        dxf.line(
+                        dxf.line_styled(
                             "GRAPHICS",
                             aci,
+                            ltype,
                             cx + rx * t0.cos(),
                             cy - ry * t0.sin(),
                             cx + rx * t1.cos(),
@@ -2647,6 +2736,60 @@ mod tests {
         assert!(dxf.contains("50\n270.0"));
 
         let pdf = export_doc_to_pdf(&doc, None, true).expect("PDF com texto rotacionado");
+        assert!(pdf.starts_with(b"%PDF-"));
+    }
+
+    #[test]
+    fn test_export_styled_graphic_vectors_svg_dxf_pdf() {
+        use crate::model::{SchematicDocument, SchematicItem};
+
+        let mut doc = SchematicDocument::default();
+
+        let mut line = SchematicItem::new_graphic(1, 1, 40, 40, 160, 40);
+        line.extra_int1 = 1; // Tracejado
+        line.extra_int2 = 20; // 2.0 px
+        doc.items.push(line);
+
+        let mut rect = SchematicItem::new_graphic(2, 2, 50, 60, 170, 130);
+        rect.subvariant = 1; // Arredondado
+        rect.show_value = 1; // Preenchimento translúcido
+        rect.extra_int1 = 2; // Pontilhado
+        rect.extra_int2 = 25; // 2.5 px
+        doc.items.push(rect);
+
+        let mut ellipse = SchematicItem::new_graphic(3, 3, 200, 60, 300, 120);
+        ellipse.show_value = 1;
+        ellipse.extra_int1 = 3; // Traço-Ponto
+        ellipse.extra_int2 = 15; // 1.5 px
+        doc.items.push(ellipse);
+
+        let mut arc = SchematicItem::new_graphic(4, 4, 220, 150, 280, 210);
+        arc.aux_coords[0] = 0;
+        arc.aux_coords[1] = 180;
+        arc.extra_int1 = 1;
+        arc.extra_int2 = 20;
+        arc.rotate_graphic_90_cw();
+        doc.items.push(arc);
+
+        let svg = export_to_svg(&doc, None, false);
+        assert!(svg.contains(r#"stroke-dasharray="6,4""#));
+        assert!(svg.contains(r#"stroke-dasharray="2,3""#));
+        assert!(svg.contains(r#"stroke-dasharray="8,3,2,3""#));
+        assert!(svg.contains(r#"stroke-width="2.00""#));
+        assert!(svg.contains(r#"stroke-width="2.50""#));
+        assert!(svg.contains(r#"fill-opacity="0.12""#));
+        assert!(svg.contains(r#"rx="#));
+        assert!(svg.contains("<ellipse"));
+        assert!(svg.contains("<path d=\"M"));
+
+        let dxf = String::from_utf8(export_to_dxf(&doc, None, false)).expect("DXF vetores");
+        assert!(dxf.contains("LTYPE"));
+        assert!(dxf.contains("DASHED"));
+        assert!(dxf.contains("DOTTED"));
+        assert!(dxf.contains("DASHDOT"));
+        assert!(dxf.contains("0\nARC\n"));
+
+        let pdf = export_doc_to_pdf(&doc, None, true).expect("PDF com vetores estilizados");
         assert!(pdf.starts_with(b"%PDF-"));
     }
 }
