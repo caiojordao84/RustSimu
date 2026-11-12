@@ -43,6 +43,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.src.phase_l"
 
 [[items]]
 id = 1
@@ -135,6 +136,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.src.neutral_n"
 
 [[items]]
 id = 3
@@ -227,6 +229,7 @@ show_value = 0
 extra_int1 = 1
 extra_int2 = 3
 trailing_str = ""
+concept_id = "el.act.pb.no"
 
 [[items]]
 id = 5
@@ -365,6 +368,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.contactor"
 
 [[items]]
 id = 8
@@ -457,6 +461,7 @@ show_value = 0
 extra_int1 = 1
 extra_int2 = 3
 trailing_str = ""
+concept_id = "el.aux.contact.no"
 
 [[items]]
 id = 10
@@ -733,6 +738,7 @@ show_value = 0
 extra_int1 = 1
 extra_int2 = 5
 trailing_str = ""
+concept_id = "el.aux.contact.no"
 
 [[items]]
 id = 16
@@ -917,6 +923,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.contactor"
 
 [[items]]
 id = 20
@@ -1055,6 +1062,7 @@ show_value = 0
 extra_int1 = 1
 extra_int2 = 6
 trailing_str = ""
+concept_id = "el.act.pb.no"
 
 [[items]]
 id = 23
@@ -1101,6 +1109,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.contactor"
 
 [[items]]
 id = 24
@@ -1377,6 +1386,7 @@ show_value = 0
 extra_int1 = 3
 extra_int2 = 7
 trailing_str = ""
+concept_id = "el.aux.contact.nc"
 
 [[items]]
 id = 30
@@ -1607,6 +1617,7 @@ show_value = 0
 extra_int1 = 1
 extra_int2 = 8
 trailing_str = ""
+concept_id = "el.aux.contact.no"
 
 [[items]]
 id = 35
@@ -1745,6 +1756,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.timer.on_delay"
 
 [[items]]
 id = 38
@@ -1929,6 +1941,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.contactor"
 
 [[items]]
 id = 43
@@ -1975,6 +1988,7 @@ show_value = 0
 extra_int1 = 1
 extra_int2 = 9
 trailing_str = ""
+concept_id = "el.aux.timer_on.no"
 
 [[items]]
 id = 44
@@ -2251,6 +2265,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.contactor"
 
 [[items]]
 id = 51
@@ -2297,6 +2312,7 @@ show_value = 0
 extra_int1 = 1
 extra_int2 = 10
 trailing_str = ""
+concept_id = "el.aux.contact.no"
 
 [[items]]
 id = 56
@@ -2389,6 +2405,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.timer.on_delay"
 
 [[items]]
 id = 59
@@ -2941,6 +2958,7 @@ show_value = 0
 extra_int1 = 10
 extra_int2 = 11
 trailing_str = ""
+concept_id = "el.aux.timer_on.nc"
 
 [[items]]
 id = 81

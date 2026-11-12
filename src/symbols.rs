@@ -3234,6 +3234,44 @@ pub fn classify_apparatus_role(tipo: i32) -> ApparatusRole {
 
 /// Classifica o papel funcional do elemento no circuito (suportando símbolos nativos CADe e canônicos QET).
 pub fn classify_item_role(item: &SchematicItem) -> ApparatusRole {
+    if let Some(res) = crate::dictionary::global_concept_dictionary().resolve_item(item) {
+        if let Some(cade_tipo) = res.concept.cade_tipo {
+            let r = classify_apparatus_role(cade_tipo);
+            if r != ApparatusRole::Other {
+                return r;
+            }
+        }
+        match res.concept.kind {
+            crate::canonical::CanonicalKind::RelayCoil => return ApparatusRole::Coil,
+            crate::canonical::CanonicalKind::CircuitBreaker => return ApparatusRole::Breaker,
+            crate::canonical::CanonicalKind::Fuse => return ApparatusRole::Fuse,
+            crate::canonical::CanonicalKind::Motor => return ApparatusRole::Motor,
+            crate::canonical::CanonicalKind::Lamp => return ApparatusRole::Signaling,
+            crate::canonical::CanonicalKind::MomentaryButton
+            | crate::canonical::CanonicalKind::LatchingSwitch
+            | crate::canonical::CanonicalKind::LimitSwitch
+            | crate::canonical::CanonicalKind::EmergencyStop
+            | crate::canonical::CanonicalKind::SelectorSwitch => {
+                return ApparatusRole::SwitchOrButton;
+            }
+            crate::canonical::CanonicalKind::ContactorContact => {
+                return if res.concept.poles >= 3 {
+                    ApparatusRole::PowerContactorPoles
+                } else {
+                    ApparatusRole::AuxiliaryContact
+                };
+            }
+            crate::canonical::CanonicalKind::ThermalContact => {
+                return ApparatusRole::ThermalAuxContact;
+            }
+            crate::canonical::CanonicalKind::Terminal
+            | crate::canonical::CanonicalKind::Connector => {
+                return ApparatusRole::Terminal;
+            }
+            _ => {}
+        }
+    }
+
     if let Some(slug) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {
             if let Some(el) = dict.get(slug) {

@@ -43,6 +43,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.src.3ph_l1_l2_l3_pe"
 
 [[items]]
 id = 1
@@ -89,6 +90,7 @@ show_value = 0
 extra_int1 = 1
 extra_int2 = 2
 trailing_str = ""
+concept_id = "el.prot.motor_breaker.3p"
 
 [[items]]
 id = 2
@@ -135,6 +137,7 @@ show_value = 0
 extra_int1 = 4
 extra_int2 = 5
 trailing_str = ""
+concept_id = "el.pwr.contactor.3p"
 
 [[items]]
 id = 3
@@ -181,6 +184,7 @@ show_value = 0
 extra_int1 = 4
 extra_int2 = 5
 trailing_str = ""
+concept_id = "el.pwr.contactor.3p"
 
 [[items]]
 id = 4
@@ -227,6 +231,7 @@ show_value = 0
 extra_int1 = 7
 extra_int2 = 8
 trailing_str = ""
+concept_id = "el.prot.thermal_relay.3p"
 
 [[items]]
 id = 5
@@ -273,6 +278,7 @@ show_value = 0
 extra_int1 = 10
 extra_int2 = 11
 trailing_str = ""
+concept_id = "el.prot.thermal_relay.3p"
 
 [[items]]
 id = 6
@@ -319,6 +325,7 @@ show_value = 0
 extra_int1 = 20
 extra_int2 = 21
 trailing_str = ""
+concept_id = "el.load.motor.3ph_3t"
 
 [[items]]
 id = 7
@@ -365,6 +372,7 @@ show_value = 0
 extra_int1 = 23
 extra_int2 = 24
 trailing_str = ""
+concept_id = "el.load.motor.3ph_3t"
 
 [[items]]
 id = 8
@@ -1837,6 +1845,7 @@ show_value = 0
 extra_int1 = 2
 extra_int2 = 3
 trailing_str = ""
+concept_id = "el.prot.mcb.2p"
 
 [[items]]
 id = 40
@@ -1883,6 +1892,7 @@ show_value = 0
 extra_int1 = 20
 extra_int2 = 21
 trailing_str = ""
+concept_id = "el.act.pb.nc"
 
 [[items]]
 id = 41
@@ -1929,6 +1939,7 @@ show_value = 0
 extra_int1 = 21
 extra_int2 = 22
 trailing_str = ""
+concept_id = "el.act.pb.no"
 
 [[items]]
 id = 42
@@ -1975,6 +1986,7 @@ show_value = 0
 extra_int1 = 21
 extra_int2 = 22
 trailing_str = ""
+concept_id = "el.aux.contact.no"
 
 [[items]]
 id = 43
@@ -2021,6 +2033,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.contactor"
 
 [[items]]
 id = 44
@@ -2941,6 +2954,7 @@ show_value = 0
 extra_int1 = 22
 extra_int2 = 23
 trailing_str = ""
+concept_id = "el.aux.thermal_contact.nc"
 
 [[items]]
 id = 64
@@ -3355,6 +3369,7 @@ show_value = 0
 extra_int1 = 20
 extra_int2 = 25
 trailing_str = ""
+concept_id = "el.act.pb.no"
 
 [[items]]
 id = 73
@@ -3401,6 +3416,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.timer.off_delay"
 
 [[items]]
 id = 74
@@ -3447,6 +3463,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.coil.contactor"
 
 [[items]]
 id = 75
@@ -3631,6 +3648,7 @@ show_value = 0
 extra_int1 = 28
 extra_int2 = 27
 trailing_str = ""
+concept_id = "el.aux.thermal_contact.nc"
 
 [[items]]
 id = 79
@@ -3999,6 +4017,7 @@ show_value = 0
 extra_int1 = 20
 extra_int2 = 28
 trailing_str = ""
+concept_id = "el.aux.timer_off.no"
 
 [[items]]
 id = 87
@@ -4413,6 +4432,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.block.pb_2d_panel"
 
 [[items]]
 id = 96
@@ -4459,6 +4479,7 @@ show_value = 0
 extra_int1 = 0
 extra_int2 = 0
 trailing_str = ""
+concept_id = "el.block.pb_2d_panel"
 
 [[items]]
 id = 97

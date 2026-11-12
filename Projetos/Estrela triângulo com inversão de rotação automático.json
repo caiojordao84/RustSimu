@@ -44,7 +44,8 @@
       "show_value": 0,
       "extra_int1": 17,
       "extra_int2": 18,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.load.motor.3ph_6t"
     },
     {
       "id": 1,
@@ -90,7 +91,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.src.3ph_l1_l2_l3_pe"
     },
     {
       "id": 2,
@@ -136,7 +138,8 @@
       "show_value": 0,
       "extra_int1": 1,
       "extra_int2": 2,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.fuse.3p"
     },
     {
       "id": 3,
@@ -320,7 +323,8 @@
       "show_value": 0,
       "extra_int1": 4,
       "extra_int2": 5,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.pwr.contactor.3p"
     },
     {
       "id": 7,
@@ -366,7 +370,8 @@
       "show_value": 0,
       "extra_int1": 6,
       "extra_int2": 5,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.pwr.contactor.3p"
     },
     {
       "id": 8,
@@ -412,7 +417,8 @@
       "show_value": 0,
       "extra_int1": 15,
       "extra_int2": 16,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.pwr.contactor.3p"
     },
     {
       "id": 9,
@@ -458,7 +464,8 @@
       "show_value": 0,
       "extra_int1": 14,
       "extra_int2": 14,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.pwr.contactor.3p"
     },
     {
       "id": 10,
@@ -504,7 +511,8 @@
       "show_value": 0,
       "extra_int1": 15,
       "extra_int2": 16,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.thermal_relay.3p"
     },
     {
       "id": 11,
@@ -2666,7 +2674,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.src.phase_l"
     },
     {
       "id": 58,
@@ -2712,7 +2721,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.src.neutral_n"
     },
     {
       "id": 59,
@@ -2758,7 +2768,8 @@
       "show_value": 0,
       "extra_int1": 24,
       "extra_int2": 36,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.fuse.1p"
     },
     {
       "id": 60,
@@ -2804,7 +2815,8 @@
       "show_value": 0,
       "extra_int1": 32,
       "extra_int2": 33,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.fuse.1p"
     },
     {
       "id": 61,
@@ -2896,7 +2908,8 @@
       "show_value": 0,
       "extra_int1": 36,
       "extra_int2": 25,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.thermal_contact.nc"
     },
     {
       "id": 63,
@@ -2942,7 +2955,8 @@
       "show_value": 0,
       "extra_int1": 25,
       "extra_int2": 26,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.act.pb.nc"
     },
     {
       "id": 64,
@@ -2988,7 +3002,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 27,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.act.pb.no"
     },
     {
       "id": 65,
@@ -3034,7 +3049,8 @@
       "show_value": 0,
       "extra_int1": 27,
       "extra_int2": 28,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.nc"
     },
     {
       "id": 66,
@@ -3080,7 +3096,8 @@
       "show_value": 0,
       "extra_int1": 28,
       "extra_int2": 29,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.nc"
     },
     {
       "id": 67,
@@ -3126,7 +3143,8 @@
       "show_value": 0,
       "extra_int1": 29,
       "extra_int2": 30,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.nc"
     },
     {
       "id": 68,
@@ -3172,7 +3190,8 @@
       "show_value": 0,
       "extra_int1": 30,
       "extra_int2": 49,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.nc"
     },
     {
       "id": 69,
@@ -3218,7 +3237,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.contactor"
     },
     {
       "id": 70,
@@ -3264,7 +3284,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.on_delay"
     },
     {
       "id": 71,
@@ -3678,7 +3699,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 29,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.no"
     },
     {
       "id": 80,
@@ -3816,7 +3838,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 27,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.act.pb.no"
     },
     {
       "id": 83,
@@ -3862,7 +3885,8 @@
       "show_value": 0,
       "extra_int1": 27,
       "extra_int2": 64,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.no"
     },
     {
       "id": 84,
@@ -4092,7 +4116,8 @@
       "show_value": 0,
       "extra_int1": 63,
       "extra_int2": 50,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.act.pb.nc"
     },
     {
       "id": 89,
@@ -4138,7 +4163,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.contactor"
     },
     {
       "id": 90,
@@ -4184,7 +4210,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 59,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.no"
     },
     {
       "id": 91,
@@ -4230,7 +4257,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 64,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.no"
     },
     {
       "id": 92,
@@ -4276,7 +4304,8 @@
       "show_value": 0,
       "extra_int1": 61,
       "extra_int2": 51,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.act.pb.nc"
     },
     {
       "id": 93,
@@ -4322,7 +4351,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.contactor"
     },
     {
       "id": 94,
@@ -4368,7 +4398,8 @@
       "show_value": 0,
       "extra_int1": 36,
       "extra_int2": 34,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.no"
     },
     {
       "id": 95,
@@ -4414,7 +4445,8 @@
       "show_value": 0,
       "extra_int1": 36,
       "extra_int2": 34,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.no"
     },
     {
       "id": 96,
@@ -4460,7 +4492,8 @@
       "show_value": 0,
       "extra_int1": 34,
       "extra_int2": 39,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.nc"
     },
     {
       "id": 97,
@@ -4506,7 +4539,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.contactor"
     },
     {
       "id": 98,
@@ -6392,7 +6426,8 @@
       "show_value": 0,
       "extra_int1": 41,
       "extra_int2": 43,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.nc"
     },
     {
       "id": 139,
@@ -6530,7 +6565,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.on_delay"
     },
     {
       "id": 142,
@@ -6622,7 +6658,8 @@
       "show_value": 0,
       "extra_int1": 51,
       "extra_int2": 46,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.nc"
     },
     {
       "id": 144,
@@ -6668,7 +6705,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.off_delay"
     },
     {
       "id": 145,
@@ -7128,7 +7166,8 @@
       "show_value": 0,
       "extra_int1": 46,
       "extra_int2": 48,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_off.nc"
     },
     {
       "id": 155,
@@ -7312,7 +7351,8 @@
       "show_value": 0,
       "extra_int1": 50,
       "extra_int2": 41,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_off.nc"
     },
     {
       "id": 159,
@@ -7358,7 +7398,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.off_delay"
     },
     {
       "id": 160,
@@ -7864,7 +7905,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.on_delay"
     },
     {
       "id": 171,
@@ -7910,7 +7952,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 50,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.no"
     },
     {
       "id": 172,
@@ -7956,7 +7999,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.on_delay"
     },
     {
       "id": 173,
@@ -8324,7 +8368,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 51,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.no"
     },
     {
       "id": 181,
@@ -8830,7 +8875,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 61,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.no"
     },
     {
       "id": 192,
@@ -8968,7 +9014,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 55,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_off.no"
     },
     {
       "id": 195,
@@ -9244,7 +9291,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 53,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_off.no"
     },
     {
       "id": 201,
@@ -9796,7 +9844,8 @@
       "show_value": 0,
       "extra_int1": 64,
       "extra_int2": 63,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.nc"
     },
     {
       "id": 213,
@@ -9842,7 +9891,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 27,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.no"
     },
     {
       "id": 214,
@@ -9888,7 +9938,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 27,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.no"
     },
     {
       "id": 215,
@@ -10532,7 +10583,8 @@
       "show_value": 0,
       "extra_int1": 59,
       "extra_int2": 61,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.nc"
     },
     {
       "id": 229,

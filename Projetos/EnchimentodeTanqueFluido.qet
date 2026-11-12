@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project title="Projeto RustSimu" version="0.90">
+  <properties/>
+  <newdiagrams/>
+  <diagram order="1" title="Folha 1" author="" date="" filename="EnchimentodeTanqueFluido.qet" rows="11" cols="10" rowsize="120.0" colsize="180.0" height="1320.0" displayrows="true" displaycols="true" cade_scale="5">
+    <elements>
+      <element type="embed://import/cade_native/type_3000.elmt" x="180.0" y="240.0" orientation="3" uuid="{9a3ff83e-2238-476f-8032-a043b4439f2f}" z="10" freezeLabel="false" cade_id="0" cade_pin_vis="0,0,0,0,0,0,0,0,1" cade_pins="||||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">-X</elementInformation>
+          <elementInformation name="label" show="1">-X</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{f1ee0787-92bd-49a3-830b-4448fc08a710}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>-X</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="-X" />
+      </element>
+      <element type="embed://import/cade_native/type_3001.elmt" x="180.0" y="795.0" orientation="3" uuid="{9a3ffa3e-2238-4ad5-8f39-146edfd3df2f}" z="10" freezeLabel="false" cade_id="2" cade_pin_vis="0,0,0,0,0,0,0,0,1" cade_pins="||||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">-X</elementInformation>
+          <elementInformation name="label" show="1">-X</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{e8ef93c6-c4aa-45fd-8b79-697326ff6985}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>-X</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="-X" />
+      </element>
+      <element type="embed://import/cade_native/type_8000.elmt" x="225.0" y="285.0" orientation="0" uuid="{9a3fcc3e-2238-4cab-b8da-7432949c1f2f}" z="10" freezeLabel="false" cade_extra1="1" cade_extra2="3" cade_id="4" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="13|14|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">E1</elementInformation>
+          <elementInformation name="label" show="1">E1</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{bb9baaea-ed77-4e04-9b35-e6c1d30167b5}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>E1</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="E1" />
+      </element>
+      <element type="embed://import/cade_native/type_9000.elmt" x="225.0" y="630.0" orientation="0" uuid="{9a3fcd3e-2238-4e5e-9f66-15b605513f2f}" z="10" freezeLabel="false" cade_id="7" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="A1|A2|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">K1</elementInformation>
+          <elementInformation name="label" show="1">K1</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{6c008b20-5110-4514-aec0-0a7753fdb593}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>K1</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="K1" />
+      </element>
+      <element type="embed://import/cade_native/type_7000.elmt" x="315.0" y="285.0" orientation="0" uuid="{9a3fcf3e-2238-41c4-ae9f-82f646217f2f}" z="10" freezeLabel="false" cade_extra1="1" cade_extra2="3" cade_id="9" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="13|14|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">K1</elementInformation>
+          <elementInformation name="label" show="1">K1</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{338624e5-41f1-4e05-a42e-f5e990c5615a}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>K1</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="K1" />
+      </element>
+      <element type="embed://import/cade_native/type_7000.elmt" x="420.0" y="285.0" orientation="0" uuid="{53071c94-25ba-4e9a-a7db-073b6459157f}" z="10" freezeLabel="false" cade_extra1="1" cade_extra2="5" cade_id="15" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="13|14|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">K1</elementInformation>
+          <elementInformation name="label" show="1">K1</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{d03956c8-9708-4459-932a-b929bb09b25a}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>K1</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="K1" />
+      </element>
+      <element type="embed://import/cade_native/type_9000.elmt" x="420.0" y="615.0" orientation="0" uuid="{53071894-25ba-47ce-9479-81e79d10157f}" z="10" freezeLabel="false" cade_id="19" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="A1|A2|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">S1</elementInformation>
+          <elementInformation name="label" show="1">S1</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{2427537d-7348-4ac4-b3a9-0f1532ba54cc}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>S1</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="S1" />
+      </element>
+      <element type="embed://import/cade_native/type_8000.elmt" x="525.0" y="330.0" orientation="0" uuid="{53112194-25c2-4b9e-a7d0-03ab3e9f2385}" z="10" freezeLabel="false" cade_extra1="1" cade_extra2="6" cade_id="22" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="13|14|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">E2</elementInformation>
+          <elementInformation name="label" show="1">E2</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{9dda7384-bb70-4ea6-8ee7-d9514438f8ad}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>E2</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="E2" />
+      </element>
+      <element type="embed://import/cade_native/type_9000.elmt" x="525.0" y="615.0" orientation="0" uuid="{5310cc94-25c1-4b2f-a34d-9408accce385}" z="10" freezeLabel="false" cade_id="23" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="A1|A2|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">FS</elementInformation>
+          <elementInformation name="label" show="1">FS</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{e7f3ea5a-8833-473a-8e9d-aefc7a707e75}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>FS</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="FS" />
+      </element>
+      <element type="embed://import/cade_native/type_7001.elmt" x="225.0" y="510.0" orientation="0" uuid="{5310ca94-25c1-47c9-b745-8822a1076385}" z="10" freezeLabel="false" cade_extra1="3" cade_extra2="7" cade_id="29" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="11|12|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">FS</elementInformation>
+          <elementInformation name="label" show="1">FS</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{90f09e0e-5139-405e-aa45-0ffc8f3760d7}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>FS</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="FS" />
+      </element>
+      <element type="embed://import/cade_native/type_7000.elmt" x="630.0" y="330.0" orientation="0" uuid="{530de794-25bf-4339-947b-a8e3281f4aed}" z="10" freezeLabel="false" cade_extra1="1" cade_extra2="8" cade_id="34" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="13|14|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">FS</elementInformation>
+          <elementInformation name="label" show="1">FS</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{8d678a9f-6fd8-40d4-a096-a14dd4fb777a}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>FS</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="FS" />
+      </element>
+      <element type="embed://import/cade_native/type_9004.elmt" x="630.0" y="615.0" orientation="0" uuid="{530dea94-25bf-4852-8669-e0751f688aed}" z="10" freezeLabel="false" cade_id="37" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="A1|A2|0|2|||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">T1</elementInformation>
+          <elementInformation name="label" show="1">T1</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{50544e6e-bf18-4a67-ac98-fb0453030617}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>T1</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="T1" />
+      </element>
+      <element type="embed://import/cade_native/type_9000.elmt" x="750.0" y="615.0" orientation="0" uuid="{5274a194-253d-4f7c-9d57-e16f267f32e1}" z="10" freezeLabel="false" cade_id="42" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="A1|A2|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">K2</elementInformation>
+          <elementInformation name="label" show="1">K2</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{f7ef321a-3284-4197-ba4d-5b5d17e85456}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>K2</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="K2" />
+      </element>
+      <element type="embed://import/cade_native/type_7004.elmt" x="750.0" y="330.0" orientation="0" uuid="{5274f894-253d-4351-98b9-b64034acf2e1}" z="10" freezeLabel="false" cade_extra1="1" cade_extra2="9" cade_id="43" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="67|68|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">T1</elementInformation>
+          <elementInformation name="label" show="1">T1</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{c3cdee89-9b3f-45e6-97c5-99fceb377c96}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>T1</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="T1" />
+      </element>
+      <element type="embed://import/cade_native/type_9000.elmt" x="870.0" y="645.0" orientation="0" uuid="{5274fa94-253d-46b7-ae68-9a4eb8e772e1}" z="10" freezeLabel="false" cade_id="49" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="A1|A2|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">S2</elementInformation>
+          <elementInformation name="label" show="1">S2</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{28c7e7f4-b57c-40de-ad77-0173445875b7}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>S2</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="S2" />
+      </element>
+      <element type="embed://import/cade_native/type_7000.elmt" x="930.0" y="360.0" orientation="0" uuid="{52712094-253a-4e72-a627-6c7d03227264}" z="10" freezeLabel="false" cade_extra1="1" cade_extra2="10" cade_id="51" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="13|14|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">K2</elementInformation>
+          <elementInformation name="label" show="1">K2</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{d4823b28-710f-4a92-a2ff-a82d45799778}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>K2</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="K2" />
+      </element>
+      <element type="embed://import/cade_native/type_9004.elmt" x="975.0" y="645.0" orientation="0" uuid="{52711794-253a-4f27-b018-e3f4658ab264}" z="10" freezeLabel="false" cade_id="58" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="A1|A2|0|3|||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">T2</elementInformation>
+          <elementInformation name="label" show="1">T2</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{36922d7d-2aac-4816-bfe1-8a418d34d502}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>T2</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="T2" />
+      </element>
+      <element type="embed://import/cade_native/type_7005.elmt" x="870.0" y="495.0" orientation="0" uuid="{52822394-2548-46be-8bdd-67157b0f9fef}" z="10" freezeLabel="false" cade_extra1="10" cade_extra2="11" cade_id="80" cade_pin_vis="1,1,0,0,0,0,0,0,1" cade_pins="55|56|||||||" cade_show_tag="1" cade_show_value="0" cade_value="">
+        <elementInformations>
+          <elementInformation name="formula" show="1">T2</elementInformation>
+          <elementInformation name="label" show="1">T2</elementInformation>
+        </elementInformations>
+        <dynamic_texts>
+          <dynamic_elmt_text x="-28" y="12" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{4e3be9a2-e587-4606-aa05-4db19c1674e7}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+            <text>T2</text>
+            <info_name>label</info_name>
+          </dynamic_elmt_text>
+        </dynamic_texts>
+        <input text="T2" />
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="1050.0" y="240.0" orientation="0" uuid="{15374275-4ec8-471f-805e-1e5d4dd949e7}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="1065.0" y="795.0" orientation="0" uuid="{ddc581d3-f1f1-4af1-a47c-0816544e1674}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="225.0" y="240.0" orientation="0" uuid="{ef48316a-81b1-4482-8243-15c531dada90}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="225.0" y="435.0" orientation="0" uuid="{ef55d46a-81bd-43d7-8bf1-679f320139e0}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="315.0" y="240.0" orientation="0" uuid="{10a60383-dc46-4eae-99f0-fd3e19c5d24a}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="315.0" y="375.0" orientation="0" uuid="{109c4c83-dc3e-4634-ae77-b4ec0d3e4edf}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="225.0" y="375.0" orientation="0" uuid="{ef59326a-81c0-4968-be47-d1e6b6dde26f}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="420.0" y="240.0" orientation="0" uuid="{73594be0-fc05-4555-af09-ef79b6e4fa3c}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="420.0" y="795.0" orientation="0" uuid="{0db4374c-4185-406d-afb2-5064034cb3cf}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="525.0" y="240.0" orientation="0" uuid="{e0cc4fbd-6209-4a24-85a6-4f0753c66655}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="525.0" y="795.0" orientation="0" uuid="{d8c9d8cd-7cc9-4eb1-86f3-ca3c297308d3}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="225.0" y="795.0" orientation="0" uuid="{411c96fa-5c9a-48c0-bccb-ae7c6f0a2c50}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="630.0" y="240.0" orientation="0" uuid="{b36da38f-b48e-457d-a721-a3617110de4c}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="630.0" y="795.0" orientation="0" uuid="{9c8ca82f-e5d7-4ad6-93e4-96987a67c45d}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="750.0" y="240.0" orientation="0" uuid="{c3cac0de-9a9d-4c68-87b3-4c475c74db7c}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="750.0" y="795.0" orientation="0" uuid="{678a6040-c759-425d-89d6-b0c364d119a5}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="930.0" y="240.0" orientation="0" uuid="{985799b2-599f-4d8f-9ec8-59733bd7a180}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="975.0" y="450.0" orientation="0" uuid="{6bf16664-1895-4680-aac6-58a5ac4a137b}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="975.0" y="615.0" orientation="0" uuid="{bd85ad15-a0ee-48a1-8727-5adaeefc59c7}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="870.0" y="450.0" orientation="0" uuid="{52233ee0-4fad-462f-b552-56e08415552a}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="930.0" y="450.0" orientation="0" uuid="{98689db2-59ad-478e-9981-05361810e7d8}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="975.0" y="750.0" orientation="0" uuid="{bd96b015-a0fc-40ed-ab42-18cf0614132c}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="975.0" y="795.0" orientation="0" uuid="{bd96a715-a0fc-41a2-ad62-c5310411b32c}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+      <element type="embed://import/cade_native/corner.elmt" x="1155.0" y="795.0" orientation="0" uuid="{ac0db542-1909-48ed-b4a8-b1e1c209fdfc}" z="5" freezeLabel="false">
+      </element>
+      <element type="embed://import/cade_native/junction.elmt" x="870.0" y="795.0" orientation="0" uuid="{fc26b327-3ea6-4b7f-aaa8-7f20cbe369b9}" z="5" freezeLabel="false" prefix="junction_4001" cade_junction="1">
+      </element>
+    </elements>
+    <conductors>
+      <conductor element1="{9a3ff83e-2238-476f-8032-a043b4439f2f}" terminal1="{04d58a59-2a41-400c-8c85-e9fdb28dc042}" element2="{15374275-4ec8-471f-805e-1e5d4dd949e7}" terminal2="{69cbdb84-f44d-4798-939e-ba123429acb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="1">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{9a3ffa3e-2238-4ad5-8f39-146edfd3df2f}" terminal1="{c4c7c39a-227e-4a69-a8e7-8cf99ef4cf8a}" element2="{ddc581d3-f1f1-4af1-a47c-0816544e1674}" terminal2="{69cbdb84-f44d-4798-939e-ba123429acb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="3">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{ef48316a-81b1-4482-8243-15c531dada90}" terminal1="{428e1dda-ccdc-46dc-8fae-1a507779b6d7}" element2="{9a3fcc3e-2238-4cab-b8da-7432949c1f2f}" terminal2="{659b9ba8-8869-47df-96ca-72bc44219202}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="5">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{9a3fcc3e-2238-4cab-b8da-7432949c1f2f}" terminal1="{659b98a8-8869-42c6-93e3-eace2fa21202}" element2="{ef55d46a-81bd-43d7-8bf1-679f320139e0}" terminal2="{69cc0484-f44e-4d43-bb86-b4460f854cb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="8">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{10a60383-dc46-4eae-99f0-fd3e19c5d24a}" terminal1="{428e1dda-ccdc-46dc-8fae-1a507779b6d7}" element2="{9a3fcf3e-2238-41c4-ae9f-82f646217f2f}" terminal2="{f737a6be-5293-45b0-926e-e426cd181d2c}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="10">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{9a3fcf3e-2238-41c4-ae9f-82f646217f2f}" terminal1="{f737adbe-5293-4195-8e52-edb4d7659d2c}" element2="{109c4c83-dc3e-4634-ae77-b4ec0d3e4edf}" terminal2="{69cc0484-f44e-4d43-bb86-b4460f854cb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="12">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{ef59326a-81c0-4968-be47-d1e6b6dde26f}" terminal1="{428defda-ccdc-48b2-84ba-c2aff78776d7}" element2="{109c4c83-dc3e-4634-ae77-b4ec0d3e4edf}" terminal2="{69cbdb84-f44d-4798-939e-ba123429acb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="13">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{73594be0-fc05-4555-af09-ef79b6e4fa3c}" terminal1="{428e1dda-ccdc-46dc-8fae-1a507779b6d7}" element2="{53071c94-25ba-4e9a-a7db-073b6459157f}" terminal2="{f737a6be-5293-45b0-926e-e426cd181d2c}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="16">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{53071c94-25ba-4e9a-a7db-073b6459157f}" terminal1="{f737adbe-5293-4195-8e52-edb4d7659d2c}" element2="{53071894-25ba-47ce-9479-81e79d10157f}" terminal2="{8b7340ab-d03b-484a-b1ad-5db3d68d22bd}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="18">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{53071894-25ba-47ce-9479-81e79d10157f}" terminal1="{8b733bab-d03b-4fcb-b44f-1e54c48ca2bd}" element2="{0db4374c-4185-406d-afb2-5064034cb3cf}" terminal2="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="20">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{e0cc4fbd-6209-4a24-85a6-4f0753c66655}" terminal1="{428e1dda-ccdc-46dc-8fae-1a507779b6d7}" element2="{53112194-25c2-4b9e-a7d0-03ab3e9f2385}" terminal2="{659b9ba8-8869-47df-96ca-72bc44219202}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="24">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{53112194-25c2-4b9e-a7d0-03ab3e9f2385}" terminal1="{659b98a8-8869-42c6-93e3-eace2fa21202}" element2="{5310cc94-25c1-4b2f-a34d-9408accce385}" terminal2="{8b7340ab-d03b-484a-b1ad-5db3d68d22bd}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="26">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{5310cc94-25c1-4b2f-a34d-9408accce385}" terminal1="{8b733bab-d03b-4fcb-b44f-1e54c48ca2bd}" element2="{d8c9d8cd-7cc9-4eb1-86f3-ca3c297308d3}" terminal2="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="27">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{ef55d46a-81bd-43d7-8bf1-679f320139e0}" terminal1="{69cbdf84-f44d-4e64-91f7-ede783842cb9}" element2="{5310ca94-25c1-47c9-b745-8822a1076385}" terminal2="{a78ab08e-d407-4bed-a0fe-9df4934e9082}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="30">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{5310ca94-25c1-47c9-b745-8822a1076385}" terminal1="{a78aa98e-d407-4008-a485-c3e649811082}" element2="{9a3fcd3e-2238-4e5e-9f66-15b605513f2f}" terminal2="{8b7340ab-d03b-484a-b1ad-5db3d68d22bd}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="31">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{9a3fcd3e-2238-4e5e-9f66-15b605513f2f}" terminal1="{8b733bab-d03b-4fcb-b44f-1e54c48ca2bd}" element2="{411c96fa-5c9a-48c0-bccb-ae7c6f0a2c50}" terminal2="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="32">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{b36da38f-b48e-457d-a721-a3617110de4c}" terminal1="{428e1dda-ccdc-46dc-8fae-1a507779b6d7}" element2="{530de794-25bf-4339-947b-a8e3281f4aed}" terminal2="{f737a6be-5293-45b0-926e-e426cd181d2c}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="35">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{530de794-25bf-4339-947b-a8e3281f4aed}" terminal1="{f737adbe-5293-4195-8e52-edb4d7659d2c}" element2="{530dea94-25bf-4852-8669-e0751f688aed}" terminal2="{46e067db-14f7-4a96-8f04-1a1c39ada043}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="38">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{530dea94-25bf-4852-8669-e0751f688aed}" terminal1="{46e06adb-14f7-4faf-92b1-052831132043}" element2="{9c8ca82f-e5d7-4ad6-93e4-96987a67c45d}" terminal2="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="40">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{5274f894-253d-4351-98b9-b64034acf2e1}" terminal1="{7085297e-bc47-4a99-a401-63194f4b26da}" element2="{5274a194-253d-4f7c-9d57-e16f267f32e1}" terminal2="{8b7340ab-d03b-484a-b1ad-5db3d68d22bd}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="44">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{c3cac0de-9a9d-4c68-87b3-4c475c74db7c}" terminal1="{428e1dda-ccdc-46dc-8fae-1a507779b6d7}" element2="{5274f894-253d-4351-98b9-b64034acf2e1}" terminal2="{70852a7e-bc47-4c4c-a888-a7a546b0a6da}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="45">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{5274a194-253d-4f7c-9d57-e16f267f32e1}" terminal1="{8b733bab-d03b-4fcb-b44f-1e54c48ca2bd}" element2="{678a6040-c759-425d-89d6-b0c364d119a5}" terminal2="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="47">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{985799b2-599f-4d8f-9ec8-59733bd7a180}" terminal1="{428e1dda-ccdc-46dc-8fae-1a507779b6d7}" element2="{52712094-253a-4e72-a627-6c7d03227264}" terminal2="{f737a6be-5293-45b0-926e-e426cd181d2c}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="59">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{6bf16664-1895-4680-aac6-58a5ac4a137b}" terminal1="{69cbdf84-f44d-4e64-91f7-ede783842cb9}" element2="{bd85ad15-a0ee-48a1-8727-5adaeefc59c7}" terminal2="{69cc0484-f44e-4d43-bb86-b4460f854cb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="61">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{52233ee0-4fad-462f-b552-56e08415552a}" terminal1="{69cc0d84-f44e-4c8e-80f5-ce42bfd26cb9}" element2="{6bf16664-1895-4680-aac6-58a5ac4a137b}" terminal2="{69cbdb84-f44d-4798-939e-ba123429acb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="63">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{52712094-253a-4e72-a627-6c7d03227264}" terminal1="{f737adbe-5293-4195-8e52-edb4d7659d2c}" element2="{98689db2-59ad-478e-9981-05361810e7d8}" terminal2="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="64">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{bd96b015-a0fc-40ed-ab42-18cf0614132c}" terminal1="{69cbdf84-f44d-4e64-91f7-ede783842cb9}" element2="{bd96a715-a0fc-41a2-ad62-c5310411b32c}" terminal2="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="72">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{ddc581d3-f1f1-4af1-a47c-0816544e1674}" terminal1="{69cc0d84-f44e-4c8e-80f5-ce42bfd26cb9}" element2="{ac0db542-1909-48ed-b4a8-b1e1c209fdfc}" terminal2="{69cbdb84-f44d-4798-939e-ba123429acb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="75">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{52233ee0-4fad-462f-b552-56e08415552a}" terminal1="{69cbdf84-f44d-4e64-91f7-ede783842cb9}" element2="{52822394-2548-46be-8bdd-67157b0f9fef}" terminal2="{6fb9d5e5-7c30-4fa9-ac2e-0e8521d243f2}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="81">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{52822394-2548-46be-8bdd-67157b0f9fef}" terminal1="{6fb9d6e5-7c30-415c-a11f-0cc0ffbac3f2}" element2="{5274fa94-253d-46b7-ae68-9a4eb8e772e1}" terminal2="{8b7340ab-d03b-484a-b1ad-5db3d68d22bd}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="82">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{5274fa94-253d-46b7-ae68-9a4eb8e772e1}" terminal1="{8b733bab-d03b-4fcb-b44f-1e54c48ca2bd}" element2="{fc26b327-3ea6-4b7f-aaa8-7f20cbe369b9}" terminal2="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="83">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{52711794-253a-4f27-b018-e3f4658ab264}" terminal1="{46e06adb-14f7-4faf-92b1-052831132043}" element2="{bd96b015-a0fc-40ed-ab42-18cf0614132c}" terminal2="{69cc0484-f44e-4d43-bb86-b4460f854cb9}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="85">
+        <sequentialNumbers/>
+      </conductor>
+      <conductor element1="{bd85ad15-a0ee-48a1-8727-5adaeefc59c7}" terminal1="{69cbdf84-f44d-4e64-91f7-ede783842cb9}" element2="{52711794-253a-4f27-b018-e3f4658ab264}" terminal2="{46e067db-14f7-4a96-8f04-1a1c39ada043}" type="multi" condsize="1" x="0" y="0" displaytext="1" onetextperfolio="0" numsize="6" vertirotatetext="270" horizrotatetext="0" color="#800000" cade_tipo="4000" cade_id="87">
+        <sequentialNumbers/>
+      </conductor>
+    </conductors>
+    <inputs>
+    </inputs>
+  </diagram>
+  <collection>
+    <category name="import">
+      <names>
+        <name lang="pt">Elementos Importados</name>
+        <name lang="en">Imported elements</name>
+      </names>
+      <category name="cade_native">
+        <names>
+          <name lang="pt">RustSimu / CADe Nativo</name>
+          <name lang="en">RustSimu / CADe Native</name>
+        </names>
+        <element name="type_3000.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="60" height="80" hotspot_x="30" hotspot_y="60">
+            <uuid uuid="{77db0711-9330-40fa-b62d-c0ced2d5ccc6}"/>
+            <names>
+              <name lang="pt">Alimentação Fase (L)</name>
+              <name lang="en">Phase Supply (L)</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <circle x="-5" y="-20" diameter="10" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+              <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <text x="-5" y="-30" text="L" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{04d58a59-2a41-400c-8c85-e9fdb28dc042}" name="L" x="0" y="0" orientation="s" type="Generic"/>
+              <dynamic_text x="-34" y="-19" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{25ed8c07-3995-4972-8323-846cda97a808}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="type_3001.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="60" height="80" hotspot_x="30" hotspot_y="60">
+            <uuid uuid="{69fb53bc-1d4c-4775-bc6f-832e22b48782}"/>
+            <names>
+              <name lang="pt">Alimentação Neutro (N)</name>
+              <name lang="en">Neutral Supply (N)</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <circle x="-5" y="-20" diameter="10" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+              <line x1="0" y1="-10" x2="0" y2="0" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <text x="-5" y="-30" text="N" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{c4c7c39a-227e-4a69-a8e7-8cf99ef4cf8a}" name="N" x="0" y="0" orientation="s" type="Generic"/>
+              <dynamic_text x="-34" y="-19" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{3805c3cf-fd5e-4d29-aa9b-288ab39649f4}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="type_8000.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="80" height="110" hotspot_x="50" hotspot_y="30">
+            <uuid uuid="{e0680bac-3d54-423f-a23e-fb73130d9803}"/>
+            <names>
+              <name lang="pt">Botão Pulsador Monoestável NA (NO)</name>
+              <name lang="en">Momentary Pushbutton NO</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <line x1="0" y1="0" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="45" x2="0" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-15" y1="15" x2="0" y2="45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-30" y1="30" x2="-20" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-15" y1="30" x2="-7" y2="30" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-30" y1="23" x2="-30" y2="37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-30" y1="23" x2="-23" y2="23" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-30" y1="37" x2="-23" y2="37" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <text x="5" y="0" text="13" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{659b9ba8-8869-47df-96ca-72bc44219202}" name="13" x="0" y="0" orientation="n" type="Generic"/>
+              <text x="5" y="45" text="14" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{659b98a8-8869-42c6-93e3-eace2fa21202}" name="14" x="0" y="60" orientation="s" type="Generic"/>
+              <dynamic_text x="-56" y="23" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{881a6a96-9f30-489b-8484-d1bf0c7871ee}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="type_9000.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="80" height="110" hotspot_x="40" hotspot_y="30">
+            <uuid uuid="{da633a58-90b7-4724-8891-576c81bc3435}"/>
+            <names>
+              <name lang="pt">Bobina de Contator / Relé</name>
+              <name lang="en">Contactor / Relay Coil</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="40" x2="0" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="20" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="40" x2="20" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="20" x2="-20" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="20" y1="20" x2="20" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <text x="5" y="0" text="A1" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{8b7340ab-d03b-484a-b1ad-5db3d68d22bd}" name="A1" x="0" y="0" orientation="n" type="Generic"/>
+              <text x="5" y="45" text="A2" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{8b733bab-d03b-4fcb-b44f-1e54c48ca2bd}" name="A2" x="0" y="60" orientation="s" type="Generic"/>
+              <dynamic_text x="-46" y="23" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{d13b2cfb-a1b9-4f24-8681-8a4c6b069a9a}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="type_7000.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="70" height="110" hotspot_x="40" hotspot_y="30">
+            <uuid uuid="{985ebd6b-7d68-48ce-b040-130bb68bea04}"/>
+            <names>
+              <name lang="pt">Contato Auxiliar NA (NO)</name>
+              <name lang="en">Auxiliary Contact NO</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <line x1="0" y1="0" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="45" x2="0" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-15" y1="15" x2="0" y2="45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <text x="5" y="0" text="13" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{f737a6be-5293-45b0-926e-e426cd181d2c}" name="13" x="0" y="0" orientation="n" type="Generic"/>
+              <text x="5" y="45" text="14" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{f737adbe-5293-4195-8e52-edb4d7659d2c}" name="14" x="0" y="60" orientation="s" type="Generic"/>
+              <dynamic_text x="-42" y="23" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{a6ea273a-1673-4966-a620-563fa5ea67f1}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="type_7001.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="70" height="110" hotspot_x="30" hotspot_y="30">
+            <uuid uuid="{8642e0d5-d43d-4291-a1b9-557b23ac26f3}"/>
+            <names>
+              <name lang="pt">Contato Auxiliar NF (NC)</name>
+              <name lang="en">Auxiliary Contact NC</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <line x1="0" y1="0" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="45" x2="0" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="15" y1="15" x2="0" y2="45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="18" x2="18" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="15" x2="0" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <text x="5" y="0" text="11" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{a78ab08e-d407-4bed-a0fe-9df4934e9082}" name="11" x="0" y="0" orientation="n" type="Generic"/>
+              <text x="5" y="45" text="12" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{a78aa98e-d407-4008-a485-c3e649811082}" name="12" x="0" y="60" orientation="s" type="Generic"/>
+              <dynamic_text x="-36" y="23" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{ff8a0412-9f28-40c5-ab97-b02ada9a8d7c}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="type_9004.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="90" height="110" hotspot_x="40" hotspot_y="30">
+            <uuid uuid="{842e8837-b01c-4788-98e0-484fc76d48ae}"/>
+            <names>
+              <name lang="pt">Temporizador ao Trabalho (On-Delay)</name>
+              <name lang="en">On-Delay Timer Coil</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <line x1="0" y1="0" x2="0" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="40" x2="0" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="20" x2="20" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="40" x2="20" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="20" x2="-20" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="20" y1="20" x2="20" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-5" y1="20" x2="-5" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="40" x2="-5" y2="20" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="20" x2="-5" y2="40" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <text x="5" y="0" text="A1" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{46e067db-14f7-4a96-8f04-1a1c39ada043}" name="A1" x="0" y="0" orientation="n" type="Generic"/>
+              <text x="5" y="45" text="A2" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{46e06adb-14f7-4faf-92b1-052831132043}" name="A2" x="0" y="60" orientation="s" type="Generic"/>
+              <dynamic_text x="-46" y="23" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{ef3366c2-a08a-4888-bf73-81d41531e5c9}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="type_7004.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="80" height="110" hotspot_x="50" hotspot_y="30">
+            <uuid uuid="{cd46368e-6845-4be2-b891-818303045977}"/>
+            <names>
+              <name lang="pt">Contato Temporizado NA (On-Delay)</name>
+              <name lang="en">On-Delay Timer Contact NO</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <line x1="0" y1="0" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="45" x2="0" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-15" y1="15" x2="0" y2="45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="28" x2="-6" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="32" x2="-8" y2="32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <arc x="-32.0" y="20.0" width="20.0" height="20.0" start="78.7" angle="202.6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+              <text x="5" y="0" text="67" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{70852a7e-bc47-4c4c-a888-a7a546b0a6da}" name="67" x="0" y="0" orientation="n" type="Generic"/>
+              <text x="5" y="45" text="68" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{7085297e-bc47-4a99-a401-63194f4b26da}" name="68" x="0" y="60" orientation="s" type="Generic"/>
+              <dynamic_text x="-56" y="23" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{bf77a85e-9202-420a-8968-1f6bf0650e50}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="type_7005.elmt">
+          <definition version="0.80" type="element" link_type="simple" width="90" height="110" hotspot_x="50" hotspot_y="30">
+            <uuid uuid="{7ff9abdd-74af-4775-ac92-cce764b71616}"/>
+            <names>
+              <name lang="pt">Contato Temporizado NF (On-Delay)</name>
+              <name lang="en">On-Delay Timer Contact NC</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <line x1="0" y1="0" x2="0" y2="15" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="45" x2="0" y2="60" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="15" y1="15" x2="0" y2="45" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="0" y1="18" x2="18" y2="18" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="28" x2="8" y2="28" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <line x1="-20" y1="32" x2="6" y2="32" end1="none" end2="none" length1="1.5" length2="1.5" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="false"/>
+              <arc x="-32.0" y="20.0" width="20.0" height="20.0" start="78.7" angle="202.6" style="line-style:normal;line-weight:normal;filling:none;color:black" antialias="true"/>
+              <text x="5" y="0" text="55" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{6fb9d5e5-7c30-4fa9-ac2e-0e8521d243f2}" name="55" x="0" y="0" orientation="n" type="Generic"/>
+              <text x="5" y="45" text="56" font="Sans Serif,4,-1,5,25,0,0,0,0,0" rotation="0" color="#000000"/>
+              <terminal uuid="{6fb9d6e5-7c30-415c-a11f-0cc0ffbac3f2}" name="56" x="0" y="60" orientation="s" type="Generic"/>
+              <dynamic_text x="-56" y="23" z="18" rotation="0" font="Sans Serif,7,-1,5,50,0,0,0,0,0" uuid="{6c4e6006-07e8-4719-9668-f55c7a3f7658}" frame="false" text_width="-1" keep_visual_rotation="true" Halignment="AlignLeft" Valignment="AlignTop" text_from="ElementInfo">
+                <text></text>
+                <info_name>label</info_name>
+              </dynamic_text>
+            </description>
+          </definition>
+        </element>
+        <element name="corner.elmt">
+          <definition version="0.80" type="element" link_type="terminal" width="10" height="10" hotspot_x="5" hotspot_y="5">
+            <uuid uuid="{7f544433-3e5d-4ef6-a773-f9ac8fb53b9a}"/>
+            <names>
+              <name lang="pt">Canto de Condutor</name>
+              <name lang="en">Wire Corner</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <terminal uuid="{69cc0484-f44e-4d43-bb86-b4460f854cb9}" name="" x="0" y="0" orientation="n" type="Generic"/>
+              <terminal uuid="{69cc0d84-f44e-4c8e-80f5-ce42bfd26cb9}" name="" x="0" y="0" orientation="e" type="Generic"/>
+              <terminal uuid="{69cbdf84-f44d-4e64-91f7-ede783842cb9}" name="" x="0" y="0" orientation="s" type="Generic"/>
+              <terminal uuid="{69cbdb84-f44d-4798-939e-ba123429acb9}" name="" x="0" y="0" orientation="w" type="Generic"/>
+            </description>
+          </definition>
+        </element>
+        <element name="junction.elmt">
+          <definition version="0.80" type="element" link_type="terminal" width="10" height="10" hotspot_x="5" hotspot_y="5">
+            <uuid uuid="{827f684e-c32d-4114-a134-8ad54c664854}"/>
+            <names>
+              <name lang="pt">Juncao / Empalme</name>
+              <name lang="en">Junction</name>
+            </names>
+            <elementInformations/>
+            <informations/>
+            <description>
+              <circle x="-2" y="-2" diameter="4" antialias="true" style="line-style:normal;line-weight:normal;filling:black;color:black"/>
+              <terminal uuid="{428e1ada-ccdc-41c3-816f-4183e97f96d7}" name="" x="0" y="0" orientation="n" type="Generic"/>
+              <terminal uuid="{428defda-ccdc-48b2-84ba-c2aff78776d7}" name="" x="0" y="0" orientation="e" type="Generic"/>
+              <terminal uuid="{428e1dda-ccdc-46dc-8fae-1a507779b6d7}" name="" x="0" y="0" orientation="s" type="Generic"/>
+              <terminal uuid="{428e21da-ccdc-4da8-ba84-85b279f136d7}" name="" x="0" y="0" orientation="w" type="Generic"/>
+            </description>
+          </definition>
+        </element>
+      </category>
+    </category>
+  </collection>
+</project>

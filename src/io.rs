@@ -12,14 +12,22 @@ use crate::symbols::find_symbol;
 pub fn serialize_cad_str(doc: &SchematicDocument) -> String {
     let mut out = String::from("CADe_SIMU");
 
+    let dict = crate::dictionary::global_concept_dictionary();
+
     for item in &doc.items {
         if item.tipo < 1 && item.tipo != -1 {
             continue;
         }
-        let extended = SchematicItem::is_extended_cad_type(item.tipo);
+        let export_tipo = dict.resolve_for_cade_export(item).unwrap_or(item.tipo);
+        let extended = SchematicItem::is_extended_cad_type(export_tipo);
+        let fallback_sym = if item.tipo == 20000 && export_tipo != 20000 {
+            find_symbol(export_tipo)
+        } else {
+            None
+        };
 
         // *id*tipo
-        out.push_str(&format!("*{}*{}", item.id, item.tipo));
+        out.push_str(&format!("*{}*{}", item.id, export_tipo));
 
         // #tag#value#p1..#p8 (e #p9 se estendido)
         out.push('#');
@@ -29,7 +37,13 @@ pub fn serialize_cad_str(doc: &SchematicDocument) -> String {
         let num_pins = if extended { 9 } else { 8 };
         for i in 0..num_pins {
             out.push('#');
-            out.push_str(&item.pins[i]);
+            if !item.pins[i].is_empty() {
+                out.push_str(&item.pins[i]);
+            } else if let Some(ref sym) = fallback_sym {
+                if let Some(pin_def) = sym.pins.get(i) {
+                    out.push_str(pin_def.default_label);
+                }
+            }
         }
 
         // *vis1..*vis8 (e *vis9 se estendido)
@@ -210,7 +224,7 @@ pub fn parse_cad_str(input: &str) -> Result<SchematicDocument, String> {
         };
         cursor = next_c;
 
-        items.push(SchematicItem {
+        let mut item = SchematicItem {
             id,
             tipo,
             tag: tag.trim().to_string(),
@@ -237,7 +251,11 @@ pub fn parse_cad_str(input: &str) -> Result<SchematicDocument, String> {
             group_id: None,
             function: None,
             concept_id: None,
-        });
+        };
+        item.concept_id = crate::dictionary::global_concept_dictionary()
+            .resolve_item(&item)
+            .map(|r| r.concept.concept_id.clone());
+        items.push(item);
     }
 
     let mut settings = DocumentSettings::default();
@@ -682,4 +700,26 @@ pub fn build_dol_starter_preset() -> SchematicDocument {
         .push(SchematicItem::new_junction(next_id(), 72, 93));
 
     doc
+}
+
+/// Verifica se todos os elementos de um `SchematicDocument` possuem traducao direta
+/// para o formato legado `.cad`, retornando avisos para conceitos de dominios sem suporte no `.cad`
+/// (por exemplo, Pneumatica, Hidraulica ou Ladder puro).
+pub fn check_cad_export_compatibility(doc: &SchematicDocument) -> Vec<String> {
+    let dict = crate::dictionary::global_concept_dictionary();
+    let mut warnings = Vec::new();
+    for item in &doc.items {
+        if item.is_wire() || item.is_junction() || (1..=8).contains(&item.tipo) {
+            continue;
+        }
+        if let Some(res) = dict.resolve_item(item) {
+            if res.concept.cade_tipo.is_none() {
+                warnings.push(format!(
+                    "Item id={} tag='{}' (conceito '{}', dominio {:?}) nao possui tipo nativo equivalente no formato legado .cad",
+                    item.id, item.tag, res.concept.concept_id, res.concept.domain
+                ));
+            }
+        }
+    }
+    warnings
 }

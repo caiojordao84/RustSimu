@@ -8212,3 +8212,281 @@ fn test_vector_z_order_under_elements_and_alt_click_cycling() {
     let text_pos = body.find(">K1<").expect("Texto no SVG");
     assert!(rect_pos < wire_pos && wire_pos < text_pos);
 }
+
+#[test]
+fn test_bidirectional_dictionary_and_all_projetos_qet_export_and_roundtrip() {
+    use cade_simu_rs::dictionary::global_concept_dictionary;
+    use cade_simu_rs::qet::{export_doc_to_qet, load_qet_file};
+    use cade_simu_rs::sim::rules::{is_item_manual, is_item_momentary};
+    use cade_simu_rs::symbols::{classify_item_role, ApparatusRole};
+    use std::path::PathBuf;
+
+    let dict = global_concept_dictionary();
+
+    // 1) Verifica convergência semântica de um elemento externo QET (tipo 20000) para conceito canônico,
+    // simulação, XRef e exportação .cad (tipo 8000)
+    let mut qet_pb = SchematicItem::new_symbol(1, 20000, 10, 10, "-S1");
+    qet_pb.pins[0] = "13".to_string();
+    qet_pb.pins[1] = "14".to_string();
+    qet_pb.trailing_str =
+        "qet:10_allpole/380_signaling_operating/20_push_buttons/push-button.elmt".to_string();
+    let res = dict
+        .resolve_item(&qet_pb)
+        .expect("Botão QET externo deve resolver no dicionário canônico");
+    assert_eq!(res.concept.concept_id, "el.act.pb.no");
+    assert_eq!(res.concept.cade_tipo, Some(8000));
+    assert_eq!(classify_item_role(&qet_pb), ApparatusRole::SwitchOrButton);
+    assert!(is_item_manual(&qet_pb));
+    assert!(is_item_momentary(&qet_pb));
+
+    let mut mini_doc = SchematicDocument::default();
+    mini_doc.items.push(qet_pb);
+    let cad_str = serialize_cad_str(&mini_doc);
+    let parsed_cad = parse_cad_str(&cad_str).expect("Deve parsear .cad exportado de item QET");
+    assert_eq!(parsed_cad.items.len(), 1);
+    assert_eq!(parsed_cad.items[0].tipo, 8000);
+    assert_eq!(
+        parsed_cad.items[0].concept_id.as_deref(),
+        Some("el.act.pb.no")
+    );
+
+    // 2) Exporta todos os projetos da pasta Projetos/ como .qet para inspeção visual no QElectroTech,
+    // valida a coleção embarcada e os condutores, reabre o .qet e executa a simulação completa
+    let manifest = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    let projetos_dir = if manifest.join("Projetos").is_dir() {
+        manifest.join("Projetos")
+    } else {
+        manifest.parent().unwrap().join("Projetos")
+    };
+
+    #[allow(clippy::type_complexity)]
+    let test_cases: Vec<(&str, Option<fn(SchematicDocument, &str)>)> = vec![
+        (
+            "EnchimentodeTanqueFluido",
+            Some(simulate_enchimento_de_tanque_fluido),
+        ),
+        (
+            "Inversão de rotação motor trifásico",
+            Some(simulate_inversao_rotacao_motor_trifasico),
+        ),
+        (
+            "Estrela triângulo sem inversão de rotação",
+            Some(simulate_estrela_triangulo_sem_inversao),
+        ),
+        (
+            "Estrela triângulo com inversão de rotação",
+            Some(simulate_estrela_triangulo_com_inversao),
+        ),
+        (
+            "Estrela triângulo com inversão de rotação automático",
+            Some(simulate_estrela_triangulo_com_inversao_automatico),
+        ),
+        ("Ligação três motores", Some(simulate_ligacao_tres_motores)),
+        ("Partida Direta", Some(simulate_partida_direta)),
+        ("Exemplo Desconexão", Some(simulate_exemplo_desconexao)),
+        (
+            "Partida de Motores Escalonada",
+            Some(simulate_partida_motores_escalonada),
+        ),
+        ("teste", None),
+    ];
+
+    for (stem, maybe_sim_fn) in test_cases {
+        let cad_path = projetos_dir.join(format!("{stem}.cad"));
+        let qet_path = projetos_dir.join(format!("{stem}.qet"));
+
+        let doc_cad = load_document(&cad_path)
+            .unwrap_or_else(|e| panic!("Erro ao abrir {:?}: {}", cad_path, e));
+        assert!(
+            !doc_cad.items.is_empty(),
+            "Projeto {stem}.cad não deve estar vazio"
+        );
+
+        // Todos os componentes elétricos do .cad devem ter concept_id atribuído pelo parser
+        for item in &doc_cad.items {
+            let is_cade_sentinel =
+                item.tipo == 20000 && item.tag == "XXX" && item.trailing_str.is_empty();
+            if !item.is_wire() && !item.is_junction() && !item.is_graphic() && !is_cade_sentinel {
+                assert!(
+                    item.concept_id.is_some(),
+                    "Item id={} tipo={} em {}.cad deveria ter concept_id",
+                    item.id,
+                    item.tipo,
+                    stem
+                );
+            }
+        }
+
+        // Salva como .qet diretamente em Projetos/
+        export_doc_to_qet(&doc_cad, &qet_path)
+            .unwrap_or_else(|e| panic!("Erro ao exportar {:?}: {}", qet_path, e));
+
+        let qet_xml = std::fs::read_to_string(&qet_path)
+            .unwrap_or_else(|e| panic!("Erro ao ler {:?}: {}", qet_path, e));
+        assert!(
+            qet_xml.contains("<collection>") && qet_xml.contains("<category name=\"import\">"),
+            "Arquivo {:?} deve conter coleção QET embarcada",
+            qet_path
+        );
+
+        // Verifica integridade estrutural do diagrama QET (todos os condutores apontam para elementos e terminais existentes)
+        let qet_proj = load_qet_file(&qet_path)
+            .unwrap_or_else(|e| panic!("Erro ao parsear XML QET {:?}: {}", qet_path, e));
+        assert_eq!(qet_proj.diagrams.len(), 1);
+        let diag = &qet_proj.diagrams[0];
+        assert!(
+            !diag.elements.is_empty(),
+            "Diagrama QET de {stem} deve conter elementos"
+        );
+        assert!(
+            !diag.conductors.is_empty(),
+            "Diagrama QET de {stem} deve conter condutores"
+        );
+
+        for cond in &diag.conductors {
+            assert!(
+                cond.element1.starts_with('{') && cond.element1.ends_with('}'),
+                "UUID element1 inválido em {stem}.qet: {}",
+                cond.element1
+            );
+            assert!(
+                cond.element2.starts_with('{') && cond.element2.ends_with('}'),
+                "UUID element2 inválido em {stem}.qet: {}",
+                cond.element2
+            );
+            let el1 = diag
+                .elements
+                .iter()
+                .find(|e| e.uuid == cond.element1)
+                .unwrap_or_else(|| {
+                    panic!(
+                        "Condutor referencia element1 inexistente {} em {}.qet",
+                        cond.element1, stem
+                    )
+                });
+            let el2 = diag
+                .elements
+                .iter()
+                .find(|e| e.uuid == cond.element2)
+                .unwrap_or_else(|| {
+                    panic!(
+                        "Condutor referencia element2 inexistente {} em {}.qet",
+                        cond.element2, stem
+                    )
+                });
+            let def1 = qet_proj
+                .element_definitions
+                .get(&el1.element_type)
+                .unwrap_or_else(|| {
+                    panic!(
+                        "Definição embarcada ausente para {} em {}.qet",
+                        el1.element_type, stem
+                    )
+                });
+            let def2 = qet_proj
+                .element_definitions
+                .get(&el2.element_type)
+                .unwrap_or_else(|| {
+                    panic!(
+                        "Definição embarcada ausente para {} em {}.qet",
+                        el2.element_type, stem
+                    )
+                });
+            assert!(
+                def1.terminals.iter().any(|t| t.uuid == cond.terminal1),
+                "Condutor referencia terminal1 inexistente {} na definição {} em {}.qet",
+                cond.terminal1,
+                el1.element_type,
+                stem
+            );
+            assert!(
+                def2.terminals.iter().any(|t| t.uuid == cond.terminal2),
+                "Condutor referencia terminal2 inexistente {} na definição {} em {}.qet",
+                cond.terminal2,
+                el2.element_type,
+                stem
+            );
+        }
+
+        // Reabre o .qet como SchematicDocument e verifica equivalência topológica/semântica e simulação
+        let doc_qet = load_document(&qet_path)
+            .unwrap_or_else(|e| panic!("Erro ao reabrir {:?}: {}", qet_path, e));
+
+        let comps_cad: Vec<_> = doc_cad
+            .items
+            .iter()
+            .filter(|i| {
+                !i.is_wire()
+                    && !i.is_junction()
+                    && !i.is_graphic()
+                    && !(i.tipo == 20000 && i.tag == "XXX" && i.trailing_str.is_empty())
+            })
+            .collect();
+        let comps_qet: Vec<_> = doc_qet
+            .items
+            .iter()
+            .filter(|i| {
+                !i.is_wire()
+                    && !i.is_junction()
+                    && !i.is_graphic()
+                    && !(i.tipo == 20000 && i.tag == "XXX" && i.trailing_str.is_empty())
+            })
+            .collect();
+        assert_eq!(
+            comps_cad.len(),
+            comps_qet.len(),
+            "{stem}: quantidade de componentes elétricos diverge no .qet"
+        );
+        for (ca, cb) in comps_cad.iter().zip(comps_qet.iter()) {
+            assert_eq!(ca.tipo, cb.tipo, "{stem}: tipo diverge");
+            assert_eq!(ca.tag, cb.tag, "{stem}: tag diverge");
+            assert_eq!(ca.value, cb.value, "{stem}: value diverge");
+            assert_eq!(ca.pins, cb.pins, "{stem}: pins diverge");
+            assert_eq!(
+                (ca.x1, ca.y1),
+                (cb.x1, cb.y1),
+                "{stem}: coordenadas do componente {} divergem",
+                ca.tag
+            );
+            assert_eq!(
+                ca.orientation, cb.orientation,
+                "{stem}: orientação de {} diverge",
+                ca.tag
+            );
+            assert_eq!(
+                ca.concept_id, cb.concept_id,
+                "{stem}: concept_id de {} diverge",
+                ca.tag
+            );
+        }
+
+        let wires_cad_count = doc_cad
+            .items
+            .iter()
+            .filter(|i| i.is_wire() && (i.x1 != i.x2 || i.y1 != i.y2))
+            .count();
+        let wires_qet_count = doc_qet
+            .items
+            .iter()
+            .filter(|i| i.is_wire() && (i.x1 != i.x2 || i.y1 != i.y2))
+            .count();
+        assert_eq!(
+            wires_cad_count, wires_qet_count,
+            "{stem}: quantidade de condutores válidos diverge no .qet"
+        );
+
+        // Roundtrip .qet -> .cad -> SchematicDocument
+        let doc_cad_from_qet = parse_cad_str(&serialize_cad_str(&doc_qet))
+            .unwrap_or_else(|e| panic!("Erro no roundtrip .qet -> .cad de {stem}: {}", e));
+        verify_doc_equivalence(
+            &doc_qet,
+            &doc_cad_from_qet,
+            &format!("{stem} (.qet vs .qet -> .cad)"),
+        );
+
+        if let Some(sim_fn) = maybe_sim_fn {
+            sim_fn(doc_qet, &format!("{stem}.qet"));
+            sim_fn(doc_cad_from_qet, &format!("{stem}.qet->.cad"));
+        }
+    }
+}

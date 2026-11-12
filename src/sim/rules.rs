@@ -101,6 +101,29 @@ pub fn is_item_manual(item: &SchematicItem) -> bool {
     ) {
         return true;
     }
+    if let Some(res) = crate::dictionary::global_concept_dictionary().resolve_item(item) {
+        if matches!(
+            res.concept.kind,
+            CanonicalKind::MomentaryButton
+                | CanonicalKind::LatchingSwitch
+                | CanonicalKind::SelectorSwitch
+                | CanonicalKind::EmergencyStop
+                | CanonicalKind::LimitSwitch
+                | CanonicalKind::CircuitBreaker
+                | CanonicalKind::Disconnector
+                | CanonicalKind::Fuse
+        ) {
+            return true;
+        }
+        if let Some(cade_tipo) = res.concept.cade_tipo {
+            if matches!(
+                cade_tipo,
+                2004 | 5000 | 5003 | 5008 | 6000 | 6003 | 6004 | 6007 | 6008 | 6009 | 8000..=8034
+            ) {
+                return true;
+            }
+        }
+    }
     if let Some(sym_ref) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {
             if let Some(k) = dict.kind(sym_ref) {
@@ -134,6 +157,19 @@ pub fn is_item_momentary(item: &SchematicItem) -> bool {
     if is_momentary_button(item.tipo) {
         return true;
     }
+    if let Some(res) = crate::dictionary::global_concept_dictionary().resolve_item(item) {
+        if matches!(
+            res.concept.kind,
+            CanonicalKind::MomentaryButton | CanonicalKind::LimitSwitch
+        ) {
+            return true;
+        }
+        if let Some(cade_tipo) = res.concept.cade_tipo {
+            if is_momentary_button(cade_tipo) {
+                return true;
+            }
+        }
+    }
     if let Some(sym_ref) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {
             if let Some(k) = dict.kind(sym_ref) {
@@ -162,6 +198,19 @@ pub fn is_circuit_breaker(item: &SchematicItem) -> bool {
     if matches!(item.tipo, 5008 | 6000 | 6003 | 6004 | 6008 | 6009) {
         return true;
     }
+    if let Some(res) = crate::dictionary::global_concept_dictionary().resolve_item(item) {
+        if matches!(
+            res.concept.kind,
+            CanonicalKind::CircuitBreaker | CanonicalKind::Disconnector
+        ) {
+            return true;
+        }
+        if let Some(cade_tipo) = res.concept.cade_tipo {
+            if matches!(cade_tipo, 5008 | 6000 | 6003 | 6004 | 6008 | 6009) {
+                return true;
+            }
+        }
+    }
     if let Some(sym_ref) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {
             if let Some(k) = dict.kind(sym_ref) {
@@ -185,6 +234,16 @@ pub fn is_circuit_breaker(item: &SchematicItem) -> bool {
 pub fn is_fuse(item: &SchematicItem) -> bool {
     if matches!(item.tipo, 5000 | 5003) {
         return true;
+    }
+    if let Some(res) = crate::dictionary::global_concept_dictionary().resolve_item(item) {
+        if res.concept.kind == CanonicalKind::Fuse {
+            return true;
+        }
+        if let Some(cade_tipo) = res.concept.cade_tipo {
+            if matches!(cade_tipo, 5000 | 5003) {
+                return true;
+            }
+        }
     }
     if let Some(sym_ref) = item.symbol_id_or_slug() {
         if let Some(dict) = crate::canonical::global_dictionary() {

@@ -254,6 +254,10 @@ impl ConceptDictionary {
             return self.resolve_external_qet(qet_or_slug, None, &item.pins);
         }
 
+        if item.tipo == 20000 && !item.trailing_str.trim().is_empty() {
+            return self.resolve_external_qet(&item.trailing_str, None, &item.pins);
+        }
+
         None
     }
 

@@ -90,6 +90,10 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                 if let Some(item) = app.doc.items.iter().find(|i| i.id == sel_id) {
                     let title = if let Some(sym) = find_symbol(item.tipo) {
                         sym.name.to_string()
+                    } else if let Some(res) =
+                        crate::dictionary::global_concept_dictionary().resolve_item(item)
+                    {
+                        res.concept.name_pt.clone()
                     } else if let Some(qet_id) = item.symbol_id_or_slug() {
                         if let Some(dict) = crate::canonical::global_dictionary() {
                             if let Some(el) = dict.get(qet_id) {
@@ -104,11 +108,11 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                         match (item.tipo, item.subvariant) {
                             (8, 0) => "Texto em Linha".to_string(),
                             (8, _) => "Campo de Texto".to_string(),
-                            (5, _) => "Imagem".to_string(),
+                            (5, _) => "Arco Vetorial".to_string(),
                             (1, _) => "Linha Gráfica".to_string(),
                             (2, _) => "Retângulo Gráfico".to_string(),
                             (3, _) => "Círculo / Elipse".to_string(),
-                            (4, _) => "Arco Gráfico".to_string(),
+                            (4, _) => "Retângulo Preenchido".to_string(),
                             _ => "Elemento Gráfico".to_string(),
                         }
                     } else if item.is_wire() {

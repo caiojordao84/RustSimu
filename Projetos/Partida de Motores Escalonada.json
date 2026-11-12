@@ -44,7 +44,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.src.3ph_l1_l2_l3_pe"
     },
     {
       "id": 1,
@@ -90,7 +91,8 @@
       "show_value": 0,
       "extra_int1": 1,
       "extra_int2": 2,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.motor_breaker.3p"
     },
     {
       "id": 2,
@@ -136,7 +138,8 @@
       "show_value": 0,
       "extra_int1": 4,
       "extra_int2": 5,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.contactor_breaker.3p"
     },
     {
       "id": 3,
@@ -182,7 +185,8 @@
       "show_value": 0,
       "extra_int1": 4,
       "extra_int2": 5,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.contactor_breaker.3p"
     },
     {
       "id": 4,
@@ -228,7 +232,8 @@
       "show_value": 0,
       "extra_int1": 4,
       "extra_int2": 5,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.contactor_breaker.3p"
     },
     {
       "id": 5,
@@ -274,7 +279,8 @@
       "show_value": 0,
       "extra_int1": 7,
       "extra_int2": 8,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.thermal_relay.3p"
     },
     {
       "id": 6,
@@ -320,7 +326,8 @@
       "show_value": 0,
       "extra_int1": 13,
       "extra_int2": 14,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.thermal_relay.3p"
     },
     {
       "id": 7,
@@ -366,7 +373,8 @@
       "show_value": 0,
       "extra_int1": 22,
       "extra_int2": 23,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.prot.thermal_relay.3p"
     },
     {
       "id": 8,
@@ -412,7 +420,8 @@
       "show_value": 0,
       "extra_int1": 20,
       "extra_int2": 21,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.load.motor.3ph_3t"
     },
     {
       "id": 9,
@@ -458,7 +467,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 27,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.load.motor.3ph_3t"
     },
     {
       "id": 10,
@@ -504,7 +514,8 @@
       "show_value": 0,
       "extra_int1": 29,
       "extra_int2": 30,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.load.motor.3ph_3t"
     },
     {
       "id": 11,
@@ -2620,7 +2631,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.src.dc_pos"
     },
     {
       "id": 57,
@@ -2666,7 +2678,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.src.dc_neg"
     },
     {
       "id": 58,
@@ -2896,7 +2909,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 28,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.act.pb.nc"
     },
     {
       "id": 63,
@@ -2942,7 +2956,8 @@
       "show_value": 0,
       "extra_int1": 28,
       "extra_int2": 29,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.act.pb.no"
     },
     {
       "id": 64,
@@ -2988,7 +3003,8 @@
       "show_value": 0,
       "extra_int1": 28,
       "extra_int2": 29,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.contact.no"
     },
     {
       "id": 65,
@@ -3034,7 +3050,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.contactor"
     },
     {
       "id": 66,
@@ -3080,7 +3097,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.on_delay"
     },
     {
       "id": 67,
@@ -3126,7 +3144,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.contactor"
     },
     {
       "id": 68,
@@ -3172,7 +3191,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.on_delay"
     },
     {
       "id": 69,
@@ -3218,7 +3238,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.contactor"
     },
     {
       "id": 70,
@@ -3264,7 +3285,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.coil.timer.on_delay"
     },
     {
       "id": 71,
@@ -3310,7 +3332,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 31,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.no"
     },
     {
       "id": 72,
@@ -3356,7 +3379,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 32,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.no"
     },
     {
       "id": 73,
@@ -3402,7 +3426,8 @@
       "show_value": 0,
       "extra_int1": 26,
       "extra_int2": 30,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.timer_on.no"
     },
     {
       "id": 74,
@@ -4644,7 +4669,8 @@
       "show_value": 0,
       "extra_int1": 126,
       "extra_int2": 124,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.sig.lamp"
     },
     {
       "id": 124,
@@ -4828,7 +4854,8 @@
       "show_value": 0,
       "extra_int1": 29,
       "extra_int2": 33,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.thermal_contact.nc"
     },
     {
       "id": 128,
@@ -4874,7 +4901,8 @@
       "show_value": 0,
       "extra_int1": 31,
       "extra_int2": 34,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.thermal_contact.nc"
     },
     {
       "id": 129,
@@ -4920,7 +4948,8 @@
       "show_value": 0,
       "extra_int1": 32,
       "extra_int2": 35,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.aux.thermal_contact.nc"
     },
     {
       "id": 130,
@@ -5886,7 +5915,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.block.pb_2d_panel"
     },
     {
       "id": 154,
@@ -5932,7 +5962,8 @@
       "show_value": 0,
       "extra_int1": 0,
       "extra_int2": 0,
-      "trailing_str": ""
+      "trailing_str": "",
+      "concept_id": "el.block.pb_2d_panel"
     },
     {
       "id": 155,
