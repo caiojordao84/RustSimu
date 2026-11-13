@@ -19,6 +19,9 @@ pub fn schematic_from_ct_bytes(bruto: &[u8]) -> Result<SchematicDocument, String
     crate::pneu::palette::ensure_svg_registrados();
 
     let mut doc = SchematicDocument::default();
+    doc.settings.format_orientation = 2; // Paisagem (horizontal A4)
+    doc.settings.custom_width_mm = 297;
+    doc.settings.custom_height_mm = 210;
     let titulo = dec
         .cabecalho
         .first()

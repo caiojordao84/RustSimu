@@ -97,6 +97,14 @@ fn diag_demo_09() {
 
     let doc = schematic_from_ct_path(path).expect("schematic import");
 
+    println!("\n=== ITENS DE DEMO_09 ===");
+    for it in &doc.items {
+        println!(
+            "id={} tag='{}' tipo={} sym={:?} concept={:?} at ({}, {}) to ({}, {})",
+            it.id, it.tag, it.tipo, it.symbol_id, it.concept_id, it.x1, it.y1, it.x2, it.y2
+        );
+    }
+
     // 1. Circuito de comando: 8 condutores elétricos (tipo 4003) conectando sem gaps
     let wires_el: Vec<_> = doc.items.iter().filter(|i| i.tipo == 4003).collect();
     assert_eq!(wires_el.len(), 8, "8 condutores eletricos perfeitos");
@@ -120,6 +128,10 @@ fn diag_demo_09() {
 
     // 4. Manômetro 152841 presente e perfeitamente ancorado
     let gauge = doc.items.iter().find(|i| i.tag == "-P33").unwrap();
+    println!("GAUGE ORIENTATION = {}", gauge.orientation);
+    let (g_svg, g_terms) = cade_simu_rs::pneu::svg_v1_classe("152841", false).unwrap();
+    println!("GAUGE SVG:\n{}", g_svg);
+    println!("GAUGE TERMS: {:?}", g_terms);
     assert_eq!(gauge.symbol_id.as_deref(), Some("152841"));
     assert_eq!((gauge.x1, gauge.y1), (246, 114));
 
@@ -169,6 +181,17 @@ fn diag_demo_09() {
         y1_item.bornes[0].x, y1_item.bornes[1].x,
         "bornes A1 e A2 de 1Y na vertical"
     );
+
+    // Renderiza PNG de demonstração em alta resolução para inspeção visual
+    let artifact_png = std::path::Path::new("/home/caiojordao84/.gemini/antigravity/brain/dfe77710-9bba-4889-8767-eec33a5bf9bf/demo_09_rustsimu.png");
+    let opts = cade_simu_rs::export::ExportOptions {
+        include_cajetin: false,
+        show_terminals: false,
+        monochrome: false,
+    };
+    if let Ok(bytes) = cade_simu_rs::export::export_to_png(&doc, None, opts, 2.0) {
+        let _ = std::fs::write(artifact_png, bytes);
+    }
 }
 
 #[test]

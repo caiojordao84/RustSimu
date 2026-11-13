@@ -623,9 +623,7 @@ fn render_svg_symbol_to_svg(
                 let (rx, ry) = transform_offset_f32(lx, ly, orientation);
                 let center_x = (ox + rx) * scale;
                 let center_y = (oy + ry) * scale;
-                let rad = if parsed.is_cade_svg {
-                    (*r / 5.0) * scale
-                } else if target_span > 1.0
+                let rad = if target_span > 1.0
                     && (parsed.term_bottom_y - parsed.term_top_y).abs() > 0.1
                 {
                     (*r * (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs())) * scale
@@ -656,9 +654,7 @@ fn render_svg_symbol_to_svg(
                 let sc_cx = (ox + rot_x) * scale;
                 let sc_cy = (oy + rot_y) * scale;
 
-                let scale_factor = if parsed.is_cade_svg {
-                    scale / 5.0
-                } else if target_span > 1.0
+                let scale_factor = if target_span > 1.0
                     && (parsed.term_bottom_y - parsed.term_top_y).abs() > 0.1
                 {
                     (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs()) * scale
@@ -937,7 +933,15 @@ pub fn export_to_svg(
                     min_y = min_y.min(item.y1 as f32).min(item.y2 as f32);
                     max_y = max_y.max(item.y1 as f32).max(item.y2 as f32);
                 } else if let Some(qet_type) = item.symbol_id_or_slug() {
-                    if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
+                    let active_key = format!("{qet_type}_active");
+                    let effective_key = if item.symbol_state == Some('1')
+                        && crate::svg_symbol::get_parsed_svg(&active_key).is_some()
+                    {
+                        active_key.as_str()
+                    } else {
+                        qet_type
+                    };
+                    if let Some(parsed) = crate::svg_symbol::get_parsed_svg(effective_key) {
                         let (vx, vy, vw, vh) = parsed.view_box;
                         let s = parsed.scale_factor();
                         let (p1x, p1y) = transform_offset_f32(vx * s, vy * s, item.orientation);
@@ -1345,6 +1349,9 @@ pub fn export_to_svg(
                 60..=69 => "#b45309",
                 70..=79 => "#b91c1c",
                 80..=89 => "#0284c7",
+                4003 => "#b91c1c",
+                4004 => "#2563eb",
+                4005 => "#1b2230",
                 _ => "#1b2230",
             };
             (col.to_string(), 1.6)
@@ -1472,13 +1479,21 @@ pub fn export_to_svg(
 
         // Símbolos QET ou gerados pelo cade2svg
         if let Some(qet_type) = item.symbol_id_or_slug() {
+            let active_key = format!("{qet_type}_active");
+            let effective_key = if item.symbol_state == Some('1')
+                && crate::svg_symbol::get_parsed_svg(&active_key).is_some()
+            {
+                active_key.as_str()
+            } else {
+                qet_type
+            };
             let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#111827");
             render_svg_symbol_to_svg(
                 &mut out,
                 item.x1,
                 item.y1,
                 item.orientation,
-                qet_type,
+                effective_key,
                 &stroke_col,
                 1.5,
                 None,
@@ -1486,7 +1501,7 @@ pub fn export_to_svg(
                 scale,
             );
             if opts.show_terminals {
-                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
+                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(effective_key) {
                     let pin_rad = (crate::model::TERMINAL_RADIUS_UNITS * scale).max(1.2);
                     let pin_col = if opts.monochrome {
                         "#000000"
@@ -1966,6 +1981,9 @@ fn wire_tipo_to_dxf_aci(tipo: i32, color: i32, monochrome: bool) -> u8 {
         60..=69 => 2,
         70..=79 => 1,
         80..=89 => 4,
+        4003 => 1,
+        4004 => 5,
+        4005 => 7,
         _ => 7,
     }
 }
@@ -2135,7 +2153,15 @@ pub fn export_to_dxf(
                 let ox = item.x1 as f32;
                 let oy = item.y1 as f32;
                 if let Some(qet_path) = item.symbol_id_or_slug() {
-                    if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_path) {
+                    let active_key = format!("{qet_path}_active");
+                    let effective_key = if item.symbol_state == Some('1')
+                        && crate::svg_symbol::get_parsed_svg(&active_key).is_some()
+                    {
+                        active_key.as_str()
+                    } else {
+                        qet_path
+                    };
+                    if let Some(parsed) = crate::svg_symbol::get_parsed_svg(effective_key) {
                         emit_dxf_qet_shapes(
                             &mut dxf,
                             &parsed,
@@ -2239,22 +2265,13 @@ fn emit_dxf_qet_shapes(
                 }
                 let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
                 let (rx, ry) = transform_offset_f32(lx, ly, orientation);
-                let scale_r = if parsed.is_cade_svg {
-                    *r / 5.0
-                } else {
-                    *r * parsed.scale_factor()
-                }
-                .max(0.6);
+                let scale_r = (*r * parsed.scale_factor()).max(0.6);
                 dxf.circle("SYMBOLS", aci, ox + rx, oy + ry, scale_r);
             }
             crate::svg_symbol::SvgShape::Ellipse { cx, cy, rx, ry, .. } => {
                 let (lx, ly) = parsed.map_point(*cx, *cy, 1.0);
                 let (rot_x, rot_y) = transform_offset_f32(lx, ly, orientation);
-                let sf = if parsed.is_cade_svg {
-                    0.2
-                } else {
-                    parsed.scale_factor()
-                };
+                let sf = parsed.scale_factor();
                 let (m_rx, m_ry) = if orientation.rem_euclid(2) == 1 {
                     (*ry * sf, *rx * sf)
                 } else {

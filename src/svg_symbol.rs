@@ -307,7 +307,7 @@ pub fn parse_svg_content(xml: &str) -> Result<ParsedSvgSymbol, String> {
                         }
                     }
                 } else if let Some(d_attr) = node.attribute("d") {
-                    let pts = parse_svg_arc_d(d_attr);
+                    let pts = parse_svg_path_d(d_attr);
                     if pts.len() >= 2 {
                         shapes.push(SvgShape::Polyline { points: pts });
                     }
@@ -656,6 +656,156 @@ pub fn qet_arc_to_polyline(
         points.push((cx + rx * rad.cos(), cy + ry * rad.sin()));
     }
     points
+}
+
+/// Lê o próximo número em ponto flutuante de um fluxo de caracteres SVG.
+fn read_next_num(chars: &mut std::iter::Peekable<std::str::Chars>) -> Option<f32> {
+    while let Some(&c) = chars.peek() {
+        if c.is_whitespace() || c == ',' {
+            chars.next();
+        } else {
+            break;
+        }
+    }
+    let mut num_str = String::new();
+    while let Some(&c) = chars.peek() {
+        if c.is_ascii_digit() || c == '.' {
+            num_str.push(c);
+            chars.next();
+        } else if c == '-' || c == '+' {
+            if num_str.is_empty() || num_str.ends_with('e') || num_str.ends_with('E') {
+                num_str.push(c);
+                chars.next();
+            } else {
+                break;
+            }
+        } else if (c == 'e' || c == 'E') && !num_str.is_empty() {
+            num_str.push(c);
+            chars.next();
+        } else {
+            break;
+        }
+    }
+    num_str.parse::<f32>().ok()
+}
+
+/// Converte um atributo `d` de `<path>` SVG em uma polilinha aproximada `Vec<(f32, f32)>`.
+///
+/// Suporta:
+/// 1. Comandos de arco SVG: `M x1 y1 A rx ry rot large_arc sweep x2 y2`
+/// 2. Sequências de linhas retas: `M x y`, `L x y`, `l x y`
+/// 3. Curvas cúbicas de Bézier: `C cp1x cp1y cp2x cp2y x y`
+fn parse_svg_path_d(d: &str) -> Vec<(f32, f32)> {
+    if d.contains('A') || d.contains('a') {
+        return parse_svg_arc_d(d);
+    }
+
+    let mut pts: Vec<(f32, f32)> = Vec::new();
+    let mut current_pt = (0.0f32, 0.0f32);
+
+    let mut chars = d.chars().peekable();
+    let mut cmd = 'M';
+
+    while let Some(&c) = chars.peek() {
+        if c.is_alphabetic() {
+            cmd = c;
+            chars.next();
+            if cmd == 'Z' || cmd == 'z' {
+                if let Some(&first) = pts.first() {
+                    pts.push(first);
+                }
+            }
+            continue;
+        }
+        if c.is_whitespace() || c == ',' {
+            chars.next();
+            continue;
+        }
+
+        match cmd {
+            'M' | 'm' => {
+                if let (Some(x), Some(y)) = (read_next_num(&mut chars), read_next_num(&mut chars)) {
+                    current_pt = if cmd == 'm' && !pts.is_empty() {
+                        (current_pt.0 + x, current_pt.1 + y)
+                    } else {
+                        (x, y)
+                    };
+                    pts.push(current_pt);
+                    cmd = if cmd == 'm' { 'l' } else { 'L' };
+                }
+            }
+            'L' | 'l' => {
+                if let (Some(x), Some(y)) = (read_next_num(&mut chars), read_next_num(&mut chars)) {
+                    current_pt = if cmd == 'l' {
+                        (current_pt.0 + x, current_pt.1 + y)
+                    } else {
+                        (x, y)
+                    };
+                    pts.push(current_pt);
+                }
+            }
+            'C' | 'c' => {
+                if let (Some(x1), Some(y1), Some(x2), Some(y2), Some(x3), Some(y3)) = (
+                    read_next_num(&mut chars),
+                    read_next_num(&mut chars),
+                    read_next_num(&mut chars),
+                    read_next_num(&mut chars),
+                    read_next_num(&mut chars),
+                    read_next_num(&mut chars),
+                ) {
+                    let (p0x, p0y) = current_pt;
+                    let (cp1x, cp1y) = if cmd == 'c' {
+                        (p0x + x1, p0y + y1)
+                    } else {
+                        (x1, y1)
+                    };
+                    let (cp2x, cp2y) = if cmd == 'c' {
+                        (p0x + x2, p0y + y2)
+                    } else {
+                        (x2, y2)
+                    };
+                    let (p3x, p3y) = if cmd == 'c' {
+                        (p0x + x3, p0y + y3)
+                    } else {
+                        (x3, y3)
+                    };
+
+                    let steps = 8;
+                    for step in 1..=steps {
+                        let t = step as f32 / steps as f32;
+                        let omt = 1.0 - t;
+                        let omt2 = omt * omt;
+                        let omt3 = omt2 * omt;
+                        let t2 = t * t;
+                        let t3 = t2 * t;
+
+                        let px =
+                            omt3 * p0x + 3.0 * omt2 * t * cp1x + 3.0 * omt * t2 * cp2x + t3 * p3x;
+                        let py =
+                            omt3 * p0y + 3.0 * omt2 * t * cp1y + 3.0 * omt * t2 * cp2y + t3 * p3y;
+                        pts.push((px, py));
+                    }
+                    current_pt = (p3x, p3y);
+                }
+            }
+            _ => {
+                let _ = read_next_num(&mut chars);
+            }
+        }
+    }
+
+    if pts.is_empty() {
+        let tokens: Vec<f32> = d
+            .replace(['M', 'L', 'C', 'Z', 'm', 'l', 'c', 'z', ','], " ")
+            .split_whitespace()
+            .filter_map(|s| s.parse::<f32>().ok())
+            .collect();
+        for &[x, y] in tokens.as_chunks::<2>().0 {
+            pts.push((x, y));
+        }
+    }
+
+    pts
 }
 
 /// Converte um comando SVG `<path d="M x1 y1 A rx ry rot large_arc sweep x2 y2">` em polilinha.

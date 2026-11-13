@@ -1025,9 +1025,7 @@ impl<'a> SchematicCanvas<'a> {
                     let (lx, ly) = parsed.map_point(*cx, *cy, target_span);
                     let (rx, ry) = transform_offset_f32(lx, ly, orientation);
                     let center = self.world_to_screen(ox + rx, oy + ry);
-                    let rad = if parsed.is_cade_svg {
-                        (r / 5.0) * self.zoom
-                    } else if target_span > 1.0
+                    let rad = if target_span > 1.0
                         && (parsed.term_bottom_y - parsed.term_top_y).abs() > 0.1
                     {
                         (r * (target_span / (parsed.term_bottom_y - parsed.term_top_y).abs()))
