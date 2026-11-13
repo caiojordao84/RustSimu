@@ -52,17 +52,19 @@ pub enum ExportFormat {
     Svg,
     Dxf,
     Cad,
+    Ct,
     Pdf,
 }
 
 impl ExportFormat {
-    pub const ALL: [ExportFormat; 7] = [
+    pub const ALL: [ExportFormat; 8] = [
         ExportFormat::Png,
         ExportFormat::Jpg,
         ExportFormat::Bmp,
         ExportFormat::Svg,
         ExportFormat::Dxf,
         ExportFormat::Cad,
+        ExportFormat::Ct,
         ExportFormat::Pdf,
     ];
 
@@ -74,6 +76,7 @@ impl ExportFormat {
             ExportFormat::Svg => "svg",
             ExportFormat::Dxf => "dxf",
             ExportFormat::Cad => "cad",
+            ExportFormat::Ct => "ct",
             ExportFormat::Pdf => "pdf",
         }
     }
@@ -86,6 +89,7 @@ impl ExportFormat {
             ExportFormat::Svg => "Gráfico Vetorial SVG (*.svg)",
             ExportFormat::Dxf => "Desenho AutoCAD DXF (*.dxf)",
             ExportFormat::Cad => "CADe_SIMU Original (*.cad)",
+            ExportFormat::Ct => "FluidSIM Pneumático (*.ct)",
             ExportFormat::Pdf => "Documento PDF Vetorial (*.pdf)",
         }
     }
@@ -100,6 +104,7 @@ impl fmt::Display for ExportFormat {
             ExportFormat::Svg => write!(f, "Gráfico Vetorial (.svg)"),
             ExportFormat::Dxf => write!(f, "AutoCAD DXF (.dxf)"),
             ExportFormat::Cad => write!(f, "CADe_SIMU Original (.cad)"),
+            ExportFormat::Ct => write!(f, "FluidSIM Pneumático (.ct)"),
             ExportFormat::Pdf => write!(f, "Documento PDF (.pdf)"),
         }
     }
@@ -128,7 +133,7 @@ impl ExportScope {
     /// Retorna os escopos válidos para um determinado formato de exportação.
     pub fn valid_scopes(format: ExportFormat, is_multipage: bool) -> Vec<ExportScope> {
         match format {
-            ExportFormat::Cad => vec![ExportScope::Page],
+            ExportFormat::Cad | ExportFormat::Ct => vec![ExportScope::Page],
             ExportFormat::Png
             | ExportFormat::Jpg
             | ExportFormat::Bmp

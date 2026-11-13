@@ -92,6 +92,18 @@ pub fn build_network_graph(items: &[SchematicItem], topology_hash: u64) -> Netwo
                 p_nodes.push(add_unique_pt(wpos));
             }
             item_pin_nodes.insert(idx, p_nodes);
+        } else if let Some(classe) = crate::sim::pneumatic::fluidsim_class_of(item) {
+            crate::pneu::palette::ensure_svg_registrados();
+            if let Some((_, terms)) = crate::pneu::svg_v1_classe(&classe, false) {
+                let mut p_nodes = Vec::new();
+                for t in terms {
+                    let (rx, ry) = crate::model::transform_offset(t.x, t.y, item.orientation);
+                    p_nodes.push(add_unique_pt((item.x1 + rx, item.y1 + ry)));
+                }
+                if !p_nodes.is_empty() {
+                    item_pin_nodes.insert(idx, p_nodes);
+                }
+            }
         } else if let Some(qet_type) = item.symbol_id_or_slug() {
             // Elementos de montagem visual não cabáveis (kind == "block" ou sem bornes) não participam da simulação
             if let Some(dict) = crate::canonical::global_dictionary() {

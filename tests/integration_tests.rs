@@ -3733,8 +3733,8 @@ fn test_decision_d1_native_save_and_cad_export_with_sheet_selector() {
     );
 
     // 2. Validação de Formatos de Exportação
-    // Todos os 7 formatos da Seção 1.1: PNG, JPG, BMP, SVG, DXF, CAD, PDF
-    assert_eq!(ExportFormat::ALL.len(), 7);
+    // Todos os 8 formatos da Seção 1.1: PNG, JPG, BMP, SVG, DXF, CAD, CT, PDF
+    assert_eq!(ExportFormat::ALL.len(), 8);
     assert_eq!(
         ExportFormat::ALL,
         [
@@ -3744,6 +3744,7 @@ fn test_decision_d1_native_save_and_cad_export_with_sheet_selector() {
             ExportFormat::Svg,
             ExportFormat::Dxf,
             ExportFormat::Cad,
+            ExportFormat::Ct,
             ExportFormat::Pdf,
         ]
     );
@@ -7328,8 +7329,8 @@ fn test_section1_arquivo_save_copy_recent_print_and_all_7_export_formats() {
     let _ = app.update(Message::ClosePrintModal);
     assert!(!app.show_print_modal);
 
-    // 5. Todos os 7 formatos de exportação (§1.1: PNG, JPG, BMP, SVG, DXF, CAD, PDF)
-    assert_eq!(ExportFormat::ALL.len(), 7);
+    // 5. Todos os 8 formatos de exportação (§1.1: PNG, JPG, BMP, SVG, DXF, CAD, CT, PDF)
+    assert_eq!(ExportFormat::ALL.len(), 8);
     let mut doc = build_dol_starter_preset();
     let mut txt = SchematicItem::new_graphic(901, 8, 24, 24, 60, 32);
     txt.subvariant = 0;

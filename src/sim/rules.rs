@@ -101,6 +101,14 @@ pub fn is_item_manual(item: &SchematicItem) -> bool {
     ) {
         return true;
     }
+    if let Some(classe) = crate::sim::pneumatic::fluidsim_class_of(item) {
+        if matches!(
+            classe.as_str(),
+            "PVWM1" | "PVWM2" | "PVWM3" | "PVWM6" | "PVWM7" | "PVWM8"
+        ) {
+            return true;
+        }
+    }
     if let Some(res) = crate::dictionary::global_concept_dictionary().resolve_item(item) {
         if matches!(
             res.concept.kind,
@@ -113,6 +121,15 @@ pub fn is_item_manual(item: &SchematicItem) -> bool {
                 | CanonicalKind::Disconnector
                 | CanonicalKind::Fuse
         ) {
+            return true;
+        }
+        if res.concept.kind == CanonicalKind::DirectionalValve {
+            if let Some(classe) = res.concept.fluidsim_class.as_deref() {
+                return matches!(
+                    classe,
+                    "PVWM1" | "PVWM2" | "PVWM3" | "PVWM6" | "PVWM7" | "PVWM8"
+                );
+            }
             return true;
         }
         if let Some(cade_tipo) = res.concept.cade_tipo {
@@ -156,6 +173,11 @@ pub fn is_momentary_button(tipo: i32) -> bool {
 pub fn is_item_momentary(item: &SchematicItem) -> bool {
     if is_momentary_button(item.tipo) {
         return true;
+    }
+    if let Some(classe) = crate::sim::pneumatic::fluidsim_class_of(item) {
+        if matches!(classe.as_str(), "PVWM1" | "PVWM2" | "PVWM6" | "PVWM7") {
+            return true;
+        }
     }
     if let Some(res) = crate::dictionary::global_concept_dictionary().resolve_item(item) {
         if matches!(
@@ -511,5 +533,42 @@ mod tests {
         assert!(is_qet_load("ac_motor_3phase"));
         assert!(is_qet_source_dc_pos("battery_12v"));
         assert!(is_qet_source_ground("earth_ground"));
+    }
+
+    #[test]
+    fn test_pneumatic_valves_momentary_vs_latching() {
+        use crate::model::SchematicItem;
+
+        let mut btn_item = SchematicItem::new_symbol(10, 20000, 0, 0, "-V1");
+        btn_item.symbol_id = Some("PVWM1".to_string()); // Botão pulsador 3/2
+
+        let mut sel_item = SchematicItem::new_symbol(20, 20000, 0, 0, "-V2");
+        sel_item.symbol_id = Some("PVWM8".to_string()); // Seletor bi-estável 5/2
+
+        assert!(is_item_momentary(&btn_item));
+        assert!(!is_item_momentary(&sel_item));
+        assert!(is_item_manual(&btn_item));
+        assert!(is_item_manual(&sel_item));
+
+        let items = vec![btn_item.clone(), sel_item.clone()];
+        let mut sim = SimState::default();
+
+        // Pressiona o botão
+        press_component_on_sim_state(&items, &mut sim, 10);
+        assert!(sim.get(10).manual_latched);
+
+        // Solta o botão -> retorna para repouso
+        release_component_on_sim_state(&items, &mut sim, 10);
+        assert!(!sim.get(10).manual_latched);
+
+        // Clica no seletor -> comuta e retém
+        press_component_on_sim_state(&items, &mut sim, 20);
+        assert!(sim.get(20).manual_latched);
+        release_component_on_sim_state(&items, &mut sim, 20);
+        assert!(sim.get(20).manual_latched); // Permanece acionado!
+
+        // Clica novamente no seletor -> retorna para repouso
+        press_component_on_sim_state(&items, &mut sim, 20);
+        assert!(!sim.get(20).manual_latched);
     }
 }

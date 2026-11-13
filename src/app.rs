@@ -265,6 +265,9 @@ pub enum Message {
     SelectCanonicalSymbol(String),
     StartCanonicalSymbolDrag(String),
     InsertSelectedCanonicalSymbol,
+    /// Classe FluidSIM v1 (`PVWM8`, `PAL1`, …) — paleta Pneumática/Eletropneumática.
+    SelectFluidsimClass(String),
+    PlaceFluidsimClass(String),
     CancelAction,
     GlobalMouseReleased,
     SelectPropTab(usize),
@@ -1341,7 +1344,9 @@ impl CadeSimuApp {
             | Message::PrevCanonicalPage
             | Message::SelectCanonicalSymbol(_)
             | Message::StartCanonicalSymbolDrag(_)
-            | Message::InsertSelectedCanonicalSymbol => self.update_library(message),
+            | Message::InsertSelectedCanonicalSymbol
+            | Message::SelectFluidsimClass(_)
+            | Message::PlaceFluidsimClass(_) => self.update_library(message),
 
             Message::EditTag(_)
             | Message::EditFunction(_)
@@ -1483,14 +1488,16 @@ impl CadeSimuApp {
                 return iced::Task::perform(
                     async move {
                         rfd::AsyncFileDialog::new()
-                            .set_title(
-                                "Abrir Projeto CADe_SIMU / QElectroTech (.cad, .json, .toml, .qet)",
-                            )
+                            .set_title("Abrir Projeto (.cad, .json, .toml, .qet, .ct)")
                             .set_directory(&start_dir)
                             .add_filter(
-                                "Todos os Projetos (*.cad, *.json, *.toml, *.qet)",
-                                &["cad", "CAD", "json", "JSON", "toml", "TOML", "qet", "QET"],
+                                "Todos os Projetos (*.cad, *.json, *.toml, *.qet, *.ct)",
+                                &[
+                                    "cad", "CAD", "json", "JSON", "toml", "TOML", "qet", "QET",
+                                    "ct", "CT",
+                                ],
                             )
+                            .add_filter("FluidSIM Pneumático (*.ct)", &["ct", "CT"])
                             .add_filter("Projeto QElectroTech (*.qet)", &["qet", "QET"])
                             .add_filter("CADe_SIMU Original (*.cad)", &["cad", "CAD"])
                             .add_filter("Projeto JSON (*.json)", &["json", "JSON"])
@@ -1691,7 +1698,7 @@ impl CadeSimuApp {
                 self.show_export_modal = true;
                 self.export_page_index = self.active_page_index;
                 self.status_msg =
-                    "Exportação: Escolha o formato desejado (.png, .jpg, .bmp, .svg, .dxf, .cad ou .pdf) e a folha a exportar."
+                    "Exportação: Escolha o formato (.png, .jpg, .bmp, .svg, .dxf, .cad, .ct ou .pdf) e a folha a exportar."
                         .to_string();
             }
             Message::CloseExportModal => {
@@ -1844,6 +1851,8 @@ impl CadeSimuApp {
                             crate::export::export_to_cad(&doc, export_options.include_cajetin);
                         crate::io::atomic_write(&path, bytes)
                     }
+                    ExportFormat::Ct => crate::ct::export_doc_to_ct(&doc)
+                        .and_then(|bytes| crate::io::atomic_write(&path, bytes)),
                     ExportFormat::Svg => {
                         let svg = crate::export::export_to_svg(&doc, items_filter, export_options);
                         crate::io::atomic_write(&path, svg.as_bytes())
@@ -3845,6 +3854,21 @@ impl CadeSimuApp {
                     }
                 }
             }
+            Message::SelectFluidsimClass(classe) => {
+                crate::pneu::palette::ensure_svg_registrados();
+                self.selected_canonical_id = Some(classe.clone());
+                self.status_msg = format!(
+                    "FluidSIM '{classe}' selecionado. Clique de novo para armar no ponteiro."
+                );
+            }
+            Message::PlaceFluidsimClass(classe) => {
+                crate::pneu::palette::ensure_svg_registrados();
+                self.selected_canonical_id = Some(classe.clone());
+                self.tool = EditorTool::PlaceCanonicalSymbol(classe.clone());
+                self.status_msg = format!(
+                    "Símbolo FluidSIM '{classe}' pronto no ponteiro — clique na folha para posicionar."
+                );
+            }
             _ => {}
         }
         iced::Task::none()
@@ -4774,7 +4798,62 @@ impl CadeSimuApp {
                 CanvasMessage::PlaceCanonicalComponent { symbol_id, x, y } => {
                     self.dragging_canonical_id = None;
                     self.tool = EditorTool::Select;
-                    if let Some(dict) = crate::canonical::global_dictionary() {
+                    // FluidSIM v1: symbol_id é a classe (PVWM8, PAL1, …).
+                    if let Some(concept) = crate::dictionary::global_concept_dictionary()
+                        .get_by_fluidsim_class(&symbol_id)
+                    {
+                        crate::pneu::palette::ensure_svg_registrados();
+                        self.push_undo();
+                        let new_id = self.doc.next_id();
+                        let prefix = concept.default_tag_prefix.as_str();
+                        let count = self
+                            .doc
+                            .items
+                            .iter()
+                            .filter(|i| i.tag.starts_with(prefix))
+                            .count()
+                            + 1;
+                        let tag = format!("{prefix}{count}");
+                        let mut pins: [String; 9] = Default::default();
+                        for (idx, p) in concept.canonical_pins.iter().take(9).enumerate() {
+                            pins[idx] = p.clone();
+                        }
+                        let item = SchematicItem {
+                            id: new_id,
+                            tipo: 20000,
+                            tag,
+                            value: String::new(),
+                            pins,
+                            pin_visibility: [1; 9],
+                            x1: x,
+                            y1: y,
+                            x2: x,
+                            y2: y,
+                            aux_coords: [0; 4],
+                            color: 0,
+                            orientation: self.placement_orientation,
+                            subvariant: 0,
+                            show_tag: 1,
+                            show_value: 0,
+                            extra_int1: 0,
+                            extra_int2: 0,
+                            trailing_str: String::new(),
+                            qet_type: Some(symbol_id.clone()),
+                            qet_uuid: None,
+                            symbol_id: Some(symbol_id.clone()),
+                            symbol_state: Some('0'),
+                            group_id: None,
+                            function: None,
+                            concept_id: Some(concept.concept_id.clone()),
+                        };
+                        self.doc.items.push(item);
+                        self.selected_id = Some(new_id);
+                        self.is_modified = true;
+                        self.status_msg = format!(
+                            "FluidSIM '{}' ({}) inserido em ({x}, {y}).",
+                            concept.name_pt, symbol_id
+                        );
+                    } else if let Some(dict) = crate::canonical::global_dictionary() {
                         if let Some(el) = dict.get_by_id(&symbol_id) {
                             self.push_undo();
                             let new_id = self.doc.next_id();

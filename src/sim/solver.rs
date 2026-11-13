@@ -275,6 +275,12 @@ pub fn resolve_cascade(
                                         }
                                     }
                                 }
+                                CanonicalKind::PressureSwitch => {
+                                    // Borne de ar (0) isolado; contato NA nos pinos 1–2 (13-14 / A1-A2).
+                                    if s.active && p.len() >= 3 {
+                                        connect_pair(1, 2);
+                                    }
+                                }
                                 CanonicalKind::Connector | CanonicalKind::Terminal
                                     if p.len() == 2 =>
                                 {
@@ -823,6 +829,79 @@ pub fn step_simulation_state(items: &[SchematicItem], sim: &mut SimState, dt_ms:
                 let s = sim.get_mut(item.id);
                 s.potential = final_node_potentials[node_idx];
                 s.active = s.potential.is_energized();
+            }
+        }
+    }
+
+    // Snapshot de fins de curso e pressostatos antes do passo pneumático
+    let pneu_switch_ids: Vec<i32> = items
+        .iter()
+        .filter(|it| {
+            if let Some(r) = crate::dictionary::global_concept_dictionary().resolve_item(it) {
+                matches!(
+                    r.concept.kind,
+                    CanonicalKind::PressureSwitch | CanonicalKind::LimitSwitch
+                )
+            } else {
+                false
+            }
+        })
+        .map(|it| it.id)
+        .collect();
+
+    let pneu_switches_before: Vec<(bool, bool)> = pneu_switch_ids
+        .iter()
+        .map(|&id| {
+            let s = sim.get(id);
+            (s.active, s.manual_latched)
+        })
+        .collect();
+
+    // Domínio pneumático: bobinas → válvulas → ar → cilindros/pressostatos → tubos.
+    crate::sim::pneumatic::step_pneumatic(
+        items,
+        sim,
+        &network,
+        &final_node_potentials,
+        &energized_coils,
+        dt_ms,
+    );
+
+    let pneu_switches_changed =
+        pneu_switch_ids
+            .iter()
+            .zip(&pneu_switches_before)
+            .any(|(&id, &(prev_act, prev_latch))| {
+                let s = sim.get(id);
+                s.active != prev_act || s.manual_latched != prev_latch
+            });
+
+    if pneu_switches_changed {
+        let (pots_pneu, adj_pneu) = resolve_cascade(
+            items,
+            sim,
+            &network,
+            &mut energized_coils,
+            &active_timers.ton_triggered,
+            &active_timers.tof_triggered,
+        );
+        final_node_potentials = pots_pneu;
+        let _ = adj_pneu;
+
+        for &(w_idx, n1, n2) in &network.wire_nodes {
+            let p1 = final_node_potentials[n1];
+            let p2 = final_node_potentials[n2];
+            let s = sim.get_mut(items[w_idx].id);
+            s.potential = if p1 != Potential::None { p1 } else { p2 };
+            s.active = s.potential.is_energized();
+        }
+        for item in items {
+            if item.is_junction() {
+                if let Some(&node_idx) = network.pt_map.get(&(item.x1, item.y1)) {
+                    let s = sim.get_mut(item.id);
+                    s.potential = final_node_potentials[node_idx];
+                    s.active = s.potential.is_energized();
+                }
             }
         }
     }

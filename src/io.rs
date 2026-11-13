@@ -352,7 +352,7 @@ pub fn atomic_write(path: &Path, content: impl AsRef<[u8]>) -> Result<(), String
     })
 }
 
-/// Salva um documento em `.cad`, `.json`, `.toml` ou `.qet` com base na extensão do arquivo.
+/// Salva um documento em `.cad`, `.ct`, `.json`, `.toml` ou `.qet` com base na extensão.
 pub fn save_document(path: &Path, doc: &SchematicDocument) -> Result<(), String> {
     let ext = path
         .extension()
@@ -362,6 +362,10 @@ pub fn save_document(path: &Path, doc: &SchematicDocument) -> Result<(), String>
 
     if ext == "qet" {
         return crate::qet::export_doc_to_qet(doc, path);
+    }
+    if ext == "ct" {
+        let bytes = crate::ct::export_doc_to_ct(doc)?;
+        return atomic_write(path, bytes);
     }
 
     let content: Vec<u8> = match ext.as_str() {
@@ -393,12 +397,12 @@ pub fn save_project(
         return crate::qet::export_pages_to_qet(pages, active_page_index, path, None);
     }
 
-    if ext == "cad" {
+    if ext == "cad" || ext == "ct" {
         let active_doc = pages
             .get(active_page_index)
             .map(|p| &p.doc)
             .or_else(|| pages.first().map(|p| &p.doc))
-            .ok_or_else(|| "Nenhuma folha disponível para salvar em CAD".to_string())?;
+            .ok_or_else(|| "Nenhuma folha disponível para salvar em CAD/CT".to_string())?;
         return save_document(path, active_doc);
     }
 
@@ -411,17 +415,31 @@ pub fn save_project(
     atomic_write(path, content)
 }
 
-/// Carrega um projeto completo (mono ou multipáginas) a partir de `.json`, `.toml`, `.cad` ou `.qet`.
+/// Carrega um projeto completo (mono ou multipáginas) a partir de `.json`, `.toml`, `.cad`, `.qet` ou `.ct`.
 pub fn load_project(path: &Path) -> Result<ProjectDocument, String> {
     let bytes = fs::read(path).map_err(|e| format!("Falha ao ler {}: {e}", path.display()))?;
-    // Decodifica bytes com suporte completo a Windows-1252 (CP-1252) e UTF-8
-    let text = crate::cp1252::decode_cad_bytes(&bytes);
 
     let ext = path
         .extension()
         .and_then(|e| e.to_str())
         .unwrap_or("")
         .to_ascii_lowercase();
+
+    if ext == "ct" {
+        let doc = crate::ct::schematic_from_ct_bytes(&bytes)?;
+        let title = if doc.title_block.title.trim().is_empty() {
+            path.file_stem()
+                .and_then(|s| s.to_str())
+                .unwrap_or("FluidSIM")
+                .to_string()
+        } else {
+            doc.title_block.title.clone()
+        };
+        return Ok(ProjectDocument::from_single_document(title, doc));
+    }
+
+    // Decodifica bytes com suporte completo a Windows-1252 (CP-1252) e UTF-8
+    let text = crate::cp1252::decode_cad_bytes(&bytes);
 
     let proj: ProjectDocument = if ext == "qet" || text.trim_start().starts_with("<project") {
         let proj = crate::qet::load_qet_from_str(&text)?;

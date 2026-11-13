@@ -69,6 +69,7 @@ pub enum CanonicalKind {
     CircuitBreaker,
     Connector,
     ContactorContact,
+    DirectionalValve,
     Disconnector,
     EmergencyStop,
     Fuse,
@@ -79,6 +80,11 @@ pub enum CanonicalKind {
     MomentaryButton,
     Motor,
     Passive,
+    PneumaticCylinder,
+    PneumaticExhaust,
+    PneumaticSource,
+    PressureLogicValve,
+    PressureSwitch,
     RelayCoil,
     SelectorSwitch,
     Source,
@@ -93,6 +99,7 @@ impl CanonicalKind {
             Self::CircuitBreaker => "circuit_breaker",
             Self::Connector => "connector",
             Self::ContactorContact => "contactor_contact",
+            Self::DirectionalValve => "directional_valve",
             Self::Disconnector => "disconnector",
             Self::EmergencyStop => "emergency_stop",
             Self::Fuse => "fuse",
@@ -103,6 +110,11 @@ impl CanonicalKind {
             Self::MomentaryButton => "momentary_button",
             Self::Motor => "motor",
             Self::Passive => "passive",
+            Self::PneumaticCylinder => "pneumatic_cylinder",
+            Self::PneumaticExhaust => "pneumatic_exhaust",
+            Self::PneumaticSource => "pneumatic_source",
+            Self::PressureLogicValve => "pressure_logic_valve",
+            Self::PressureSwitch => "pressure_switch",
             Self::RelayCoil => "relay_coil",
             Self::SelectorSwitch => "selector_switch",
             Self::Source => "source",
@@ -114,6 +126,20 @@ impl CanonicalKind {
     #[inline]
     pub const fn is_wireable(&self) -> bool {
         !matches!(self, Self::Block)
+    }
+
+    /// Domínios de ar / eletropneumática introduzidos na branch `pneumatica`.
+    #[inline]
+    pub const fn is_pneumatic_family(&self) -> bool {
+        matches!(
+            self,
+            Self::DirectionalValve
+                | Self::PneumaticCylinder
+                | Self::PneumaticSource
+                | Self::PneumaticExhaust
+                | Self::PressureLogicValve
+                | Self::PressureSwitch
+        )
     }
 
     pub const fn default_tag_prefix(&self) -> &'static str {
@@ -133,6 +159,10 @@ impl CanonicalKind {
             Self::Terminal | Self::Connector => "-X",
             Self::Load => "-R",
             Self::Passive => "-E",
+            Self::DirectionalValve | Self::PressureLogicValve | Self::PneumaticExhaust => "-V",
+            Self::PneumaticCylinder => "-A",
+            Self::PneumaticSource => "-Z",
+            Self::PressureSwitch => "-B",
         }
     }
 }
@@ -1450,13 +1480,17 @@ impl CanonicalDictionary {
 
             // Pneumática
             "pneu_valves" => {
-                cat_path_lower.contains("velve")
+                el.kind == CanonicalKind::DirectionalValve
+                    || el.kind == CanonicalKind::PressureLogicValve
+                    || el.kind == CanonicalKind::PneumaticExhaust
+                    || cat_path_lower.contains("velve")
                     || cat_path_lower.contains("valve")
                     || cat_path_lower.contains("distributor")
                     || el.slug.contains("valve")
             }
             "pneu_air" => {
-                cat_path_lower.contains("compressed_air")
+                el.kind == CanonicalKind::PneumaticSource
+                    || cat_path_lower.contains("compressed_air")
                     || cat_path_lower.contains("air_generation")
                     || cat_path_lower.contains("tank")
                     || cat_path_lower.contains("treatment")
@@ -1464,12 +1498,14 @@ impl CanonicalDictionary {
                     || cat_path_lower.contains("pipes")
             }
             "pneu_actuators" => {
-                cat_path_lower.contains("actuator")
+                el.kind == CanonicalKind::PneumaticCylinder
+                    || cat_path_lower.contains("actuator")
                     || cat_path_lower.contains("cylinder")
                     || el.slug.contains("cylinder")
             }
             "pneu_sensors" => {
-                cat_path_lower.contains("sensor")
+                el.kind == CanonicalKind::PressureSwitch
+                    || cat_path_lower.contains("sensor")
                     || cat_path_lower.contains("indicator")
                     || el.slug.contains("sensor")
             }

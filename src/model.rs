@@ -180,6 +180,10 @@ pub struct SimState {
     pub items: HashMap<i32, ItemSimState>,
     /// Cache da rede topológica estática do circuito (evita recalculação O(N^2) a cada tick).
     pub network_cache: Option<std::sync::Arc<crate::sim::NetworkGraph>>,
+    /// Motor pneumático didático (domínio separado de [`Potential`]).
+    pub pneumatic: crate::pneu::MotorAr,
+    /// Pressão por id de cabo, para colorir tubos (Suprimento / Escape).
+    pub air_by_wire: HashMap<i32, crate::pneu::NoAr>,
 }
 
 impl SimState {

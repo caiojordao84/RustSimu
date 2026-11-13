@@ -51,6 +51,13 @@ pub fn get_subdivisions_for_family(
             ("Ar Comprimido", Some("pneu_air")),
             ("Atuadores / Cilindros", Some("pneu_actuators")),
             ("Sensores", Some("pneu_sensors")),
+            ("FluidSIM v1", Some("fluidsim_v1")),
+        ],
+        Some("electropneumatic") => &[
+            ("Todas", None),
+            ("Solenóides / Válvulas", Some("pneu_valves")),
+            ("Pressostatos", Some("pneu_sensors")),
+            ("Comando elétrico", Some("fluidsim_v1")),
         ],
         Some("hydraulic") => &[
             ("Todas", None),
@@ -450,6 +457,7 @@ pub fn view_unified_library_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Messa
         ("Elétrica", Some("electric")),
         ("Energia", Some("energy")),
         ("Pneumática", Some("pneumatic")),
+        ("Eletropneumática", Some("electropneumatic")),
         ("Hidráulica", Some("hydraulic")),
         ("Lógica", Some("logic")),
         ("Importados", Some("import")),
@@ -509,24 +517,63 @@ pub fn view_unified_library_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Messa
     )
     .padding(Padding::from([2.0, 10.0]));
 
-    // 5. Filtragem e Paginação dos Elementos
+    // 5. Filtragem e Paginação dos Elementos (+ FluidSIM v1 na família pneumática)
+    let show_fluidsim = matches!(
+        app.canonical_family_filter.as_deref(),
+        Some("pneumatic") | Some("electropneumatic")
+    ) || app.canonical_kind_filter.as_deref() == Some("fluidsim_v1")
+        || app.canonical_search.to_ascii_uppercase().starts_with("PV")
+        || app.canonical_search.to_ascii_uppercase().starts_with("PA");
+
+    let fluidsim_rows: Vec<crate::pneu::palette::EntradaPaleta> = if show_fluidsim {
+        crate::pneu::palette::ensure_svg_registrados();
+        let q = app.canonical_search.trim().to_ascii_lowercase();
+        crate::pneu::palette::entradas_v1()
+            .into_iter()
+            .filter(|e| {
+                let fam_ok = match app.canonical_family_filter.as_deref() {
+                    Some("pneumatic") => e.domain == "pneumatic",
+                    Some("electropneumatic") => e.domain == "electropneumatic",
+                    None => true,
+                    Some(_) => false,
+                };
+                let text_ok = q.is_empty()
+                    || e.classe.to_ascii_lowercase().contains(&q)
+                    || e.name_pt.to_ascii_lowercase().contains(&q)
+                    || e.concept_id.to_ascii_lowercase().contains(&q);
+                fam_ok && text_ok
+            })
+            .collect()
+    } else {
+        Vec::new()
+    };
+
     let (page_elements, current_page, total_pages, total_count) =
-        if let Some(dict) = crate::canonical::global_dictionary() {
+        if app.canonical_kind_filter.as_deref() == Some("fluidsim_v1") {
+            let total = fluidsim_rows.len();
+            let total_pages = if total == 0 { 1 } else { total.div_ceil(35) };
+            let cur_page = app.canonical_page.min(total_pages.saturating_sub(1));
+            (Vec::new(), cur_page, total_pages, total)
+        } else if let Some(dict) = crate::canonical::global_dictionary() {
             let filtered = dict.filter_elements(
                 &app.canonical_search,
                 app.canonical_family_filter.as_deref(),
                 app.canonical_kind_filter.as_deref(),
                 app.canonical_scope,
             );
-            let total = filtered.len();
+            let total = filtered.len() + fluidsim_rows.len();
             let total_pages = if total == 0 { 1 } else { total.div_ceil(35) };
             let cur_page = app.canonical_page.min(total_pages.saturating_sub(1));
             let start = cur_page * 35;
-            let end = total.min(start + 35);
-            let page_slice: Vec<_> = filtered[start..end].to_vec();
+            let end = filtered.len().min(start + 35);
+            let page_slice: Vec<_> = if start < filtered.len() {
+                filtered[start..end].to_vec()
+            } else {
+                Vec::new()
+            };
             (page_slice, cur_page, total_pages, total)
         } else {
-            (Vec::new(), 0, 1, 0)
+            (Vec::new(), 0, 1, fluidsim_rows.len())
         };
 
     // 6. Barra de controle de paginação
@@ -571,7 +618,7 @@ pub fn view_unified_library_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Messa
 
     // 7. Lista paginada de símbolos
     let mut list_col = column![].spacing(3).padding(Padding::from([0.0, 10.0]));
-    if page_elements.is_empty() {
+    if page_elements.is_empty() && fluidsim_rows.is_empty() {
         list_col = list_col.push(
             container(
                 text("Nenhum símbolo encontrado para os filtros atuais.")
@@ -581,6 +628,44 @@ pub fn view_unified_library_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Messa
             .padding(Padding::from([12.0, 4.0])),
         );
     } else {
+        for e in &fluidsim_rows {
+            let is_selected = app.selected_canonical_id.as_deref() == Some(e.classe);
+            let item_row = container(
+                row![
+                    container(text(format!("[{}]", e.classe)).size(9.5).font(MONO))
+                        .style(theme::tag_badge)
+                        .padding(Padding::from([1.0, 3.0])),
+                    column![
+                        text(e.name_pt.clone())
+                            .size(11.0)
+                            .font(UI)
+                            .width(Length::Fill),
+                        text(format!("fluidsim:{}", e.domain))
+                            .size(9.0)
+                            .font(MONO)
+                            .color(t.text2),
+                    ]
+                    .spacing(1)
+                    .width(Length::Fill),
+                    text(format!("{}b", e.pins.len()))
+                        .size(10.0)
+                        .font(MONO)
+                        .color(t.text2),
+                ]
+                .spacing(5)
+                .align_y(Alignment::Center),
+            )
+            .style(theme::catalog_item(is_selected))
+            .padding(Padding::from([3.0, 5.0]))
+            .width(Length::Fill);
+
+            let item_area = mouse_area(item_row)
+                .interaction(iced::mouse::Interaction::Pointer)
+                .on_press(Message::SelectFluidsimClass(e.classe.to_string()))
+                .on_release(Message::PlaceFluidsimClass(e.classe.to_string()));
+
+            list_col = list_col.push(item_area);
+        }
         for el in page_elements {
             let is_selected = app.selected_canonical_id.as_deref() == Some(&el.id);
             let pin_count = el.terminals.len();

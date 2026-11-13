@@ -107,6 +107,16 @@ pub struct CanonicalConcept {
     pub qet_primary_path: Option<String>,
     #[serde(default)]
     pub qet_aliases: Vec<String>,
+    /// Classe `OCO(...)` do FluidSIM (`ep.kb`), quando o conceito veio do catálogo pneumático.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub fluidsim_class: Option<String>,
+    /// Se o motor pneumático v1 deve simular este conceito.
+    #[serde(default = "default_simular_true")]
+    pub simular: bool,
+}
+
+fn default_simular_true() -> bool {
+    true
 }
 
 /// Resultado da resolução semântica de um item ou assinatura externa.
@@ -135,6 +145,7 @@ pub struct ConceptDictionary {
     by_cade_tipo: HashMap<i32, usize>,
     by_symbol_id: HashMap<String, usize>,
     by_qet_alias: HashMap<String, usize>,
+    by_fluidsim_class: HashMap<String, usize>,
 }
 
 impl ConceptDictionary {
@@ -147,8 +158,22 @@ impl ConceptDictionary {
             by_cade_tipo: HashMap::new(),
             by_symbol_id: HashMap::new(),
             by_qet_alias: HashMap::new(),
+            by_fluidsim_class: HashMap::new(),
         };
         for concept in builtin_concepts() {
+            dict.register(concept);
+        }
+        // Catálogo FluidSIM: novos conceitos pneumáticos; elétricos já existentes
+        // só ganham índice `fluidsim_class` (sem sobrescrever o conceito CADe).
+        for concept in crate::fluidsim_kb::fluidsim_concepts() {
+            if dict.by_concept_id.contains_key(&concept.concept_id) {
+                if let Some(ref fc) = concept.fluidsim_class {
+                    if let Some(&idx) = dict.by_concept_id.get(&concept.concept_id) {
+                        dict.by_fluidsim_class.insert(fc.clone(), idx);
+                    }
+                }
+                continue;
+            }
             dict.register(concept);
         }
         dict
@@ -199,6 +224,16 @@ impl ConceptDictionary {
         for alias in &c.qet_aliases {
             self.by_qet_alias.insert(normalize_qet_key(alias), idx);
         }
+        if let Some(ref fc) = c.fluidsim_class {
+            self.by_fluidsim_class
+                .insert(fc.trim().to_ascii_uppercase(), idx);
+        }
+    }
+
+    pub fn get_by_fluidsim_class(&self, classe: &str) -> Option<&CanonicalConcept> {
+        self.by_fluidsim_class
+            .get(classe.trim())
+            .map(|&idx| &self.concepts[idx])
     }
 
     pub fn concepts(&self) -> &[CanonicalConcept] {
@@ -230,7 +265,11 @@ impl ConceptDictionary {
 
         if let Some(ref sym_id) = item.symbol_id {
             let key = sym_id.trim().to_ascii_uppercase();
-            if let Some(&idx) = self.by_symbol_id.get(&key) {
+            if let Some(&idx) = self
+                .by_symbol_id
+                .get(&key)
+                .or_else(|| self.by_fluidsim_class.get(&key))
+            {
                 let concept = &self.concepts[idx];
                 return Some(ResolvedConcept {
                     concept,
@@ -457,6 +496,14 @@ fn infer_concept_id_from_tokens(
         || joined.contains("pneumatik")
         || joined.contains("compressed_air")
     {
+        if let Some(cid) = crate::pneu::qet_map::concept_id_from_qet_pneumatic(path_or_slug) {
+            return Some(cid);
+        }
+        if let Some(hint) = name_hint {
+            if let Some(cid) = crate::pneu::qet_map::concept_id_from_qet_pneumatic(hint) {
+                return Some(cid);
+            }
+        }
         if has_stem(
             &joined,
             &["cylinder", "actuator", "verin", "zylinder", "cilindro"],
@@ -763,6 +810,8 @@ impl From<ConceptSeed> for CanonicalConcept {
             cade_tipo: s.cade_tipo,
             qet_primary_path: s.qet_primary_path.map(str::to_string),
             qet_aliases: s.qet_aliases.iter().map(|a| (*a).to_string()).collect(),
+            fluidsim_class: None,
+            simular: true,
         }
     }
 }
@@ -951,13 +1000,8 @@ fn builtin_concepts() -> Vec<CanonicalConcept> {
         seed("el.sig.lamp", D::ElectricCommand, K::Lamp, None, None, 1, Some("0002C"), &["01B75", "01B76", "01B77", "01B78"], "-H", &["X1", "X2"], "Sinaleiro Luminoso (Piloto)", "Pilot Indicator Lamp", Some(9008), Some("embed://import/electric/10_allpole/380_signaling_operating/11_optical_signaling/pilot_light.elmt"), &["voyant-blanc", "voyant-bleu", "voyant-orange", "voyant-rouge", "signal/warning_light_red.elmt", "eclairage/lampe_temoin.elmt", "signalisation/voyant_led.elmt"]),
         seed("el.sig.buzzer", D::ElectricCommand, K::Load, None, None, 1, Some("0002D"), &[], "-H", &["X1", "X2"], "Sirene / Alarme Sonoro (Buzzer)", "Audible Buzzer / Horn", Some(9013), None, &["actuators/horn_12v.elmt", "alarmes/sirene_electronique.elmt", "horn_001.elmt"]),
 
-        // Conectores & Âncoras de Futuros Domínios (Pneumática, Hidráulica, Ladder)
+        // Conectores & Âncoras (pneumática v1 vem de `fluidsim_kb`)
         seed("el.conn.terminal", D::ElectricCommand, K::Terminal, None, None, 1, None, &[], "-X", &["1", "2"], "Borne de Passagem / Conector", "Feed-Through Terminal / Connector", None, None, &[]),
-        seed("pneu.valve.3_2", D::Pneumatic, K::SelectorSwitch, None, None, 3, None, &[], "-V", &["1", "2", "3"], "Válvula Pneumática 3/2 Vias", "Pneumatic 3/2 Directional Valve", None, None, &[]),
-        seed("pneu.valve.5_2", D::Pneumatic, K::SelectorSwitch, None, None, 5, None, &[], "-V", &["1", "2", "3", "4", "5"], "Válvula Pneumática 5/2 Vias", "Pneumatic 5/2 Directional Valve", None, None, &[]),
-        seed("pneu.cylinder.single", D::Pneumatic, K::Load, None, None, 1, None, &[], "-A", &["1"], "Cilindro Pneumático Simples Ação", "Single-Acting Pneumatic Cylinder", None, None, &[]),
-        seed("pneu.cylinder.double", D::Pneumatic, K::Load, None, None, 2, None, &[], "-A", &["1", "2"], "Cilindro Pneumático Dupla Ação", "Double-Acting Pneumatic Cylinder", None, None, &[]),
-        seed("pneu.source.air", D::Pneumatic, K::Source, None, None, 1, None, &[], "-Z", &["1"], "Fonte de Ar Comprimido", "Compressed Air Supply", None, None, &[]),
         seed("hyd.valve.dir", D::Hydraulic, K::SelectorSwitch, None, None, 4, None, &[], "-V", &["P", "T", "A", "B"], "Válvula Direcional Hidráulica", "Hydraulic Directional Valve", None, None, &[]),
         seed("hyd.pump", D::Hydraulic, K::Source, None, None, 2, None, &["0213C", "02142"], "-P", &["1", "2"], "Bomba / Motor Hidráulico", "Hydraulic Pump / Motor", None, None, &[]),
         seed("hyd.cylinder", D::Hydraulic, K::Load, None, None, 2, None, &[], "-A", &["1", "2"], "Cilindro Hidráulico", "Hydraulic Cylinder", None, None, &[]),
@@ -1054,7 +1098,21 @@ mod tests {
             .expect("Válvula pneumática");
         assert_eq!(pneu.concept.domain, SimulationDomain::Pneumatic);
         assert_eq!(pneu.concept.concept_id, "pneu.valve.5_2");
+        assert_eq!(pneu.concept.kind, CanonicalKind::DirectionalValve);
         assert_eq!(pneu.concept.cade_tipo, None);
+
+        let fs = dict.get_by_fluidsim_class("PVWE4").expect("PVWE4");
+        assert_eq!(fs.concept_id, "pneu.valve.5_2.solenoid");
+        assert!(fs.simular);
+        assert!(dict.get_by_fluidsim_class("PPE1").is_some());
+        assert!(dict.get_by_fluidsim_class("E_S011").is_some());
+        assert_eq!(
+            dict.concepts()
+                .iter()
+                .filter(|c| c.simular && c.kind.is_pneumatic_family())
+                .count(),
+            24 // v1 pneumáticos (20) + P7.2 (PVG2/PVG3/PVS4/PAV1); PAR2=Motor fora da família
+        );
 
         let ladder = dict
             .resolve_external_qet(

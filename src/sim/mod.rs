@@ -1,5 +1,6 @@
 pub mod cache;
 pub mod graph;
+pub mod pneumatic;
 pub mod rules;
 pub mod solver;
 pub mod timers;

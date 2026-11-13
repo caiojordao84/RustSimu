@@ -112,7 +112,7 @@ pub fn view_export_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
         .cloned()
         .or_else(|| page_options.first().cloned());
 
-    let is_cad = app.export_format == ExportFormat::Cad;
+    let is_cad = matches!(app.export_format, ExportFormat::Cad | ExportFormat::Ct);
     let is_multipage = app.pages.len() > 1;
     let valid_scopes = ExportScope::valid_scopes(app.export_format, is_multipage);
 
@@ -124,7 +124,7 @@ pub fn view_export_modal<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                     weight: iced::font::Weight::Bold,
                     ..UI
                 }),
-                text("Exporte para PNG, JPG, BMP, SVG, DXF, CADe_SIMU (.cad) ou PDF vetorial")
+                text("Exporte para PNG, JPG, BMP, SVG, DXF, CADe (.cad), FluidSIM (.ct) ou PDF")
                     .size(11.5)
                     .color(t.text2),
             ]

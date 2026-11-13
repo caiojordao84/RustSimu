@@ -355,6 +355,7 @@ impl<'a> SchematicCanvas<'a> {
             let max_y = item.y1 + p1y.max(p2y) + 2;
             (min_x, min_y, max_x, max_y)
         } else if let Some(qet_type) = item.symbol_id_or_slug() {
+            crate::pneu::palette::ensure_svg_registrados();
             if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                 let (vx, vy, vw, vh) = parsed.view_box;
                 let s = parsed.scale_factor();
@@ -422,6 +423,7 @@ impl<'a> SchematicCanvas<'a> {
             return wx >= min_x && wx <= max_x && wy >= min_y && wy <= max_y;
         }
         if let Some(qet_type) = item.symbol_id_or_slug() {
+            crate::pneu::palette::ensure_svg_registrados();
             if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
                 let (vx, vy, vw, vh) = parsed.view_box;
                 let s = parsed.scale_factor();
@@ -713,6 +715,21 @@ impl<'a> SchematicCanvas<'a> {
     pub fn wire_color(&self, item: &SchematicItem) -> (Color, f32) {
         let tok = self.tokens();
         if self.sim_running {
+            // Tubos pneumáticos: NoAr sobrepõe potencial elétrico nulo.
+            if let Some(ar) = self.doc.sim.air_by_wire.get(&item.id) {
+                match ar {
+                    crate::pneu::NoAr::Suprimento => {
+                        return (Color::from_rgb(0.15, 0.45, 0.85), 2.6);
+                    }
+                    crate::pneu::NoAr::Escape => {
+                        return (Color::from_rgb(0.55, 0.55, 0.58), 2.2);
+                    }
+                    crate::pneu::NoAr::SemPressao => {}
+                }
+            }
+            if item.tipo == 4005 {
+                return (tok.ink, 2.0);
+            }
             match self.doc.sim_potential(item.id) {
                 Potential::L1 => (tok.potential_l1, 2.5),
                 Potential::L2 => (tok.potential_l2, 2.5),
@@ -746,7 +763,8 @@ impl<'a> SchematicCanvas<'a> {
                 4002 | 4010 => (tok.w_pe, 1.6),      // PE
                 4003 => (tok.w_dc, 1.8),             // DC+
                 4004 => (tok.w_dc_neg, 1.8),         // DC-
-                _ => (tok.ink, 1.6),                 // Genérico
+                4005 => (tok.ink, 2.0), // Tubo Pneumático (cor dos elementos, respeita temas)
+                _ => (tok.ink, 1.6),    // Genérico
             }
         }
     }
@@ -1482,12 +1500,45 @@ impl<'a> SchematicCanvas<'a> {
                 }
             }
 
+            // FluidSIM: cilindros usam haste interpolada por pos_pm; demais usam `_active`.
+            let svg_key = {
+                crate::pneu::palette::ensure_svg_registrados();
+                if self.sim_running && matches!(qet_type, "PAL1" | "PAL2") {
+                    let pos_pm = (sim_st.timer_elapsed_ms.min(1000) / 50) * 50;
+                    let key = format!("{qet_type}_p{pos_pm}");
+                    if crate::svg_symbol::get_parsed_svg(&key).is_none() {
+                        if let Some((svg, _)) = crate::pneu::symbols::svg_v1_classe_pos(
+                            qet_type,
+                            pos_pm as f64 / 1000.0,
+                        ) {
+                            if let Ok(parsed) = crate::svg_symbol::parse_svg_content(&svg) {
+                                crate::svg_symbol::register_parsed_svg(&key, parsed);
+                            }
+                        }
+                    }
+                    if crate::svg_symbol::get_parsed_svg(&key).is_some() {
+                        key
+                    } else {
+                        qet_type.to_string()
+                    }
+                } else {
+                    let active_key = format!("{qet_type}_active");
+                    if (active_in_sim || item.symbol_state == Some('1'))
+                        && crate::svg_symbol::get_parsed_svg(&active_key).is_some()
+                    {
+                        active_key
+                    } else {
+                        qet_type.to_string()
+                    }
+                }
+            };
+
             self.draw_svg_symbol(
                 frame,
                 item.x1,
                 item.y1,
                 item.orientation,
-                qet_type,
+                &svg_key,
                 stroke_color,
                 1.5,
                 fill_active,
@@ -1502,7 +1553,7 @@ impl<'a> SchematicCanvas<'a> {
             };
 
             if self.show_terminals && is_wireable {
-                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(qet_type) {
+                if let Some(parsed) = crate::svg_symbol::get_parsed_svg(&svg_key) {
                     for shape in &parsed.shapes {
                         if let crate::svg_symbol::SvgShape::Circle {
                             cx,
@@ -2406,20 +2457,34 @@ impl<'a> canvas::Program<CanvasMessage> for SchematicCanvas<'a> {
                 _ => self.dragging_canonical_symbol,
             };
             if let Some(sym_id) = active_canonical {
-                self.draw_svg_symbol(
-                    &mut frame,
-                    hx,
-                    hy,
-                    self.placement_orientation,
-                    sym_id,
-                    Color {
-                        a: 0.65,
-                        ..tok.focus
-                    },
-                    1.8,
-                    None,
-                    1.0,
-                );
+                crate::pneu::palette::ensure_svg_registrados();
+                let resolved_svg = if crate::svg_symbol::get_parsed_svg(sym_id).is_some() {
+                    Some(sym_id)
+                } else if let Some(dict) = crate::canonical::global_dictionary() {
+                    dict.get_by_id(sym_id).map(|el| el.svg_base.as_str())
+                } else if let Some(c) =
+                    crate::dictionary::global_concept_dictionary().get_by_id(sym_id)
+                {
+                    c.fluidsim_class.as_deref()
+                } else {
+                    None
+                };
+                if let Some(svg_key) = resolved_svg {
+                    self.draw_svg_symbol(
+                        &mut frame,
+                        hx,
+                        hy,
+                        self.placement_orientation,
+                        svg_key,
+                        Color {
+                            a: 0.65,
+                            ..tok.focus
+                        },
+                        1.8,
+                        None,
+                        1.0,
+                    );
+                }
             }
             match self.tool {
                 EditorTool::DrawWire(_) => {
