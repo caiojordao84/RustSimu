@@ -304,8 +304,11 @@ impl SymbolDef {
             7009 => Some(("symbols_qet_all/cade_native/7009_contato_temporizado_nf_off-delay.svg", "symbols_qet_all/cade_native/7009_contato_temporizado_nf_off-delay_active.svg")),
             8002 => Some(("symbols_qet_all/cade_native/8002_botão_pulsador_duplo_na_nf_no-nc.svg", "symbols_qet_all/cade_native/8002_botão_pulsador_duplo_na_nf_no-nc_active.svg")),
             8003 => Some(("symbols_qet_all/cade_native/8003_botão_pulsador_comutador_con.svg", "symbols_qet_all/cade_native/8003_botão_pulsador_comutador_con_active.svg")),
-            // 8008: Chave Seletora / Interruptor NA (exato elemento DJ do CADe_SIMU)
-            8008 => Some(("symbols_qet_all/cade_native/8004_chave_comutadora_-_retentiva_na.svg", "symbols_qet_all/cade_native/8004_chave_comutadora_-_retentiva_na_active.svg")),
+            // 8008: Chave Seletora / Interruptor NA padronizada (96 px / 12 unidades CADe)
+            8008 => Some((
+                "symbols_qet_all/cade_native/8008_chave_seletora_-_interruptor_na_no_switch.svg",
+                "symbols_qet_all/cade_native/8008_chave_seletora_-_interruptor_na_no_switch_active.svg",
+            )),
             // 8012 e 8013: Sensor Fim de Curso NA e NF (QElectroTech IEC)
             8012 => Some((
                 "symbols_qet_all/electric/10_allpole/390_sensors_instruments/41_limit_switches/limitswitch__no.svg",
@@ -343,6 +346,11 @@ impl SymbolDef {
             9005 => Some(("symbols_qet_all/cade_native/9005_temporizador_à_desconexão_off-delay.svg", "symbols_qet_all/cade_native/9005_temporizador_à_desconexão_off-delay_active.svg")),
             9008 => Some(("symbols_qet_all/cade_native/9008_sinaleiro_luminoso_piloto.svg", "symbols_qet_all/cade_native/9008_sinaleiro_luminoso_piloto_active.svg")),
             9013 => Some(("symbols_qet_all/cade_native/9013_sirene_-_alarme_sonoro_buzzer.svg", "symbols_qet_all/cade_native/9013_sirene_-_alarme_sonoro_buzzer_active.svg")),
+            // 9014: Bobina de Solenoide / Eletroválvula de Comando
+            9014 => Some((
+                "symbols_qet_all/electric/10_allpole/391_consumers_actuators/20_valves/solenoid_valve.svg",
+                "symbols_qet_all/electric/10_allpole/391_consumers_actuators/20_valves/solenoid_valve_active.svg",
+            )),
             _ => None,
         }
     }
@@ -2597,6 +2605,43 @@ fn build_symbol_catalog() -> Vec<SymbolDef> {
             bounds: (-15, 0, 45, 60),
         },
         SymbolDef {
+            tipo: 9014,
+            category: SymbolCategory::CoilsTimersLamps,
+            name: "Bobina de Solenoide / Eletroválvula",
+            short_label: "Solenoide Y",
+            default_tag: "-Y",
+            default_value: "",
+            pins: vec![nume_pin(0, "A1", 5, 0), nume_pin(1, "A2", 5, 45)],
+            idle_cmds: &[
+                "LINE,+000,+000,+000,+020",
+                "LINE,+000,+040,+000,+060",
+                "LINE,-015,+020,+015,+020",
+                "LINE,-015,+040,+015,+040",
+                "LINE,-015,+020,-015,+040",
+                "LINE,+015,+020,+015,+040",
+                "LINE,-010,+020,+010,+040",
+                "LINE,+015,+030,+022,+030",
+                "LINE,+022,+022,+030,+022",
+                "LINE,+022,+022,+022,+038",
+                "LINE,+030,+022,+030,+038",
+            ],
+            active_cmds: &[
+                "POLI,-015,+020,+015,+020,+015,+040,-015,+040",
+                "LINE,+000,+000,+000,+020",
+                "LINE,+000,+040,+000,+060",
+                "LINE,-015,+020,+015,+020",
+                "LINE,-015,+040,+015,+040",
+                "LINE,-015,+020,-015,+040",
+                "LINE,+015,+020,+015,+040",
+                "LINE,-010,+020,+010,+040",
+                "LINE,+015,+030,+022,+030",
+                "LINE,+022,+022,+030,+022",
+                "LINE,+022,+022,+022,+038",
+                "LINE,+030,+022,+030,+038",
+            ],
+            bounds: (-22, 0, 32, 60),
+        },
+        SymbolDef {
             tipo: 2008,
             category: SymbolCategory::ContactorsSwitches,
             name: "Contator Disjuntor Trifásico 3P",
@@ -2941,7 +2986,7 @@ pub fn detect_contact_kind(tipo: i32, default_pins: &[SymbolPin]) -> Option<Cont
         7006 | 8018 => Some(ContactKind::TimedDouble),
         8019 => Some(ContactKind::ThermalChangeover),
         // Símbolos que NUNCA são contatos subordinados (devem manter seus bornes fixos de catálogo):
-        9000 | 9004 | 9005 // Bobinas e temporizadores: sempre A1-A2 (IEC 60947-1 / EN 50012)
+        9000 | 9004 | 9005 | 9014 // Bobinas, solenoides e temporizadores: sempre A1-A2 (IEC 60947-1 / EN 50012)
         | 9008 // Sinaleiros luminosos: sempre X1-X2
         | 9013 // Sirenes / alarmes sonoros
         | 1000 | 1001 | 1002 // Motores: sempre U, V, W, PE
@@ -3216,7 +3261,7 @@ impl ApparatusRole {
 
 pub fn classify_apparatus_role(tipo: i32) -> ApparatusRole {
     match tipo {
-        9000 => ApparatusRole::Coil,
+        9000 | 9014 => ApparatusRole::Coil,
         9004 | 9005 => ApparatusRole::Timer,
         6007 => ApparatusRole::ThermalRelay,
         6000 | 6003 | 6004 | 6008 | 6009 => ApparatusRole::Breaker,
@@ -3358,7 +3403,7 @@ pub fn is_power_apparatus(item: &SchematicItem) -> bool {
 pub fn is_coil_or_timer_apparatus(item: &SchematicItem) -> bool {
     let role = classify_item_role(item);
     matches!(role, ApparatusRole::Coil | ApparatusRole::Timer)
-        || matches!(item.tipo, 9000 | 9004 | 9005)
+        || matches!(item.tipo, 9000 | 9004 | 9005 | 9014)
 }
 
 /// Extrai o prefixo literal de uma tag (ex: "-KM" de "-KM1", "-S" de "-S2", "-B" de "-B1").

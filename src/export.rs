@@ -1318,6 +1318,8 @@ pub fn export_to_svg(
         }
     }
 
+    let sim_has_pneu = !doc.sim.pneumatic.dispositivos.is_empty();
+
     // 1. Cabos (fios)
     for item in &doc.items {
         if let Some(filter) = items_filter {
@@ -1336,6 +1338,24 @@ pub fn export_to_svg(
 
         let (stroke_color, stroke_w) = if opts.monochrome {
             ("#000000".to_string(), 1.4)
+        } else if sim_has_pneu && item.tipo == 4005 {
+            match doc.sim.air_by_wire.get(&item.id) {
+                Some(crate::pneu::NoAr::Suprimento) => ("#000084".to_string(), 2.4),
+                Some(crate::pneu::NoAr::Escape) | Some(crate::pneu::NoAr::SemPressao) => {
+                    ("#00cbd4".to_string(), 1.8)
+                }
+                None => ("#1b2230".to_string(), 1.6),
+            }
+        } else if sim_has_pneu && item.tipo == 4003 {
+            match doc.sim_potential(item.id) {
+                crate::model::Potential::DcPos | crate::model::Potential::L1 => {
+                    ("#e60000".to_string(), 2.4)
+                }
+                crate::model::Potential::DcNeg | crate::model::Potential::N => {
+                    ("#1461d1".to_string(), 2.2)
+                }
+                _ => ("#64748b".to_string(), 1.4),
+            }
         } else if item.color != 0 {
             let r_col = ((item.color >> 16) & 0xFF) as u8;
             let g_col = ((item.color >> 8) & 0xFF) as u8;
@@ -1479,14 +1499,39 @@ pub fn export_to_svg(
 
         // Símbolos QET ou gerados pelo cade2svg
         if let Some(qet_type) = item.symbol_id_or_slug() {
-            let active_key = format!("{qet_type}_active");
-            let effective_key = if item.symbol_state == Some('1')
-                && crate::svg_symbol::get_parsed_svg(&active_key).is_some()
-            {
-                active_key.as_str()
+            let sim_has_pneu = !doc.sim.pneumatic.dispositivos.is_empty();
+            let sim_st = doc.sim.get(item.id);
+            let effective_key_owned = if sim_has_pneu && matches!(qet_type, "PAL1" | "PAL2") {
+                let pos_pm = (sim_st.timer_elapsed_ms.min(1000) / 20) * 20;
+                let key = format!("{qet_type}_p{pos_pm}");
+                if crate::svg_symbol::get_parsed_svg(&key).is_none() {
+                    if let Some((svg, _)) =
+                        crate::pneu::symbols::svg_v1_classe_pos(qet_type, pos_pm as f64 / 1000.0)
+                    {
+                        if let Ok(parsed) = crate::svg_symbol::parse_svg_content(&svg) {
+                            crate::svg_symbol::register_parsed_svg(&key, parsed);
+                        }
+                    }
+                }
+                if crate::svg_symbol::get_parsed_svg(&key).is_some() {
+                    key
+                } else {
+                    qet_type.to_string()
+                }
             } else {
-                qet_type
+                let active_key = format!("{qet_type}_active");
+                let use_active = if sim_has_pneu {
+                    sim_st.active || qet_type == "152841"
+                } else {
+                    item.symbol_state == Some('1')
+                };
+                if use_active && crate::svg_symbol::get_parsed_svg(&active_key).is_some() {
+                    active_key
+                } else {
+                    qet_type.to_string()
+                }
             };
+            let effective_key = effective_key_owned.as_str();
             let stroke_col = resolve_item_stroke_color(item.color, opts.monochrome, "#111827");
             render_svg_symbol_to_svg(
                 &mut out,
@@ -1500,6 +1545,72 @@ pub fn export_to_svg(
                 1.0,
                 scale,
             );
+            if sim_has_pneu && qet_type == "152841" {
+                let press_mpa = sim_st.timer_elapsed_ms as f32 / 1000.0;
+                let (cx_off, cy_off) = transform_offset_f32(0.0, -6.6, item.orientation);
+                let cx = (item.x1 as f32 + cx_off) * scale;
+                let cy = (item.y1 as f32 + cy_off + 0.9) * scale;
+                let font_sz = (2.6 * scale).clamp(7.0, 14.0);
+                out.push_str(&format!(
+                    r###"  <text x="{cx:.1}" y="{cy:.1}" text-anchor="middle" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_col}">{press_mpa:.2}</text>"###
+                ));
+                out.push('\n');
+            }
+            if qet_type.starts_with("PVW") {
+                if !item.value.is_empty() {
+                    let (vx_off, vy_off) = transform_offset_f32(-22.5, 12.0, item.orientation);
+                    let vx = (item.x1 as f32 + vx_off) * scale;
+                    let vy = (item.y1 as f32 + vy_off + 0.9) * scale;
+                    let font_sz = (2.8 * scale).clamp(7.5, 13.5);
+                    out.push_str(&format!(
+                        r###"  <text x="{vx:.1}" y="{vy:.1}" text-anchor="middle" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_col}">{}</text>"###,
+                        xml_escape(&item.value)
+                    ));
+                    out.push('\n');
+                }
+                if doc.settings.show_pin_refs >= 1
+                    && (qet_type.contains('4') || qet_type.contains('8') || qet_type.contains('5'))
+                {
+                    let text_col = if opts.monochrome {
+                        "#374151"
+                    } else {
+                        "#5c6675"
+                    };
+                    let font_sz = (2.4 * scale).clamp(6.5, 11.5);
+                    let port_labels: [(&str, f32, f32); 5] = [
+                        ("4", -10.0, 2.0),
+                        ("2", 10.0, 2.0),
+                        ("5", -10.0, 24.5),
+                        ("1", 3.5, 29.0),
+                        ("3", 10.0, 24.5),
+                    ];
+                    for (lbl, px, py) in port_labels {
+                        let (rx, ry) = transform_offset_f32(px, py, item.orientation);
+                        let lx = (item.x1 as f32 + rx) * scale;
+                        let ly = (item.y1 as f32 + ry + 0.8) * scale;
+                        out.push_str(&format!(
+                            r###"  <text x="{lx:.1}" y="{ly:.1}" text-anchor="middle" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{text_col}">{lbl}</text>"###
+                        ));
+                        out.push('\n');
+                    }
+                }
+            }
+            if item.show_tag == 1 && !item.tag.is_empty() {
+                let tpos_x = (item.x1 - 6) as f32 * scale;
+                let tpos_y = (item.y1 - 6) as f32 * scale;
+                let font_sz = (3.0 * scale).clamp(8.0, 15.0);
+                let baseline_y = tpos_y + font_sz * 0.78;
+                let tag_col = if opts.monochrome {
+                    "#000000"
+                } else {
+                    "#8c2e1f"
+                };
+                out.push_str(&format!(
+                    r###"  <text x="{tpos_x:.1}" y="{baseline_y:.1}" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{tag_col}">{}</text>"###,
+                    xml_escape(&item.tag)
+                ));
+                out.push('\n');
+            }
             if opts.show_terminals {
                 if let Some(parsed) = crate::svg_symbol::get_parsed_svg(effective_key) {
                     let pin_rad = (crate::model::TERMINAL_RADIUS_UNITS * scale).max(1.2);

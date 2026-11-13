@@ -432,7 +432,7 @@ pub fn resolve_cascade(
                 continue;
             };
             match item.tipo {
-                9000 if p.len() >= 2 => {
+                9000 | 9014 if p.len() >= 2 => {
                     let energized = has_voltage_diff(node_potentials[p[0]], node_potentials[p[1]]);
                     let s = sim.get_mut(item.id);
                     s.active = energized;
@@ -609,7 +609,7 @@ pub fn step_simulation_state(items: &[SchematicItem], sim: &mut SimState, dt_ms:
             continue;
         }
         let s = sim.get(item.id);
-        if item.tipo == 9000 && s.active {
+        if (item.tipo == 9000 || item.tipo == 9014) && s.active {
             energized_coils.insert(tag);
         }
     }

@@ -31,6 +31,10 @@ pub fn schematic_from_ct_bytes(bruto: &[u8]) -> Result<SchematicDocument, String
     doc.title_block.entity = "FluidSIM Pneumatic Import".to_string();
 
     let concept_dict = crate::dictionary::global_concept_dictionary();
+    let rede = pagina.rede();
+
+    let mut terminal_remap: std::collections::HashMap<(i32, i32), (i32, i32)> =
+        std::collections::HashMap::new();
 
     for item in &ad.esquema.itens {
         let fs_class = ct_parser::dicionario::catalogo()
@@ -55,6 +59,7 @@ pub fn schematic_from_ct_bytes(bruto: &[u8]) -> Result<SchematicDocument, String
         let y = px_adaptador_para_world(item.y);
 
         // pol1/pol2 → tipos nativos CC para o solver injetar DcNeg/DcPos.
+        // Componentes de comando elétrico recebem seus tipos nativos RustSimu (8008, 7000, 9000, 9014).
         // Demais FluidSIM: tipo 20000 + symbol_id (padrão QET externo).
         let concept = concept_dict.get_by_fluidsim_class(&fs_class);
         let tipo = match fs_class.as_str() {
@@ -63,16 +68,131 @@ pub fn schematic_from_ct_bytes(bruto: &[u8]) -> Result<SchematicDocument, String
             _ => concept.and_then(|c| c.cade_tipo).unwrap_or(20000),
         };
 
+        let is_native_electrical = matches!(
+            tipo,
+            7000..=7009 | 8000..=8011 | 9000..=9014 | 3008 | 3009
+        );
+
+        let has_explicit_label = pagina
+            .objetos
+            .get(&item.id)
+            .map(|o| {
+                o.props.iter().any(|p| {
+                    (p.nome == "label" || p.nome == "ID" || p.nome == "identification")
+                        && !p.valor.trim().is_empty()
+                })
+            })
+            .unwrap_or(false);
+
         let mut si = SchematicItem::new_wire(item.id as i32, tipo, x, y, x, y);
         si.tag = item.tag.clone();
-        si.show_tag = if si.tag.is_empty() { 0 } else { 1 };
+        si.show_tag = if has_explicit_label && !si.tag.is_empty() {
+            1
+        } else {
+            0
+        };
         si.pins = pins;
         si.pin_visibility = [1; 9];
         si.orientation = item.orientacao.rem_euclid(8);
-        si.qet_type = Some(fs_class.clone());
-        si.symbol_id = Some(fs_class);
+
+        if tipo == 3008 {
+            if !has_explicit_label {
+                si.tag = "+24V".to_string();
+                si.show_tag = 1;
+            }
+            si.pin_visibility = [0; 9];
+        } else if tipo == 3009 {
+            if !has_explicit_label {
+                si.tag = "0V".to_string();
+                si.show_tag = 1;
+            }
+            si.pin_visibility = [0; 9];
+        }
+
+        // Fonte de ar comprimido (PPE1 / PRV / PVP1 / PPE2): extrai pressão operacional (P_LIM em bar → MPa)
+        // e vazão máxima (FLOW em l/min) do objeto .ct (padrão FluidSIM: 0.6 MPa e 1000 l/min).
+        if matches!(fs_class.as_str(), "PPE1" | "PRV" | "PVP1" | "PPE2") {
+            let mut p_bar = 6.0f32;
+            let mut flow_lpm = 1000.0f32;
+            if let Some(obj) = pagina.objetos.get(&item.id) {
+                if let Some(v) = obj.prop("P_LIM").and_then(|s| s.trim().parse::<f32>().ok()) {
+                    p_bar = v.clamp(0.0, 20.0);
+                }
+                if let Some(v) = obj.prop("FLOW").and_then(|s| s.trim().parse::<f32>().ok()) {
+                    flow_lpm = v.clamp(0.0, 5000.0);
+                }
+            }
+            let p_mpa = (p_bar / 10.0).clamp(0.0, 2.0);
+            si.pins[1] = "MPa".to_string();
+            si.pins[2] = format_pneu_num(p_mpa);
+            si.pins[3] = "l/min".to_string();
+            si.pins[4] = format_pneu_num(flow_lpm);
+            si.show_value = 0;
+        }
+
+        // Se for componente de comando elétrico canônico, usa o catálogo RustSimu (sem sobrescrever por SVG bruto)
+        if is_native_electrical {
+            si.qet_type = None;
+            si.symbol_id = None;
+
+            // Mapeia bornes do macro FluidSIM para os pinos canônicos da Lei Suprema de Tamanhos (módulo 12)
+            if let Some(sym) = crate::symbols::find_symbol_ref(tipo) {
+                for (idx, _pin_label, (wx, wy)) in sym.world_pins(&si) {
+                    if let Some(b) = item.bornes.get(idx) {
+                        let old_pos = (px_adaptador_para_world(b.x), px_adaptador_para_world(b.y));
+                        if old_pos != (wx, wy) {
+                            terminal_remap.insert(old_pos, (wx, wy));
+                        }
+                    }
+                }
+            }
+        } else {
+            si.qet_type = Some(fs_class.clone());
+            si.symbol_id = Some(fs_class.clone());
+
+            // Descobre tag por texto próximo ou conexão de comando
+            // 1. Piloto elétrico associado (ex: UEConnection com label "1Y" na válvula 5/2)
+            for a in rede.arestas.iter().filter(|a| a.componente == item.id) {
+                if let Some(conn_obj) = pagina.objetos.get(&a.conn) {
+                    if let Some(p) = conn_obj.props.iter().find(|p| p.nome == "label") {
+                        if !p.valor.trim().is_empty() {
+                            si.value = p.valor.trim().to_string();
+                        }
+                    }
+                }
+            }
+
+            // 2. Texto de designação próximo (ex: "1A1", "1A2", "1V")
+            if si.tag.is_empty()
+                || si.tag.starts_with("-V")
+                || si.tag.starts_with("-A")
+                || si.tag.starts_with("-P")
+            {
+                let mut best_text: Option<String> = None;
+                let mut min_dist = 50.0f32;
+                for t in &ad.textos {
+                    let tx = px_adaptador_para_world(t.x) as f32;
+                    let ty = px_adaptador_para_world(t.y) as f32;
+                    let dx = tx - x as f32;
+                    let dy = ty - y as f32;
+                    let dist = (dx * dx + dy * dy).sqrt();
+                    if dist < min_dist && !t.conteudo.trim().is_empty() {
+                        min_dist = dist;
+                        best_text = Some(t.conteudo.trim().to_string());
+                    }
+                }
+                if let Some(t_tag) = best_text {
+                    si.tag = t_tag;
+                    // Esconde a tag automática para usar o texto renderizado na posição exata do FluidSIM
+                    si.show_tag = 0;
+                }
+            }
+        }
+
         si.symbol_state = Some(if item.inicial_acionado { '1' } else { '0' });
-        si.concept_id = Some(item.concept_id.clone());
+        si.concept_id = concept
+            .map(|c| c.concept_id.clone())
+            .or_else(|| Some(item.concept_id.clone()));
         doc.items.push(si);
     }
 
@@ -80,10 +200,12 @@ pub fn schematic_from_ct_bytes(bruto: &[u8]) -> Result<SchematicDocument, String
     let mut raw_wires_el = Vec::new();
     let mut raw_wires_pn = Vec::new();
     for c in &ad.esquema.condutores {
-        let x1 = px_adaptador_para_world(c.x1);
-        let y1 = px_adaptador_para_world(c.y1);
-        let x2 = px_adaptador_para_world(c.x2);
-        let y2 = px_adaptador_para_world(c.y2);
+        let raw_p1 = (px_adaptador_para_world(c.x1), px_adaptador_para_world(c.y1));
+        let raw_p2 = (px_adaptador_para_world(c.x2), px_adaptador_para_world(c.y2));
+
+        let (x1, y1) = terminal_remap.get(&raw_p1).copied().unwrap_or(raw_p1);
+        let (x2, y2) = terminal_remap.get(&raw_p2).copied().unwrap_or(raw_p2);
+
         let mut segs = Vec::new();
         // Garante eixos H/V após snap de grade (evita diagonais por arredondamento).
         if x1 != x2 && y1 != y2 {
@@ -127,6 +249,24 @@ pub fn schematic_from_ct_bytes(bruto: &[u8]) -> Result<SchematicDocument, String
         text_item.sync_text_bounds();
         doc.items.push(text_item);
     }
+
+    // Ordenação canônica determinística do canvas (Lei Suprema do Layout):
+    // 1. Elementos principais / aparatos (relés, válvulas, cilindros, chaves)
+    // 2. Objetos de apoio (fontes CC/ar comprimido, caixas de texto)
+    // 3. Conexões conectando-se aos bornes (cabos e tubos Manhattan a 90º)
+    doc.items.sort_by_key(|item| {
+        if item.is_wire() {
+            3
+        } else if item.tipo == 8
+            || item.tipo == 3008
+            || item.tipo == 3009
+            || item.symbol_id.as_deref() == Some("PPE1")
+        {
+            2
+        } else {
+            1
+        }
+    });
 
     Ok(doc)
 }
@@ -226,6 +366,16 @@ pub fn schematic_from_ct_path(
 impl From<ErroCt> for String {
     fn from(e: ErroCt) -> Self {
         e.to_string()
+    }
+}
+
+fn format_pneu_num(v: f32) -> String {
+    let s = format!("{v:.2}");
+    let s = s.trim_end_matches('0').trim_end_matches('.');
+    if s.is_empty() || s == "-0" {
+        "0".to_string()
+    } else {
+        s.to_string()
     }
 }
 

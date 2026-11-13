@@ -719,10 +719,10 @@ impl<'a> SchematicCanvas<'a> {
             if let Some(ar) = self.doc.sim.air_by_wire.get(&item.id) {
                 match ar {
                     crate::pneu::NoAr::Suprimento => {
-                        return (Color::from_rgb(0.15, 0.45, 0.85), 2.6);
+                        return (Color::from_rgb(0.10, 0.35, 0.85), 2.6);
                     }
                     crate::pneu::NoAr::Escape => {
-                        return (Color::from_rgb(0.55, 0.55, 0.58), 2.2);
+                        return (Color::from_rgb(0.20, 0.80, 0.95), 2.2);
                     }
                     crate::pneu::NoAr::SemPressao => {}
                 }
@@ -1498,11 +1498,11 @@ impl<'a> SchematicCanvas<'a> {
                 }
             }
 
-            // FluidSIM: cilindros usam haste interpolada por pos_pm; demais usam `_active`.
+            // FluidSIM: cilindros usam haste interpolada por pos_pm; manômetro usa `_active` na simulação.
             let svg_key = {
                 crate::pneu::palette::ensure_svg_registrados();
                 if self.sim_running && matches!(qet_type, "PAL1" | "PAL2") {
-                    let pos_pm = (sim_st.timer_elapsed_ms.min(1000) / 50) * 50;
+                    let pos_pm = (sim_st.timer_elapsed_ms.min(1000) / 20) * 20;
                     let key = format!("{qet_type}_p{pos_pm}");
                     if crate::svg_symbol::get_parsed_svg(&key).is_none() {
                         if let Some((svg, _)) = crate::pneu::symbols::svg_v1_classe_pos(
@@ -1521,9 +1521,12 @@ impl<'a> SchematicCanvas<'a> {
                     }
                 } else {
                     let active_key = format!("{qet_type}_active");
-                    if (active_in_sim || item.symbol_state == Some('1'))
-                        && crate::svg_symbol::get_parsed_svg(&active_key).is_some()
-                    {
+                    let use_active = if self.sim_running {
+                        active_in_sim || qet_type == "152841"
+                    } else {
+                        item.symbol_state == Some('1')
+                    };
+                    if use_active && crate::svg_symbol::get_parsed_svg(&active_key).is_some() {
                         active_key
                     } else {
                         qet_type.to_string()
@@ -1542,6 +1545,65 @@ impl<'a> SchematicCanvas<'a> {
                 fill_active,
                 1.0,
             );
+
+            // Manômetro (152841): exibe a pressão exata do ramo em MPa dentro do visor circular durante a simulação.
+            if self.sim_running && qet_type == "152841" {
+                let press_mpa = sim_st.timer_elapsed_ms as f32 / 1000.0;
+                let (cx_off, cy_off) = transform_offset_f32(0.0, -6.6, item.orientation);
+                let cpos = self.world_to_screen(item.x1 as f32 + cx_off, item.y1 as f32 + cy_off);
+                frame.fill_text(Text {
+                    content: format!("{press_mpa:.2}"),
+                    position: cpos,
+                    color: tok.ink,
+                    size: (2.6 * self.zoom).clamp(7.0, 14.0).into(),
+                    horizontal_alignment: iced::alignment::Horizontal::Center,
+                    vertical_alignment: iced::alignment::Vertical::Center,
+                    ..Text::default()
+                });
+            }
+
+            // Válvulas direcionais 5/2: exibe o rótulo do piloto elétrico (ex: 1Y) e numeração ISO das portas (4, 2, 5, 1, 3).
+            if self.show_texts && qet_type.starts_with("PVW") {
+                if !item.value.is_empty() {
+                    let (vx_off, vy_off) = transform_offset_f32(-22.5, 12.0, item.orientation);
+                    let vpos =
+                        self.world_to_screen(item.x1 as f32 + vx_off, item.y1 as f32 + vy_off);
+                    frame.fill_text(Text {
+                        content: item.value.clone(),
+                        position: vpos,
+                        color: tok.ink,
+                        size: (2.8 * self.zoom).clamp(7.5, 13.5).into(),
+                        horizontal_alignment: iced::alignment::Horizontal::Center,
+                        vertical_alignment: iced::alignment::Vertical::Center,
+                        ..Text::default()
+                    });
+                }
+                if self.doc.settings.show_pin_refs >= 1
+                    && (qet_type.contains('4') || qet_type.contains('8') || qet_type.contains('5'))
+                {
+                    let pin_color = Color { a: 0.78, ..tok.ink };
+                    let port_labels: [(&str, f32, f32); 5] = [
+                        ("4", -10.0, 2.0),
+                        ("2", 10.0, 2.0),
+                        ("5", -10.0, 24.5),
+                        ("1", 3.5, 29.0),
+                        ("3", 10.0, 24.5),
+                    ];
+                    for (lbl, px, py) in port_labels {
+                        let (rx, ry) = transform_offset_f32(px, py, item.orientation);
+                        let lpos = self.world_to_screen(item.x1 as f32 + rx, item.y1 as f32 + ry);
+                        frame.fill_text(Text {
+                            content: lbl.to_string(),
+                            position: lpos,
+                            color: pin_color,
+                            size: (2.4 * self.zoom).clamp(6.5, 11.5).into(),
+                            horizontal_alignment: iced::alignment::Horizontal::Center,
+                            vertical_alignment: iced::alignment::Vertical::Center,
+                            ..Text::default()
+                        });
+                    }
+                }
+            }
 
             // Desenha bornes (pinos) nos terminais do símbolo SVG apenas se for cabável
             let is_wireable = if let Some(dict) = crate::canonical::global_dictionary() {

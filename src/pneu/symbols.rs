@@ -85,7 +85,7 @@ pub fn svg_v1_classe_pos(classe: &str, pos: f64) -> Option<(String, Vec<Terminal
     let cat = catalogo_pic();
     let rec = por_nome(cat, &nome_pic(classe))?;
     let terms = terminais_para_conceito(classe, rec);
-    let haste = if classe == "PAL2" || classe == "PAL1" {
+    let haste = if classe == "PAL2" || classe == "PAL1" || classe == "152841" {
         Some(pos)
     } else {
         None
@@ -249,6 +249,15 @@ pub fn svg_pic_cade_com_terminais(
             1 | 7 => {
                 let (x1, y1) = to_px(ax + p(4), ay + p(5));
                 let (x2, y2) = to_px(ax + p(6), ay + p(7));
+                // No manômetro (152841.PIC), a haste diagonal longa do ponteiro (~86 px)
+                // é ocultada durante a simulação (haste_pos > 0) para exibir o visor digital
+                // de pressão no centro do círculo, preservando apenas a ponta da seta e o bico inferior.
+                if rec.nome == "152841.PIC"
+                    && haste_pos.is_some_and(|hp| hp > 0.0)
+                    && (x2 - x1).hypot(y2 - y1) > 30.0
+                {
+                    continue;
+                }
                 prims.push(Prim::Line {
                     x1,
                     y1,
@@ -320,16 +329,18 @@ pub fn svg_pic_cade_com_terminais(
     }
 
     if let Some(pos) = haste_pos {
-        let frac = pos.clamp(0.0, 1.0);
-        if frac > 0.02 {
-            let x2 = un_para_px(UN_POR_GRADE * 2.5 * frac);
-            prims.push(Prim::Line {
-                x1: 0.0,
-                y1: 0.0,
-                x2,
-                y2: 0.0,
-                sw: Some(3.0),
-            });
+        if rec.nome != "152841.PIC" {
+            let frac = pos.clamp(0.0, 1.0);
+            if frac > 0.02 {
+                let x2 = un_para_px(UN_POR_GRADE * 2.5 * frac);
+                prims.push(Prim::Line {
+                    x1: 0.0,
+                    y1: 0.0,
+                    x2,
+                    y2: 0.0,
+                    sw: Some(3.0),
+                });
+            }
         }
     }
 
@@ -359,7 +370,8 @@ pub fn svg_pic_cade_com_terminais(
         }
     }
 
-    // Atrai extremidades de linha para o borne mais próximo (≤ 24 px = ½ módulo).
+    // Atrai extremidades de linha para o borne mais próximo (≤ 24 px = ½ módulo),
+    // sem colapsar linhas curtas (como o pescoço de 14.4 px do manômetro 152841) num único ponto.
     let lim = f64::from(GRID_MODULE_PX_300DPI) * 0.5;
     let atrai = |x: &mut f64, y: &mut f64| {
         let mut best = None;
@@ -376,8 +388,28 @@ pub fn svg_pic_cade_com_terminais(
     };
     for prim in &mut prims {
         if let Prim::Line { x1, y1, x2, y2, .. } = prim {
-            atrai(x1, y1);
-            atrai(x2, y2);
+            let mut nx1 = *x1;
+            let mut ny1 = *y1;
+            let mut nx2 = *x2;
+            let mut ny2 = *y2;
+            atrai(&mut nx1, &mut ny1);
+            atrai(&mut nx2, &mut ny2);
+            if (nx1 - nx2).hypot(ny1 - ny2) > 0.5 {
+                *x1 = nx1;
+                *y1 = ny1;
+                *x2 = nx2;
+                *y2 = ny2;
+            } else {
+                let d1 = (*x1 - nx1).hypot(*y1 - ny1);
+                let d2 = (*x2 - nx2).hypot(*y2 - ny2);
+                if d1 <= d2 {
+                    *x1 = nx1;
+                    *y1 = ny1;
+                } else {
+                    *x2 = nx2;
+                    *y2 = ny2;
+                }
+            }
         }
     }
 
@@ -551,26 +583,50 @@ pub fn svg_pal1(pos: f64) -> (String, Vec<TerminalSimbolo>) {
 /// Válvula 5/2 direcional com solenóide e retorno por mola ISO 1219 em px/`cade2svg`.
 /// Portas 4 e 2 no topo (y=0); portas 5, 1, 3 na base (y=192).
 /// Silenciadores integrados nos escapes 5 e 3.
-pub fn svg_valve_5_2_solenoid(_pos: f64) -> (String, Vec<TerminalSimbolo>) {
+pub fn svg_valve_5_2_solenoid(pos: f64) -> (String, Vec<TerminalSimbolo>) {
     let r = TERMINAL_RADIUS_PX_300DPI;
     let g = GRID_MODULE_UNITS as i32;
+    let acionada = pos > 0.5;
+
+    let vias_internas = if !acionada {
+        r##"    <!-- Estado Repouso: caixa esquerda (1->4, 2->3), caixa direita ativa (1->2, 4->5) -->
+    <line x1="-48" y1="144" x2="-72" y2="48"/>
+    <polygon points="-72,48 -66,58 -76,55" fill="#000" stroke="#000"/>
+    <line x1="-24" y1="48" x2="-24" y2="144"/>
+    <polygon points="-24,144 -28,134 -20,134" fill="#000" stroke="#000"/>
+    <line x1="-72" y1="144" x2="-72" y2="132"/>
+    <line x1="-78" y1="132" x2="-66" y2="132"/>
+    <line x1="0" y1="144" x2="48" y2="48"/>
+    <polygon points="48,48 40,56 48,60" fill="#000" stroke="#000"/>
+    <line x1="24" y1="48" x2="24" y2="144"/>
+    <polygon points="24,144 20,134 28,134" fill="#000" stroke="#000"/>
+    <line x1="72" y1="144" x2="72" y2="132"/>
+    <line x1="66" y1="132" x2="78" y2="132"/>"##
+    } else {
+        r##"    <!-- Estado Acionado (1Y): comuta vias ativas para (1->4, 2->3) -->
+    <line x1="-72" y1="48" x2="-72" y2="144"/>
+    <polygon points="-72,144 -76,134 -68,134" fill="#000" stroke="#000"/>
+    <line x1="-48" y1="144" x2="-24" y2="48"/>
+    <polygon points="-24,48 -32,56 -24,60" fill="#000" stroke="#000"/>
+    <line x1="0" y1="144" x2="-48" y2="48"/>
+    <polygon points="-48,48 -48,60 -40,56" fill="#000" stroke="#000"/>
+    <line x1="48" y1="48" x2="48" y2="144"/>
+    <polygon points="48,144 44,134 52,134" fill="#000" stroke="#000"/>
+    <line x1="-48" y1="144" x2="-48" y2="132"/>
+    <line x1="-54" y1="132" x2="-42" y2="132"/>"##
+    };
 
     let svg = format!(
         r##"<svg xmlns="http://www.w3.org/2000/svg" data-generator="cade2svg" data-standard="48px" viewBox="-160 -12 300 232" width="300" height="232">
   <g fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <rect x="-96" y="48" width="192" height="96"/>
     <line x1="0" y1="48" x2="0" y2="144"/>
-    <!-- Vias caixa esquerda (1->4, 2->3) -->
-    <line x1="-24" y1="144" x2="-72" y2="48"/>
-    <polygon points="-72,48 -66,58 -76,55" fill="#000" stroke="#000"/>
-    <line x1="-24" y1="48" x2="-24" y2="144"/>
-    <polygon points="-24,144 -28,134 -20,134" fill="#000" stroke="#000"/>
-    <!-- Vias caixa direita (1->2, 4->5) -->
-    <line x1="24" y1="144" x2="72" y2="48"/>
-    <polygon points="72,48 66,58 76,55" fill="#000" stroke="#000"/>
-    <line x1="24" y1="48" x2="24" y2="144"/>
-    <polygon points="24,144 20,134 28,134" fill="#000" stroke="#000"/>
-    <!-- Condutores de topo (4 e 2) -->
+{vias_internas}
+    <!-- Condutores de topo (4 e 2) -->"##,
+        vias_internas = vias_internas,
+    );
+    let svg_rest = format!(
+        r##"
     <line x1="-48" y1="0" x2="-48" y2="48"/>
     <line x1="48" y1="0" x2="48" y2="48"/>
     <!-- Condutores de base (5, 1, 3) -->
@@ -599,6 +655,7 @@ pub fn svg_valve_5_2_solenoid(_pos: f64) -> (String, Vec<TerminalSimbolo>) {
 "##,
         r = r,
     );
+    let svg = format!("{svg}{svg_rest}");
 
     let terms = vec![
         TerminalSimbolo {

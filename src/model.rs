@@ -252,6 +252,226 @@ impl SimState {
     pub fn reset(&mut self) {
         self.items.clear();
         self.network_cache = None;
+        self.pneumatic = Default::default();
+        self.air_by_wire.clear();
+    }
+}
+
+/// Unidade de pressão operacional para fonte de ar comprimido (padrão FluidSIM: `MPa`, `bar`, `PSI`).
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+pub enum PneuPressureUnit {
+    #[default]
+    MPa,
+    Bar,
+    Psi,
+}
+
+impl PneuPressureUnit {
+    pub const ALL: [PneuPressureUnit; 3] = [
+        PneuPressureUnit::MPa,
+        PneuPressureUnit::Bar,
+        PneuPressureUnit::Psi,
+    ];
+
+    pub fn code(self) -> &'static str {
+        match self {
+            Self::MPa => "MPa",
+            Self::Bar => "bar",
+            Self::Psi => "PSI",
+        }
+    }
+
+    pub fn as_code(self) -> &'static str {
+        self.code()
+    }
+
+    pub fn format_value(self, val: f32) -> String {
+        match self {
+            Self::MPa => format!("{val:.2}"),
+            Self::Bar | Self::Psi => format!("{val:.1}"),
+        }
+    }
+
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::MPa => "MPa (0 ~ 2)",
+            Self::Bar => "bar (0 ~ 20)",
+            Self::Psi => "PSI (0 ~ 294)",
+        }
+    }
+
+    pub fn from_code(s: &str) -> Self {
+        match s.trim() {
+            "bar" | "BAR" => Self::Bar,
+            "PSI" | "psi" => Self::Psi,
+            _ => Self::MPa,
+        }
+    }
+
+    pub fn max_value(self) -> f32 {
+        match self {
+            Self::MPa => 2.0,
+            Self::Bar => 20.0,
+            Self::Psi => 294.0,
+        }
+    }
+
+    pub fn default_value(self) -> f32 {
+        match self {
+            Self::MPa => 0.6,
+            Self::Bar => 6.0,
+            Self::Psi => 88.2,
+        }
+    }
+
+    pub fn step(self) -> f32 {
+        match self {
+            Self::MPa => 0.1,
+            Self::Bar => 1.0,
+            Self::Psi => 10.0,
+        }
+    }
+
+    pub fn to_mpa(self, val: f32) -> f32 {
+        let mpa = match self {
+            Self::MPa => val,
+            Self::Bar => val / 10.0,
+            Self::Psi => val / 147.0,
+        };
+        mpa.clamp(0.0, 2.0)
+    }
+
+    pub fn from_mpa(self, mpa: f32) -> f32 {
+        let mpa = mpa.clamp(0.0, 2.0);
+        match self {
+            Self::MPa => mpa,
+            Self::Bar => mpa * 10.0,
+            Self::Psi => mpa * 147.0,
+        }
+    }
+}
+
+impl std::fmt::Display for PneuPressureUnit {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.label())
+    }
+}
+
+/// Unidade de vazão máxima (flow rate) para fonte de ar comprimido (`l/min`, `US gal/min`, `UK gal/min`, `g/s`).
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+pub enum PneuFlowUnit {
+    #[default]
+    LMin,
+    UsGalMin,
+    UkGalMin,
+    GramSec,
+}
+
+impl PneuFlowUnit {
+    pub const ALL: [PneuFlowUnit; 4] = [
+        PneuFlowUnit::LMin,
+        PneuFlowUnit::UsGalMin,
+        PneuFlowUnit::UkGalMin,
+        PneuFlowUnit::GramSec,
+    ];
+
+    pub fn code(self) -> &'static str {
+        match self {
+            Self::LMin => "l/min",
+            Self::UsGalMin => "US gal/min",
+            Self::UkGalMin => "UK gal/min",
+            Self::GramSec => "g/s",
+        }
+    }
+
+    pub fn as_code(self) -> &'static str {
+        self.code()
+    }
+
+    pub fn format_value(self, val: f32) -> String {
+        match self {
+            Self::LMin => format!("{val:.0}"),
+            Self::UsGalMin | Self::UkGalMin | Self::GramSec => format!("{val:.1}"),
+        }
+    }
+
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::LMin => "l/min (0 ~ 5000)",
+            Self::UsGalMin => "US gal/min (0 ~ 1321)",
+            Self::UkGalMin => "UK gal/min (0 ~ 1100)",
+            Self::GramSec => "g/s (0 ~ 108)",
+        }
+    }
+
+    pub fn from_code(s: &str) -> Self {
+        match s.trim() {
+            "US gal/min" => Self::UsGalMin,
+            "UK gal/min" => Self::UkGalMin,
+            "g/s" => Self::GramSec,
+            _ => Self::LMin,
+        }
+    }
+
+    pub fn max_value(self) -> f32 {
+        match self {
+            Self::LMin => 5000.0,
+            Self::UsGalMin => 1321.0,
+            Self::UkGalMin => 1100.0,
+            Self::GramSec => 108.0,
+        }
+    }
+
+    pub fn default_value(self) -> f32 {
+        match self {
+            Self::LMin => 1000.0,
+            Self::UsGalMin => 264.2,
+            Self::UkGalMin => 220.0,
+            Self::GramSec => 21.6,
+        }
+    }
+
+    pub fn step(self) -> f32 {
+        match self {
+            Self::LMin => 100.0,
+            Self::UsGalMin => 25.0,
+            Self::UkGalMin => 20.0,
+            Self::GramSec => 2.0,
+        }
+    }
+
+    pub fn to_lpm(self, val: f32) -> f32 {
+        let lpm = match self {
+            Self::LMin => val,
+            Self::UsGalMin => val * (5000.0 / 1321.0),
+            Self::UkGalMin => val * (5000.0 / 1100.0),
+            Self::GramSec => val * (5000.0 / 108.0),
+        };
+        lpm.clamp(0.0, 5000.0)
+    }
+
+    pub fn from_lpm(self, lpm: f32) -> f32 {
+        let lpm = lpm.clamp(0.0, 5000.0);
+        match self {
+            Self::LMin => lpm,
+            Self::UsGalMin => lpm * (1321.0 / 5000.0),
+            Self::UkGalMin => lpm * (1100.0 / 5000.0),
+            Self::GramSec => lpm * (108.0 / 5000.0),
+        }
+    }
+
+    pub fn to_lmin(self, val: f32) -> f32 {
+        self.to_lpm(val)
+    }
+
+    pub fn from_lmin(self, lmin: f32) -> f32 {
+        self.from_lpm(lmin)
+    }
+}
+
+impl std::fmt::Display for PneuFlowUnit {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.label())
     }
 }
 
@@ -509,6 +729,83 @@ impl SchematicItem {
     /// Retorna o tempo desligado efetivo total em segundos (base * multiplicador).
     pub fn timer_off_effective_seconds(&self) -> f64 {
         self.timer_off_base_value() * self.timer_off_scale_multiplier().factor()
+    }
+
+    /// Verifica se este item é uma fonte de ar comprimido pneumática (`PPE1`, `PRV`, `PVP1`, `PPE2`).
+    pub fn is_pneumatic_air_source(&self) -> bool {
+        if let Some(fc) = crate::sim::pneumatic::fluidsim_class_of(self) {
+            matches!(fc.as_str(), "PPE1" | "PRV" | "PVP1" | "PPE2")
+        } else {
+            false
+        }
+    }
+
+    /// Unidade de pressão operacional configurada na fonte de ar comprimido (`pins[1]`, padrão `MPa`).
+    pub fn pneu_pressure_unit(&self) -> PneuPressureUnit {
+        PneuPressureUnit::from_code(&self.pins[1])
+    }
+
+    /// Valor numérico de pressão na unidade selecionada (`pins[2]`, padrão `0.6 MPa`).
+    pub fn pneu_pressure_raw_value(&self) -> f32 {
+        let unit = self.pneu_pressure_unit();
+        self.pins[2]
+            .trim()
+            .replace(',', ".")
+            .parse::<f32>()
+            .unwrap_or_else(|_| unit.default_value())
+            .clamp(0.0, unit.max_value())
+    }
+
+    /// Pressão operacional efetiva convertida para `MPa` (`0.0..=2.0`, padrão `0.6 MPa`).
+    pub fn pneu_pressure_mpa(&self) -> f32 {
+        let unit = self.pneu_pressure_unit();
+        unit.to_mpa(self.pneu_pressure_raw_value())
+    }
+
+    /// Pressão operacional efetiva em `kPa` inteiros (`1 MPa = 1000 kPa`, padrão `600` = `0.60 MPa`).
+    pub fn pneu_pressure_kpa(&self) -> u32 {
+        (self.pneu_pressure_mpa() * 1000.0)
+            .round()
+            .clamp(0.0, 2000.0) as u32
+    }
+
+    /// Unidade de vazão máxima configurada na fonte de ar comprimido (`pins[3]`, padrão `l/min`).
+    pub fn pneu_flow_unit(&self) -> PneuFlowUnit {
+        PneuFlowUnit::from_code(&self.pins[3])
+    }
+
+    /// Valor numérico de vazão máxima na unidade selecionada (`pins[4]`, padrão `1000 l/min`).
+    pub fn pneu_flow_raw_value(&self) -> f32 {
+        let unit = self.pneu_flow_unit();
+        self.pins[4]
+            .trim()
+            .replace(',', ".")
+            .parse::<f32>()
+            .unwrap_or_else(|_| unit.default_value())
+            .clamp(0.0, unit.max_value())
+    }
+
+    /// Vazão máxima efetiva convertida para `l/min` (`0.0..=5000.0`, padrão `1000.0 l/min`).
+    pub fn pneu_flow_lpm(&self) -> f32 {
+        let unit = self.pneu_flow_unit();
+        unit.to_lpm(self.pneu_flow_raw_value())
+    }
+
+    /// Vazão máxima efetiva em `l/min` inteiros (`0..=5000`, padrão `1000`).
+    pub fn pneu_flow_lpm_u32(&self) -> u32 {
+        self.pneu_flow_lpm().round().clamp(0.0, 5000.0) as u32
+    }
+
+    pub fn pneu_pressure_value(&self) -> f32 {
+        self.pneu_pressure_raw_value()
+    }
+
+    pub fn pneu_flow_value(&self) -> f32 {
+        self.pneu_flow_raw_value()
+    }
+
+    pub fn pneu_flow_lmin(&self) -> f32 {
+        self.pneu_flow_lpm()
     }
 
     /// Verifica se este `tipo` utiliza o formato estendido (11 strings + 24 inteiros) no `.cad`

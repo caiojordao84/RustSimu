@@ -433,6 +433,12 @@ pub enum Message {
     ToggleItemGraphicFill,
     ToggleItemRectRounded,
     SetItemArcSweepPreset(i32),
+    SetPneuPressureUnit(crate::model::PneuPressureUnit),
+    SetPneuPressureValue(String),
+    AdjustPneuPressure(f32),
+    SetPneuFlowUnit(crate::model::PneuFlowUnit),
+    SetPneuFlowValue(String),
+    AdjustPneuFlow(f32),
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -1134,7 +1140,7 @@ impl CadeSimuApp {
     pub fn subscription(&self) -> Subscription<Message> {
         let mut subs = Vec::new();
         if self.sim_running {
-            subs.push(iced::time::every(Duration::from_millis(80)).map(|_| Message::SimTick));
+            subs.push(iced::time::every(Duration::from_millis(40)).map(|_| Message::SimTick));
         }
         if self.theme_mode == ThemeMode::System {
             subs.push(
@@ -1390,7 +1396,13 @@ impl CadeSimuApp {
             | Message::AdjustItemGraphicStrokeWidth(_)
             | Message::ToggleItemGraphicFill
             | Message::ToggleItemRectRounded
-            | Message::SetItemArcSweepPreset(_) => self.update_properties(message),
+            | Message::SetItemArcSweepPreset(_)
+            | Message::SetPneuPressureUnit(_)
+            | Message::SetPneuPressureValue(_)
+            | Message::AdjustPneuPressure(_)
+            | Message::SetPneuFlowUnit(_)
+            | Message::SetPneuFlowValue(_)
+            | Message::AdjustPneuFlow(_) => self.update_properties(message),
 
             Message::ToggleSimulation | Message::StopSimulation | Message::SimTick => {
                 self.update_simulation(message)
@@ -4461,6 +4473,102 @@ impl CadeSimuApp {
                     }
                 });
             }
+            Message::SetPneuPressureUnit(new_unit) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let mpa = item.pneu_pressure_mpa();
+                        let converted = new_unit.from_mpa(mpa).clamp(0.0, new_unit.max_value());
+                        item.pins[1] = new_unit.as_code().to_string();
+                        item.pins[2] = new_unit.format_value(converted);
+                        self.is_modified = true;
+                        self.status_msg = format!(
+                            "Pressão operacional da fonte de ar: {} {}",
+                            item.pins[2],
+                            new_unit.as_code()
+                        );
+                    }
+                }
+            }
+            Message::SetPneuPressureValue(raw) => {
+                if let Some(id) = self.selected_id {
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let unit = item.pneu_pressure_unit();
+                        if item.pins[1].trim().is_empty() {
+                            item.pins[1] = unit.as_code().to_string();
+                        }
+                        item.pins[2] = raw;
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::AdjustPneuPressure(delta) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let unit = item.pneu_pressure_unit();
+                        let next_val =
+                            (item.pneu_pressure_value() + delta).clamp(0.0, unit.max_value());
+                        item.pins[1] = unit.as_code().to_string();
+                        item.pins[2] = unit.format_value(next_val);
+                        self.is_modified = true;
+                        self.status_msg = format!(
+                            "Pressão operacional ajustada para {} {} ({:.2} MPa).",
+                            item.pins[2],
+                            unit.as_code(),
+                            unit.to_mpa(next_val)
+                        );
+                    }
+                }
+            }
+            Message::SetPneuFlowUnit(new_unit) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let lmin = item.pneu_flow_lmin();
+                        let converted = new_unit.from_lmin(lmin).clamp(0.0, new_unit.max_value());
+                        item.pins[3] = new_unit.as_code().to_string();
+                        item.pins[4] = new_unit.format_value(converted);
+                        self.is_modified = true;
+                        self.status_msg = format!(
+                            "Vazão máxima da fonte de ar: {} {}",
+                            item.pins[4],
+                            new_unit.as_code()
+                        );
+                    }
+                }
+            }
+            Message::SetPneuFlowValue(raw) => {
+                if let Some(id) = self.selected_id {
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let unit = item.pneu_flow_unit();
+                        if item.pins[3].trim().is_empty() {
+                            item.pins[3] = unit.as_code().to_string();
+                        }
+                        item.pins[4] = raw;
+                        self.is_modified = true;
+                    }
+                }
+            }
+            Message::AdjustPneuFlow(delta) => {
+                if let Some(id) = self.selected_id {
+                    self.push_undo();
+                    if let Some(item) = self.doc.items.iter_mut().find(|i| i.id == id) {
+                        let unit = item.pneu_flow_unit();
+                        let next_val =
+                            (item.pneu_flow_value() + delta).clamp(0.0, unit.max_value());
+                        item.pins[3] = unit.as_code().to_string();
+                        item.pins[4] = unit.format_value(next_val);
+                        self.is_modified = true;
+                        self.status_msg = format!(
+                            "Vazão máxima ajustada para {} {} ({:.0} l/min).",
+                            item.pins[4],
+                            unit.as_code(),
+                            unit.to_lmin(next_val)
+                        );
+                    }
+                }
+            }
             _ => {}
         }
         iced::Task::none()
@@ -4487,7 +4595,7 @@ impl CadeSimuApp {
                 self.status_msg = "Simulação parada e estados reiniciados.".to_string();
             }
             Message::SimTick if self.sim_running => {
-                step_simulation(&mut self.doc, 80);
+                step_simulation(&mut self.doc, 40);
             }
             _ => {}
         }

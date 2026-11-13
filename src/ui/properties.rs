@@ -1292,6 +1292,129 @@ pub fn view_properties_panel<'a>(app: &'a CadeSimuApp) -> Element<'a, Message> {
                                     .padding(Padding::from([6.0, 8.0]))
                                     .width(Length::Fill),
                             );
+                        } else if item.is_pneumatic_air_source() {
+                            let p_unit = item.pneu_pressure_unit();
+                            let p_val_str = if item.pins[2].trim().is_empty() {
+                                p_unit.format_value(p_unit.default_value())
+                            } else {
+                                item.pins[2].clone()
+                            };
+                            let p_step = p_unit.step();
+                            let p_mpa = item.pneu_pressure_mpa();
+
+                            let f_unit = item.pneu_flow_unit();
+                            let f_val_str = if item.pins[4].trim().is_empty() {
+                                f_unit.format_value(f_unit.default_value())
+                            } else {
+                                item.pins[4].clone()
+                            };
+                            let f_step = f_unit.step();
+                            let f_lmin = item.pneu_flow_lmin();
+
+                            let pneu_source_box = column![
+                                text("Fonte de Ar Comprimido (ISO 1219 / FluidSIM):")
+                                    .size(11.5)
+                                    .font(Font {
+                                        weight: iced::font::Weight::Bold,
+                                        ..UI
+                                    }),
+                                column![
+                                    text(format!(
+                                        "Pressão Operacional (0 ~ {:.0} {}):",
+                                        p_unit.max_value(),
+                                        p_unit.as_code()
+                                    ))
+                                    .size(10.5)
+                                    .color(t.text2),
+                                    row![
+                                        button(text("-").size(11.0).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::AdjustPneuPressure(-p_step)),
+                                        text_input("0.60", &p_val_str)
+                                            .on_input(Message::SetPneuPressureValue)
+                                            .padding(Padding::from([4.0, 6.0]))
+                                            .size(11.0)
+                                            .font(MONO)
+                                            .width(Length::Fixed(70.0))
+                                            .style(theme::field),
+                                        button(text("+").size(11.0).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::AdjustPneuPressure(p_step)),
+                                        pick_list(
+                                            &crate::model::PneuPressureUnit::ALL[..],
+                                            Some(p_unit),
+                                            Message::SetPneuPressureUnit,
+                                        )
+                                        .text_size(10.5)
+                                        .padding(Padding::from([3.0, 6.0]))
+                                        .width(Length::Fill),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center),
+                                    text(format!(
+                                        "Efetiva: {:.2} MPa ({:.1} bar | {:.1} PSI)",
+                                        p_mpa,
+                                        p_mpa * 10.0,
+                                        p_mpa * 147.0
+                                    ))
+                                    .size(9.5)
+                                    .font(MONO)
+                                    .color(t.amber),
+                                ]
+                                .spacing(3),
+                                horizontal_rule(1),
+                                column![
+                                    text(format!(
+                                        "Vazão Máxima / Flow Rate (0 ~ {:.0} {}):",
+                                        f_unit.max_value(),
+                                        f_unit.as_code()
+                                    ))
+                                    .size(10.5)
+                                    .color(t.text2),
+                                    row![
+                                        button(text("-").size(11.0).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::AdjustPneuFlow(-f_step)),
+                                        text_input("1000", &f_val_str)
+                                            .on_input(Message::SetPneuFlowValue)
+                                            .padding(Padding::from([4.0, 6.0]))
+                                            .size(11.0)
+                                            .font(MONO)
+                                            .width(Length::Fixed(70.0))
+                                            .style(theme::field),
+                                        button(text("+").size(11.0).font(MONO))
+                                            .style(theme::tool)
+                                            .padding(Padding::from([3.0, 7.0]))
+                                            .on_press(Message::AdjustPneuFlow(f_step)),
+                                        pick_list(
+                                            &crate::model::PneuFlowUnit::ALL[..],
+                                            Some(f_unit),
+                                            Message::SetPneuFlowUnit,
+                                        )
+                                        .text_size(10.5)
+                                        .padding(Padding::from([3.0, 6.0]))
+                                        .width(Length::Fill),
+                                    ]
+                                    .spacing(4)
+                                    .align_y(Alignment::Center),
+                                    text(format!("Vazão Efetiva: {:.0} l/min", f_lmin))
+                                        .size(9.5)
+                                        .font(MONO)
+                                        .color(t.amber),
+                                ]
+                                .spacing(3),
+                            ]
+                            .spacing(6);
+
+                            body_col = body_col.push(
+                                container(pneu_source_box)
+                                    .style(theme::card)
+                                    .padding(Padding::from([6.0, 8.0]))
+                                    .width(Length::Fill),
+                            );
                         } else if !item.is_lamp_or_signaling() && !is_terminal_item(item) {
                             // Valor / Referência técnica para outros aparelhos (motores, disjuntores, etc.)
                             body_col = body_col.push(

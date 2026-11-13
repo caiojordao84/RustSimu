@@ -38,6 +38,7 @@ Trazer circuitos FluidSIM Pneumatic (`.ct`) para o RustSimu com:
 | **P8** | Corpus `TP*.ct` 132/132 (`CT_CORPUS_STRICT=1`) | `tests/tp_corpus.rs` |
 | **P9** | UI Abrir/Exportar `.ct` (Str2 + LZ77 writer) | `ct/export.rs`, `app.rs`, `export.rs` |
 | **Polish** | Tubos `L`, âncora por Connections, bornes na grade, textos, só-visuais | `adaptador.rs`, `ct/import.rs`, `pneu/symbols.rs` |
+| **P10** | Polish `demo_01`/`demo_09`: roteamento exato sem overshoots, elementos de comando nativos, manômetro digital ao vivo, fonte de ar ajustável (`MPa`/`bar`/`PSI`, `l/min`), dinâmica sub-segundo (< 1 s) | `ct-parser/adaptador.rs`, `src/model.rs`, `src/pneu/*`, `src/sim/*`, `src/ui/properties.rs`, `src/export.rs`, `src/canvas_view.rs` |
 
 ---
 
@@ -177,6 +178,9 @@ Alinhado a `Padronizacao-Grid-Bornes-SVG.md`:
 | `tests/tp_corpus.rs` | 132/132 `TP*.ct` abrir+simular (`CT_CORPUS_STRICT=1`) |
 | `ct::export::export_ct_roundtrip_minimo` | Round-trip mínimo `.ct` |
 | `pneu::symbols::pic_embutido_e_pal1_padrao_canvas` | SVG cade2svg + grade |
+| `tests/ct_import_diag.rs::test_demo_01_routing_speed_and_manometer` | Roteamento em T e cilindro sem overshoots, pressão 0.60/0.00 MPa ao vivo no manômetro, avanço/recuo em < 1s |
+| `tests/ct_import_diag.rs::test_demo_09_simulation_eletropneumatica` | Circuito eletropneumático demo_09: energização K1/1Y, comutação de 1V e avanço do cilindro |
+| `tests/ct_import_diag.rs::test_corpus_quality` | Auditoria completa de qualidade no corpus de 20 arquivos .ct (zero diagonais, zero duplicatas, zero fora de grade) |
 
 ---
 
@@ -196,6 +200,11 @@ Alinhado a `Padronizacao-Grid-Bornes-SVG.md`:
 | Rótulos sintéticos (-S6, -K15) no canvas | Tags geradas apenas por `tag_prefix + id` | Extrair `label`, `ID` ou `identification` de `obj.props` quando presente |
 | Desordem nas portas da válvula 5/2 | Portas PIC e gates fora de ordem ISO | Mapeamento explícito ISO 1219 (portas 4 e 2 no topo; 5, 1, 3 na base com silenciadores) e símbolo canônico procedural |
 | Tubos pneumáticos com cor de condutor elétrico | Mesma classe `4003` para ambos | Segregação estrita: condutores elétricos `4003` e tubos pneumáticos `4005` (renderizados com `tok.ink` respeitando temas claro/escuro e azul sob pressão) |
+| Pontas de tubos ultrapassando derivações em T e portas de cilindro (`demo_01.ct`) | Folga de meia-espessura de 24 px (5120 un) em `Line` e stubs redundantes em `ligar_path_aos_alvos` | Aparar a meia-espessura antes da conversão para pixels em `segmentos_de_linhas` e ajustar o extremo colinear diretamente (`ajustar_ou_ligar_extremo`) |
+| Sobrescrita de elementos de comando por SVGs brutos do FluidSIM | Mapeamento direto para `tipo=20000` sobrepunha símbolos externos sobre a biblioteca nativa | Usar tipos nativos RustSimu (`8008`, `7000`, `9000`, `9014`) com grade e Lei Suprema de Tamanhos (módulo 12) |
+| Ponteiro diagonal atravessando o manômetro durante simulação | Record `152841.PIC` desenha ponteiro diagonal cruzando o centro | Ocultar segmento longo diagonal do ponteiro na simulação e renderizar valor digital de pressão em `MPa` (`0.60` / `0.00`) |
+| Animação pneumática lenta e parâmetros estáticos da fonte | Taxa de atualização baixa (80 ms tick) e ausência de modelagem de pressão/vazão da fonte | Extrair `P_LIM`/`FLOW` do `.ct`, adicionar unidades (`MPa`, `bar`, `PSI`, `l/min`), controles no painel de propriedades, tick de 40 ms (25 FPS), `V_MAX_CURSO_S = 3.6` e mola com curso < 1s |
+| Rótulos sintéticos de polaridade e tags automáticas | Fallback de tags para itens sem identificação explícita gerava `-P33` e `-Z0` | Ocultar tags sintetizadas (`show_tag = 0`) e exibir `+24V` e `0V` em `pol2`/`pol1` |
 
 **Limitações conscientes**
 

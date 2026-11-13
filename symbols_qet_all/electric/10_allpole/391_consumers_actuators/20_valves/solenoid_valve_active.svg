@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="128.0" height="128.0" viewBox="-48.0 -16.0 128.0 128.0" data-name="Solenoid valve active" data-generator="cade2svg" data-standard="48px">
+  <title>Bobina de Solenoide / Eletroválvula (Ativa)</title>
+  <g stroke="#111827" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0.0" y1="0.0" x2="0.0" y2="32.0" />
+    <line x1="0.0" y1="64.0" x2="0.0" y2="96.0" />
+    <rect x="-24.0" y="32.0" width="48.0" height="32.0" fill="#fca5a5" stroke="#111827" />
+    <line x1="-16.0" y1="32.0" x2="16.0" y2="64.0" stroke="#111827" />
+    <line x1="24.0" y1="48.0" x2="36.0" y2="48.0" stroke="#111827" stroke-dasharray="3,2" />
+    <polygon points="36.0,36.0 48.0,36.0 36.0,60.0 48.0,60.0" fill="#fca5a5" stroke="#111827" />
+    <circle class="qet-terminal" cx="0.0" cy="0.0" r="4.0" fill="#dc2626" stroke="none" data-label="A1" data-orientation="n" />
+    <circle class="qet-terminal" cx="0.0" cy="96.0" r="4.0" fill="#dc2626" stroke="none" data-label="A2" data-orientation="s" />
+  </g>
+</svg>

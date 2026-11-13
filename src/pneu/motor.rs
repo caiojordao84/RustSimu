@@ -12,12 +12,14 @@ use crate::pneu::contrato::{
 };
 use std::collections::{BTreeMap, BTreeSet, VecDeque};
 
-/// Velocidade máxima didática (curso/s) sob força unitária.
-const V_MAX_CURSO_S: f32 = 1.5;
+/// Velocidade máxima didática (curso/s) na pressão/vazão nominais (0,6 MPa e 1000 l/min → ~0,28 s por curso).
+const V_MAX_CURSO_S: f32 = 3.6;
 /// Amortecimento de 1ª ordem (1/s).
-const AMORTECIMENTO: f32 = 12.0;
-/// Mola de retorno do cilindro simples (força a pos=1).
-const MOLA_PAL1: f32 = 0.55;
+const AMORTECIMENTO: f32 = 25.0;
+/// Pressão operacional padrão FluidSIM em kPa (0,60 MPa = 600 kPa).
+pub const PRESSAO_PADRAO_KPA: u32 = 600;
+/// Vazão máxima padrão FluidSIM em l/min (1000 l/min).
+pub const VAZAO_PADRAO_LPM: u32 = 1000;
 
 /// Porta nomeada ligada a um nó de tubo.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -124,7 +126,12 @@ pub enum Dispositivo {
 #[derive(Debug, Clone, PartialEq, Eq, Default)]
 pub struct MotorAr {
     pub nos: BTreeMap<u32, NoAr>,
+    /// Pressão manométrica em cada nó em kPa (`600` = `0.60 MPa`, `0` = `0.00 MPa`).
+    pub nos_pressao_kpa: BTreeMap<u32, u32>,
+    /// Configuração de pressão (`kPa`) e vazão (`l/min`) por `id` de `Dispositivo::Fonte`.
+    pub fontes_config: BTreeMap<u32, (u32, u32)>,
     pub dispositivos: Vec<Dispositivo>,
+    pub tubos: Vec<(u32, u32)>,
 }
 
 impl MotorAr {
@@ -138,6 +145,55 @@ impl MotorAr {
 
     pub fn no(&self, id: u32) -> NoAr {
         self.nos.get(&id).copied().unwrap_or(NoAr::SemPressao)
+    }
+
+    /// Define a pressão operacional (`kPa`, ex: `600` = `0.60 MPa`) e vazão máxima (`l/min`) de uma fonte.
+    pub fn set_fonte_config(&mut self, id: u32, pressao_kpa: u32, vazao_lpm: u32) {
+        self.fontes_config
+            .insert(id, (pressao_kpa.min(2000), vazao_lpm.min(5000)));
+    }
+
+    /// Retorna `(pressao_kpa, vazao_lpm)` configurados para a fonte `id` (padrão: `600 kPa`, `1000 l/min`).
+    pub fn fonte_config(&self, id: u32) -> (u32, u32) {
+        self.fontes_config
+            .get(&id)
+            .copied()
+            .unwrap_or((PRESSAO_PADRAO_KPA, VAZAO_PADRAO_LPM))
+    }
+
+    /// Pressão efetiva no nó `id` em `kPa` (`600` = `0.60 MPa`, `0` em escape/sem pressão).
+    pub fn pressao_kpa(&self, id: u32) -> u32 {
+        if self.no(id) == NoAr::Suprimento {
+            self.nos_pressao_kpa
+                .get(&id)
+                .copied()
+                .unwrap_or(PRESSAO_PADRAO_KPA)
+        } else {
+            0
+        }
+    }
+
+    /// Pressão efetiva no nó `id` em `MPa` (`0.60` no padrão FluidSIM, `0.00` em escape/sem pressão).
+    pub fn pressao_mpa(&self, id: u32) -> f32 {
+        self.pressao_kpa(id) as f32 / 1000.0
+    }
+
+    /// Vazão máxima efetiva do circuito em `l/min` (padrão `1000 l/min`).
+    pub fn vazao_efetiva_lpm(&self) -> u32 {
+        let mut tem_fonte = false;
+        let mut max_q = 0u32;
+        for d in &self.dispositivos {
+            if let Dispositivo::Fonte { id, .. } = d {
+                tem_fonte = true;
+                let (_, q) = self.fonte_config(*id);
+                max_q = max_q.max(q);
+            }
+        }
+        if tem_fonte {
+            max_q
+        } else {
+            VAZAO_PADRAO_LPM
+        }
     }
 
     pub fn pistao(&self, id: u32) -> Option<EstadoPistao> {
@@ -308,22 +364,32 @@ impl MotorAr {
         for no in self.nos.values_mut() {
             *no = NoAr::SemPressao;
         }
+        self.nos_pressao_kpa.clear();
 
         // 1) Injeções diretas.
         let mut fontes = Vec::new();
+        let mut fontes_kpa = Vec::new();
         let mut escapes = Vec::new();
         for d in &self.dispositivos {
             match d {
-                Dispositivo::Fonte { no, .. } => fontes.push(*no),
+                Dispositivo::Fonte { id, no } => {
+                    let (p_kpa, _) = self.fonte_config(*id);
+                    if p_kpa > 0 {
+                        fontes.push(*no);
+                        fontes_kpa.push((*no, p_kpa));
+                    }
+                }
                 Dispositivo::Escape { no, .. } | Dispositivo::BombaVacuo { no, .. } => {
                     escapes.push(*no)
                 }
                 _ => {}
             }
         }
-        for n in &fontes {
-            self.garante_no(*n);
-            self.nos.insert(*n, NoAr::Suprimento);
+        for &(n, p_kpa) in &fontes_kpa {
+            self.garante_no(n);
+            self.nos.insert(n, NoAr::Suprimento);
+            let cur = self.nos_pressao_kpa.entry(n).or_insert(0);
+            *cur = (*cur).max(p_kpa);
         }
         for n in &escapes {
             self.garante_no(*n);
@@ -339,6 +405,10 @@ impl MotorAr {
             adj.entry(a).or_default().insert(b);
             adj.entry(b).or_default().insert(a);
         };
+
+        for &(na, nb) in &self.tubos {
+            liga(na, nb, &mut adj);
+        }
 
         for d in &self.dispositivos {
             let (valvula, portas) = match d {
@@ -387,59 +457,81 @@ impl MotorAr {
 
         // 3) Propagação BFS de suprimento e escape pelo grafo.
         self.propaga_rotulo(NoAr::Suprimento, &fontes, &adj);
+        self.propaga_pressao_kpa(&fontes_kpa, &adj);
         // Escape não sobrescreve suprimento.
         self.propaga_rotulo_fraco(NoAr::Escape, &escapes, &adj);
 
         // 4) Lógica PVS1 / PVS3 (itera até estabilizar — cadeias curtas).
         for _ in 0..8 {
             let snapshot = self.nos.clone();
-            let mut updates: Vec<(u32, NoAr)> = Vec::new();
+            let snap_kpa = self.nos_pressao_kpa.clone();
+            let mut updates: Vec<(u32, NoAr, u32)> = Vec::new();
             for d in &self.dispositivos {
                 match d {
                     Dispositivo::Retencao { entrada, saida, .. } => {
                         let ve = snapshot.get(entrada).copied().unwrap_or(NoAr::SemPressao);
+                        let pk = snap_kpa.get(entrada).copied().unwrap_or(PRESSAO_PADRAO_KPA);
                         // Unidirecional: só propaga suprimento para a frente.
-                        let out = if ve == NoAr::Suprimento {
-                            NoAr::Suprimento
+                        let (out, out_kpa) = if ve == NoAr::Suprimento {
+                            (NoAr::Suprimento, pk)
                         } else {
-                            NoAr::SemPressao
+                            (NoAr::SemPressao, 0)
                         };
-                        updates.push((*saida, out));
+                        updates.push((*saida, out, out_kpa));
                     }
                     Dispositivo::Alternancia { a, b, saida, .. } => {
                         let va = snapshot.get(a).copied().unwrap_or(NoAr::SemPressao);
                         let vb = snapshot.get(b).copied().unwrap_or(NoAr::SemPressao);
-                        let out = if va == NoAr::Suprimento || vb == NoAr::Suprimento {
-                            NoAr::Suprimento
-                        } else if va == NoAr::Escape || vb == NoAr::Escape {
-                            NoAr::Escape
+                        let pa = if va == NoAr::Suprimento {
+                            snap_kpa.get(a).copied().unwrap_or(PRESSAO_PADRAO_KPA)
                         } else {
-                            NoAr::SemPressao
+                            0
                         };
-                        updates.push((*saida, out));
+                        let pb = if vb == NoAr::Suprimento {
+                            snap_kpa.get(b).copied().unwrap_or(PRESSAO_PADRAO_KPA)
+                        } else {
+                            0
+                        };
+                        let (out, out_kpa) = if va == NoAr::Suprimento || vb == NoAr::Suprimento {
+                            (NoAr::Suprimento, pa.max(pb))
+                        } else if va == NoAr::Escape || vb == NoAr::Escape {
+                            (NoAr::Escape, 0)
+                        } else {
+                            (NoAr::SemPressao, 0)
+                        };
+                        updates.push((*saida, out, out_kpa));
                     }
                     Dispositivo::DuasPressoes { a, b, saida, .. } => {
                         let va = snapshot.get(a).copied().unwrap_or(NoAr::SemPressao);
                         let vb = snapshot.get(b).copied().unwrap_or(NoAr::SemPressao);
-                        let out = if va == NoAr::Suprimento && vb == NoAr::Suprimento {
-                            NoAr::Suprimento
+                        let pa = snap_kpa.get(a).copied().unwrap_or(PRESSAO_PADRAO_KPA);
+                        let pb = snap_kpa.get(b).copied().unwrap_or(PRESSAO_PADRAO_KPA);
+                        let (out, out_kpa) = if va == NoAr::Suprimento && vb == NoAr::Suprimento {
+                            (NoAr::Suprimento, pa.min(pb))
                         } else if va == NoAr::Escape && vb == NoAr::Escape {
-                            NoAr::Escape
+                            (NoAr::Escape, 0)
                         } else {
                             // AND incompleto ou ambas vazias → sem pressão na saída.
-                            NoAr::SemPressao
+                            (NoAr::SemPressao, 0)
                         };
-                        updates.push((*saida, out));
+                        updates.push((*saida, out, out_kpa));
                     }
                     _ => {}
                 }
             }
             let mut mudou = false;
-            for (saida, out) in updates {
+            for (saida, out, out_kpa) in updates {
                 self.garante_no(saida);
                 if self.no(saida) != out {
                     self.nos.insert(saida, out);
                     mudou = true;
+                }
+                if out == NoAr::Suprimento && out_kpa > 0 {
+                    let cur = self.nos_pressao_kpa.entry(saida).or_insert(0);
+                    if *cur != (*cur).max(out_kpa) {
+                        *cur = (*cur).max(out_kpa);
+                        mudou = true;
+                    }
                 }
             }
             if !mudou {
@@ -452,6 +544,17 @@ impl MotorAr {
                 .filter(|(_, e)| **e == NoAr::Suprimento)
                 .map(|(k, _)| *k)
                 .collect();
+            let seeds_kpa: Vec<(u32, u32)> = seeds_s
+                .iter()
+                .map(|&k| {
+                    let pk = self
+                        .nos_pressao_kpa
+                        .get(&k)
+                        .copied()
+                        .unwrap_or(PRESSAO_PADRAO_KPA);
+                    (k, pk)
+                })
+                .collect();
             let seeds_e: Vec<u32> = self
                 .nos
                 .iter()
@@ -459,7 +562,28 @@ impl MotorAr {
                 .map(|(k, _)| *k)
                 .collect();
             self.propaga_rotulo(NoAr::Suprimento, &seeds_s, &adj);
+            self.propaga_pressao_kpa(&seeds_kpa, &adj);
             self.propaga_rotulo_fraco(NoAr::Escape, &seeds_e, &adj);
+        }
+    }
+
+    fn propaga_pressao_kpa(&mut self, sementes: &[(u32, u32)], adj: &BTreeMap<u32, BTreeSet<u32>>) {
+        let mut fila: VecDeque<(u32, u32)> = sementes.iter().copied().collect();
+        while let Some((n, pk)) = fila.pop_front() {
+            let cur = self.nos_pressao_kpa.entry(n).or_insert(0);
+            if pk > *cur {
+                *cur = pk;
+            }
+            let p_atual = *cur;
+            if let Some(viz) = adj.get(&n) {
+                for &v in viz {
+                    let vp = self.nos_pressao_kpa.get(&v).copied().unwrap_or(0);
+                    if p_atual > vp {
+                        self.nos_pressao_kpa.insert(v, p_atual);
+                        fila.push_back((v, p_atual));
+                    }
+                }
+            }
         }
     }
 
@@ -512,7 +636,18 @@ impl MotorAr {
         if dt <= 0.0 {
             return;
         }
+        let vazao_fator =
+            (self.vazao_efetiva_lpm() as f32 / VAZAO_PADRAO_LPM as f32).clamp(0.0, 5.0);
         let nos = self.nos.clone();
+        let nos_kpa = self.nos_pressao_kpa.clone();
+        let fator_no = |n: u32| -> f32 {
+            if nos.get(&n).copied().unwrap_or(NoAr::SemPressao) == NoAr::Suprimento {
+                let kpa = nos_kpa.get(&n).copied().unwrap_or(PRESSAO_PADRAO_KPA);
+                (kpa as f32 / PRESSAO_PADRAO_KPA as f32).clamp(0.0, 3.5)
+            } else {
+                0.0
+            }
+        };
         for d in &mut self.dispositivos {
             match d {
                 Dispositivo::CilindroDuplo {
@@ -521,13 +656,19 @@ impl MotorAr {
                     pistao,
                     ..
                 } => {
-                    let a = pressao_didatica(nos.get(avanco).copied().unwrap_or(NoAr::SemPressao));
-                    let r = pressao_didatica(nos.get(retorno).copied().unwrap_or(NoAr::SemPressao));
-                    integra_pistao(pistao, a - r, dt);
+                    let a = fator_no(*avanco);
+                    let r = fator_no(*retorno);
+                    integra_pistao(pistao, (a - r) * vazao_fator, dt);
                 }
                 Dispositivo::CilindroSimples { camara, pistao, .. } => {
-                    let c = pressao_didatica(nos.get(camara).copied().unwrap_or(NoAr::SemPressao));
-                    let forca = c - MOLA_PAL1 * pistao.pos();
+                    let c = fator_no(*camara);
+                    // Com pressão acima do limiar da mola, avança proporcional à pressão e vazão;
+                    // em escape/sem pressão, a mola pré-comprimida retorna o êmbolo rapidamente (<1s).
+                    let forca = if c > 0.10 {
+                        c * vazao_fator
+                    } else {
+                        -vazao_fator.max(0.25)
+                    };
                     integra_pistao(pistao, forca, dt);
                 }
                 _ => {}
@@ -586,15 +727,8 @@ impl MotorAr {
     }
 }
 
-fn pressao_didatica(no: NoAr) -> f32 {
-    match no {
-        NoAr::Suprimento => 1.0,
-        NoAr::Escape | NoAr::SemPressao => 0.0,
-    }
-}
-
 fn integra_pistao(p: &mut EstadoPistao, forca: f32, dt: f32) {
-    let vel_alvo = forca.clamp(-1.0, 1.0) * V_MAX_CURSO_S;
+    let vel_alvo = forca.clamp(-3.5, 3.5) * V_MAX_CURSO_S;
     let mut vel = p.vel_pm_s as f32 / 1000.0;
     let alpha = (AMORTECIMENTO * dt).min(1.0);
     vel += (vel_alvo - vel) * alpha;

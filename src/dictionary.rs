@@ -993,8 +993,9 @@ fn builtin_concepts() -> Vec<CanonicalConcept> {
         seed("el.act.estop.turn_nc", D::ElectricCommand, K::EmergencyStop, Some(F::Nc), Some(B::Latching), 1, None, &[], "-S", &["11", "12"], "Botão de Emergência Girar para Destravar NF", "Emergency Stop Turn-to-Release NC", Some(8033), None, &[]),
         seed("el.act.estop.key_nc", D::ElectricCommand, K::EmergencyStop, Some(F::Nc), Some(B::Latching), 1, None, &[], "-S", &["11", "12"], "Botão de Emergência com Chave NF", "Emergency Stop Key-Release NC", Some(8034), None, &[]),
 
-        // Bobinas e Sinalização (9000, 9004, 9005, 9008, 9013)
+        // Bobinas e Sinalização (9000, 9004, 9005, 9008, 9013, 9014)
         seed("el.coil.contactor", D::ElectricCommand, K::RelayCoil, None, Some(B::Instantaneous), 1, Some("00029"), &["0013F", "00140", "00141", "00142"], "-KM", &["A1", "A2"], "Bobina de Contator / Relé", "Contactor / Relay Coil", Some(9000), Some("embed://import/electric/10_allpole/310_relays_contactors&contacts/01_coils/coil.elmt"), &["coil", "coil_2", "coil_3", "coil_4"]),
+        seed("el.coil.solenoid", D::ElectricCommand, K::RelayCoil, None, Some(B::Instantaneous), 1, None, &[], "-Y", &["A1", "A2"], "Bobina de Solenoide / Eletroválvula", "Solenoid Valve Actuator Coil", Some(9014), Some("symbols_qet_all/electric/10_allpole/391_consumers_actuators/20_valves/solenoid_valve.svg"), &["solenoid_valve", "solenoid"]),
         seed("el.coil.timer.on_delay", D::ElectricCommand, K::RelayCoil, None, Some(B::OnDelay), 1, Some("0002A"), &[], "-KT", &["A1", "A2"], "Temporizador ao Trabalho (On-Delay)", "On-Delay Timer Coil", Some(9004), None, &[]),
         seed("el.coil.timer.off_delay", D::ElectricCommand, K::RelayCoil, None, Some(B::OffDelay), 1, Some("0002B"), &[], "-KT", &["A1", "A2"], "Temporizador à Desconexão (Off-Delay)", "Off-Delay Timer Coil", Some(9005), None, &[]),
         seed("el.sig.lamp", D::ElectricCommand, K::Lamp, None, None, 1, Some("0002C"), &["01B75", "01B76", "01B77", "01B78"], "-H", &["X1", "X2"], "Sinaleiro Luminoso (Piloto)", "Pilot Indicator Lamp", Some(9008), Some("embed://import/electric/10_allpole/380_signaling_operating/11_optical_signaling/pilot_light.elmt"), &["voyant-blanc", "voyant-bleu", "voyant-orange", "voyant-rouge", "signal/warning_light_red.elmt", "eclairage/lampe_temoin.elmt", "signalisation/voyant_led.elmt"]),
@@ -1018,10 +1019,10 @@ mod tests {
     use crate::symbols::symbol_catalog;
 
     #[test]
-    fn test_all_67_legacy_cade_symbols_resolve_deterministically() {
+    fn test_all_legacy_cade_symbols_resolve_deterministically() {
         let dict = ConceptDictionary::build_builtin();
         let catalog = symbol_catalog();
-        assert_eq!(catalog.len(), 67);
+        assert_eq!(catalog.len(), 68);
         for def in catalog {
             let resolved = dict.get_by_cade_tipo(def.tipo).unwrap_or_else(|| {
                 panic!(

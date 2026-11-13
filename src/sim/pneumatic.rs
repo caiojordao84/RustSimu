@@ -45,16 +45,15 @@ fn pin_nodes_named(item: &SchematicItem, pin_nodes: &[usize]) -> HashMap<String,
         .map(|(_, terms)| terms);
 
     for (i, &n) in pin_nodes.iter().enumerate() {
-        let nome = item
-            .pins
-            .get(i)
-            .map(|s| s.trim())
-            .filter(|s| !s.is_empty())
-            .map(|s| s.to_string())
+        let nome = class_terms
+            .as_ref()
+            .and_then(|terms| terms.get(i).map(|t| t.nome.clone()))
             .or_else(|| {
-                class_terms
-                    .as_ref()
-                    .and_then(|terms| terms.get(i).map(|t| t.nome.clone()))
+                item.pins
+                    .get(i)
+                    .map(|s| s.trim())
+                    .filter(|s| !s.is_empty())
+                    .map(|s| s.to_string())
             })
             .or_else(|| {
                 fluidsim_class_of(item).and_then(|fc| {
@@ -182,7 +181,7 @@ pub fn rebuild_motor(
         let Some(concept) = global_concept_dictionary().get_by_fluidsim_class(&classe) else {
             continue;
         };
-        if !concept.simular {
+        if !concept.simular && classe != "152841" {
             continue;
         }
         let pin_nodes = network
@@ -201,6 +200,7 @@ pub fn rebuild_motor(
         match classe.as_str() {
             "PPE1" | "PRV" | "PVP1" | "PPE2" => {
                 if let Some(&no) = mapa.get("1").or_else(|| mapa.values().next()) {
+                    m.set_fonte_config(id, item.pneu_pressure_kpa(), item.pneu_flow_lpm_u32());
                     m.dispositivos.push(Dispositivo::Fonte { id, no });
                 }
             }
@@ -265,7 +265,13 @@ pub fn rebuild_motor(
             "PAL1" => {
                 let camara = *mapa.get("1").unwrap_or(&0);
                 m.garante_no(camara);
-                let pistao = previous.pistao(id).unwrap_or_else(EstadoPistao::recolhido);
+                let pistao = previous.pistao(id).unwrap_or_else(|| {
+                    if item.symbol_state == Some('1') {
+                        EstadoPistao::avancado()
+                    } else {
+                        EstadoPistao::recolhido()
+                    }
+                });
                 m.dispositivos
                     .push(Dispositivo::CilindroSimples { id, camara, pistao });
                 cilindros.push((item.id, tag_upper(item)));
@@ -275,7 +281,13 @@ pub fn rebuild_motor(
                 let retorno = *mapa.get("2").unwrap_or(&0);
                 m.garante_no(avanco);
                 m.garante_no(retorno);
-                let pistao = previous.pistao(id).unwrap_or_else(EstadoPistao::recolhido);
+                let pistao = previous.pistao(id).unwrap_or_else(|| {
+                    if item.symbol_state == Some('1') {
+                        EstadoPistao::avancado()
+                    } else {
+                        EstadoPistao::recolhido()
+                    }
+                });
                 m.dispositivos.push(Dispositivo::CilindroDuplo {
                     id,
                     avanco,
@@ -429,6 +441,30 @@ pub fn rebuild_motor(
             }
         }
     }
+
+    for &(widx, n1, n2) in &network.wire_nodes {
+        if items.get(widx).map(|i| i.tipo == 4005).unwrap_or(false) {
+            let (x1, y1) = network.all_points[n1];
+            let (x2, y2) = network.all_points[n2];
+            let mut on_seg: Vec<usize> = (0..network.num_nodes())
+                .filter(|&u| {
+                    let (px, py) = network.all_points[u];
+                    crate::sim::graph::point_on_segment(px, py, x1, y1, x2, y2)
+                })
+                .collect();
+            on_seg.sort_by_key(|&u| network.all_points[u]);
+            for pair in on_seg.windows(2) {
+                let u = pair[0] as u32;
+                let v = pair[1] as u32;
+                if u != v {
+                    m.garante_no(u);
+                    m.garante_no(v);
+                    m.tubos.push((u, v));
+                }
+            }
+        }
+    }
+
     m
 }
 
@@ -508,8 +544,9 @@ pub fn step_pneumatic(
             classe.as_str(),
             "PVWE1" | "PVWE2" | "PVWE3" | "PVWE4" | "PVWE5"
         ) {
-            let energizado =
-                a1_a2_energizado(&mapa, potentials) || coil_tag_matches(coils, &tag_upper(item));
+            let energizado = a1_a2_energizado(&mapa, potentials)
+                || coil_tag_matches(coils, &tag_upper(item))
+                || (!item.value.is_empty() && coil_tag_matches(coils, &item.value.to_uppercase()));
             motor.set_energizado(id, energizado);
         }
 
@@ -540,8 +577,8 @@ pub fn step_pneumatic(
     let dt_s = (dt_ms as f32 / 1000.0).clamp(0.001, 0.25);
     motor.passo_dt(dt_s);
 
-    // Espelha curso / pressostato / fim de curso em ItemSimState.
-    for item in items {
+    // Espelha curso / pressostato / fim de curso / manômetro em ItemSimState.
+    for (idx, item) in items.iter().enumerate() {
         let Some(classe) = fluidsim_class_of(item) else {
             continue;
         };
@@ -553,6 +590,23 @@ pub fn step_pneumatic(
                 s.active = pos >= 0.5;
                 // Reusa timer_elapsed_ms como pos_pm (0..=1000) para o canvas interpolar a haste.
                 s.timer_elapsed_ms = motor.pistao(id).map(|p| u64::from(p.pos_pm)).unwrap_or(0);
+            }
+            "152841" => {
+                let pin_nodes = network
+                    .item_pin_nodes
+                    .get(&idx)
+                    .cloned()
+                    .unwrap_or_default();
+                let mapa = pin_nodes_named(item, &pin_nodes);
+                let no = mapa
+                    .get("1")
+                    .copied()
+                    .or_else(|| mapa.values().next().copied())
+                    .unwrap_or(0);
+                let p_kpa = motor.pressao_kpa(no);
+                s.active = p_kpa > 0;
+                // Reusa timer_elapsed_ms como pressão em kPa (ex.: 600 = 0.60 MPa, 0 = 0.00 MPa).
+                s.timer_elapsed_ms = u64::from(p_kpa);
             }
             "PSW1" | "PEW" => {
                 s.active = motor.contato_fechado(id).unwrap_or(false);
