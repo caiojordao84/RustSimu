@@ -1501,7 +1501,9 @@ pub fn export_to_svg(
         if let Some(qet_type) = item.symbol_id_or_slug() {
             let sim_has_pneu = !doc.sim.pneumatic.dispositivos.is_empty();
             let sim_st = doc.sim.get(item.id);
-            let effective_key_owned = if sim_has_pneu && matches!(qet_type, "PAL1" | "PAL2") {
+            let effective_key_owned = if sim_has_pneu
+                && (matches!(qet_type, "PAL1" | "PAL2") || qet_type.starts_with("PVW"))
+            {
                 let pos_pm = (sim_st.timer_elapsed_ms.min(1000) / 20) * 20;
                 let key = format!("{qet_type}_p{pos_pm}");
                 if crate::svg_symbol::get_parsed_svg(&key).is_none() {
@@ -1556,45 +1558,7 @@ pub fn export_to_svg(
                 ));
                 out.push('\n');
             }
-            if qet_type.starts_with("PVW") {
-                if !item.value.is_empty() {
-                    let (vx_off, vy_off) = transform_offset_f32(-22.5, 12.0, item.orientation);
-                    let vx = (item.x1 as f32 + vx_off) * scale;
-                    let vy = (item.y1 as f32 + vy_off + 0.9) * scale;
-                    let font_sz = (2.8 * scale).clamp(7.5, 13.5);
-                    out.push_str(&format!(
-                        r###"  <text x="{vx:.1}" y="{vy:.1}" text-anchor="middle" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{stroke_col}">{}</text>"###,
-                        xml_escape(&item.value)
-                    ));
-                    out.push('\n');
-                }
-                if doc.settings.show_pin_refs >= 1
-                    && (qet_type.contains('4') || qet_type.contains('8') || qet_type.contains('5'))
-                {
-                    let text_col = if opts.monochrome {
-                        "#374151"
-                    } else {
-                        "#5c6675"
-                    };
-                    let font_sz = (2.4 * scale).clamp(6.5, 11.5);
-                    let port_labels: [(&str, f32, f32); 5] = [
-                        ("4", -10.0, 2.0),
-                        ("2", 10.0, 2.0),
-                        ("5", -10.0, 24.5),
-                        ("1", 3.5, 29.0),
-                        ("3", 10.0, 24.5),
-                    ];
-                    for (lbl, px, py) in port_labels {
-                        let (rx, ry) = transform_offset_f32(px, py, item.orientation);
-                        let lx = (item.x1 as f32 + rx) * scale;
-                        let ly = (item.y1 as f32 + ry + 0.8) * scale;
-                        out.push_str(&format!(
-                            r###"  <text x="{lx:.1}" y="{ly:.1}" text-anchor="middle" font-size="{font_sz:.1}" font-family="Inter, Arial, DejaVu Sans, sans-serif" fill="{text_col}">{lbl}</text>"###
-                        ));
-                        out.push('\n');
-                    }
-                }
-            }
+
             if item.show_tag == 1 && !item.tag.is_empty() {
                 let tpos_x = (item.x1 - 6) as f32 * scale;
                 let tpos_y = (item.y1 - 6) as f32 * scale;

@@ -1501,7 +1501,9 @@ impl<'a> SchematicCanvas<'a> {
             // FluidSIM: cilindros usam haste interpolada por pos_pm; manômetro usa `_active` na simulação.
             let svg_key = {
                 crate::pneu::palette::ensure_svg_registrados();
-                if self.sim_running && matches!(qet_type, "PAL1" | "PAL2") {
+                if self.sim_running
+                    && (matches!(qet_type, "PAL1" | "PAL2") || qet_type.starts_with("PVW"))
+                {
                     let pos_pm = (sim_st.timer_elapsed_ms.min(1000) / 20) * 20;
                     let key = format!("{qet_type}_p{pos_pm}");
                     if crate::svg_symbol::get_parsed_svg(&key).is_none() {
@@ -1560,49 +1562,6 @@ impl<'a> SchematicCanvas<'a> {
                     vertical_alignment: iced::alignment::Vertical::Center,
                     ..Text::default()
                 });
-            }
-
-            // Válvulas direcionais 5/2: exibe o rótulo do piloto elétrico (ex: 1Y) e numeração ISO das portas (4, 2, 5, 1, 3).
-            if self.show_texts && qet_type.starts_with("PVW") {
-                if !item.value.is_empty() {
-                    let (vx_off, vy_off) = transform_offset_f32(-22.5, 12.0, item.orientation);
-                    let vpos =
-                        self.world_to_screen(item.x1 as f32 + vx_off, item.y1 as f32 + vy_off);
-                    frame.fill_text(Text {
-                        content: item.value.clone(),
-                        position: vpos,
-                        color: tok.ink,
-                        size: (2.8 * self.zoom).clamp(7.5, 13.5).into(),
-                        horizontal_alignment: iced::alignment::Horizontal::Center,
-                        vertical_alignment: iced::alignment::Vertical::Center,
-                        ..Text::default()
-                    });
-                }
-                if self.doc.settings.show_pin_refs >= 1
-                    && (qet_type.contains('4') || qet_type.contains('8') || qet_type.contains('5'))
-                {
-                    let pin_color = Color { a: 0.78, ..tok.ink };
-                    let port_labels: [(&str, f32, f32); 5] = [
-                        ("4", -10.0, 2.0),
-                        ("2", 10.0, 2.0),
-                        ("5", -10.0, 24.5),
-                        ("1", 3.5, 29.0),
-                        ("3", 10.0, 24.5),
-                    ];
-                    for (lbl, px, py) in port_labels {
-                        let (rx, ry) = transform_offset_f32(px, py, item.orientation);
-                        let lpos = self.world_to_screen(item.x1 as f32 + rx, item.y1 as f32 + ry);
-                        frame.fill_text(Text {
-                            content: lbl.to_string(),
-                            position: lpos,
-                            color: pin_color,
-                            size: (2.4 * self.zoom).clamp(6.5, 11.5).into(),
-                            horizontal_alignment: iced::alignment::Horizontal::Center,
-                            vertical_alignment: iced::alignment::Vertical::Center,
-                            ..Text::default()
-                        });
-                    }
-                }
             }
 
             // Desenha bornes (pinos) nos terminais do símbolo SVG apenas se for cabável

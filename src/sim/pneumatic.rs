@@ -623,6 +623,13 @@ pub fn step_pneumatic(
                     )
                 });
                 s.active = acionado;
+                let target_pm: u64 = if acionado { 1000 } else { 0 };
+                // Suavização contínua do movimento do carretel da válvula (~160ms para 1000 a 250/tick)
+                if s.timer_elapsed_ms < target_pm {
+                    s.timer_elapsed_ms = (s.timer_elapsed_ms + 250).min(target_pm);
+                } else if s.timer_elapsed_ms > target_pm {
+                    s.timer_elapsed_ms = s.timer_elapsed_ms.saturating_sub(250).max(target_pm);
+                }
             }
             "PVG2" | "PVG3" => {
                 s.active = motor.dispositivos.iter().any(|d| {

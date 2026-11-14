@@ -581,69 +581,146 @@ pub fn svg_pal1(pos: f64) -> (String, Vec<TerminalSimbolo>) {
 }
 
 /// Válvula 5/2 direcional com solenóide e retorno por mola ISO 1219 em px/`cade2svg`.
+/// Geometria fiel ao padrão VectorCraft com deslocamento dinâmico contínuo do carretel (`pos ∈ [0, 1]`).
 /// Portas 4 e 2 no topo (y=0); portas 5, 1, 3 na base (y=192).
 /// Silenciadores integrados nos escapes 5 e 3.
 pub fn svg_valve_5_2_solenoid(pos: f64) -> (String, Vec<TerminalSimbolo>) {
+    let t = pos.clamp(0.0, 1.0);
     let r = TERMINAL_RADIUS_PX_300DPI;
     let g = GRID_MODULE_UNITS as i32;
-    let acionada = pos > 0.5;
 
-    let vias_internas = if !acionada {
-        r##"    <!-- Estado Repouso: caixa esquerda (1->4, 2->3), caixa direita ativa (1->2, 4->5) -->
-    <line x1="-48" y1="144" x2="-72" y2="48"/>
-    <polygon points="-72,48 -66,58 -76,55" fill="#000" stroke="#000"/>
-    <line x1="-24" y1="48" x2="-24" y2="144"/>
-    <polygon points="-24,144 -28,134 -20,134" fill="#000" stroke="#000"/>
-    <line x1="-72" y1="144" x2="-72" y2="132"/>
-    <line x1="-78" y1="132" x2="-66" y2="132"/>
-    <line x1="0" y1="144" x2="48" y2="48"/>
-    <polygon points="48,48 40,56 48,60" fill="#000" stroke="#000"/>
-    <line x1="24" y1="48" x2="24" y2="144"/>
-    <polygon points="24,144 20,134 28,134" fill="#000" stroke="#000"/>
-    <line x1="72" y1="144" x2="72" y2="132"/>
-    <line x1="66" y1="132" x2="78" y2="132"/>"##
-    } else {
-        r##"    <!-- Estado Acionado (1Y): comuta vias ativas para (1->4, 2->3) -->
-    <line x1="-72" y1="48" x2="-72" y2="144"/>
-    <polygon points="-72,144 -76,134 -68,134" fill="#000" stroke="#000"/>
-    <line x1="-48" y1="144" x2="-24" y2="48"/>
-    <polygon points="-24,48 -32,56 -24,60" fill="#000" stroke="#000"/>
-    <line x1="0" y1="144" x2="-48" y2="48"/>
-    <polygon points="-48,48 -48,60 -40,56" fill="#000" stroke="#000"/>
-    <line x1="48" y1="48" x2="48" y2="144"/>
-    <polygon points="48,144 44,134 52,134" fill="#000" stroke="#000"/>
-    <line x1="-48" y1="144" x2="-48" y2="132"/>
-    <line x1="-54" y1="132" x2="-42" y2="132"/>"##
-    };
+    // Deslocamento horizontal contínuo do conjunto móvel (carretel + atuadores + vias):
+    // pos = 0.0 -> repouso (dx = 0.0)
+    // pos = 1.0 -> acionado por 1Y (dx = 144.0 px = 3 módulos de 48px)
+    let dx = 144.0 * t;
+
+    // Conjunto móvel (Spool Assembly)
+    let case_x = -216.0 + dx;
+    let cl_x = -72.0 + dx;
+
+    // Piloto e acionador manual
+    let pilot_rx = -264.0 + dx;
+    let p1x = -256.971 + dx;
+    let p2x = -223.029 + dx;
+    let p3x = -256.971 + dx;
+
+    let sw_rx = -240.0 + dx;
+    let sw_lx = -240.0 + dx;
+
+    // Solenóide elétrico 1Y
+    let sol_rx = -312.0 + dx;
+    let sol_l1x = -312.0 + dx;
+    let sol_l2x = -264.0 + dx;
+    let sol_text_x = -295.954 + dx;
+
+    // Mola de retorno direita
+    let sp1 = 72.0 + dx;
+    let sp2 = 76.0 + dx;
+    let sp3 = 80.8 + dx;
+    let sp4 = 85.6 + dx;
+    let sp5 = 90.4 + dx;
+    let sp6 = 93.6 + dx;
+    let sp7 = 96.0 + dx;
+
+    // Vias internas (Estado 0 e Estado 1)
+    // 1. Seta vertical para baixo na caixa direita (liga 4 -> 5 em repouso)
+    let a1_x = -48.0 + dx;
+    let a1_p1 = a1_x - 4.0;
+    let a1_p2 = a1_x + 4.0;
+
+    // 2. Seta vertical para baixo na caixa esquerda (liga 2 -> 3 quando acionado)
+    let a2_x = -96.0 + dx;
+    let a2_p1 = a2_x + 4.0;
+    let a2_p2 = a2_x - 4.0;
+
+    // 3. T-Stop na caixa direita (bloqueia porta 3 em repouso)
+    let s1_x = 48.0 + dx;
+    let s1_t1 = s1_x - 6.0;
+    let s1_t2 = s1_x + 6.0;
+
+    // 4. T-Stop na caixa esquerda (bloqueia porta 5 quando acionado)
+    let s2_x = -192.0 + dx;
+    let s2_t1 = s2_x + 6.0;
+    let s2_t2 = s2_x - 6.0;
+
+    // 5. Seta diagonal na caixa direita (liga 1 -> 2 em repouso)
+    let d1_x1 = 0.0 + dx;
+    let d1_x2 = 42.865 + dx;
+    let d1_p1 = 42.865 + dx;
+    let d1_p2 = 34.821 + dx;
+    let d1_p3 = 41.979 + dx;
+
+    // 6. Seta diagonal na caixa esquerda (liga 1 -> 4 quando acionado)
+    let d2_x1 = -144.0 + dx;
+    let d2_x2 = -186.865 + dx;
+    let d2_p1 = -186.865 + dx;
+    let d2_p2 = -178.821 + dx;
+    let d2_p3 = -185.979 + dx;
 
     let svg = format!(
-        r##"<svg xmlns="http://www.w3.org/2000/svg" data-generator="cade2svg" data-standard="48px" viewBox="-160 -12 300 232" width="300" height="232">
-  <g fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-96" y="48" width="192" height="96"/>
-    <line x1="0" y1="48" x2="0" y2="144"/>
-{vias_internas}
-    <!-- Condutores de topo (4 e 2) -->"##,
-        vias_internas = vias_internas,
-    );
-    let svg_rest = format!(
-        r##"
-    <line x1="-48" y1="0" x2="-48" y2="48"/>
-    <line x1="48" y1="0" x2="48" y2="48"/>
-    <!-- Condutores de base (5, 1, 3) -->
-    <line x1="-48" y1="144" x2="-48" y2="192"/>
-    <line x1="0" y1="144" x2="0" y2="192"/>
-    <line x1="48" y1="144" x2="48" y2="192"/>
+        r##"<svg xmlns="http://www.w3.org/2000/svg" data-generator="cade2svg" data-standard="48px" viewBox="-320 -16 568 232" width="568" height="232">
+  <g fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Caixa do carretel móvel com preenchimento para oclusão de fundo -->
+    <rect x="{case_x:.2}" y="48" width="288" height="96" fill="#ffffff" stroke="#111827" stroke-width="2.4"/>
+    <line x1="{cl_x:.2}" y1="48" x2="{cl_x:.2}" y2="144" stroke="#111827" stroke-width="2" stroke-dasharray="4 4"/>
+
+    <!-- Atuador piloto pneumático e switch manual -->
+    <rect x="{pilot_rx:.2}" y="48" width="48" height="48" fill="#ffffff" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="{p1x:.3},52.404 {p2x:.3},72.000 {p3x:.3},91.596" fill="none" stroke="#111827" stroke-width="2"/>
+    <rect x="{sw_rx:.2}" y="108" width="24" height="24" fill="#ffffff" stroke="#111827" stroke-width="2.2"/>
+    <line x1="{sw_lx:.2}" y1="102" x2="{sw_lx:.2}" y2="138" stroke="#111827" stroke-width="2"/>
+
+    <!-- Atuador Solenóide elétrico 1Y -->
+    <rect x="{sol_rx:.2}" y="48" width="48" height="48" fill="#ffffff" stroke="#111827" stroke-width="2.2"/>
+    <line x1="{sol_l1x:.2}" y1="96" x2="{sol_l2x:.2}" y2="48" stroke="#111827" stroke-width="2"/>
+    <text x="{sol_text_x:.2}" y="44.62" font-size="14" font-family="Inter, sans-serif" font-weight="bold" fill="#b91c1c" stroke="none">1Y</text>
+
+    <!-- Mola de retorno direita -->
+    <polyline points="{sp1:.1},100 {sp2:.1},88 {sp3:.1},112 {sp4:.1},88 {sp5:.1},112 {sp6:.1},88 {sp7:.1},100" fill="none" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Vias internas móveis (carretel ISO 1219) -->
+    <!-- Seta vertical direita -->
+    <line x1="{a1_x:.2}" y1="53.051" x2="{a1_x:.2}" y2="138.949" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="{a1_x:.2},138.949 {a1_p1:.2},128.994 {a1_p2:.2},128.994" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Seta vertical esquerda -->
+    <line x1="{a2_x:.2}" y1="53.051" x2="{a2_x:.2}" y2="138.949" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="{a2_x:.2},138.949 {a2_p1:.2},128.994 {a2_p2:.2},128.994" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- T-Stop direita -->
+    <line x1="{s1_x:.2}" y1="144" x2="{s1_x:.2}" y2="132" stroke="#111827" stroke-width="2.2"/>
+    <line x1="{s1_t1:.2}" y1="132" x2="{s1_t2:.2}" y2="132" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- T-Stop esquerda -->
+    <line x1="{s2_x:.2}" y1="144" x2="{s2_x:.2}" y2="132" stroke="#111827" stroke-width="2.2"/>
+    <line x1="{s2_t1:.2}" y1="132" x2="{s2_t2:.2}" y2="132" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Seta diagonal direita -->
+    <line x1="{d1_x1:.2}" y1="138.949" x2="{d1_x2:.2}" y2="53.051" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="{d1_p1:.2},53.051 {d1_p2:.2},60.212 {d1_p3:.2},63.784" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Seta diagonal esquerda -->
+    <line x1="{d2_x1:.2}" y1="138.949" x2="{d2_x2:.2}" y2="53.051" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="{d2_p1:.2},53.051 {d2_p2:.2},60.212 {d2_p3:.2},63.784" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Tubos e conexões fixas externas (portas 4, 2 no topo; 5, 1, 3 na base) -->
+    <line x1="-48" y1="0" x2="-48" y2="48" stroke="#111827" stroke-width="2.2"/>
+    <line x1="48" y1="0" x2="48" y2="48" stroke="#111827" stroke-width="2.2"/>
+    <line x1="-48" y1="144" x2="-48" y2="192" stroke="#111827" stroke-width="2.2"/>
+    <line x1="0" y1="144" x2="0" y2="192" stroke="#111827" stroke-width="2.2"/>
+    <line x1="48" y1="144" x2="48" y2="192" stroke="#111827" stroke-width="2.2"/>
+
     <!-- Silenciadores nos escapes 5 e 3 -->
-    <polygon points="-56,192 -40,192 -48,206" fill="none" stroke-width="1.5"/>
-    <polygon points="40,192 56,192 48,206" fill="none" stroke-width="1.5"/>
-    <!-- Solenóide esquerdo (1Y) -->
-    <rect x="-132" y="60" width="36" height="72"/>
-    <line x1="-132" y1="132" x2="-96" y2="60"/>
-    <!-- Acionamento manual auxiliar -->
-    <line x1="-146" y1="96" x2="-132" y2="96"/>
-    <line x1="-146" y1="84" x2="-146" y2="108"/>
-    <!-- Mola direita -->
-    <path d="M 96 96 L 101 84 L 107 108 L 113 84 L 119 108 L 123 84 L 126 96"/>
+    <polygon points="-56,192 -40,192 -48,206" fill="none" stroke="#111827" stroke-width="1.6"/>
+    <polygon points="40,192 56,192 48,206" fill="none" stroke="#111827" stroke-width="1.6"/>
+
+    <!-- Numeração de portas ISO 1219 -->
+    <text x="-68" y="-3" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">4</text>
+    <text x="28" y="-3" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">2</text>
+    <text x="-68" y="189" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">5</text>
+    <text x="-20" y="189" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">1</text>
+    <text x="28" y="189" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">3</text>
+
     <!-- Bornes qet-terminal -->
     <circle class="qet-terminal" cx="-48" cy="0" r="{r}" fill="#000" stroke="none"/>
     <circle class="qet-terminal" cx="48" cy="0" r="{r}" fill="#000" stroke="none"/>
@@ -655,7 +732,6 @@ pub fn svg_valve_5_2_solenoid(pos: f64) -> (String, Vec<TerminalSimbolo>) {
 "##,
         r = r,
     );
-    let svg = format!("{svg}{svg_rest}");
 
     let terms = vec![
         TerminalSimbolo {
