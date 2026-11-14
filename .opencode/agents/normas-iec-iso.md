@@ -27,13 +27,13 @@ Referência interna complementar: `Layout RustSimu HTML/numeracao_bornes.md`.
    - **EN 50005 / EN 50011 / EN 50012**: marcação de terminais de contactos
      auxiliares e de relés de comando.
    - **IEC 60617**: formas dos símbolos gráficos — revise a geometria/descritores
-     de `symbols.rs` e arte em `symbols_qet_all/` quando o item alterado for um
+     de `symbols.rs` e arte em `symbols_qet/` quando o item alterado for um
      símbolo.
 2. **(Eletro)pneumática e (Eletro)hidráulica** (roadmap)
    - **ISO 1219-1** (símbolos gráficos) e **ISO 1219-2** (circuitos). A matriz
      booleana série=AND/paralelo=OR do §3.1 é a base prevista para propagação de
      pressão — valide futuros módulos pneumáticos/hidráulicos contra ela (coleções
-     de referência em `symbols_qet_all/pneumatic`, `symbols_qet_all/hydraulic`).
+     de referência em `symbols_qet/pneumatic`, `symbols_qet/hydraulic`).
 3. **Ladder — automação** (roadmap)
    - **IEC 61131-3** — linguagem LD (contatos `-| |-` NA e `-|/|-` NF, bobinas e
      blocos). A lógica booleana do §3.1 deve mapear 1:1 em LD quando o módulo de

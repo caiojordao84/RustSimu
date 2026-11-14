@@ -4,7 +4,7 @@
   "source": {
     "kind": "qelectrotech",
     "version": "0.9",
-    "path": "/home/caiojordao84/Downloads/CADE SIMU 4.0, PC SIMU 3.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/symbols_qet_all"
+    "path": "/home/caiojordao84/Downloads/CADE SIMU 4.0, PC SIMU 3.0/CADe_SIMU/CADe_SIMU/cade-simu-rs/symbols_qet"
   },
   "categories": [
     {
@@ -636774,6 +636774,1658 @@
         "pressure",
         "sensors",
         "switch"
+      ]
+    },
+    {
+      "id": "0243A",
+      "slug": "6004_disjuntor_termomagnético_4p",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "circuit_breaker",
+      "name_pt": "Disjuntor Termomagnético 4P",
+      "name_en": "Disjuntor Termomagnético 4P",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0243A-0.svg",
+      "bbox": {
+        "w": 235.2,
+        "h": 200.0
+      },
+      "hotspot": {
+        "x": 51.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0243A-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "N",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "1",
+          "x": 48.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "3",
+          "x": 96.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "5",
+          "x": 144.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "N_2",
+          "x": 0.0,
+          "y": 168.0,
+          "orientation": "n"
+        },
+        {
+          "name": "2",
+          "x": 48.0,
+          "y": 168.0,
+          "orientation": "n"
+        },
+        {
+          "name": "4",
+          "x": 96.0,
+          "y": 168.0,
+          "orientation": "n"
+        },
+        {
+          "name": "6",
+          "x": 144.0,
+          "y": 168.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "6004",
+        "cade",
+        "native",
+        "disjuntor",
+        "termomagnético",
+        "4p"
+      ]
+    },
+    {
+      "id": "0243B",
+      "slug": "6008_disjuntor_termomagnético_2p",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "circuit_breaker",
+      "name_pt": "Disjuntor Termomagnético 2P",
+      "name_en": "Disjuntor Termomagnético 2P",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0243B-0.svg",
+      "bbox": {
+        "w": 136.0,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 48.0,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0243B-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "1",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "3",
+          "x": 48.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "2",
+          "x": 0.0,
+          "y": 168.0,
+          "orientation": "n"
+        },
+        {
+          "name": "4",
+          "x": 48.0,
+          "y": 168.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "6008",
+        "cade",
+        "native",
+        "disjuntor",
+        "termomagnético",
+        "2p"
+      ]
+    },
+    {
+      "id": "0243C",
+      "slug": "8004_botão_cogumelo_na_pulsador_seta_na",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "momentary_button",
+      "name_pt": "Botão Cogumelo NA (Pulsador Seta NA)",
+      "name_en": "Botão Cogumelo NA (Pulsador Seta NA)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0243C-0.svg",
+      "bbox": {
+        "w": 107.2,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0243C-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "13",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8004",
+        "cade",
+        "native",
+        "botão",
+        "cogumelo",
+        "na",
+        "pulsador",
+        "seta",
+        "na"
+      ]
+    },
+    {
+      "id": "0243D",
+      "slug": "8005_botão_cogumelo_nf_pulsador_seta_nf",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "momentary_button",
+      "name_pt": "Botão Cogumelo NF (Pulsador Seta NF)",
+      "name_en": "Botão Cogumelo NF (Pulsador Seta NF)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0243D-0.svg",
+      "bbox": {
+        "w": 118.4,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0243D-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8005",
+        "cade",
+        "native",
+        "botão",
+        "cogumelo",
+        "nf",
+        "pulsador",
+        "seta",
+        "nf"
+      ]
+    },
+    {
+      "id": "0243E",
+      "slug": "8006_botão_cogumelo_duplo_na_nf_pulsador_seta_na-nc",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "momentary_button",
+      "name_pt": "Botão Cogumelo Duplo NA+NF (Pulsador Seta NA-NC)",
+      "name_en": "Botão Cogumelo Duplo NA+NF (Pulsador Seta NA-NC)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0243E-0.svg",
+      "bbox": {
+        "w": 176.0,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0243E-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "13",
+          "x": 72.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 72.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8006",
+        "cade",
+        "native",
+        "botão",
+        "cogumelo",
+        "duplo",
+        "na",
+        "nf",
+        "pulsador",
+        "seta",
+        "na-nc"
+      ]
+    },
+    {
+      "id": "0243F",
+      "slug": "8007_botão_cogumelo_comutador_pulsador_seta_con",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "momentary_button",
+      "name_pt": "Botão Cogumelo Comutador (Pulsador Seta CON)",
+      "name_en": "Botão Cogumelo Comutador (Pulsador Seta CON)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0243F-0.svg",
+      "bbox": {
+        "w": 150.4,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0243F-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 24.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 48.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8007",
+        "cade",
+        "native",
+        "botão",
+        "cogumelo",
+        "comutador",
+        "pulsador",
+        "seta",
+        "con"
+      ]
+    },
+    {
+      "id": "02440",
+      "slug": "8008_chave_seletora_-_interruptor_na_no_switch",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "latching_switch",
+      "name_pt": "Chave Seletora / Interruptor NA (NO Switch)",
+      "name_en": "Chave Seletora / Interruptor NA (NO Switch)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02440-0.svg",
+      "bbox": {
+        "w": 116.8,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 76.8,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02440-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "13",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8008",
+        "cade",
+        "native",
+        "chave",
+        "seletora",
+        "-",
+        "interruptor",
+        "na",
+        "no",
+        "switch"
+      ]
+    },
+    {
+      "id": "02441",
+      "slug": "8009_chave_seletora_-_interruptor_nf_nc_switch",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "latching_switch",
+      "name_pt": "Chave Seletora / Interruptor NF (NC Switch)",
+      "name_en": "Chave Seletora / Interruptor NF (NC Switch)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02441-0.svg",
+      "bbox": {
+        "w": 128.0,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 76.8,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02441-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8009",
+        "cade",
+        "native",
+        "chave",
+        "seletora",
+        "-",
+        "interruptor",
+        "nf",
+        "nc",
+        "switch"
+      ]
+    },
+    {
+      "id": "02442",
+      "slug": "8010_chave_seletora_-_interruptor_duplo_na_nf_no-nc_switch",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "latching_switch",
+      "name_pt": "Chave Seletora / Interruptor Duplo NA+NF (NO-NC Switch)",
+      "name_en": "Chave Seletora / Interruptor Duplo NA+NF (NO-NC Switch)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02442-0.svg",
+      "bbox": {
+        "w": 185.6,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 76.8,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02442-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "13",
+          "x": 72.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 72.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8010",
+        "cade",
+        "native",
+        "chave",
+        "seletora",
+        "-",
+        "interruptor",
+        "duplo",
+        "na",
+        "nf",
+        "no-nc",
+        "switch"
+      ]
+    },
+    {
+      "id": "02443",
+      "slug": "8011_chave_seletora_-_interruptor_comutador_con-com_switch",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "latching_switch",
+      "name_pt": "Chave Seletora / Interruptor Comutador (CON/COM Switch)",
+      "name_en": "Chave Seletora / Interruptor Comutador (CON/COM Switch)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02443-0.svg",
+      "bbox": {
+        "w": 160.0,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 76.8,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02443-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 24.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 48.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8011",
+        "cade",
+        "native",
+        "chave",
+        "seletora",
+        "-",
+        "interruptor",
+        "comutador",
+        "con-com",
+        "switch"
+      ]
+    },
+    {
+      "id": "02444",
+      "slug": "8012_sensor_fim_de_curso_na_limit_switch_no",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "limit_switch",
+      "name_pt": "Sensor Fim de Curso NA (Limit Switch NO)",
+      "name_en": "Sensor Fim de Curso NA (Limit Switch NO)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02444-0.svg",
+      "bbox": {
+        "w": 107.2,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02444-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "13",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8012",
+        "cade",
+        "native",
+        "sensor",
+        "fim",
+        "de",
+        "curso",
+        "na",
+        "limit",
+        "switch",
+        "no"
+      ]
+    },
+    {
+      "id": "02445",
+      "slug": "8013_sensor_fim_de_curso_nf_limit_switch_nc",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "limit_switch",
+      "name_pt": "Sensor Fim de Curso NF (Limit Switch NC)",
+      "name_en": "Sensor Fim de Curso NF (Limit Switch NC)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02445-0.svg",
+      "bbox": {
+        "w": 118.4,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02445-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8013",
+        "cade",
+        "native",
+        "sensor",
+        "fim",
+        "de",
+        "curso",
+        "nf",
+        "limit",
+        "switch",
+        "nc"
+      ]
+    },
+    {
+      "id": "02446",
+      "slug": "8014_sensor_fim_de_curso_duplo_na_nf_limit_switch_no-nc",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "limit_switch",
+      "name_pt": "Sensor Fim de Curso Duplo NA+NF (Limit Switch NO-NC)",
+      "name_en": "Sensor Fim de Curso Duplo NA+NF (Limit Switch NO-NC)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02446-0.svg",
+      "bbox": {
+        "w": 176.0,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02446-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "13",
+          "x": 72.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 72.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8014",
+        "cade",
+        "native",
+        "sensor",
+        "fim",
+        "de",
+        "curso",
+        "duplo",
+        "na",
+        "nf",
+        "limit",
+        "switch",
+        "no-nc"
+      ]
+    },
+    {
+      "id": "02447",
+      "slug": "8015_sensor_fim_de_curso_comutador_limit_switch_con-com",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "limit_switch",
+      "name_pt": "Sensor Fim de Curso Comutador (Limit Switch CON/COM)",
+      "name_en": "Sensor Fim de Curso Comutador (Limit Switch CON/COM)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02447-0.svg",
+      "bbox": {
+        "w": 150.4,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02447-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 24.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 48.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8015",
+        "cade",
+        "native",
+        "sensor",
+        "fim",
+        "de",
+        "curso",
+        "comutador",
+        "limit",
+        "switch",
+        "con-com"
+      ]
+    },
+    {
+      "id": "02448",
+      "slug": "8018_contato_auxiliar_relé_térmico_duplo_na_nf_95-96_-_97-98",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "thermal_contact",
+      "name_pt": "Contato Auxiliar Relé Térmico Duplo NA+NF (95-96 / 97-98)",
+      "name_en": "Contato Auxiliar Relé Térmico Duplo NA+NF (95-96 / 97-98)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02448-0.svg",
+      "bbox": {
+        "w": 176.0,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02448-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "95",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "97",
+          "x": 72.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "96",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "98",
+          "x": 72.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8018",
+        "cade",
+        "native",
+        "contato",
+        "auxiliar",
+        "relé",
+        "térmico",
+        "duplo",
+        "na",
+        "nf",
+        "95-96",
+        "-",
+        "97-98"
+      ]
+    },
+    {
+      "id": "02449",
+      "slug": "8019_contato_auxiliar_relé_térmico_comutador_95-96-98",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "thermal_contact",
+      "name_pt": "Contato Auxiliar Relé Térmico Comutador (95-96-98)",
+      "name_en": "Contato Auxiliar Relé Térmico Comutador (95-96-98)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02449-0.svg",
+      "bbox": {
+        "w": 150.4,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 67.2,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02449-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "95",
+          "x": 24.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "96",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "98",
+          "x": 48.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8019",
+        "cade",
+        "native",
+        "contato",
+        "auxiliar",
+        "relé",
+        "térmico",
+        "comutador",
+        "95-96-98"
+      ]
+    },
+    {
+      "id": "0244A",
+      "slug": "8020_chave_seletora_3_posições_i-0-ii",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "selector_switch",
+      "name_pt": "Chave Seletora 3 Posições (I-0-II)",
+      "name_en": "Chave Seletora 3 Posições (I-0-II)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0244A-0.svg",
+      "bbox": {
+        "w": 180.8,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 92.8,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0244A-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "1",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "3",
+          "x": 48.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "2",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "4",
+          "x": 48.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8020",
+        "cade",
+        "native",
+        "chave",
+        "seletora",
+        "3",
+        "posições",
+        "i-0-ii"
+      ]
+    },
+    {
+      "id": "0244B",
+      "slug": "8021_chave_seletora_3_posições_i-ii-iii",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "selector_switch",
+      "name_pt": "Chave Seletora 3 Posições (I-II-III)",
+      "name_en": "Chave Seletora 3 Posições (I-II-III)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0244B-0.svg",
+      "bbox": {
+        "w": 228.8,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 92.8,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0244B-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "1",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "3",
+          "x": 48.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "5",
+          "x": 96.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "2",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "4",
+          "x": 48.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "6",
+          "x": 96.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8021",
+        "cade",
+        "native",
+        "chave",
+        "seletora",
+        "3",
+        "posições",
+        "i-ii-iii"
+      ]
+    },
+    {
+      "id": "0244C",
+      "slug": "8022_chave_inversora_-_cruzamento_crossover_switch",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "selector_switch",
+      "name_pt": "Chave Inversora / Cruzamento (Crossover Switch)",
+      "name_en": "Chave Inversora / Cruzamento (Crossover Switch)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0244C-0.svg",
+      "bbox": {
+        "w": 164.8,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 76.8,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0244C-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "1",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "3",
+          "x": 48.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "2",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "4",
+          "x": 48.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8022",
+        "cade",
+        "native",
+        "chave",
+        "inversora",
+        "-",
+        "cruzamento",
+        "crossover",
+        "switch"
+      ]
+    },
+    {
+      "id": "0244D",
+      "slug": "8030_botão_de_emergência_com_trava_nf_emergency_stop_latch_nc",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "emergency_stop",
+      "name_pt": "Botão de Emergência com Trava NF (Emergency Stop Latch NC)",
+      "name_en": "Botão de Emergência com Trava NF (Emergency Stop Latch NC)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0244D-0.svg",
+      "bbox": {
+        "w": 123.2,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 72.0,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0244D-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8030",
+        "cade",
+        "native",
+        "botão",
+        "de",
+        "emergência",
+        "com",
+        "trava",
+        "nf",
+        "emergency",
+        "stop",
+        "latch",
+        "nc"
+      ]
+    },
+    {
+      "id": "0244E",
+      "slug": "8031_botão_de_emergência_com_trava_na_emergency_stop_latch_no",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "emergency_stop",
+      "name_pt": "Botão de Emergência com Trava NA (Emergency Stop Latch NO)",
+      "name_en": "Botão de Emergência com Trava NA (Emergency Stop Latch NO)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0244E-0.svg",
+      "bbox": {
+        "w": 112.0,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 72.0,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0244E-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "13",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8031",
+        "cade",
+        "native",
+        "botão",
+        "de",
+        "emergência",
+        "com",
+        "trava",
+        "na",
+        "emergency",
+        "stop",
+        "latch",
+        "no"
+      ]
+    },
+    {
+      "id": "0244F",
+      "slug": "8032_botão_de_emergência_com_trava_duplo_na_nf_emergency_stop_no-nc",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "emergency_stop",
+      "name_pt": "Botão de Emergência com Trava Duplo NA+NF (Emergency Stop NO-NC)",
+      "name_en": "Botão de Emergência com Trava Duplo NA+NF (Emergency Stop NO-NC)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-0244F-0.svg",
+      "bbox": {
+        "w": 180.8,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 72.0,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-0244F-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "13",
+          "x": 72.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        },
+        {
+          "name": "14",
+          "x": 72.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8032",
+        "cade",
+        "native",
+        "botão",
+        "de",
+        "emergência",
+        "com",
+        "trava",
+        "duplo",
+        "na",
+        "nf",
+        "emergency",
+        "stop",
+        "no-nc"
+      ]
+    },
+    {
+      "id": "02450",
+      "slug": "8033_botão_de_emergência_girar_para_destravar_nf_emergency_turn-to-release",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "emergency_stop",
+      "name_pt": "Botão de Emergência Girar para Destravar NF (Emergency Turn-to-Release)",
+      "name_en": "Botão de Emergência Girar para Destravar NF (Emergency Turn-to-Release)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02450-0.svg",
+      "bbox": {
+        "w": 123.2,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 72.0,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02450-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8033",
+        "cade",
+        "native",
+        "botão",
+        "de",
+        "emergência",
+        "girar",
+        "para",
+        "destravar",
+        "nf",
+        "emergency",
+        "turn-to-release"
+      ]
+    },
+    {
+      "id": "02451",
+      "slug": "8034_botão_de_emergência_com_chave_nf_emergency_key-release",
+      "category": "000",
+      "family": "cade_native",
+      "kind": "emergency_stop",
+      "name_pt": "Botão de Emergência com Chave NF (Emergency Key-Release)",
+      "name_en": "Botão de Emergência com Chave NF (Emergency Key-Release)",
+      "source": {
+        "origin": "cade_native"
+      },
+      "svg_base": "000-02451-0.svg",
+      "bbox": {
+        "w": 123.2,
+        "h": 128.0
+      },
+      "hotspot": {
+        "x": 72.0,
+        "y": 16.0
+      },
+      "states": [
+        {
+          "code": "0",
+          "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "000-02451-1.svg"
+        }
+      ],
+      "overlays": [
+        "selected"
+      ],
+      "terminals": [
+        {
+          "name": "11",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "n"
+        },
+        {
+          "name": "12",
+          "x": 0.0,
+          "y": 96.0,
+          "orientation": "n"
+        }
+      ],
+      "tags": [
+        "8034",
+        "cade",
+        "native",
+        "botão",
+        "de",
+        "emergência",
+        "com",
+        "chave",
+        "nf",
+        "emergency",
+        "key-release"
       ]
     }
   ]

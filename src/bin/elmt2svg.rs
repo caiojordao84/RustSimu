@@ -837,7 +837,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let positional: Vec<&String> = args.iter().filter(|a| !a.starts_with("--")).collect();
 
     let manifest_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
-    let default_output = manifest_dir.join("symbols_qet_all");
+    let default_output = manifest_dir.join("symbols_qet");
     let canonical_dir = manifest_dir.join("symbols_qet");
 
     if check_mode {
@@ -893,7 +893,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let output_base = if positional.len() > 1 {
         PathBuf::from(positional[1])
     } else {
-        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("symbols_qet_all")
+        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("symbols_qet")
     };
 
     if index_only {

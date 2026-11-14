@@ -142,25 +142,29 @@ mod tests {
     fn catalogo_qet_pneumatic_taxa_de_match() {
         let s = include_str!(concat!(
             env!("CARGO_MANIFEST_DIR"),
-            "/symbols_qet_all/catalog.json"
+            "/symbols_qet/catalog.json"
         ));
-        let total = s.matches("\"category\": \"pneumatic/").count();
+        let catalog: crate::canonical::CanonicalCatalog =
+            serde_json::from_str(s).expect("parse canonical catalog");
+        let cat_paths: std::collections::HashMap<(String, String), String> = catalog
+            .categories
+            .iter()
+            .map(|c| ((c.family.clone(), c.code.clone()), c.path.clone()))
+            .collect();
+
+        let mut total = 0usize;
         let mut matched = 0usize;
-        for (idx, _) in s.match_indices("\"category\": \"pneumatic/") {
-            let start = idx.saturating_sub(400);
-            let window = &s[start..idx];
-            let id = window
-                .rfind("\"id\": \"")
-                .map(|p| {
-                    let w = &window[p + 7..];
-                    w.split('"').next().unwrap_or("")
-                })
-                .unwrap_or("");
-            let cat_end = s[idx + 13..].find('"').map(|p| idx + 13 + p).unwrap_or(idx);
-            let cat = &s[idx + 13..cat_end];
-            let slug = format!("{cat}/{id}");
-            if concept_id_from_qet_pneumatic(&slug).is_some() {
-                matched += 1;
+        for el in &catalog.elements {
+            if el.family == "pneumatic" {
+                total += 1;
+                let cat_path = cat_paths
+                    .get(&("pneumatic".to_string(), el.category.clone()))
+                    .map(|s| s.as_str())
+                    .unwrap_or("pneumatic");
+                let slug = format!("{cat_path}/{}", el.slug);
+                if concept_id_from_qet_pneumatic(&slug).is_some() {
+                    matched += 1;
+                }
             }
         }
         assert_eq!(total, 343, "catálogo QET pneumatic");

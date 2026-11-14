@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p dist/RustSimu
           cp target/release/cade-simu-rs.exe dist/RustSimu/RustSimu.exe
-          cp -r symbols_qet_all dist/RustSimu/
+          cp -r symbols_qet dist/RustSimu/
           cp -r Projetos dist/RustSimu/
           cp README.md dist/RustSimu/
           cd dist
@@ -73,7 +73,7 @@ jobs:
         run: |
           mkdir -p dist/RustSimu
           cp target/release/cade-simu-rs dist/RustSimu/RustSimu
-          cp -r symbols_qet_all dist/RustSimu/
+          cp -r symbols_qet dist/RustSimu/
           cp -r Projetos dist/RustSimu/
           cp README.md dist/RustSimu/
           tar -czf RustSimu-linux-x86_64.tar.gz -C dist RustSimu

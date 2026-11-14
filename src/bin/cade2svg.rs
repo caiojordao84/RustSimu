@@ -5,7 +5,7 @@ use std::path::Path;
 use cade_simu_rs::symbols::{generate_svg_from_cmds, symbol_catalog};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let out_dir = Path::new("symbols_qet_all/cade_native");
+    let out_dir = Path::new("symbols_qet/cade_native");
     create_dir_all(out_dir)?;
 
     let catalog = symbol_catalog();

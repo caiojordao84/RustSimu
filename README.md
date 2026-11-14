@@ -93,7 +93,7 @@ cargo test
 │   ├── icons.rs        # Ícones vetoriais da barra de ferramentas
 │   ├── layout.rs       # Gerenciador de painéis e docas
 │   └── theme.rs        # Paleta de cores e temas (Light/Dark/System)
-├── symbols_qet_all/    # Biblioteca completa de símbolos elétricos e catálogo JSON
+├── symbols_qet/        # Biblioteca canônica de símbolos D2 e catálogo JSON
 └── Projetos/           # Esquemas elétricos de exemplo para testes e simulação
 ```
 

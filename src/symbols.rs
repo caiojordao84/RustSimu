@@ -241,115 +241,115 @@ impl SymbolDef {
         match self.tipo {
             // Botões Pulsadores QElectroTech integrados
             8000 => Some((
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/push-button_3.svg",
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/push-button_3_active.svg",
+                "symbols_qet/electric/037-001FA-0.svg",
+                "symbols_qet/electric/037-001FA-1.svg",
             )),
             8001 => Some((
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/push-button__nc.svg",
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/push-button__nc_active.svg",
+                "symbols_qet/electric/037-001FB-0.svg",
+                "symbols_qet/electric/037-001FB-1.svg",
             )),
             // Catálogo completo de componentes convertidos em SVG animado
-            1000 => Some(("symbols_qet_all/cade_native/1000_motor_assíncrono_trifásico.svg", "symbols_qet_all/cade_native/1000_motor_assíncrono_trifásico_active.svg")),
-            1001 => Some(("symbols_qet_all/cade_native/1001_motor_trifásico_6_terminais_estrela-triângulo.svg", "symbols_qet_all/cade_native/1001_motor_trifásico_6_terminais_estrela-triângulo_active.svg")),
-            1002 => Some(("symbols_qet_all/cade_native/1002_motor_monofásico.svg", "symbols_qet_all/cade_native/1002_motor_monofásico_active.svg")),
-            2000 => Some(("symbols_qet_all/cade_native/2000_contator_de_potência_2p.svg", "symbols_qet_all/cade_native/2000_contator_de_potência_2p_active.svg")),
-            2001 => Some(("symbols_qet_all/cade_native/2001_contator_trifásico_3p.svg", "symbols_qet_all/cade_native/2001_contator_trifásico_3p_active.svg")),
-            2004 => Some(("symbols_qet_all/cade_native/2004_chave_seccionadora_tripolar_3p.svg", "symbols_qet_all/cade_native/2004_chave_seccionadora_tripolar_3p_active.svg")),
-            2006 => Some(("symbols_qet_all/cade_native/2006_contator_de_potência_1p.svg", "symbols_qet_all/cade_native/2006_contator_de_potência_1p_active.svg")),
-            2008 => Some(("symbols_qet_all/cade_native/2008_contator_disjuntor_trifásico_3p.svg", "symbols_qet_all/cade_native/2008_contator_disjuntor_trifásico_3p_active.svg")),
-            3000 => Some(("symbols_qet_all/cade_native/3000_alimentação_fase_l.svg", "symbols_qet_all/cade_native/3000_alimentação_fase_l_active.svg")),
-            3001 => Some(("symbols_qet_all/cade_native/3001_alimentação_neutro_n.svg", "symbols_qet_all/cade_native/3001_alimentação_neutro_n_active.svg")),
-            3002 => Some(("symbols_qet_all/cade_native/3002_proteção_terra_pe.svg", "symbols_qet_all/cade_native/3002_proteção_terra_pe_active.svg")),
-            3003 => Some(("symbols_qet_all/cade_native/3003_alimentação_l___n.svg", "symbols_qet_all/cade_native/3003_alimentação_l___n_active.svg")),
-            3004 => Some(("symbols_qet_all/cade_native/3004_alimentação_trifásica_l1_l2_l3.svg", "symbols_qet_all/cade_native/3004_alimentação_trifásica_l1_l2_l3_active.svg")),
-            3005 => Some(("symbols_qet_all/cade_native/3005_alimentação_trifásica___pe_l1_l2_l3_pe.svg", "symbols_qet_all/cade_native/3005_alimentação_trifásica___pe_l1_l2_l3_pe_active.svg")),
-            3008 => Some(("symbols_qet_all/cade_native/3008_alimentação_cc_positivo__.svg", "symbols_qet_all/cade_native/3008_alimentação_cc_positivo___active.svg")),
-            3009 => Some(("symbols_qet_all/cade_native/3009_alimentação_cc_negativo_-.svg", "symbols_qet_all/cade_native/3009_alimentação_cc_negativo_-_active.svg")),
-            5000 => Some(("symbols_qet_all/cade_native/5000_fusível_1p.svg", "symbols_qet_all/cade_native/5000_fusível_1p_active.svg")),
-            5003 => Some(("symbols_qet_all/cade_native/5003_fusível_tripolar_3p.svg", "symbols_qet_all/cade_native/5003_fusível_tripolar_3p_active.svg")),
-            5008 => Some(("symbols_qet_all/cade_native/5008_fusível_seccionador_3p.svg", "symbols_qet_all/cade_native/5008_fusível_seccionador_3p_active.svg")),
-            6000 => Some(("symbols_qet_all/cade_native/6000_disjuntor_termomagnético_1p.svg", "symbols_qet_all/cade_native/6000_disjuntor_termomagnético_1p_active.svg")),
+            1000 => Some(("symbols_qet/cade_native/000-00001-0.svg", "symbols_qet/cade_native/000-00001-1.svg")),
+            1001 => Some(("symbols_qet/cade_native/000-00002-0.svg", "symbols_qet/cade_native/000-00002-1.svg")),
+            1002 => Some(("symbols_qet/cade_native/000-00003-0.svg", "symbols_qet/cade_native/000-00003-1.svg")),
+            2000 => Some(("symbols_qet/cade_native/000-00004-0.svg", "symbols_qet/cade_native/000-00004-1.svg")),
+            2001 => Some(("symbols_qet/cade_native/000-00005-0.svg", "symbols_qet/cade_native/000-00005-1.svg")),
+            2004 => Some(("symbols_qet/cade_native/000-00006-0.svg", "symbols_qet/cade_native/000-00006-1.svg")),
+            2006 => Some(("symbols_qet/cade_native/000-00007-0.svg", "symbols_qet/cade_native/000-00007-1.svg")),
+            2008 => Some(("symbols_qet/cade_native/000-00008-0.svg", "symbols_qet/cade_native/000-00008-1.svg")),
+            3000 => Some(("symbols_qet/cade_native/000-00009-0.svg", "symbols_qet/cade_native/000-00009-1.svg")),
+            3001 => Some(("symbols_qet/cade_native/000-0000A-0.svg", "symbols_qet/cade_native/000-0000A-1.svg")),
+            3002 => Some(("symbols_qet/cade_native/000-0000B-0.svg", "symbols_qet/cade_native/000-0000B-1.svg")),
+            3003 => Some(("symbols_qet/cade_native/000-0000C-0.svg", "symbols_qet/cade_native/000-0000C-1.svg")),
+            3004 => Some(("symbols_qet/cade_native/000-0000D-0.svg", "symbols_qet/cade_native/000-0000D-1.svg")),
+            3005 => Some(("symbols_qet/cade_native/000-0000E-0.svg", "symbols_qet/cade_native/000-0000E-1.svg")),
+            3008 => Some(("symbols_qet/cade_native/000-0000F-0.svg", "symbols_qet/cade_native/000-0000F-1.svg")),
+            3009 => Some(("symbols_qet/cade_native/000-00010-0.svg", "symbols_qet/cade_native/000-00010-1.svg")),
+            5000 => Some(("symbols_qet/cade_native/000-00011-0.svg", "symbols_qet/cade_native/000-00011-1.svg")),
+            5003 => Some(("symbols_qet/cade_native/000-00012-0.svg", "symbols_qet/cade_native/000-00012-1.svg")),
+            5008 => Some(("symbols_qet/cade_native/000-00013-0.svg", "symbols_qet/cade_native/000-00013-1.svg")),
+            6000 => Some(("symbols_qet/cade_native/000-00014-0.svg", "symbols_qet/cade_native/000-00014-1.svg")),
             // 6003: Disjuntor Termomagnético 3P (QElectroTech IEC - magneto-thermal_circuit_breaker_gv_4)
             6003 => Some((
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/magneto-thermal_circuit_breaker_gv_4.svg",
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/magneto-thermal_circuit_breaker_gv_4_active.svg",
+                "symbols_qet/electric/014-0010F-0.svg",
+                "symbols_qet/electric/014-0010F-1.svg",
             )),
             // 6004: Disjuntor Termomagnético 4P / Tetrapolar (QElectroTech IEC - magneto-thermal_circuit_breaker)
             6004 => Some((
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/magneto-thermal_circuit_breaker.svg",
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/magneto-thermal_circuit_breaker_active.svg",
+                "symbols_qet/electric/014-00109-0.svg",
+                "symbols_qet/electric/014-00109-1.svg",
             )),
             // 6007: Relé Térmico de Sobrecarga 3P (Símbolo Oficial QElectroTech IEC - thermal_relay_4 com linha pontilhada)
             6007 => Some((
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/30_thermal_relays/thermal_relay_4.svg",
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/30_thermal_relays/thermal_relay_4_active.svg",
+                "symbols_qet/electric/016-0011F-0.svg",
+                "symbols_qet/electric/016-0011F-1.svg",
             )),
             // 6008: Disjuntor Termomagnético 2P (QElectroTech IEC - magneto-thermal_circuit_breaker_gv_2p)
             6008 => Some((
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/magneto-thermal_circuit_breaker_gv_2p.svg",
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/magneto-thermal_circuit_breaker_gv_2p_active.svg",
+                "symbols_qet/electric/014-0010D-0.svg",
+                "symbols_qet/electric/014-0010D-1.svg",
             )),
             // 6009: Disjuntor-Motor / Guardamotor 3P (QElectroTech GV4)
             6009 => Some((
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/magneto-thermal_circuit_breaker_gv_4.svg",
-                "symbols_qet_all/electric/10_allpole/200_fuses_protective_gears/12_magneto_thermal_circuit_breakers/magneto-thermal_circuit_breaker_gv_4_active.svg",
+                "symbols_qet/electric/014-0010F-0.svg",
+                "symbols_qet/electric/014-0010F-1.svg",
             )),
-            7000 => Some(("symbols_qet_all/cade_native/7000_contato_auxiliar_na_no.svg", "symbols_qet_all/cade_native/7000_contato_auxiliar_na_no_active.svg")),
-            7001 => Some(("symbols_qet_all/cade_native/7001_contato_auxiliar_nf_nc.svg", "symbols_qet_all/cade_native/7001_contato_auxiliar_nf_nc_active.svg")),
-            7002 => Some(("symbols_qet_all/cade_native/7002_contato_duplo_na___nf.svg", "symbols_qet_all/cade_native/7002_contato_duplo_na___nf_active.svg")),
-            7004 => Some(("symbols_qet_all/cade_native/7004_contato_temporizado_na_on-delay.svg", "symbols_qet_all/cade_native/7004_contato_temporizado_na_on-delay_active.svg")),
-            7005 => Some(("symbols_qet_all/cade_native/7005_contato_temporizado_nf_on-delay.svg", "symbols_qet_all/cade_native/7005_contato_temporizado_nf_on-delay_active.svg")),
-            7006 => Some(("symbols_qet_all/cade_native/7006_contato_temporizado_comutador_na_nf_on-delay.svg", "symbols_qet_all/cade_native/7006_contato_temporizado_comutador_na_nf_on-delay_active.svg")),
-            7008 => Some(("symbols_qet_all/cade_native/7008_contato_temporizado_na_off-delay.svg", "symbols_qet_all/cade_native/7008_contato_temporizado_na_off-delay_active.svg")),
-            7009 => Some(("symbols_qet_all/cade_native/7009_contato_temporizado_nf_off-delay.svg", "symbols_qet_all/cade_native/7009_contato_temporizado_nf_off-delay_active.svg")),
-            8002 => Some(("symbols_qet_all/cade_native/8002_botão_pulsador_duplo_na_nf_no-nc.svg", "symbols_qet_all/cade_native/8002_botão_pulsador_duplo_na_nf_no-nc_active.svg")),
-            8003 => Some(("symbols_qet_all/cade_native/8003_botão_pulsador_comutador_con.svg", "symbols_qet_all/cade_native/8003_botão_pulsador_comutador_con_active.svg")),
+            7000 => Some(("symbols_qet/cade_native/000-00019-0.svg", "symbols_qet/cade_native/000-00019-1.svg")),
+            7001 => Some(("symbols_qet/cade_native/000-0001A-0.svg", "symbols_qet/cade_native/000-0001A-1.svg")),
+            7002 => Some(("symbols_qet/cade_native/000-0001B-0.svg", "symbols_qet/cade_native/000-0001B-1.svg")),
+            7004 => Some(("symbols_qet/cade_native/000-0001C-0.svg", "symbols_qet/cade_native/000-0001C-1.svg")),
+            7005 => Some(("symbols_qet/cade_native/000-0001D-0.svg", "symbols_qet/cade_native/000-0001D-1.svg")),
+            7006 => Some(("symbols_qet/cade_native/000-0001E-0.svg", "symbols_qet/cade_native/000-0001E-1.svg")),
+            7008 => Some(("symbols_qet/cade_native/000-0001F-0.svg", "symbols_qet/cade_native/000-0001F-1.svg")),
+            7009 => Some(("symbols_qet/cade_native/000-00020-0.svg", "symbols_qet/cade_native/000-00020-1.svg")),
+            8002 => Some(("symbols_qet/cade_native/000-00023-0.svg", "symbols_qet/cade_native/000-00023-1.svg")),
+            8003 => Some(("symbols_qet/cade_native/000-00024-0.svg", "symbols_qet/cade_native/000-00024-1.svg")),
             // 8008: Chave Seletora / Interruptor NA padronizada (96 px / 12 unidades CADe)
             8008 => Some((
-                "symbols_qet_all/cade_native/8008_chave_seletora_-_interruptor_na_no_switch.svg",
-                "symbols_qet_all/cade_native/8008_chave_seletora_-_interruptor_na_no_switch_active.svg",
+                "symbols_qet/cade_native/000-02440-0.svg",
+                "symbols_qet/cade_native/000-02440-1.svg",
             )),
             // 8012 e 8013: Sensor Fim de Curso NA e NF (QElectroTech IEC)
             8012 => Some((
-                "symbols_qet_all/electric/10_allpole/390_sensors_instruments/41_limit_switches/limitswitch__no.svg",
-                "symbols_qet_all/electric/10_allpole/390_sensors_instruments/41_limit_switches/limitswitch__no_2.svg",
+                "symbols_qet/electric/050-00269-0.svg",
+                "symbols_qet/electric/050-0026A-0.svg",
             )),
             8013 => Some((
-                "symbols_qet_all/electric/10_allpole/390_sensors_instruments/41_limit_switches/limitswitch__nc.svg",
-                "symbols_qet_all/electric/10_allpole/390_sensors_instruments/41_limit_switches/limitswitch__nc_2.svg",
+                "symbols_qet/electric/050-00266-0.svg",
+                "symbols_qet/electric/050-00267-0.svg",
             )),
             // 8030, 8033, 8034: Botões de Parada de Emergência Retentivos com Trava Mecânica / Giro / Chave
             8030 => Some((
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/emergency_stop__latch.svg",
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/emergency_stop__nc.svg",
+                "symbols_qet/electric/037-001EA-0.svg",
+                "symbols_qet/electric/037-001EB-0.svg",
             )),
             8033 => Some((
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/emergency_turn_stop_deverouiller.svg",
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/emergency_turn_stop_deverouiller.svg",
+                "symbols_qet/electric/037-001F1-0.svg",
+                "symbols_qet/electric/037-001F1-0.svg",
             )),
             8034 => Some((
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/emergency_stop_key_release.svg",
-                "symbols_qet_all/electric/10_allpole/380_signaling_operating/20_push_buttons/emergency_stop_key_release.svg",
+                "symbols_qet/electric/037-001EF-0.svg",
+                "symbols_qet/electric/037-001EF-0.svg",
             )),
             // 8016 e 8017: Contatos Auxiliares do Relé Térmico (Símbolos Oficiais QElectroTech IEC)
             8016 => Some((
-                "symbols_qet_all/electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/15_protection_contacts/contact_thermal_relay__no.svg",
-                "symbols_qet_all/electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/15_protection_contacts/contact_thermal_relay__no_active.svg",
+                "symbols_qet/electric/023-00174-0.svg",
+                "symbols_qet/electric/023-00174-1.svg",
             )),
             8017 => Some((
-                "symbols_qet_all/electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/15_protection_contacts/contact_thermal_relay__nc.svg",
-                "symbols_qet_all/electric/10_allpole/310_relays_contactors_contacts/02_contacts_cross_referencing/15_protection_contacts/contact_thermal_relay__nc_active.svg",
+                "symbols_qet/electric/023-00173-0.svg",
+                "symbols_qet/electric/023-00173-1.svg",
             )),
-            8023 => Some(("symbols_qet_all/cade_native/8023_botão_pulsador_2d_painel.svg", "symbols_qet_all/cade_native/8023_botão_pulsador_2d_painel_active.svg")),
-            9000 => Some(("symbols_qet_all/cade_native/9000_bobina_de_contator_-_relé.svg", "symbols_qet_all/cade_native/9000_bobina_de_contator_-_relé_active.svg")),
-            9004 => Some(("symbols_qet_all/cade_native/9004_temporizador_ao_trabalho_on-delay.svg", "symbols_qet_all/cade_native/9004_temporizador_ao_trabalho_on-delay_active.svg")),
-            9005 => Some(("symbols_qet_all/cade_native/9005_temporizador_à_desconexão_off-delay.svg", "symbols_qet_all/cade_native/9005_temporizador_à_desconexão_off-delay_active.svg")),
-            9008 => Some(("symbols_qet_all/cade_native/9008_sinaleiro_luminoso_piloto.svg", "symbols_qet_all/cade_native/9008_sinaleiro_luminoso_piloto_active.svg")),
-            9013 => Some(("symbols_qet_all/cade_native/9013_sirene_-_alarme_sonoro_buzzer.svg", "symbols_qet_all/cade_native/9013_sirene_-_alarme_sonoro_buzzer_active.svg")),
+            8023 => Some(("symbols_qet/cade_native/000-00028-0.svg", "symbols_qet/cade_native/000-00028-1.svg")),
+            9000 => Some(("symbols_qet/cade_native/000-00029-0.svg", "symbols_qet/cade_native/000-00029-1.svg")),
+            9004 => Some(("symbols_qet/cade_native/000-0002A-0.svg", "symbols_qet/cade_native/000-0002A-1.svg")),
+            9005 => Some(("symbols_qet/cade_native/000-0002B-0.svg", "symbols_qet/cade_native/000-0002B-1.svg")),
+            9008 => Some(("symbols_qet/cade_native/000-0002C-0.svg", "symbols_qet/cade_native/000-0002C-1.svg")),
+            9013 => Some(("symbols_qet/cade_native/000-0002D-0.svg", "symbols_qet/cade_native/000-0002D-1.svg")),
             // 9014: Bobina de Solenoide / Eletroválvula de Comando
             9014 => Some((
-                "symbols_qet_all/electric/10_allpole/391_consumers_actuators/20_valves/solenoid_valve.svg",
-                "symbols_qet_all/electric/10_allpole/391_consumers_actuators/20_valves/solenoid_valve_active.svg",
+                "symbols_qet/electric/055-002B1-0.svg",
+                "symbols_qet/electric/055-002B1-0.svg",
             )),
             _ => None,
         }
@@ -3760,7 +3760,7 @@ pub fn get_themed_symbol_svg_string(sym: &SymbolDef, is_dark: bool) -> String {
         }
     }
 
-    // 2. Tenta encontrar arquivo gerado correspondente em symbols_qet_all/cade_native/{tipo:04}_*.svg
+    // 2. Tenta encontrar arquivo gerado correspondente no catálogo canônico D2
     let clean_name = sym
         .name
         .replace('/', "-")
@@ -3769,10 +3769,12 @@ pub fn get_themed_symbol_svg_string(sym: &SymbolDef, is_dark: bool) -> String {
         .replace('+', "_")
         .to_lowercase();
     let base_filename = format!("{:04}_{}", sym.tipo, clean_name);
-    let native_path = format!("symbols_qet_all/cade_native/{base_filename}.svg");
-    let full_native = crate::svg_symbol::resolve_svg_path(&native_path);
-    if let Ok(content) = std::fs::read_to_string(&full_native) {
-        return adapt_svg_colors(&content, is_dark);
+    if let Some(dict) = crate::canonical::global_dictionary() {
+        if let Some(full_native) = dict.resolve_svg_path(&base_filename, None) {
+            if let Ok(content) = std::fs::read_to_string(&full_native) {
+                return adapt_svg_colors(&content, is_dark);
+            }
+        }
     }
 
     // 3. Fallback dinâmico: gera o SVG diretamente a partir dos comandos vetoriais e pinos do símbolo

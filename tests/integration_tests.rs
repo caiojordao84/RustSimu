@@ -990,8 +990,8 @@ fn test_svg_push_button_rendering_and_animation() {
     // Verifica que o Relé Térmico Tripolar 6007 (QElectroTech thermal_relay_4) mapeia perfeitamente os 3 polos (0, 6, 12) e tem linha pontilhada
     let sym_thermal = find_symbol(6007).expect("Relé térmico 6007 deve existir");
     let (th_idle_path, th_act_path) = sym_thermal.svg_paths().expect("Relé térmico deve ter SVGs");
-    assert!(th_idle_path.contains("thermal_relay_4.svg"));
-    assert!(th_act_path.contains("thermal_relay_4_active.svg"));
+    assert!(th_idle_path.contains("016-0011F-0.svg"));
+    assert!(th_act_path.contains("016-0011F-1.svg"));
     let th_idle = get_parsed_svg(th_idle_path).expect("Relé térmico QET idle deve carregar");
     let _th_act = get_parsed_svg(th_act_path).expect("Relé térmico QET active deve carregar");
     assert_eq!(th_idle.max_term_x, 96.0);
@@ -1021,15 +1021,15 @@ fn test_svg_push_button_rendering_and_animation() {
     // Verifica que os contatos auxiliares 8016 e 8017 do relé térmico usam os SVGs QET
     let sym_th_nc = find_symbol(8017).expect("Contato NF relé térmico deve existir");
     let (nc_path, nc_act) = sym_th_nc.svg_paths().expect("8017 deve ter SVGs");
-    assert!(nc_path.contains("contact_thermal_relay__nc.svg"));
-    assert!(nc_act.contains("contact_thermal_relay__nc_active.svg"));
+    assert!(nc_path.contains("023-00173-0.svg"));
+    assert!(nc_act.contains("023-00173-1.svg"));
 
     // Verifica os Disjuntores Termomagnéticos (2P, 3P e 4P) com os SVGs oficiais solicitados
     // 1. Disjuntor 2P (com 2 pontos)
     let sym_brk_2p = find_symbol(6008).expect("Disjuntor 2P deve existir");
     let (b2_idle_path, b2_act_path) = sym_brk_2p.svg_paths().expect("6008 deve ter SVGs");
-    assert!(b2_idle_path.contains("magneto-thermal_circuit_breaker_gv_2p.svg"));
-    assert!(b2_act_path.contains("magneto-thermal_circuit_breaker_gv_2p_active.svg"));
+    assert!(b2_idle_path.contains("014-0010D-0.svg"));
+    assert!(b2_act_path.contains("014-0010D-1.svg"));
     let b2_idle = get_parsed_svg(b2_idle_path).expect("SVG 2P idle deve carregar");
     let _b2_act = get_parsed_svg(b2_act_path).expect("SVG 2P active deve carregar");
     assert_eq!(b2_idle.min_term_x, -48.0);
@@ -1056,8 +1056,8 @@ fn test_svg_push_button_rendering_and_animation() {
     // 2. Disjuntor 3P (com 3 pontos) - mesma altura do 2P (target_span=21.0)
     let sym_brk_3p = find_symbol(6003).expect("Disjuntor 3P deve existir");
     let (b3_idle_path, b3_act_path) = sym_brk_3p.svg_paths().expect("6003 deve ter SVGs");
-    assert!(b3_idle_path.contains("magneto-thermal_circuit_breaker_gv_4.svg"));
-    assert!(b3_act_path.contains("magneto-thermal_circuit_breaker_gv_4_active.svg"));
+    assert!(b3_idle_path.contains("014-0010F-0.svg"));
+    assert!(b3_act_path.contains("014-0010F-1.svg"));
     let b3_idle = get_parsed_svg(b3_idle_path).expect("SVG 3P idle deve carregar");
     let _b3_act = get_parsed_svg(b3_act_path).expect("SVG 3P active deve carregar");
     assert_eq!(b3_idle.min_term_x, -48.0);
@@ -1085,8 +1085,8 @@ fn test_svg_push_button_rendering_and_animation() {
     // 3. Disjuntor 4P (com 4 pontos) - mesma altura do 2P (target_span=21.0)
     let sym_brk_4p = find_symbol(6004).expect("Disjuntor 4P deve existir");
     let (b4_idle_path, b4_act_path) = sym_brk_4p.svg_paths().expect("6004 deve ter SVGs");
-    assert!(b4_idle_path.contains("magneto-thermal_circuit_breaker.svg"));
-    assert!(b4_act_path.contains("magneto-thermal_circuit_breaker_active.svg"));
+    assert!(b4_idle_path.contains("014-00109-0.svg"));
+    assert!(b4_act_path.contains("014-00109-1.svg"));
     let b4_idle = get_parsed_svg(b4_idle_path).expect("SVG 4P idle deve carregar");
     let _b4_act = get_parsed_svg(b4_act_path).expect("SVG 4P active deve carregar");
     assert_eq!(b4_idle.min_term_x, -48.0);
@@ -4989,12 +4989,12 @@ fn test_canonical_catalog_validation_d2() {
         "Total de categorias deve ser 1018"
     );
     assert_eq!(
-        summary.elements_count, 9273,
-        "Total de elementos base deve ser 9273"
+        summary.elements_count, 9297,
+        "Total de elementos base deve ser 9297"
     );
     assert_eq!(
-        summary.svgs_checked, 9328,
-        "Total de SVGs no disco deve ser 9328"
+        summary.svgs_checked, 9376,
+        "Total de SVGs no disco deve ser 9376"
     );
     assert!(
         summary.warnings.is_empty(),
@@ -5169,7 +5169,7 @@ fn test_canonical_library_ui_and_canvas_placement() {
 
     // 12. Verificação de escala proporcional 0.30 para elementos QET inseridos no CADe
     let parsed_motor = cade_simu_rs::svg_symbol::get_parsed_svg(
-        "symbols_qet_all/electric/10_allpole/391_consumers_actuators/10_engines/induction_motor__three-phase_6_terminals.svg",
+        "symbols_qet/electric/054-00292-0.svg",
     ).expect("Motor QET 6 terminais deve existir");
     assert!(!parsed_motor.is_cade_svg);
     assert!(!parsed_motor.is_qet_native);
@@ -5228,8 +5228,8 @@ fn test_canonical_block_classification_and_simulation_isolation() {
     let wireable_elements = dict.filter_elements("", None, None, CanonicalScope::Wireable);
     let block_elements = dict.filter_elements("", None, None, CanonicalScope::Block);
 
-    assert_eq!(all_elements.len(), 9273);
-    assert_eq!(wireable_elements.len(), 5700);
+    assert_eq!(all_elements.len(), 9297);
+    assert_eq!(wireable_elements.len(), 5724);
     assert_eq!(block_elements.len(), 3573);
     assert_eq!(
         wireable_elements.len() + block_elements.len(),
@@ -5398,8 +5398,8 @@ fn test_canonical_catalog_all_wireable_terminals_non_empty_and_unique() {
     }
 
     assert_eq!(
-        total_wireable, 5700,
-        "Devem existir 5.700 elementos cabáveis"
+        total_wireable, 5724,
+        "Devem existir 5.724 elementos cabáveis"
     );
     assert_eq!(
         empty_term_count, 0,

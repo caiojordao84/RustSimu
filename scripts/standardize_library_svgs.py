@@ -284,8 +284,8 @@ def update_catalog_metadata(catalog_path, base_dir):
     print(f"Metadados de {updated} elementos atualizados com sucesso no catálogo!")
 
 def main():
-    base_all = 'symbols_qet_all'
-    print("Normalizando todos os SVGs da biblioteca symbols_qet_all...")
+    base_all = 'symbols_qet'
+    print("Normalizando todos os SVGs da biblioteca symbols_qet...")
     
     count = 0
     for root, dirs, files in os.walk(base_all):
