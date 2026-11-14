@@ -1,23 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="168.0" height="120.0" viewBox="-100.8 -74.4 168.0 120.0" data-name="3/2m_nc [man]-[spring]" data-standard="48px">
-  <title>3/2m_nc [man]-[spring]</title>
-  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="19.20" y1="2.40" x2="0.00" y2="-36.00" stroke="black" fill="black" />
-    <line x1="-84.00" y1="7.20" x2="-84.00" y2="-7.20" stroke="black" fill="none" />
-    <line x1="-24.00" y1="12.00" x2="-24.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-60.00" y1="-2.40" x2="-81.60" y2="-2.40" stroke="black" fill="none" />
-    <polygon points="18.77,0.86 16.06,3.10 23.86,11.18 21.60,0.00" stroke="black" fill="black" />
-    <line x1="-60.00" y1="2.40" x2="-81.60" y2="2.40" stroke="black" fill="none" />
-    <polygon points="-47.88,-35.88 -52.68,-23.88 -43.08,-23.88" stroke="black" fill="black" />
-    <line x1="-28.80" y1="0.00" x2="-19.20" y2="0.00" stroke="black" fill="none" />
-    <rect x="-60.00" y="-36.00" width="48.00" height="48.00" stroke="black" fill="none" />
-    <line x1="-48.00" y1="9.60" x2="-48.00" y2="-26.40" stroke="black" fill="black" />
-    <rect x="-12.00" y="-36.00" width="48.00" height="48.00" stroke="black" fill="none" />
-    <line x1="0.00" y1="12.00" x2="0.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="-4.80" y1="0.00" x2="4.80" y2="0.00" stroke="black" fill="none" />
-    <polyline points="36.26,-6.48 40.80,7.20 43.20,-7.20 48.00,7.20 50.40,-7.20 55.20,7.20 58.01,-6.19" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="s" />
-    <circle class="qet-terminal" cx="0.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
+<svg xmlns="http://www.w3.org/2000/svg" data-generator="cade2svg" data-standard="48px" width="352" height="232" viewBox="-152 -16 352 232">
+  <title>015-02390-0.svg</title>
+  <g id="_3_2m_nc__man_-_spring_" data-name="3/2m_nc [man]-[spring]">
+    <!-- Corpo do carretel móvel em repouso -->
+    <rect x="-120" y="48" width="192" height="96" fill="#ffffff" stroke="#111827" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="-24" y1="48" x2="-24" y2="144" stroke="#111827" stroke-width="2" stroke-dasharray="4 4"/>
+
+    <!-- Atuador manual botão / switch à esquerda -->
+    <g id="Switch">
+      <rect x="-144" y="107" width="24" height="24" fill="#ffffff" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="-144" y1="101" x2="-144" y2="137" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Mola de retorno à direita -->
+    <polyline points="72,100 76,88 80.8,112 85.6,88 90.4,112 93.6,88 96,100" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Canais internos da caixa esquerda -->
+    <g>
+      <line x1="-96" y1="137.95" x2="-96" y2="52.051" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <polygon points="-96,52.051 -92,62.007 -100,62.007" fill="#111827" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g>
+      <line x1="-48" y1="144" x2="-48" y2="132" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="-42" y1="132" x2="-54" y2="132" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Canais internos da caixa direita -->
+    <g>
+      <line x1="0" y1="144" x2="0" y2="132" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="-6" y1="132" x2="6" y2="132" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g>
+      <line x1="2.568" y1="52.051" x2="45.433" y2="137.95" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <polygon points="45.433,137.95 37.389,130.788 44.547,127.216" fill="#111827" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Tubos e conexões fixas externas (porta 2 no topo; portas 1 e 3 na base) -->
+    <line x1="0" y1="0" x2="0" y2="48" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="0" y1="144" x2="0" y2="192" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="48" y1="144" x2="48" y2="192" fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <polygon points="40,192 56,192 48,206" fill="none" stroke="#111827" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Numeração de portas ISO 1219 -->
+    <text x="-20" y="-3" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">2</text>
+    <text x="-20" y="189" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">1</text>
+    <text x="28" y="189" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">3</text>
+
+    <!-- Bornes qet-terminal -->
+    <circle class="qet-terminal" data-name="2" data-orientation="n" cx="0" cy="0" r="4" fill="#dc2626"/>
+    <circle class="qet-terminal" data-name="1" data-orientation="s" cx="0" cy="192" r="4" fill="#dc2626"/>
+    <circle class="qet-terminal" data-name="3" data-orientation="s" cx="48" cy="192" r="4" fill="#dc2626"/>
   </g>
 </svg>

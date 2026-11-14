@@ -79,6 +79,9 @@ pub fn svg_v1_classe_pos(classe: &str, pos: f64) -> Option<(String, Vec<Terminal
     {
         return Some(svg_valve_5_2_solenoid(pos));
     }
+    if classe == "PVWM1" || classe == "02390" || classe == "3_2m_nc__man_-_spring" {
+        return Some(svg_valve_3_2_man_spring(pos));
+    }
     if let Some(svg) = svg_eletrico_p8(classe) {
         return Some(svg);
     }
@@ -748,6 +751,133 @@ pub fn svg_valve_5_2_solenoid(pos: f64) -> (String, Vec<TerminalSimbolo>) {
             nome: "5".into(),
             x: -g,
             y: 4 * g,
+        },
+        TerminalSimbolo {
+            nome: "1".into(),
+            x: 0,
+            y: 4 * g,
+        },
+        TerminalSimbolo {
+            nome: "3".into(),
+            x: g,
+            y: 4 * g,
+        },
+    ];
+    (svg, terms)
+}
+
+/// Válvula 3/2 NF com acionamento manual (botão) e retorno por mola (`PVWM1` / `02390`).
+///
+/// Implementa animação contínua do carretel (`pos ∈ [0, 1]`), deslocando o bloco
+/// móvel e atuadores em dx = 96.0 * pos px (2 módulos de grade de 48 px),
+/// conectando a via 1 à via 2 quando acionada, e descarregando 2 em 3 em repouso.
+pub fn svg_valve_3_2_man_spring(pos: f64) -> (String, Vec<TerminalSimbolo>) {
+    let t = pos.clamp(0.0, 1.0);
+    let r = TERMINAL_RADIUS_PX_300DPI;
+    let g = GRID_MODULE_UNITS as i32;
+
+    // Deslocamento horizontal contínuo do carretel móvel (dx = 96 px = 2 módulos de 48px):
+    let dx = 96.0 * t;
+
+    // Conjunto móvel (Spool Assembly)
+    let case_x = -120.0 + dx;
+    let cl_x = -24.0 + dx;
+
+    // Atuador switch manual à esquerda
+    let sw_rx = -144.0 + dx;
+    let sw_lx = -144.0 + dx;
+
+    // Mola de retorno direita
+    let sp1 = 72.0 + dx;
+    let sp2 = 76.0 + dx;
+    let sp3 = 80.8 + dx;
+    let sp4 = 85.6 + dx;
+    let sp5 = 90.4 + dx;
+    let sp6 = 93.6 + dx;
+    let sp7 = 96.0 + dx;
+
+    // Vias internas móveis (Estado 0 e Estado 1)
+    // 1. Seta vertical para cima na caixa esquerda (liga 1 -> 2 quando acionado)
+    let va_x = -96.0 + dx;
+    let va_p1 = va_x + 4.0;
+    let va_p2 = va_x - 4.0;
+
+    // 2. T-Stop na caixa esquerda (bloqueia porta 3 quando acionado)
+    let ts1_x = -48.0 + dx;
+    let ts1_t1 = ts1_x + 6.0;
+    let ts1_t2 = ts1_x - 6.0;
+
+    // 3. T-Stop na caixa direita (bloqueia porta 1 em repouso)
+    let ts2_x = 0.0 + dx;
+    let ts2_t1 = ts2_x - 6.0;
+    let ts2_t2 = ts2_x + 6.0;
+
+    // 4. Seta diagonal na caixa direita (liga 2 -> 3 em repouso)
+    let da_x1 = 2.568 + dx;
+    let da_x2 = 45.433 + dx;
+    let da_p1 = 45.433 + dx;
+    let da_p2 = 37.389 + dx;
+    let da_p3 = 44.547 + dx;
+
+    let svg = format!(
+        r##"<svg xmlns="http://www.w3.org/2000/svg" data-generator="cade2svg" data-standard="48px" viewBox="-152 -16 352 232" width="352" height="232">
+  <g fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Caixa do carretel móvel com preenchimento para oclusão de fundo -->
+    <rect x="{case_x:.2}" y="48" width="192" height="96" fill="#ffffff" stroke="#111827" stroke-width="2.4"/>
+    <line x1="{cl_x:.2}" y1="48" x2="{cl_x:.2}" y2="144" stroke="#111827" stroke-width="2" stroke-dasharray="4 4"/>
+
+    <!-- Atuador manual botão / switch à esquerda -->
+    <rect x="{sw_rx:.2}" y="107" width="24" height="24" fill="#ffffff" stroke="#111827" stroke-width="2.2"/>
+    <line x1="{sw_lx:.2}" y1="101" x2="{sw_lx:.2}" y2="137" stroke="#111827" stroke-width="2"/>
+
+    <!-- Mola de retorno direita -->
+    <polyline points="{sp1:.1},100 {sp2:.1},88 {sp3:.1},112 {sp4:.1},88 {sp5:.1},112 {sp6:.1},88 {sp7:.1},100" fill="none" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Vias internas móveis (carretel ISO 1219) -->
+    <!-- Seta vertical esquerda (1 -> 2 quando acionado) -->
+    <line x1="{va_x:.2}" y1="137.95" x2="{va_x:.2}" y2="52.051" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="{va_x:.2},52.051 {va_p1:.2},62.007 {va_p2:.2},62.007" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- T-Stop esquerda (bloqueia 3 quando acionado) -->
+    <line x1="{ts1_x:.2}" y1="144" x2="{ts1_x:.2}" y2="132" stroke="#111827" stroke-width="2.2"/>
+    <line x1="{ts1_t1:.2}" y1="132" x2="{ts1_t2:.2}" y2="132" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- T-Stop direita (bloqueia 1 em repouso) -->
+    <line x1="{ts2_x:.2}" y1="144" x2="{ts2_x:.2}" y2="132" stroke="#111827" stroke-width="2.2"/>
+    <line x1="{ts2_t1:.2}" y1="132" x2="{ts2_t2:.2}" y2="132" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Seta diagonal direita (2 -> 3 em repouso) -->
+    <line x1="{da_x1:.2}" y1="52.051" x2="{da_x2:.2}" y2="137.95" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="{da_p1:.2},137.95 {da_p2:.2},130.788 {da_p3:.2},127.216" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Tubos e conexões fixas externas (porta 2 no topo; 1 e 3 na base) -->
+    <line x1="0" y1="0" x2="0" y2="48" stroke="#111827" stroke-width="2.2"/>
+    <line x1="0" y1="144" x2="0" y2="192" stroke="#111827" stroke-width="2.2"/>
+    <line x1="48" y1="144" x2="48" y2="192" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Silenciador / escape na porta 3 -->
+    <polygon points="40,192 56,192 48,206" fill="none" stroke="#111827" stroke-width="1.6"/>
+
+    <!-- Numeração de portas ISO 1219 -->
+    <text x="-20" y="-3" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">2</text>
+    <text x="-20" y="189" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">1</text>
+    <text x="28" y="189" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">3</text>
+
+    <!-- Bornes qet-terminal -->
+    <circle class="qet-terminal" cx="0" cy="0" r="{r}" fill="#000" stroke="none" data-name="2" data-orientation="n"/>
+    <circle class="qet-terminal" cx="0" cy="192" r="{r}" fill="#000" stroke="none" data-name="1" data-orientation="s"/>
+    <circle class="qet-terminal" cx="48" cy="192" r="{r}" fill="#000" stroke="none" data-name="3" data-orientation="s"/>
+  </g>
+</svg>
+"##,
+        r = r,
+    );
+
+    let terms = vec![
+        TerminalSimbolo {
+            nome: "2".into(),
+            x: 0,
+            y: 0,
         },
         TerminalSimbolo {
             nome: "1".into(),

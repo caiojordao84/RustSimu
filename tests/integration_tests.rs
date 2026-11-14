@@ -4993,8 +4993,8 @@ fn test_canonical_catalog_validation_d2() {
         "Total de elementos base deve ser 9297"
     );
     assert_eq!(
-        summary.svgs_checked, 9376,
-        "Total de SVGs no disco deve ser 9376"
+        summary.svgs_checked, 9377,
+        "Total de SVGs no disco deve ser 9377"
     );
     assert!(
         summary.warnings.is_empty(),

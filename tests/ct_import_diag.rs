@@ -449,6 +449,71 @@ fn test_demo_01_routing_speed_and_manometer() {
 }
 
 #[test]
+fn test_tp101_01_simulation() {
+    let path = "/home/caiojordao84/Downloads/ct/TP101_2009/TP101_01.ct";
+    if !std::path::Path::new(path).exists() {
+        return;
+    }
+    cade_simu_rs::pneu::palette::force_reregister_svgs();
+    let mut doc = schematic_from_ct_path(path).expect("schematic import");
+
+    let s1 = doc.items.iter().find(|i| i.tag == "1S1").expect("1S1 presente");
+    let s1_id = s1.id;
+    let a1 = doc.items.iter().find(|i| i.tag == "1A1").expect("1A1 presente");
+    let a1_id = a1.id;
+
+    // 1. Em repouso: válvula 1S1 fechada, cilindro 1A1 recuado
+    for _ in 0..10 {
+        cade_simu_rs::sim::step_simulation(&mut doc, 40);
+    }
+    assert_eq!(
+        doc.sim.get(a1_id).timer_elapsed_ms, 0,
+        "Cilindro 1A1 deve iniciar recuado em repouso"
+    );
+
+    // Exporta imagem em repouso
+    let opts = cade_simu_rs::export::ExportOptions {
+        include_cajetin: false,
+        show_terminals: false,
+        monochrome: false,
+    };
+    if let Ok(bytes) = cade_simu_rs::export::export_to_png(&doc, None, opts, 2.0) {
+        let _ = std::fs::write(
+            "/home/caiojordao84/.gemini/antigravity/brain/dfe77710-9bba-4889-8767-eec33a5bf9bf/tp101_01_sim_rest.png",
+            bytes,
+        );
+    }
+
+    // 2. Pressiona botão de 1S1: válvula comuta (pos=1.0) e cilindro 1A1 avança
+    cade_simu_rs::sim::press_component_on_sim(&mut doc, s1_id);
+    for _ in 0..15 {
+        cade_simu_rs::sim::step_simulation(&mut doc, 40);
+    }
+    assert_eq!(
+        doc.sim.get(a1_id).timer_elapsed_ms, 1000,
+        "Cilindro 1A1 deve avançar a 100% com 1S1 acionado"
+    );
+
+    // Exporta imagem acionado
+    if let Ok(bytes) = cade_simu_rs::export::export_to_png(&doc, None, opts, 2.0) {
+        let _ = std::fs::write(
+            "/home/caiojordao84/.gemini/antigravity/brain/dfe77710-9bba-4889-8767-eec33a5bf9bf/tp101_01_sim_active.png",
+            bytes,
+        );
+    }
+
+    // 3. Solta o botão de 1S1: mola retorna a válvula e cilindro 1A1 recua por mola
+    cade_simu_rs::sim::release_component_on_sim(&mut doc, s1_id);
+    for _ in 0..15 {
+        cade_simu_rs::sim::step_simulation(&mut doc, 40);
+    }
+    assert_eq!(
+        doc.sim.get(a1_id).timer_elapsed_ms, 0,
+        "Cilindro 1A1 deve recuar por mola ao soltar 1S1"
+    );
+}
+
+#[test]
 fn test_corpus_quality() {
     let dir = std::path::Path::new("/home/caiojordao84/Downloads/ct");
     if !dir.exists() {

@@ -625488,17 +625488,22 @@
       "name_en": "3/2m_nc [man]-[spring]",
       "svg_base": "015-02390-0.svg",
       "bbox": {
-        "w": 168.0,
-        "h": 120.0
+        "w": 352.0,
+        "h": 232.0
       },
       "hotspot": {
-        "x": 100.8,
-        "y": 74.4
+        "x": 152.0,
+        "y": 16.0
       },
       "states": [
         {
           "code": "0",
           "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "015-02390-1.svg"
         }
       ],
       "overlays": [
@@ -625506,22 +625511,22 @@
       ],
       "terminals": [
         {
-          "name": "3",
-          "x": 24.0,
-          "y": 24.0,
-          "orientation": "s"
-        },
-        {
           "name": "2",
           "x": 0.0,
-          "y": 24.0,
-          "orientation": "s"
+          "y": 0.0,
+          "orientation": "n"
         },
         {
           "name": "1",
           "x": 0.0,
-          "y": -48.0,
-          "orientation": "n"
+          "y": 192.0,
+          "orientation": "s"
+        },
+        {
+          "name": "3",
+          "x": 48.0,
+          "y": 192.0,
+          "orientation": "s"
         }
       ],
       "tags": [
