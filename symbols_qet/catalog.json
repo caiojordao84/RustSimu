@@ -628967,17 +628967,22 @@
       "name_en": "5/2e [elec_pneu_man]-[spring]",
       "svg_base": "025-023C3-0.svg",
       "bbox": {
-        "w": 240.0,
-        "h": 120.0
+        "w": 568.0,
+        "h": 232.0
       },
       "hotspot": {
-        "x": 120.0,
-        "y": 74.4
+        "x": 320.0,
+        "y": 16.0
       },
       "states": [
         {
           "code": "0",
           "name": "repouso"
+        },
+        {
+          "code": "1",
+          "name": "ativo",
+          "svg": "025-023C3-1.svg"
         }
       ],
       "overlays": [
@@ -628985,33 +628990,33 @@
       ],
       "terminals": [
         {
-          "name": "5",
-          "x": 72.0,
-          "y": 24.0,
-          "orientation": "s"
-        },
-        {
           "name": "4",
-          "x": 48.0,
-          "y": 24.0,
-          "orientation": "s"
-        },
-        {
-          "name": "1",
-          "x": 24.0,
-          "y": -48.0,
+          "x": -48.0,
+          "y": 0.0,
           "orientation": "n"
         },
         {
           "name": "2",
-          "x": 72.0,
-          "y": -48.0,
+          "x": 48.0,
+          "y": 0.0,
           "orientation": "n"
         },
         {
+          "name": "5",
+          "x": -48.0,
+          "y": 192.0,
+          "orientation": "s"
+        },
+        {
+          "name": "1",
+          "x": 0.0,
+          "y": 192.0,
+          "orientation": "s"
+        },
+        {
           "name": "3",
-          "x": 24.0,
-          "y": 24.0,
+          "x": 48.0,
+          "y": 192.0,
           "orientation": "s"
         }
       ],

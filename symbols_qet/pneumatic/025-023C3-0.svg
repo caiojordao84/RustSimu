@@ -1,32 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="240.0" height="120.0" viewBox="-120.0 -74.4 240.0 120.0" data-name="5/2e [elec_pneu_man]-[spring]" data-standard="48px">
-  <title>5/2e [elec_pneu_man]-[spring]</title>
-  <g stroke="black" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="-108.00" y1="-12.00" x2="-108.00" y2="-26.40" stroke="black" fill="none" />
-    <polyline points="-108.00,-7.20 -84.00,-7.20 -84.00,7.20 -108.00,7.20 -108.00,-7.20 -108.00,7.20 -103.20,7.20 -88.80,-7.20" stroke="black" fill="none" />
-    <line x1="-23.62" y1="11.23" x2="-45.07" y2="-30.41" stroke="black" fill="black" />
-    <line x1="-84.00" y1="4.80" x2="-84.00" y2="-24.00" stroke="black" fill="none" />
-    <polygon points="-46.58,-26.64 -40.92,-30.36 -48.22,-35.33 -46.70,-26.81" stroke="black" fill="black" />
-    <line x1="-84.00" y1="-21.60" x2="-105.60" y2="-21.60" stroke="black" fill="none" />
-    <line x1="-84.00" y1="-16.80" x2="-105.60" y2="-16.80" stroke="black" fill="none" />
-    <polygon points="0.00,10.32 -4.68,0.84 4.92,0.84" stroke="black" fill="black" />
-    <polyline points="-60.00,7.20 -84.00,7.20 -84.00,-7.20 -60.00,-7.20 -60.00,7.20 -84.00,7.20 -74.40,0.00 -84.00,-7.20" stroke="black" fill="none" />
-    <polygon points="64.34,-27.67 70.97,-24.12 72.00,-34.22 64.27,-27.77" stroke="black" fill="black" />
-    <polyline points="84.26,-6.48 88.80,7.20 91.20,-7.20 96.00,7.20 98.40,-7.20 103.20,7.20 106.01,-6.19" stroke="black" fill="none" />
-    <line x1="0.00" y1="0.00" x2="0.00" y2="-36.00" stroke="black" fill="black" />
-    <line x1="-48.00" y1="12.00" x2="-48.00" y2="0.00" stroke="black" fill="none" />
-    <polygon points="24.00,10.61 19.20,1.13 28.80,1.13" stroke="black" fill="black" />
-    <line x1="48.00" y1="12.00" x2="68.40" y2="-27.41" stroke="black" fill="black" />
-    <line x1="-52.80" y1="0.00" x2="-43.20" y2="0.00" stroke="black" fill="none" />
-    <rect x="-60.00" y="-36.00" width="72.00" height="48.00" stroke="black" fill="none" />
-    <line x1="24.00" y1="0.00" x2="24.00" y2="-43.20" stroke="black" fill="black" />
-    <rect x="12.00" y="-36.00" width="72.00" height="48.00" stroke="black" fill="none" />
-    <line x1="72.00" y1="12.00" x2="72.00" y2="0.00" stroke="black" fill="none" />
-    <line x1="67.20" y1="0.00" x2="76.80" y2="0.00" stroke="black" fill="none" />
-    <circle class="qet-terminal" cx="72.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="5" data-orientation="s" />
-    <circle class="qet-terminal" cx="48.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="4" data-orientation="s" />
-    <circle class="qet-terminal" cx="24.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="1" data-orientation="n" />
-    <circle class="qet-terminal" cx="72.00" cy="-48.00" r="4.0" fill="red" stroke="none" data-name="2" data-orientation="n" />
-    <circle class="qet-terminal" cx="24.00" cy="24.00" r="4.0" fill="red" stroke="none" data-name="3" data-orientation="s" />
+<svg xmlns="http://www.w3.org/2000/svg" data-generator="cade2svg" data-standard="48px" viewBox="-320 -16 568 232" width="568" height="232">
+  <g fill="none" stroke="#111827" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Caixa do carretel móvel com preenchimento para oclusão de fundo -->
+    <rect x="-216.00" y="48" width="288" height="96" fill="#ffffff" stroke="#111827" stroke-width="2.4"/>
+    <line x1="-72.00" y1="48" x2="-72.00" y2="144" stroke="#111827" stroke-width="2" stroke-dasharray="4 4"/>
+
+    <!-- Atuador piloto pneumático e switch manual -->
+    <rect x="-264.00" y="48" width="48" height="48" fill="#ffffff" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="-256.971,52.404 -223.029,72.000 -256.971,91.596" fill="none" stroke="#111827" stroke-width="2"/>
+    <rect x="-240.00" y="108" width="24" height="24" fill="#ffffff" stroke="#111827" stroke-width="2.2"/>
+    <line x1="-240.00" y1="102" x2="-240.00" y2="138" stroke="#111827" stroke-width="2"/>
+
+    <!-- Atuador Solenóide elétrico 1Y -->
+    <rect x="-312.00" y="48" width="48" height="48" fill="#ffffff" stroke="#111827" stroke-width="2.2"/>
+    <line x1="-312.00" y1="96" x2="-264.00" y2="48" stroke="#111827" stroke-width="2"/>
+    <text x="-295.95" y="44.62" font-size="14" font-family="Inter, sans-serif" font-weight="bold" fill="#b91c1c" stroke="none">1Y</text>
+
+    <!-- Mola de retorno direita -->
+    <polyline points="72.0,100 76.0,88 80.8,112 85.6,88 90.4,112 93.6,88 96.0,100" fill="none" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Vias internas móveis (carretel ISO 1219) -->
+    <!-- Seta vertical direita -->
+    <line x1="-48.00" y1="53.051" x2="-48.00" y2="138.949" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="-48.00,138.949 -52.00,128.994 -44.00,128.994" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Seta vertical esquerda -->
+    <line x1="-96.00" y1="53.051" x2="-96.00" y2="138.949" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="-96.00,138.949 -92.00,128.994 -100.00,128.994" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- T-Stop direita -->
+    <line x1="48.00" y1="144" x2="48.00" y2="132" stroke="#111827" stroke-width="2.2"/>
+    <line x1="42.00" y1="132" x2="54.00" y2="132" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- T-Stop esquerda -->
+    <line x1="-192.00" y1="144" x2="-192.00" y2="132" stroke="#111827" stroke-width="2.2"/>
+    <line x1="-186.00" y1="132" x2="-198.00" y2="132" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Seta diagonal direita -->
+    <line x1="0.00" y1="138.949" x2="42.87" y2="53.051" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="42.87,53.051 34.82,60.212 41.98,63.784" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Seta diagonal esquerda -->
+    <line x1="-144.00" y1="138.949" x2="-186.87" y2="53.051" stroke="#111827" stroke-width="2.2"/>
+    <polygon points="-186.87,53.051 -178.82,60.212 -185.98,63.784" fill="#111827" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Tubos e conexões fixas externas (portas 4, 2 no topo; 5, 1, 3 na base) -->
+    <line x1="-48" y1="0" x2="-48" y2="48" stroke="#111827" stroke-width="2.2"/>
+    <line x1="48" y1="0" x2="48" y2="48" stroke="#111827" stroke-width="2.2"/>
+    <line x1="-48" y1="144" x2="-48" y2="192" stroke="#111827" stroke-width="2.2"/>
+    <line x1="0" y1="144" x2="0" y2="192" stroke="#111827" stroke-width="2.2"/>
+    <line x1="48" y1="144" x2="48" y2="192" stroke="#111827" stroke-width="2.2"/>
+
+    <!-- Silenciadores nos escapes 5 e 3 -->
+    <polygon points="-56,192 -40,192 -48,206" fill="none" stroke="#111827" stroke-width="1.6"/>
+    <polygon points="40,192 56,192 48,206" fill="none" stroke="#111827" stroke-width="1.6"/>
+
+    <!-- Numeração de portas ISO 1219 -->
+    <text x="-68" y="-3" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">4</text>
+    <text x="28" y="-3" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">2</text>
+    <text x="-68" y="189" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">5</text>
+    <text x="-20" y="189" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">1</text>
+    <text x="28" y="189" font-size="13" font-family="Inter, sans-serif" font-weight="bold" fill="#0f172a">3</text>
+
+    <!-- Bornes qet-terminal -->
+    <circle class="qet-terminal" cx="-48" cy="0" r="4.0" fill="#000" stroke="none" data-name="4" data-orientation="n"/>
+    <circle class="qet-terminal" cx="48" cy="0" r="4.0" fill="#000" stroke="none" data-name="2" data-orientation="n"/>
+    <circle class="qet-terminal" cx="-48" cy="192" r="4.0" fill="#000" stroke="none" data-name="5" data-orientation="s"/>
+    <circle class="qet-terminal" cx="0" cy="192" r="4.0" fill="#000" stroke="none" data-name="1" data-orientation="s"/>
+    <circle class="qet-terminal" cx="48" cy="192" r="4.0" fill="#000" stroke="none" data-name="3" data-orientation="s"/>
   </g>
 </svg>
