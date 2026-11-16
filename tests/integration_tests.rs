@@ -8416,20 +8416,18 @@ fn test_bidirectional_dictionary_and_all_projetos_qet_export_and_roundtrip() {
             .items
             .iter()
             .filter(|i| {
-                !i.is_wire()
-                    && !i.is_junction()
-                    && !i.is_graphic()
-                    && !(i.tipo == 20000 && i.tag == "XXX" && i.trailing_str.is_empty())
+                let is_cade_sentinel =
+                    i.tipo == 20000 && i.tag == "XXX" && i.trailing_str.is_empty();
+                !i.is_wire() && !i.is_junction() && !i.is_graphic() && !is_cade_sentinel
             })
             .collect();
         let comps_qet: Vec<_> = doc_qet
             .items
             .iter()
             .filter(|i| {
-                !i.is_wire()
-                    && !i.is_junction()
-                    && !i.is_graphic()
-                    && !(i.tipo == 20000 && i.tag == "XXX" && i.trailing_str.is_empty())
+                let is_cade_sentinel =
+                    i.tipo == 20000 && i.tag == "XXX" && i.trailing_str.is_empty();
+                !i.is_wire() && !i.is_junction() && !i.is_graphic() && !is_cade_sentinel
             })
             .collect();
         assert_eq!(
