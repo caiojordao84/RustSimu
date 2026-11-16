@@ -8,6 +8,7 @@ pub mod icons;
 pub mod io;
 pub mod layout;
 pub mod model;
+pub mod plc;
 pub mod qet;
 pub mod sim;
 pub mod svg_symbol;

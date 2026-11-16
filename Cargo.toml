@@ -2,8 +2,13 @@
 name = "cade-simu-rs"
 version = "0.4.0"
 edition = "2021"
+rust-version = "1.89"
 default-run = "cade-simu-rs"
-description = "Reescrita nativa em Rust (iced) do CADe_SIMU 4.0 — Editor CAD Eletrotécnico e Simulador de Comandos Elétricos"
+description = "Reescrita nativa em Rust (iced) do CADe_SIMU 4.0 — Editor CAD Eletrotécnico, Simulador de Comandos Elétricos e PLC Ladder/FBD"
+
+[[bin]]
+name = "plc-simu"
+path = "src/bin/plc-simu.rs"
 
 [dependencies]
 flate2 = "1.0"

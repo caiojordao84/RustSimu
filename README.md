@@ -1,12 +1,34 @@
 # RustSimu
 
-> **Editor CAD Eletrotécnico e Simulador de Comandos Elétricos nativo em Rust.**
+> **Editor CAD Eletrotécnico, Simulador de Comandos Elétricos e PLC Ladder/FBD nativo em Rust.**
 
-O **RustSimu** é uma reescrita moderna, performática e de código aberto inspirada no clássico CADe_SIMU. Desenvolvido em **Rust** utilizando o toolkit gráfico **Iced**, o software é multiplataforma (Linux, Windows e macOS) e oferece renderização vetorial suave com aceleração de hardware.
+O **RustSimu** é uma reescrita moderna, performática e de código aberto inspirada no clássico CADe_SIMU, agora também com um **simulador PLC Ladder Logic + FBD** (iced 0.13). Multiplataforma (Linux, Windows e macOS) com renderização vetorial e aceleração de hardware.
 
 ---
 
-## ⚡ Principais Recursos
+## PLC Ladder / FBD Simulator
+
+Native rewrite of the web PLC trainer (contacts, coils, seal-in, RS latch, NOT, I/O panel, scan engine).
+
+```bash
+# Requires rustc ≥ 1.89 (see rust-toolchain.toml) and iced 0.13
+cargo run --bin plc-simu
+```
+
+What works in the MVP:
+- **Layout**: instruction palette, canvas, toolbar, I/O + status, properties
+- **Ladder**: rungs, NO/NC/edge contacts, coils (out/set/reset/neg), TON, place/select/address edit, zoom
+- **FBD**: Input/Output Var, NOT, AND/OR, RS/SR, TON, port wiring
+- **Scan**: RUN/STOP, Step, cycle count, scan time; I0.x (Switch/NO/NC) → Q0.x / M bits
+- **Demo**: motor start/stop with seal-in (Ladder + equivalent FBD), Save/Load JSON
+
+Stubbed / not yet ported from the web app: full timer/counter/compare/math catalogs, traffic-light and other presets, share/export pack, fullscreen canvas chrome.
+
+Toolchain note: the assignment asked for rustc **1.86.0**, but this repository’s existing CAD sources and Cargo.lock already require **≥ 1.88/1.89** (`is_multiple_of`, `slice::as_chunks`, ICU crates). The PLC app targets **iced 0.13** as specified; `rust-toolchain.toml` pins **1.89.0**.
+
+---
+
+## ⚡ Principais Recursos (CAD Eletrotécnico)
 
 - **Simulação Eletrotécnica em Tempo Real**:
   - Circuitos de potência trifásicos e monofásicos (L1, L2, L3, N, PE) e corrente contínua (DC+, DC-).
@@ -55,16 +77,20 @@ O **RustSimu** é uma reescrita moderna, performática e de código aberto inspi
 
 ### Executando a Aplicação
 
-Para compilar e iniciar o **RustSimu**:
+**PLC Ladder/FBD:**
+
+```bash
+cargo run --bin plc-simu
+# or release:
+cargo run --release --bin plc-simu
+```
+
+**CAD eletrotécnico (padrão):**
 
 ```bash
 cargo run --release
-```
-
-Para executar o modo de desenvolvimento:
-
-```bash
-cargo run
+# or:
+cargo run --bin cade-simu-rs
 ```
 
 ### Executando os Testes
@@ -81,20 +107,17 @@ cargo test
 
 ```text
 ├── Cargo.toml          # Configuração do projeto e dependências
-├── Cargo.lock          # Versões fixadas das dependências
-├── src/                # Código-fonte Rust
-│   ├── main.rs         # Ponto de entrada, janelas, menus e atalhos
-│   ├── canvas_view.rs  # Motor de desenho gráfico da folha e componentes
-│   ├── sim.rs          # Motor de simulação elétrica e lógica
-│   ├── model.rs        # Estruturas de dados dos esquemas e elementos
-│   ├── io.rs           # Serialização e parser (.cad, .json, .toml, .qet)
-│   ├── symbols.rs      # Catálogo e primitivas de símbolos nativos
-│   ├── svg_symbol.rs   # Renderizador de símbolos vetoriais SVG
-│   ├── icons.rs        # Ícones vetoriais da barra de ferramentas
-│   ├── layout.rs       # Gerenciador de painéis e docas
-│   └── theme.rs        # Paleta de cores e temas (Light/Dark/System)
-├── symbols_qet_all/    # Biblioteca completa de símbolos elétricos e catálogo JSON
-└── Projetos/           # Esquemas elétricos de exemplo para testes e simulação
+├── rust-toolchain.toml # Pin rustc 1.89.0
+├── src/
+│   ├── main.rs         # CAD eletrotécnico (cade-simu-rs)
+│   ├── bin/plc-simu.rs # PLC Ladder/FBD entry point
+│   ├── plc/            # PLC model / scan / demo / ui
+│   ├── canvas_view.rs  # CAD canvas
+│   ├── sim/            # Motor de simulação elétrica
+│   ├── model.rs        # Esquemas CAD
+│   └── ...
+├── symbols_qet_all/    # Biblioteca QET
+└── Projetos/           # Exemplos CAD
 ```
 
 ---
